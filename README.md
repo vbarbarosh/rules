@@ -2,15 +2,16 @@
 
 Rules for naming files, functions, classes, methods, variables, etc.
 
-## Naming
+## Natural Pairs
 
 - construct/destruct
+- create/destroy
 - open/close
-- next/previous
-- first/last
 - begin/end
 - start/finish
+- first/last
+- next/previous
 
 ## Related
 
-- [Naming is Hard: Let's Do Better - Kate Gregory - NDC TechTown 2024](https://youtu.be/aiy5TrU-Hwc)
+- [Naming is Hard: Let's Do Better - Kate Gregory - NDC TechTown 2024](https://youtu.be/aiy5TrU-Hwc?si=ns7DAQ2sXZcV7mj9&t=1179)
