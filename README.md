@@ -12,6 +12,7 @@ Rules for naming files, functions, classes, methods, variables, etc.
 - first/last
 - next/previous
 - get/put
+- source/destination
 
 ## Related
 
