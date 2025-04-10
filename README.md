@@ -9,7 +9,7 @@ Rules for naming files, functions, classes, methods, variables, etc.
 <img src="img/logo-by-chat-gpt.png" style="max-height:400px;">
 </p>
 
-## Generic – Everything should look uniform
+## Everything should look uniform
 
 The generic advice is as follows: write new code in the same way the existing code is written.
 
