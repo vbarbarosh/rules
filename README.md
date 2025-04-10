@@ -5,11 +5,9 @@ Rules for naming files, functions, classes, methods, variables, etc.
 <a href="https://github.com/vbarbarosh/rules" rel="nofollow"><img src="https://img.shields.io/github/stars/vbarbarosh/rules" alt="stars"></a>
 </p>
 
-<!--
 <p align="center">
-<img src="img/logo-by-chat-gpt.webp" style="max-height:400px;">
+<img src="img/logo-by-chat-gpt.png" style="max-height:400px;">
 </p>
--->
 
 ## Natural Pairs
 
