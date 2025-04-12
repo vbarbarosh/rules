@@ -32,6 +32,8 @@ It's just not written down.
 - source/destination
 - res/rej
 - resolve/reject
+- req/res
+- request/response
 
 ## Related
 
