@@ -28,7 +28,9 @@ It's just not written down.
 - first/last
 - next/previous
 - get/put
+- src/dest
 - source/destination
+- res/rej
 - resolve/reject
 
 ## Related
