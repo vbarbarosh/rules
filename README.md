@@ -20,6 +20,7 @@ Rules for naming files, functions, classes, methods, variables, etc.
 - next/previous
 - get/put
 - source/destination
+- resolve/reject
 
 ## Related
 
