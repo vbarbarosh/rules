@@ -35,6 +35,13 @@ It's just not written down.
 - req/res
 - request/response
 
+## Phrases
+
+- [Happy Path](https://en.wikipedia.org/wiki/Happy_path) – the ideal scenario without errors
+- [Edge Case](https://en.wikipedia.org/wiki/Edge_case)
+- Transient Error – temporary issues that resolve quickly
+- Error Flood – scenario with 75% errors (?)
+
 ## Related
 
 - [Naming is Hard: Let's Do Better - Kate Gregory - NDC TechTown 2024](https://youtu.be/aiy5TrU-Hwc?si=ns7DAQ2sXZcV7mj9&t=1179)
