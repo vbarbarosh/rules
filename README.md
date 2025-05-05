@@ -34,6 +34,7 @@ It's just not written down.
 - resolve/reject
 - req/res
 - request/response
+- setup/teardown
 
 ## Phrases
 
