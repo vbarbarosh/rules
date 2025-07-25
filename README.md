@@ -48,3 +48,4 @@ It's just not written down.
 - [Naming is Hard: Let's Do Better - Kate Gregory - NDC TechTown 2024](https://youtu.be/aiy5TrU-Hwc?si=ns7DAQ2sXZcV7mj9&t=1179)
 - https://github.com/WhiteHouse/api-standards
 - https://spring.io/guides/gs/rest-service
+- https://codeguide.co/
