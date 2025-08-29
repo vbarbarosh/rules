@@ -42,6 +42,7 @@ It's just not written down.
 - [Edge Case](https://en.wikipedia.org/wiki/Edge_case)
 - Transient Error – temporary issues that resolve quickly
 - Error Flood – scenario with 75% errors (?)
+- Flaky Test - tests that produce inconsistent results, sometimes passing and sometimes failing, without any changes to the code or test being tested
 
 ## Related
 
