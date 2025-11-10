@@ -44,6 +44,16 @@ It's just not written down.
 - Error Flood – scenario with 75% errors (?)
 - Flaky Test - tests that produce inconsistent results, sometimes passing and sometimes failing, without any changes to the code or test being tested
 
+## Common Patterns
+
+### value / label
+
+For lists of selectable options (select, dropdown, radio, tabs, etc.) always use:
+
+```js
+{value: <internal>, label: <display>}
+```
+
 ## Related
 
 - [Naming is Hard: Let's Do Better - Kate Gregory - NDC TechTown 2024](https://youtu.be/aiy5TrU-Hwc?si=ns7DAQ2sXZcV7mj9&t=1179)
