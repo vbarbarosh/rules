@@ -35,6 +35,8 @@ It's just not written down.
 - req/res
 - request/response
 - setup/teardown
+- push/pull
+- enabled/disabled
 
 ## Phrases
 
