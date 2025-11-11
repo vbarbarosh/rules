@@ -41,7 +41,7 @@ It's just not written down.
 - [Happy Path](https://en.wikipedia.org/wiki/Happy_path) – the ideal scenario without errors
 - [Edge Case](https://en.wikipedia.org/wiki/Edge_case)
 - Transient Error – temporary issues that resolve quickly
-- Intermittent failures - are failures that happen **sometimes**, but **not always**, and usually **cannot be reproduced consistently**
+- Intermittent Failure – a failure that happens sometimes, unpredictably
 - Error Flood – scenario with 75% errors (?)
 - Flaky Test - tests that produce inconsistent results, sometimes passing and sometimes failing, without any changes to the code or test being tested
 
