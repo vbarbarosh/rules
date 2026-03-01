@@ -105,6 +105,122 @@ For lists of selectable options (select, dropdown, radio, tabs, etc.) always use
 {value: <internal>, label: <display>}
 ```
 
+## Data Collection Naming Grammar
+
+### Collections
+
+A variable named as a plural noun represents an array of rows:
+
+```js
+item_types
+users
+banners
+```
+
+Shape:
+
+```js
+Row[]
+```
+
+---
+
+### Indexed Collections
+
+When a collection is reindexed by a unique property:
+
+```js
+item_types_by_name
+users_by_id
+banners_by_uid
+```
+
+Shape:
+
+```js
+Record<key, Row>
+```
+
+Rule:
+
+```
+<table_plural>_by_<unique_property>
+```
+
+This means:
+
+* Same dataset
+* Different indexing
+* O(1) lookup
+* No transformation
+
+### Grouped Collections
+
+When multiple rows can share the same property:
+
+```js
+banners_grouped_by_status
+users_grouped_by_role
+```
+
+Shape:
+
+```js
+Record<key, Row[]>
+```
+
+Rule:
+
+```
+<table_plural>_grouped_by_<property>
+```
+
+### Lookup Functions
+
+When exposing behavior instead of structure:
+
+```js
+item_type_by_name(name)
+user_by_id(id)
+banner_by_uid(uid)
+```
+
+Rule:
+
+```
+<singular_table>_by_<property>(property)
+```
+
+This performs lookup and typically wraps an indexed collection.
+
+### Derived / Constructed Values
+
+Use `_from_` only when something is computed, parsed, or constructed:
+
+```js
+item_type_from_json(data)
+user_from_token(token)
+date_from_timestamp(ts)
+```
+
+Rule:
+
+```
+<singular>_from_<input>
+```
+
+Do not use `_from_` for indexing.
+
+### Summary
+
+| Shape         | Naming                         |
+| ------------- | ------------------------------ |
+| Array         | `item_types`                   |
+| Indexed map   | `item_types_by_name`           |
+| Grouped map   | `item_types_grouped_by_status` |
+| Lookup fn     | `item_type_by_name(name)`      |
+| Derived value | `item_type_from_json(data)`    |
+
 ## Related
 
 - [Naming is Hard: Let's Do Better - Kate Gregory - NDC TechTown 2024](https://youtu.be/aiy5TrU-Hwc?si=ns7DAQ2sXZcV7mj9&t=1179)
