@@ -107,6 +107,15 @@ For lists of selectable options (select, dropdown, radio, tabs, etc.) always use
 
 ## Data Collection Naming Grammar
 
+| Form             | Meaning                                            |
+|------------------|----------------------------------------------------|
+| `*_group_by_*`   | a verb/operation (function that performs grouping) |
+| `*_grouped_by_*` | a noun/grouped result (data structure)             |
+
+```js
+const items_grouped_by_anim = items_group_by_anim(items);
+```
+
 ### Collections
 
 A variable named as a plural noun represents an array of rows:
