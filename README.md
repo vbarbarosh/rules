@@ -112,6 +112,20 @@ For lists of selectable options (select, dropdown, radio, tabs, etc.) always use
 | `*_group_by_*`   | a verb/operation (function that performs grouping) |
 | `*_grouped_by_*` | a noun/grouped result (data structure)             |
 
+### References
+
+```javascript
+const inventory = [
+  {name: 'asparagus', type: 'vegetables', quantity: 9},
+  {name: 'bananas', type: 'fruit', quantity: 5},
+  {name: 'goat', type: 'meat', quantity: 23},
+  {name: 'cherries', type: 'fruit', quantity: 12},
+  {name: 'fish', type: 'meat', quantity: 22},
+];
+console.log(Object.groupBy(inventory, v => v.type));
+console.log(Map.groupBy(inventory, v => v.type));
+```
+
 ```js
 const items_grouped_by_anim = items_group_by_anim(items);
 ```
