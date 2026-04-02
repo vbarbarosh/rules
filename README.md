@@ -41,6 +41,10 @@ It's just not written down.
 ## Phrases
 
 - [Happy Path](https://en.wikipedia.org/wiki/Happy_path) – the ideal scenario without errors
+- [Smoke Tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)) – a small set of basic
+  tests that verify whether the most critical parts of a system work at all.
+  They answer one question: Does the application run without immediately
+  breaking? If smoke tests fail, deeper testing is usually pointless.
 - [Edge Case](https://en.wikipedia.org/wiki/Edge_case)
 - Transient Error – temporary issues that resolve quickly
 - Intermittent Failure – a failure that happens sometimes, unpredictably
