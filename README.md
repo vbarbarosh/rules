@@ -45,12 +45,14 @@ It's just not written down.
   tests that verify whether the most critical parts of a system work at all.
   They answer one question: Does the application run without immediately
   breaking? If smoke tests fail, deeper testing is usually pointless. (Why "smoke"? From
-  hardware: Power it on — if smoke comes out, something is seriously broken.)
+  hardware: Power it on – if smoke comes out, something is seriously broken.)
 - [Edge Case](https://en.wikipedia.org/wiki/Edge_case)
 - Transient Error – temporary issues that resolve quickly
 - Intermittent Failure – a failure that happens sometimes, unpredictably
 - Error Flood – scenario with 75% errors (?)
-- Flaky Test - tests that produce inconsistent results, sometimes passing and sometimes failing, without any changes to the code or test being tested
+- Flaky Test – tests that produce inconsistent results, sometimes passing and sometimes failing, without any changes to the code or test being tested
+- Showstopper Bug – a defect so severe that it prevents the system from functioning or blocks further
+  progress (development, testing, or release). Work cannot reasonably continue until it is fixed.
 
 ### Intermittent failures
 
