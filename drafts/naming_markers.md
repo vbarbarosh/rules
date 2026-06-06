@@ -9,21 +9,22 @@ const items_sorted_by_time = items_sort_by_time(items);
 const users_by_role = users_group_by_role(users);
 ```
 
-| Marker         | Side     | Meaning                                 | Example                       |
-|----------------|----------|-----------------------------------------|-------------------------------|
-| bare `_by_`    | data     | keyed lookup; cardinality via plurality | `user_by_id`, `users_by_role` |
-| `_grouped_by_` | data     | many-per-key, invariant plurals only    | `fish_grouped_by_tank`        |
-| `_sorted_by_`  | data     | same shape, reordered                   | `items_sorted_by_time`        |
-| `_per_`        | data     | ratio / rate                            | `clicks_per_visit`            |
-| `_group_by_`   | function | grouping operation                      | `users_group_by_role(users)`  |
-| `_sort_by_`    | function | sorting operation                       | `items_sort_by_time(items)`   |
-| `_index_by_`   | function | index construction                      | `users_index_by_id(users)`    |
-| `_from_`       | function | construct/derive; result first          | `user_from_token(token)`      |
-| `_to_`         | function | convert; source first (method position) | `tree.to_json()`              |
-| `_of_`         | function | possession query                        | `descendants_of(node)`        |
-| `is_`          | function | predicate, returns boolean              | `is_ancestor(a, b)`           |
-| `format_`      | function | returns string for human display        | `format_bytes(n)`             |
-| `render_`      | function | produces presentational artifact        | `render_chart(el, series)`    |
+| Marker         | Side     | Meaning                                      | Example                       |
+|----------------|----------|----------------------------------------------|-------------------------------|
+| bare `_by_`    | data     | keyed lookup; cardinality via plurality      | `user_by_id`, `users_by_role` |
+| `_grouped_by_` | data     | many-per-key, invariant plurals only         | `fish_grouped_by_tank`        |
+| `_sorted_by_`  | data     | same shape, reordered                        | `items_sorted_by_time`        |
+| `_per_`        | data     | ratio / rate                                 | `clicks_per_visit`            |
+| `_group_by_`   | function | grouping operation                           | `users_group_by_role(users)`  |
+| `_sort_by_`    | function | sorting operation                            | `items_sort_by_time(items)`   |
+| `_index_by_`   | function | index construction                           | `users_index_by_id(users)`    |
+| `_from_`       | function | construct/derive; result first               | `user_from_token(token)`      |
+| `_to_`         | function | convert; source first (method position)      | `tree.to_json()`              |
+| `_of_`         | function | possession query                             | `descendants_of(node)`        |
+| `is_`          | function | predicate, returns boolean                   | `is_ancestor(a, b)`           |
+| `format_`      | function | returns string for human display             | `format_bytes(n)`             |
+| `render_`      | function | derives small value from own state           | `$user->render_name_email()`  |
+| `export_`      | function | produces downloadable artifact; may be async | `export_zip()`                |
 
 Rulings:
 

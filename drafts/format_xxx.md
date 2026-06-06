@@ -12,5 +12,12 @@ format_usd(1299)         // "$12.99"
 console.log(format_tree(tree));
 ```
 
-For presentational artifacts other than strings (DOM, canvas, files)
-use `render_*`.
+Not for machine formats — serialization is conversion, not display:
+
+```js
+format_user(user)     // "Vladimir B. (admin)" — for humans
+json_from_user(user)  // for machines
+```
+
+`format_*` transforms an input it is given; deriving a string from
+an object's own state is `render_*`.
