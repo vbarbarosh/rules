@@ -18,6 +18,18 @@ The naming of files, functions, CSS classes, formatting, and even the order of
 attributes are all important and should follow the same systematic approach.
 It's just not written down.
 
+## Rules
+
+- [FORMATTING.md](FORMATTING.md) — project JavaScript coding style
+- [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
+- [drafts/naming_markers.md](drafts/naming_markers.md) — memo: all name markers, collected
+- [drafts/for_of.md](drafts/for_of.md) — prefer `for...of`; loop variable is the singular
+- [drafts/for_i_end_ii_jj_kk.md](drafts/for_i_end_ii_jj_kk.md) — cached loop bounds: `end`, `ii`, `jj`, `kk`
+- [drafts/return_out.md](drafts/return_out.md) — the constructed return value is named `out`
+- [drafts/refresh.md](drafts/refresh.md) — derived state is never edited, only rederived
+- [drafts/format_xxx.md](drafts/format_xxx.md) — `format_*` returns a string for human display
+- [drafts/render_xxx.md](drafts/render_xxx.md) — `render_*` derives a small value from own state
+
 ## Natural Pairs
 
 - construct/destruct
@@ -37,6 +49,7 @@ It's just not written down.
 - setup/teardown
 - push/pull
 - enabled/disabled
+- import/export
 
 ## Phrases
 
@@ -56,9 +69,11 @@ It's just not written down.
 
 ### Intermittent failures
 
-**Intermittent failures** are failures that happen **sometimes**, but **not always**, and usually **cannot be reproduced consistently**.
+**Intermittent failures** are failures that happen **sometimes**, but **not always**,
+and usually **cannot be reproduced consistently**.
 
-They appear to be random or unpredictable — sometimes the system works perfectly, and sometimes it fails — even though **you didn’t change anything**.
+They appear to be random or unpredictable — sometimes the system works perfectly,
+and sometimes it fails — even though **you didn't change anything**.
 
 ### In other words:
 
@@ -83,9 +98,9 @@ Intermittent failures usually come from:
 
 Because:
 
-* They don’t fail every time
-* Logs often don’t show a clear cause
-* “Works on my machine” happens a lot
+* They don't fail every time
+* Logs often don't show a clear cause
+* "Works on my machine" happens a lot
 
 #### Example
 
@@ -112,12 +127,78 @@ For lists of selectable options (select, dropdown, radio, tabs, etc.) always use
 {value: <internal>, label: <display>}
 ```
 
-## Data Collection Naming Grammar
+## Naming Grammar
 
-| Form             | Meaning                                            |
-|------------------|----------------------------------------------------|
-| `*_group_by_*`   | a verb/operation (function that performs grouping) |
-| `*_grouped_by_*` | a noun/grouped result (data structure)             |
+Functions are verb phrases. Data are noun phrases. Each assignment
+reads as a sentence — the verb performs, the noun holds:
+
+```js
+const users_by_role = users_group_by_role(users);
+const items_sorted_by_time = items_sort_by_time(items);
+```
+
+### Data shapes
+
+A variable name states the shape of its data:
+
+| Name                   | Shape                  |                       |
+|------------------------|------------------------|-----------------------|
+| `users`                | `User[]`               | collection            |
+| `user_by_id`           | `Record<id, User>`     | one per key           |
+| `users_by_role`        | `Record<role, User[]>` | many per key          |
+| `items_sorted_by_time` | `Item[]`               | same shape, reordered |
+
+Plurality of the first word states lookup cardinality — what one key
+returns, not how big the container is:
+
+```js
+user_by_id[id]                    // → User
+users_by_role[role]               // → User[]
+children_by_parent_id[parent_id]  // → Node[]
+```
+
+A bare `<noun>_by_<key>` is always data, never a function.
+Lookup is bracket access, not a call.
+
+For invariant plurals (`fish`, `data`, `series`) cardinality cannot be
+stated by plurality — fall back to `_grouped_by_` for many-per-key, or
+prefer a countable noun. See [drafts/var_names.md](drafts/var_names.md).
+
+### Functions
+
+A function name must contain a verb. The criterion follows the verb:
+
+```js
+users_index_by_id(users)     // → user_by_id
+users_group_by_role(users)   // → users_by_role
+items_sort_by_time(items)    // → items_sorted_by_time
+```
+
+Use `_from_` only when something is computed, parsed, or constructed —
+result first, source last:
+
+```js
+user_from_token(token)
+date_from_timestamp(ts)
+tree_from_array(rows)
+```
+
+Never use `_from_` for lookup:
+
+```js
+user_from_id(id)   // wrong — lookup disguised as construction
+user_by_id[id]     // right
+```
+
+### Summary
+
+| Shape                 | Naming                       |
+|-----------------------|------------------------------|
+| Array                 | `users`                      |
+| One per key           | `user_by_id`                 |
+| Many per key          | `users_by_role`              |
+| Reordered array       | `users_sorted_by_signup`     |
+| Derived value         | `user_from_token(token)`     |
 
 ### References
 
@@ -134,122 +215,8 @@ console.log(Map.groupBy(inventory, v => v.type));
 ```
 
 ```js
-const items_grouped_by_anim = items_group_by_anim(items);
+const items_by_anim = items_group_by_anim(items);
 ```
-
-### Collections
-
-A variable named as a plural noun represents an array of rows:
-
-```js
-item_types
-users
-banners
-```
-
-Shape:
-
-```js
-Row[]
-```
-
----
-
-### Indexed Collections
-
-When a collection is reindexed by a unique property:
-
-```js
-item_types_by_name
-users_by_id
-banners_by_uid
-```
-
-Shape:
-
-```js
-Record<key, Row>
-```
-
-Rule:
-
-```
-<table_plural>_by_<unique_property>
-```
-
-This means:
-
-* Same dataset
-* Different indexing
-* O(1) lookup
-* No transformation
-
-### Grouped Collections
-
-When multiple rows can share the same property:
-
-```js
-banners_grouped_by_status
-users_grouped_by_role
-```
-
-Shape:
-
-```js
-Record<key, Row[]>
-```
-
-Rule:
-
-```
-<table_plural>_grouped_by_<property>
-```
-
-### Lookup Functions
-
-When exposing behavior instead of structure:
-
-```js
-item_type_by_name(name)
-user_by_id(id)
-banner_by_uid(uid)
-```
-
-Rule:
-
-```
-<singular_table>_by_<property>(property)
-```
-
-This performs lookup and typically wraps an indexed collection.
-
-### Derived / Constructed Values
-
-Use `_from_` only when something is computed, parsed, or constructed:
-
-```js
-item_type_from_json(data)
-user_from_token(token)
-date_from_timestamp(ts)
-```
-
-Rule:
-
-```
-<singular>_from_<input>
-```
-
-Do not use `_from_` for indexing.
-
-### Summary
-
-| Shape         | Naming                         |
-| ------------- | ------------------------------ |
-| Array         | `item_types`                   |
-| Indexed map   | `item_types_by_name`           |
-| Grouped map   | `item_types_grouped_by_status` |
-| Lookup fn     | `item_type_by_name(name)`      |
-| Derived value | `item_type_from_json(data)`    |
 
 ## Related
 
