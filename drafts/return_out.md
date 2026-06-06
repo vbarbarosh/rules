@@ -4,8 +4,7 @@ If a function returns a constructed value, the variable holding it must be named
 function items_by_uid(items)
 {
     const out = {};
-    for (let i = 0, end = items.length; i < end; ++i) {
-        const item = items[i];
+    for (const item of items) {
         out[item.uid] = item;
     }
     return out;
