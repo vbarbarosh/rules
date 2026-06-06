@@ -1,10 +1,10 @@
 If a function returns a constructed value, the variable holding it must be named out.
 
-```javascript
+```js
 function items_by_uid(items)
 {
     const out = {};
-    for (let i = 0, ii = items.length; i < ii; ++i) {
+    for (let i = 0, end = items.length; i < end; ++i) {
         const item = items[i];
         out[item.uid] = item;
     }
