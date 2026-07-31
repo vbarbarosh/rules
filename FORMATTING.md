@@ -7,14 +7,14 @@ project, so all JavaScript code follows the same conventions.
 
     * A top-level function declaration puts its opening brace on the next line:
       ```js
-      function usage_print()
+      function main()
       {
           // ...
       }
       ```
     * A function declared inside another function keeps its opening brace on the declaration line:
       ```js
-      function usage_print()
+      function main()
       {
           function limit_print(limit) {
               // ...
@@ -30,9 +30,25 @@ project, so all JavaScript code follows the same conventions.
 * **One public entry function per file**
 
     * Library modules export one function with `module.exports = <function_name>;` at file end
-    * Executable scripts do not export; invoke the entry function at file end
-    * The public entry function must be domain-first (`usage_print`, not `main`)
+    * An executable script uses `main` as its entry function and does not export
+    * Call `main();` immediately after `require` statements and all global initialization
+    * `main` is the executable-entry exception to domain-first function naming
     * Do not combine a library export and executable invocation in the same file
+    * Executable skeleton:
+      ```js
+      const report_limit = 31;
+      main();
+
+      function main()
+      {
+          report_print();
+      }
+
+      function report_print()
+      {
+          // ...
+      }
+      ```
 
 * Prefer **imperative control flow**
 
@@ -55,13 +71,14 @@ This preserves the original intent while making the exception explicit and mecha
 
 * **Local helpers are allowed**
 
-    * Define helpers after the public entry function and before the final export or invocation
+    * Define helpers after the public entry function and before a library's final export
     * Helpers must be named functions (not inline lambdas)
 
 * **Domain-first naming**
 
     * Functions and files follow `items_*`, `item_*`, or domain nouns
     * Avoid generic names (`process`, `handle`, `util`)
+    * `main` is reserved for the entry function of an executable script
 
 * **Comments explain intent or policy only**
 
@@ -72,6 +89,18 @@ This preserves the original intent while making the exception explicit and mecha
 
     * Use intermediate variables instead of nested expressions
     * Favor clarity over terseness
+
+* **Blank lines mark phase changes**
+
+    * Keep setup adjacent to the loop, condition, or call that immediately uses it
+    * Do not separate tightly coupled setup and use merely because the statement type changes
+    * Add a blank line only when the following statement begins an independent conceptual step
+
+* **Line breaks must expose structure**
+
+    * Keep an expression on one line when it fits on one line
+    * Do not split an assignment after `=` when its right-hand side is a single function call
+    * Break a statement only when its size or nested structure makes the break necessary
 
 * **No implicit magic**
 
@@ -94,17 +123,17 @@ This preserves the original intent while making the exception explicit and mecha
 
     * An executable script may start with a shebang; nothing may precede it
     * `require` statements must follow, sorted lexicographically like the shell `sort` command
-    * File-level constants must follow `require` statements
+    * File-level constants and variables must follow `require` statements
+    * An executable script must call `main();` immediately after all global initialization
     * The public entry function must be the first function in the file
     * All helper functions must be defined after the public entry function
-    * No helpers or executable code may appear before the public entry function
+    * In an executable script, the first function declaration must be `function main()`
+    * No executable code other than `main();` may appear before the public entry function
     * A library module ends with `module.exports = public_entry_function;`
-    * An executable script ends by invoking its public entry function
-    * Use a named `function` callback when handling an asynchronous entry-point rejection
 
 > Library order = `requires → constants → public entry → helpers → module.exports`
 >
-> Executable order = `shebang → requires → constants → public entry → helpers → invocation`
+> Executable order = `shebang → requires → globals → main(); → function main() → helpers`
 
 * **Braces, layout, and indentation**
 
