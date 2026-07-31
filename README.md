@@ -20,7 +20,7 @@ It's just not written down.
 
 ## Rules
 
-- [FORMATTING.md](FORMATTING.md) — project JavaScript coding style
+- JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
 - [drafts/naming_markers.md](drafts/naming_markers.md) — memo: all name markers, collected
 - [drafts/for_of.md](drafts/for_of.md) — prefer `for...of`; loop variable is the singular
