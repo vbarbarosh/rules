@@ -3,16 +3,36 @@ project, so all JavaScript code follows the same conventions.
 
 ## **Project JavaScript Coding Style**
 
-* Use **`function name(...) {}` declarations** for all top-level and local functions
+* Use **`function name(...)` declarations** for all top-level and nested named functions
 
+    * A top-level function declaration puts its opening brace on the next line:
+      ```js
+      function usage_print()
+      {
+          // ...
+      }
+      ```
+    * A function declared inside another function keeps its opening brace on the declaration line:
+      ```js
+      function usage_print()
+      {
+          function limit_print(limit) {
+              // ...
+          }
+      }
+      ```
+    * Function expressions and callbacks also keep the opening brace on the declaration line
     * Do **not** use arrow functions for non-trivial logic
     * Arrow functions allowed **only** for tiny callbacks (`v => v.uid`)
     * Prefer `v` as the variable name for lambda callbacks
     * Use `vv` for nested lambda callbacks (`items.map(v => v.some(vv => vv.permissions.includes(...)))`)
 
-* **One exported function per file**
+* **One public entry function per file**
 
-    * Use `export default <function_name>;` at file end
+    * Library modules export one function with `module.exports = <function_name>;` at file end
+    * Executable scripts do not export; invoke the entry function at file end
+    * The public entry function must be domain-first (`usage_print`, not `main`)
+    * Do not combine a library export and executable invocation in the same file
 
 * Prefer **imperative control flow**
 
@@ -35,7 +55,7 @@ This preserves the original intent while making the exception explicit and mecha
 
 * **Local helpers are allowed**
 
-    * Define helper functions above export
+    * Define helpers after the public entry function and before the final export or invocation
     * Helpers must be named functions (not inline lambdas)
 
 * **Domain-first naming**
@@ -58,10 +78,10 @@ This preserves the original intent while making the exception explicit and mecha
     * No hidden side effects
     * No reliance on execution order side effects
 
-* **ES modules only**
+* **CommonJS modules only**
 
-    * Use `import … from …`
-    * No `require`, no CommonJS patterns
+    * Use `const <name> = require('<module>');`
+    * Do not use `import` or `export`
 
 * **Return variable naming**
 
@@ -72,17 +92,24 @@ This preserves the original intent while making the exception explicit and mecha
 
 * **File structure order**
 
-    * `import` statements **must be first in the file**, sorted lexicographically like the shell `sort` command
-    * File-level constants **must follow imports**
-    * The **exported function must be the first function in the file**
-    * All helper functions **must be defined after the exported function**
-    * No helpers, constants, or executable code may appear before the exported function (except imports/constants)
-    * `export default exported_function` should be very last statement in a file.
+    * An executable script may start with a shebang; nothing may precede it
+    * `require` statements must follow, sorted lexicographically like the shell `sort` command
+    * File-level constants must follow `require` statements
+    * The public entry function must be the first function in the file
+    * All helper functions must be defined after the public entry function
+    * No helpers or executable code may appear before the public entry function
+    * A library module ends with `module.exports = public_entry_function;`
+    * An executable script ends by invoking its public entry function
+    * Use a named `function` callback when handling an asynchronous entry-point rejection
 
-> File order = `imports → constants → exported function → helpers → export default exported_function`
+> Library order = `requires → constants → public entry → helpers → module.exports`
+>
+> Executable order = `shebang → requires → constants → public entry → helpers → invocation`
 
 * **Braces, layout, and indentation**
 
+    * A top-level function declaration puts `{` on the next line
+    * Nested function declarations, function expressions, callbacks, and control-flow statements keep `{` on the declaration line
     * Always use braces for `if`, `else`, `for`, `while`, `do`, etc. (no single-line bodies)
     * `else` **must start on a new line**:
       ```
