@@ -224,3 +224,4 @@ const items_by_anim = items_group_by_anim(items);
 - https://github.com/WhiteHouse/api-standards
 - https://spring.io/guides/gs/rest-service
 - https://codeguide.co/
+- https://github.com/erikthedeveloper/code-review-emoji-guide
