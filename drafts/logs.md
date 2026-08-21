@@ -10,6 +10,12 @@ services (where each each log item as its own timestamp).
 **group_uid** organize each log items into groups and allows to answer who
 create such group (who was the parent).
 
+**sender** is a string uniquely identifies place (the one which sends) in
+entire codebase; think of it as of javascript const within single
+namespace/block.
+
+**details** is a terse human-first addition to event, free form.
+
 [new_group_uid][group_spawn] parent=old_group_uid
 [new_group_uid][group_exit]
 
