@@ -102,14 +102,6 @@ new group.
   headers.
 - Prefer references to payloads over copying payloads into the log.
 
-Use bound `?` values instead of interpolating arbitrary text:
-
-```
-format  [request_end_error] ?s status=? reason=?
-values  30.014, 500, db_timeout
-line    [request_end_error] 30.014s status=500 reason=db_timeout
-```
-
 Values are encoded as follows:
 
 - A printable ASCII word without spaces, double quotes, backslashes, or square
@@ -120,8 +112,6 @@ Values are encoded as follows:
 - Arrays, objects, booleans, and null use compact JSON.
 - An unordered list is sorted and prefixed with its count, for example
   `3:[180,783,846]`, `2:["bar","foo"]`, or `0:[]`. Do not sort ordered values.
-- A missing value leaves its `?` visible. Extra values are appended. A binding
-  mistake must be visible and must not make logging throw.
 - Truncation preserves valid UTF-8 and ends with the number of omitted bytes,
   for example `...+4821`.
 
