@@ -1,6 +1,14 @@
-
 ```text
+A log could be thought of as one infinite file where each line has the
+following form:
+
 [time][group_uid][sender] ... details ...
+
+**time** is optional and should be present in files but absent in docker
+services (where each each log item as its own timestamp).
+
+**group_uid** organize each log items into groups and allows to answer who
+create such group (who was the parent).
 
 [new_group_uid][group_spawn] parent=old_group_uid
 [new_group_uid][group_exit]
