@@ -40,6 +40,7 @@ namespace/block.
   and end of a function/block
 
 ⚠️  Don't spawn a group for one short call
+⚠️  Use groups only where there is something to follow
 
 The following usually is a noise;
     [bbb][spawn] parent=aaa
