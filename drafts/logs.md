@@ -57,6 +57,13 @@ Event Better:
 group_spawn + begin + end ---- group for just one call is a distracting noise!
 groups only make sense for work that spawns several seconds and more
 or for work that hit many function calls which also pring logs;
+
+💩 How not to do logs:
+    [2026-08-22T22:59:08.570Z][cykjcd41houu][group_spawn] parent=clqyeqao15d2
+    [2026-08-22T22:59:08.570Z][cykjcd41houu][serviceman_end_ok] signal=SIGINT containers="left running"
+
+    1) Creating new group_uid for just one logs is a noise!
+    2) Each _begin and _end, _end_ok, _end_error should belong to the same group
 ```
 
 
@@ -124,6 +131,8 @@ new group.
 [c7t0xb1m][mp4gif_worker_end_error] 0.884s ffmpeg exit=1
 ```
 
+- A `_begin` and its end carry the same `group_uid`. An end never appears
+  without its begin in the same group.
 - Use `_end` when the logged outcome, such as an HTTP status, already says what
   happened and classifying it as ok or error would be misleading.
 
@@ -175,6 +184,15 @@ When nothing is reported between the two ends, record one event:
 ```
 [aaa][process_handled] 0.000s
 ```
+
+Two lines are the same noise when the new group holds a lone end:
+
+```
+[bbb][group_spawn] parent=aaa
+[bbb][process_end_ok] 0.000s
+```
+
+The matching begin was emitted on `aaa`. Keep the pair on `aaa`.
 
 ## Limits
 
