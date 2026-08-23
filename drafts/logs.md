@@ -38,6 +38,24 @@ namespace/block.
     - group_exit is optional and mainly used to detect leaks
 - _begin, _end, _end_ok, _end_error - are established suffixes to denote start
   and end of a function/block
+
+⚠️  Don't spawn a group for one short call
+
+The following usually is a noise;
+    [bbb][spawn] parent=aaa
+    [bbb][process_begin]
+    [bbb][process_end_ok] 0.000s
+
+Better:
+    [aaa][process_begin]
+    [aaa][process_end_ok] 0.000s
+
+Event Better:
+    [aaa][process_handled] 0.000s
+
+group_spawn + begin + end ---- group for just one call is a distracting noise!
+groups only make sense for work that spawns several seconds and more
+or for work that hit many function calls which also pring logs;
 ```
 
 
@@ -128,6 +146,34 @@ Values are encoded as follows:
   `3:[180,783,846]`, `2:["bar","foo"]`, or `0:[]`. Do not sort ordered values.
 - Truncation preserves valid UTF-8 and ends with the number of omitted bytes,
   for example `...+4821`.
+
+## When to spawn a group
+
+A group costs at least three lines: the `group_spawn`, and the `_begin` and
+`_end` pair around the work. Spawn a group only when the work earns them. Work
+earns a group when it runs for seconds, or when it reaches many call sites that
+log.
+
+One short call earns nothing. These three lines are noise:
+
+```
+[bbb][group_spawn] parent=aaa
+[bbb][process_begin]
+[bbb][process_end_ok] 0.000s
+```
+
+Log the work on the caller's group instead:
+
+```
+[aaa][process_begin]
+[aaa][process_end_ok] 0.000s
+```
+
+When nothing is reported between the two ends, record one event:
+
+```
+[aaa][process_handled] 0.000s
+```
 
 ## Limits
 
