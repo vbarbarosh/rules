@@ -29,3 +29,5 @@ fish_grouped_by_tank   // Record<tank, Fish[]> — many, stated explicitly
 
 Prefer a countable noun when one exists (`rows_by_source` over
 `data_by_source`).
+
+Error variables have their own law: [var_names_error.md](var_names_error.md).
