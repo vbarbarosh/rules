@@ -6,6 +6,9 @@ format_duration(155000)  // "2m 35s"
 format_usd(1299)         // "$12.99"
 ```
 
+A display conversion is never hand-rolled at a call site —
+`${Math.round(bytes / 1024)}kB` is a missed `format_bytes(bytes)`.
+
 `format_*` returns — it never prints. Output is the caller's job:
 
 ```js
