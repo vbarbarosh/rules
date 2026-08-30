@@ -137,6 +137,7 @@ This preserves the original intent while making the exception explicit and mecha
 
 * **Braces, layout, and indentation**
 
+    * The construction-by-construction catalog: [drafts/formatting_blocks.md](drafts/formatting_blocks.md)
     * A top-level function declaration puts `{` on the next line
     * Nested function declarations, function expressions, callbacks, and control-flow statements keep `{` on the declaration line
     * Always use braces for `if`, `else`, `for`, `while`, `do`, etc. (no single-line bodies)
