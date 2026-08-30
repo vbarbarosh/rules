@@ -60,7 +60,7 @@ or for work that hit many function calls which also pring logs;
 
 💩 How not to do logs:
     [2026-08-22T22:59:08.570Z][cykjcd41houu][group_spawn] parent=clqyeqao15d2
-    [2026-08-22T22:59:08.570Z][cykjcd41houu][serviceman_end_ok] signal=SIGINT containers="left running"
+    [2026-08-22T22:59:08.570Z][cykjcd41houu][supervisor_end_ok] signal=SIGINT containers="left running"
 
     1) Creating new group_uid for just one logs is a noise!
     2) Each _begin and _end, _end_ok, _end_error should belong to the same group

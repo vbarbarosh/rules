@@ -1,26 +1,26 @@
 # Vue • Forms
 
-Use `bn-form-div` and `bn-form-label` for composing forms.
+Use `app-form-div` and `app-form-label` for composing forms.
 
     <div class="mg10">
-        <bn-form-div class="flex-row mi10">
-            <bn-input-label>Name:</bn-input-label>
-            <bn-input-string v-modle="user.name" />
-        </bn-form-div>
-        <bn-form-div class="flex-row mi10">
-            <bn-input-label>Email:</bn-input-label>
-            <bn-input-email v-modle="user.email" />
-        </bn-form-div>
-        <bn-form-div class="flex-row mi10">
-            <bn-input-label>Password:</bn-input-label>
-            <bn-input-password v-modle="user.password" />
-        </bn-form-div>
+        <app-form-div class="flex-row mi10">
+            <app-input-label>Name:</app-input-label>
+            <app-input-string v-modle="user.name" />
+        </app-form-div>
+        <app-form-div class="flex-row mi10">
+            <app-input-label>Email:</app-input-label>
+            <app-input-email v-modle="user.email" />
+        </app-form-div>
+        <app-form-div class="flex-row mi10">
+            <app-input-label>Password:</app-input-label>
+            <app-input-password v-modle="user.password" />
+        </app-form-div>
         <div clas="form-row-center mi10">
-            <bn-button-orange v-on:click="emit_end(false)">
+            <app-button-orange v-on:click="emit_end(false)">
                 Cancel
-            </bn-button-orange>
-            <bn-button-green type="submit">
+            </app-button-orange>
+            <app-button-green type="submit">
                 Submit
-            </bn-button-green>
+            </app-button-green>
         </div>
     </div>

@@ -9,7 +9,7 @@ and should work as a normal **INPUT** element:
 4. it should respect `readonly` attribute
 5. it should react to clicks on associated **LABEL** element
 6. it should react to mouse hover events from associated **LABEL** element
-7. it should inject and use `bn_form_input_id` value
+7. it should inject and use `app_form_input_id` value
 8. it should get focus using *TAB* key
 
 Avoid generic **inputs** (those with a lot of properties like `min`,

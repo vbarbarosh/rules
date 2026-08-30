@@ -5,7 +5,7 @@ as a method.
 ```php
 public function render_dashboard_url(): string
 {
-    return url()->query('/dashboard/big-tables', ['folder' => $this->link->uid]);
+    return url()->query('/dashboard/reports', ['folder' => $this->folder->uid]);
 }
 
 public function render_name_email()
@@ -16,9 +16,9 @@ public function render_name_email()
     return $this->email;
 }
 
-public function render_white_label_config(): ?array
+public function render_branding_config(): ?array
 {
-    if (!$this->agent_email) {
+    if (!$this->partner_email) {
         return null;
     }
     return ['app_header' => false, /* ... */];
