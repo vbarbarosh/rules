@@ -30,6 +30,24 @@ It's just not written down.
 - [drafts/refresh.md](drafts/refresh.md) — derived state is never edited, only rederived
 - [drafts/format_xxx.md](drafts/format_xxx.md) — `format_*` returns a string for human display
 - [drafts/render_xxx.md](drafts/render_xxx.md) — `render_*` derives a small value from own state
+- [drafts/var_names_error.md](drafts/var_names_error.md) — a caught error is always named `error`
+- [drafts/formatting_blocks.md](drafts/formatting_blocks.md) — brace and layout catalog, construction by construction
+- [drafts/cli_main.md](drafts/cli_main.md) — an executable hands `main` to `cli(main)`
+- [drafts/endpoint_comment.md](drafts/endpoint_comment.md) — every route function carries a `METHOD /path (params)` comment
+- [drafts/interactions-should-return-only-boolean-flag.md](drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag
+- [drafts/layout.md](drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
+- [drafts/logs.md](drafts/logs.md) — `[time][group_uid][sender] details`, one event per line · [cheatsheet](drafts/logs-cheatsheet.html)
+- [packaging/packaging.md](packaging/packaging.md) — releasing a prebuilt `dist/` with `bin/release`
+
+## Vue 2
+
+- [vue2/vue-formatting.md](vue2/vue-formatting.md) — `v-on`/`v-bind` spelled out; attribute order
+- [vue2/vue-globals.md](vue2/vue-globals.md) — `px`, `uid`, `emit_end`, `emit_input` mixin
+- [vue2/vue-input.md](vue2/vue-input.md) — what every input component must do
+- [vue2/vue-form.md](vue2/vue-form.md) — composing forms
+- [vue2/vue-button.md](vue2/vue-button.md) — one button, one class
+- [vue2/vue-slider.md](vue2/vue-slider.md) — thumb position is `0 .. 100%`
+- [vue2/vue-svg-icon.md](vue2/vue-svg-icon.md) — one `svg-icon-*.vue` per icon, `currentColor`
 
 ## Natural Pairs
 
