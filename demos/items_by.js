@@ -1,8 +1,7 @@
 // index, group
 // _by_ means indexing by unique key
-// _grouped_by_ means partitioning into buckets
-// <plural>_by_<prop> → structure
-// <singular>_by_<prop>(prop) → lookup function
+// _grouped_by_ means partitioning into buckets (invariant plurals only)
+// <noun>_by_<prop> is always data, never a function; lookup is bracket access
 
 const inventory = [
     {name: 'asparagus', type: 'vegetables', quantity: 9},
@@ -24,16 +23,11 @@ console.log(inventory_grouped_by_type_list);
 
 function array_group_list(array, fn)
 {
-    const map = {};
+    const out = {};
     for (const item of array) {
         const key = fn(item);
-        map[key] ??= {key, items: []};
-        map[key].items.push(item);
+        out[key] ??= {key, items: []};
+        out[key].items.push(item);
     }
-    return Object.values(map);
-}
-
-// Lookup item using a key: Key → Item | null
-function item_by_name(name)
-{
+    return Object.values(out);
 }
