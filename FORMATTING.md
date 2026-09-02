@@ -57,8 +57,6 @@ project, so all JavaScript code follows the same conventions.
     * Do **not** use `do { ... } while (...)`; use `while (...) { ... }` or `for (...) { ... }`
     * `reduce`, deep chaining, and functional pipelines are **allowed only if the entire expression fits on a single line**
 
-This preserves the original intent while making the exception explicit and mechanically enforceable.
-
 * **Early returns for guards**
 
     * Validate inputs immediately
@@ -140,7 +138,7 @@ This preserves the original intent while making the exception explicit and mecha
     * The construction-by-construction catalog: [drafts/formatting_blocks.md](drafts/formatting_blocks.md)
     * A top-level function declaration puts `{` on the next line
     * Nested function declarations, function expressions, callbacks, and control-flow statements keep `{` on the declaration line
-    * Always use braces for `if`, `else`, `for`, `while`, `do`, etc. (no single-line bodies)
+    * Always use braces for `if`, `else`, `for`, `while`, etc. (no single-line bodies)
     * `else` **must start on a new line**:
       ```
       if (cond) {
