@@ -31,13 +31,16 @@ project, so all JavaScript code follows the same conventions.
 
     * Library modules export one function with `module.exports = <function_name>;` at file end
     * An executable script uses `main` as its entry function and does not export
-    * Call `main();` immediately after `require` statements and all global initialization
+    * Hand `main` to `cli` with `cli(main);` immediately after `require` statements and all global initialization
+    * Never call `main()` directly; `cli` owns the process contract (see [drafts/cli_main.md](drafts/cli_main.md))
     * `main` is the executable-entry exception to domain-first function naming
     * Do not combine a library export and executable invocation in the same file
     * Executable skeleton:
       ```js
+      const cli = require('@vbarbarosh/node-helpers/src/cli');
+
       const report_limit = 31;
-      main();
+      cli(main);
 
       function main()
       {
@@ -122,16 +125,16 @@ project, so all JavaScript code follows the same conventions.
     * An executable script may start with a shebang; nothing may precede it
     * `require` statements must follow, sorted lexicographically like the shell `sort` command
     * File-level constants and variables must follow `require` statements
-    * An executable script must call `main();` immediately after all global initialization
+    * An executable script must call `cli(main);` immediately after all global initialization
     * The public entry function must be the first function in the file
     * All helper functions must be defined after the public entry function
     * In an executable script, the first function declaration must be `function main()`
-    * No executable code other than `main();` may appear before the public entry function
+    * No executable code other than `cli(main);` may appear before the public entry function
     * A library module ends with `module.exports = public_entry_function;`
 
 > Library order = `requires → constants → public entry → helpers → module.exports`
 >
-> Executable order = `shebang → requires → globals → main(); → function main() → helpers`
+> Executable order = `shebang → requires → globals → cli(main); → function main() → helpers`
 
 * **Braces, layout, and indentation**
 

@@ -903,7 +903,8 @@ module.exports = users_group_by_role;</code></pre>
                     </div>
                     <div class="file-row">
                         <div class="flow-step">02 / DEPS</div>
-                        <div class="file-code"><code>const fs = require('node:fs');</code></div>
+                        <div class="file-code"><code>const cli = require('@vbarbarosh/node-helpers/src/cli');
+const fs = require('node:fs');</code></div>
                     </div>
                     <div class="file-row">
                         <div class="flow-step">03 / POLICY</div>
@@ -911,7 +912,7 @@ module.exports = users_group_by_role;</code></pre>
                     </div>
                     <div class="file-row">
                         <div class="flow-step">04 / RUN</div>
-                        <div class="file-code"><code>main();</code></div>
+                        <div class="file-code"><code>cli(main);</code></div>
                     </div>
                     <div class="file-row">
                         <div class="flow-step">05 / ENTRY</div>
@@ -936,7 +937,7 @@ module.exports = users_group_by_role;</code></pre>
                     </div>
                     <div class="note">
                         <b>Execution is announced early.</b>
-                        <p>After dependencies and policy, <code>main();</code> says: start here.</p>
+                        <p>After dependencies and policy, <code>cli(main);</code> says: start here.</p>
                     </div>
                     <div class="note">
                         <b><code>main</code> owns orchestration.</b>
@@ -1172,7 +1173,7 @@ module.exports = users_group_by_role;</code></pre>
                 <div class="checklist">
                     <div class="check">
                         <div class="check-mark">1</div>
-                        <div><b>Can I identify the file type?</b><p>A library ends with one export. A script calls <code>main();</code> after globals.</p></div>
+                        <div><b>Can I identify the file type?</b><p>A library ends with one export. A script hands <code>main</code> to <code>cli(main);</code> after globals.</p></div>
                     </div>
                     <div class="check">
                         <div class="check-mark">2</div>
