@@ -57,7 +57,7 @@ will do all of this. Feel free to use and tweak it:
     major|minor|patch)
         ;;
     *)
-        echo usage: release 'major|minor|patch' 2>&1
+        echo usage: release 'major|minor|patch' >&2
         exit 1
         ;;
     esac
