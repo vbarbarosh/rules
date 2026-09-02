@@ -5,9 +5,10 @@ Rules for naming files, functions, classes, methods, variables, etc.
 <a href="https://github.com/vbarbarosh/rules" rel="nofollow"><img src="https://img.shields.io/github/stars/vbarbarosh/rules" alt="stars"></a>
 </p>
 
-<p align="center">
-<img src="img/logo-by-chat-gpt.png" style="max-height:400px;">
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="img/cover-dark.png">
+  <img alt="rules" src="img/cover.png">
+</picture>
 
 ## Everything should look uniform
 
