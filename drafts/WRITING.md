@@ -41,4 +41,5 @@ Most of the time the bottom half starts with a `#` heading, and that heading
 is the split. A `---` line or a closing code fence before it is decoration.
 There is no strict marker.
 
-`drafts/logs.md` and `drafts/layout.md` follow this convention.
+`drafts/logs.md`, `drafts/layout.md`, and `drafts/refresh.md` follow this
+convention.
