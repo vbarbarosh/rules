@@ -1,6 +1,6 @@
 - use `refresh` and `refresh_` to sync local vars with remote data
 - mental model: the browser refresh button
-- main use case: vue component
+- main use case: vue components
 
 
 --- ✂️✨🤖✨ ⬇️ AI-Generated Content Below ⬇️ ✨🤖✨✂️ ---
