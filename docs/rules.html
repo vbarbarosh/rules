@@ -1389,10 +1389,10 @@ emit_input(v)    <span class="cmt">// return a value from an input</span>`},
     &lt;/div&gt;
 &lt;/template&gt;`},
 {g: 'VUE', src: 'vue2/vue-formatting.md',
- rule: 'Wrap a complex <code>v-if</code> expression in braces.',
- ex: `&lt;template v-if="(is_loading_fonts || is_loading_images)"&gt;
-    Loading fonts or images...
-&lt;/template&gt;`},
+ rule: 'A simple directive value stays bare; a compound one is wrapped in parentheses. Every directive — <code>v-if</code>, <code>v-else-if</code>, <code>v-show</code>, <code>v-on</code>, <code>v-bind</code>. Simple is a single identifier, member access, method call, template literal or unary negation; compound is anything carrying a binary operator or a ternary.',
+ ex: `&lt;template v-if="is_ready"&gt;
+&lt;template v-if="(is_loading_fonts || is_loading_images)"&gt;
+&lt;div v-bind:class="(compact ? 'narrow' : 'wide')" /&gt;`},
 {g: 'VUE', src: 'vue2/vue-input.md',
  rule: 'Anything which takes data from a user is called an <b>input</b> and must work as a normal INPUT element.',
  ex: `<ol><li>takes data from the <code>value</code> property</li><li>emits an <b>input</b> event</li><li>respects the <b>disabled</b> state</li><li>respects the <code>readonly</code> attribute</li><li>reacts to clicks on the associated LABEL</li><li>reacts to mouse hover from that LABEL</li><li>injects and uses <code>app_form_input_id</code></li><li>takes focus with the TAB key</li></ol>`},

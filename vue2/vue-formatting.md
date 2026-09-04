@@ -16,7 +16,8 @@ Avoid using `v-if` and `v-for` on the same component.
         </div>
     </template>
 
-Wrap complex expression in `v-if` in braces:
+A simple directive value stays bare; a compound one is wrapped in
+parentheses. Every directive — `v-if`, `v-else-if`, `v-show`, `v-on`, `v-bind`:
 
     <template v-if="is_ready">
         It is ready
@@ -25,3 +26,9 @@ Wrap complex expression in `v-if` in braces:
     <template v-if="(is_loading_fonts || is_loading_images)">
         Loading fonts or images...
     </template>
+
+    <div v-bind:class="(compact ? 'narrow' : 'wide')" />
+
+Simple is a single identifier, member access, method call, template literal, or
+unary negation — `v-if="ready"`, `v-if="!ready"`, `v-bind:items="selection.items"`.
+Compound is anything carrying a binary operator or a ternary.
