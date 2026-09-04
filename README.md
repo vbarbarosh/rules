@@ -21,6 +21,7 @@ It's just not written down.
 
 ## Rules
 
+- **[docs/rules.html](docs/rules.html) — every rule below, all 160 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
 - [drafts/naming_markers.md](drafts/naming_markers.md) — memo: all name markers, collected

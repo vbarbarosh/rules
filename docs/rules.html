@@ -1,0 +1,1739 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Every rule in the repository, stated once, on one page.">
+<title>The Rule Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+    --paper: #edefe9;
+    --surface: #fcfdfa;
+    --surface-2: #f4f6ef;
+    --code-bg: #f1f4ec;
+    --code-bg-hover: #e4ead9;
+    --ink: #131916;
+    --ink-2: #2c3632;
+    --muted: #667069;
+    --line: #d6dbd1;
+    --line-2: #e5e9e0;
+    --accent: #0f5d4a;
+    --accent-2: #14775f;
+    --accent-soft: #dcede6;
+    --accent-flash: #a9dcc8;
+    --flag: #a2381f;
+    --flag-soft: #f6e2da;
+    --shadow: 0 1px 2px rgba(19, 25, 22, .05), 0 12px 32px rgba(19, 25, 22, .05);
+    --fast: 120ms;
+    --ease: cubic-bezier(.4, 0, .2, 1);
+    --sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --cond: "IBM Plex Sans Condensed", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --paper: #0d1110;
+        --surface: #161c19;
+        --surface-2: #1b2320;
+        --code-bg: #101715;
+        --code-bg-hover: #080d0b;
+        --ink: #e7ece7;
+        --ink-2: #ccd4ce;
+        --muted: #8a958e;
+        --line: #29332e;
+        --line-2: #212925;
+        --accent: #5fcfad;
+        --accent-2: #7fdcbf;
+        --accent-soft: #12302a;
+        --accent-flash: #1e5346;
+        --flag: #f0906f;
+        --flag-soft: #34201a;
+        --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .3);
+    }
+}
+
+:root[data-theme="dark"] {
+    --paper: #0d1110;
+    --surface: #161c19;
+    --surface-2: #1b2320;
+    --code-bg: #101715;
+    --code-bg-hover: #080d0b;
+    --ink: #e7ece7;
+    --ink-2: #ccd4ce;
+    --muted: #8a958e;
+    --line: #29332e;
+    --line-2: #212925;
+    --accent: #5fcfad;
+    --accent-2: #7fdcbf;
+    --accent-soft: #12302a;
+    --accent-flash: #1e5346;
+    --flag: #f0906f;
+    --flag-soft: #34201a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .3);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Anything that changes colour animates — hover, focus, the current
+   rule, and every token that swaps when the theme does. */
+*, *::before, *::after {
+    transition:
+        color var(--fast) var(--ease),
+        background-color var(--fast) var(--ease),
+        border-color var(--fast) var(--ease),
+        outline-color var(--fast) var(--ease),
+        opacity var(--fast) var(--ease),
+        box-shadow var(--fast) var(--ease);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 104px;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+code, pre, .mono {
+    font-family: var(--mono);
+}
+
+a {
+    color: var(--accent-2);
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+.wrap {
+    width: min(1260px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+    gap: 56px;
+    align-items: end;
+    padding: 52px 0 34px;
+    border-bottom: 2px solid var(--ink);
+}
+
+.eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin: 0 0 14px;
+}
+
+h1 {
+    font-family: var(--cond);
+    font-weight: 700;
+    font-size: clamp(46px, 8vw, 92px);
+    line-height: .92;
+    letter-spacing: -.02em;
+    margin: 0;
+    text-wrap: balance;
+}
+
+.thesis {
+    margin: 18px 0 0;
+    max-width: 60ch;
+    font-size: 17px;
+    color: var(--ink-2);
+}
+
+.thesis b {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.theme {
+    display: inline-flex;
+    align-self: flex-end;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.theme button {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-left: 1px solid var(--line);
+    padding: 6px 11px;
+    cursor: pointer;
+}
+
+.theme button:first-child {
+    border-left: 0;
+}
+
+.theme button:hover {
+    color: var(--ink);
+}
+
+.theme button[aria-pressed="true"] {
+    color: var(--accent-2);
+    background: var(--accent-soft);
+}
+
+.tally {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+}
+
+.tally div {
+    background: var(--surface);
+    padding: 12px 14px 13px;
+}
+
+.tally dt {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 4px;
+}
+
+.tally dd {
+    margin: 0;
+    font-family: var(--cond);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- controls ---------- */
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0 22px;
+}
+
+.search {
+    position: relative;
+    flex: 1 1 260px;
+    max-width: 340px;
+}
+
+.search input {
+    width: 100%;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 9px 12px 9px 32px;
+    border-radius: 2px;
+}
+
+.search input:hover {
+    border-color: var(--muted);
+}
+
+.search input::placeholder {
+    color: var(--muted);
+}
+
+.search .slash {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    pointer-events: none;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.chip {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 6px 9px;
+    cursor: pointer;
+}
+
+.chip:hover {
+    color: var(--ink);
+    border-color: var(--muted);
+}
+
+.chip[aria-pressed="true"] {
+    color: var(--accent-2);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.chip .n {
+    color: var(--muted);
+    margin-left: 5px;
+    font-variant-numeric: tabular-nums;
+}
+
+.chip[aria-pressed="true"] .n {
+    color: var(--accent-2);
+}
+
+.count {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    padding-left: 8px;
+}
+
+/* ---------- table ---------- */
+
+.table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+table {
+    width: 100%;
+    min-width: 820px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 10px 16px;
+}
+
+col.c-id { width: 92px; }
+col.c-rule { width: 36%; }
+col.c-ex { width: auto; }
+col.c-src { width: 176px; }
+
+tbody tr.grp th {
+    position: sticky;
+    top: calc(var(--head-h, 38px) - 1px);
+    z-index: 1;
+    background: var(--surface-2);
+    box-shadow: inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line-2);
+    text-align: left;
+    padding: 16px 16px 14px;
+}
+
+.grp-name {
+    font-family: var(--cond);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -.01em;
+    color: var(--ink);
+}
+
+.grp-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: var(--accent-2);
+    margin-right: 10px;
+    vertical-align: 2px;
+}
+
+.grp-note {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-left: 12px;
+    font-weight: 400;
+}
+
+tbody tr.rule > * {
+    border-top: 1px solid var(--line-2);
+    padding: 13px 16px;
+    vertical-align: top;
+}
+
+tbody tr.rule:hover > * {
+    background-color: var(--surface-2);
+}
+
+tbody tr.rule:target > * {
+    background-color: var(--accent-soft);
+}
+
+tbody tr.rule:target > td:first-child {
+    box-shadow: inset 3px 0 0 var(--accent);
+}
+
+tbody tr.rule.flash > * {
+    animation: rule_flash 900ms var(--ease) 1;
+}
+
+@keyframes rule_flash {
+    0% {
+        background-color: var(--accent-flash);
+    }
+    100% {
+        background-color: var(--accent-soft);
+    }
+}
+
+td.id a {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--accent-2);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+td.id a:hover {
+    text-decoration: underline;
+}
+
+td.rule {
+    color: var(--ink-2);
+    font-size: 14.5px;
+}
+
+td.rule code, td.ex code {
+    font-size: 12.5px;
+    background: var(--code-bg);
+    border: 1px solid var(--line-2);
+    border-radius: 2px;
+    padding: 1px 3px;
+    white-space: nowrap;
+    color: var(--ink);
+}
+
+.snippet {
+    position: relative;
+}
+
+.snippet:hover pre,
+tbody tr.rule:hover .snippet pre {
+    background-color: var(--code-bg-hover);
+}
+
+.copy {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 3px 7px 3px 5px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.snippet:hover .copy,
+tbody tr.rule:hover .copy,
+.copy:focus-visible {
+    opacity: 1;
+}
+
+.copy:hover {
+    color: var(--accent-2);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.copy.done {
+    opacity: 1;
+    color: var(--accent-2);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.copy svg {
+    display: block;
+    width: 12px;
+    height: 12px;
+}
+
+.copy .i-done,
+.copy.done .i-copy {
+    display: none;
+}
+
+.copy.done .i-done {
+    display: block;
+}
+
+td.ex pre {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--code-bg);
+    border: 1px solid var(--line-2);
+    border-radius: 2px;
+    padding: 9px 11px;
+    overflow-x: auto;
+    white-space: pre;
+    tab-size: 4;
+}
+
+td.ex ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13px;
+    color: var(--ink-2);
+}
+
+td.ex .cmt {
+    color: var(--muted);
+}
+
+td.ex .no, td.rule .no {
+    color: var(--flag);
+    font-weight: 500;
+}
+
+td.ex .yes {
+    color: var(--accent-2);
+    font-weight: 500;
+}
+
+td.src a {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    text-decoration: none;
+    overflow-wrap: break-word;
+}
+
+td.src a:hover {
+    color: var(--accent-2);
+    text-decoration: underline;
+}
+
+.empty {
+    padding: 44px 16px;
+    text-align: center;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 13px;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+    padding: 34px 0 60px;
+    color: var(--muted);
+    font-size: 13.5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    align-items: baseline;
+    border-top: 1px solid var(--line);
+    margin-top: 26px;
+}
+
+footer .lead {
+    color: var(--ink-2);
+}
+
+@media (max-width: 900px) {
+    .table-wrap {
+        overflow-x: auto;
+    }
+
+    .masthead {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+        align-items: start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition-duration: 1ms !important;
+        animation-duration: 1ms !important;
+    }
+}
+
+@media print {
+    body { background: #fff; color: #000; }
+    .controls, .theme, footer { display: none; }
+    .table-wrap { border: 0; box-shadow: none; overflow: visible; }
+    table { min-width: 0; }
+    tbody tr.rule { break-inside: avoid; }
+}
+</style>
+<script>
+(function () {
+    try {
+        const saved = localStorage.getItem('rules-theme');
+        if (saved === 'light' || saved === 'dark') {
+            document.documentElement.setAttribute('data-theme', saved);
+        }
+    }
+    catch {
+    }
+})();
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+    <div>
+        <p class="eyebrow">vbarbarosh / rules</p>
+        <h1>The Rule Index</h1>
+        <p class="thesis">Every rule in this repository, stated once, in one table. The generic
+        advice is: <b>write new code the way the existing code is written.</b> What follows is that
+        advice, made explicit — naming, formatting, control flow, file order, project layout, logs
+        and Vue 2. Each row cites the document it came from; that document stays the source of truth.</p>
+    </div>
+    <div class="side">
+        <div class="theme" id="theme" role="group" aria-label="Color theme">
+            <button type="button" data-set="light" aria-pressed="false">Light</button>
+            <button type="button" data-set="dark" aria-pressed="false">Dark</button>
+        </div>
+        <dl class="tally">
+            <div><dt>Rules</dt><dd id="tally-rules">—</dd></div>
+            <div><dt>Groups</dt><dd id="tally-groups">—</dd></div>
+            <div><dt>Sources</dt><dd id="tally-src">—</dd></div>
+        </dl>
+    </div>
+</header>
+
+<div class="controls">
+    <div class="search">
+        <span class="slash">/</span>
+        <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, group_uid" aria-label="Filter rules">
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="count" id="count"></div>
+</div>
+
+<div class="table-wrap">
+    <table>
+        <colgroup>
+            <col class="c-id">
+            <col class="c-rule">
+            <col class="c-ex">
+            <col class="c-src">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Rule</th>
+                <th scope="col">Canonical form</th>
+                <th scope="col">Source</th>
+            </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+    </table>
+    <div class="empty" id="empty" hidden>No rule matches that.</div>
+</div>
+
+<footer>
+    <span class="lead">If something isn't written down here, it is still not free.</span>
+    <span>File names, CSS classes, attribute order — same systematic approach.</span>
+    <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
+</footer>
+
+</div>
+<script>
+const REPO = 'https://github.com/vbarbarosh/rules/blob/main/';
+
+const GROUPS = [
+    {tag: 'CORE', name: 'Uniformity', note: 'The rule behind the rules.'},
+    {tag: 'NAME', name: 'Naming grammar', note: 'Verb morphology decides function or data.'},
+    {tag: 'VAR', name: 'Variables', note: 'A name states the shape of its data.'},
+    {tag: 'FN', name: 'Function contracts', note: 'What a prefix promises the caller.'},
+    {tag: 'FMT', name: 'Formatting', note: 'Braces, breaks, blank lines, comments.'},
+    {tag: 'FLOW', name: 'Control flow', note: 'Imperative, explicit, no magic.'},
+    {tag: 'FILE', name: 'File and module structure', note: 'One entry function, one fixed order.'},
+    {tag: 'PROJ', name: 'Project layout', note: 'A directory is a program; bin/ holds its verbs.'},
+    {tag: 'LOG', name: 'Logs', note: 'One line, one event, three fields.'},
+    {tag: 'VUE', name: 'Vue 2', note: 'Components that behave like the platform.'},
+    {tag: 'REL', name: 'Packaging and release', note: 'Ship a prebuilt dist/.'},
+    {tag: 'DOC', name: 'Writing the rules', note: 'How a document in this repo is built.'},
+];
+
+const RULES = [
+
+// ---------------------------------------------------------------- CORE
+{g: 'CORE', src: 'README.md',
+ rule: 'Write new code the way the existing code is written. Uniformity outranks personal preference.',
+ ex: `<span class="cmt">Everything should look uniform.</span>`},
+{g: 'CORE', src: 'README.md',
+ rule: 'An unwritten convention is still a convention. File names, CSS classes, formatting and even attribute order follow the same systematic approach — silence is not permission.',
+ ex: ``},
+{g: 'CORE', src: 'README.md',
+ rule: 'A selectable option is always <code>{value, label}</code> — value is internal, label is displayed. Select, dropdown, radio, tabs alike.',
+ ex: `{value: 'admin', label: 'Administrator'}`},
+{g: 'CORE', src: 'README.md',
+ rule: 'Opposites come from the established pairs, not from invention.',
+ ex: `construct/destruct  create/destroy
+open/close          begin/end
+first/last          next/previous
+get/put             src/dest
+req/res             res/rej
+setup/teardown      push/pull
+enabled/disabled    import/export`},
+
+// ---------------------------------------------------------------- NAME
+{g: 'NAME', src: 'README.md',
+ rule: 'Functions are verb phrases, data are noun phrases. Each assignment reads as a sentence — the verb performs, the noun holds.',
+ ex: `const users_by_role = users_group_by_role(users);`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: 'English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Prepositions are neutral — the verb form decides the side.',
+ ex: `items_sort_by_time(items)   <span class="cmt">// function</span>
+items_sorted_by_time        <span class="cmt">// data</span>`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: 'A bare <code>_by_</code> name is always data, never a function. Lookup is bracket access, not a call.',
+ ex: `user_by_id[id]     <span class="yes">right</span>
+user_by_id(id)     <span class="no">wrong</span>`},
+{g: 'NAME', src: 'drafts/var_names.md',
+ rule: 'Plurality of the first word states lookup cardinality — what one key returns, not how big the container is.',
+ ex: `user_by_id[id]                    <span class="cmt">// User</span>
+users_by_role[role]               <span class="cmt">// User[]</span>
+children_by_parent_id[parent_id]  <span class="cmt">// Node[]</span>`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: '<code>_sorted_by_</code> marks data of the same shape, reordered. The participle survives here because it carries what shape alone cannot.',
+ ex: `items_sorted_by_time   <span class="cmt">// Item[], still an array</span>`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: '<code>_per_</code> marks a ratio or a rate.',
+ ex: `clicks_per_visit`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: 'The operations that produce those shapes are <code>_group_by_</code>, <code>_sort_by_</code> and <code>_index_by_</code>. The criterion follows the verb.',
+ ex: `users_index_by_id(users)     <span class="cmt">// user_by_id</span>
+users_group_by_role(users)   <span class="cmt">// users_by_role</span>
+items_sort_by_time(items)    <span class="cmt">// items_sorted_by_time</span>`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: 'Use <code>_from_</code> only when something is computed, parsed or constructed — result first, source last.',
+ ex: `user_from_token(token)
+date_from_timestamp(ts)
+tree_from_array(rows)`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: '<code>_from_</code> never means lookup. A lookup disguised as construction is wrong.',
+ ex: `user_from_id(id)   <span class="no">wrong</span>
+user_by_id[id]     <span class="yes">right</span>`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: '<code>_to_</code> is for method position only, where the source is the receiver.',
+ ex: `tree.to_json()`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: '<code>_to_</code> is banned in data names — <code>id_to_name</code> is only a second spelling of <code>name_by_id</code>.',
+ ex: `id_to_name    <span class="no">banned</span>
+name_by_id    <span class="yes">right</span>`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: '<code>_indexed_by_</code> does not exist. Bare <code>_by_</code> already names that shape.',
+ ex: `users_indexed_by_id   <span class="no">does not exist</span>
+user_by_id            <span class="yes">right</span>`},
+{g: 'NAME', src: 'drafts/var_names.md',
+ rule: '<code>_grouped_by_</code> is retired from data names except for invariant plurals — <code>fish</code>, <code>data</code>, <code>series</code> — which cannot state cardinality by plurality. Prefer a countable noun when one exists.',
+ ex: `fish_by_tank           <span class="cmt">// Record&lt;tank, Fish&gt;</span>
+fish_grouped_by_tank   <span class="cmt">// Record&lt;tank, Fish[]&gt;</span>
+rows_by_source         <span class="yes">over data_by_source</span>`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: '<code>_of_</code> is a possession query.',
+ ex: `descendants_of(node)`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: '<code>is_</code> is a predicate and returns a boolean.',
+ ex: `is_ancestor(a, b)`},
+{g: 'NAME', src: 'drafts/naming_markers.md',
+ rule: 'A standalone conversion and the variable it fills share their first word.',
+ ex: `const json = json_from_tree(tree);`},
+{g: 'NAME', src: 'FORMATTING.md',
+ rule: 'Naming is domain-first. Functions and files follow <code>items_*</code>, <code>item_*</code> or domain nouns; generic names are avoided.',
+ ex: `items_index_by_uid()   <span class="yes">right</span>
+process() handle() util()   <span class="no">avoid</span>`},
+{g: 'NAME', src: 'FORMATTING.md',
+ rule: '<code>main</code> is the single exception to domain-first naming — reserved for the entry function of an executable script.',
+ ex: `function main()
+{
+    report_print();
+}`},
+
+// ---------------------------------------------------------------- VAR
+{g: 'VAR', src: 'drafts/var_names.md',
+ rule: 'A variable name states the shape of its data.',
+ ex: `users                  <span class="cmt">// User[]</span>
+user_by_id             <span class="cmt">// Record&lt;id, User&gt;</span>
+users_by_role          <span class="cmt">// Record&lt;role, User[]&gt;</span>
+items_sorted_by_time   <span class="cmt">// Item[], reordered</span>`},
+{g: 'VAR', src: 'drafts/return_out.md',
+ rule: 'If a function returns a constructed value, the variable holding it must be named <code>out</code>.',
+ ex: `function emails_from_users(users)
+{
+    const out = [];
+    for (const user of users) {
+        if (user.email) {
+            out.push(user.email);
+        }
+    }
+    return out;
+}`},
+{g: 'VAR', src: 'drafts/return_out.md',
+ rule: '<code>out</code> never leaves the function. The caller names the result by what it means.',
+ ex: `const emails = emails_from_users(users);
+const users_by_role = users_group_by_role(users);`},
+{g: 'VAR', src: 'FORMATTING.md',
+ rule: 'Returning a literal or an expression directly is allowed; a guard return may return <code>null</code>, <code>false</code>, <code>[]</code>, <code>{}</code>. <code>const out = {...}; return out;</code> is rewritten as <code>return {...};</code>',
+ ex: `const out = {a, b};
+return out;          <span class="no">rewrite this</span>
+
+return {a, b};       <span class="yes">as this</span>`},
+{g: 'VAR', src: 'drafts/var_names_error.md',
+ rule: 'The variable holding a caught error is always named <code>error</code> — in <code>try/catch</code>, in <code>.catch(...)</code>, and in error event handlers alike.',
+ ex: `catch (error) {
+    console.log(error.message);
+}
+
+server.on('error', function (error) {
+    throw error;
+});`},
+{g: 'VAR', src: 'drafts/var_names_error.md',
+ rule: '<code>e</code>, <code>err</code> and <code>ex</code> do not exist.',
+ ex: `catch (e)     <span class="no">no</span>
+catch (err)   <span class="no">no</span>
+catch (error) <span class="yes">yes</span>`},
+{g: 'VAR', src: 'drafts/var_names_error.md',
+ rule: 'Accumulated stderr text is not an error variable. Name it by what it is.',
+ ex: `stderr   <span class="yes">right</span>
+err      <span class="no">wrong</span>`},
+{g: 'VAR', src: 'FORMATTING.md',
+ rule: 'Prefer explicit temporaries. Use intermediate variables instead of nested expressions; favor clarity over terseness.',
+ ex: ``},
+{g: 'VAR', src: 'FORMATTING.md',
+ rule: 'A lambda parameter is named <code>v</code>; a nested one is <code>vv</code>.',
+ ex: `items.map(v =&gt; v.uid)
+items.some(v =&gt; v.sizes.some(vv =&gt; vv.width &gt; 100))`},
+{g: 'VAR', src: 'drafts/for_of.md',
+ rule: 'The <code>for...of</code> loop variable is the singular of the collection.',
+ ex: `for (const user of users) { }
+for (const child of node.children) { }`},
+{g: 'VAR', src: 'drafts/for_i_end_ii_jj_kk.md',
+ rule: 'A cached array length in a single loop is named <code>end</code>.',
+ ex: `for (let i = 0, end = items.length; i &lt; end; ++i) {
+}`},
+{g: 'VAR', src: 'drafts/for_i_end_ii_jj_kk.md',
+ rule: 'In nested loops the cached bound is the doubled index name: i&nbsp;→&nbsp;ii, j&nbsp;→&nbsp;jj, k&nbsp;→&nbsp;kk.',
+ ex: `for (let i = 0, ii = foo.length; i &lt; ii; ++i) {
+    for (let j = 0, jj = bar.length; j &lt; jj; ++j) {
+        for (let k = 0, kk = baz.length; k &lt; kk; ++k) {
+        }
+    }
+}`},
+
+// ---------------------------------------------------------------- FN
+{g: 'FN', src: 'drafts/format_xxx.md',
+ rule: '<code>format_*</code> returns a string intended for human display.',
+ ex: `format_bytes(1457664)    <span class="cmt">// "1.4 MB"</span>
+format_duration(155000)  <span class="cmt">// "2m 35s"</span>
+format_usd(1299)         <span class="cmt">// "$12.99"</span>`},
+{g: 'FN', src: 'drafts/format_xxx.md',
+ rule: 'A display conversion is never hand-rolled at a call site — an inline one is a missed <code>format_*</code>.',
+ ex: `\${Math.round(bytes / 1024)}kB   <span class="no">missed call</span>
+format_bytes(bytes)             <span class="yes">right</span>`},
+{g: 'FN', src: 'drafts/format_xxx.md',
+ rule: '<code>format_*</code> returns — it never prints. Output is the caller’s job.',
+ ex: `console.log(format_tree(tree));`},
+{g: 'FN', src: 'drafts/format_xxx.md',
+ rule: '<code>format_*</code> is not for machine formats. Serialization is conversion, not display.',
+ ex: `format_user(user)     <span class="cmt">// "Vladimir B. (admin)" — humans</span>
+json_from_user(user)  <span class="cmt">// machines</span>`},
+{g: 'FN', src: 'drafts/render_xxx.md',
+ rule: '<code>render_*</code> derives a small value — usually a string — from the object’s own state. The Vue analogy is a computed property, written as a method.',
+ ex: `public function render_name_email()
+{
+    if ($this-&gt;name) {
+        return sprintf('%s &lt;%s&gt;', $this-&gt;name, $this-&gt;email);
+    }
+    return $this-&gt;email;
+}`},
+{g: 'FN', src: 'drafts/render_xxx.md',
+ rule: 'The prefix separates derived values from stored attributes. <code>render_*</code> is recomputed per call — never cached, never stored.',
+ ex: `$this-&gt;email                  <span class="cmt">// a column</span>
+$this-&gt;render_dashboard_url() <span class="cmt">// computed every call</span>`},
+{g: 'FN', src: 'drafts/render_xxx.md',
+ rule: '<code>render_*</code> may return <code>null</code> when not applicable, and may throw when the state makes the value meaningless.',
+ ex: `if (!$this-&gt;partner_email) {
+    return null;
+}`},
+{g: 'FN', src: 'drafts/render_xxx.md',
+ rule: '<code>render_*</code> is never async and never side-effectful. A downloadable, substantial artifact — a zip, a csv, an xlsx — is <code>export_*</code>, which may be both.',
+ ex: `$user-&gt;render_name_email()   <span class="cmt">// small, sync, pure</span>
+export_zip()                 <span class="cmt">// artifact, may be async</span>`},
+{g: 'FN', src: 'drafts/format_xxx.md',
+ rule: '<code>format_*</code> transforms an input it is given; <code>render_*</code> derives from self.',
+ ex: `format_usd($cents)          <span class="cmt">// value in  → string out</span>
+$user-&gt;render_name_email()  <span class="cmt">// state in  → string out</span>`},
+{g: 'FN', src: 'drafts/refresh.md',
+ rule: 'Anything that holds a local copy of remote data has <code>refresh()</code> — it pulls the data and brings the local vars up to date. Mental model: the browser refresh button.',
+ ex: `refresh: async function () {
+    await Promise.all([
+        this.refresh_user(),
+        this.refresh_banners(),
+    ]);
+},`},
+{g: 'FN', src: 'drafts/refresh.md',
+ rule: '<code>refresh()</code> is idempotent — safe to call at any moment, any number of times.',
+ ex: ``},
+{g: 'FN', src: 'drafts/refresh.md',
+ rule: 'A fine-grained <code>refresh_&lt;part&gt;()</code> syncs one part of the state; <code>refresh()</code> composes them.',
+ ex: `refresh_user: async function () {
+    this.user = await fetch_user();
+},`},
+{g: 'FN', src: 'drafts/refresh.md',
+ rule: 'Init is the first refresh. Derived state is never edited, only rederived.',
+ ex: `mounted: async function () {
+    await this.refresh();
+    this.ready = true;
+},`},
+{g: 'FN', src: 'drafts/interactions-should-return-only-boolean-flag.md',
+ rule: 'An interaction — modal, popover — executes its own logic and returns a boolean commit flag. It expresses intent; it does not expose control flow.',
+ ex: `<span class="cmt">// true  → changes were committed
+// false → no-op (cancel, or no changes)</span>
+if (await modal_upload().promise()) {
+    await blocking(this.refresh());
+}`},
+{g: 'FN', src: 'FORMATTING.md',
+ rule: 'Guards return early. Validate inputs immediately and return <code>null</code> or empty values explicitly.',
+ ex: ``},
+{g: 'FN', src: 'FORMATTING.md',
+ rule: 'One public entry function per file.',
+ ex: ``},
+
+// ---------------------------------------------------------------- FMT
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'Indentation is exactly 4 spaces. No tabs.',
+ ex: ``},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'A top-level function declaration puts its opening brace on the next line.',
+ ex: `function main()
+{
+}`},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'A function declared inside another function keeps its opening brace on the declaration line.',
+ ex: `function main()
+{
+    function limit_print(limit) {
+    }
+}`},
+{g: 'FMT', src: 'drafts/formatting_blocks.md',
+ rule: 'Function expressions, callbacks and Promise executors keep the opening brace on the declaration line.',
+ ex: `server.on('error', function (error) {
+});
+
+return new Promise(function (resolve, reject) {
+});`},
+{g: 'FMT', src: 'drafts/formatting_blocks.md',
+ rule: 'A class declaration puts its brace on the next line; its methods keep the brace on the declaration line.',
+ ex: `class Logger
+{
+    constructor(parent_group_uid) {
+    }
+
+    write(format, ...values) {
+    }
+}`},
+{g: 'FMT', src: 'drafts/formatting_blocks.md',
+ rule: 'Module-level <code>if</code>, <code>for</code> and <code>while</code> keep the brace on the statement line.',
+ ex: `if (process.env.DEBUG) {
+}
+
+for (const size of sizes) {
+}`},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'Always use braces for <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>. No single-line bodies.',
+ ex: `if (!user) return null;   <span class="no">no</span>
+
+if (!user) {              <span class="yes">yes</span>
+    return null;
+}`},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: '<code>else</code> starts on a new line.',
+ ex: `if (a) {
+}
+else if (b) {
+}
+else {
+}`},
+{g: 'FMT', src: 'drafts/formatting_blocks.md',
+ rule: '<code>catch</code> and <code>finally</code> start on a new line.',
+ ex: `try {
+}
+catch (error) {
+}
+finally {
+}`},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: '<code>switch</code> and <code>case</code> are aligned at the same indentation level.',
+ ex: `switch (type) {
+case 'voice':
+    break;
+case 'text':
+    break;
+default:
+}`},
+{g: 'FMT', src: 'drafts/formatting_blocks.md',
+ rule: 'A multi-line object literal holds one field per line, trailing comma included.',
+ ex: `const next = {
+    uid: item.uid,
+    parent_uid: item.parent_uid,
+    index,
+};`},
+{g: 'FMT', src: 'drafts/formatting_blocks.md',
+ rule: 'An object of methods — Vue options style — spells each method as a function expression.',
+ ex: `const options = {
+    refresh: async function () {
+    },
+    render_name: function () {
+    },
+};`},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'Keep an expression on one line when it fits on one line.',
+ ex: ``},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'Never split an assignment after <code>=</code> when its right-hand side is a single function call.',
+ ex: `const users_by_role =
+    users_group_by_role(users);   <span class="no">no</span>
+
+const users_by_role = users_group_by_role(users);   <span class="yes">yes</span>`},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'Break a statement only when its size or nested structure makes the break necessary. Line breaks must expose structure.',
+ ex: ``},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'A blank line marks a phase change — nothing else. Add one only when the following statement begins an independent conceptual step.',
+ ex: ``},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'Keep setup adjacent to the loop, condition or call that immediately uses it. Tightly coupled setup and use are not separated merely because the statement type changes.',
+ ex: ``},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'Construct an object from the required fields only. Do not spread a full object when a subset is needed.',
+ ex: `{...item, index}                              <span class="no">bad</span>
+{uid: item.uid, parent_uid: item.parent_uid, index}   <span class="yes">good</span>`},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'Comments explain intent or policy only. No comments for obvious mechanics.',
+ ex: ``},
+{g: 'FMT', src: 'FORMATTING.md',
+ rule: 'A multi-line comment carries a rule, an invariant or a guarantee.',
+ ex: ``},
+{g: 'FMT', src: 'drafts/endpoint_comment.md',
+ rule: 'Every route function carries a route comment directly above it: <code>METHOD /path (params)</code>.',
+ ex: `<span class="cmt">// GET /file/&lt;name&gt;</span>
+async function file_get(req, res)
+{
+}`},
+{g: 'FMT', src: 'drafts/endpoint_comment.md',
+ rule: 'Parentheses appear only when the endpoint takes input — body, headers, query, comma-separated, in that order.',
+ ex: `<span class="cmt">// POST /upload (body, header:x-filename)</span>
+function upload_post(req, res)
+{
+}`},
+{g: 'FMT', src: 'drafts/endpoint_comment.md',
+ rule: 'A header is prefixed with <code>header:</code>; a path parameter is spelled in the path itself.',
+ ex: `header:x-filename
+/file/&lt;name&gt;`},
+{g: 'FMT', src: 'drafts/endpoint_comment.md',
+ rule: 'An intent comment continues the same block on the next line.',
+ ex: `<span class="cmt">// POST /upload (body, header:x-filename)
+// Streams to data/ before the body is fully read.</span>`},
+
+// ---------------------------------------------------------------- FLOW
+{g: 'FLOW', src: 'FORMATTING.md',
+ rule: 'Prefer imperative control flow.',
+ ex: ``},
+{g: 'FLOW', src: 'drafts/for_of.md',
+ rule: 'Prefer <code>for...of</code> when the index is not needed.',
+ ex: `for (const item of items) {
+}`},
+{g: 'FLOW', src: 'drafts/for_of.md',
+ rule: 'Use an indexed loop when the index is needed.',
+ ex: `for (let i = 0, end = items.length; i &lt; end; ++i) {
+}`},
+{g: 'FLOW', src: 'FORMATTING.md',
+ rule: '<code>do { ... } while (...)</code> does not exist. Use <code>while</code> or <code>for</code>.',
+ ex: ``},
+{g: 'FLOW', src: 'FORMATTING.md',
+ rule: '<code>reduce</code>, deep chaining and functional pipelines are allowed only if the entire expression fits on a single line.',
+ ex: ``},
+{g: 'FLOW', src: 'FORMATTING.md',
+ rule: 'Do not use arrow functions for non-trivial logic. Arrows are allowed only for tiny callbacks.',
+ ex: `const uids = items.map(v =&gt; v.uid);
+fresh.catch(ignore);`},
+{g: 'FLOW', src: 'drafts/formatting_blocks.md',
+ rule: 'An arrow with a block body does not exist — it becomes <code>function (...) {}</code>, with an optional <code>_this</code> inside.',
+ ex: `items.forEach(v =&gt; {      <span class="no">does not exist</span>
+});
+
+items.forEach(function (v) {   <span class="yes">this</span>
+});`},
+{g: 'FLOW', src: 'drafts/formatting_blocks.md',
+ rule: 'A <code>catch</code> that ignores the error binds nothing.',
+ ex: `try {
+}
+catch {
+}`},
+{g: 'FLOW', src: 'FORMATTING.md',
+ rule: 'Use plain data structures — <code>Set</code>, <code>Map</code> or plain <code>{}</code> for lookups. No classes, no prototypes, no mutation via shared state.',
+ ex: ``},
+{g: 'FLOW', src: 'FORMATTING.md',
+ rule: 'No implicit magic. No hidden side effects, no reliance on execution-order side effects.',
+ ex: ``},
+
+// ---------------------------------------------------------------- FILE
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'A library module exports one function, with <code>module.exports</code> at the end of the file.',
+ ex: `module.exports = items_index_by_uid;`},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'An executable script uses <code>main</code> as its entry function and does not export.',
+ ex: ``},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'Do not combine a library export and an executable invocation in the same file.',
+ ex: ``},
+{g: 'FILE', src: 'drafts/cli_main.md',
+ rule: 'An executable hands its entry function to <code>cli</code>. <code>cli</code> owns the process contract: it keeps the event loop alive until <code>main</code> settles, reports a failure, and exits non-zero — <code>ExitCodeError</code> picks the code, any other error exits 1.',
+ ex: `const cli = require('@vbarbarosh/node-helpers/src/cli');
+
+cli(main);
+
+async function main()
+{
+}`},
+{g: 'FILE', src: 'drafts/cli_main.md',
+ rule: '<code>cli(main)</code>, never <code>cli(main())</code>. <code>cli</code> runs the function through <code>Promise.try</code>, so a synchronous throw is reported like a rejection; an already-invoked <code>main()</code> is a promise, and <code>Promise.try</code> rejects it with “expecting a function” — the app dies at startup.',
+ ex: `cli(main);     <span class="yes">right</span>
+cli(main());   <span class="no">dies at startup</span>`},
+{g: 'FILE', src: 'drafts/cli_main.md',
+ rule: 'A hand-rolled <code>main().catch(...)</code> with <code>process.exit(1)</code> does not exist.',
+ ex: `main().catch(function (error) {
+    console.error(error);
+    process.exit(1);
+});                              <span class="no">does not exist</span>`},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'An executable script may start with a shebang; nothing may precede it.',
+ ex: `#!/usr/bin/env node`},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: '<code>require</code> statements follow, sorted lexicographically like the shell <code>sort</code> command.',
+ ex: ``},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'File-level constants and variables follow the <code>require</code> statements.',
+ ex: `const report_limit = 31;`},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: '<code>cli(main);</code> comes immediately after all global initialization, and no executable code other than that call may appear before the public entry function.',
+ ex: ``},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'The public entry function is the first function in the file. In an executable, the first function declaration is <code>function main()</code>.',
+ ex: ``},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'Helpers are defined after the public entry function, and before a library’s final export.',
+ ex: ``},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'Helpers must be named functions, not inline lambdas.',
+ ex: ``},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'CommonJS modules only. Use <code>const &lt;name&gt; = require(&#39;&lt;module&gt;&#39;);</code> — never <code>import</code> or <code>export</code>.',
+ ex: ``},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'Library order is fixed.',
+ ex: `requires → constants → public entry → helpers → module.exports`},
+{g: 'FILE', src: 'FORMATTING.md',
+ rule: 'Executable order is fixed.',
+ ex: `shebang → requires → globals → cli(main); → main() → helpers`},
+
+// ---------------------------------------------------------------- PROJ
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: 'Every project keeps one shape. A directory is a program, and <code>bin/</code> holds its methods — one executable per verb, working the same in every language.',
+ ex: `bin/build      bb
+bin/configure
+bin/release
+bin/run        rr
+bin/test       tt
+bin/watch      ww`},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: '<code>bin/configure</code> is the only command to run after <code>git pull</code> to make a checkout ready for development.',
+ ex: ``},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: 'In a node.js project <code>run</code>, <code>test</code>, <code>build</code> and <code>watch</code> are thin wrappers over npm. The wrappers still earn their keep: <code>rr</code>, <code>tt</code>, <code>bb</code>, <code>ww</code> are shorter than any npm form, and the names hold for projects that are not node.js.',
+ ex: `alias rr='bin/run'
+alias tt='bin/test'
+alias bb='bin/build'
+alias ww='bin/watch'`},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: '<code>build/</code> holds what <code>bin/build</code> produced. Never committed, always reproducible.',
+ ex: ``},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: '<code>data/</code> holds runtime state. Never committed.',
+ ex: `data/logs/2026-08-24.txt`},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: '<code>.env</code> holds local values and is never committed. <code>.env.example</code> documents the expected keys and is.',
+ ex: ``},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: 'Configuration lives in <code>config/</code>, is populated once when the project is set up, and code reads it through one path.',
+ ex: `const config = require('../config');`},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: '<code>src/</code> holds one subdirectory per part of the program.',
+ ex: `src/agent/    src/http/
+src/android/  src/parser/
+src/desktop-electron/`},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: 'Small shared functions go to <code>src/helpers/</code>, one function per file.',
+ ex: `src/helpers/array_group.js`},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: 'A unit test sits next to the file it tests.',
+ ex: `src/helpers/array_group.js
+src/helpers/array_group.test.js`},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: '<code>tests/</code> holds suites that drive the whole program, such as playwright.',
+ ex: ``},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: '<code>README.md</code> stays short: what the project is and how to start it.',
+ ex: ``},
+{g: 'PROJ', src: 'drafts/layout.md',
+ rule: '<code>docs/</code> holds the official documentation, <code>notes/</code> holds working notes — hints and findings made during development — and <code>img/</code> holds static images, mostly for the README.',
+ ex: ``},
+
+// ---------------------------------------------------------------- LOG
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'A log is one infinite file. One physical line records one event, in three fields and nothing else.',
+ ex: `[time][group_uid][sender] details`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'Elapsed time, status and every other measurement belong in <code>details</code>, not in a fourth field.',
+ ex: `[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: '<code>time</code> is ISO-8601 UTC with milliseconds.',
+ ex: `2026-08-17T16:09:20.185Z`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'Include <code>time</code> when writing directly to a file; omit it when the runtime already timestamps the line, as docker does.',
+ ex: `[2026-08-17T16:09:20.185Z][cd8e5vqp][db_query_begin] name=select_users
+[cd8e5vqp][db_query_begin] name=select_users`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'A group is one unit of work — a request, a job, a cron run. Every event carries its group’s uid, an opaque string, usually a cuid.',
+ ex: ``},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'The first event of a group is <code>group_spawn</code>, emitted synchronously before the uid is passed to other work or another event is emitted for the group. A root group omits <code>parent=</code>.',
+ ex: `[new_group_uid][group_spawn] parent=old_group_uid
+[c1a0root][group_spawn]`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'Messages and requests carry the caller’s uid; the receiver uses it as the parent of its new group.',
+ ex: ``},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: '<code>sender</code> identifies one logging call site, and the name is unique in the whole codebase — a grep for it lands on one place. Think of it as a <code>const</code> in a single namespace.',
+ ex: ``},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: '<code>sender</code> is snake_case.',
+ ex: `^[a-z_][a-z0-9_]*$`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'A <code>_begin</code> event is closed by the same stem with <code>_end_ok</code> or <code>_end_error</code>, in the same group. An end never appears without its begin in that group.',
+ ex: `[c9k2vf3p][mp4gif_worker_begin]
+[c9k2vf3p][mp4gif_worker_end_ok] 4.512s
+
+[c7t0xb1m][mp4gif_worker_begin]
+[c7t0xb1m][mp4gif_worker_end_error] 0.884s ffmpeg exit=1`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'Use <code>_end</code> when the logged outcome — an HTTP status, say — already says what happened and classifying it as ok or error would mislead.',
+ ex: ``},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'A group costs at least three lines. Spawn one only when the work earns them: seconds of work, or many logging call sites. Do not spawn a group for one short call.',
+ ex: `[bbb][group_spawn] parent=aaa
+[bbb][process_begin]
+[bbb][process_end_ok] 0.000s      <span class="no">noise</span>`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'Log short work on the caller’s group instead. When nothing is reported between the two ends, record one event.',
+ ex: `[aaa][process_begin]
+[aaa][process_end_ok] 0.000s
+
+[aaa][process_handled] 0.000s     <span class="yes">even better</span>`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'Two lines are the same noise when a new group holds a lone end. The matching begin was emitted on the parent — keep the pair there.',
+ ex: `[bbb][group_spawn] parent=aaa
+[bbb][process_end_ok] 0.000s      <span class="no">noise</span>`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: '<code>details</code> are human-readable and terse, and never contain a physical newline.',
+ ex: ``},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: '<code>details</code> never contain secrets, tokens, signed URLs, URL query values, bodies or headers. Prefer a reference to the payload over the payload.',
+ ex: ``},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'A printable ASCII word without spaces, double quotes, backslashes or square brackets is written bare — exactly the bytes that were sent, so it cannot span words, break the line, or mint a fake tag. Every other string is JSON-quoted.',
+ ex: `name=select_users
+reason="db timeout"
+value=""`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'Arrays, objects, booleans and null use compact JSON.',
+ ex: `retry=true limits={"soft":10,"hard":25}`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'An unordered list is sorted and prefixed with its count. Ordered values are not sorted.',
+ ex: `3:[180,783,846]
+2:["bar","foo"]
+0:[]`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'Truncation preserves valid UTF-8 and ends with the number of omitted bytes.',
+ ex: `...+4821`},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: 'Keep one log line under 2k UTF-8 bytes. A log line describes an event; it is not payload storage.',
+ ex: ``},
+{g: 'LOG', src: 'drafts/logs.md',
+ rule: '<code>group_exit</code> is optional and mainly serves to detect leaks. After it is emitted, no producer emits another event for that group; a parent may emit it for work it abandons. Consumers must accept groups without it — its absence makes no claim.',
+ ex: `[group_uid][group_exit]`},
+
+// ---------------------------------------------------------------- VUE
+{g: 'VUE', src: 'vue2/vue-globals.md',
+ rule: 'Every component is provided with four global methods through a mixin.',
+ ex: `px(value)        <span class="cmt">// format a pixel value</span>
+uid([name])      <span class="cmt">// ids unique across components</span>
+emit_end(retval) <span class="cmt">// return a value from a modal</span>
+emit_input(v)    <span class="cmt">// return a value from an input</span>`},
+{g: 'VUE', src: 'vue2/vue-globals.md',
+ rule: 'Generated ids are bound to the current element and are what <code>id</code> and <code>label[for]</code> use. The name <code>uid</code> was chosen so it does not conflict with the <code>id</code> attribute every element may carry.',
+ ex: `uid: function (name) {
+    return name ? \`c\${this._uid}_\${name}\` : \`c\${this._uid}\`;
+},`},
+{g: 'VUE', src: 'vue2/vue-formatting.md',
+ rule: 'Spell out <code>v-on</code> and <code>v-bind</code>. The shorthands <code>@</code> and <code>:</code> are not used.',
+ ex: `&lt;img v-bind:src="banner.thumbnail_url" v-bind:alt="banner.title" /&gt;`},
+{g: 'VUE', src: 'vue2/vue-formatting.md',
+ rule: 'Attributes keep one order.',
+ ex: `ref v-if v-for v-on v-bind [...] class type placeholder title`},
+{g: 'VUE', src: 'vue2/vue-formatting.md',
+ rule: 'Avoid <code>v-if</code> and <code>v-for</code> on the same component — lift the condition to a <code>&lt;template&gt;</code>.',
+ ex: `&lt;template v-if="items"&gt;
+    &lt;div v-for="item in items" v-bind:key="item.uid"&gt;
+        {{ item.title }}
+    &lt;/div&gt;
+&lt;/template&gt;`},
+{g: 'VUE', src: 'vue2/vue-formatting.md',
+ rule: 'Wrap a complex <code>v-if</code> expression in braces.',
+ ex: `&lt;template v-if="(is_loading_fonts || is_loading_images)"&gt;
+    Loading fonts or images...
+&lt;/template&gt;`},
+{g: 'VUE', src: 'vue2/vue-input.md',
+ rule: 'Anything which takes data from a user is called an <b>input</b> and must work as a normal INPUT element.',
+ ex: `<ol><li>takes data from the <code>value</code> property</li><li>emits an <b>input</b> event</li><li>respects the <b>disabled</b> state</li><li>respects the <code>readonly</code> attribute</li><li>reacts to clicks on the associated LABEL</li><li>reacts to mouse hover from that LABEL</li><li>injects and uses <code>app_form_input_id</code></li><li>takes focus with the TAB key</li></ol>`},
+{g: 'VUE', src: 'vue2/vue-input.md',
+ rule: 'Avoid generic inputs — those with a lot of properties like <code>min</code>, <code>max</code>, <code>step</code>.',
+ ex: ``},
+{g: 'VUE', src: 'vue2/vue-form.md',
+ rule: 'Compose forms from <code>app-form-div</code> and <code>app-input-label</code>.',
+ ex: `&lt;app-form-div class="flex-row mi10"&gt;
+    &lt;app-input-label&gt;Email:&lt;/app-input-label&gt;
+    &lt;app-input-email v-model="user.email" /&gt;
+&lt;/app-form-div&gt;`},
+{g: 'VUE', src: 'vue2/vue-form.md',
+ rule: 'A form’s buttons close the form: cancel returns <code>false</code> through <code>emit_end</code>, submit is a <code>type="submit"</code> button.',
+ ex: `&lt;app-button-orange v-on:click="emit_end(false)"&gt;
+    Cancel
+&lt;/app-button-orange&gt;
+&lt;app-button-green type="submit"&gt;
+    Submit
+&lt;/app-button-green&gt;`},
+{g: 'VUE', src: 'vue2/vue-button.md',
+ rule: 'One button, one class.',
+ ex: ``},
+{g: 'VUE', src: 'vue2/vue-slider.md',
+ rule: 'A slider is a container and a thumb. Position the thumb with <code>top</code> or <code>left</code> from <code>0</code> to <code>100%</code> — <code>0</code> means empty, <code>100%</code> means full.',
+ ex: `left: 0      <span class="cmt">// empty</span>
+left: 100%   <span class="cmt">// full</span>`},
+{g: 'VUE', src: 'vue2/vue-svg-icon.md',
+ rule: 'Each SVG icon goes into its own <code>svg-icon-*.vue</code> file, containing only a TEMPLATE element with an SVG inside.',
+ ex: `&lt;template&gt;
+    &lt;svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"&gt;
+        &lt;path fill="currentColor" d="..." /&gt;
+    &lt;/svg&gt;
+&lt;/template&gt;`},
+{g: 'VUE', src: 'vue2/vue-svg-icon.md',
+ rule: 'SVG icons respect the <code>currentColor</code> CSS property.',
+ ex: `&lt;path fill="currentColor" d="..." /&gt;`},
+
+// ---------------------------------------------------------------- REL
+{g: 'REL', src: 'packaging/packaging.md',
+ rule: 'Distribute a prebuilt <code>dist/</code> from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do.',
+ ex: `&lt;script src="https://unpkg.com/vue@2.6.11/dist/vue.js"&gt;&lt;/script&gt;`},
+{g: 'REL', src: 'packaging/packaging.md',
+ rule: 'The release workflow is fixed: ensure there are no changes, increase the version, update <code>dist/</code>, commit, tag.',
+ ex: `rm -rf dist
+npm run build
+git add package.json package-lock.json dist
+git commit -m "release v$(...)"
+git tag v$(...)`},
+{g: 'REL', src: 'packaging/packaging.md',
+ rule: 'Bump the version without committing or tagging, then own both steps in the script.',
+ ex: `npm version $1 --git=/bin/true`},
+{g: 'REL', src: 'packaging/packaging.md',
+ rule: '<code>bin/release major|minor|patch</code> performs the whole release.',
+ ex: `bin/release patch`},
+{g: 'REL', src: 'packaging/packaging.md',
+ rule: 'A release script runs under bash strict mode.',
+ ex: `set -o nounset -o errexit -o pipefail`},
+{g: 'REL', src: 'packaging/packaging.md',
+ rule: 'A bad argument prints usage to stderr and exits 1.',
+ ex: `echo usage: release 'major|minor|patch' &gt;&amp;2
+exit 1`},
+
+// ---------------------------------------------------------------- DOC
+{g: 'DOC', src: 'drafts/WRITING.md',
+ rule: 'A document has two halves. The author writes the top half, compressed around what he already knows; the AI writes the bottom half, restating it for a reader who lacks that context.',
+ ex: ``},
+{g: 'DOC', src: 'drafts/WRITING.md',
+ rule: 'The top half is the source of truth. When the halves disagree, the top half is right.',
+ ex: ``},
+{g: 'DOC', src: 'drafts/WRITING.md',
+ rule: 'No AI patches the top half. The one exception is an explicit request from the author.',
+ ex: ``},
+{g: 'DOC', src: 'drafts/WRITING.md',
+ rule: 'The bottom half is never edited in place. After the top half changes, it is regenerated from it.',
+ ex: ``},
+{g: 'DOC', src: 'drafts/WRITING.md',
+ rule: 'Most of the time the bottom half starts with a <code>#</code> heading, and that heading is the boundary. A <code>---</code> line or a closing fence before it is decoration. There is no strict marker.',
+ ex: `--- ✂️ ⬇️ AI-Generated Content Below ⬇️ ✂️ ---`},
+
+];
+</script>
+<script>
+(function () {
+
+const rows_el = document.getElementById('rows');
+const chips_el = document.getElementById('chips');
+const count_el = document.getElementById('count');
+const empty_el = document.getElementById('empty');
+const q_el = document.getElementById('q');
+
+const theme_el = document.getElementById('theme');
+
+const strip = document.createElement('div');
+let active_group = '';
+
+function theme_reflect(mode)
+{
+    for (const button of theme_el.querySelectorAll('button')) {
+        button.setAttribute('aria-pressed', button.dataset.set === mode ? 'true' : 'false');
+    }
+}
+
+function theme_set(mode)
+{
+    document.documentElement.setAttribute('data-theme', mode);
+    theme_reflect(mode);
+    try {
+        localStorage.setItem('rules-theme', mode);
+    }
+    catch {
+    }
+}
+
+theme_el.addEventListener('click', function (event) {
+    const button = event.target.closest('button');
+    if (button) {
+        theme_set(button.dataset.set);
+    }
+});
+
+// Until a choice is made the page follows the OS, so the switch reports
+// which theme is actually on screen — a stamped one, else what the OS asks for.
+theme_reflect(document.documentElement.getAttribute('data-theme')
+    || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (event) {
+    if (!document.documentElement.getAttribute('data-theme')) {
+        theme_reflect(event.matches ? 'dark' : 'light');
+    }
+});
+
+function text_of(html)
+{
+    strip.innerHTML = html || '';
+    return (strip.textContent || '').toLowerCase();
+}
+
+const COPY_BUTTON =
+    '<button class="copy" type="button" aria-label="Copy snippet to clipboard">' +
+    '<svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<rect x="9" y="9" width="11" height="11" rx="2"></rect>' +
+    '<path d="M5 15V6a2 2 0 0 1 2-2h9"></path>' +
+    '</svg>' +
+    '<svg class="i-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M5 12.5 10 17.5 19 7"></path>' +
+    '</svg>' +
+    '<span class="copy-label">Copy</span>' +
+    '</button>';
+
+function example_html(ex)
+{
+    if (!ex) {
+        return '<span class="cmt">—</span>';
+    }
+    if (ex.slice(0, 3) === '<ol') {
+        return ex;
+    }
+    return '<div class="snippet"><pre>' + ex + '</pre>' + COPY_BUTTON + '</div>';
+}
+
+function render()
+{
+    const seen = {};
+    const out = [];
+
+    for (const group of GROUPS) {
+        const rules = RULES.filter(v => v.g === group.tag);
+        out.push(
+            '<tr class="grp" data-group="' + group.tag + '">' +
+            '<th colspan="4" scope="colgroup">' +
+            '<span class="grp-tag">' + group.tag + '</span>' +
+            '<span class="grp-name">' + group.name + '</span>' +
+            '<span class="grp-note">' + group.note + '</span>' +
+            '</th></tr>'
+        );
+        for (let i = 0, end = rules.length; i < end; ++i) {
+            const rule = rules[i];
+            const id = group.tag + '-' + String(i + 1).padStart(2, '0');
+            const name = rule.src.split('/').pop();
+            const haystack = (id + ' ' + text_of(rule.rule) + ' ' + text_of(rule.ex) + ' ' + rule.src).toLowerCase();
+            seen[rule.src] = true;
+            out.push(
+                '<tr class="rule" id="' + id + '" data-group="' + group.tag + '" data-find="' + haystack.replace(/"/g, '&quot;') + '">' +
+                '<td class="id"><a href="#' + id + '">' + id + '</a></td>' +
+                '<td class="rule">' + rule.rule + '</td>' +
+                '<td class="ex">' + example_html(rule.ex) + '</td>' +
+                '<td class="src"><a href="' + REPO + rule.src + '" title="' + rule.src + '">' + name + '</a></td>' +
+                '</tr>'
+            );
+        }
+    }
+
+    rows_el.innerHTML = out.join('');
+
+    document.getElementById('tally-rules').textContent = RULES.length;
+    document.getElementById('tally-groups').textContent = GROUPS.length;
+    document.getElementById('tally-src').textContent = Object.keys(seen).length;
+
+    const chips = ['<button class="chip" type="button" data-group="" aria-pressed="true">All<span class="n">' + RULES.length + '</span></button>'];
+    for (const group of GROUPS) {
+        const n = RULES.filter(v => v.g === group.tag).length;
+        chips.push('<button class="chip" type="button" data-group="' + group.tag + '" aria-pressed="false">' + group.tag + '<span class="n">' + n + '</span></button>');
+    }
+    chips_el.innerHTML = chips.join('');
+}
+
+function apply()
+{
+    const needle = q_el.value.trim().toLowerCase();
+    const groups = {};
+    let visible = 0;
+
+    for (const tr of rows_el.querySelectorAll('tr.rule')) {
+        const ok = (!active_group || tr.dataset.group === active_group)
+            && (!needle || tr.dataset.find.indexOf(needle) !== -1);
+        tr.hidden = !ok;
+        if (ok) {
+            groups[tr.dataset.group] = true;
+            visible++;
+        }
+    }
+
+    for (const tr of rows_el.querySelectorAll('tr.grp')) {
+        tr.hidden = !groups[tr.dataset.group];
+    }
+
+    empty_el.hidden = visible > 0;
+    count_el.textContent = visible === RULES.length
+        ? RULES.length + ' rules'
+        : visible + ' of ' + RULES.length + ' rules';
+}
+
+// The verdict markers — right, wrong, noise — are editorial, not code.
+function snippet_text(pre)
+{
+    const clone = pre.cloneNode(true);
+    for (const mark of clone.querySelectorAll('.no, .yes')) {
+        mark.remove();
+    }
+    return clone.innerText.split('\n').map(v => v.replace(/\s+$/, '')).join('\n').trim();
+}
+
+function copy_text(text)
+{
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+        const area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.top = '-1000px';
+        document.body.appendChild(area);
+        area.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(area);
+        if (ok) {
+            resolve();
+        }
+        else {
+            reject(new Error('copy failed'));
+        }
+    });
+}
+
+function copy_state(button, label, done)
+{
+    button.querySelector('.copy-label').textContent = label;
+    button.classList.toggle('done', done);
+    clearTimeout(button.copy_timer);
+    button.copy_timer = setTimeout(function () {
+        button.querySelector('.copy-label').textContent = 'Copy';
+        button.classList.remove('done');
+    }, 1400);
+}
+
+rows_el.addEventListener('click', function (event) {
+    const button = event.target.closest('.copy');
+    if (!button) {
+        return;
+    }
+    const pre = button.parentNode.querySelector('pre');
+    copy_text(snippet_text(pre)).then(function () {
+        copy_state(button, 'Copied', true);
+    })
+    .catch(function (error) {
+        copy_state(button, 'Failed', false);
+    });
+});
+
+chips_el.addEventListener('click', function (event) {
+    const chip = event.target.closest('.chip');
+    if (!chip) {
+        return;
+    }
+    active_group = chip.dataset.group;
+    for (const other of chips_el.querySelectorAll('.chip')) {
+        other.setAttribute('aria-pressed', other === chip ? 'true' : 'false');
+    }
+    apply();
+});
+
+q_el.addEventListener('input', apply);
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === '/' && document.activeElement !== q_el) {
+        event.preventDefault();
+        q_el.focus();
+        q_el.select();
+    }
+    if (event.key === 'Escape' && document.activeElement === q_el) {
+        q_el.value = '';
+        apply();
+    }
+});
+
+function head_measure()
+{
+    const th = document.querySelector('thead th');
+    document.documentElement.style.setProperty('--head-h', th.getBoundingClientRect().height + 'px');
+}
+
+render();
+apply();
+head_measure();
+window.addEventListener('resize', head_measure);
+if (document.fonts) {
+    document.fonts.ready.then(head_measure);
+}
+
+function hash_flash(scroll)
+{
+    if (location.hash.length < 2) {
+        return;
+    }
+    const target = document.getElementById(location.hash.slice(1));
+    if (!target) {
+        return;
+    }
+    if (scroll) {
+        target.scrollIntoView({block: 'center'});
+    }
+    // Restart the animation even when the row is already the target.
+    target.classList.remove('flash');
+    void target.offsetWidth;
+    target.classList.add('flash');
+}
+
+window.addEventListener('hashchange', function () {
+    hash_flash(false);
+});
+
+hash_flash(true);
+
+})();
+</script>
+</body>
+</html>
