@@ -21,7 +21,7 @@ It's just not written down.
 
 ## Rules
 
-- **[docs/rules.html](docs/rules.html) — every rule below, all 163 of them, in one filterable table**
+- **[docs/rules.html](docs/rules.html) — every rule below, all 172 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
 - [drafts/naming_markers.md](drafts/naming_markers.md) — memo: all name markers, collected
@@ -34,6 +34,7 @@ It's just not written down.
 - [drafts/var_names_error.md](drafts/var_names_error.md) — a caught error is always named `error`
 - [drafts/formatting_blocks.md](drafts/formatting_blocks.md) — brace and layout catalog, construction by construction
 - [drafts/imports_sorted.md](drafts/imports_sorted.md) — the import block is a plain byte-order line sort
+- [drafts/css_classes.md](drafts/css_classes.md) — class attribute order, smcss utilities, what leads a rule block
 - [drafts/cli_main.md](drafts/cli_main.md) — an executable hands `main` to `cli(main)`
 - [drafts/endpoint_comment.md](drafts/endpoint_comment.md) — every route function carries a `METHOD /path (params)` comment
 - [drafts/interactions-should-return-only-boolean-flag.md](drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag

@@ -723,6 +723,7 @@ const GROUPS = [
     {tag: 'FILE', name: 'File and module structure', note: 'One entry function, one fixed order.'},
     {tag: 'PROJ', name: 'Project layout', note: 'A directory is a program; bin/ holds its verbs.'},
     {tag: 'LOG', name: 'Logs', note: 'One line, one event, three fields.'},
+    {tag: 'CSS', name: 'Classes and styles', note: 'A fixed class order; every class has a rule.'},
     {tag: 'VUE', name: 'Vue 2', note: 'Components that behave like the platform.'},
     {tag: 'REL', name: 'Packaging and release', note: 'Ship a prebuilt dist/.'},
     {tag: 'DOC', name: 'Writing the rules', note: 'How a document in this repo is built.'},
@@ -1362,6 +1363,46 @@ value=""`},
 {g: 'LOG', src: 'drafts/logs.md',
  rule: '<code>group_exit</code> is optional and mainly serves to detect leaks. After it is emitted, no producer emits another event for that group; a parent may emit it for work it abandons. Consumers must accept groups without it — its absence makes no claim.',
  ex: `[group_uid][group_exit]`},
+
+// ---------------------------------------------------------------- CSS
+{g: 'CSS', src: 'drafts/css_classes.md',
+ rule: 'Classes inside one <code>class="…"</code> attribute keep a fixed order. Plain utilities lead; an app-prefixed class (<code>vb-*</code>, <code>np-*</code> — one prefix per app, <code>app-*</code> in these examples) sorts after all of them, base class included; a file-local <code>#-*</code> class is always last.',
+ ex: `layout  spacing  sizing  decoration  typography  app-prefix  local
+
+&lt;div class="flex-row-c #-root" /&gt;
+&lt;div class="fluid p30 xpt app-scrollbars-light #-grid" /&gt;
+&lt;div class="db w80 h80 br4 fit-cover cur-pointer app-background #-preset-img" /&gt;`},
+{g: 'CSS', src: 'drafts/css_classes.md',
+ rule: 'Within the utilities: a display or position utility (<code>db</code>, <code>abs</code>, <code>fluid</code>) leads where the element carries one, a <code>gap*</code> always comes directly after the layout class it belongs to, <code>ph*</code> precedes <code>pv*</code>, and spacing comes before typography.',
+ ex: `flex-row-c gap5
+flex-col-c gap15
+grid-foo gap5`},
+{g: 'CSS', src: 'drafts/css_classes.md',
+ rule: 'Every class either has a rule in the file’s own style block or is an established project utility. An element that needs no styling stays classless — a label-only class rots and sends the next reader looking for a rule nobody wrote.',
+ ex: `&lt;div&gt;                              <span class="cmt">wrapper is unstyled, so no class</span>
+    &lt;div class="#-funnel-bars"&gt;…&lt;/div&gt;
+&lt;/div&gt;`},
+{g: 'CSS', src: 'drafts/css_classes.md',
+ rule: '<code>gap*</code> spaces the children of a grid or flex container; <code>mg*</code> and <code>mi*</code> are the block-container forms. The two do not mix.',
+ ex: ``},
+{g: 'CSS', src: 'drafts/css_classes.md',
+ rule: '<code>fluid</code> marks the filling child of an <code>hsplit</code>/<code>vsplit</code> (whose children default to <code>flex: none</code>); <code>flex-fluid</code> marks the growing child of a plain <code>flex-row</code>/<code>flex-col</code>. Same CSS — the choice states which container the element sits in.',
+ ex: ``},
+{g: 'CSS', src: 'drafts/css_classes.md',
+ rule: 'An <code>x*</code> class usually comes before the setter it clears the way for — the broad class leads and the narrow one corrects it, whichever of the two is the reset.',
+ ex: `&lt;div class="xm ml5" /&gt;   <span class="cmt">margin: 0; margin-left: 5px;</span>
+&lt;div class="m5 xml" /&gt;   <span class="cmt">margin: 5px; margin-left: 0;</span>`},
+{g: 'CSS', src: 'drafts/css_classes.md',
+ rule: 'Rows and columns are a <code>&lt;table&gt;</code>, not a stack of flex rows — the columns line up only until one cell is wider. Flex rows stay for content that is genuinely not tabular.',
+ ex: ``},
+{g: 'CSS', src: 'drafts/css_classes.md',
+ rule: '<code>@import</code> comes first in a block; <code>@include</code> comes first in a rule, ahead of the property declarations — the mixin brings the base, the block overrides it.',
+ ex: `.#-card
+    @include app-transition(box-shadow, border-color)
+    box-sizing: border-box`},
+{g: 'CSS', src: 'drafts/css_classes.md',
+ rule: 'A <code>transition:</code> property is not written by hand — <code>@include app-transition(props…)</code> fills it, expanding each property into <code>&lt;prop&gt; &lt;speed&gt;</code> against the one shared speed. <code>app-transition-fast</code> and <code>app-transition-debug</code> are the same mixin at the fast and debug speeds. List the exact properties that change, never <code>all</code>, and put the include on the base rule rather than the state variant, so the animation covers both directions.',
+ ex: `@include app-transition(box-shadow, border-color)`},
 
 // ---------------------------------------------------------------- VUE
 {g: 'VUE', src: 'vue2/vue-globals.md',
