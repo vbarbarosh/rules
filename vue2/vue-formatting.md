@@ -6,7 +6,7 @@ Use `v-on` and `v-bind` instead of shorthands `@` and `:`
 
 Stick to the following order of props
 
-    ref v-if v-for v-on v-bind [...] class type placeholder title
+    ref v-if v-for v-on v-bind:ref v-bind [...] class type placeholder title
 
 Avoid using `v-if` and `v-for` on the same component.
 
