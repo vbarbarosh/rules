@@ -123,7 +123,7 @@ project, so all JavaScript code follows the same conventions.
 * **File structure order**
 
     * An executable script may start with a shebang; nothing may precede it
-    * `require` statements must follow, sorted lexicographically like the shell `sort` command
+    * `require` statements must follow, sorted as plain text lines in byte order — vim's `:sort`, or `LC_ALL=C sort` (see [drafts/imports_sorted.md](drafts/imports_sorted.md))
     * File-level constants and variables must follow `require` statements
     * An executable script must call `cli(main);` immediately after all global initialization
     * The public entry function must be the first function in the file
