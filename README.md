@@ -21,8 +21,10 @@ It's just not written down.
 
 ## Rules
 
-- **[docs/rules.html](docs/rules.html) — every rule below, all 172 of them, in one filterable table**
+- **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
+- **[docs/rules.html](docs/rules.html) — every rule below, all 176 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
+- Bash scripts — all scripts follow [bin/templ](bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
 - [drafts/naming_markers.md](drafts/naming_markers.md) — memo: all name markers, collected
 - [drafts/for_of.md](drafts/for_of.md) — prefer `for...of`; loop variable is the singular
@@ -51,6 +53,7 @@ It's just not written down.
 - [vue2/vue-button.md](vue2/vue-button.md) — one button, one class
 - [vue2/vue-slider.md](vue2/vue-slider.md) — thumb position is `0 .. 100%`
 - [vue2/vue-svg-icon.md](vue2/vue-svg-icon.md) — one `svg-icon-*.vue` per icon, `currentColor`
+- [vue2/vue-components.md](vue2/vue-components.md) — option order; `click_*` handlers named after the UI part
 
 ## Natural Pairs
 

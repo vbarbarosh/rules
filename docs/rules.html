@@ -1471,6 +1471,22 @@ left: 100%   <span class="cmt">// full</span>`},
 {g: 'VUE', src: 'vue2/vue-svg-icon.md',
  rule: 'SVG icons respect the <code>currentColor</code> CSS property.',
  ex: `&lt;path fill="currentColor" d="..." /&gt;`},
+{g: 'VUE', src: 'vue2/vue-components.md',
+ rule: 'Component options keep one order.',
+ ex: `props inject provide mixins data computed watch methods mounted created beforeDestroy`},
+{g: 'VUE', src: 'vue2/vue-components.md',
+ rule: 'An event handler is named after the UI part it is bound to — the event, then the button text.',
+ ex: `&lt;button v-on:click="click_approve"&gt;
+    Approve
+&lt;/button&gt;`},
+{g: 'VUE', src: 'vue2/vue-components.md',
+ rule: 'A handler on an icon is named after the icon.',
+ ex: `&lt;button v-on:click="click_icon_archive"&gt;
+    &lt;svg-icon-archive /&gt;
+&lt;/button&gt;`},
+{g: 'VUE', src: 'vue2/vue-components.md',
+ rule: 'After the text or icon is changed, rename the corresponding event handler.',
+ ex: `Approve → Accept     <span class="cmt">// click_approve → click_accept</span>`},
 
 // ---------------------------------------------------------------- REL
 {g: 'REL', src: 'packaging/packaging.md',

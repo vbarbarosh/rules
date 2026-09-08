@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+const ESLint = require('eslint').ESLint;
+const cli = require('@vbarbarosh/node-helpers/src/cli');
+const rules_config = require('../src/config');
+
+cli(main);
+
+async function main()
+{
+    const paths = process.argv.slice(2);
+    if (paths.length === 0) {
+        console.error('usage: [PREFIXES=vb-,app-] lint <path>...');
+        console.error('usage: [PREFIXES=vb-,app-] npx @vbarbarosh/rules <path>...');
+        process.exitCode = 1;
+        return;
+    }
+    const options = {};
+    if (process.env.PREFIXES) {
+        options.app_prefixes = process.env.PREFIXES.split(/[\s,]+/).filter(v => v);
+    }
+    const eslint = new ESLint({overrideConfigFile: true, overrideConfig: rules_config(options)});
+    const results = await eslint.lintFiles(paths);
+    const formatter = await eslint.loadFormatter('stylish');
+    process.stdout.write(await formatter.format(results));
+    for (const result of results) {
+        if (result.errorCount > 0) {
+            process.exitCode = 1;
+        }
+    }
+}
