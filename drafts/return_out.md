@@ -1,4 +1,4 @@
-If a function returns a constructed value, the variable holding it must be named out.
+If a variable is used in a `return` statement, it must be named `out`: `return out;`, exactly.
 
 ```js
 function emails_from_users(users)
@@ -20,6 +20,20 @@ function users_group_by_role(users)
         out[user.role].push(user);
     }
     return out;
+}
+```
+
+Only that variable. A value that is joined, stringified or otherwise transformed
+on its way out is not `out`; it is named by what it is:
+
+```js
+function csv_from_rows(rows)
+{
+    const lines = [];
+    for (const row of rows) {
+        lines.push(row.join(','));
+    }
+    return lines.join('\n');
 }
 ```
 
