@@ -1,0 +1,2 @@
+- so, vocabulary --- which words we have/use;
+- glossary - ^ words above with their description/meaning
