@@ -41,6 +41,7 @@ It's just not written down.
 - [drafts/endpoint_comment.md](drafts/endpoint_comment.md) — every route function carries a `METHOD /path (params)` comment
 - [drafts/interactions-should-return-only-boolean-flag.md](drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag
 - [drafts/layout.md](drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
+- [drafts/value_label.md](drafts/value_label.md) — selectable options are `{value, label}`
 - [drafts/logs.md](drafts/logs.md) — `[time][group_uid][sender] details`, one event per line · [cheatsheet](drafts/logs-cheatsheet.html)
 - [packaging/packaging.md](packaging/packaging.md) — releasing a prebuilt `dist/` with `bin/release`
 
@@ -80,16 +81,6 @@ It's just not written down.
 
 - [glossaries/agents.md](glossaries/agents.md) — vocabulary for developing agents: parts, roles, time, messages, tools
 - [glossaries/testing.md](glossaries/testing.md) — happy path, smoke tests, flaky tests, intermittent failures, showstoppers
-
-## Common Patterns
-
-### value / label
-
-For lists of selectable options (select, dropdown, radio, tabs, etc.) always use:
-
-```js
-{value: <internal>, label: <display>}
-```
 
 ## Naming Grammar
 
