@@ -11,7 +11,7 @@
     - `---` or a closing fence is just decoration
 
 
---- ✂️✨🤖✨ ⬇️ AI-Generated Content Below ⬇️ ✨🤖✨✂️ ---
+--- ✨ AI-Generated Content Below ✨ ---
 
 
 # Two-half documents
