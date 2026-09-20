@@ -19,6 +19,12 @@ The naming of files, functions, CSS classes, formatting, and even the order of
 attributes are all important and should follow the same systematic approach.
 It's just not written down.
 
+## Quick Check
+
+```
+npx vbarbarosh/rules src
+```
+
 ## Rules
 
 - **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
