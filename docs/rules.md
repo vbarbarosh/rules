@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-194 rules · 14 groups · 32 sources · filterable version: [rules.html](rules.html)
+209 rules · 15 groups · 36 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -17,13 +17,14 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FN | Function contracts | 16 | What a prefix promises the caller. |
 | FMT | Formatting | 25 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
-| FILE | File and module structure | 19 | One entry function, one fixed order. |
+| FILE | File and module structure | 24 | One entry function, one fixed order. |
 | PROJ | Project layout | 15 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, three fields. |
 | CSS | Classes and styles | 10 | A fixed class order; every class has a rule. |
 | VUE | Vue 2 | 18 | Components that behave like the platform. |
+| UI | User interface | 5 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
-| DOC | Writing the rules | 5 | How a document in this repo is built. |
+| DOC | Writing the rules | 10 | How a document in this repo is built. |
 | LINT | Stated by the linter | 12 | Rules that only LINTING.md and the preset spell out. |
 
 | Code | Rule | Canonical form | Source |
@@ -140,6 +141,11 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FILE-17 | CommonJS modules only. Use `const <name> = require('<module>');` — never `import` or `export`. | — | [FORMATTING.md](../FORMATTING.md) |
 | FILE-18 | Library order is fixed. | `requires → constants → public entry → helpers → module.exports` | [FORMATTING.md](../FORMATTING.md) |
 | FILE-19 | Executable order is fixed. | `shebang → requires → globals → cli(main); → main() → helpers` | [FORMATTING.md](../FORMATTING.md) |
+| FILE-20 | A file exports exactly one thing, as its last statement, and is named after it. The rule is the same for both module systems: `module.exports = name;` or `export default name;`. | <pre>// items_index_by_uid.js<br>export default items_index_by_uid;</pre> | [one_export_per_file.md](../drafts/one_export_per_file.md) |
+| FILE-21 | No named exports — and the consuming side is banned as well: several names are never taken from a local module. Several functions are several files, each named after its function. | <pre>export {engine_run, engine_transport};                   ✗ no<br>import {engine_run, engine_transport} from './engine';   ✗ no<br><br>import engine_run from './engine_run';                   ✓ yes<br>import engine_transport from './engine_transport';</pre> | [one_export_per_file.md](../drafts/one_export_per_file.md) |
+| FILE-22 | A module which is a set of operations on shared state is one object with one default export. The callers reach the operations through the object — `engine.run(prompt)`. | <pre>const engine = {<br>    transport: null,<br>    run: async function (prompt) {<br>    },<br>};<br><br>export default engine;</pre> | [one_export_per_file.md](../drafts/one_export_per_file.md) |
+| FILE-23 | Research, scratch and test-support code inside a repository is not exempt from one export per file. | — | [one_export_per_file.md](../drafts/one_export_per_file.md) |
+| FILE-24 | A named import from a library is the library’s shape, and a file whose shape is dictated by a tool follows the tool — `module.exports.mochaHooks` in a mocha hooks file. | `import {mapState} from 'vuex';` | [one_export_per_file.md](../drafts/one_export_per_file.md) |
 | **PROJ** | **Project layout** — A directory is a program; bin/ holds its verbs. | | |
 | PROJ-01 | Every project keeps one shape. A directory is a program, and `bin/` holds its methods — one executable per verb, working the same in every language. | <pre>bin/build      bb<br>bin/configure<br>bin/release<br>bin/run        rr<br>bin/test       tt<br>bin/watch      ww</pre> | [layout.md](../drafts/layout.md) |
 | PROJ-02 | `bin/configure` is the only command to run after `git pull` to make a checkout ready for development. | — | [layout.md](../drafts/layout.md) |
@@ -210,6 +216,12 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VUE-16 | An event handler is named after the UI part it is bound to — the event, then the button text. | <pre>&lt;button v-on:click="click_approve"&gt;<br>    Approve<br>&lt;/button&gt;</pre> | [vue-components.md](../vue2/vue-components.md) |
 | VUE-17 | A handler on an icon is named after the icon. | <pre>&lt;button v-on:click="click_icon_archive"&gt;<br>    &lt;svg-icon-archive /&gt;<br>&lt;/button&gt;</pre> | [vue-components.md](../vue2/vue-components.md) |
 | VUE-18 | After the text or icon is changed, rename the corresponding event handler. | `Approve → Accept     // click_approve → click_accept` | [vue-components.md](../vue2/vue-components.md) |
+| **UI** | **User interface** — What every new screen carries. | | |
+| UI-01 | Every new UI — a SPA, an app screen, a report, a standalone HTML page — carries a visible light/dark switch. No exceptions: a page that only follows `prefers-color-scheme` has no switch, and does not count. | — | [theme_switch.md](../drafts/theme_switch.md) |
+| UI-02 | The switch has exactly two states, **Light** and **Dark**. There is no System, Auto or follow-the-OS option, not even as the default. | — | [theme_switch.md](../drafts/theme_switch.md) |
+| UI-03 | The light palette lives on bare `:root`; the dark one redefines the same tokens under `:root[data-theme="dark"]`. | <pre>:root {<br>    --color-bg: #FFFFFF;<br>    --color-text: #1B1F23;<br>}<br>:root&#91;data-theme="dark"] {<br>    --color-bg: #15181C;<br>    --color-text: #E6E8EB;<br>}</pre> | [theme_switch.md](../drafts/theme_switch.md) |
+| UI-04 | The root element is always stamped with `data-theme="light"` or `data-theme="dark"` — on load, before the first paint. The initial value comes from `localStorage`; with nothing stored, `prefers-color-scheme` is read once. The choice is saved back, and both the read and the write sit in `try`/`catch`. | `document.documentElement.dataset.theme = theme;` | [theme_switch.md](../drafts/theme_switch.md) |
+| UI-05 | On a long page with a sticky bar, a second copy of the switch is docked at the far right of that bar — after any count label, not before it. It is shown only while the header one is off screen, and collapses to zero width otherwise. | — | [theme_switch.md](../drafts/theme_switch.md) |
 | **REL** | **Packaging and release** — Ship a prebuilt dist/. | | |
 | REL-01 | Distribute a prebuilt `dist/` from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do. | `<script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>` | [packaging.md](../packaging/packaging.md) |
 | REL-02 | The release workflow is fixed: ensure there are no changes, increase the version, update `dist/`, commit, tag. | <pre>rm -rf dist<br>npm run build<br>git add package.json package-lock.json dist<br>git commit -m "release v$(...)"<br>git tag v$(...)</pre> | [packaging.md](../packaging/packaging.md) |
@@ -223,6 +235,11 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | DOC-03 | No AI patches the top half. The one exception is an explicit request from the author. | — | [WRITING.md](../drafts/WRITING.md) |
 | DOC-04 | The bottom half is never edited in place. After the top half changes, it is regenerated from it. | — | [WRITING.md](../drafts/WRITING.md) |
 | DOC-05 | Most of the time the bottom half starts with a `#` heading, and that heading is the boundary. A `---` line or a closing fence before it is decoration. There is no strict marker. | `--- ✨ AI-Generated Content Below ✨ ---` | [WRITING.md](../drafts/WRITING.md) |
+| DOC-06 | The report of a full audit is one file, `notes/audit-<YYYY-MM-DD>.md`. The projects have no issue tracker: the finding register of the newest audit note is the issue list, and later audits refer to findings by their ids. | `notes/audit-2026-09-02.md` | [audit_note.md](../drafts/audit_note.md) |
+| DOC-07 | An audit note keeps one order: title, repository line, scope, verdict with a health-at-a-glance table, finding register, findings, what is good, recommended order of work, status of prior findings, file inventory. | — | [audit_note.md](../drafts/audit_note.md) |
+| DOC-08 | The scope lists every check actually run, and what was not exercised. A check which was not run is said so; it is never implied. | — | [audit_note.md](../drafts/audit_note.md) |
+| DOC-09 | A finding id is `<PROJECT>-NN`, never reused and never renumbered. Each finding is one section citing `file:line` and the evidence — the quoted lines, the command which was run and what it printed. | `### RULES-01 Classes banned in one file, shown in another (high)` | [audit_note.md](../drafts/audit_note.md) |
+| DOC-10 | An audit note is written by the AI as a whole, so it has no top half and no separator. It is left untracked; it is committed only on request. | — | [audit_note.md](../drafts/audit_note.md) |
 | **LINT** | **Stated by the linter** — Rules that only LINTING.md and the preset spell out. | | |
 | LINT-01 | Multiplicative operators are tight — `*`, `/`, `**`. Every other binary, logical and assignment operator has a space on each side. | <pre>const x = a&#42;b + c/d - e&#42;&#42;2;<br>const x = a % 2;</pre> | [LINTING.md](../LINTING.md) |
 | LINT-02 | An anonymous function has a space before its parenthesis; a named one has none. | <pre>server.on('error', function (error) {<br>});<br><br>function main()<br>{<br>}</pre> | [config.js](../src/config.js) |

@@ -771,7 +771,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>194</b> rules<i>·</i><b>14</b> groups<i>·</i><b>33</b> sources</p>
+    <p class="stats"><b>209</b> rules<i>·</i><b>15</b> groups<i>·</i><b>36</b> sources</p>
 </div>
 </header>
 
@@ -781,7 +781,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">194 rules</span>
+        <span class="count" id="count">209 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -797,13 +797,14 @@ footer .lead {
 <a href="#FN" data-group="FN"><span class="tag">FN</span><span class="name">Function contracts</span><span class="n">16</span></a>
 <a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">25</span></a>
 <a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">10</span></a>
-<a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">19</span></a>
+<a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">24</span></a>
 <a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">15</span></a>
 <a href="#LOG" data-group="LOG"><span class="tag">LOG</span><span class="name">Logs</span><span class="n">23</span></a>
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">10</span></a>
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">18</span></a>
+<a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">5</span></a>
 <a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
-<a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">5</span></a>
+<a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">10</span></a>
 <a href="#LINT" data-group="LINT"><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="n">12</span></a>
 </nav>
 <main>
@@ -1511,6 +1512,41 @@ const {promisify} = require('util'); <span class="aside">← { after z</span></p
 <div class="text"><p>Executable order is fixed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
 <div class="form"><pre>shebang → requires → globals → cli(main); → main() → helpers</pre><button class="copy" type="button">Copy</button></div>
 </article>
+<article class="rule" id="FILE-20">
+<a class="code" href="#FILE-20">FILE-20</a>
+<div class="text"><p>A file exports exactly one thing, as its last statement, and is named after it. The rule is the same for both module systems: <code>module.exports = name;</code> or <code>export default name;</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a></div>
+<div class="form"><pre><span class="cmt">// items_index_by_uid.js</span>
+export default items_index_by_uid;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FILE-21">
+<a class="code" href="#FILE-21">FILE-21</a>
+<div class="text"><p>No named exports — and the consuming side is banned as well: several names are never taken from a local module. Several functions are several files, each named after its function.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a></div>
+<div class="form"><pre>export {engine_run, engine_transport};                   <span class="no">✗ no</span>
+import {engine_run, engine_transport} from './engine';   <span class="no">✗ no</span>
+
+import engine_run from './engine_run';                   <span class="yes">✓ yes</span>
+import engine_transport from './engine_transport';</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FILE-22">
+<a class="code" href="#FILE-22">FILE-22</a>
+<div class="text"><p>A module which is a set of operations on shared state is one object with one default export. The callers reach the operations through the object — <code>engine.run(prompt)</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a></div>
+<div class="form"><pre>const engine = {
+    transport: null,
+    run: async function (prompt) {
+    },
+};
+
+export default engine;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FILE-23">
+<a class="code" href="#FILE-23">FILE-23</a>
+<div class="text"><p>Research, scratch and test-support code inside a repository is not exempt from one export per file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a></div>
+</article>
+<article class="rule" id="FILE-24">
+<a class="code" href="#FILE-24">FILE-24</a>
+<div class="text"><p>A named import from a library is the library’s shape, and a file whose shape is dictated by a tool follows the tool — <code>module.exports.mochaHooks</code> in a mocha hooks file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a></div>
+<div class="form"><pre>import {mapState} from 'vuex';</pre><button class="copy" type="button">Copy</button></div>
+</article>
 </section>
 <section class="group" id="PROJ">
 <h2><span class="tag">PROJ</span><span class="name">Project layout</span><span class="note">A directory is a program; bin/ holds its verbs.</span></h2>
@@ -1911,6 +1947,38 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 <div class="form"><pre>Approve → Accept     <span class="cmt">// click_approve → click_accept</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
+<section class="group" id="UI">
+<h2><span class="tag">UI</span><span class="name">User interface</span><span class="note">What every new screen carries.</span></h2>
+<article class="rule bare" id="UI-01">
+<a class="code" href="#UI-01">UI-01</a>
+<div class="text"><p>Every new UI — a SPA, an app screen, a report, a standalone HTML page — carries a visible light/dark switch. No exceptions: a page that only follows <code>prefers-color-scheme</code> has no switch, and does not count.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+</article>
+<article class="rule bare" id="UI-02">
+<a class="code" href="#UI-02">UI-02</a>
+<div class="text"><p>The switch has exactly two states, <strong>Light</strong> and <strong>Dark</strong>. There is no System, Auto or follow-the-OS option, not even as the default.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+</article>
+<article class="rule" id="UI-03">
+<a class="code" href="#UI-03">UI-03</a>
+<div class="text"><p>The light palette lives on bare <code>:root</code>; the dark one redefines the same tokens under <code>:root[data-theme="dark"]</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+<div class="form"><pre>:root {
+    --color-bg: #FFFFFF;
+    --color-text: #1B1F23;
+}
+:root[data-theme="dark"] {
+    --color-bg: #15181C;
+    --color-text: #E6E8EB;
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="UI-04">
+<a class="code" href="#UI-04">UI-04</a>
+<div class="text"><p>The root element is always stamped with <code>data-theme="light"</code> or <code>data-theme="dark"</code> — on load, before the first paint. The initial value comes from <code>localStorage</code>; with nothing stored, <code>prefers-color-scheme</code> is read once. The choice is saved back, and both the read and the write sit in <code>try</code>/<code>catch</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+<div class="form"><pre>document.documentElement.dataset.theme = theme;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="UI-05">
+<a class="code" href="#UI-05">UI-05</a>
+<div class="text"><p>On a long page with a sticky bar, a second copy of the switch is docked at the far right of that bar — after any count label, not before it. It is shown only while the header one is off screen, and collapses to zero width otherwise.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+</article>
+</section>
 <section class="group" id="REL">
 <h2><span class="tag">REL</span><span class="name">Packaging and release</span><span class="note">Ship a prebuilt dist/.</span></h2>
 <article class="rule" id="REL-01">
@@ -1971,6 +2039,28 @@ exit 1</pre><button class="copy" type="button">Copy</button></div>
 <a class="code" href="#DOC-05">DOC-05</a>
 <div class="text"><p>Most of the time the bottom half starts with a <code>#</code> heading, and that heading is the boundary. A <code>---</code> line or a closing fence before it is decoration. There is no strict marker.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a></div>
 <div class="form"><pre>--- ✨ AI-Generated Content Below ✨ ---</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="DOC-06">
+<a class="code" href="#DOC-06">DOC-06</a>
+<div class="text"><p>The report of a full audit is one file, <code>notes/audit-&lt;YYYY-MM-DD&gt;.md</code>. The projects have no issue tracker: the finding register of the newest audit note is the issue list, and later audits refer to findings by their ids.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a></div>
+<div class="form"><pre>notes/audit-2026-09-02.md</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="DOC-07">
+<a class="code" href="#DOC-07">DOC-07</a>
+<div class="text"><p>An audit note keeps one order: title, repository line, scope, verdict with a health-at-a-glance table, finding register, findings, what is good, recommended order of work, status of prior findings, file inventory.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a></div>
+</article>
+<article class="rule bare" id="DOC-08">
+<a class="code" href="#DOC-08">DOC-08</a>
+<div class="text"><p>The scope lists every check actually run, and what was not exercised. A check which was not run is said so; it is never implied.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a></div>
+</article>
+<article class="rule" id="DOC-09">
+<a class="code" href="#DOC-09">DOC-09</a>
+<div class="text"><p>A finding id is <code>&lt;PROJECT&gt;-NN</code>, never reused and never renumbered. Each finding is one section citing <code>file:line</code> and the evidence — the quoted lines, the command which was run and what it printed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a></div>
+<div class="form"><pre>### RULES-01 Classes banned in one file, shown in another (high)</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="DOC-10">
+<a class="code" href="#DOC-10">DOC-10</a>
+<div class="text"><p>An audit note is written by the AI as a whole, so it has no top half and no separator. It is left untracked; it is committed only on request.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a></div>
 </article>
 </section>
 <section class="group" id="LINT">
