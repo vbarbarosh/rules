@@ -3,201 +3,149 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Every rule in the repository, stated once, on one page.">
+<meta name="description" content="Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.">
 <title>The Rule Index</title>
+<!-- Generated from rules.md. Do not edit by hand: change rules.md, then rebuild. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <style>
 :root {
-    --paper: #edefe9;
-    --surface: #fcfdfa;
-    --surface-2: #f4f6ef;
-    --code-bg: #f1f4ec;
-    --code-bg-hover: #e4ead9;
-    --ink: #131916;
-    --ink-2: #2c3632;
-    --muted: #667069;
-    --line: #d6dbd1;
-    --line-2: #e5e9e0;
-    --accent: #0f5d4a;
-    --accent-2: #14775f;
-    --accent-soft: #dcede6;
-    --accent-flash: #a9dcc8;
-    --flag: #a2381f;
-    --flag-soft: #f6e2da;
-    --shadow: 0 1px 2px rgba(19, 25, 22, .05), 0 12px 32px rgba(19, 25, 22, .05);
+    color-scheme: light;
+    --bg: #f7f5ef;
+    --surface: #fffefb;
+    --surface-2: #efece2;
+    --code-bg: #f2efe5;
+    --ink: #191a17;
+    --ink-2: #3b3d37;
+    --muted: #686a61;
+    --line: #d9d5c7;
+    --line-heavy: #191a17;
+    --line-2: #e8e5d9;
+    --accent: #2743b8;
+    --accent-soft: #e2e7fb;
+    --yes: #1a7443;
+    --no: #b2341f;
+    --cmt: #6c6e65;
+    --bar-h: 56px;
+    --bar-gap: 16px;
+    --head-h: 44px;
     --fast: 120ms;
-    --ease: cubic-bezier(.4, 0, .2, 1);
-    --sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-    --cond: "IBM Plex Sans Condensed", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-    --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --paper: #0d1110;
-        --surface: #161c19;
-        --surface-2: #1b2320;
-        --code-bg: #101715;
-        --code-bg-hover: #080d0b;
-        --ink: #e7ece7;
-        --ink-2: #ccd4ce;
-        --muted: #8a958e;
-        --line: #29332e;
-        --line-2: #212925;
-        --accent: #5fcfad;
-        --accent-2: #7fdcbf;
-        --accent-soft: #12302a;
-        --accent-flash: #1e5346;
-        --flag: #f0906f;
-        --flag-soft: #34201a;
-        --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .3);
-    }
+    --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 :root[data-theme="dark"] {
-    --paper: #0d1110;
-    --surface: #161c19;
-    --surface-2: #1b2320;
-    --code-bg: #101715;
-    --code-bg-hover: #080d0b;
-    --ink: #e7ece7;
-    --ink-2: #ccd4ce;
-    --muted: #8a958e;
-    --line: #29332e;
-    --line-2: #212925;
-    --accent: #5fcfad;
-    --accent-2: #7fdcbf;
-    --accent-soft: #12302a;
-    --accent-flash: #1e5346;
-    --flag: #f0906f;
-    --flag-soft: #34201a;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .3);
+    color-scheme: dark;
+    --bg: #101113;
+    --surface: #16181b;
+    --surface-2: #1d2024;
+    --code-bg: #0b0c0e;
+    --ink: #e8e6df;
+    --ink-2: #c9c7bf;
+    --muted: #92958c;
+    --line: #2c3035;
+    --line-heavy: #4a4f57;
+    --line-2: #212428;
+    --accent: #9db2ff;
+    --accent-soft: #1b2346;
+    --yes: #72d39c;
+    --no: #ff937c;
+    --cmt: #878b82;
 }
 
 * {
     box-sizing: border-box;
 }
 
-/* Anything that changes colour animates — hover, focus, the current
-   rule, and every token that swaps when the theme does. */
-*, *::before, *::after {
-    transition:
-        color var(--fast) var(--ease),
-        background-color var(--fast) var(--ease),
-        border-color var(--fast) var(--ease),
-        outline-color var(--fast) var(--ease),
-        opacity var(--fast) var(--ease),
-        box-shadow var(--fast) var(--ease);
+[hidden] {
+    display: none !important;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 104px;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
     margin: 0;
-    background: var(--paper);
+    background: var(--bg);
     color: var(--ink);
-    font-family: var(--sans);
-    font-size: 15px;
+    font-family: var(--serif);
+    font-size: 17px;
     line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-}
-
-code, pre, .mono {
-    font-family: var(--mono);
+    transition: background-color var(--fast), color var(--fast);
 }
 
 a {
-    color: var(--accent-2);
+    color: var(--accent);
+}
+
+/* Code is shown byte for byte: no ligature may turn <!-- or => into an arrow. */
+code, pre {
+    font-family: var(--mono);
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "calt" 0;
 }
 
 :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
-    border-radius: 3px;
 }
 
 .wrap {
-    width: min(1260px, calc(100% - 40px));
+    width: min(1240px, 100% - 32px);
     margin: 0 auto;
 }
 
 /* ---------- masthead ---------- */
 
-.masthead {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
-    gap: 56px;
-    align-items: end;
-    padding: 52px 0 34px;
-    border-bottom: 2px solid var(--ink);
+/* The heavy line closes the masthead and leaves the screen with it. */
+.mast {
+    padding: 28px 0 30px;
+    border-bottom: 2px solid var(--line-heavy);
+    transition: border-color var(--fast);
 }
 
-.eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--accent-2);
-    margin: 0 0 14px;
-}
-
-h1 {
-    font-family: var(--cond);
-    font-weight: 700;
-    font-size: clamp(46px, 8vw, 92px);
-    line-height: .92;
-    letter-spacing: -.02em;
-    margin: 0;
-    text-wrap: balance;
-}
-
-.thesis {
-    margin: 18px 0 0;
-    max-width: 60ch;
-    font-size: 17px;
-    color: var(--ink-2);
-}
-
-.thesis b {
-    font-weight: 600;
-    color: var(--ink);
-}
-
-.side {
+.mast-top {
     display: flex;
-    flex-direction: column;
-    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 44px;
+}
+
+.crumb {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: .04em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color var(--fast);
+}
+
+.crumb:hover {
+    color: var(--accent);
 }
 
 .theme {
     display: inline-flex;
-    align-self: flex-end;
-    background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 2px;
-    overflow: hidden;
+    background: var(--surface);
+    transition: background-color var(--fast), border-color var(--fast);
 }
 
 .theme button {
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .1em;
+    font-size: 11.5px;
+    letter-spacing: .08em;
     text-transform: uppercase;
     color: var(--muted);
     background: transparent;
     border: 0;
-    border-left: 1px solid var(--line);
-    padding: 6px 11px;
+    padding: 7px 12px;
     cursor: pointer;
-}
-
-.theme button:first-child {
-    border-left: 0;
+    transition: color var(--fast), background-color var(--fast);
 }
 
 .theme button:hover {
@@ -205,66 +153,92 @@ h1 {
 }
 
 .theme button[aria-pressed="true"] {
-    color: var(--accent-2);
-    background: var(--accent-soft);
+    color: var(--bg);
+    background: var(--ink);
 }
 
-.tally {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-}
-
-.tally div {
-    background: var(--surface);
-    padding: 12px 14px 13px;
-}
-
-.tally dt {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 0 0 4px;
-}
-
-.tally dd {
+h1 {
     margin: 0;
-    font-family: var(--cond);
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 1;
+    font-weight: 500;
+    font-size: clamp(44px, 7.4vw, 88px);
+    line-height: .98;
+    letter-spacing: -.025em;
+    text-wrap: balance;
+}
+
+.lede {
+    margin: 20px 0 0;
+    max-width: 58ch;
+    font-size: 20px;
+    line-height: 1.45;
+    color: var(--ink-2);
+}
+
+.stats {
+    margin: 22px 0 0;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.stats b {
+    font-weight: 600;
+    color: var(--ink);
     font-variant-numeric: tabular-nums;
 }
 
-/* ---------- controls ---------- */
+.stats i {
+    font-style: normal;
+    margin: 0 8px;
+    color: var(--line);
+}
 
-.controls {
+/* ---------- search bar ---------- */
+
+.bar {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    height: var(--bar-h);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    transition: background-color var(--fast), border-color var(--fast);
+}
+
+.bar-in {
+    height: 100%;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
-    padding: 20px 0 22px;
+    gap: var(--bar-gap);
 }
 
 .search {
     position: relative;
-    flex: 1 1 260px;
-    max-width: 340px;
+    flex: 1 1 auto;
+    max-width: 460px;
+}
+
+.search .slash {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    pointer-events: none;
 }
 
 .search input {
     width: 100%;
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--ink);
     background: var(--surface);
     border: 1px solid var(--line);
-    padding: 9px 12px 9px 32px;
-    border-radius: 2px;
+    border-radius: 0;
+    padding: 8px 12px 8px 30px;
+    transition: border-color var(--fast), background-color var(--fast), color var(--fast);
 }
 
 .search input:hover {
@@ -275,344 +249,447 @@ h1 {
     color: var(--muted);
 }
 
-.search .slash {
-    position: absolute;
-    left: 11px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-    pointer-events: none;
+/* The masthead switch, docked: it opens after the count once the masthead
+   one has left the screen. Closed, it takes no room and the count sits flush right. */
+.theme-docked {
+    flex: none;
+    max-width: 0;
+    margin-left: calc(-1 * var(--bar-gap));
+    overflow: hidden;
+    border-width: 1px 0;
+    border-color: transparent;
+    visibility: hidden;
+    opacity: 0;
+    transition: background-color var(--fast), border-color var(--fast), opacity var(--fast), max-width var(--fast), margin-left var(--fast), border-width var(--fast), visibility 0s linear var(--fast);
 }
 
-.chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.chip {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    background: transparent;
-    border: 1px solid var(--line);
-    border-radius: 2px;
-    padding: 6px 9px;
-    cursor: pointer;
-}
-
-.chip:hover {
-    color: var(--ink);
-    border-color: var(--muted);
-}
-
-.chip[aria-pressed="true"] {
-    color: var(--accent-2);
-    border-color: var(--accent);
-    background: var(--accent-soft);
-}
-
-.chip .n {
-    color: var(--muted);
-    margin-left: 5px;
-    font-variant-numeric: tabular-nums;
-}
-
-.chip[aria-pressed="true"] .n {
-    color: var(--accent-2);
+.bar.docked .theme-docked {
+    max-width: 140px;
+    margin-left: 0;
+    border-width: 1px;
+    border-color: var(--line);
+    visibility: visible;
+    opacity: 1;
+    transition: background-color var(--fast), border-color var(--fast), opacity var(--fast), max-width var(--fast), margin-left var(--fast), border-width var(--fast), visibility 0s;
 }
 
 .count {
     margin-left: auto;
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 12.5px;
+    color: var(--muted);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- layout ---------- */
+
+.layout {
+    display: grid;
+    grid-template-columns: 216px minmax(0, 1fr);
+    gap: 44px;
+    align-items: start;
+    padding-bottom: 40px;
+}
+
+.groups {
+    position: sticky;
+    top: calc(var(--bar-h) + 20px);
+    max-height: calc(100vh - var(--bar-h) - 40px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.groups a {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 8px;
+    padding: 6px 10px 6px 12px;
+    border-left: 2px solid var(--line);
+    color: var(--ink-2);
+    text-decoration: none;
+    font-size: 15.5px;
+    line-height: 1.3;
+    user-select: none;
+    transition: color var(--fast), background-color var(--fast), border-color var(--fast), opacity var(--fast);
+}
+
+.groups a:hover {
+    color: var(--ink);
+    background: var(--surface-2);
+}
+
+.groups a.current {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.groups a.none {
+    opacity: .38;
+}
+
+.groups .tag, .groups .n {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .06em;
     color: var(--muted);
     font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-    padding-left: 8px;
+    transition: color var(--fast);
 }
 
-/* ---------- table ---------- */
-
-.table-wrap {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow);
+.groups a.current .tag, .groups a.current .n {
+    color: var(--accent);
 }
 
-table {
-    width: 100%;
-    min-width: 820px;
-    border-collapse: collapse;
-    table-layout: fixed;
-}
+/* ---------- groups and rules ---------- */
 
-thead th {
+.group h2 {
     position: sticky;
-    top: 0;
+    top: var(--bar-h);
     z-index: 2;
-    background: var(--surface-2);
-    border-bottom: 1px solid var(--line);
-    font-family: var(--mono);
+    height: var(--head-h);
+    margin: 0;
+    padding: 0 2px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    line-height: var(--head-h);
     font-weight: 500;
-    font-size: 11px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: left;
-    padding: 10px 16px;
-}
-
-col.c-id { width: 92px; }
-col.c-rule { width: 36%; }
-col.c-ex { width: auto; }
-col.c-src { width: 176px; }
-
-tbody tr.grp th {
-    position: sticky;
-    top: calc(var(--head-h, 38px) - 1px);
-    z-index: 1;
-    background: var(--surface-2);
-    box-shadow: inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line-2);
-    text-align: left;
-    padding: 16px 16px 14px;
-}
-
-.grp-name {
-    font-family: var(--cond);
-    font-weight: 700;
-    font-size: 22px;
+    font-size: 23px;
     letter-spacing: -.01em;
-    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line-heavy);
+    transition: background-color var(--fast), border-color var(--fast);
 }
 
-.grp-tag {
+.group {
+    padding-top: 20px;
+    scroll-margin-top: calc(var(--bar-h) - 12px);
+}
+
+.group h2 .tag {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 11.5px;
+    font-weight: 600;
     letter-spacing: .1em;
-    color: var(--accent-2);
-    margin-right: 10px;
-    vertical-align: 2px;
+    color: var(--accent);
 }
 
-.grp-note {
-    font-size: 13.5px;
+.group h2 .note {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    font-style: italic;
+    letter-spacing: 0;
     color: var(--muted);
-    margin-left: 12px;
-    font-weight: 400;
 }
 
-tbody tr.rule > * {
-    border-top: 1px solid var(--line-2);
-    padding: 13px 16px;
-    vertical-align: top;
+.rule {
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 8px 24px;
+    padding: 16px 2px 17px;
+    border-bottom: 1px solid var(--line-2);
+    scroll-margin-top: calc(var(--bar-h) + var(--head-h) + 8px);
+    transition: background-color var(--fast), border-color var(--fast), box-shadow var(--fast);
 }
 
-tbody tr.rule:hover > * {
-    background-color: var(--surface-2);
+.rule:target {
+    background: var(--accent-soft);
+    box-shadow: -14px 0 0 var(--accent-soft), 14px 0 0 var(--accent-soft);
 }
 
-tbody tr.rule:target > * {
-    background-color: var(--accent-soft);
+.rule.bare .text {
+    grid-column: 2 / 4;
+    max-width: 68ch;
 }
 
-tbody tr.rule:target > td:first-child {
-    box-shadow: inset 3px 0 0 var(--accent);
-}
-
-tbody tr.rule.flash > * {
-    animation: rule_flash 900ms var(--ease) 1;
-}
-
-@keyframes rule_flash {
-    0% {
-        background-color: var(--accent-flash);
-    }
-    100% {
-        background-color: var(--accent-soft);
-    }
-}
-
-td.id a {
+.rule .code {
+    align-self: start;
     font-family: var(--mono);
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: .04em;
-    color: var(--accent-2);
+    line-height: 25px;
+    color: var(--muted);
     text-decoration: none;
     white-space: nowrap;
+    transition: color var(--fast);
 }
 
-td.id a:hover {
-    text-decoration: underline;
+.rule .code:hover, .rule:target .code {
+    color: var(--accent);
 }
 
-td.rule {
-    color: var(--ink-2);
-    font-size: 14.5px;
+.rule .text p {
+    margin: 0;
+    text-wrap: pretty;
 }
 
-td.rule code, td.ex code {
-    font-size: 12.5px;
+.text code, .form.prose code, .lede code, footer code {
+    font-size: .8em;
+    padding: 1px 3px 2px;
     background: var(--code-bg);
     border: 1px solid var(--line-2);
-    border-radius: 2px;
-    padding: 1px 3px;
-    white-space: nowrap;
-    color: var(--ink);
+    overflow-wrap: anywhere;
+    transition: background-color var(--fast), border-color var(--fast);
 }
 
-.snippet {
-    position: relative;
-}
-
-.snippet:hover pre,
-tbody tr.rule:hover .snippet pre {
-    background-color: var(--code-bg-hover);
-}
-
-.copy {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 2px;
-    padding: 3px 7px 3px 5px;
-    cursor: pointer;
-    opacity: 0;
-}
-
-.snippet:hover .copy,
-tbody tr.rule:hover .copy,
-.copy:focus-visible {
-    opacity: 1;
-}
-
-.copy:hover {
-    color: var(--accent-2);
-    border-color: var(--accent);
-    background: var(--accent-soft);
-}
-
-.copy.done {
-    opacity: 1;
-    color: var(--accent-2);
-    border-color: var(--accent);
-    background: var(--accent-soft);
-}
-
-.copy svg {
-    display: block;
-    width: 12px;
-    height: 12px;
-}
-
-.copy .i-done,
-.copy.done .i-copy {
-    display: none;
-}
-
-.copy.done .i-done {
-    display: block;
-}
-
-td.ex pre {
-    margin: 0;
-    font-size: 12.5px;
-    line-height: 1.55;
-    color: var(--ink);
-    background: var(--code-bg);
-    border: 1px solid var(--line-2);
-    border-radius: 2px;
-    padding: 9px 11px;
-    overflow-x: auto;
-    white-space: pre;
-    tab-size: 4;
-}
-
-td.ex ol {
-    margin: 0;
-    padding-left: 20px;
-    font-size: 13px;
-    color: var(--ink-2);
-}
-
-td.ex .cmt {
-    color: var(--muted);
-}
-
-td.ex .no, td.rule .no {
-    color: var(--flag);
-    font-weight: 500;
-}
-
-td.ex .yes {
-    color: var(--accent-2);
-    font-weight: 500;
-}
-
-td.src a {
+.rule .src {
+    display: inline-block;
+    margin-top: 6px;
     font-family: var(--mono);
     font-size: 11.5px;
     color: var(--muted);
     text-decoration: none;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+    transition: color var(--fast);
 }
 
-td.src a:hover {
-    color: var(--accent-2);
+.rule .src:hover {
+    color: var(--accent);
     text-decoration: underline;
 }
 
-.empty {
-    padding: 44px 16px;
-    text-align: center;
-    color: var(--muted);
+.form {
+    position: relative;
+    min-width: 0;
+    align-self: start;
+}
+
+.form pre {
+    margin: 0;
+    padding: 11px 14px 12px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    line-height: 1.6;
+    tab-size: 4;
+    color: var(--ink);
+    background: var(--code-bg);
+    border: 1px solid var(--line-2);
+    border-left: 2px solid var(--line);
+    transition: background-color var(--fast), border-color var(--fast), color var(--fast);
+}
+
+.form pre .cmt {
+    color: var(--cmt);
+}
+
+.form pre .yes {
+    color: var(--yes);
+    font-weight: 600;
+}
+
+.form pre .no {
+    color: var(--no);
+    font-weight: 600;
+}
+
+.form pre .aside {
+    color: var(--accent);
+}
+
+.form.prose {
+    padding: 2px 0 0 16px;
+    border-left: 2px solid var(--line);
+    font-size: 16px;
+    color: var(--ink-2);
+    transition: border-color var(--fast);
+}
+
+.form.prose p, .form.prose ol {
+    margin: 0;
+}
+
+.form.prose ol {
+    padding-left: 22px;
+}
+
+.form.prose li {
+    padding-left: 2px;
+}
+
+.copy {
+    position: absolute;
+    top: 6px;
+    right: 6px;
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 3px 7px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity var(--fast), color var(--fast), border-color var(--fast), background-color var(--fast);
+}
+
+.form:hover .copy, .copy:focus-visible, .copy.done, .copy.failed {
+    opacity: 1;
+}
+
+.copy:hover {
+    color: var(--ink);
+    border-color: var(--muted);
+}
+
+.copy.done {
+    color: var(--yes);
+    border-color: var(--yes);
+}
+
+.copy.failed {
+    color: var(--no);
+    border-color: var(--no);
+}
+
+/* Without a pointer to hover with, the button sits under the code instead of over it. */
+@media (hover: none) {
+    .copy {
+        position: static;
+        display: block;
+        margin: -1px 0 0 auto;
+        opacity: 1;
+    }
+}
+
+.nothing {
+    margin: 0;
+    padding: 72px 0;
+    text-align: center;
+    font-style: italic;
+    color: var(--muted);
 }
 
 /* ---------- footer ---------- */
 
 footer {
-    padding: 34px 0 60px;
+    padding: 24px 0 64px;
+    border-top: 1px solid var(--line);
+    font-size: 15.5px;
     color: var(--muted);
-    font-size: 13.5px;
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 22px;
-    align-items: baseline;
-    border-top: 1px solid var(--line);
-    margin-top: 26px;
+    gap: 6px 28px;
+    transition: border-color var(--fast);
 }
 
 footer .lead {
     color: var(--ink-2);
+    font-style: italic;
 }
 
-@media (max-width: 900px) {
-    .table-wrap {
-        overflow-x: auto;
+/* ---------- narrow ---------- */
+
+@media (max-width: 920px) {
+    :root {
+        --nav-h: 41px;
     }
 
-    .masthead {
+    .layout {
+        display: block;
+    }
+
+    .groups {
+        top: var(--bar-h);
+        z-index: 3;
+        height: var(--nav-h);
+        max-height: none;
+        margin: 0 -16px;
+        padding: 0 16px;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        transition: background-color var(--fast), border-color var(--fast);
+    }
+
+    .groups::-webkit-scrollbar {
+        display: none;
+    }
+
+    .groups a {
+        flex: none;
+        display: flex;
+        gap: 6px;
+        padding: 4px 8px;
+        border: 1px solid var(--line);
+    }
+
+    .groups a.current {
+        border-color: var(--accent);
+    }
+
+    .groups .name {
+        display: none;
+    }
+
+    .group h2 {
+        top: calc(var(--bar-h) + var(--nav-h));
+    }
+
+    .group {
+        scroll-margin-top: calc(var(--bar-h) + var(--nav-h) - 12px);
+    }
+
+    .rule {
+        scroll-margin-top: calc(var(--bar-h) + var(--nav-h) + var(--head-h) + 8px);
+    }
+}
+
+@media (max-width: 720px) {
+    body {
+        font-size: 16.5px;
+    }
+
+    .mast-top {
+        margin-bottom: 30px;
+    }
+
+    :root {
+        --bar-gap: 10px;
+    }
+
+    .theme-docked button {
+        padding: 7px 8px;
+    }
+
+    .lede {
+        font-size: 18px;
+    }
+
+    .rule {
         grid-template-columns: minmax(0, 1fr);
-        gap: 26px;
-        align-items: start;
+        gap: 4px;
+    }
+
+    .rule.bare .text {
+        grid-column: auto;
+    }
+
+    .rule .code {
+        line-height: 1.4;
+    }
+
+    .form {
+        margin-top: 8px;
+    }
+
+    .group h2 .note {
+        display: none;
     }
 }
 
@@ -623,1081 +700,1578 @@ footer .lead {
 
     *, *::before, *::after {
         transition-duration: 1ms !important;
-        animation-duration: 1ms !important;
     }
 }
 
 @media print {
-    body { background: #fff; color: #000; }
-    .controls, .theme, footer { display: none; }
-    .table-wrap { border: 0; box-shadow: none; overflow: visible; }
-    table { min-width: 0; }
-    tbody tr.rule { break-inside: avoid; }
+    :root, :root[data-theme="dark"] {
+        --bg: #fff;
+        --surface: #fff;
+        --code-bg: #f6f6f6;
+        --ink: #000;
+        --ink-2: #222;
+        --muted: #555;
+        --line: #bbb;
+        --line-heavy: #000;
+        --line-2: #ddd;
+        --accent: #000;
+        --accent-soft: #fff;
+    }
+
+    body {
+        font-size: 11pt;
+    }
+
+    .bar, .groups, .theme, .copy {
+        display: none;
+    }
+
+    .layout {
+        display: block;
+    }
+
+    .group h2 {
+        position: static;
+    }
+
+    .rule {
+        break-inside: avoid;
+    }
+
+    .form pre {
+        white-space: pre-wrap;
+    }
 }
 </style>
 <script>
 (function () {
+    let theme = null;
     try {
-        const saved = localStorage.getItem('rules-theme');
-        if (saved === 'light' || saved === 'dark') {
-            document.documentElement.setAttribute('data-theme', saved);
-        }
+        theme = localStorage.getItem('rules-theme');
     }
     catch {
     }
+    if (theme !== 'light' && theme !== 'dark') {
+        theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', theme);
 })();
 </script>
 </head>
 <body>
-<div class="wrap">
 
-<header class="masthead">
-    <div>
-        <p class="eyebrow">vbarbarosh / rules</p>
-        <h1>The Rule Index</h1>
-        <p class="thesis">Every rule in this repository, stated once, in one table. The generic
-        advice is: <b>write new code the way the existing code is written.</b> What follows is that
-        advice, made explicit — naming, formatting, control flow, file order, project layout, logs
-        and Vue 2. Each row cites the document it came from; that document stays the source of truth.</p>
-    </div>
-    <div class="side">
+<header class="mast">
+<div class="wrap">
+    <div class="mast-top">
+        <a class="crumb" href="https://github.com/vbarbarosh/rules">vbarbarosh / rules</a>
         <div class="theme" id="theme" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
         </div>
-        <dl class="tally">
-            <div><dt>Rules</dt><dd id="tally-rules">—</dd></div>
-            <div><dt>Groups</dt><dd id="tally-groups">—</dd></div>
-            <div><dt>Sources</dt><dd id="tally-src">—</dd></div>
-        </dl>
     </div>
+    <h1>The Rule Index</h1>
+    <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
+    <p class="stats"><b>194</b> rules<i>·</i><b>14</b> groups<i>·</i><b>33</b> sources</p>
+</div>
 </header>
 
-<div class="controls">
-    <div class="search">
-        <span class="slash">/</span>
-        <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, group_uid" aria-label="Filter rules">
+<div class="bar">
+    <div class="wrap bar-in">
+        <label class="search">
+            <span class="slash">/</span>
+            <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
+        </label>
+        <span class="count" id="count">194 rules</span>
+        <div class="theme theme-docked" role="group" aria-label="Color theme">
+            <button type="button" data-set="light" aria-pressed="false">Light</button>
+            <button type="button" data-set="dark" aria-pressed="false">Dark</button>
+        </div>
     </div>
-    <div class="chips" id="chips"></div>
-    <div class="count" id="count"></div>
 </div>
 
-<div class="table-wrap">
-    <table>
-        <colgroup>
-            <col class="c-id">
-            <col class="c-rule">
-            <col class="c-ex">
-            <col class="c-src">
-        </colgroup>
-        <thead>
-            <tr>
-                <th scope="col">Code</th>
-                <th scope="col">Rule</th>
-                <th scope="col">Canonical form</th>
-                <th scope="col">Source</th>
-            </tr>
-        </thead>
-        <tbody id="rows"></tbody>
-    </table>
-    <div class="empty" id="empty" hidden>No rule matches that.</div>
-</div>
-
-<footer>
-    <span class="lead">If something isn't written down here, it is still not free.</span>
-    <span>File names, CSS classes, attribute order — same systematic approach.</span>
-    <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
-</footer>
-
-</div>
-<script>
-const REPO = 'https://github.com/vbarbarosh/rules/blob/main/';
-
-const GROUPS = [
-    {tag: 'CORE', name: 'Uniformity', note: 'The rule behind the rules.'},
-    {tag: 'NAME', name: 'Naming grammar', note: 'Verb morphology decides function or data.'},
-    {tag: 'VAR', name: 'Variables', note: 'A name states the shape of its data.'},
-    {tag: 'FN', name: 'Function contracts', note: 'What a prefix promises the caller.'},
-    {tag: 'FMT', name: 'Formatting', note: 'Braces, breaks, blank lines, comments.'},
-    {tag: 'FLOW', name: 'Control flow', note: 'Imperative, explicit, no magic.'},
-    {tag: 'FILE', name: 'File and module structure', note: 'One entry function, one fixed order.'},
-    {tag: 'PROJ', name: 'Project layout', note: 'A directory is a program; bin/ holds its verbs.'},
-    {tag: 'LOG', name: 'Logs', note: 'One line, one event, three fields.'},
-    {tag: 'CSS', name: 'Classes and styles', note: 'A fixed class order; every class has a rule.'},
-    {tag: 'VUE', name: 'Vue 2', note: 'Components that behave like the platform.'},
-    {tag: 'REL', name: 'Packaging and release', note: 'Ship a prebuilt dist/.'},
-    {tag: 'DOC', name: 'Writing the rules', note: 'How a document in this repo is built.'},
-];
-
-const RULES = [
-
-// ---------------------------------------------------------------- CORE
-{g: 'CORE', src: 'README.md',
- rule: 'Write new code the way the existing code is written. Uniformity outranks personal preference.',
- ex: `<span class="cmt">Everything should look uniform.</span>`},
-{g: 'CORE', src: 'README.md',
- rule: 'An unwritten convention is still a convention. File names, CSS classes, formatting and even attribute order follow the same systematic approach — silence is not permission.',
- ex: ``},
-{g: 'CORE', src: 'README.md',
- rule: 'A selectable option is always <code>{value, label}</code> — value is internal, label is displayed. Select, dropdown, radio, tabs alike.',
- ex: `{value: 'admin', label: 'Administrator'}`},
-{g: 'CORE', src: 'README.md',
- rule: 'Opposites come from the established pairs, not from invention.',
- ex: `construct/destruct  create/destroy
+<div class="wrap layout">
+<nav class="groups" aria-label="Groups">
+<a href="#CORE" data-group="CORE"><span class="tag">CORE</span><span class="name">Uniformity</span><span class="n">4</span></a>
+<a href="#NAME" data-group="NAME"><span class="tag">NAME</span><span class="name">Naming grammar</span><span class="n">18</span></a>
+<a href="#VAR" data-group="VAR"><span class="tag">VAR</span><span class="name">Variables</span><span class="n">13</span></a>
+<a href="#FN" data-group="FN"><span class="tag">FN</span><span class="name">Function contracts</span><span class="n">16</span></a>
+<a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">25</span></a>
+<a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">10</span></a>
+<a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">19</span></a>
+<a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">15</span></a>
+<a href="#LOG" data-group="LOG"><span class="tag">LOG</span><span class="name">Logs</span><span class="n">23</span></a>
+<a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">10</span></a>
+<a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">18</span></a>
+<a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
+<a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">5</span></a>
+<a href="#LINT" data-group="LINT"><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="n">12</span></a>
+</nav>
+<main>
+<section class="group" id="CORE">
+<h2><span class="tag">CORE</span><span class="name">Uniformity</span><span class="note">The rule behind the rules.</span></h2>
+<article class="rule" id="CORE-01">
+<a class="code" href="#CORE-01">CORE-01</a>
+<div class="text"><p>Write new code the way the existing code is written. Uniformity outranks personal preference.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/README.md" title="README.md">README.md</a></div>
+<div class="form prose"><p>Everything should look uniform.</p></div>
+</article>
+<article class="rule bare" id="CORE-02">
+<a class="code" href="#CORE-02">CORE-02</a>
+<div class="text"><p>An unwritten convention is still a convention. File names, CSS classes, formatting and even attribute order follow the same systematic approach — silence is not permission.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/README.md" title="README.md">README.md</a></div>
+</article>
+<article class="rule" id="CORE-03">
+<a class="code" href="#CORE-03">CORE-03</a>
+<div class="text"><p>A selectable option is always <code>{value, label}</code> — value is internal, label is displayed. Select, dropdown, radio, tabs alike.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/value_label.md" title="drafts/value_label.md">value_label.md</a></div>
+<div class="form"><pre>{value: &lt;internal&gt;, label: &lt;display&gt;}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="CORE-04">
+<a class="code" href="#CORE-04">CORE-04</a>
+<div class="text"><p>Opposites come from the established pairs, not from invention.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/README.md" title="README.md">README.md</a></div>
+<div class="form"><pre>construct/destruct  create/destroy
 open/close          begin/end
-first/last          next/previous
-get/put             src/dest
-req/res             res/rej
+start/finish        first/last
+next/previous       get/put
+src/dest            source/destination
+res/rej             resolve/reject
+req/res             request/response
 setup/teardown      push/pull
-enabled/disabled    import/export`},
-
-// ---------------------------------------------------------------- NAME
-{g: 'NAME', src: 'README.md',
- rule: 'Functions are verb phrases, data are noun phrases. Each assignment reads as a sentence — the verb performs, the noun holds.',
- ex: `const users_by_role = users_group_by_role(users);`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: 'English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Prepositions are neutral — the verb form decides the side.',
- ex: `items_sort_by_time(items)   <span class="cmt">// function</span>
-items_sorted_by_time        <span class="cmt">// data</span>`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: 'A bare <code>_by_</code> name is always data, never a function. Lookup is bracket access, not a call.',
- ex: `user_by_id[id]     <span class="yes">right</span>
-user_by_id(id)     <span class="no">wrong</span>`},
-{g: 'NAME', src: 'drafts/var_names.md',
- rule: 'Plurality of the first word states lookup cardinality — what one key returns, not how big the container is.',
- ex: `user_by_id[id]                    <span class="cmt">// User</span>
-users_by_role[role]               <span class="cmt">// User[]</span>
-children_by_parent_id[parent_id]  <span class="cmt">// Node[]</span>`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: '<code>_sorted_by_</code> marks data of the same shape, reordered. The participle survives here because it carries what shape alone cannot.',
- ex: `items_sorted_by_time   <span class="cmt">// Item[], still an array</span>`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: '<code>_per_</code> marks a ratio or a rate.',
- ex: `clicks_per_visit`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: 'The operations that produce those shapes are <code>_group_by_</code>, <code>_sort_by_</code> and <code>_index_by_</code>. The criterion follows the verb.',
- ex: `users_index_by_id(users)     <span class="cmt">// user_by_id</span>
+enabled/disabled    import/export</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="NAME">
+<h2><span class="tag">NAME</span><span class="name">Naming grammar</span><span class="note">Verb morphology decides function or data.</span></h2>
+<article class="rule" id="NAME-01">
+<a class="code" href="#NAME-01">NAME-01</a>
+<div class="text"><p>Functions are verb phrases, data are noun phrases. Each assignment reads as a sentence — the verb performs, the noun holds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/README.md" title="README.md">README.md</a></div>
+<div class="form"><pre>const users_by_role = users_group_by_role(users);</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-02">
+<a class="code" href="#NAME-02">NAME-02</a>
+<div class="text"><p>English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Prepositions are neutral — the verb form decides the side.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>items_sort_by_time(items)   <span class="cmt">// function</span>
+items_sorted_by_time        <span class="cmt">// data</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-03">
+<a class="code" href="#NAME-03">NAME-03</a>
+<div class="text"><p>A bare <code>_by_</code> name is always data, never a function. Lookup is bracket access, not a call.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>user_by_id&#91;id]     <span class="yes">✓ right</span>
+user_by_id(id)     <span class="no">✗ wrong</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-04">
+<a class="code" href="#NAME-04">NAME-04</a>
+<div class="text"><p>Plurality of the first word states lookup cardinality — what one key returns, not how big the container is.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names.md" title="drafts/var_names.md">var_names.md</a></div>
+<div class="form"><pre>user_by_id&#91;id]                    <span class="cmt">// User</span>
+users_by_role&#91;role]               <span class="cmt">// User&#91;]</span>
+children_by_parent_id&#91;parent_id]  <span class="cmt">// Node&#91;]</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-05">
+<a class="code" href="#NAME-05">NAME-05</a>
+<div class="text"><p><code>_sorted_by_</code> marks data of the same shape, reordered. The participle survives here because it carries what shape alone cannot.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>items_sorted_by_time   <span class="cmt">// Item[], still an array</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-06">
+<a class="code" href="#NAME-06">NAME-06</a>
+<div class="text"><p><code>_per_</code> marks a ratio or a rate.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>clicks_per_visit</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-07">
+<a class="code" href="#NAME-07">NAME-07</a>
+<div class="text"><p>The operations that produce those shapes are <code>_group_by_</code>, <code>_sort_by_</code> and <code>_index_by_</code>. The criterion follows the verb.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>users_index_by_id(users)     <span class="cmt">// user_by_id</span>
 users_group_by_role(users)   <span class="cmt">// users_by_role</span>
-items_sort_by_time(items)    <span class="cmt">// items_sorted_by_time</span>`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: 'Use <code>_from_</code> only when something is computed, parsed or constructed — result first, source last.',
- ex: `user_from_token(token)
+items_sort_by_time(items)    <span class="cmt">// items_sorted_by_time</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-08">
+<a class="code" href="#NAME-08">NAME-08</a>
+<div class="text"><p>Use <code>_from_</code> only when something is computed, parsed or constructed — result first, source last.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>user_from_token(token)
 date_from_timestamp(ts)
-tree_from_array(rows)`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: '<code>_from_</code> never means lookup. A lookup disguised as construction is wrong.',
- ex: `user_from_id(id)   <span class="no">wrong</span>
-user_by_id[id]     <span class="yes">right</span>`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: '<code>_to_</code> is for method position only, where the source is the receiver.',
- ex: `tree.to_json()`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: '<code>_to_</code> is banned in data names — <code>id_to_name</code> is only a second spelling of <code>name_by_id</code>.',
- ex: `id_to_name    <span class="no">banned</span>
-name_by_id    <span class="yes">right</span>`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: '<code>_indexed_by_</code> does not exist. Bare <code>_by_</code> already names that shape.',
- ex: `users_indexed_by_id   <span class="no">does not exist</span>
-user_by_id            <span class="yes">right</span>`},
-{g: 'NAME', src: 'drafts/var_names.md',
- rule: '<code>_grouped_by_</code> is retired from data names except for invariant plurals — <code>fish</code>, <code>data</code>, <code>series</code> — which cannot state cardinality by plurality. Prefer a countable noun when one exists.',
- ex: `fish_by_tank           <span class="cmt">// Record&lt;tank, Fish&gt;</span>
-fish_grouped_by_tank   <span class="cmt">// Record&lt;tank, Fish[]&gt;</span>
-rows_by_source         <span class="yes">over data_by_source</span>`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: '<code>_of_</code> is a possession query.',
- ex: `descendants_of(node)`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: '<code>is_</code> is a predicate and returns a boolean.',
- ex: `is_ancestor(a, b)`},
-{g: 'NAME', src: 'drafts/naming_markers.md',
- rule: 'A standalone conversion and the variable it fills share their first word.',
- ex: `const json = json_from_tree(tree);`},
-{g: 'NAME', src: 'FORMATTING.md',
- rule: 'Naming is domain-first. Functions and files follow <code>items_*</code>, <code>item_*</code> or domain nouns; generic names are avoided.',
- ex: `items_index_by_uid()   <span class="yes">right</span>
-process() handle() util()   <span class="no">avoid</span>`},
-{g: 'NAME', src: 'FORMATTING.md',
- rule: '<code>main</code> is the single exception to domain-first naming — reserved for the entry function of an executable script.',
- ex: `function main()
+tree_from_array(rows)</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-09">
+<a class="code" href="#NAME-09">NAME-09</a>
+<div class="text"><p><code>_from_</code> never means lookup. A lookup disguised as construction is wrong.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>user_from_id(id)   <span class="no">✗ wrong</span>
+user_by_id&#91;id]     <span class="yes">✓ right</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-10">
+<a class="code" href="#NAME-10">NAME-10</a>
+<div class="text"><p><code>_to_</code> is for method position only, where the source is the receiver.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>tree.to_json()</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-11">
+<a class="code" href="#NAME-11">NAME-11</a>
+<div class="text"><p><code>_to_</code> is banned in data names — <code>id_to_name</code> is only a second spelling of <code>name_by_id</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>id_to_name    <span class="no">✗ banned</span>
+name_by_id    <span class="yes">✓ right</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-12">
+<a class="code" href="#NAME-12">NAME-12</a>
+<div class="text"><p><code>_indexed_by_</code> does not exist. Bare <code>_by_</code> already names that shape.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>users_indexed_by_id   <span class="no">✗ does not exist</span>
+user_by_id            <span class="yes">✓ right</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-13">
+<a class="code" href="#NAME-13">NAME-13</a>
+<div class="text"><p><code>_grouped_by_</code> is retired from data names except for invariant plurals — <code>fish</code>, <code>data</code>, <code>series</code> — which cannot state cardinality by plurality. Prefer a countable noun when one exists.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names.md" title="drafts/var_names.md">var_names.md</a></div>
+<div class="form"><pre>fish_by_tank           <span class="cmt">// Record&lt;tank, Fish&gt;</span>
+fish_grouped_by_tank   <span class="cmt">// Record&lt;tank, Fish&#91;]&gt;</span>
+rows_by_source         <span class="yes">✓ over data_by_source</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-14">
+<a class="code" href="#NAME-14">NAME-14</a>
+<div class="text"><p><code>_of_</code> is a possession query.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>descendants_of(node)</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-15">
+<a class="code" href="#NAME-15">NAME-15</a>
+<div class="text"><p><code>is_</code> is a predicate and returns a boolean.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>is_ancestor(a, b)</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-16">
+<a class="code" href="#NAME-16">NAME-16</a>
+<div class="text"><p>A standalone conversion and the variable it fills share their first word.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>const json = json_from_tree(tree);</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-17">
+<a class="code" href="#NAME-17">NAME-17</a>
+<div class="text"><p>Naming is domain-first. Functions and files follow <code>items_*</code>, <code>item_*</code> or domain nouns; generic names are avoided.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>items_index_by_uid()   <span class="yes">✓ right</span>
+process() handle() util()   <span class="no">✗ avoid</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="NAME-18">
+<a class="code" href="#NAME-18">NAME-18</a>
+<div class="text"><p><code>main</code> is the single exception to domain-first naming — reserved for the entry function of an executable script.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>function main()
 {
     report_print();
-}`},
-
-// ---------------------------------------------------------------- VAR
-{g: 'VAR', src: 'drafts/var_names.md',
- rule: 'A variable name states the shape of its data.',
- ex: `users                  <span class="cmt">// User[]</span>
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="VAR">
+<h2><span class="tag">VAR</span><span class="name">Variables</span><span class="note">A name states the shape of its data.</span></h2>
+<article class="rule" id="VAR-01">
+<a class="code" href="#VAR-01">VAR-01</a>
+<div class="text"><p>A variable name states the shape of its data.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names.md" title="drafts/var_names.md">var_names.md</a></div>
+<div class="form"><pre>users                  <span class="cmt">// User&#91;]</span>
 user_by_id             <span class="cmt">// Record&lt;id, User&gt;</span>
-users_by_role          <span class="cmt">// Record&lt;role, User[]&gt;</span>
-items_sorted_by_time   <span class="cmt">// Item[], reordered</span>`},
-{g: 'VAR', src: 'drafts/return_out.md',
- rule: 'If a function returns a constructed value, the variable holding it must be named <code>out</code>.',
- ex: `function emails_from_users(users)
+users_by_role          <span class="cmt">// Record&lt;role, User&#91;]&gt;</span>
+items_sorted_by_time   <span class="cmt">// Item&#91;], reordered</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-02">
+<a class="code" href="#VAR-02">VAR-02</a>
+<div class="text"><p>If a variable is used in a <code>return</code> statement, it must be named <code>out</code> — <code>return out;</code>, exactly.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/return_out.md" title="drafts/return_out.md">return_out.md</a></div>
+<div class="form"><pre>function emails_from_users(users)
 {
-    const out = [];
+    const out = &#91;];
     for (const user of users) {
         if (user.email) {
             out.push(user.email);
         }
     }
     return out;
-}`},
-{g: 'VAR', src: 'drafts/return_out.md',
- rule: '<code>out</code> never leaves the function. The caller names the result by what it means.',
- ex: `const emails = emails_from_users(users);
-const users_by_role = users_group_by_role(users);`},
-{g: 'VAR', src: 'FORMATTING.md',
- rule: 'Returning a literal or an expression directly is allowed; a guard return may return <code>null</code>, <code>false</code>, <code>[]</code>, <code>{}</code>. <code>const out = {...}; return out;</code> is rewritten as <code>return {...};</code>',
- ex: `const out = {a, b};
-return out;          <span class="no">rewrite this</span>
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-03">
+<a class="code" href="#VAR-03">VAR-03</a>
+<div class="text"><p><code>out</code> never leaves the function. The caller names the result by what it means.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/return_out.md" title="drafts/return_out.md">return_out.md</a></div>
+<div class="form"><pre>const emails = emails_from_users(users);
+const users_by_role = users_group_by_role(users);</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-04">
+<a class="code" href="#VAR-04">VAR-04</a>
+<div class="text"><p>Returning a literal or an expression directly is allowed; a guard return may return <code>null</code>, <code>false</code>, <code>[]</code>, <code>{}</code>. <code>const out = {...}; return out;</code> is rewritten as <code>return {...};</code></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>const out = {a, b};
+return out;          <span class="no">✗ rewrite this</span>
 
-return {a, b};       <span class="yes">as this</span>`},
-{g: 'VAR', src: 'drafts/var_names_error.md',
- rule: 'The variable holding a caught error is always named <code>error</code> — in <code>try/catch</code>, in <code>.catch(...)</code>, and in error event handlers alike.',
- ex: `catch (error) {
+return {a, b};       <span class="yes">✓ as this</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-05">
+<a class="code" href="#VAR-05">VAR-05</a>
+<div class="text"><p>The variable holding a caught error is always named <code>error</code> — in <code>try/catch</code>, in <code>.catch(...)</code>, and in error event handlers alike.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_error.md" title="drafts/var_names_error.md">var_names_error.md</a></div>
+<div class="form"><pre>catch (error) {
     console.log(error.message);
 }
 
 server.on('error', function (error) {
     throw error;
-});`},
-{g: 'VAR', src: 'drafts/var_names_error.md',
- rule: '<code>e</code>, <code>err</code> and <code>ex</code> do not exist.',
- ex: `catch (e)     <span class="no">no</span>
-catch (err)   <span class="no">no</span>
-catch (error) <span class="yes">yes</span>`},
-{g: 'VAR', src: 'drafts/var_names_error.md',
- rule: 'Accumulated stderr text is not an error variable. Name it by what it is.',
- ex: `stderr   <span class="yes">right</span>
-err      <span class="no">wrong</span>`},
-{g: 'VAR', src: 'FORMATTING.md',
- rule: 'Prefer explicit temporaries. Use intermediate variables instead of nested expressions; favor clarity over terseness.',
- ex: ``},
-{g: 'VAR', src: 'FORMATTING.md',
- rule: 'A lambda parameter is named <code>v</code>; a nested one is <code>vv</code>.',
- ex: `items.map(v =&gt; v.uid)
-items.some(v =&gt; v.sizes.some(vv =&gt; vv.width &gt; 100))`},
-{g: 'VAR', src: 'drafts/for_of.md',
- rule: 'The <code>for...of</code> loop variable is the singular of the collection.',
- ex: `for (const user of users) { }
-for (const child of node.children) { }`},
-{g: 'VAR', src: 'drafts/for_i_end_ii_jj_kk.md',
- rule: 'A cached array length in a single loop is named <code>end</code>.',
- ex: `for (let i = 0, end = items.length; i &lt; end; ++i) {
-}`},
-{g: 'VAR', src: 'drafts/for_i_end_ii_jj_kk.md',
- rule: 'In nested loops the cached bound is the doubled index name: i&nbsp;→&nbsp;ii, j&nbsp;→&nbsp;jj, k&nbsp;→&nbsp;kk.',
- ex: `for (let i = 0, ii = foo.length; i &lt; ii; ++i) {
+});</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-06">
+<a class="code" href="#VAR-06">VAR-06</a>
+<div class="text"><p><code>e</code>, <code>err</code> and <code>ex</code> do not exist.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_error.md" title="drafts/var_names_error.md">var_names_error.md</a></div>
+<div class="form"><pre>catch (e)     <span class="no">✗ no</span>
+catch (err)   <span class="no">✗ no</span>
+catch (error) <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-07">
+<a class="code" href="#VAR-07">VAR-07</a>
+<div class="text"><p>Accumulated stderr text is not an error variable. Name it by what it is.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_error.md" title="drafts/var_names_error.md">var_names_error.md</a></div>
+<div class="form"><pre>stderr   <span class="yes">✓ right</span>
+err      <span class="no">✗ wrong</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="VAR-08">
+<a class="code" href="#VAR-08">VAR-08</a>
+<div class="text"><p>Prefer explicit temporaries. Use intermediate variables instead of nested expressions; favor clarity over terseness.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="VAR-09">
+<a class="code" href="#VAR-09">VAR-09</a>
+<div class="text"><p>A lambda parameter is named <code>v</code>; a nested one is <code>vv</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>items.map(v =&gt; v.uid)
+items.some(v =&gt; v.sizes.some(vv =&gt; vv.width &gt; 100))</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-10">
+<a class="code" href="#VAR-10">VAR-10</a>
+<div class="text"><p>The <code>for...of</code> loop variable is the singular of the collection.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/for_of.md" title="drafts/for_of.md">for_of.md</a></div>
+<div class="form"><pre>for (const user of users) { }
+for (const child of node.children) { }</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-11">
+<a class="code" href="#VAR-11">VAR-11</a>
+<div class="text"><p>A cached array length in a single loop is named <code>end</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/for_i_end_ii_jj_kk.md" title="drafts/for_i_end_ii_jj_kk.md">for_i_end_ii_jj_kk.md</a></div>
+<div class="form"><pre>for (let i = 0, end = items.length; i &lt; end; ++i) {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-12">
+<a class="code" href="#VAR-12">VAR-12</a>
+<div class="text"><p>In nested loops the cached bound is the doubled index name: i → ii, j → jj, k → kk.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/for_i_end_ii_jj_kk.md" title="drafts/for_i_end_ii_jj_kk.md">for_i_end_ii_jj_kk.md</a></div>
+<div class="form"><pre>for (let i = 0, ii = foo.length; i &lt; ii; ++i) {
     for (let j = 0, jj = bar.length; j &lt; jj; ++j) {
         for (let k = 0, kk = baz.length; k &lt; kk; ++k) {
         }
     }
-}`},
-
-// ---------------------------------------------------------------- FN
-{g: 'FN', src: 'drafts/format_xxx.md',
- rule: '<code>format_*</code> returns a string intended for human display.',
- ex: `format_bytes(1457664)    <span class="cmt">// "1.4 MB"</span>
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-13">
+<a class="code" href="#VAR-13">VAR-13</a>
+<div class="text"><p>Only that variable is <code>out</code>. A value that is joined, stringified or otherwise transformed on its way out is not <code>out</code>; it is named by what it is.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/return_out.md" title="drafts/return_out.md">return_out.md</a></div>
+<div class="form"><pre>function csv_from_rows(rows)
+{
+    const lines = &#91;];
+    for (const row of rows) {
+        lines.push(row.join(','));
+    }
+    return lines.join('&#92;n');
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="FN">
+<h2><span class="tag">FN</span><span class="name">Function contracts</span><span class="note">What a prefix promises the caller.</span></h2>
+<article class="rule" id="FN-01">
+<a class="code" href="#FN-01">FN-01</a>
+<div class="text"><p><code>format_*</code> returns a string intended for human display.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a></div>
+<div class="form"><pre>format_bytes(1457664)    <span class="cmt">// "1.4 MB"</span>
 format_duration(155000)  <span class="cmt">// "2m 35s"</span>
-format_usd(1299)         <span class="cmt">// "$12.99"</span>`},
-{g: 'FN', src: 'drafts/format_xxx.md',
- rule: 'A display conversion is never hand-rolled at a call site — an inline one is a missed <code>format_*</code>.',
- ex: `\${Math.round(bytes / 1024)}kB   <span class="no">missed call</span>
-format_bytes(bytes)             <span class="yes">right</span>`},
-{g: 'FN', src: 'drafts/format_xxx.md',
- rule: '<code>format_*</code> returns — it never prints. Output is the caller’s job.',
- ex: `console.log(format_tree(tree));`},
-{g: 'FN', src: 'drafts/format_xxx.md',
- rule: '<code>format_*</code> is not for machine formats. Serialization is conversion, not display.',
- ex: `format_user(user)     <span class="cmt">// "Vladimir B. (admin)" — humans</span>
-json_from_user(user)  <span class="cmt">// machines</span>`},
-{g: 'FN', src: 'drafts/render_xxx.md',
- rule: '<code>render_*</code> derives a small value — usually a string — from the object’s own state. The Vue analogy is a computed property, written as a method.',
- ex: `public function render_name_email()
+format_usd(1299)         <span class="cmt">// "$12.99"</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-02">
+<a class="code" href="#FN-02">FN-02</a>
+<div class="text"><p>A display conversion is never hand-rolled at a call site — an inline one is a missed <code>format_*</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a></div>
+<div class="form"><pre>${Math.round(bytes / 1024)}kB   <span class="no">✗ missed call</span>
+format_bytes(bytes)             <span class="yes">✓ right</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-03">
+<a class="code" href="#FN-03">FN-03</a>
+<div class="text"><p><code>format_*</code> returns — it never prints. Output is the caller’s job.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a></div>
+<div class="form"><pre>console.log(format_tree(tree));</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-04">
+<a class="code" href="#FN-04">FN-04</a>
+<div class="text"><p><code>format_*</code> is not for machine formats. Serialization is conversion, not display.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a></div>
+<div class="form"><pre>format_user(user)     <span class="cmt">// "Vladimir B. (admin)" — humans</span>
+json_from_user(user)  <span class="cmt">// machines</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-05">
+<a class="code" href="#FN-05">FN-05</a>
+<div class="text"><p><code>render_*</code> derives a small value — usually a string — from the object’s own state. The Vue analogy is a computed property, written as a method.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a></div>
+<div class="form"><pre>public function render_name_email()
 {
     if ($this-&gt;name) {
         return sprintf('%s &lt;%s&gt;', $this-&gt;name, $this-&gt;email);
     }
     return $this-&gt;email;
-}`},
-{g: 'FN', src: 'drafts/render_xxx.md',
- rule: 'The prefix separates derived values from stored attributes. <code>render_*</code> is recomputed per call — never cached, never stored.',
- ex: `$this-&gt;email                  <span class="cmt">// a column</span>
-$this-&gt;render_dashboard_url() <span class="cmt">// computed every call</span>`},
-{g: 'FN', src: 'drafts/render_xxx.md',
- rule: '<code>render_*</code> may return <code>null</code> when not applicable, and may throw when the state makes the value meaningless.',
- ex: `if (!$this-&gt;partner_email) {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-06">
+<a class="code" href="#FN-06">FN-06</a>
+<div class="text"><p>The prefix separates derived values from stored attributes. <code>render_*</code> is recomputed per call — never cached, never stored.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a></div>
+<div class="form"><pre>$this-&gt;email                  <span class="cmt">// a column</span>
+$this-&gt;render_dashboard_url() <span class="cmt">// computed every call</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-07">
+<a class="code" href="#FN-07">FN-07</a>
+<div class="text"><p><code>render_*</code> may return <code>null</code> when not applicable, and may throw when the state makes the value meaningless.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a></div>
+<div class="form"><pre>if (!$this-&gt;partner_email) {
     return null;
-}`},
-{g: 'FN', src: 'drafts/render_xxx.md',
- rule: '<code>render_*</code> is never async and never side-effectful. A downloadable, substantial artifact — a zip, a csv, an xlsx — is <code>export_*</code>, which may be both.',
- ex: `$user-&gt;render_name_email()   <span class="cmt">// small, sync, pure</span>
-export_zip()                 <span class="cmt">// artifact, may be async</span>`},
-{g: 'FN', src: 'drafts/format_xxx.md',
- rule: '<code>format_*</code> transforms an input it is given; <code>render_*</code> derives from self.',
- ex: `format_usd($cents)          <span class="cmt">// value in  → string out</span>
-$user-&gt;render_name_email()  <span class="cmt">// state in  → string out</span>`},
-{g: 'FN', src: 'drafts/refresh.md',
- rule: 'Anything that holds a local copy of remote data has <code>refresh()</code> — it pulls the data and brings the local vars up to date. Mental model: the browser refresh button.',
- ex: `refresh: async function () {
-    await Promise.all([
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-08">
+<a class="code" href="#FN-08">FN-08</a>
+<div class="text"><p><code>render_*</code> is never async and never side-effectful. A downloadable, substantial artifact — a zip, a csv, an xlsx — is <code>export_*</code>, which may be both.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a></div>
+<div class="form"><pre>$user-&gt;render_name_email()   <span class="cmt">// small, sync, pure</span>
+export_zip()                 <span class="cmt">// artifact, may be async</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-09">
+<a class="code" href="#FN-09">FN-09</a>
+<div class="text"><p><code>format_*</code> transforms an input it is given; <code>render_*</code> derives from self.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a></div>
+<div class="form"><pre>format_usd($cents)          <span class="cmt">// value in  → string out</span>
+$user-&gt;render_name_email()  <span class="cmt">// state in  → string out</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-10">
+<a class="code" href="#FN-10">FN-10</a>
+<div class="text"><p>Anything that holds a local copy of remote data has <code>refresh()</code> — it pulls the data and brings the local vars up to date. Mental model: the browser refresh button.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/refresh.md" title="drafts/refresh.md">refresh.md</a></div>
+<div class="form"><pre>refresh: async function () {
+    await Promise.all(&#91;
         this.refresh_user(),
         this.refresh_banners(),
     ]);
-},`},
-{g: 'FN', src: 'drafts/refresh.md',
- rule: '<code>refresh()</code> is idempotent — safe to call at any moment, any number of times.',
- ex: ``},
-{g: 'FN', src: 'drafts/refresh.md',
- rule: 'A fine-grained <code>refresh_&lt;part&gt;()</code> syncs one part of the state; <code>refresh()</code> composes them.',
- ex: `refresh_user: async function () {
+},</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FN-11">
+<a class="code" href="#FN-11">FN-11</a>
+<div class="text"><p><code>refresh()</code> is idempotent — safe to call at any moment, any number of times.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/refresh.md" title="drafts/refresh.md">refresh.md</a></div>
+</article>
+<article class="rule" id="FN-12">
+<a class="code" href="#FN-12">FN-12</a>
+<div class="text"><p>A fine-grained <code>refresh_&lt;part&gt;()</code> syncs one part of the state; <code>refresh()</code> composes them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/refresh.md" title="drafts/refresh.md">refresh.md</a></div>
+<div class="form"><pre>refresh_user: async function () {
     this.user = await fetch_user();
-},`},
-{g: 'FN', src: 'drafts/refresh.md',
- rule: 'Init is the first refresh. Derived state is never edited, only rederived.',
- ex: `mounted: async function () {
+},</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-13">
+<a class="code" href="#FN-13">FN-13</a>
+<div class="text"><p>Init is the first refresh. Derived state is never edited, only rederived.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/refresh.md" title="drafts/refresh.md">refresh.md</a></div>
+<div class="form"><pre>mounted: async function () {
     await this.refresh();
     this.ready = true;
-},`},
-{g: 'FN', src: 'drafts/interactions-should-return-only-boolean-flag.md',
- rule: 'An interaction — modal, popover — executes its own logic and returns a boolean commit flag. It expresses intent; it does not expose control flow.',
- ex: `<span class="cmt">// true  → changes were committed
-// false → no-op (cancel, or no changes)</span>
+},</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-14">
+<a class="code" href="#FN-14">FN-14</a>
+<div class="text"><p>An interaction — modal, popover — executes its own logic and returns a boolean commit flag. It expresses intent; it does not expose control flow.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/interactions-should-return-only-boolean-flag.md" title="drafts/interactions-should-return-only-boolean-flag.md">interactions-should-return-only-boolean-flag.md</a></div>
+<div class="form"><pre><span class="cmt">// true  → changes were committed</span>
+<span class="cmt">// false → no-op (cancel, or no changes)</span>
 if (await modal_upload().promise()) {
     await blocking(this.refresh());
-}`},
-{g: 'FN', src: 'FORMATTING.md',
- rule: 'Guards return early. Validate inputs immediately and return <code>null</code> or empty values explicitly.',
- ex: ``},
-{g: 'FN', src: 'FORMATTING.md',
- rule: 'One public entry function per file.',
- ex: ``},
-
-// ---------------------------------------------------------------- FMT
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'Indentation is exactly 4 spaces. No tabs.',
- ex: ``},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'A top-level function declaration puts its opening brace on the next line.',
- ex: `function main()
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FN-15">
+<a class="code" href="#FN-15">FN-15</a>
+<div class="text"><p>Guards return early. Validate inputs immediately and return <code>null</code> or empty values explicitly.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FN-16">
+<a class="code" href="#FN-16">FN-16</a>
+<div class="text"><p>One public entry function per file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+</section>
+<section class="group" id="FMT">
+<h2><span class="tag">FMT</span><span class="name">Formatting</span><span class="note">Braces, breaks, blank lines, comments.</span></h2>
+<article class="rule bare" id="FMT-01">
+<a class="code" href="#FMT-01">FMT-01</a>
+<div class="text"><p>Indentation is exactly 4 spaces. No tabs.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="FMT-02">
+<a class="code" href="#FMT-02">FMT-02</a>
+<div class="text"><p>A top-level function declaration puts its opening brace on the next line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>function main()
 {
-}`},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'A function declared inside another function keeps its opening brace on the declaration line.',
- ex: `function main()
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-03">
+<a class="code" href="#FMT-03">FMT-03</a>
+<div class="text"><p>A function declared inside another function keeps its opening brace on the declaration line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>function main()
 {
     function limit_print(limit) {
     }
-}`},
-{g: 'FMT', src: 'drafts/formatting_blocks.md',
- rule: 'Function expressions, callbacks and Promise executors keep the opening brace on the declaration line.',
- ex: `server.on('error', function (error) {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-04">
+<a class="code" href="#FMT-04">FMT-04</a>
+<div class="text"><p>Function expressions, callbacks and Promise executors keep the opening brace on the declaration line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a></div>
+<div class="form"><pre>server.on('error', function (error) {
 });
 
 return new Promise(function (resolve, reject) {
-});`},
-{g: 'FMT', src: 'drafts/formatting_blocks.md',
- rule: 'A class declaration puts its brace on the next line; its methods keep the brace on the declaration line.',
- ex: `class Logger
+});</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-05">
+<a class="code" href="#FMT-05">FMT-05</a>
+<div class="text"><p>A class declaration puts its brace on the next line; its methods keep the brace on the declaration line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a></div>
+<div class="form"><pre>class Logger
 {
     constructor(parent_group_uid) {
     }
 
     write(format, ...values) {
     }
-}`},
-{g: 'FMT', src: 'drafts/formatting_blocks.md',
- rule: 'Module-level <code>if</code>, <code>for</code> and <code>while</code> keep the brace on the statement line.',
- ex: `if (process.env.DEBUG) {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-06">
+<a class="code" href="#FMT-06">FMT-06</a>
+<div class="text"><p>Module-level <code>if</code>, <code>for</code> and <code>while</code> keep the brace on the statement line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a></div>
+<div class="form"><pre>if (process.env.DEBUG) {
 }
 
 for (const size of sizes) {
-}`},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'Always use braces for <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>. No single-line bodies.',
- ex: `if (!user) return null;   <span class="no">no</span>
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-07">
+<a class="code" href="#FMT-07">FMT-07</a>
+<div class="text"><p>Always use braces for <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>. No single-line bodies.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>if (!user) return null;   <span class="no">✗ no</span>
 
-if (!user) {              <span class="yes">yes</span>
+if (!user) {              <span class="yes">✓ yes</span>
     return null;
-}`},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: '<code>else</code> starts on a new line.',
- ex: `if (a) {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-08">
+<a class="code" href="#FMT-08">FMT-08</a>
+<div class="text"><p><code>else</code> starts on a new line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>if (a) {
 }
 else if (b) {
 }
 else {
-}`},
-{g: 'FMT', src: 'drafts/formatting_blocks.md',
- rule: '<code>catch</code> and <code>finally</code> start on a new line.',
- ex: `try {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-09">
+<a class="code" href="#FMT-09">FMT-09</a>
+<div class="text"><p><code>catch</code> and <code>finally</code> start on a new line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a></div>
+<div class="form"><pre>try {
 }
 catch (error) {
 }
 finally {
-}`},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: '<code>switch</code> and <code>case</code> are aligned at the same indentation level.',
- ex: `switch (type) {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-10">
+<a class="code" href="#FMT-10">FMT-10</a>
+<div class="text"><p><code>switch</code> and <code>case</code> are aligned at the same indentation level.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>switch (type) {
 case 'voice':
     break;
 case 'text':
     break;
 default:
-}`},
-{g: 'FMT', src: 'drafts/formatting_blocks.md',
- rule: 'A multi-line object literal holds one field per line, trailing comma included.',
- ex: `const next = {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-11">
+<a class="code" href="#FMT-11">FMT-11</a>
+<div class="text"><p>A multi-line object literal holds one field per line, trailing comma included.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a></div>
+<div class="form"><pre>const next = {
     uid: item.uid,
     parent_uid: item.parent_uid,
     index,
-};`},
-{g: 'FMT', src: 'drafts/formatting_blocks.md',
- rule: 'An object of methods — Vue options style — spells each method as a function expression.',
- ex: `const options = {
+};</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-12">
+<a class="code" href="#FMT-12">FMT-12</a>
+<div class="text"><p>An object of methods — Vue options style — spells each method as a function expression.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a></div>
+<div class="form"><pre>const options = {
     refresh: async function () {
     },
     render_name: function () {
     },
-};`},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'Keep an expression on one line when it fits on one line.',
- ex: ``},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'Never split an assignment after <code>=</code> when its right-hand side is a single function call.',
- ex: `const users_by_role =
-    users_group_by_role(users);   <span class="no">no</span>
+};</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FMT-13">
+<a class="code" href="#FMT-13">FMT-13</a>
+<div class="text"><p>Keep an expression on one line when it fits on one line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="FMT-14">
+<a class="code" href="#FMT-14">FMT-14</a>
+<div class="text"><p>Never split an assignment after <code>=</code> when its right-hand side is a single function call.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>const users_by_role =
+    users_group_by_role(users);   <span class="no">✗ no</span>
 
-const users_by_role = users_group_by_role(users);   <span class="yes">yes</span>`},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'Break a statement only when its size or nested structure makes the break necessary. Line breaks must expose structure.',
- ex: ``},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'A blank line marks a phase change — nothing else. Add one only when the following statement begins an independent conceptual step.',
- ex: ``},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'Keep setup adjacent to the loop, condition or call that immediately uses it. Tightly coupled setup and use are not separated merely because the statement type changes.',
- ex: ``},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'Construct an object from the required fields only. Do not spread a full object when a subset is needed.',
- ex: `{...item, index}                              <span class="no">bad</span>
-{uid: item.uid, parent_uid: item.parent_uid, index}   <span class="yes">good</span>`},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'Comments explain intent or policy only. No comments for obvious mechanics.',
- ex: ``},
-{g: 'FMT', src: 'FORMATTING.md',
- rule: 'A multi-line comment carries a rule, an invariant or a guarantee.',
- ex: ``},
-{g: 'FMT', src: 'drafts/endpoint_comment.md',
- rule: 'Every route function carries a route comment directly above it: <code>METHOD /path (params)</code>.',
- ex: `<span class="cmt">// GET /file/&lt;name&gt;</span>
+const users_by_role = users_group_by_role(users);   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FMT-15">
+<a class="code" href="#FMT-15">FMT-15</a>
+<div class="text"><p>Break a statement only when its size or nested structure makes the break necessary. Line breaks must expose structure.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FMT-16">
+<a class="code" href="#FMT-16">FMT-16</a>
+<div class="text"><p>A blank line marks a phase change — nothing else. Add one only when the following statement begins an independent conceptual step.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FMT-17">
+<a class="code" href="#FMT-17">FMT-17</a>
+<div class="text"><p>Keep setup adjacent to the loop, condition or call that immediately uses it. Tightly coupled setup and use are not separated merely because the statement type changes.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="FMT-18">
+<a class="code" href="#FMT-18">FMT-18</a>
+<div class="text"><p>Construct an object from the required fields only. Do not spread a full object when a subset is needed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>{...item, index}                              <span class="no">✗ bad</span>
+{uid: item.uid, parent_uid: item.parent_uid, index}   <span class="yes">✓ good</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FMT-19">
+<a class="code" href="#FMT-19">FMT-19</a>
+<div class="text"><p>Comments explain intent or policy only. No comments for obvious mechanics.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FMT-20">
+<a class="code" href="#FMT-20">FMT-20</a>
+<div class="text"><p>A multi-line comment carries a rule, an invariant or a guarantee.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="FMT-21">
+<a class="code" href="#FMT-21">FMT-21</a>
+<div class="text"><p>Every route function carries a route comment directly above it: <code>METHOD /path (params)</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/endpoint_comment.md" title="drafts/endpoint_comment.md">endpoint_comment.md</a></div>
+<div class="form"><pre><span class="cmt">// GET /file/&lt;name&gt;</span>
 async function file_get(req, res)
 {
-}`},
-{g: 'FMT', src: 'drafts/endpoint_comment.md',
- rule: 'Parentheses appear only when the endpoint takes input — body, headers, query, comma-separated, in that order.',
- ex: `<span class="cmt">// POST /upload (body, header:x-filename)</span>
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-22">
+<a class="code" href="#FMT-22">FMT-22</a>
+<div class="text"><p>Parentheses appear only when the endpoint takes input — body, headers, query, comma-separated, in that order.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/endpoint_comment.md" title="drafts/endpoint_comment.md">endpoint_comment.md</a></div>
+<div class="form"><pre><span class="cmt">// POST /upload (body, header:x-filename)</span>
 function upload_post(req, res)
 {
-}`},
-{g: 'FMT', src: 'drafts/endpoint_comment.md',
- rule: 'A header is prefixed with <code>header:</code>; a path parameter is spelled in the path itself.',
- ex: `header:x-filename
-/file/&lt;name&gt;`},
-{g: 'FMT', src: 'drafts/endpoint_comment.md',
- rule: 'An intent comment continues the same block on the next line.',
- ex: `<span class="cmt">// POST /upload (body, header:x-filename)
-// Streams to data/ before the body is fully read.</span>`},
-
-// ---------------------------------------------------------------- FLOW
-{g: 'FLOW', src: 'FORMATTING.md',
- rule: 'Prefer imperative control flow.',
- ex: ``},
-{g: 'FLOW', src: 'drafts/for_of.md',
- rule: 'Prefer <code>for...of</code> when the index is not needed.',
- ex: `for (const item of items) {
-}`},
-{g: 'FLOW', src: 'drafts/for_of.md',
- rule: 'Use an indexed loop when the index is needed.',
- ex: `for (let i = 0, end = items.length; i &lt; end; ++i) {
-}`},
-{g: 'FLOW', src: 'FORMATTING.md',
- rule: '<code>do { ... } while (...)</code> does not exist. Use <code>while</code> or <code>for</code>.',
- ex: ``},
-{g: 'FLOW', src: 'FORMATTING.md',
- rule: '<code>reduce</code>, deep chaining and functional pipelines are allowed only if the entire expression fits on a single line.',
- ex: ``},
-{g: 'FLOW', src: 'FORMATTING.md',
- rule: 'Do not use arrow functions for non-trivial logic. Arrows are allowed only for tiny callbacks.',
- ex: `const uids = items.map(v =&gt; v.uid);
-fresh.catch(ignore);`},
-{g: 'FLOW', src: 'drafts/formatting_blocks.md',
- rule: 'An arrow with a block body does not exist — it becomes <code>function (...) {}</code>, with an optional <code>_this</code> inside.',
- ex: `items.forEach(v =&gt; {      <span class="no">does not exist</span>
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-23">
+<a class="code" href="#FMT-23">FMT-23</a>
+<div class="text"><p>A header is prefixed with <code>header:</code>; a path parameter is spelled in the path itself.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/endpoint_comment.md" title="drafts/endpoint_comment.md">endpoint_comment.md</a></div>
+<div class="form"><pre>header:x-filename
+/file/&lt;name&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-24">
+<a class="code" href="#FMT-24">FMT-24</a>
+<div class="text"><p>An intent comment continues the same block on the next line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/endpoint_comment.md" title="drafts/endpoint_comment.md">endpoint_comment.md</a></div>
+<div class="form"><pre><span class="cmt">// POST /upload (body, header:x-filename)</span>
+<span class="cmt">// Streams to data/ before the body is fully read.</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-25">
+<a class="code" href="#FMT-25">FMT-25</a>
+<div class="text"><p>Every named function — top-level or nested — is a <code>function name(...)</code> declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>function report_print()
+{
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="FLOW">
+<h2><span class="tag">FLOW</span><span class="name">Control flow</span><span class="note">Imperative, explicit, no magic.</span></h2>
+<article class="rule bare" id="FLOW-01">
+<a class="code" href="#FLOW-01">FLOW-01</a>
+<div class="text"><p>Prefer imperative control flow.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="FLOW-02">
+<a class="code" href="#FLOW-02">FLOW-02</a>
+<div class="text"><p>Prefer <code>for...of</code> when the index is not needed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/for_of.md" title="drafts/for_of.md">for_of.md</a></div>
+<div class="form"><pre>for (const item of items) {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FLOW-03">
+<a class="code" href="#FLOW-03">FLOW-03</a>
+<div class="text"><p>Use an indexed loop when the index is needed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/for_of.md" title="drafts/for_of.md">for_of.md</a></div>
+<div class="form"><pre>for (let i = 0, end = items.length; i &lt; end; ++i) {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FLOW-04">
+<a class="code" href="#FLOW-04">FLOW-04</a>
+<div class="text"><p><code>do { ... } while (...)</code> does not exist. Use <code>while</code> or <code>for</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FLOW-05">
+<a class="code" href="#FLOW-05">FLOW-05</a>
+<div class="text"><p><code>reduce</code>, deep chaining and functional pipelines are allowed only if the entire expression fits on a single line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="FLOW-06">
+<a class="code" href="#FLOW-06">FLOW-06</a>
+<div class="text"><p>Do not use arrow functions for non-trivial logic. Arrows are allowed only for tiny callbacks.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>const uids = items.map(v =&gt; v.uid);
+fresh.catch(ignore);</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FLOW-07">
+<a class="code" href="#FLOW-07">FLOW-07</a>
+<div class="text"><p>An arrow with a block body does not exist — it becomes <code>function (...) {}</code>, with an optional <code>_this</code> inside.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a></div>
+<div class="form"><pre>req.on('end', async () =&gt; {          <span class="no">✗ does not exist</span>
 });
 
-items.forEach(function (v) {   <span class="yes">this</span>
-});`},
-{g: 'FLOW', src: 'drafts/formatting_blocks.md',
- rule: 'A <code>catch</code> that ignores the error binds nothing.',
- ex: `try {
+req.on('end', async function () {     <span class="yes">✓ this</span>
+});</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FLOW-08">
+<a class="code" href="#FLOW-08">FLOW-08</a>
+<div class="text"><p>A <code>catch</code> that ignores the error binds nothing.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a></div>
+<div class="form"><pre>try {
 }
 catch {
-}`},
-{g: 'FLOW', src: 'FORMATTING.md',
- rule: 'Use plain data structures — <code>Set</code>, <code>Map</code> or plain <code>{}</code> for lookups. No classes, no prototypes, no mutation via shared state.',
- ex: ``},
-{g: 'FLOW', src: 'FORMATTING.md',
- rule: 'No implicit magic. No hidden side effects, no reliance on execution-order side effects.',
- ex: ``},
-
-// ---------------------------------------------------------------- FILE
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'A library module exports one function, with <code>module.exports</code> at the end of the file.',
- ex: `module.exports = items_index_by_uid;`},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'An executable script uses <code>main</code> as its entry function and does not export.',
- ex: ``},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'Do not combine a library export and an executable invocation in the same file.',
- ex: ``},
-{g: 'FILE', src: 'drafts/cli_main.md',
- rule: 'An executable hands its entry function to <code>cli</code>. <code>cli</code> owns the process contract: it keeps the event loop alive until <code>main</code> settles, reports a failure, and exits non-zero — <code>ExitCodeError</code> picks the code, any other error exits 1.',
- ex: `const cli = require('@vbarbarosh/node-helpers/src/cli');
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FLOW-09">
+<a class="code" href="#FLOW-09">FLOW-09</a>
+<div class="text"><p>Use plain data structures — <code>Set</code>, <code>Map</code> or plain <code>{}</code> for lookups. No classes, no prototypes, no mutation via shared state.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FLOW-10">
+<a class="code" href="#FLOW-10">FLOW-10</a>
+<div class="text"><p>No implicit magic. No hidden side effects, no reliance on execution-order side effects.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+</section>
+<section class="group" id="FILE">
+<h2><span class="tag">FILE</span><span class="name">File and module structure</span><span class="note">One entry function, one fixed order.</span></h2>
+<article class="rule" id="FILE-01">
+<a class="code" href="#FILE-01">FILE-01</a>
+<div class="text"><p>A library module exports one function, with <code>module.exports</code> at the end of the file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>module.exports = items_index_by_uid;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FILE-02">
+<a class="code" href="#FILE-02">FILE-02</a>
+<div class="text"><p>An executable script uses <code>main</code> as its entry function and does not export.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FILE-03">
+<a class="code" href="#FILE-03">FILE-03</a>
+<div class="text"><p>Do not combine a library export and an executable invocation in the same file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="FILE-04">
+<a class="code" href="#FILE-04">FILE-04</a>
+<div class="text"><p>An executable hands its entry function to <code>cli</code>. <code>cli</code> owns the process contract: it keeps the event loop alive until <code>main</code> settles, reports a failure, and exits non-zero — <code>ExitCodeError</code> picks the code, any other error exits 1.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/cli_main.md" title="drafts/cli_main.md">cli_main.md</a></div>
+<div class="form"><pre>const cli = require('@vbarbarosh/node-helpers/src/cli');
 
 cli(main);
 
 async function main()
 {
-}`},
-{g: 'FILE', src: 'drafts/cli_main.md',
- rule: '<code>cli(main)</code>, never <code>cli(main())</code>. <code>cli</code> runs the function through <code>Promise.try</code>, so a synchronous throw is reported like a rejection; an already-invoked <code>main()</code> is a promise, and <code>Promise.try</code> rejects it with “expecting a function” — the app dies at startup.',
- ex: `cli(main);     <span class="yes">right</span>
-cli(main());   <span class="no">dies at startup</span>`},
-{g: 'FILE', src: 'drafts/cli_main.md',
- rule: 'A hand-rolled <code>main().catch(...)</code> with <code>process.exit(1)</code> does not exist.',
- ex: `main().catch(function (error) {
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FILE-05">
+<a class="code" href="#FILE-05">FILE-05</a>
+<div class="text"><p><code>cli(main)</code>, never <code>cli(main())</code>. <code>cli</code> runs the function through <code>Promise.try</code>, so a synchronous throw is reported like a rejection; an already-invoked <code>main()</code> is a promise, and <code>Promise.try</code> rejects it with “expecting a function” — the app dies at startup.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/cli_main.md" title="drafts/cli_main.md">cli_main.md</a></div>
+<div class="form"><pre>cli(main);     <span class="yes">✓ right</span>
+cli(main());   <span class="no">✗ dies at startup</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FILE-06">
+<a class="code" href="#FILE-06">FILE-06</a>
+<div class="text"><p>A hand-rolled <code>main().catch(...)</code> with <code>process.exit(1)</code> does not exist.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/cli_main.md" title="drafts/cli_main.md">cli_main.md</a></div>
+<div class="form"><pre>main().catch(function (error) {
     console.error(error);
     process.exit(1);
-});                              <span class="no">does not exist</span>`},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'An executable script may start with a shebang; nothing may precede it.',
- ex: `#!/usr/bin/env node`},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'The import block is sorted as plain text lines in byte order — what vim’s <code>:sort</code> over the block, or <code>LC_ALL=C sort</code>, produces. <code>require</code> and <code>import</code> alike.',
- ex: `const $ = require('jquery');
+});                              <span class="no">✗ does not exist</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FILE-07">
+<a class="code" href="#FILE-07">FILE-07</a>
+<div class="text"><p>An executable script may start with a shebang; nothing may precede it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>#!/usr/bin/env node</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FILE-08">
+<a class="code" href="#FILE-08">FILE-08</a>
+<div class="text"><p>The import block is sorted as plain text lines in byte order — what vim’s <code>:sort</code> over the block, or <code>LC_ALL=C sort</code>, produces. <code>require</code> and <code>import</code> alike.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>const $ = require('jquery');
 const Vue = require('vue');
 const axios = require('axios');
 const cli = require('@vbarbarosh/node-helpers/src/cli');
 const fs = require('fs');
-const {promisify} = require('util');`},
-{g: 'FILE', src: 'drafts/imports_sorted.md',
- rule: 'The whole line is the sort key — <code>const</code> or <code>import</code> included, not the module path and not the variable name.',
- ex: ``},
-{g: 'FILE', src: 'drafts/imports_sorted.md',
- rule: 'Byte order, not locale order: <code>@</code> and <code>$</code> come before letters, uppercase before lowercase, and <code>{</code> after <code>z</code> — destructured imports land last.',
- ex: `const Vue = require('vue');       <span class="cmt">V before a</span>
+const {promisify} = require('util');</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FILE-09">
+<a class="code" href="#FILE-09">FILE-09</a>
+<div class="text"><p>The whole line is the sort key — <code>const</code> or <code>import</code> included, not the module path and not the variable name.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/imports_sorted.md" title="drafts/imports_sorted.md">imports_sorted.md</a></div>
+</article>
+<article class="rule" id="FILE-10">
+<a class="code" href="#FILE-10">FILE-10</a>
+<div class="text"><p>Byte order, not locale order: <code>@</code> and <code>$</code> come before letters, uppercase before lowercase, and <code>{</code> after <code>z</code> — destructured imports land last.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/imports_sorted.md" title="drafts/imports_sorted.md">imports_sorted.md</a></div>
+<div class="form"><pre>const Vue = require('vue');       <span class="aside">← V before a</span>
 const axios = require('axios');
-const {promisify} = require('util'); <span class="cmt">{ after z</span>`},
-{g: 'FILE', src: 'drafts/imports_sorted.md',
- rule: 'The import block is one contiguous list: no groups for builtins, packages and local files, and no blank lines or comments inside it — either one breaks the sort.',
- ex: ``},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'File-level constants and variables follow the <code>require</code> statements.',
- ex: `const report_limit = 31;`},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: '<code>cli(main);</code> comes immediately after all global initialization, and no executable code other than that call may appear before the public entry function.',
- ex: ``},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'The public entry function is the first function in the file. In an executable, the first function declaration is <code>function main()</code>.',
- ex: ``},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'Helpers are defined after the public entry function, and before a library’s final export.',
- ex: ``},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'Helpers must be named functions, not inline lambdas.',
- ex: ``},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'CommonJS modules only. Use <code>const &lt;name&gt; = require(&#39;&lt;module&gt;&#39;);</code> — never <code>import</code> or <code>export</code>.',
- ex: ``},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'Library order is fixed.',
- ex: `requires → constants → public entry → helpers → module.exports`},
-{g: 'FILE', src: 'FORMATTING.md',
- rule: 'Executable order is fixed.',
- ex: `shebang → requires → globals → cli(main); → main() → helpers`},
-
-// ---------------------------------------------------------------- PROJ
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: 'Every project keeps one shape. A directory is a program, and <code>bin/</code> holds its methods — one executable per verb, working the same in every language.',
- ex: `bin/build      bb
+const {promisify} = require('util'); <span class="aside">← { after z</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FILE-11">
+<a class="code" href="#FILE-11">FILE-11</a>
+<div class="text"><p>The import block is one contiguous list: no groups for builtins, packages and local files, and no blank lines or comments inside it — either one breaks the sort.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/imports_sorted.md" title="drafts/imports_sorted.md">imports_sorted.md</a></div>
+</article>
+<article class="rule" id="FILE-12">
+<a class="code" href="#FILE-12">FILE-12</a>
+<div class="text"><p>File-level constants and variables follow the <code>require</code> statements.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>const report_limit = 31;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="FILE-13">
+<a class="code" href="#FILE-13">FILE-13</a>
+<div class="text"><p><code>cli(main);</code> comes immediately after all global initialization, and no executable code other than that call may appear before the public entry function.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FILE-14">
+<a class="code" href="#FILE-14">FILE-14</a>
+<div class="text"><p>The public entry function is the first function in the file. In an executable, the first function declaration is <code>function main()</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FILE-15">
+<a class="code" href="#FILE-15">FILE-15</a>
+<div class="text"><p>Helpers are defined after the public entry function, and before a library’s final export.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FILE-16">
+<a class="code" href="#FILE-16">FILE-16</a>
+<div class="text"><p>Helpers must be named functions, not inline lambdas.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule bare" id="FILE-17">
+<a class="code" href="#FILE-17">FILE-17</a>
+<div class="text"><p>CommonJS modules only. Use <code>const &lt;name&gt; = require('&lt;module&gt;');</code> — never <code>import</code> or <code>export</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="FILE-18">
+<a class="code" href="#FILE-18">FILE-18</a>
+<div class="text"><p>Library order is fixed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>requires → constants → public entry → helpers → module.exports</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FILE-19">
+<a class="code" href="#FILE-19">FILE-19</a>
+<div class="text"><p>Executable order is fixed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>shebang → requires → globals → cli(main); → main() → helpers</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="PROJ">
+<h2><span class="tag">PROJ</span><span class="name">Project layout</span><span class="note">A directory is a program; bin/ holds its verbs.</span></h2>
+<article class="rule" id="PROJ-01">
+<a class="code" href="#PROJ-01">PROJ-01</a>
+<div class="text"><p>Every project keeps one shape. A directory is a program, and <code>bin/</code> holds its methods — one executable per verb, working the same in every language.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="form"><pre>bin/build      bb
 bin/configure
 bin/release
 bin/run        rr
 bin/test       tt
-bin/watch      ww`},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: '<code>bin/configure</code> is the only command to run after <code>git pull</code> to make a checkout ready for development.',
- ex: ``},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: 'In a node.js project <code>run</code>, <code>test</code>, <code>build</code> and <code>watch</code> are thin wrappers over npm. The wrappers still earn their keep: <code>rr</code>, <code>tt</code>, <code>bb</code>, <code>ww</code> are shorter than any npm form, and the names hold for projects that are not node.js.',
- ex: `alias rr='bin/run'
+bin/watch      ww</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="PROJ-02">
+<a class="code" href="#PROJ-02">PROJ-02</a>
+<div class="text"><p><code>bin/configure</code> is the only command to run after <code>git pull</code> to make a checkout ready for development.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+</article>
+<article class="rule" id="PROJ-03">
+<a class="code" href="#PROJ-03">PROJ-03</a>
+<div class="text"><p>In a node.js project <code>run</code>, <code>test</code>, <code>build</code> and <code>watch</code> are thin wrappers over npm. The wrappers still earn their keep: <code>rr</code>, <code>tt</code>, <code>bb</code>, <code>ww</code> are shorter than any npm form, and the names hold for projects that are not node.js.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="form"><pre>alias rr='bin/run'
 alias tt='bin/test'
 alias bb='bin/build'
-alias ww='bin/watch'`},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: '<code>build/</code> holds what <code>bin/build</code> produced. Never committed, always reproducible.',
- ex: ``},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: '<code>data/</code> holds runtime state. Never committed.',
- ex: `data/logs/2026-08-24.txt`},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: '<code>.env</code> holds local values and is never committed. <code>.env.example</code> documents the expected keys and is.',
- ex: ``},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: 'Configuration lives in <code>config/</code>, is populated once when the project is set up, and code reads it through one path.',
- ex: `const config = require('../config');`},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: '<code>src/</code> holds one subdirectory per part of the program.',
- ex: `src/agent/    src/http/
+alias ww='bin/watch'</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="PROJ-04">
+<a class="code" href="#PROJ-04">PROJ-04</a>
+<div class="text"><p><code>build/</code> holds what <code>bin/build</code> produced. Never committed, always reproducible.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+</article>
+<article class="rule" id="PROJ-05">
+<a class="code" href="#PROJ-05">PROJ-05</a>
+<div class="text"><p><code>data/</code> holds runtime state. Never committed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="form"><pre>data/logs/2026-08-24.txt</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="PROJ-06">
+<a class="code" href="#PROJ-06">PROJ-06</a>
+<div class="text"><p><code>.env</code> holds local values and is never committed. <code>.env.example</code> documents the expected keys and is.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+</article>
+<article class="rule" id="PROJ-07">
+<a class="code" href="#PROJ-07">PROJ-07</a>
+<div class="text"><p>Configuration lives in <code>config/</code>, is populated once when the project is set up, and code reads it through one path.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="form"><pre>const config = require('../config');</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="PROJ-08">
+<a class="code" href="#PROJ-08">PROJ-08</a>
+<div class="text"><p><code>src/</code> holds one subdirectory per part of the program.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="form"><pre>src/agent/    src/http/
 src/android/  src/parser/
-src/desktop-electron/`},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: 'Small shared functions go to <code>src/helpers/</code>, one function per file.',
- ex: `src/helpers/array_group.js`},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: 'A unit test sits next to the file it tests.',
- ex: `src/helpers/array_group.js
-src/helpers/array_group.test.js`},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: '<code>tests/</code> holds suites that drive the whole program, such as playwright.',
- ex: ``},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: '<code>README.md</code> stays short: what the project is and how to start it.',
- ex: ``},
-{g: 'PROJ', src: 'drafts/layout.md',
- rule: '<code>docs/</code> holds the official documentation, <code>notes/</code> holds working notes — hints and findings made during development — and <code>img/</code> holds static images, mostly for the README.',
- ex: ``},
+src/desktop-electron/</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="PROJ-09">
+<a class="code" href="#PROJ-09">PROJ-09</a>
+<div class="text"><p>Small shared functions go to <code>src/helpers/</code>, one function per file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="form"><pre>src/helpers/array_group.js</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="PROJ-10">
+<a class="code" href="#PROJ-10">PROJ-10</a>
+<div class="text"><p>A unit test sits next to the file it tests.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="form"><pre>src/helpers/array_group.js
+src/helpers/array_group.test.js</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="PROJ-11">
+<a class="code" href="#PROJ-11">PROJ-11</a>
+<div class="text"><p><code>tests/</code> holds suites that drive the whole program, such as playwright.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+</article>
+<article class="rule bare" id="PROJ-12">
+<a class="code" href="#PROJ-12">PROJ-12</a>
+<div class="text"><p><code>README.md</code> stays short: what the project is and how to start it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+</article>
+<article class="rule bare" id="PROJ-13">
+<a class="code" href="#PROJ-13">PROJ-13</a>
+<div class="text"><p><code>docs/</code> holds the official documentation, <code>notes/</code> holds working notes — hints and findings made during development — and <code>img/</code> holds static images, mostly for the README.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+</article>
+<article class="rule" id="PROJ-14">
+<a class="code" href="#PROJ-14">PROJ-14</a>
+<div class="text"><p>The project root carries the same standard files.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="form"><pre>.env  .env.example  .gitignore  Dockerfile
+LICENSE  README.md  package.json</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="PROJ-15">
+<a class="code" href="#PROJ-15">PROJ-15</a>
+<div class="text"><p>Every bash script follows <code>bin/templ</code>: strict mode, the <code>script</code> / <code>scriptdir</code> / <code>scriptname</code> diagnostics, a temporary directory removed by an <code>EXIT</code> trap, and a colored exit message that starts as failed and is switched to succeeded on the last line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/bin/templ" title="bin/templ">templ</a></div>
+<div class="form"><pre>set -o nounset -o errexit -o pipefail
 
-// ---------------------------------------------------------------- LOG
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'A log is one infinite file. One physical line records one event, in three fields and nothing else.',
- ex: `[time][group_uid][sender] details`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'Elapsed time, status and every other measurement belong in <code>details</code>, not in a fourth field.',
- ex: `[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: '<code>time</code> is ISO-8601 UTC with milliseconds.',
- ex: `2026-08-17T16:09:20.185Z`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'Include <code>time</code> when writing directly to a file; omit it when the runtime already timestamps the line, as docker does.',
- ex: `[2026-08-17T16:09:20.185Z][cd8e5vqp][db_query_begin] name=select_users
-[cd8e5vqp][db_query_begin] name=select_users`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'A group is one unit of work — a request, a job, a cron run. Every event carries its group’s uid, an opaque string, usually a cuid.',
- ex: ``},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'The first event of a group is <code>group_spawn</code>, emitted synchronously before the uid is passed to other work or another event is emitted for the group. A root group omits <code>parent=</code>.',
- ex: `[new_group_uid][group_spawn] parent=old_group_uid
-[c1a0root][group_spawn]`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'Messages and requests carry the caller’s uid; the receiver uses it as the parent of its new group.',
- ex: ``},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: '<code>sender</code> identifies one logging call site, and the name is unique in the whole codebase — a grep for it lands on one place. Think of it as a <code>const</code> in a single namespace.',
- ex: ``},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: '<code>sender</code> is snake_case.',
- ex: `^[a-z_][a-z0-9_]*$`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'A <code>_begin</code> event is closed by the same stem with <code>_end_ok</code> or <code>_end_error</code>, in the same group. An end never appears without its begin in that group.',
- ex: `[c9k2vf3p][mp4gif_worker_begin]
-[c9k2vf3p][mp4gif_worker_end_ok] 4.512s
+EXIT_MESSAGE="${RED}bin/templ failed${RESET}"
 
-[c7t0xb1m][mp4gif_worker_begin]
-[c7t0xb1m][mp4gif_worker_end_error] 0.884s ffmpeg exit=1`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'Use <code>_end</code> when the logged outcome — an HTTP status, say — already says what happened and classifying it as ok or error would mislead.',
- ex: ``},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'A group costs at least three lines. Spawn one only when the work earns them: seconds of work, or many logging call sites. Do not spawn a group for one short call.',
- ex: `[bbb][group_spawn] parent=aaa
-[bbb][process_begin]
-[bbb][process_end_ok] 0.000s      <span class="no">noise</span>`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'Log short work on the caller’s group instead. When nothing is reported between the two ends, record one event.',
- ex: `[aaa][process_begin]
-[aaa][process_end_ok] 0.000s
+tempdir=&#96;mktemp -d -t tmp.XXXXXXXXXX&#96;
+trap 'rm -rf $tempdir; echo -e "$EXIT_MESSAGE"' EXIT
+cd $tempdir
 
-[aaa][process_handled] 0.000s     <span class="yes">even better</span>`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'Two lines are the same noise when a new group holds a lone end. The matching begin was emitted on the parent — keep the pair there.',
- ex: `[bbb][group_spawn] parent=aaa
-[bbb][process_end_ok] 0.000s      <span class="no">noise</span>`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: '<code>details</code> are human-readable and terse, and never contain a physical newline.',
- ex: ``},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: '<code>details</code> never contain secrets, tokens, signed URLs, URL query values, bodies or headers. Prefer a reference to the payload over the payload.',
- ex: ``},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'A printable ASCII word without spaces, double quotes, backslashes or square brackets is written bare — exactly the bytes that were sent, so it cannot span words, break the line, or mint a fake tag. Every other string is JSON-quoted.',
- ex: `name=select_users
+EXIT_MESSAGE="${GREEN}bin/templ succeeded${RESET}"</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="LOG">
+<h2><span class="tag">LOG</span><span class="name">Logs</span><span class="note">One line, one event, three fields.</span></h2>
+<article class="rule" id="LOG-01">
+<a class="code" href="#LOG-01">LOG-01</a>
+<div class="text"><p>A log is one infinite file. One physical line records one event, in three fields and nothing else.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>[time][group_uid][sender] details</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LOG-02">
+<a class="code" href="#LOG-02">LOG-02</a>
+<div class="text"><p>Elapsed time, status and every other measurement belong in <code>details</code>, not in a fourth field.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LOG-03">
+<a class="code" href="#LOG-03">LOG-03</a>
+<div class="text"><p><code>time</code> is ISO-8601 UTC with milliseconds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>2026-08-17T16:09:20.185Z</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LOG-04">
+<a class="code" href="#LOG-04">LOG-04</a>
+<div class="text"><p>Include <code>time</code> when writing directly to a file; omit it when the runtime already timestamps the line, as docker does.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>&#91;2026-08-17T16:09:20.185Z]&#91;cd8e5vqp]&#91;db_query_begin] name=select_users
+&#91;cd8e5vqp]&#91;db_query_begin] name=select_users</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="LOG-05">
+<a class="code" href="#LOG-05">LOG-05</a>
+<div class="text"><p>A group is one unit of work — a request, a job, a cron run. Every event carries its group’s uid, an opaque string, usually a cuid.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+</article>
+<article class="rule" id="LOG-06">
+<a class="code" href="#LOG-06">LOG-06</a>
+<div class="text"><p>The first event of a group is <code>group_spawn</code>, emitted synchronously before the uid is passed to other work or another event is emitted for the group. A root group omits <code>parent=</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>&#91;new_group_uid]&#91;group_spawn] parent=old_group_uid
+&#91;c1a0root]&#91;group_spawn]</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="LOG-07">
+<a class="code" href="#LOG-07">LOG-07</a>
+<div class="text"><p>Messages and requests carry the caller’s uid; the receiver uses it as the parent of its new group.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+</article>
+<article class="rule bare" id="LOG-08">
+<a class="code" href="#LOG-08">LOG-08</a>
+<div class="text"><p><code>sender</code> identifies one logging call site, and the name is unique in the whole codebase — a grep for it lands on one place. Think of it as a <code>const</code> in a single namespace.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+</article>
+<article class="rule" id="LOG-09">
+<a class="code" href="#LOG-09">LOG-09</a>
+<div class="text"><p><code>sender</code> is snake_case.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>^[a-z_][a-z0-9_]*$</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LOG-10">
+<a class="code" href="#LOG-10">LOG-10</a>
+<div class="text"><p>A <code>_begin</code> event is closed by the same stem with <code>_end_ok</code> or <code>_end_error</code>, in the same group. An end never appears without its begin in that group.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>&#91;c9k2vf3p]&#91;mp4gif_worker_begin]
+&#91;c9k2vf3p]&#91;mp4gif_worker_end_ok] 4.512s
+
+&#91;c7t0xb1m]&#91;mp4gif_worker_begin]
+&#91;c7t0xb1m]&#91;mp4gif_worker_end_error] 0.884s ffmpeg exit=1</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="LOG-11">
+<a class="code" href="#LOG-11">LOG-11</a>
+<div class="text"><p>Use <code>_end</code> when the logged outcome — an HTTP status, say — already says what happened and classifying it as ok or error would mislead.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+</article>
+<article class="rule" id="LOG-12">
+<a class="code" href="#LOG-12">LOG-12</a>
+<div class="text"><p>A group costs at least three lines. Spawn one only when the work earns them: seconds of work, or many logging call sites. Do not spawn a group for one short call.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>&#91;bbb]&#91;group_spawn] parent=aaa
+&#91;bbb]&#91;process_begin]
+&#91;bbb]&#91;process_end_ok] 0.000s      <span class="no">✗ noise</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LOG-13">
+<a class="code" href="#LOG-13">LOG-13</a>
+<div class="text"><p>Log short work on the caller’s group instead. When nothing is reported between the two ends, record one event.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>&#91;aaa]&#91;process_begin]
+&#91;aaa]&#91;process_end_ok] 0.000s
+
+&#91;aaa]&#91;process_handled] 0.000s     <span class="yes">✓ even better</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LOG-14">
+<a class="code" href="#LOG-14">LOG-14</a>
+<div class="text"><p>Two lines are the same noise when a new group holds a lone end. The matching begin was emitted on the parent — keep the pair there.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>&#91;bbb]&#91;group_spawn] parent=aaa
+&#91;bbb]&#91;process_end_ok] 0.000s      <span class="no">✗ noise</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="LOG-15">
+<a class="code" href="#LOG-15">LOG-15</a>
+<div class="text"><p><code>details</code> are human-readable and terse, and never contain a physical newline.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+</article>
+<article class="rule bare" id="LOG-16">
+<a class="code" href="#LOG-16">LOG-16</a>
+<div class="text"><p><code>details</code> never contain secrets, tokens, signed URLs, URL query values, bodies or headers. Prefer a reference to the payload over the payload.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+</article>
+<article class="rule" id="LOG-17">
+<a class="code" href="#LOG-17">LOG-17</a>
+<div class="text"><p>A printable ASCII word without spaces, double quotes, backslashes or square brackets is written bare — exactly the bytes that were sent, so it cannot span words, break the line, or mint a fake tag. Every other string is JSON-quoted.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>name=select_users
 reason="db timeout"
-value=""`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'Arrays, objects, booleans and null use compact JSON.',
- ex: `retry=true limits={"soft":10,"hard":25}`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'An unordered list is sorted and prefixed with its count. Ordered values are not sorted.',
- ex: `3:[180,783,846]
-2:["bar","foo"]
-0:[]`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'Truncation preserves valid UTF-8 and ends with the number of omitted bytes.',
- ex: `...+4821`},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: 'Keep one log line under 2k UTF-8 bytes. A log line describes an event; it is not payload storage.',
- ex: ``},
-{g: 'LOG', src: 'drafts/logs.md',
- rule: '<code>group_exit</code> is optional and mainly serves to detect leaks. After it is emitted, no producer emits another event for that group; a parent may emit it for work it abandons. Consumers must accept groups without it — its absence makes no claim.',
- ex: `[group_uid][group_exit]`},
-
-// ---------------------------------------------------------------- CSS
-{g: 'CSS', src: 'drafts/css_classes.md',
- rule: 'Classes inside one <code>class="…"</code> attribute keep a fixed order. Plain utilities lead; an app-prefixed class (<code>vb-*</code>, <code>np-*</code> — one prefix per app, <code>app-*</code> in these examples) sorts after all of them, base class included; a file-local <code>#-*</code> class is always last.',
- ex: `layout  spacing  sizing  decoration  typography  app-prefix  local
+value=""</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LOG-18">
+<a class="code" href="#LOG-18">LOG-18</a>
+<div class="text"><p>Arrays, objects, booleans and null use compact JSON.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>retry=true limits={&quot;soft&quot;:10,&quot;hard&quot;:25}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LOG-19">
+<a class="code" href="#LOG-19">LOG-19</a>
+<div class="text"><p>An unordered list is sorted and prefixed with its count. Ordered values are not sorted.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>3:&#91;180,783,846]
+2:&#91;"bar","foo"]
+0:&#91;]</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LOG-20">
+<a class="code" href="#LOG-20">LOG-20</a>
+<div class="text"><p>Truncation preserves valid UTF-8 and ends with the number of omitted bytes.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>...+4821</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="LOG-21">
+<a class="code" href="#LOG-21">LOG-21</a>
+<div class="text"><p>Keep one log line under 2k UTF-8 bytes. A log line describes an event; it is not payload storage.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+</article>
+<article class="rule" id="LOG-22">
+<a class="code" href="#LOG-22">LOG-22</a>
+<div class="text"><p><code>group_exit</code> is optional and mainly serves to detect leaks. After it is emitted, no producer emits another event for that group; a parent may emit it for work it abandons. Consumers must accept groups without it — its absence makes no claim.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="form"><pre>[group_uid][group_exit]</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="LOG-23">
+<a class="code" href="#LOG-23">LOG-23</a>
+<div class="text"><p>“After” <code>group_exit</code> means producer emission order, not timestamp or collector ingestion order. Buffering may deliver an older event later; that alone is not an error. Without a causal-order signal — preserved per-group order, a shared sequence — cross-process detection is advisory.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+</article>
+</section>
+<section class="group" id="CSS">
+<h2><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="note">A fixed class order; every class has a rule.</span></h2>
+<article class="rule" id="CSS-01">
+<a class="code" href="#CSS-01">CSS-01</a>
+<div class="text"><p>Classes inside one <code>class=&quot;…&quot;</code> attribute keep a fixed order. Plain utilities lead; an app-prefixed class (<code>vb-*</code>, <code>np-*</code> — one prefix per app, <code>app-*</code> in these examples) sorts after all of them, base class included; a file-local <code>#-*</code> class is always last.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="form"><pre>layout  spacing  sizing  decoration  typography  app-prefix  local
 
 &lt;div class="flex-row-c #-root" /&gt;
 &lt;div class="fluid p30 xpt app-scrollbars-light #-grid" /&gt;
-&lt;div class="db w80 h80 br4 fit-cover cur-pointer app-background #-preset-img" /&gt;`},
-{g: 'CSS', src: 'drafts/css_classes.md',
- rule: 'Within the utilities: a display or position utility (<code>db</code>, <code>abs</code>, <code>fluid</code>) leads where the element carries one, a <code>gap*</code> always comes directly after the layout class it belongs to, <code>ph*</code> precedes <code>pv*</code>, and spacing comes before typography.',
- ex: `flex-row-c gap5
+&lt;div class="db w80 h80 br4 fit-cover cur-pointer app-background #-preset-img" /&gt;
+&lt;div class="flex-row-cl gap10 app-font-b14 #-title-trigger" /&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="CSS-02">
+<a class="code" href="#CSS-02">CSS-02</a>
+<div class="text"><p>Within the utilities: a display or position utility (<code>db</code>, <code>abs</code>, <code>fluid</code>) leads where the element carries one, a <code>gap*</code> always comes directly after the layout class it belongs to, <code>ph*</code> precedes <code>pv*</code>, and spacing comes before typography.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="form"><pre>flex-row-c gap5
 flex-col-c gap15
-grid-foo gap5`},
-{g: 'CSS', src: 'drafts/css_classes.md',
- rule: 'Every class either has a rule in the file’s own style block or is an established project utility. An element that needs no styling stays classless — a label-only class rots and sends the next reader looking for a rule nobody wrote.',
- ex: `&lt;div&gt;                              <span class="cmt">wrapper is unstyled, so no class</span>
-    &lt;div class="#-funnel-bars"&gt;…&lt;/div&gt;
-&lt;/div&gt;`},
-{g: 'CSS', src: 'drafts/css_classes.md',
- rule: '<code>gap*</code> spaces the children of a grid or flex container; <code>mg*</code> and <code>mi*</code> are the block-container forms. The two do not mix.',
- ex: ``},
-{g: 'CSS', src: 'drafts/css_classes.md',
- rule: '<code>fluid</code> marks the filling child of an <code>hsplit</code>/<code>vsplit</code> (whose children default to <code>flex: none</code>); <code>flex-fluid</code> marks the growing child of a plain <code>flex-row</code>/<code>flex-col</code>. Same CSS — the choice states which container the element sits in.',
- ex: ``},
-{g: 'CSS', src: 'drafts/css_classes.md',
- rule: 'An <code>x*</code> class usually comes before the setter it clears the way for — the broad class leads and the narrow one corrects it, whichever of the two is the reset.',
- ex: `&lt;div class="xm ml5" /&gt;   <span class="cmt">margin: 0; margin-left: 5px;</span>
-&lt;div class="m5 xml" /&gt;   <span class="cmt">margin: 5px; margin-left: 0;</span>`},
-{g: 'CSS', src: 'drafts/css_classes.md',
- rule: 'Rows and columns are a <code>&lt;table&gt;</code>, not a stack of flex rows — the columns line up only until one cell is wider. Flex rows stay for content that is genuinely not tabular.',
- ex: ``},
-{g: 'CSS', src: 'drafts/css_classes.md',
- rule: '<code>@import</code> comes first in a block; <code>@include</code> comes first in a rule, ahead of the property declarations — the mixin brings the base, the block overrides it.',
- ex: `.#-card
+grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="CSS-03">
+<a class="code" href="#CSS-03">CSS-03</a>
+<div class="text"><p>Every class either has a rule in the file’s own style block or is an established project utility. An element that needs no styling stays classless — a label-only class rots and sends the next reader looking for a rule nobody wrote.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="form"><pre><span class="cmt">&lt;!-- the wrapper is not styled, so it carries no class --&gt;</span>
+&lt;div&gt;
+    &lt;div class="#-funnel-bars"&gt;...&lt;/div&gt;
+&lt;/div&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="CSS-04">
+<a class="code" href="#CSS-04">CSS-04</a>
+<div class="text"><p><code>gap*</code> spaces the children of a grid or flex container; <code>mg*</code> and <code>mi*</code> are the block-container forms. The two do not mix.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+</article>
+<article class="rule bare" id="CSS-05">
+<a class="code" href="#CSS-05">CSS-05</a>
+<div class="text"><p><code>fluid</code> marks the filling child of an <code>hsplit</code>/<code>vsplit</code> (whose children default to <code>flex: none</code>); <code>flex-fluid</code> marks the growing child of a plain <code>flex-row</code>/<code>flex-col</code>. Same CSS — the choice states which container the element sits in.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+</article>
+<article class="rule" id="CSS-06">
+<a class="code" href="#CSS-06">CSS-06</a>
+<div class="text"><p>An <code>x*</code> class usually comes before the setter it clears the way for — the broad class leads and the narrow one corrects it, whichever of the two is the reset.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="form"><pre>&lt;div class="xm ml5" /&gt;   <span class="cmt">&lt;!-- margin: 0; margin-left: 5px; --&gt;</span>
+&lt;div class="m5 xml" /&gt;   <span class="cmt">&lt;!-- margin: 5px; margin-left: 0;  --&gt;</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="CSS-07">
+<a class="code" href="#CSS-07">CSS-07</a>
+<div class="text"><p>Rows and columns are a <code>&lt;table&gt;</code>, not a stack of flex rows — the columns line up only until one cell is wider. Flex rows stay for content that is genuinely not tabular.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+</article>
+<article class="rule" id="CSS-08">
+<a class="code" href="#CSS-08">CSS-08</a>
+<div class="text"><p><code>@import</code> comes first in a block; <code>@include</code> comes first in a rule, ahead of the property declarations — the mixin brings the base, the block overrides it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="form"><pre>.#-card
     @include app-transition(box-shadow, border-color)
-    box-sizing: border-box`},
-{g: 'CSS', src: 'drafts/css_classes.md',
- rule: 'A <code>transition:</code> property is not written by hand — <code>@include app-transition(props…)</code> fills it, expanding each property into <code>&lt;prop&gt; &lt;speed&gt;</code> against the one shared speed. <code>app-transition-fast</code> and <code>app-transition-debug</code> are the same mixin at the fast and debug speeds. List the exact properties that change, never <code>all</code>, and put the include on the base rule rather than the state variant, so the animation covers both directions.',
- ex: `@include app-transition(box-shadow, border-color)`},
-
-// ---------------------------------------------------------------- VUE
-{g: 'VUE', src: 'vue2/vue-globals.md',
- rule: 'Every component is provided with four global methods through a mixin.',
- ex: `px(value)        <span class="cmt">// format a pixel value</span>
-uid([name])      <span class="cmt">// ids unique across components</span>
+    box-sizing: border-box</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="CSS-09">
+<a class="code" href="#CSS-09">CSS-09</a>
+<div class="text"><p>A <code>transition:</code> property is not written by hand — <code>@include app-transition(props…)</code> fills it, expanding each property into <code>&lt;prop&gt; &lt;speed&gt;</code> against the one shared speed. <code>app-transition-fast</code> and <code>app-transition-debug</code> are the same mixin at the fast and debug speeds. List the exact properties that change, never <code>all</code>, and put the include on the base rule rather than the state variant, so the animation covers both directions.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="form"><pre>@include app-transition(box-shadow, border-color)</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="CSS-10">
+<a class="code" href="#CSS-10">CSS-10</a>
+<div class="text"><p>What each family holds: layout is the flex/grid/split class; spacing is <code>p*</code> / <code>m*</code>; sizing is <code>w*</code> / <code>h*</code> / <code>max-w*</code> / <code>min-h*</code>; decoration is <code>br*</code>, <code>fit-cover</code>, <code>cur-pointer</code> and the other shape and surface utilities; typography is <code>fs*</code> <code>fw*</code> <code>lh*</code>, then alignment and <code>nowrap</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+</article>
+</section>
+<section class="group" id="VUE">
+<h2><span class="tag">VUE</span><span class="name">Vue 2</span><span class="note">Components that behave like the platform.</span></h2>
+<article class="rule" id="VUE-01">
+<a class="code" href="#VUE-01">VUE-01</a>
+<div class="text"><p>Every component is provided with four global methods through a mixin.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-globals.md" title="vue2/vue-globals.md">vue-globals.md</a></div>
+<div class="form"><pre>px(value)        <span class="cmt">// format a pixel value</span>
+uid(&#91;name])      <span class="cmt">// ids unique across components</span>
 emit_end(retval) <span class="cmt">// return a value from a modal</span>
-emit_input(v)    <span class="cmt">// return a value from an input</span>`},
-{g: 'VUE', src: 'vue2/vue-globals.md',
- rule: 'Generated ids are bound to the current element and are what <code>id</code> and <code>label[for]</code> use. The name <code>uid</code> was chosen so it does not conflict with the <code>id</code> attribute every element may carry.',
- ex: `uid: function (name) {
-    return name ? \`c\${this._uid}_\${name}\` : \`c\${this._uid}\`;
-},`},
-{g: 'VUE', src: 'vue2/vue-formatting.md',
- rule: 'Spell out <code>v-on</code> and <code>v-bind</code>. The shorthands <code>@</code> and <code>:</code> are not used.',
- ex: `&lt;img v-bind:src="banner.thumbnail_url" v-bind:alt="banner.title" /&gt;`},
-{g: 'VUE', src: 'vue2/vue-formatting.md',
- rule: 'Attributes keep one order.',
- ex: `ref v-if v-for v-on v-bind:ref v-bind [...] class type placeholder title`},
-{g: 'VUE', src: 'vue2/vue-formatting.md',
- rule: 'Avoid <code>v-if</code> and <code>v-for</code> on the same component — lift the condition to a <code>&lt;template&gt;</code>.',
- ex: `&lt;template v-if="items"&gt;
+emit_input(v)    <span class="cmt">// return a value from an input</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-02">
+<a class="code" href="#VUE-02">VUE-02</a>
+<div class="text"><p>Generated ids are bound to the current element and are what <code>id</code> and <code>label[for]</code> use. The name <code>uid</code> was chosen so it does not conflict with the <code>id</code> attribute every element may carry.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-globals.md" title="vue2/vue-globals.md">vue-globals.md</a></div>
+<div class="form"><pre>uid: function (name) {
+    return name ? &#96;c${this.&#95;uid}&#95;${name}&#96; : &#96;c${this.&#95;uid}&#96;;
+},</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-03">
+<a class="code" href="#VUE-03">VUE-03</a>
+<div class="text"><p>Spell out <code>v-on</code> and <code>v-bind</code>. The shorthands <code>@</code> and <code>:</code> are not used.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-formatting.md" title="vue2/vue-formatting.md">vue-formatting.md</a></div>
+<div class="form"><pre>&lt;img v-bind:src=&quot;banner.thumbnail_url&quot; v-bind:alt=&quot;banner.title&quot; /&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-04">
+<a class="code" href="#VUE-04">VUE-04</a>
+<div class="text"><p>Attributes keep one order.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-formatting.md" title="vue2/vue-formatting.md">vue-formatting.md</a></div>
+<div class="form"><pre>ref v-if v-for v-on v-bind:ref v-bind [...] class type placeholder title</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-05">
+<a class="code" href="#VUE-05">VUE-05</a>
+<div class="text"><p>Avoid <code>v-if</code> and <code>v-for</code> on the same component — lift the condition to a <code>&lt;template&gt;</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-formatting.md" title="vue2/vue-formatting.md">vue-formatting.md</a></div>
+<div class="form"><pre>&lt;template v-if="items"&gt;
     &lt;div v-for="item in items" v-bind:key="item.uid"&gt;
         {{ item.title }}
     &lt;/div&gt;
-&lt;/template&gt;`},
-{g: 'VUE', src: 'vue2/vue-formatting.md',
- rule: 'A simple directive value stays bare; a compound one is wrapped in parentheses. Every directive — <code>v-if</code>, <code>v-else-if</code>, <code>v-show</code>, <code>v-on</code>, <code>v-bind</code>. Simple is a single identifier, member access, method call, template literal or unary negation; compound is anything carrying a binary operator or a ternary.',
- ex: `&lt;template v-if="is_ready"&gt;
-&lt;template v-if="(is_loading_fonts || is_loading_images)"&gt;
-&lt;div v-bind:class="(compact ? 'narrow' : 'wide')" /&gt;`},
-{g: 'VUE', src: 'vue2/vue-input.md',
- rule: 'Anything which takes data from a user is called an <b>input</b> and must work as a normal INPUT element.',
- ex: `<ol><li>takes data from the <code>value</code> property</li><li>emits an <b>input</b> event</li><li>respects the <b>disabled</b> state</li><li>respects the <code>readonly</code> attribute</li><li>reacts to clicks on the associated LABEL</li><li>reacts to mouse hover from that LABEL</li><li>injects and uses <code>app_form_input_id</code></li><li>takes focus with the TAB key</li></ol>`},
-{g: 'VUE', src: 'vue2/vue-input.md',
- rule: 'Avoid generic inputs — those with a lot of properties like <code>min</code>, <code>max</code>, <code>step</code>.',
- ex: ``},
-{g: 'VUE', src: 'vue2/vue-form.md',
- rule: 'Compose forms from <code>app-form-div</code> and <code>app-input-label</code>.',
- ex: `&lt;app-form-div class="flex-row mi10"&gt;
+&lt;/template&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-06">
+<a class="code" href="#VUE-06">VUE-06</a>
+<div class="text"><p>A simple directive value stays bare; a compound one is wrapped in parentheses. Every directive — <code>v-if</code>, <code>v-else-if</code>, <code>v-show</code>, <code>v-on</code>, <code>v-bind</code>. Simple is a single identifier, member access, method call, template literal or unary negation; compound is anything carrying a binary operator or a ternary.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-formatting.md" title="vue2/vue-formatting.md">vue-formatting.md</a></div>
+<div class="form"><pre>&lt;template v-if="is_ready"&gt;
+&lt;template v-if="(is_loading_fonts &#124;&#124; is_loading_images)"&gt;
+&lt;div v-bind:class="(compact ? 'narrow' : 'wide')" /&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-07">
+<a class="code" href="#VUE-07">VUE-07</a>
+<div class="text"><p>Anything which takes data from a user is called an <strong>input</strong> and must work as a normal INPUT element.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-input.md" title="vue2/vue-input.md">vue-input.md</a></div>
+<div class="form prose"><ol><li>takes data from the <code>value</code> property</li><li>emits an <strong>input</strong> event</li><li>respects the <strong>disabled</strong> state</li><li>respects the <code>readonly</code> attribute</li><li>reacts to clicks on the associated LABEL</li><li>reacts to mouse hover from that LABEL</li><li>injects and uses <code>app_form_input_id</code></li><li>takes focus with the TAB key</li></ol></div>
+</article>
+<article class="rule bare" id="VUE-08">
+<a class="code" href="#VUE-08">VUE-08</a>
+<div class="text"><p>Avoid generic inputs — those with a lot of properties like <code>min</code>, <code>max</code>, <code>step</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-input.md" title="vue2/vue-input.md">vue-input.md</a></div>
+</article>
+<article class="rule" id="VUE-09">
+<a class="code" href="#VUE-09">VUE-09</a>
+<div class="text"><p>Compose forms from <code>app-form-div</code> and <code>app-form-label</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-form.md" title="vue2/vue-form.md">vue-form.md</a></div>
+<div class="form"><pre>&lt;app-form-div class="flex-row mi10"&gt;
     &lt;app-input-label&gt;Email:&lt;/app-input-label&gt;
     &lt;app-input-email v-model="user.email" /&gt;
-&lt;/app-form-div&gt;`},
-{g: 'VUE', src: 'vue2/vue-form.md',
- rule: 'A form’s buttons close the form: cancel returns <code>false</code> through <code>emit_end</code>, submit is a <code>type="submit"</code> button.',
- ex: `&lt;app-button-orange v-on:click="emit_end(false)"&gt;
+&lt;/app-form-div&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-10">
+<a class="code" href="#VUE-10">VUE-10</a>
+<div class="text"><p>A form’s buttons close the form: cancel returns <code>false</code> through <code>emit_end</code>, submit is a <code>type=&quot;submit&quot;</code> button.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-form.md" title="vue2/vue-form.md">vue-form.md</a></div>
+<div class="form"><pre>&lt;app-button-orange v-on:click="emit_end(false)"&gt;
     Cancel
 &lt;/app-button-orange&gt;
 &lt;app-button-green type="submit"&gt;
     Submit
-&lt;/app-button-green&gt;`},
-{g: 'VUE', src: 'vue2/vue-button.md',
- rule: 'One button, one class.',
- ex: ``},
-{g: 'VUE', src: 'vue2/vue-slider.md',
- rule: 'A slider is a container and a thumb. Position the thumb with <code>top</code> or <code>left</code> from <code>0</code> to <code>100%</code> — <code>0</code> means empty, <code>100%</code> means full.',
- ex: `left: 0      <span class="cmt">// empty</span>
-left: 100%   <span class="cmt">// full</span>`},
-{g: 'VUE', src: 'vue2/vue-svg-icon.md',
- rule: 'Each SVG icon goes into its own <code>svg-icon-*.vue</code> file, containing only a TEMPLATE element with an SVG inside.',
- ex: `&lt;template&gt;
-    &lt;svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;/app-button-green&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="VUE-11">
+<a class="code" href="#VUE-11">VUE-11</a>
+<div class="text"><p>One button, one class.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-button.md" title="vue2/vue-button.md">vue-button.md</a></div>
+</article>
+<article class="rule" id="VUE-12">
+<a class="code" href="#VUE-12">VUE-12</a>
+<div class="text"><p>A slider is a container and a thumb. Position the thumb with <code>top</code> or <code>left</code> from <code>0</code> to <code>100%</code> — <code>0</code> means empty, <code>100%</code> means full.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-slider.md" title="vue2/vue-slider.md">vue-slider.md</a></div>
+<div class="form"><pre>left: 0      <span class="cmt">// empty</span>
+left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-13">
+<a class="code" href="#VUE-13">VUE-13</a>
+<div class="text"><p>Each SVG icon goes into its own <code>svg-icon-*.vue</code> file, containing only a TEMPLATE element with an SVG inside.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-svg-icon.md" title="vue2/vue-svg-icon.md">vue-svg-icon.md</a></div>
+<div class="form"><pre>&lt;template&gt;
+    &lt;svg viewBox="0 0 100 100" xmlns="http&#58;//www&#46;w3.org/2000/svg"&gt;
         &lt;path fill="currentColor" d="..." /&gt;
     &lt;/svg&gt;
-&lt;/template&gt;`},
-{g: 'VUE', src: 'vue2/vue-svg-icon.md',
- rule: 'SVG icons respect the <code>currentColor</code> CSS property.',
- ex: `&lt;path fill="currentColor" d="..." /&gt;`},
-{g: 'VUE', src: 'vue2/vue-components.md',
- rule: 'Component options keep one order.',
- ex: `props inject provide mixins data computed watch methods mounted created beforeDestroy`},
-{g: 'VUE', src: 'vue2/vue-components.md',
- rule: 'An event handler is named after the UI part it is bound to — the event, then the button text.',
- ex: `&lt;button v-on:click="click_approve"&gt;
+&lt;/template&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-14">
+<a class="code" href="#VUE-14">VUE-14</a>
+<div class="text"><p>SVG icons respect the <code>currentColor</code> CSS property.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-svg-icon.md" title="vue2/vue-svg-icon.md">vue-svg-icon.md</a></div>
+<div class="form"><pre>&lt;path fill=&quot;currentColor&quot; d=&quot;...&quot; /&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-15">
+<a class="code" href="#VUE-15">VUE-15</a>
+<div class="text"><p>Component options keep one order.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-components.md" title="vue2/vue-components.md">vue-components.md</a></div>
+<div class="form"><pre>props inject provide mixins data computed watch methods mounted created beforeDestroy</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-16">
+<a class="code" href="#VUE-16">VUE-16</a>
+<div class="text"><p>An event handler is named after the UI part it is bound to — the event, then the button text.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-components.md" title="vue2/vue-components.md">vue-components.md</a></div>
+<div class="form"><pre>&lt;button v-on:click="click_approve"&gt;
     Approve
-&lt;/button&gt;`},
-{g: 'VUE', src: 'vue2/vue-components.md',
- rule: 'A handler on an icon is named after the icon.',
- ex: `&lt;button v-on:click="click_icon_archive"&gt;
+&lt;/button&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-17">
+<a class="code" href="#VUE-17">VUE-17</a>
+<div class="text"><p>A handler on an icon is named after the icon.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-components.md" title="vue2/vue-components.md">vue-components.md</a></div>
+<div class="form"><pre>&lt;button v-on:click="click_icon_archive"&gt;
     &lt;svg-icon-archive /&gt;
-&lt;/button&gt;`},
-{g: 'VUE', src: 'vue2/vue-components.md',
- rule: 'After the text or icon is changed, rename the corresponding event handler.',
- ex: `Approve → Accept     <span class="cmt">// click_approve → click_accept</span>`},
-
-// ---------------------------------------------------------------- REL
-{g: 'REL', src: 'packaging/packaging.md',
- rule: 'Distribute a prebuilt <code>dist/</code> from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do.',
- ex: `&lt;script src="https://unpkg.com/vue@2.6.11/dist/vue.js"&gt;&lt;/script&gt;`},
-{g: 'REL', src: 'packaging/packaging.md',
- rule: 'The release workflow is fixed: ensure there are no changes, increase the version, update <code>dist/</code>, commit, tag.',
- ex: `rm -rf dist
+&lt;/button&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-18">
+<a class="code" href="#VUE-18">VUE-18</a>
+<div class="text"><p>After the text or icon is changed, rename the corresponding event handler.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-components.md" title="vue2/vue-components.md">vue-components.md</a></div>
+<div class="form"><pre>Approve → Accept     <span class="cmt">// click_approve → click_accept</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="REL">
+<h2><span class="tag">REL</span><span class="name">Packaging and release</span><span class="note">Ship a prebuilt dist/.</span></h2>
+<article class="rule" id="REL-01">
+<a class="code" href="#REL-01">REL-01</a>
+<div class="text"><p>Distribute a prebuilt <code>dist/</code> from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a></div>
+<div class="form"><pre>&lt;script src=&quot;https://unpkg.com/vue@2.6.11/dist/vue.js&quot;&gt;&lt;/script&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-02">
+<a class="code" href="#REL-02">REL-02</a>
+<div class="text"><p>The release workflow is fixed: ensure there are no changes, increase the version, update <code>dist/</code>, commit, tag.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a></div>
+<div class="form"><pre>rm -rf dist
 npm run build
 git add package.json package-lock.json dist
 git commit -m "release v$(...)"
-git tag v$(...)`},
-{g: 'REL', src: 'packaging/packaging.md',
- rule: 'Bump the version without committing or tagging, then own both steps in the script.',
- ex: `npm version $1 --git=/bin/true`},
-{g: 'REL', src: 'packaging/packaging.md',
- rule: '<code>bin/release major|minor|patch</code> performs the whole release.',
- ex: `bin/release patch`},
-{g: 'REL', src: 'packaging/packaging.md',
- rule: 'A release script runs under bash strict mode.',
- ex: `set -o nounset -o errexit -o pipefail`},
-{g: 'REL', src: 'packaging/packaging.md',
- rule: 'A bad argument prints usage to stderr and exits 1.',
- ex: `echo usage: release 'major|minor|patch' &gt;&amp;2
-exit 1`},
+git tag v$(...)</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-03">
+<a class="code" href="#REL-03">REL-03</a>
+<div class="text"><p>Bump the version without committing or tagging, then own both steps in the script.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a></div>
+<div class="form"><pre>npm version $1 --git=/bin/true</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-04">
+<a class="code" href="#REL-04">REL-04</a>
+<div class="text"><p><code>bin/release major|minor|patch</code> performs the whole release.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a></div>
+<div class="form"><pre>bin/release patch</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-05">
+<a class="code" href="#REL-05">REL-05</a>
+<div class="text"><p>A release script runs under bash strict mode.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a></div>
+<div class="form"><pre>set -o nounset -o errexit -o pipefail</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-06">
+<a class="code" href="#REL-06">REL-06</a>
+<div class="text"><p>A bad argument prints usage to stderr and exits 1.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a></div>
+<div class="form"><pre>echo usage: release 'major&#124;minor&#124;patch' &gt;&amp;2
+exit 1</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="DOC">
+<h2><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="note">How a document in this repo is built.</span></h2>
+<article class="rule bare" id="DOC-01">
+<a class="code" href="#DOC-01">DOC-01</a>
+<div class="text"><p>A document has two halves. The author writes the top half, compressed around what he already knows; the AI writes the bottom half, restating it for a reader who lacks that context.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a></div>
+</article>
+<article class="rule bare" id="DOC-02">
+<a class="code" href="#DOC-02">DOC-02</a>
+<div class="text"><p>The top half is the source of truth. When the halves disagree, the top half is right.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a></div>
+</article>
+<article class="rule bare" id="DOC-03">
+<a class="code" href="#DOC-03">DOC-03</a>
+<div class="text"><p>No AI patches the top half. The one exception is an explicit request from the author.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a></div>
+</article>
+<article class="rule bare" id="DOC-04">
+<a class="code" href="#DOC-04">DOC-04</a>
+<div class="text"><p>The bottom half is never edited in place. After the top half changes, it is regenerated from it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a></div>
+</article>
+<article class="rule" id="DOC-05">
+<a class="code" href="#DOC-05">DOC-05</a>
+<div class="text"><p>Most of the time the bottom half starts with a <code>#</code> heading, and that heading is the boundary. A <code>---</code> line or a closing fence before it is decoration. There is no strict marker.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a></div>
+<div class="form"><pre>--- ✨ AI-Generated Content Below ✨ ---</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="LINT">
+<h2><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="note">Rules that only LINTING.md and the preset spell out.</span></h2>
+<article class="rule" id="LINT-01">
+<a class="code" href="#LINT-01">LINT-01</a>
+<div class="text"><p>Multiplicative operators are tight — <code>*</code>, <code>/</code>, <code>**</code>. Every other binary, logical and assignment operator has a space on each side.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+<div class="form"><pre>const x = a&#42;b + c/d - e&#42;&#42;2;
+const x = a % 2;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="LINT-02">
+<a class="code" href="#LINT-02">LINT-02</a>
+<div class="text"><p>An anonymous function has a space before its parenthesis; a named one has none.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/src/config.js" title="src/config.js">config.js</a></div>
+<div class="form"><pre>server.on('error', function (error) {
+});
 
-// ---------------------------------------------------------------- DOC
-{g: 'DOC', src: 'drafts/WRITING.md',
- rule: 'A document has two halves. The author writes the top half, compressed around what he already knows; the AI writes the bottom half, restating it for a reader who lacks that context.',
- ex: ``},
-{g: 'DOC', src: 'drafts/WRITING.md',
- rule: 'The top half is the source of truth. When the halves disagree, the top half is right.',
- ex: ``},
-{g: 'DOC', src: 'drafts/WRITING.md',
- rule: 'No AI patches the top half. The one exception is an explicit request from the author.',
- ex: ``},
-{g: 'DOC', src: 'drafts/WRITING.md',
- rule: 'The bottom half is never edited in place. After the top half changes, it is regenerated from it.',
- ex: ``},
-{g: 'DOC', src: 'drafts/WRITING.md',
- rule: 'Most of the time the bottom half starts with a <code>#</code> heading, and that heading is the boundary. A <code>---</code> line or a closing fence before it is decoration. There is no strict marker.',
- ex: `--- ✂️ ⬇️ AI-Generated Content Below ⬇️ ✂️ ---`},
-
-];
-</script>
-<script>
-(function () {
-
-const rows_el = document.getElementById('rows');
-const chips_el = document.getElementById('chips');
-const count_el = document.getElementById('count');
-const empty_el = document.getElementById('empty');
-const q_el = document.getElementById('q');
-
-const theme_el = document.getElementById('theme');
-
-const strip = document.createElement('div');
-let active_group = '';
-
-function theme_reflect(mode)
+function main()
 {
-    for (const button of theme_el.querySelectorAll('button')) {
-        button.setAttribute('aria-pressed', button.dataset.set === mode ? 'true' : 'false');
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="LINT-03">
+<a class="code" href="#LINT-03">LINT-03</a>
+<div class="text"><p>A tiny arrow is a single-line expression callback, passed as a call argument or as an object property value, with one parameter. In a <code>.catch</code> that parameter is <code>error</code>. A named helper is a function declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+</article>
+<article class="rule" id="LINT-04">
+<a class="code" href="#LINT-04">LINT-04</a>
+<div class="text"><p><code>forEach</code> does not exist. Use <code>for...of</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+<div class="form"><pre>items.forEach(function (item) {   <span class="no">✗ no</span>
+});
+
+for (const item of items) {       <span class="yes">✓ yes</span>
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="LINT-05">
+<a class="code" href="#LINT-05">LINT-05</a>
+<div class="text"><p>The one class that may exist is a class that extends another.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+</article>
+<article class="rule bare" id="LINT-06">
+<a class="code" href="#LINT-06">LINT-06</a>
+<div class="text"><p>Imports are the first statements of a file, one statement per line. Side-effect imports — <code>import './x'</code>, a bare <code>require('x')</code> — form their own block at the top, kept in the order they run; one blank line may separate it from the sorted named imports.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+</article>
+<article class="rule bare" id="LINT-07">
+<a class="code" href="#LINT-07">LINT-07</a>
+<div class="text"><p>Module format is the consuming project’s choice: JavaScript defaults to ES modules, <code>.cjs</code> is CommonJS, and the sorting rule supports both import forms. CommonJS-only is this repository’s own rule.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+</article>
+<article class="rule bare" id="LINT-08">
+<a class="code" href="#LINT-08">LINT-08</a>
+<div class="text"><p><code>gap*</code> closes the layout group: the flex/grid/split container, then its <code>flex-*</code> modifiers, then the gap. Put a layout and its gap in the same class value.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+</article>
+<article class="rule bare" id="LINT-09">
+<a class="code" href="#LINT-09">LINT-09</a>
+<div class="text"><p>Within typography, <code>fs*</code> and <code>fw*</code> come before <code>lh*</code>. Several local <code>#-*</code> classes together form the final group.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+</article>
+<article class="rule bare" id="LINT-10">
+<a class="code" href="#LINT-10">LINT-10</a>
+<div class="text"><p><code>#-</code> is written only in the forms the hashtag loader replaces: a double-quoted <code>class</code>, <code>card_class</code> or attribute ending in <code>-class</code> / <code>:class</code>; <code>.#-</code> in a style block; and the exact single-quoted <code>'.#-</code> form in JavaScript.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+</article>
+<article class="rule bare" id="LINT-11">
+<a class="code" href="#LINT-11">LINT-11</a>
+<div class="text"><p>Each statically known <code>#-*</code> class has a nonempty style selector in the same component. Declarations, includes and extends count as styles; an empty rule, a variable-only rule, or a mention inside <code>:not(...)</code> does not.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+</article>
+<article class="rule bare" id="LINT-12">
+<a class="code" href="#LINT-12">LINT-12</a>
+<div class="text"><p>A Vue <code>&lt;script&gt;</code> is indented four spaces with one base indent.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+</article>
+</section>
+<p class="nothing" id="nothing" hidden>No rule matches that.</p>
+</main>
+</div>
+
+<footer class="wrap">
+    <span class="lead">In the canonical forms, <code>✓</code> and <code>✗</code> are verdicts, not code.</span>
+    <span>The same index as a plain table: <a href="https://github.com/vbarbarosh/rules/blob/main/docs/rules.md">rules.md</a></span>
+    <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
+</footer>
+
+<script>
+const root_el = document.documentElement;
+const q_el = document.getElementById('q');
+const count_el = document.getElementById('count');
+const nothing_el = document.getElementById('nothing');
+const theme_el = document.getElementById('theme');
+const bar_el = document.querySelector('.bar');
+const group_els = Array.from(document.querySelectorAll('section.group'));
+const rule_els = Array.from(document.querySelectorAll('article.rule'));
+const nav_by_group = {};
+const haystack_by_id = {};
+
+let spy_pending = false;
+let nav_target = null;
+let nav_timer = null;
+
+main();
+
+function main()
+{
+    for (const a of document.querySelectorAll('.groups a')) {
+        nav_by_group[a.dataset.group] = a;
+    }
+    for (const rule_el of rule_els) {
+        haystack_by_id[rule_el.id] = haystack_from_rule(rule_el);
+    }
+
+    theme_render();
+    document.addEventListener('click', click_theme);
+    theme_dock_watch();
+
+    q_el.value = new URLSearchParams(location.search).get('q') || '';
+    q_el.addEventListener('input', input_q);
+    filter_apply();
+
+    document.addEventListener('click', click_copy);
+    document.addEventListener('keydown', keydown_document);
+    // Chrome on Wayland can hold a drag started by a quick double click.
+    document.addEventListener('dragstart', dragstart_document);
+    window.addEventListener('scroll', scroll_window, {passive: true});
+    window.addEventListener('resize', scroll_window);
+    spy_apply();
+}
+
+function haystack_from_rule(rule_el)
+{
+    const parts = [rule_el.id];
+    for (const el of rule_el.querySelectorAll('.text p, .src, .form pre, .form.prose')) {
+        parts.push(el.textContent);
+    }
+    return parts.join(' ').toLowerCase();
+}
+
+function theme_render()
+{
+    const theme = root_el.getAttribute('data-theme');
+    for (const button of document.querySelectorAll('.theme button')) {
+        button.setAttribute('aria-pressed', (button.dataset.set === theme) ? 'true' : 'false');
     }
 }
 
-function theme_set(mode)
+// The switch in the bar stands in for the masthead one while that is off screen.
+function theme_dock_watch()
 {
-    document.documentElement.setAttribute('data-theme', mode);
-    theme_reflect(mode);
+    if (!window.IntersectionObserver) {
+        bar_el.classList.add('docked');
+        return;
+    }
+    const observer = new IntersectionObserver(function (entries) {
+        for (const entry of entries) {
+            bar_el.classList.toggle('docked', !entry.isIntersecting);
+        }
+    });
+    observer.observe(theme_el);
+}
+
+function click_theme(event)
+{
+    const button = event.target.closest('.theme button');
+    if (!button) {
+        return;
+    }
+    root_el.setAttribute('data-theme', button.dataset.set);
     try {
-        localStorage.setItem('rules-theme', mode);
+        localStorage.setItem('rules-theme', button.dataset.set);
     }
     catch {
     }
+    theme_render();
 }
 
-theme_el.addEventListener('click', function (event) {
-    const button = event.target.closest('button');
-    if (button) {
-        theme_set(button.dataset.set);
-    }
-});
-
-// Until a choice is made the page follows the OS, so the switch reports
-// which theme is actually on screen — a stamped one, else what the OS asks for.
-theme_reflect(document.documentElement.getAttribute('data-theme')
-    || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (event) {
-    if (!document.documentElement.getAttribute('data-theme')) {
-        theme_reflect(event.matches ? 'dark' : 'light');
-    }
-});
-
-function text_of(html)
+function input_q()
 {
-    strip.innerHTML = html || '';
-    return (strip.textContent || '').toLowerCase();
+    const url = new URL(location.href);
+    if (q_el.value.trim()) {
+        url.searchParams.set('q', q_el.value.trim());
+    }
+    else {
+        url.searchParams.delete('q');
+    }
+    try {
+        history.replaceState(null, '', url);
+    }
+    catch {
+    }
+    filter_apply();
 }
 
-const COPY_BUTTON =
-    '<button class="copy" type="button" aria-label="Copy snippet to clipboard">' +
-    '<svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-    '<rect x="9" y="9" width="11" height="11" rx="2"></rect>' +
-    '<path d="M5 15V6a2 2 0 0 1 2-2h9"></path>' +
-    '</svg>' +
-    '<svg class="i-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-    '<path d="M5 12.5 10 17.5 19 7"></path>' +
-    '</svg>' +
-    '<span class="copy-label">Copy</span>' +
-    '</button>';
-
-function example_html(ex)
+// Every word of the query must occur somewhere in the rule: its code,
+// its text, its canonical form or its source.
+function filter_apply()
 {
-    if (!ex) {
-        return '<span class="cmt">—</span>';
+    const words = q_el.value.toLowerCase().split(/\s+/).filter(v => v);
+    let total = 0;
+    for (const group_el of group_els) {
+        const rules = group_el.querySelectorAll('article.rule');
+        let visible = 0;
+        for (const rule_el of rules) {
+            const haystack = haystack_by_id[rule_el.id];
+            const ok = words.every(v => haystack.includes(v));
+            rule_el.hidden = !ok;
+            if (ok) {
+                visible++;
+            }
+        }
+        total += visible;
+        group_el.hidden = (visible === 0);
+        const a = nav_by_group[group_el.id];
+        a.classList.toggle('none', visible === 0);
+        a.querySelector('.n').textContent = (visible === rules.length) ? rules.length : `${visible}/${rules.length}`;
     }
-    if (ex.slice(0, 3) === '<ol') {
-        return ex;
-    }
-    return '<div class="snippet"><pre>' + ex + '</pre>' + COPY_BUTTON + '</div>';
+    nothing_el.hidden = (total > 0);
+    count_el.textContent = (total === rule_els.length) ? `${total} rules` : `${total} of ${rule_els.length} rules`;
+    spy_apply();
 }
 
-function render()
+function scroll_window()
 {
-    const seen = {};
-    const out = [];
+    if (spy_pending) {
+        return;
+    }
+    spy_pending = true;
+    requestAnimationFrame(spy_apply);
+}
 
-    for (const group of GROUPS) {
-        const rules = RULES.filter(v => v.g === group.tag);
-        out.push(
-            '<tr class="grp" data-group="' + group.tag + '">' +
-            '<th colspan="4" scope="colgroup">' +
-            '<span class="grp-tag">' + group.tag + '</span>' +
-            '<span class="grp-name">' + group.name + '</span>' +
-            '<span class="grp-note">' + group.note + '</span>' +
-            '</th></tr>'
-        );
-        for (let i = 0, end = rules.length; i < end; ++i) {
-            const rule = rules[i];
-            const id = group.tag + '-' + String(i + 1).padStart(2, '0');
-            const name = rule.src.split('/').pop();
-            const haystack = (id + ' ' + text_of(rule.rule) + ' ' + text_of(rule.ex) + ' ' + rule.src).toLowerCase();
-            seen[rule.src] = true;
-            out.push(
-                '<tr class="rule" id="' + id + '" data-group="' + group.tag + '" data-find="' + haystack.replace(/"/g, '&quot;') + '">' +
-                '<td class="id"><a href="#' + id + '">' + id + '</a></td>' +
-                '<td class="rule">' + rule.rule + '</td>' +
-                '<td class="ex">' + example_html(rule.ex) + '</td>' +
-                '<td class="src"><a href="' + REPO + rule.src + '" title="' + rule.src + '">' + name + '</a></td>' +
-                '</tr>'
-            );
+// The current group is the last one whose heading has reached the sticky bars.
+function spy_apply()
+{
+    spy_pending = false;
+    const line = bar_el.getBoundingClientRect().bottom + 80;
+    let current = null;
+    for (const group_el of group_els) {
+        if (group_el.hidden) {
+            continue;
+        }
+        if (current === null || group_el.getBoundingClientRect().top <= line) {
+            current = group_el.id;
         }
     }
-
-    rows_el.innerHTML = out.join('');
-
-    document.getElementById('tally-rules').textContent = RULES.length;
-    document.getElementById('tally-groups').textContent = GROUPS.length;
-    document.getElementById('tally-src').textContent = Object.keys(seen).length;
-
-    const chips = ['<button class="chip" type="button" data-group="" aria-pressed="true">All<span class="n">' + RULES.length + '</span></button>'];
-    for (const group of GROUPS) {
-        const n = RULES.filter(v => v.g === group.tag).length;
-        chips.push('<button class="chip" type="button" data-group="' + group.tag + '" aria-pressed="false">' + group.tag + '<span class="n">' + n + '</span></button>');
-    }
-    chips_el.innerHTML = chips.join('');
-}
-
-function apply()
-{
-    const needle = q_el.value.trim().toLowerCase();
-    const groups = {};
-    let visible = 0;
-
-    for (const tr of rows_el.querySelectorAll('tr.rule')) {
-        const ok = (!active_group || tr.dataset.group === active_group)
-            && (!needle || tr.dataset.find.indexOf(needle) !== -1);
-        tr.hidden = !ok;
-        if (ok) {
-            groups[tr.dataset.group] = true;
-            visible++;
+    for (const group_el of group_els) {
+        const a = nav_by_group[group_el.id];
+        const was_current = a.classList.contains('current');
+        a.classList.toggle('current', group_el.id === current);
+        if (!was_current && group_el.id === current) {
+            nav_reveal(a);
         }
     }
-
-    for (const tr of rows_el.querySelectorAll('tr.grp')) {
-        tr.hidden = !groups[tr.dataset.group];
-    }
-
-    empty_el.hidden = visible > 0;
-    count_el.textContent = visible === RULES.length
-        ? RULES.length + ' rules'
-        : visible + ' of ' + RULES.length + ' rules';
 }
 
-// The verdict markers — right, wrong, noise — are editorial, not code.
-function snippet_text(pre)
+// The list of groups scrolls on its own — down the side in a short window,
+// sideways on a phone. It stays still while the current link is in view;
+// a link that is out of view is brought to the middle. While a smooth scroll
+// is under way the list is judged by where it is heading, not where it is.
+function nav_reveal(a)
+{
+    const nav = a.parentNode;
+    const top = nav_target ? nav_target.top : nav.scrollTop;
+    const left = nav_target ? nav_target.left : nav.scrollLeft;
+    const in_view = (a.offsetTop >= top) && (a.offsetTop + a.offsetHeight <= top + nav.clientHeight)
+        && (a.offsetLeft >= left) && (a.offsetLeft + a.offsetWidth <= left + nav.clientWidth);
+    if (in_view) {
+        return;
+    }
+    nav_target = {
+        top: clamp(a.offsetTop - (nav.clientHeight - a.offsetHeight)/2, 0, nav.scrollHeight - nav.clientHeight),
+        left: clamp(a.offsetLeft - (nav.clientWidth - a.offsetWidth)/2, 0, nav.scrollWidth - nav.clientWidth),
+    };
+    nav.scrollTo({top: nav_target.top, left: nav_target.left, behavior: 'smooth'});
+    clearTimeout(nav_timer);
+    nav_timer = setTimeout(nav_settled, 700);
+}
+
+function nav_settled()
+{
+    nav_target = null;
+}
+
+function clamp(value, min, max)
+{
+    return Math.max(min, Math.min(max, value));
+}
+
+// The verdicts and asides are editorial, not code.
+function snippet_from_pre(pre)
 {
     const clone = pre.cloneNode(true);
-    for (const mark of clone.querySelectorAll('.no, .yes')) {
-        mark.remove();
+    for (const el of clone.querySelectorAll('.yes, .no, .aside')) {
+        el.remove();
     }
-    return clone.innerText.split('\n').map(v => v.replace(/\s+$/, '')).join('\n').trim();
+    return clone.textContent.split('\n').map(v => v.replace(/\s+$/, '')).join('\n').trim();
 }
 
-function copy_text(text)
+function clipboard_write(text)
 {
     if (navigator.clipboard && window.isSecureContext) {
-        return navigator.clipboard.writeText(text);
+        return navigator.clipboard.writeText(text).catch(function (error) {
+            return clipboard_write_legacy(text);
+        });
     }
+    return clipboard_write_legacy(text);
+}
+
+// For a page opened from a file, or a browser that refuses the async API.
+function clipboard_write_legacy(text)
+{
     return new Promise(function (resolve, reject) {
         const area = document.createElement('textarea');
         area.value = text;
@@ -1717,96 +2291,52 @@ function copy_text(text)
     });
 }
 
-function copy_state(button, label, done)
+function copy_state(button, label, state)
 {
-    button.querySelector('.copy-label').textContent = label;
-    button.classList.toggle('done', done);
+    button.textContent = label;
+    button.classList.toggle('done', state === 'done');
+    button.classList.toggle('failed', state === 'failed');
     clearTimeout(button.copy_timer);
-    button.copy_timer = setTimeout(function () {
-        button.querySelector('.copy-label').textContent = 'Copy';
-        button.classList.remove('done');
-    }, 1400);
+    if (state) {
+        button.copy_timer = setTimeout(function () {
+            copy_state(button, 'Copy', null);
+        }, 1400);
+    }
 }
 
-rows_el.addEventListener('click', function (event) {
+function click_copy(event)
+{
     const button = event.target.closest('.copy');
     if (!button) {
         return;
     }
-    const pre = button.parentNode.querySelector('pre');
-    copy_text(snippet_text(pre)).then(function () {
-        copy_state(button, 'Copied', true);
+    const text = snippet_from_pre(button.parentNode.querySelector('pre'));
+    clipboard_write(text).then(function () {
+        copy_state(button, 'Copied', 'done');
     })
     .catch(function (error) {
-        copy_state(button, 'Failed', false);
+        console.log(error.message);
+        copy_state(button, 'Failed', 'failed');
     });
-});
+}
 
-chips_el.addEventListener('click', function (event) {
-    const chip = event.target.closest('.chip');
-    if (!chip) {
-        return;
-    }
-    active_group = chip.dataset.group;
-    for (const other of chips_el.querySelectorAll('.chip')) {
-        other.setAttribute('aria-pressed', other === chip ? 'true' : 'false');
-    }
-    apply();
-});
-
-q_el.addEventListener('input', apply);
-
-document.addEventListener('keydown', function (event) {
-    if (event.key === '/' && document.activeElement !== q_el) {
+function keydown_document(event)
+{
+    if (event.key === '/' && document.activeElement !== q_el && !event.ctrlKey && !event.metaKey && !event.altKey) {
         event.preventDefault();
         q_el.focus();
         q_el.select();
     }
     if (event.key === 'Escape' && document.activeElement === q_el) {
         q_el.value = '';
-        apply();
+        input_q();
     }
-});
+}
 
-function head_measure()
+function dragstart_document(event)
 {
-    const th = document.querySelector('thead th');
-    document.documentElement.style.setProperty('--head-h', th.getBoundingClientRect().height + 'px');
+    event.preventDefault();
 }
-
-render();
-apply();
-head_measure();
-window.addEventListener('resize', head_measure);
-if (document.fonts) {
-    document.fonts.ready.then(head_measure);
-}
-
-function hash_flash(scroll)
-{
-    if (location.hash.length < 2) {
-        return;
-    }
-    const target = document.getElementById(location.hash.slice(1));
-    if (!target) {
-        return;
-    }
-    if (scroll) {
-        target.scrollIntoView({block: 'center'});
-    }
-    // Restart the animation even when the row is already the target.
-    target.classList.remove('flash');
-    void target.offsetWidth;
-    target.classList.add('flash');
-}
-
-window.addEventListener('hashchange', function () {
-    hash_flash(false);
-});
-
-hash_flash(true);
-
-})();
 </script>
 </body>
 </html>
