@@ -103,9 +103,9 @@ so the child that fills is marked with the short `fluid`. A plain `flex-row` /
 `flex-col` has no child rules, and its growing child is marked `flex-fluid`.
 Same CSS — the choice states which container the element is sitting in.
 
-**Reset before setter.** An `x*` class usually comes before the setter it
-clears the way for. The broad class leads and the narrow one corrects it,
-whichever of the two is the reset:
+**Broad before narrow.** An `x*` class usually comes before the setter it
+clears the way for, but the rule underneath is that the broad class leads
+and the narrow one corrects it, whichever of the two is the reset:
 
 ```html
 <div class="xm ml5" />   <!-- margin: 0; margin-left: 5px; -->

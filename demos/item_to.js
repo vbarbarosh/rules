@@ -1,5 +1,9 @@
 // convert; convert between representations
 // always a function
+//
+// Superseded: `_to_` is for method position, where the source is the
+// receiver (tree.to_json()); a standalone conversion is `rad_from_deg`.
+// See drafts/naming_markers.md.
 
 function deg_to_rad(deg)
 {

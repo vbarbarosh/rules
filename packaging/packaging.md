@@ -18,7 +18,7 @@ Take a look at the following lines:
 
 Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch
 among others, uses `dist` directory to distribute their prebuild
-packages. __PROJECT_NAME__ can do the same. Here is a workflow:
+packages. This project can do the same. Here is a workflow:
 
 1. Ensure that there are no changes
 2. Increase a version
@@ -28,7 +28,7 @@ packages. __PROJECT_NAME__ can do the same. Here is a workflow:
 
 ```
 # Increase a version without commiting it and making a tag
-npm version $1 --git=/bin/true # this is a hack; substitute `true` for `git`
+npm version $1 --no-git-tag-version
 # Rebuild dist
 rm -rf dist
 npm run build
@@ -51,6 +51,14 @@ will do all of this. Feel free to use and tweak it:
     scriptdir=`dirname $script`
     scriptname=`basename $script`
 
+    BLACK="\e[30m" RED="\e[31m" GREEN="\e[32m" YELLOW="\e[33m" BLUE="\e[34m"
+    PURPLE="\e[35m" CYAN="\e[36m" WHITE="\e[37m" RESET="\e[0m"
+
+    EXIT_MESSAGE="${RED}bin/release failed${RESET}"
+
+    # http://redsymbol.net/articles/bash-exit-traps/
+    tempdir=`mktemp -d -t tmp.XXXXXXXXXX`
+    trap 'rm -rf $tempdir; echo -e "$EXIT_MESSAGE"' EXIT
     cd $scriptdir/..
 
     case "${1-}"  in
@@ -63,7 +71,7 @@ will do all of this. Feel free to use and tweak it:
     esac
 
     # Increase a version without commiting it and making a tag
-    npm version $1 --git=/bin/true # this is a hack; substitute `true` for `git`
+    npm version $1 --no-git-tag-version
     # Rebuild dist
     rm -rf dist
     npm run build
@@ -71,3 +79,5 @@ will do all of this. Feel free to use and tweak it:
     git commit -m "release v$(node -e 'console.log(require("./package.json").version)')"
     # Create a tag
     git tag v$(node -e 'console.log(require("./package.json").version)')
+
+    EXIT_MESSAGE="${GREEN}bin/release succeeded${RESET}"

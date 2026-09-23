@@ -49,7 +49,12 @@ npx vbarbarosh/rules src
 - [drafts/layout.md](drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
 - [drafts/value_label.md](drafts/value_label.md) — selectable options are `{value, label}`
 - [drafts/logs.md](drafts/logs.md) — `[time][group_uid][sender] details`, one event per line · [cheatsheet](drafts/logs-cheatsheet.html)
+- [drafts/one_export_per_file.md](drafts/one_export_per_file.md) — a file exports exactly one thing, as its last statement
+- [drafts/theme_switch.md](drafts/theme_switch.md) — every new UI carries a light/dark switch; two states, never System
+- [drafts/audit_note.md](drafts/audit_note.md) — a full audit goes to `notes/audit-<date>.md`; its register is the issue list
+- [drafts/WRITING.md](drafts/WRITING.md) — a document has two halves: the author's top, the regenerated bottom
 - [packaging/packaging.md](packaging/packaging.md) — releasing a prebuilt `dist/` with `bin/release`
+- [demos/](demos/) — naming demos; `item_to.js` shows a superseded convention
 
 ## Vue 2
 
@@ -88,6 +93,7 @@ npx vbarbarosh/rules src
 - **[docs/glossaries.html](docs/glossaries.html) — every term below, in one filterable page**
 - [glossaries/agents.md](glossaries/agents.md) — vocabulary for developing agents: parts, roles, time, messages, tools
 - [glossaries/testing.md](glossaries/testing.md) — happy path, smoke tests, flaky tests, intermittent failures, showstoppers
+- [glossaries/doc.md](glossaries/doc.md) — vocabulary and glossary: the words about words
 
 ## Naming Grammar
 
@@ -162,24 +168,6 @@ user_by_id[id]     // right
 | Many per key          | `users_by_role`              |
 | Reordered array       | `users_sorted_by_signup`     |
 | Derived value         | `user_from_token(token)`     |
-
-### References
-
-```javascript
-const inventory = [
-  {name: 'asparagus', type: 'vegetables', quantity: 9},
-  {name: 'bananas', type: 'fruit', quantity: 5},
-  {name: 'goat', type: 'meat', quantity: 23},
-  {name: 'cherries', type: 'fruit', quantity: 12},
-  {name: 'fish', type: 'meat', quantity: 22},
-];
-console.log(Object.groupBy(inventory, v => v.type));
-console.log(Map.groupBy(inventory, v => v.type));
-```
-
-```js
-const items_by_anim = items_group_by_anim(items);
-```
 
 ## Related
 

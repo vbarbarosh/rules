@@ -23,11 +23,11 @@ console.log(inventory_grouped_by_type_list);
 
 function array_group_list(array, fn)
 {
-    const out = {};
+    const groups = {};
     for (const item of array) {
         const key = fn(item);
-        out[key] ??= {key, items: []};
-        out[key].items.push(item);
+        groups[key] ??= {key, items: []};
+        groups[key].items.push(item);
     }
-    return Object.values(out);
+    return Object.values(groups);
 }

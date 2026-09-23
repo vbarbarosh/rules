@@ -34,7 +34,7 @@ cause, and "works on my machine" happens a lot.
 // Sometimes fetch() returns slow, causing timeout.
 // Sometimes it's fast. So the test occasionally fails.
 test("API returns data", async function () {
-    const data = await fetch("/api/data");
-    expect(data.ok).toBe(true);
+    const response = await fetch("/api/data");
+    expect(response.ok).toBe(true);
 });
 ```

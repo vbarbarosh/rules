@@ -1877,7 +1877,7 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 <div class="text"><p>Every component is provided with three global methods through a mixin.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-globals.md" title="vue2/vue-globals.md">vue-globals.md</a></div>
 <div class="form"><pre>px(value)        <span class="cmt">// format a pixel value</span>
 uid(&#91;name])      <span class="cmt">// ids unique across components</span>
-emit_input(v)    <span class="cmt">// return a value from an input</span></pre><button class="copy" type="button">Copy</button></div>
+emit_input(value) <span class="cmt">// return a value from an input</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="VUE-02">
 <a class="code" href="#VUE-02">VUE-02</a>
@@ -1923,11 +1923,13 @@ emit_input(v)    <span class="cmt">// return a value from an input</span></pre><
 </article>
 <article class="rule" id="VUE-09">
 <a class="code" href="#VUE-09">VUE-09</a>
-<div class="text"><p>Compose forms from <code>app-form-div</code> and <code>app-form-label</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-form.md" title="vue2/vue-form.md">vue-form.md</a></div>
-<div class="form"><pre>&lt;app-form-div class="flex-row mi10"&gt;
-    &lt;app-input-label&gt;Email:&lt;/app-input-label&gt;
-    &lt;app-input-email v-model="user.email" /&gt;
-&lt;/app-form-div&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p>Compose forms from <code>app-form-div</code> and <code>app-label</code>, inside a <code>&lt;form&gt;</code> whose <code>submit</code> the submit button and the Enter key both reach.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-form.md" title="vue2/vue-form.md">vue-form.md</a></div>
+<div class="form"><pre>&lt;form v-on:submit.prevent="submit" class="mg10"&gt;
+    &lt;app-form-div class="flex-row gap10"&gt;
+        &lt;app-label&gt;Email:&lt;/app-label&gt;
+        &lt;app-input-email v-model="user.email" /&gt;
+    &lt;/app-form-div&gt;
+&lt;/form&gt;</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="VUE-10">
 <a class="code" href="#VUE-10">VUE-10</a>
@@ -2039,7 +2041,7 @@ git tag v$(...)</pre><button class="copy" type="button">Copy</button></div>
 <article class="rule" id="REL-03">
 <a class="code" href="#REL-03">REL-03</a>
 <div class="text"><p>Bump the version without committing or tagging, then own both steps in the script.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a></div>
-<div class="form"><pre>npm version $1 --git=/bin/true</pre><button class="copy" type="button">Copy</button></div>
+<div class="form"><pre>npm version $1 --no-git-tag-version</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="REL-04">
 <a class="code" href="#REL-04">REL-04</a>
