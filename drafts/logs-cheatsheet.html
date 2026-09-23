@@ -1,429 +1,853 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A visual application of the project logging rules.">
-    <title>Logs, applied</title>
-    <style>
-        :root {
-            --bg: #f4f5f7;
-            --paper: #ffffff;
-            --panel: #fbfbfc;
-            --ink: #1b2230;
-            --muted: #6b7280;
-            --line: #dfe3ea;
-            --time: #2563eb;
-            --group: #7c3aed;
-            --group-soft: #f1ecfe;
-            --sender: #15803d;
-            --sender-soft: #f1fbf4;
-            --error: #c72c22;
-            --error-soft: #fdf2f1;
-            --spawn: #c2410c;
-            --details: #46526a;
-            --radius: 10px;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A visual application of the project logging rules.">
+<title>Logs, applied</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
+<style>
+:root {
+    color-scheme: light;
+    --bg: #f7f5ef;
+    --surface: #fffefb;
+    --surface-2: #efece2;
+    --code-bg: #f2efe5;
+    --ink: #191a17;
+    --ink-2: #3b3d37;
+    --muted: #686a61;
+    --line: #d9d5c7;
+    --line-heavy: #191a17;
+    --line-2: #e8e5d9;
+    --accent: #2743b8;
+    --accent-soft: #e2e7fb;
+    --yes: #1a7443;
+    --no: #b2341f;
+    --cmt: #6c6e65;
+    --bar-h: 56px;
+    --bar-gap: 16px;
+    --head-h: 44px;
+    --fast: 120ms;
+    --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #101113;
+    --surface: #16181b;
+    --surface-2: #1d2024;
+    --code-bg: #0b0c0e;
+    --ink: #e8e6df;
+    --ink-2: #c9c7bf;
+    --muted: #92958c;
+    --line: #2c3035;
+    --line-heavy: #4a4f57;
+    --line-2: #212428;
+    --accent: #9db2ff;
+    --accent-soft: #1b2346;
+    --yes: #72d39c;
+    --no: #ff937c;
+    --cmt: #878b82;
+}
 
-        body {
-            margin: 0;
-            padding: 28px 0 44px;
-            background: var(--bg);
-            color: var(--ink);
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 14px;
-            line-height: 1.45;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        code,
-        pre,
-        .mono {
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        }
+[hidden] {
+    display: none !important;
+}
 
-        .page {
-            display: flex;
-            flex-direction: column;
-            width: min(1460px, calc(100% - 40px));
-            margin: 0 auto;
-            gap: 20px;
-        }
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
 
-        .split {
-            display: grid;
-            grid-template-columns: minmax(0, 1.32fr) minmax(320px, 1fr);
-            gap: 20px;
-            align-items: start;
-        }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.5;
+    transition: background-color var(--fast), color var(--fast);
+}
 
-        .col {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+a {
+    color: var(--accent);
+}
 
-        .masthead {
-            display: flex;
-            align-items: baseline;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
+/* Code is shown byte for byte: no ligature may turn <!-- or => into an arrow. */
+code, pre {
+    font-family: var(--mono);
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "calt" 0;
+}
 
-        .masthead h1 {
-            margin: 0;
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
 
-        .masthead p {
-            margin: 0;
-            color: var(--muted);
-        }
+.wrap {
+    width: min(1240px, 100% - 32px);
+    margin: 0 auto;
+}
 
-        .panel {
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 16px 18px 18px;
-            background: var(--paper);
-        }
+/* ---------- masthead ---------- */
 
-        .panel h2 {
-            margin: 0 0 14px;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
+/* The heavy line closes the masthead and leaves the screen with it. */
+.mast {
+    padding: 28px 0 30px;
+    border-bottom: 2px solid var(--line-heavy);
+    transition: border-color var(--fast);
+}
 
-        .panel h2:not(:first-child) {
-            margin-top: 20px;
-        }
+.mast-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 44px;
+}
 
-        .panel h2 small {
-            color: var(--muted);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            text-transform: none;
-        }
+.crumb {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: .04em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color var(--fast);
+}
 
-        ul {
-            margin: 0;
-            padding-left: 18px;
-        }
+.crumb:hover {
+    color: var(--accent);
+}
 
-        li {
-            margin-bottom: 7px;
-        }
+/* The pages of the site; the one being read is underlined. */
+.pages {
+    display: flex;
+    gap: 18px;
+    margin: 0 auto 0 14px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: .04em;
+}
 
-        li:last-child {
-            margin-bottom: 0;
-        }
+.pages a {
+    padding: 3px 0;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color var(--fast), border-color var(--fast);
+}
 
-        li ul {
-            margin-top: 7px;
-        }
+.pages a:hover {
+    color: var(--accent);
+}
 
-        .t {
-            color: var(--time);
-        }
+.pages a[aria-current="page"] {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+}
 
-        .g {
-            color: var(--group);
-        }
+.theme {
+    display: inline-flex;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    transition: background-color var(--fast), border-color var(--fast);
+}
 
-        .s {
-            color: var(--sender);
-        }
+.theme button {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    padding: 7px 12px;
+    cursor: pointer;
+    transition: color var(--fast), background-color var(--fast);
+}
 
-        .e {
-            color: var(--error);
-        }
+.theme button:hover {
+    color: var(--ink);
+}
 
-        .k {
-            color: var(--spawn);
-        }
+.theme button[aria-pressed="true"] {
+    color: var(--bg);
+    background: var(--ink);
+}
 
-        .d {
-            color: var(--details);
-        }
+h1 {
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp(44px, 7.4vw, 88px);
+    line-height: .98;
+    letter-spacing: -.025em;
+    text-wrap: balance;
+}
 
-        .m {
-            color: var(--muted);
-        }
+.lede {
+    margin: 20px 0 0;
+    max-width: 58ch;
+    font-size: 20px;
+    line-height: 1.45;
+    color: var(--ink-2);
+}
 
-        /* Anatomy of one line */
+.bar {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    height: var(--bar-h);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    transition: background-color var(--fast), border-color var(--fast);
+}
 
-        .anatomy {
-            display: grid;
-            grid-template-columns: 26ch 10ch 16ch 18ch;
-            margin-bottom: 20px;
-            font-size: 15px;
-            line-height: 1.3;
-            overflow-x: auto;
-            white-space: pre;
-        }
+.bar-in {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--bar-gap);
+}
 
-        .brace {
-            display: block;
-            position: relative;
-            height: 9px;
-            margin: 7px 3px 0;
-            border: 2px solid currentColor;
-            border-top: 0;
-            border-radius: 0 0 7px 7px;
-        }
+/* The masthead switch, docked: it opens after the count once the masthead
+   one has left the screen. Closed, it takes no room and the count sits flush right. */
+.theme-docked {
+    flex: none;
+    max-width: 0;
+    margin-left: calc(-1 * var(--bar-gap));
+    overflow: hidden;
+    border-width: 1px 0;
+    border-color: transparent;
+    visibility: hidden;
+    opacity: 0;
+    transition: background-color var(--fast), border-color var(--fast), opacity var(--fast), max-width var(--fast), margin-left var(--fast), border-width var(--fast), visibility 0s linear var(--fast);
+}
 
-        .brace::after {
-            position: absolute;
-            top: 100%;
-            left: calc(50% - 1px);
-            width: 2px;
-            height: 6px;
-            background: currentColor;
-            content: "";
-        }
+.bar.docked .theme-docked {
+    max-width: 140px;
+    margin-left: 0;
+    border-width: 1px;
+    border-color: var(--line);
+    visibility: visible;
+    opacity: 1;
+    transition: background-color var(--fast), border-color var(--fast), opacity var(--fast), max-width var(--fast), margin-left var(--fast), border-width var(--fast), visibility 0s;
+}
 
-        .anatomy .label {
-            padding-top: 12px;
-            font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            text-align: center;
-            white-space: normal;
-        }
+/* ---------- footer ---------- */
 
-        .anatomy .label span {
-            display: block;
-            color: var(--muted);
-            font-size: 11px;
-            font-weight: 500;
-        }
+footer {
+    padding: 24px 0 64px;
+    border-top: 1px solid var(--line);
+    font-size: 15.5px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 28px;
+    transition: border-color var(--fast);
+}
 
-        .forms {
-            display: grid;
-            grid-template-columns: max-content minmax(0, 1fr);
-            gap: 8px 16px;
-            margin: 0;
-            align-items: baseline;
-            overflow-x: auto;
-        }
+footer .lead {
+    color: var(--ink-2);
+    font-style: italic;
+}
 
-        .forms dt {
-            color: var(--muted);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 
-        .forms dd {
-            margin: 0;
-            font-size: 13px;
-            white-space: pre;
-        }
+    *, *::before, *::after {
+        transition-duration: 1ms !important;
+    }
+}
 
-        /* Log listings */
 
-        pre {
-            margin: 0;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            padding: 14px 16px;
-            background: var(--panel);
-            font-size: 13px;
-            line-height: 1.85;
-            overflow-x: auto;
-        }
+/* ---------- section links ---------- */
 
-        pre.tight {
-            line-height: 1.7;
-        }
+.sections {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
 
-        /* Legend */
+.sections::-webkit-scrollbar {
+    display: none;
+}
 
-        .legend {
-            display: grid;
-            grid-template-columns: max-content minmax(0, 1fr);
-            gap: 9px 14px;
-            align-items: baseline;
-        }
+.sections a {
+    flex: none;
+    padding: 6px 10px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-2);
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
+    transition: color var(--fast), background-color var(--fast);
+}
 
-        .legend .key {
-            font-size: 13px;
-            white-space: nowrap;
-        }
+.sections a:hover {
+    color: var(--ink);
+    background: var(--surface-2);
+}
 
-        .legend .key svg {
-            vertical-align: -3px;
-        }
+.sections a.current {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
 
-        .legend .val {
-            color: var(--details);
-            font-size: 13px;
-        }
+.sections .tag {
+    margin-right: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    transition: color var(--fast);
+}
 
-        .chip {
-            display: inline-block;
-            border: 1px solid #c4b5fd;
-            border-radius: 6px;
-            padding: 1px 7px;
-            background: var(--group-soft);
-            color: var(--group);
-            font-size: 12px;
-            font-weight: 700;
-        }
+.sections a.current .tag {
+    color: var(--accent);
+}
 
-        .dash {
-            display: inline-block;
-            width: 34px;
-            border-top: 2px dashed var(--spawn);
-            vertical-align: 4px;
-        }
+/* ---------- page tokens ---------- */
 
-        /* Visualization */
+:root {
+    --log-time: #2743b8;
+    --log-group: #7b3f98;
+    --log-group-soft: #f1e9f6;
+    --log-group-line: #d8c4e4;
+    --log-sender: #1a7443;
+    --log-sender-soft: #e4f0e6;
+    --log-sender-line: #a9d3b8;
+    --log-error: #b2341f;
+    --log-error-soft: #f6e3de;
+    --log-error-line: #e3b1a6;
+    --log-spawn: #a4560f;
+    --log-spawn-soft: #f7ebdb;
+    --log-details: #3b3d37;
+}
 
-        .viz {
-            display: grid;
-            grid-template-columns: minmax(190px, 0.16fr) minmax(0, 1fr);
-            gap: 20px;
-            align-items: start;
-        }
+:root[data-theme="dark"] {
+    --log-time: #9db2ff;
+    --log-group: #c9a0e8;
+    --log-group-soft: #241a2c;
+    --log-group-line: #4b3a59;
+    --log-sender: #72d39c;
+    --log-sender-soft: #13261a;
+    --log-sender-line: #2e5b41;
+    --log-error: #ff937c;
+    --log-error-soft: #2c1915;
+    --log-error-line: #5f3127;
+    --log-spawn: #f0a868;
+    --log-spawn-soft: #2a1e11;
+    --log-details: #c9c7bf;
+}
 
-        .viz-notes {
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            padding: 14px 16px 14px 30px;
-            background: var(--panel);
-            font-size: 13px;
-        }
+.t { color: var(--log-time); }
+.g { color: var(--log-group); }
+.s { color: var(--log-sender); }
+.e { color: var(--log-error); }
+.k { color: var(--log-spawn); }
+.d { color: var(--log-details); }
+.m { color: var(--muted); }
 
-        .viz svg {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
+.t, .g, .s, .e, .k, .d, .m {
+    transition: color var(--fast);
+}
 
-        /* Tables and bottom rows */
+/* ---------- code ---------- */
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
+code, .mono {
+    font-family: var(--mono);
+}
 
-        th,
-        td {
-            border: 1px solid var(--line);
-            padding: 7px 10px;
-            text-align: left;
-        }
+pre {
+    margin: 0;
+    padding: 14px 16px 15px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--ink);
+    background: var(--code-bg);
+    border: 1px solid var(--line-2);
+    border-left: 2px solid var(--line);
+    transition: background-color var(--fast), border-color var(--fast), color var(--fast);
+}
 
-        th {
-            background: var(--panel);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
+pre.tight {
+    line-height: 1.65;
+}
 
-        td.err {
-            background: var(--error-soft);
-            color: var(--error);
-            font-weight: 700;
-            text-align: center;
-        }
+p code, li code, .val code {
+    font-size: .8em;
+    padding: 1px 3px 2px;
+    background: var(--code-bg);
+    border: 1px solid var(--line-2);
+    overflow-wrap: anywhere;
+    transition: background-color var(--fast), border-color var(--fast), color var(--fast);
+}
 
-        td.open {
-            background: #fff8ec;
-            color: var(--spawn);
-            font-weight: 700;
-            text-align: center;
-        }
+/* ---------- sections ---------- */
 
-        .cols-2 {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
-            gap: 20px;
-            align-items: start;
-        }
+main {
+    padding-bottom: 24px;
+}
 
-        .cols-2-wide {
-            display: grid;
-            grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-            gap: 20px;
-            align-items: start;
-        }
+.section {
+    padding-top: 48px;
+    scroll-margin-top: calc(var(--bar-h) - 16px);
+}
 
-        .caption {
-            margin: 16px 0 8px;
-            color: var(--muted);
-            font-size: 13px;
-        }
+.section h2 {
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 14px;
+    font-weight: 500;
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -.015em;
+    border-bottom: 1px solid var(--line-heavy);
+    transition: border-color var(--fast);
+}
 
-        .note {
-            margin: 10px 0 0;
-            color: var(--muted);
-            font-size: 13px;
-        }
+.section h2 .tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--accent);
+}
 
-        .never {
-            border: 1px solid #f0c8c3;
-            border-radius: 8px;
-            padding: 12px 14px 12px 30px;
-            background: var(--error-soft);
-        }
+.section h2 small {
+    font-size: 17px;
+    font-style: italic;
+    letter-spacing: 0;
+    color: var(--muted);
+}
 
-        @media (max-width: 1120px) {
-            .split,
-            .viz,
-            .cols-2,
-            .cols-2-wide {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-    </style>
+.section h3 {
+    margin: 0 0 12px;
+    font-weight: 500;
+    font-size: 21px;
+}
+
+.pair {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    gap: 32px;
+    align-items: start;
+}
+
+.pair.wide-first {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+}
+
+ul {
+    max-width: 82ch;
+    margin: 0;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+li ul {
+    margin-top: 7px;
+}
+
+.caption, .note {
+    margin: 14px 0 8px;
+    font-style: italic;
+    color: var(--muted);
+}
+
+/* ---------- anatomy of one line ---------- */
+
+.scroll {
+    overflow-x: auto;
+}
+
+.anatomy {
+    display: grid;
+    grid-template-columns: 26ch 10ch 16ch 18ch;
+    width: max-content;
+    margin-bottom: 22px;
+    font-family: var(--mono);
+    font-size: 15px;
+    line-height: 1.3;
+    white-space: pre;
+}
+
+.brace {
+    display: block;
+    position: relative;
+    height: 9px;
+    margin: 7px 3px 0;
+    border: 2px solid currentColor;
+    border-top: 0;
+}
+
+.brace::after {
+    position: absolute;
+    top: 100%;
+    left: calc(50% - 1px);
+    width: 2px;
+    height: 6px;
+    background: currentColor;
+    content: "";
+}
+
+.anatomy .label {
+    padding-top: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    white-space: normal;
+}
+
+.anatomy .label span {
+    display: block;
+    font-family: var(--serif);
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.forms {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 8px 16px;
+    margin: 0;
+    align-items: baseline;
+    font-family: var(--mono);
+}
+
+.forms dt {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.forms dd {
+    margin: 0;
+    font-size: 13px;
+    white-space: pre;
+}
+
+/* ---------- legend ---------- */
+
+.legend {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 10px 18px;
+    align-items: baseline;
+}
+
+.legend .key {
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.legend .key svg {
+    vertical-align: -3px;
+}
+
+.legend .val {
+    color: var(--ink-2);
+}
+
+.chip {
+    display: inline-block;
+    padding: 1px 7px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--log-group);
+    background: var(--log-group-soft);
+    border: 1px solid var(--log-group-line);
+    transition: color var(--fast), background-color var(--fast), border-color var(--fast);
+}
+
+.dash {
+    display: inline-block;
+    width: 34px;
+    border-top: 2px dashed var(--log-spawn);
+    vertical-align: 4px;
+    transition: border-color var(--fast);
+}
+
+/* ---------- limits ---------- */
+
+.never {
+    max-width: 82ch;
+    margin-top: 12px;
+    padding: 14px 18px;
+    background: var(--log-error-soft);
+    border-left: 2px solid var(--log-error);
+    transition: background-color var(--fast), border-color var(--fast);
+}
+
+.never .note {
+    margin: 10px 0 0;
+}
+
+/* ---------- visualization ---------- */
+
+.viz {
+    display: grid;
+    grid-template-columns: minmax(200px, .2fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.viz-notes {
+    font-size: 16px;
+    color: var(--ink-2);
+}
+
+.viz svg {
+    display: block;
+    width: 100%;
+    min-width: 760px;
+    height: auto;
+    font-family: var(--mono);
+}
+
+.viz svg * {
+    transition: fill var(--fast), stroke var(--fast);
+}
+
+.v-muted { fill: var(--muted); }
+.v-axis { stroke: var(--line); }
+.v-grid { stroke: var(--line-2); }
+.v-conn { stroke: var(--line); }
+.v-chip { fill: var(--log-group-soft); stroke: var(--log-group-line); }
+.v-group { fill: var(--log-group); }
+.v-spawn-line { stroke: var(--log-spawn); }
+.v-spawn { fill: var(--log-spawn); }
+.v-ok-dot { fill: var(--log-sender); }
+.v-ok-box { fill: var(--log-sender-soft); stroke: var(--log-sender-line); }
+.v-ok { fill: var(--log-sender); }
+.v-err-dot { fill: var(--log-error); }
+.v-err-box { fill: var(--log-error-soft); stroke: var(--log-error-line); }
+.v-err { fill: var(--log-error); }
+.v-mark { stroke: var(--surface); }
+.v-detail { fill: var(--log-details); }
+
+/* ---------- table ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+th, td {
+    padding: 7px 10px;
+    text-align: left;
+    border: 1px solid var(--line);
+    transition: border-color var(--fast), background-color var(--fast), color var(--fast);
+}
+
+th {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--surface-2);
+}
+
+td.mono {
+    font-size: 13px;
+}
+
+td.err, td.open {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+td.err {
+    color: var(--log-error);
+    background: var(--log-error-soft);
+}
+
+td.open {
+    color: var(--log-spawn);
+    background: var(--log-spawn-soft);
+}
+
+/* ---------- narrow ---------- */
+
+@media (max-width: 920px) {
+    .pair, .pair.wide-first, .viz {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    body {
+        font-size: 16.5px;
+    }
+
+    .mast-top {
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .pages {
+        order: 3;
+        flex-basis: 100%;
+        margin-left: 0;
+    }
+
+    :root {
+        --bar-gap: 10px;
+    }
+
+    .theme-docked button {
+        padding: 7px 8px;
+    }
+
+    .lede {
+        font-size: 18px;
+    }
+
+    .legend {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2px;
+    }
+
+    .legend .val {
+        margin-bottom: 10px;
+    }
+}
+
+@media print {
+    .bar, .pages, .theme {
+        display: none;
+    }
+
+    pre {
+        white-space: pre-wrap;
+    }
+}
+
+.encodings {
+    margin-top: 16px;
+}
+
+li.mono {
+    font-size: 13.5px;
+}
+</style>
+<script>
+(function () {
+    let theme = null;
+    try {
+        theme = localStorage.getItem('rules-theme');
+    }
+    catch {
+    }
+    if (theme !== 'light' && theme !== 'dark') {
+        theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
 </head>
 <body>
-    <main class="page">
-        <header class="masthead">
-            <h1>Logs</h1>
-            <p>One physical line records one event. Three fields carry it, and nothing else: <code>[time][group_uid][sender] details</code></p>
-        </header>
 
-        <div class="split">
-            <div class="col">
-                <section class="panel">
-                    <h2>Log line format</h2>
+<header class="mast">
+<div class="wrap">
+    <div class="mast-top">
+        <a class="crumb" href="https://github.com/vbarbarosh/rules">vbarbarosh / rules</a>
+        <nav class="pages" aria-label="Pages">
+            <a href="../docs/rules.html">Rules</a>
+            <a href="../docs/glossaries.html">Glossaries</a>
+            <a href="../formatting.html">Formatting</a>
+            <a href="logs-cheatsheet.html" aria-current="page">Logs</a>
+        </nav>
+        <div class="theme" id="theme" role="group" aria-label="Color theme">
+            <button type="button" data-set="light" aria-pressed="false">Light</button>
+            <button type="button" data-set="dark" aria-pressed="false">Dark</button>
+        </div>
+    </div>
+    <h1>Logs</h1>
+    <p class="lede">One physical line records one event. Three fields carry it, and nothing else: <code>[time][group_uid][sender] details</code></p>
+</div>
+</header>
 
-                    <div class="anatomy mono">
-                        <span class="t">[2026-08-17T02:55:03.000Z]</span><span class="g">[c7f3a91k]</span><span class="s">[db_query_begin]</span><span class="d"> name=select_users</span>
-                        <i class="brace t"></i>
-                        <i class="brace g"></i>
-                        <i class="brace s"></i>
-                        <i class="brace d"></i>
-                        <div class="label t">time<span>ISO-8601 UTC, ms</span></div>
-                        <div class="label g">group_uid<span>unit of work</span></div>
-                        <div class="label s">sender<span>the one call site</span></div>
-                        <div class="label d">details<span>terse, single line</span></div>
-                    </div>
+<div class="bar">
+    <div class="wrap bar-in">
+        <nav class="sections" aria-label="Sections">
+            <a href="#format"><span class="tag">01</span>Format</a>
+            <a href="#examples"><span class="tag">02</span>Examples</a>
+            <a href="#legend"><span class="tag">03</span>Legend</a>
+            <a href="#rules"><span class="tag">04</span>Rules</a>
+            <a href="#limits"><span class="tag">05</span>Limits</a>
+            <a href="#visualization"><span class="tag">06</span>Visualization</a>
+            <a href="#tree"><span class="tag">07</span>Tree view</a>
+            <a href="#encoding"><span class="tag">08</span>Value encoding</a>
+        </nav>
+        <div class="theme theme-docked" role="group" aria-label="Color theme">
+            <button type="button" data-set="light" aria-pressed="false">Light</button>
+            <button type="button" data-set="dark" aria-pressed="false">Dark</button>
+        </div>
+    </div>
+</div>
 
-                    <dl class="forms mono">
-                        <dt>File</dt>
-                        <dd><span class="t">[2026-08-17T02:55:03.000Z]</span><span class="g">[cd8e5vqp]</span><span class="s">[db_query_begin]</span><span class="d"> name=select_users</span></dd>
-                        <dt>Docker</dt>
-                        <dd><span class="g">[cd8e5vqp]</span><span class="s">[db_query_begin]</span><span class="d"> name=select_users</span>   <span class="m">← the runtime timestamps the line</span></dd>
-                    </dl>
-                </section>
+<main class="wrap">
+<section class="section" id="format">
+    <h2><span class="tag">01</span>Log line format</h2>
+    <div class="scroll">
+        <div class="anatomy">
+            <span class="t">[2026-08-17T02:55:07.000Z]</span><span class="g">[cd8e5vqp]</span><span class="s">[db_query_begin]</span><span class="d"> name=select_users</span>
+            <i class="brace t"></i>
+            <i class="brace g"></i>
+            <i class="brace s"></i>
+            <i class="brace d"></i>
+            <div class="label t">time<span>ISO-8601 UTC, ms</span></div>
+            <div class="label g">group_uid<span>unit of work</span></div>
+            <div class="label s">sender<span>the one call site</span></div>
+            <div class="label d">details<span>terse, single line</span></div>
+        </div>
+    </div>
+    <div class="scroll">
+        <dl class="forms">
+            <dt>File</dt>
+            <dd><span class="t">[2026-08-17T02:55:07.000Z]</span><span class="g">[cd8e5vqp]</span><span class="s">[db_query_begin]</span><span class="d"> name=select_users</span></dd>
+            <dt>Docker</dt>
+            <dd><span class="g">[cd8e5vqp]</span><span class="s">[db_query_begin]</span><span class="d"> name=select_users</span>   <span class="m">← the runtime timestamps the line</span></dd>
+        </dl>
+    </div>
+</section>
 
-                <section class="panel">
-                    <h2>Examples <small>one request that times out, then a worker that runs twice</small></h2>
+<section class="section" id="examples">
+    <h2><span class="tag">02</span>Examples <small>one request that times out, then a worker that runs twice</small></h2>
 <pre class="mono"><span class="t">[2026-08-17T02:55:03.000Z]</span><span class="g">[c1a0root]</span><span class="k">[group_spawn]</span>
 <span class="t">[2026-08-17T02:55:03.000Z]</span><span class="g">[c1a0root]</span><span class="s">[server_begin]</span><span class="d"> v1.2.3 port=8080</span>
 <span class="t">[2026-08-17T02:55:07.000Z]</span><span class="g">[c7f3a91k]</span><span class="k">[group_spawn] parent=</span><span class="g">c1a0root</span>
@@ -432,191 +856,173 @@
 <span class="t">[2026-08-17T02:55:07.000Z]</span><span class="g">[cd8e5vqp]</span><span class="s">[db_query_begin]</span><span class="d"> name=select_users</span>
 <span class="t">[2026-08-17T02:55:37.000Z]</span><span class="g">[cd8e5vqp]</span><span class="e">[db_query_end_error]</span><span class="d"> 30.001s ETIMEDOUT</span>
 <span class="t">[2026-08-17T02:55:37.000Z]</span><span class="g">[c7f3a91k]</span><span class="e">[request_end_error]</span><span class="d"> 30.014s status=500 reason=db_timeout</span></pre>
-                    <p class="caption">The same worker twice, with no <code>[time]</code> — here the runtime adds it:</p>
+    <p class="caption">The same worker twice, with no <code>[time]</code> — here the runtime adds it:</p>
 <pre class="mono"><span class="g">[c9k2vf3p]</span><span class="s">[mp4gif_worker_begin]</span>
 <span class="g">[c9k2vf3p]</span><span class="s">[mp4gif_worker_end_ok]</span><span class="d"> 4.512s</span>
 
 <span class="g">[c7t0xb1m]</span><span class="s">[mp4gif_worker_begin]</span>
 <span class="g">[c7t0xb1m]</span><span class="e">[mp4gif_worker_end_error]</span><span class="d"> 0.884s ffmpeg exit=1</span></pre>
-                </section>
+</section>
 
-                <section class="panel">
-                    <h2>Legend</h2>
-                    <div class="legend">
-                        <div class="key mono t">[time]</div>
-                        <div class="val">ISO-8601 UTC with milliseconds; dropped when a collector adds it</div>
+<section class="section" id="legend">
+    <h2><span class="tag">03</span>Legend</h2>
+    <div class="legend">
+        <div class="key mono t">[time]</div>
+        <div class="val">ISO-8601 UTC with milliseconds; dropped when a collector adds it</div>
 
-                        <div class="key"><span class="chip mono">group_uid</span></div>
-                        <div class="val">one unit of work — request, job, cron run</div>
+        <div class="key"><span class="chip mono">group_uid</span></div>
+        <div class="val">one unit of work — request, job, cron run</div>
 
-                        <div class="key mono s">[sender]</div>
-                        <div class="val">one call site, unique in the whole codebase</div>
+        <div class="key mono s">[sender]</div>
+        <div class="val">one call site, unique in the whole codebase</div>
 
-                        <div class="key mono k">group_spawn</div>
-                        <div class="val">opens a group; <span class="mono k">parent=</span> names the caller's group</div>
+        <div class="key mono k">group_spawn</div>
+        <div class="val">opens a group; <span class="mono k">parent=</span> names the caller's group</div>
 
-                        <div class="key mono k">group_exit</div>
-                        <div class="val">optional close; after it, no producer emits for that group</div>
+        <div class="key mono k">group_exit</div>
+        <div class="val">optional close; after it, no producer emits for that group</div>
 
-                        <div class="key"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.5" fill="#16a34a"></circle></svg> <span class="mono s">_begin</span></div>
-                        <div class="val">operation start</div>
+        <div class="key"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle class="v-ok-dot" cx="7" cy="7" r="5.5"></circle></svg> <span class="mono s">_begin</span></div>
+        <div class="val">operation start</div>
 
-                        <div class="key"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6.5" fill="#16a34a"></circle><path d="M4 7.2 6.2 9.4 10 5.2" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg> <span class="mono s">_end_ok</span></div>
-                        <div class="val">completed successfully</div>
+        <div class="key"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle class="v-ok-dot" cx="7" cy="7" r="6.5"></circle><path class="v-mark" d="M4 7.2 6.2 9.4 10 5.2" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg> <span class="mono s">_end_ok</span></div>
+        <div class="val">completed successfully</div>
 
-                        <div class="key"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6.5" fill="#c72c22"></circle><path d="M4.6 4.6 9.4 9.4M9.4 4.6 4.6 9.4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"></path></svg> <span class="mono e">_end_error</span></div>
-                        <div class="val">completed with an error</div>
+        <div class="key"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle class="v-err-dot" cx="7" cy="7" r="6.5"></circle><path class="v-mark" d="M4.6 4.6 9.4 9.4M9.4 4.6 4.6 9.4" fill="none" stroke-width="1.6" stroke-linecap="round"></path></svg> <span class="mono e">_end_error</span></div>
+        <div class="val">completed with an error</div>
 
-                        <div class="key"><span class="dash"></span></div>
-                        <div class="val">spawn relation — happened inside the parent group</div>
-                    </div>
-                </section>
-            </div>
+        <div class="key"><span class="dash"></span></div>
+        <div class="val">spawn relation — happened inside the parent group</div>
+    </div>
+</section>
 
-            <div class="col">
-                <section class="panel">
-                    <h2>Rules</h2>
-                    <ul>
-                        <li>A line carries <b>time</b>, <b>group_uid</b>, <b>sender</b>, <b>details</b> — nothing else. Elapsed time, status, and every other measurement belong in <code>details</code>.</li>
-                        <li><code>time</code> is required when writing to a file, and omitted when the runtime already timestamps the line, as docker does.</li>
-                        <li>Every event belongs to a group: one request, job, or cron run. The uid is opaque, usually a cuid.</li>
-                        <li>A group opens with <code class="k">group_spawn</code>, emitted synchronously before the uid is passed anywhere:
-                            <ul>
-                                <li class="mono"><span class="g">[new_group_uid]</span><span class="k">[group_spawn]</span> <span class="k">parent=</span><span class="g">old_group_uid</span></li>
-                                <li>Omit <code class="k">parent=</code> for a root group. A receiver uses the caller's uid as the parent of its new group.</li>
-                            </ul>
-                        </li>
-                        <li><code>sender</code> identifies one logging call site. The name is unique in the whole codebase, so a grep lands on one place. It is snake_case and matches <code>^[a-z_][a-z0-9_]*$</code>.</li>
-                        <li>A <code>_begin</code> event is closed by the same stem:
-                            <ul>
-                                <li><code class="s">_end_ok</code> — completed successfully</li>
-                                <li><code class="e">_end_error</code> — completed with an error</li>
-                                <li><code>_end</code> — the outcome itself, such as an HTTP status, already says what happened</li>
-                            </ul>
-                        </li>
-                        <li><code class="k">group_exit</code> is optional and mainly detects leaks. Its absence makes no claim, and consumers must accept groups without it.</li>
-                    </ul>
-                </section>
+<section class="section" id="rules">
+    <h2><span class="tag">04</span>Rules</h2>
+    <ul>
+        <li>A line carries <b>time</b>, <b>group_uid</b>, <b>sender</b>, <b>details</b> — nothing else. Elapsed time, status, and every other measurement belong in <code>details</code>.</li>
+        <li><code>time</code> is required when writing to a file, and omitted when the runtime already timestamps the line, as docker does.</li>
+        <li>Every event belongs to a group: one request, job, or cron run. The uid is opaque, usually a cuid.</li>
+        <li>A group opens with <code class="k">group_spawn</code>, emitted synchronously before the uid is passed anywhere:
+            <ul>
+                <li class="mono"><span class="g">[new_group_uid]</span><span class="k">[group_spawn]</span> <span class="k">parent=</span><span class="g">old_group_uid</span></li>
+                <li>Omit <code class="k">parent=</code> for a root group. A receiver uses the caller's uid as the parent of its new group.</li>
+            </ul>
+        </li>
+        <li><code>sender</code> identifies one logging call site. The name is unique in the whole codebase, so a grep lands on one place. It is snake_case and matches <code>^[a-z_][a-z0-9_]*$</code>.</li>
+        <li>A <code>_begin</code> event is closed by the same stem:
+            <ul>
+                <li><code class="s">_end_ok</code> — completed successfully</li>
+                <li><code class="e">_end_error</code> — completed with an error</li>
+                <li><code>_end</code> — the outcome itself, such as an HTTP status, already says what happened</li>
+            </ul>
+        </li>
+        <li><code class="k">group_exit</code> is optional and mainly detects leaks. Its absence makes no claim, and consumers must accept groups without it.</li>
+    </ul>
+</section>
 
-                <section class="panel">
-                    <h2>Limits</h2>
-                    <ul>
-                        <li>Try to keep one line under <b>2k UTF-8 bytes</b>.</li>
-                        <li>A log line describes an event; it is not payload storage.</li>
-                        <li><code>details</code> never contains a physical newline.</li>
-                    </ul>
+<section class="section" id="limits">
+    <h2><span class="tag">05</span>Limits</h2>
+    <ul>
+        <li>Try to keep one line under <b>2k UTF-8 bytes</b>.</li>
+        <li>A log line describes an event; it is not payload storage.</li>
+        <li><code>details</code> never contains a physical newline.</li>
+    </ul>
+    <div class="never">
+        <h3>Never in a line</h3>
+        <ul>
+            <li>secrets and tokens</li>
+            <li>signed URLs and URL query values</li>
+            <li>request or response bodies, headers</li>
+        </ul>
+        <p class="note">Log a reference to the payload instead of the payload.</p>
+    </div>
+</section>
 
-                    <h2>Never in a line</h2>
-                    <div class="never">
-                        <ul>
-                            <li>secrets and tokens</li>
-                            <li>signed URLs and URL query values</li>
-                            <li>request or response bodies, headers</li>
-                        </ul>
-                        <p class="note" style="margin-left: -16px">Log a reference to the payload instead of the payload.</p>
-                    </div>
-                </section>
-            </div>
+<section class="section" id="visualization">
+    <h2><span class="tag">06</span>Visualization</h2>
+    <div class="viz">
+        <div class="viz-notes">
+            <ul>
+                <li>One lane per <span class="g">group_uid</span>.</li>
+                <li><span class="k">group_spawn</span> draws the parent → child arrow.</li>
+                <li>An event sits on the axis at its own time.</li>
+                <li>Suffixes give each lane its start and its outcome.</li>
+                <li>A lane with no end event is still open — <span class="k">group_exit</span> is optional.</li>
+            </ul>
         </div>
+        <div class="scroll">
+            <svg viewBox="0 0 1120 300" role="img" aria-label="Timeline of one request across three groups">
+                <text class="v-muted" x="4" y="26" font-size="10" font-weight="700" letter-spacing="1">TIME →</text>
+                <line class="v-axis" x1="140" y1="34" x2="1100" y2="34" stroke-width="1"></line>
+                <g class="v-muted" font-size="11" text-anchor="middle">
+                    <text x="140" y="26">02:55:03</text>
+                    <text x="218" y="26">02:55:07</text>
+                    <text x="803" y="26">02:55:37</text>
+                </g>
+                <g class="v-grid" stroke-width="1" stroke-dasharray="3 4">
+                    <line x1="140" y1="36" x2="140" y2="285"></line>
+                    <line x1="218" y1="36" x2="218" y2="285"></line>
+                    <line x1="803" y1="36" x2="803" y2="285"></line>
+                </g>
 
-        <section class="panel">
-            <h2>Visualization</h2>
-            <div class="viz">
-                <div class="viz-notes">
-                    <ul>
-                        <li>One lane per <span class="g">group_uid</span>.</li>
-                        <li><span class="k">group_spawn</span> draws the parent → child arrow.</li>
-                        <li>An event sits on the axis at its own time.</li>
-                        <li>Suffixes give each lane its start and its outcome.</li>
-                        <li>A lane with no end event is still open — <span class="k">group_exit</span> is optional.</li>
-                    </ul>
-                </div>
+                <rect class="v-chip" x="4" y="87" width="88" height="26"></rect>
+                <text class="v-group" x="48" y="104" font-size="11" font-weight="700" text-anchor="middle">c1a0root</text>
+                <text class="v-muted" x="48" y="126" font-size="10" text-anchor="middle">root</text>
+                <rect class="v-chip" x="4" y="162" width="88" height="26"></rect>
+                <text class="v-group" x="48" y="179" font-size="11" font-weight="700" text-anchor="middle">c7f3a91k</text>
+                <rect class="v-chip" x="4" y="237" width="88" height="26"></rect>
+                <text class="v-group" x="48" y="254" font-size="11" font-weight="700" text-anchor="middle">cd8e5vqp</text>
 
-                <svg viewBox="0 0 1120 300" role="img" aria-label="Timeline of one request across three groups">
-                    <g font-family="SFMono-Regular, Consolas, Menlo, monospace">
-                        <!-- time axis -->
-                        <text x="4" y="26" font-size="10" font-weight="700" fill="#6b7280" letter-spacing="1">TIME →</text>
-                        <line x1="140" y1="34" x2="1100" y2="34" stroke="#cbd5e1" stroke-width="1"></line>
-                        <g font-size="11" fill="#6b7280" text-anchor="middle">
-                            <text x="140" y="26">02:55:03</text>
-                            <text x="218" y="26">02:55:07</text>
-                            <text x="803" y="26">02:55:37</text>
-                        </g>
-                        <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="3 4">
-                            <line x1="140" y1="36" x2="140" y2="285"></line>
-                            <line x1="218" y1="36" x2="218" y2="285"></line>
-                            <line x1="803" y1="36" x2="803" y2="285"></line>
-                        </g>
+                <g class="v-conn" stroke-width="1.5">
+                    <line x1="276" y1="100" x2="900" y2="100" stroke-dasharray="4 5"></line>
+                    <line x1="342" y1="175" x2="803" y2="175"></line>
+                    <line x1="361" y1="250" x2="803" y2="250"></line>
+                </g>
+                <text class="v-muted" x="910" y="104" font-size="10">no end event — still open</text>
 
-                        <!-- group chips -->
-                        <g>
-                            <rect x="4" y="87" width="88" height="26" rx="6" fill="#f1ecfe" stroke="#c4b5fd"></rect>
-                            <text x="48" y="104" font-size="11" font-weight="700" fill="#7c3aed" text-anchor="middle">c1a0root</text>
-                            <text x="48" y="126" font-size="10" fill="#6b7280" text-anchor="middle">root</text>
+                <g class="v-spawn-line" stroke-width="1.5" stroke-dasharray="4 4" fill="none">
+                    <path d="M218 119 L218 160"></path>
+                    <path d="M250 194 L224 235"></path>
+                </g>
+                <g class="v-spawn">
+                    <path d="M218 168 L214 159 L222 159 Z"></path>
+                    <path d="M221 243 L217.5 233.5 L225 236.5 Z"></path>
+                    <text x="213" y="146" font-size="10" text-anchor="end">group_spawn</text>
+                    <text x="258" y="222" font-size="10">group_spawn</text>
+                </g>
 
-                            <rect x="4" y="162" width="88" height="26" rx="6" fill="#f1ecfe" stroke="#c4b5fd"></rect>
-                            <text x="48" y="179" font-size="11" font-weight="700" fill="#7c3aed" text-anchor="middle">c7f3a91k</text>
+                <circle class="v-ok-dot" cx="140" cy="100" r="5"></circle>
+                <rect class="v-ok-box" x="150" y="81" width="126" height="38"></rect>
+                <text class="v-ok" x="160" y="97" font-size="12">server_begin</text>
+                <text class="v-detail" x="160" y="112" font-size="11">v1.2.3 port=8080</text>
 
-                            <rect x="4" y="237" width="88" height="26" rx="6" fill="#f1ecfe" stroke="#c4b5fd"></rect>
-                            <text x="48" y="254" font-size="11" font-weight="700" fill="#7c3aed" text-anchor="middle">cd8e5vqp</text>
-                        </g>
+                <circle class="v-ok-dot" cx="218" cy="175" r="5"></circle>
+                <rect class="v-ok-box" x="228" y="156" width="114" height="38"></rect>
+                <text class="v-ok" x="238" y="172" font-size="12">request_begin</text>
+                <text class="v-detail" x="238" y="187" font-size="11">GET /api/users</text>
+                <circle class="v-err-dot" cx="803" cy="175" r="7.5"></circle>
+                <path class="v-mark" d="M800.4 172.4 L805.6 177.6 M805.6 172.4 L800.4 177.6" stroke-width="1.6" stroke-linecap="round"></path>
+                <rect class="v-err-box" x="813" y="156" width="258" height="38"></rect>
+                <text class="v-err" x="823" y="172" font-size="12">request_end_error</text>
+                <text class="v-detail" x="823" y="187" font-size="11">30.014s status=500 reason=db_timeout</text>
 
-                        <!-- connectors -->
-                        <g stroke="#cbd5e1" stroke-width="1.5">
-                            <line x1="276" y1="100" x2="900" y2="100" stroke-dasharray="4 5"></line>
-                            <line x1="342" y1="175" x2="803" y2="175"></line>
-                            <line x1="361" y1="250" x2="803" y2="250"></line>
-                        </g>
-                        <text x="910" y="104" font-size="10" fill="#9aa3b2">no end event — still open</text>
+                <circle class="v-ok-dot" cx="218" cy="250" r="5"></circle>
+                <rect class="v-ok-box" x="228" y="231" width="133" height="38"></rect>
+                <text class="v-ok" x="238" y="247" font-size="12">db_query_begin</text>
+                <text class="v-detail" x="238" y="262" font-size="11">name=select_users</text>
+                <circle class="v-err-dot" cx="803" cy="250" r="7.5"></circle>
+                <path class="v-mark" d="M800.4 247.4 L805.6 252.6 M805.6 247.4 L800.4 252.6" stroke-width="1.6" stroke-linecap="round"></path>
+                <rect class="v-err-box" x="813" y="231" width="150" height="38"></rect>
+                <text class="v-err" x="823" y="247" font-size="12">db_query_end_error</text>
+                <text class="v-detail" x="823" y="262" font-size="11">30.001s ETIMEDOUT</text>
+            </svg>
+        </div>
+    </div>
+</section>
 
-                        <!-- spawn arrows -->
-                        <g stroke="#c2410c" stroke-width="1.5" stroke-dasharray="4 4" fill="none">
-                            <path d="M218 119 L218 160"></path>
-                            <path d="M250 194 L224 235"></path>
-                        </g>
-                        <g fill="#c2410c">
-                            <path d="M218 168 L214 159 L222 159 Z"></path>
-                            <path d="M221 243 L217.5 233.5 L225 236.5 Z"></path>
-                            <text x="213" y="146" font-size="10" text-anchor="end">group_spawn</text>
-                            <text x="258" y="222" font-size="10">group_spawn</text>
-                        </g>
-
-                        <!-- lane c1a0root -->
-                        <circle cx="140" cy="100" r="5" fill="#16a34a"></circle>
-                        <rect x="150" y="81" width="126" height="38" rx="6" fill="#f1fbf4" stroke="#86efac"></rect>
-                        <text x="160" y="97" font-size="12" fill="#15803d">server_begin</text>
-                        <text x="160" y="112" font-size="11" fill="#46526a">v1.2.3 port=8080</text>
-
-                        <!-- lane c7f3a91k -->
-                        <circle cx="218" cy="175" r="5" fill="#16a34a"></circle>
-                        <rect x="228" y="156" width="114" height="38" rx="6" fill="#f1fbf4" stroke="#86efac"></rect>
-                        <text x="238" y="172" font-size="12" fill="#15803d">request_begin</text>
-                        <text x="238" y="187" font-size="11" fill="#46526a">GET /api/users</text>
-                        <circle cx="803" cy="175" r="7.5" fill="#c72c22"></circle>
-                        <path d="M800.4 172.4 L805.6 177.6 M805.6 172.4 L800.4 177.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"></path>
-                        <rect x="813" y="156" width="258" height="38" rx="6" fill="#fdf2f1" stroke="#f0aaa3"></rect>
-                        <text x="823" y="172" font-size="12" fill="#c72c22">request_end_error</text>
-                        <text x="823" y="187" font-size="11" fill="#46526a">30.014s status=500 reason=db_timeout</text>
-
-                        <!-- lane cd8e5vqp -->
-                        <circle cx="218" cy="250" r="5" fill="#16a34a"></circle>
-                        <rect x="228" y="231" width="133" height="38" rx="6" fill="#f1fbf4" stroke="#86efac"></rect>
-                        <text x="238" y="247" font-size="12" fill="#15803d">db_query_begin</text>
-                        <text x="238" y="262" font-size="11" fill="#46526a">name=select_users</text>
-                        <circle cx="803" cy="250" r="7.5" fill="#c72c22"></circle>
-                        <path d="M800.4 247.4 L805.6 252.6 M805.6 247.4 L800.4 252.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"></path>
-                        <rect x="813" y="231" width="150" height="38" rx="6" fill="#fdf2f1" stroke="#f0aaa3"></rect>
-                        <text x="823" y="247" font-size="12" fill="#c72c22">db_query_end_error</text>
-                        <text x="823" y="262" font-size="11" fill="#46526a">30.001s ETIMEDOUT</text>
-                    </g>
-                </svg>
-            </div>
-        </section>
-
-        <section class="panel">
-            <div class="cols-2">
-                <div>
-                    <h2>Tree view</h2>
+<section class="section" id="tree">
+    <h2><span class="tag">07</span>Tree view</h2>
+    <div class="pair">
 <pre class="mono tight"><span class="g">c1a0root</span>  <span class="k">group_spawn</span>
 ├─ <span class="s">server_begin</span>        <span class="d">v1.2.3 port=8080</span>
 ├─ <span class="g">c7f3a91k</span>  <span class="k">group_spawn</span>
@@ -626,79 +1032,195 @@
 │  │  └─ <span class="e">db_query_end_error</span>
 │  └─ <span class="e">request_end_error</span>
 └─ <span class="m">(no group_exit)</span></pre>
-                </div>
-
-                <div>
-                    <h2>Summary per group</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>group_uid</th>
-                                <th>parent</th>
-                                <th>status</th>
-                                <th>duration</th>
-                                <th>children</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="mono g">c1a0root</td>
-                                <td class="m">—</td>
-                                <td class="open">OPEN</td>
-                                <td class="m">—</td>
-                                <td class="mono g">c7f3a91k</td>
-                            </tr>
-                            <tr>
-                                <td class="mono g">c7f3a91k</td>
-                                <td class="mono g">c1a0root</td>
-                                <td class="err">ERROR</td>
-                                <td class="mono">30.014s</td>
-                                <td class="mono g">cd8e5vqp</td>
-                            </tr>
-                            <tr>
-                                <td class="mono g">cd8e5vqp</td>
-                                <td class="mono g">c7f3a91k</td>
-                                <td class="err">ERROR</td>
-                                <td class="mono">30.001s</td>
-                                <td class="m">—</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="note">Every column here is read back from the lines themselves. A duration comes from the <code>details</code> of the closing event, never from a field of its own.</p>
-                </div>
-
+        <div>
+            <h3>Summary per group</h3>
+            <div class="scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>group_uid</th>
+                            <th>parent</th>
+                            <th>status</th>
+                            <th>duration</th>
+                            <th>children</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="mono g">c1a0root</td>
+                            <td class="m">—</td>
+                            <td class="open">OPEN</td>
+                            <td class="m">—</td>
+                            <td class="mono g">c7f3a91k</td>
+                        </tr>
+                        <tr>
+                            <td class="mono g">c7f3a91k</td>
+                            <td class="mono g">c1a0root</td>
+                            <td class="err">ERROR</td>
+                            <td class="mono">30.014s</td>
+                            <td class="mono g">cd8e5vqp</td>
+                        </tr>
+                        <tr>
+                            <td class="mono g">cd8e5vqp</td>
+                            <td class="mono g">c7f3a91k</td>
+                            <td class="err">ERROR</td>
+                            <td class="mono">30.001s</td>
+                            <td class="m">—</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
+            <p class="note">Every column here is read back from the lines themselves. A duration comes from the <code>details</code> of the closing event, never from a field of its own.</p>
+        </div>
+    </div>
+</section>
 
-        <section class="panel">
-            <div class="cols-2-wide">
-                <div>
-                    <h2>Details: value encoding</h2>
+<section class="section" id="encoding">
+    <h2><span class="tag">08</span>Details: value encoding</h2>
+    <div class="pair wide-first">
+        <div>
 <pre class="mono tight"><span class="m">bare     </span><span class="d"> name=select_users    exit=1    ETIMEDOUT    4.512s</span>
 <span class="m">quoted   </span><span class="d"> "no space left on device"    "line one\n"    ""</span>
 <span class="m">json     </span><span class="d"> {"beta":true}    [1,2,3]    null</span>
 <span class="m">counted  </span><span class="d"> 3:[180,783,846]    2:["bar","foo"]    0:[]</span>
 <span class="m">truncated</span><span class="d"> {"name":"asparagus","qua...+4821</span></pre>
-                    <ul style="margin-top: 14px">
-                        <li><b>bare</b> — a printable ASCII word without spaces, double quotes, backslashes, or square brackets. A bare value is exactly the bytes that were sent: it cannot span words, break the line, or mint a fake <code>[tag]</code>.</li>
-                        <li><b>quoted</b> — every other string is JSON-quoted, so newlines and control characters are escaped, and an empty value stays visible as <code>""</code>.</li>
-                        <li><b>json</b> — arrays, objects, booleans, and null use compact JSON.</li>
-                        <li><b>counted</b> — an unordered list is sorted and prefixed with its count. Ordered values are never sorted.</li>
-                        <li><b>truncated</b> — truncation preserves valid UTF-8 and ends with the number of omitted bytes.</li>
-                    </ul>
-                </div>
+            <ul class="encodings">
+                <li><b>bare</b> — a printable ASCII word without spaces, double quotes, backslashes, or square brackets. A bare value is exactly the bytes that were sent: it cannot span words, break the line, or mint a fake <code>[tag]</code>.</li>
+                <li><b>quoted</b> — every other string is JSON-quoted, so newlines and control characters are escaped, and an empty value stays visible as <code>""</code>.</li>
+                <li><b>json</b> — arrays, objects, booleans, and null use compact JSON.</li>
+                <li><b>counted</b> — an unordered list is sorted and prefixed with its count. Ordered values are never sorted.</li>
+                <li><b>truncated</b> — truncation preserves valid UTF-8 and ends with the number of omitted bytes.</li>
+            </ul>
+        </div>
+        <div>
+            <h3>After group_exit</h3>
+            <ul>
+                <li>"After" means producer emission order — not timestamp, not collector ingestion order.</li>
+                <li>Buffering may deliver an older event later; that alone is not an error.</li>
+                <li>A parent may emit <code class="k">group_exit</code> for work it abandons, such as a child that timed out.</li>
+                <li>Cross-process detection needs preserved per-group order, a shared sequence, or another causal-order signal. Without one it is advisory.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+</main>
 
-                <div>
-                    <h2>After group_exit</h2>
-                    <ul>
-                        <li>"After" means producer emission order — not timestamp, not collector ingestion order.</li>
-                        <li>Buffering may deliver an older event later; that alone is not an error.</li>
-                        <li>A parent may emit <code class="k">group_exit</code> for work it abandons, such as a child that timed out.</li>
-                        <li>Cross-process detection needs preserved per-group order, a shared sequence, or another causal-order signal. Without one it is advisory.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
+<footer class="wrap">
+    <span>The rules in full: <a href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md">logs.md</a></span>
+    <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
+</footer>
+
+<script>
+const root_el = document.documentElement;
+const theme_el = document.getElementById('theme');
+const bar_el = document.querySelector('.bar');
+const sections_el = document.querySelector('.sections');
+const section_els = Array.from(document.querySelectorAll('main section[id]'));
+const link_by_id = {};
+
+let spy_pending = false;
+
+main();
+
+function main()
+{
+    for (const a of sections_el.querySelectorAll('a')) {
+        link_by_id[a.getAttribute('href').slice(1)] = a;
+    }
+    theme_render();
+    document.addEventListener('click', click_theme);
+    theme_dock_watch();
+    // Chrome on Wayland can hold a drag started by a quick double click.
+    document.addEventListener('dragstart', dragstart_document);
+    window.addEventListener('scroll', scroll_window, {passive: true});
+    window.addEventListener('resize', scroll_window);
+    spy_apply();
+}
+
+function theme_render()
+{
+    const theme = root_el.getAttribute('data-theme');
+    for (const button of document.querySelectorAll('.theme button')) {
+        button.setAttribute('aria-pressed', (button.dataset.set === theme) ? 'true' : 'false');
+    }
+}
+
+// The switch in the bar stands in for the masthead one while that is off screen.
+function theme_dock_watch()
+{
+    if (!window.IntersectionObserver) {
+        bar_el.classList.add('docked');
+        return;
+    }
+    const observer = new IntersectionObserver(function (entries) {
+        for (const entry of entries) {
+            bar_el.classList.toggle('docked', !entry.isIntersecting);
+        }
+    });
+    observer.observe(theme_el);
+}
+
+function click_theme(event)
+{
+    const button = event.target.closest('.theme button');
+    if (!button) {
+        return;
+    }
+    root_el.setAttribute('data-theme', button.dataset.set);
+    try {
+        localStorage.setItem('rules-theme', button.dataset.set);
+    }
+    catch {
+    }
+    theme_render();
+}
+
+function scroll_window()
+{
+    if (spy_pending) {
+        return;
+    }
+    spy_pending = true;
+    requestAnimationFrame(spy_apply);
+}
+
+// The current section is the last one whose heading has reached the bar.
+// A short last section never reaches it; the end of the page is its turn.
+function spy_apply()
+{
+    spy_pending = false;
+    const line = bar_el.getBoundingClientRect().bottom + 80;
+    const at_bottom = (window.innerHeight + window.scrollY >= root_el.scrollHeight - 2);
+    let current = null;
+    for (const section_el of section_els) {
+        if (at_bottom || section_el.getBoundingClientRect().top <= line) {
+            current = section_el.id;
+        }
+    }
+    for (const id of Object.keys(link_by_id)) {
+        const a = link_by_id[id];
+        const was_current = a.classList.contains('current');
+        a.classList.toggle('current', id === current);
+        if (!was_current && id === current) {
+            link_reveal(a);
+        }
+    }
+}
+
+// On a narrow screen the links scroll sideways; the current one is kept in view.
+function link_reveal(a)
+{
+    const left = sections_el.scrollLeft;
+    const in_view = (a.offsetLeft >= left) && (a.offsetLeft + a.offsetWidth <= left + sections_el.clientWidth);
+    if (!in_view) {
+        sections_el.scrollTo({left: a.offsetLeft - (sections_el.clientWidth - a.offsetWidth)/2, behavior: 'smooth'});
+    }
+}
+
+function dragstart_document(event)
+{
+    event.preventDefault();
+}
+</script>
 </body>
 </html>
