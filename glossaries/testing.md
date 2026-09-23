@@ -15,40 +15,17 @@
 
 ## Intermittent failures
 
-**Intermittent failures** are failures that happen **sometimes**, but **not always**,
-and usually **cannot be reproduced consistently**.
+A failure that happens sometimes, unpredictably, and usually cannot be
+reproduced consistently. Run #1 works, run #2 fails, run #3 works again — even
+though nothing was changed.
 
-They appear to be random or unpredictable — sometimes the system works perfectly,
-and sometimes it fails — even though **you didn't change anything**.
+Common causes: timing issues and race conditions, network instability,
+concurrency issues (threads or processes interfering), uninitialized values,
+hardware flakiness (bad RAM, overheating), resource limits hit sometimes (a
+connection pool exhausted).
 
-## In other words:
-
-* Run #1 → works ✅
-* Run #2 → fails ❌
-* Run #3 → works again ✅
-
-This inconsistency is what makes intermittent failures **annoying and hard to debug**.
-
-### Common Causes
-
-Intermittent failures usually come from:
-
-* **Timing issues / race conditions**
-* **Network instability**
-* **Concurrency issues** (threads/processes interfering)
-* **Uninitialized values**
-* **Hardware flakiness** (bad RAM, overheating, etc.)
-* **Resource limits** hit sometimes (e.g., connection pool exhausted)
-
-### Why They Are Painful
-
-Because:
-
-* They don't fail every time
-* Logs often don't show a clear cause
-* "Works on my machine" happens a lot
-
-### Example
+Painful because it does not fail every time, logs often do not show a clear
+cause, and "works on my machine" happens a lot.
 
 ```js
 // Sometimes fetch() returns slow, causing timeout.
@@ -58,7 +35,3 @@ test("API returns data", async function () {
     expect(data.ok).toBe(true);
 });
 ```
-
-If network is slow → test fails
-If network is normal → test passes
-→ **intermittent failure**
