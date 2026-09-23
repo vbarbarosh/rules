@@ -1,0 +1,191 @@
+#!/usr/bin/env node
+
+const cli = require('@vbarbarosh/node-helpers/src/cli');
+const fs = require('node:fs');
+const path = require('node:path');
+
+const blob_url = 'https://github.com/vbarbarosh/rules/blob/main/';
+const class_by_marker = {'//': 'cmt', '&lt;!--': 'cmt', '✓': 'yes', '✗': 'no', '←': 'aside'};
+const docs_dir = path.join(__dirname, '..', 'docs');
+const marker_regex = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
+
+cli(main);
+
+function main()
+{
+    const markdown = fs.readFileSync(path.join(docs_dir, 'rules.md'), 'utf8');
+    const template = fs.readFileSync(path.join(docs_dir, 'rules.template.html'), 'utf8');
+    const index = index_from_markdown(markdown);
+    index_assert_counts(index);
+    fs.writeFileSync(path.join(docs_dir, 'rules.html'), html_from_index(template, index));
+}
+
+// rules.md: a title, a lede, a stats line, the group table, the rule table.
+function index_from_markdown(markdown)
+{
+    const lines = markdown.split('\n');
+    const lede_end = lines.indexOf('', 2);
+    const stats = lines.find(v => /^\d+ rules · \d+ groups · \d+ sources/.test(v)).match(/^(\d+) rules · (\d+) groups · (\d+) sources/);
+    const out = {
+        title: lines[0].replace(/^# /, ''),
+        lede: lines.slice(2, lede_end).join(' '),
+        stated: {rules: Number(stats[1]), groups: Number(stats[2]), sources: Number(stats[3])},
+        groups: [],
+    };
+    const group_by_tag = {};
+    let table = null;
+    let group = null;
+    for (const line of lines) {
+        if (line.startsWith('| Tag | Group |')) {
+            table = 'groups';
+            continue;
+        }
+        if (line.startsWith('| Code | Rule |')) {
+            table = 'rules';
+            continue;
+        }
+        if (!line.startsWith('| ') || line.startsWith('|--')) {
+            continue;
+        }
+        const cells = cells_from_row(line);
+        if (table === 'groups') {
+            const next = {tag: cells[0], name: cells[1], stated: Number(cells[2]), note: cells[3], rules: []};
+            out.groups.push(next);
+            group_by_tag[next.tag] = next;
+        }
+        else if (table === 'rules' && /^\*\*[A-Z]+\*\*$/.test(cells[0])) {
+            group = group_by_tag[cells[0].slice(2, -2)];
+            if (cells[1] !== `**${group.name}** — ${group.note}`) {
+                throw new Error(`rules.md: the ${group.tag} header row does not match the group table: ${cells[1]}`);
+            }
+        }
+        else if (table === 'rules') {
+            const source = cells[3].match(/^\[(.+)\]\((.+)\)$/);
+            group.rules.push({code: cells[0], text: cells[1], form: cells[2], source_label: source[1], source_path: path.posix.join('docs', source[2])});
+        }
+    }
+    return out;
+}
+
+// The counts rules.md states by hand must match the rows it holds.
+function index_assert_counts(index)
+{
+    const rules = index.groups.flatMap(v => v.rules);
+    const sources = new Set(rules.map(v => v.source_path));
+    const actual = {rules: rules.length, groups: index.groups.length, sources: sources.size};
+    for (const key of Object.keys(actual)) {
+        if (actual[key] !== index.stated[key]) {
+            throw new Error(`rules.md states ${index.stated[key]} ${key}; the table holds ${actual[key]}`);
+        }
+    }
+    for (const group of index.groups) {
+        if (group.rules.length !== group.stated) {
+            throw new Error(`rules.md states ${group.stated} rules for ${group.tag}; the table holds ${group.rules.length}`);
+        }
+    }
+}
+
+function html_from_index(template, index)
+{
+    const rules = index.groups.flatMap(v => v.rules);
+    const values = {
+        title: html_escape(index.title),
+        lede: html_escape(index.lede),
+        rules_count: String(rules.length),
+        groups_count: String(index.groups.length),
+        sources_count: String(new Set(rules.map(v => v.source_path)).size),
+        groups_nav: index.groups.map(html_from_group_link).join(''),
+        groups_main: index.groups.map(html_from_group).join(''),
+    };
+    return template.replace(/\{\{(\w+)\}\}/g, function (match, key) {
+        if (values[key] === undefined) {
+            throw new Error(`rules.template.html: unknown placeholder ${match}`);
+        }
+        return values[key];
+    });
+}
+
+function html_from_group_link(group)
+{
+    return `<a href="#${group.tag}" data-group="${group.tag}"><span class="tag">${group.tag}</span><span class="name">${group.name}</span><span class="n">${group.rules.length}</span></a>\n`;
+}
+
+function html_from_group(group)
+{
+    const heading = `<h2><span class="tag">${group.tag}</span><span class="name">${group.name}</span><span class="note">${html_from_inline(group.note)}</span></h2>`;
+    return `<section class="group" id="${group.tag}">\n${heading}\n${group.rules.map(html_from_rule).join('')}</section>\n`;
+}
+
+function html_from_rule(rule)
+{
+    const bare = (rule.form === '—');
+    const source = `<a class="src" href="${blob_url}${rule.source_path}" title="${rule.source_path}">${rule.source_label}</a>`;
+    const form = bare ? '' : html_from_form(rule.form) + '\n';
+    return `<article class="rule${bare ? ' bare' : ''}" id="${rule.code}">\n`
+        + `<a class="code" href="#${rule.code}">${rule.code}</a>\n`
+        + `<div class="text"><p>${html_from_inline(rule.text)}</p>${source}</div>\n`
+        + form
+        + '</article>\n';
+}
+
+// A canonical form is a <pre> block, one code span, or prose. Code is shown
+// byte for byte: <pre> keeps the entities rules.md already wrote.
+function html_from_form(form)
+{
+    const pre = form.match(/^<pre>(.*)<\/pre>$/);
+    if (pre) {
+        return html_from_lines(pre[1].split('<br>'));
+    }
+    const code = form.match(/^`([^`]*)`$/);
+    if (code) {
+        return html_from_lines([html_escape(code[1])]);
+    }
+    const items = form.split('<br>');
+    if (items.every(v => /^\d+\. /.test(v))) {
+        const list = items.map(v => '<li>' + html_from_inline(v.replace(/^\d+\. /, '')) + '</li>').join('');
+        return `<div class="form prose"><ol>${list}</ol></div>`;
+    }
+    return `<div class="form prose"><p>${html_from_inline(form)}</p></div>`;
+}
+
+function html_from_lines(lines)
+{
+    const code = lines.map(html_from_line).join('\n');
+    return `<div class="form"><pre>${code}</pre><button class="copy" type="button">Copy</button></div>`;
+}
+
+// A comment or a verdict runs to the end of its line.
+function html_from_line(line)
+{
+    const match = line.match(marker_regex);
+    if (!match) {
+        return line;
+    }
+    const start = match.index + match[1].length;
+    return line.slice(0, start) + `<span class="${class_by_marker[match[2]]}">` + line.slice(start) + '</span>';
+}
+
+function html_from_inline(text)
+{
+    let out = '';
+    for (const part of text.split(/(`[^`]+`)/)) {
+        if (part.startsWith('`')) {
+            out += '<code>' + html_escape(part.slice(1, -1)) + '</code>';
+        }
+        else {
+            out += part.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        }
+    }
+    return out;
+}
+
+function html_escape(text)
+{
+    return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// Cells are split on unescaped pipes; \| inside a cell is a literal pipe.
+function cells_from_row(line)
+{
+    return line.slice(1, -1).split(/(?<!\\)\|/).map(v => v.trim().replace(/\\\|/g, '|'));
+}

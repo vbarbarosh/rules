@@ -22,7 +22,10 @@ works from any working directory.
 
 `npm run check` lints the implementation and runs the rule and integration
 tests. The old naming demos and documentation examples are not included:
-some intentionally demonstrate invalid or superseded conventions.
+some intentionally demonstrate invalid or superseded conventions. It also runs
+`bin/build`, which renders `docs/rules.html` from `docs/rules.md` and
+`docs/rules.template.html`, and fails when the page differs from the committed
+one: edit those two files, never the page, then run `bin/build`.
 
 To check an application using this checkout, run ESLint from the application's
 directory. This uses the new configuration without changing its existing setup:
