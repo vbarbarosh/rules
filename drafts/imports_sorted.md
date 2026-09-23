@@ -39,5 +39,28 @@ order and not this rule.
 
 - No groups. Builtins, packages and local files are one list, not three.
 - No blank lines and no comments inside the block — either one breaks the sort.
+- The one exception is a side-effect import — `import './x'`, a bare
+  `require('x')`. Those keep the order they run in, in their own block at the
+  top; one blank line, then the sorted named imports.
+
+  ```js
+  import './sass/main.sass';
+  import './main-pre';
+
+  import Vue from 'vue';
+  import axios from 'axios';
+  ```
+- A named import from a library — `import {mapState} from 'vuex'`,
+  `const {promisify} = require('util')` — may also stand apart: one blank
+  line after the default imports, then those lines, sorted among themselves.
+  This holds until the linter sorts the whole block the way it should.
+
+  ```js
+  import Vue from 'vue';
+  import axios from 'axios';
+
+  import {mapState} from 'vuex';
+  import {promisify} from 'util';
+  ```
 - The block is contiguous: shebang, imports, then constants
   (see [../FORMATTING.md](../FORMATTING.md)).

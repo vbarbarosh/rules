@@ -20,13 +20,15 @@ function imports_sorted(context)
                     context.report({node: statement, messageId: 'comments'});
                 }
                 if (previous) {
-                    // Side-effect imports form their own block at the top, in
-                    // the order they run; one blank line may separate it from
-                    // the named imports, which are the sorted ones.
-                    const anonymous = statement_is_anonymous(statement);
-                    const boundary = statement_is_anonymous(previous) && !anonymous;
-                    if (anonymous && !statement_is_anonymous(previous)) {
-                        context.report({node: statement, messageId: 'anonymous'});
+                    // Up to three blocks, in this order: side-effect imports,
+                    // in the order they run; the sorted default imports; and,
+                    // optionally set apart, the sorted named imports
+                    // ({foo, bar}). One blank line may separate the blocks.
+                    const kind = statement_kind(statement);
+                    const kind_previous = statement_kind(previous);
+                    const boundary = kind_previous < kind;
+                    if (kind < kind_previous) {
+                        context.report({node: statement, messageId: kind === 0 ? 'anonymous' : 'destructured'});
                     }
                     const gap = statement.loc.start.line - previous.loc.end.line;
                     if (gap !== 1 && !(boundary && gap === 2)) {
@@ -34,7 +36,7 @@ function imports_sorted(context)
                     }
                     const before = Buffer.from(source.lines[previous.loc.start.line - 1]);
                     const after = Buffer.from(source.lines[statement.loc.start.line - 1]);
-                    if (!anonymous && !boundary && Buffer.compare(before, after) > 0) {
+                    if (kind > 0 && kind === kind_previous && Buffer.compare(before, after) > 0) {
                         context.report({node: statement, messageId: 'order'});
                     }
                     const comments = source.getCommentsAfter(previous);
@@ -59,13 +61,21 @@ function statement_is_import(node)
     return node.type === 'VariableDeclaration' && node.declarations.every(v => expression_is_require(v.init));
 }
 
-// import './x'; or require('x'); — nothing is bound
-function statement_is_anonymous(node)
+// 0: import './x'; or require('x'); — nothing is bound.
+// 1: import x from 'x'; or const x = require('x');
+// 2: import {a, b} from 'x'; or const {a, b} = require('x');
+function statement_kind(node)
 {
     if (node.type === 'ImportDeclaration') {
-        return node.specifiers.length === 0;
+        if (node.specifiers.length === 0) {
+            return 0;
+        }
+        return node.specifiers.every(v => v.type === 'ImportSpecifier') ? 2 : 1;
     }
-    return node.type === 'ExpressionStatement';
+    if (node.type === 'ExpressionStatement') {
+        return 0;
+    }
+    return node.declarations.every(v => v.id.type === 'ObjectPattern') ? 2 : 1;
 }
 
 function expression_is_require(node)
@@ -85,8 +95,9 @@ module.exports = {
         messages: {
             first: 'Imports and requires must be the first statements in the file.',
             single: 'Keep each import/require statement on one line for whole-line sorting.',
-            contiguous: 'Keep imports/requires contiguous, one per line, without blank lines; one blank line may follow the side-effect imports.',
+            contiguous: 'Keep imports/requires contiguous, one per line, without blank lines; one blank line may separate the side-effect, default and named-import blocks.',
             anonymous: 'Side-effect imports and requires go in their own block at the top, before the named ones.',
+            destructured: 'Named imports ({foo, bar}) go after the default imports; set apart, they form the last block.',
             comments: 'Move comments outside the import/require block.',
             order: 'Sort complete import/require lines in byte order (LC_ALL=C sort).',
         },

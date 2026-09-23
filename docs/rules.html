@@ -1514,9 +1514,17 @@ const {promisify} = require('util');</pre><button class="copy" type="button">Cop
 const axios = require('axios');
 const {promisify} = require('util'); <span class="aside">← { after z</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule bare" id="FILE-11">
+<article class="rule" id="FILE-11">
 <a class="code" href="#FILE-11">FILE-11</a>
-<div class="text"><p>The import block is one contiguous list: no groups for builtins, packages and local files, and no blank lines or comments inside it — either one breaks the sort.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/imports_sorted.md" title="drafts/imports_sorted.md">imports_sorted.md</a></div>
+<div class="text"><p>The import block is one contiguous list: no groups for builtins, packages and local files, and no blank lines or comments inside it — either one breaks the sort. Two exceptions: a side-effect import keeps its run order in its own block at the top, and the named imports (<code>{foo, bar}</code>) may stand apart after the default ones — one blank line between blocks.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/imports_sorted.md" title="drafts/imports_sorted.md">imports_sorted.md</a></div>
+<div class="form"><pre>import './sass/main.sass';
+import './main-pre';
+
+import Vue from 'vue';
+import axios from 'axios';
+
+import {mapState} from 'vuex';
+import {promisify} from 'util';</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FILE-12">
 <a class="code" href="#FILE-12">FILE-12</a>
@@ -2128,7 +2136,7 @@ for (const item of items) {       <span class="yes">✓ yes</span>
 </article>
 <article class="rule bare" id="LINT-06">
 <a class="code" href="#LINT-06">LINT-06</a>
-<div class="text"><p>Imports are the first statements of a file, one statement per line. Side-effect imports — <code>import './x'</code>, a bare <code>require('x')</code> — form their own block at the top, kept in the order they run; one blank line may separate it from the sorted named imports.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+<div class="text"><p>Imports are the first statements of a file, one statement per line, in up to three blocks: side-effect imports — <code>import './x'</code>, a bare <code>require('x')</code> — first, in the order they run; then the sorted default imports; then, if set apart, the sorted named imports (<code>{foo, bar}</code>). One blank line may separate the blocks.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
 </article>
 <article class="rule bare" id="LINT-07">
 <a class="code" href="#LINT-07">LINT-07</a>
