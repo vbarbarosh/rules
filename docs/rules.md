@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-209 rules · 15 groups · 36 sources · filterable version: [rules.html](rules.html)
+209 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -80,7 +80,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FN-10 | Anything that holds a local copy of remote data has `refresh()` — it pulls the data and brings the local vars up to date. Mental model: the browser refresh button. | <pre>refresh: async function () {<br>    await Promise.all(&#91;<br>        this.refresh_user(),<br>        this.refresh_banners(),<br>    ]);<br>},</pre> | [refresh.md](../drafts/refresh.md) |
 | FN-11 | `refresh()` is idempotent — safe to call at any moment, any number of times. | — | [refresh.md](../drafts/refresh.md) |
 | FN-12 | A fine-grained `refresh_<part>()` syncs one part of the state; `refresh()` composes them. | <pre>refresh_user: async function () {<br>    this.user = await fetch_user();<br>},</pre> | [refresh.md](../drafts/refresh.md) |
-| FN-13 | Init is the first refresh. Derived state is never edited, only rederived. | <pre>mounted: async function () {<br>    await this.refresh();<br>    this.ready = true;<br>},</pre> | [refresh.md](../drafts/refresh.md) |
+| FN-13 | Init is the first refresh. | <pre>mounted: async function () {<br>    await this.refresh();<br>    this.ready = true;<br>},</pre> | [refresh.md](../drafts/refresh.md) |
 | FN-14 | An interaction — modal, popover — executes its own logic and returns a boolean commit flag. It expresses intent; it does not expose control flow. | <pre>// true  → changes were committed<br>// false → no-op (cancel, or no changes)<br>if (await modal_upload().promise()) {<br>    await blocking(this.refresh());<br>}</pre> | [interactions-should-return-only-boolean-flag.md](../drafts/interactions-should-return-only-boolean-flag.md) |
 | FN-15 | Guards return early. Validate inputs immediately and return `null` or empty values explicitly. | — | [FORMATTING.md](../FORMATTING.md) |
 | FN-16 | One public entry function per file. | — | [FORMATTING.md](../FORMATTING.md) |
@@ -188,7 +188,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | LOG-23 | “After” `group_exit` means producer emission order, not timestamp or collector ingestion order. Buffering may deliver an older event later; that alone is not an error. Without a causal-order signal — preserved per-group order, a shared sequence — cross-process detection is advisory. | — | [logs.md](../drafts/logs.md) |
 | **CSS** | **Classes and styles** — A fixed class order; every class has a rule. | | |
 | CSS-01 | Classes inside one `class="…"` attribute keep a fixed order. Plain utilities lead; an app-prefixed class (`vb-*`, `np-*` — one prefix per app, `app-*` in these examples) sorts after all of them, base class included; a file-local `#-*` class is always last. | <pre>layout  spacing  sizing  decoration  typography  app-prefix  local<br><br>&lt;div class="flex-row-c #-root" /&gt;<br>&lt;div class="fluid p30 xpt app-scrollbars-light #-grid" /&gt;<br>&lt;div class="db w80 h80 br4 fit-cover cur-pointer app-background #-preset-img" /&gt;<br>&lt;div class="flex-row-cl gap10 app-font-b14 #-title-trigger" /&gt;</pre> | [css_classes.md](../drafts/css_classes.md) |
-| CSS-02 | Within the utilities: a display or position utility (`db`, `abs`, `fluid`) leads where the element carries one, a `gap*` always comes directly after the layout class it belongs to, `ph*` precedes `pv*`, and spacing comes before typography. | <pre>flex-row-c gap5<br>flex-col-c gap15<br>grid-foo gap5</pre> | [css_classes.md](../drafts/css_classes.md) |
+| CSS-02 | Within the utilities: a display or position utility (`db`, `abs`) leads where the element carries one, a `gap*` always comes directly after the layout class it belongs to, `ph*` precedes `pv*`, and spacing comes before typography. | <pre>flex-row-c gap5<br>flex-col-c gap15<br>grid-foo gap5</pre> | [css_classes.md](../drafts/css_classes.md) |
 | CSS-03 | Every class either has a rule in the file’s own style block or is an established project utility. An element that needs no styling stays classless — a label-only class rots and sends the next reader looking for a rule nobody wrote. | <pre>&lt;!-- the wrapper is not styled, so it carries no class --&gt;<br>&lt;div&gt;<br>    &lt;div class="#-funnel-bars"&gt;...&lt;/div&gt;<br>&lt;/div&gt;</pre> | [css_classes.md](../drafts/css_classes.md) |
 | CSS-04 | `gap*` spaces the children of a grid or flex container; `mg*` and `mi*` are the block-container forms. The two do not mix. | — | [css_classes.md](../drafts/css_classes.md) |
 | CSS-05 | `fluid` marks the filling child of an `hsplit`/`vsplit` (whose children default to `flex: none`); `flex-fluid` marks the growing child of a plain `flex-row`/`flex-col`. Same CSS — the choice states which container the element sits in. | — | [css_classes.md](../drafts/css_classes.md) |
@@ -242,7 +242,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | DOC-10 | An audit note is written by the AI as a whole, so it has no top half and no separator. It is left untracked; it is committed only on request. | — | [audit_note.md](../drafts/audit_note.md) |
 | **LINT** | **Stated by the linter** — Rules that only LINTING.md and the preset spell out. | | |
 | LINT-01 | Multiplicative operators are tight — `*`, `/`, `**`. Every other binary, logical and assignment operator has a space on each side. | <pre>const x = a&#42;b + c/d - e&#42;&#42;2;<br>const x = a % 2;</pre> | [LINTING.md](../LINTING.md) |
-| LINT-02 | An anonymous function has a space before its parenthesis; a named one has none. | <pre>server.on('error', function (error) {<br>});<br><br>function main()<br>{<br>}</pre> | [config.js](../src/config.js) |
+| LINT-02 | An anonymous function has a space before its parenthesis; a named one has none. | <pre>server.on('error', function (error) {<br>});<br><br>function main()<br>{<br>}</pre> | [LINTING.md](../LINTING.md) |
 | LINT-03 | A tiny arrow is a single-line expression callback, passed as a call argument or as an object property value. It fits one line; the number of parameters does not matter. A lone parameter is `v`, nested `vv`; in a `.catch` it is `error`. It is taken whole — `v => v.uid`, not `({uid}) => uid`. A named helper is a function declaration. | — | [LINTING.md](../LINTING.md) |
 | LINT-04 | `forEach` does not exist. Use `for...of`. | <pre>items.forEach(function (item) {   ✗ no<br>});<br><br>for (const item of items) {       ✓ yes<br>}</pre> | [LINTING.md](../LINTING.md) |
 | LINT-05 | The one class that may exist is a class that extends another. | — | [LINTING.md](../LINTING.md) |

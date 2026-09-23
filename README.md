@@ -28,7 +28,7 @@ npx vbarbarosh/rules src
 ## Rules
 
 - **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](docs/rules.html) — every rule below, all 176 of them, in one filterable table**
+- **[docs/rules.html](docs/rules.html) — every rule below, all 209 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - Bash scripts — all scripts follow [bin/templ](bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
@@ -36,7 +36,7 @@ npx vbarbarosh/rules src
 - [drafts/for_of.md](drafts/for_of.md) — prefer `for...of`; loop variable is the singular
 - [drafts/for_i_end_ii_jj_kk.md](drafts/for_i_end_ii_jj_kk.md) — cached loop bounds: `end`, `ii`, `jj`, `kk`
 - [drafts/return_out.md](drafts/return_out.md) — the constructed return value is named `out`
-- [drafts/refresh.md](drafts/refresh.md) — derived state is never edited, only rederived
+- [drafts/refresh.md](drafts/refresh.md) — `refresh` and `refresh_*` sync local vars with remote data
 - [drafts/format_xxx.md](drafts/format_xxx.md) — `format_*` returns a string for human display
 - [drafts/render_xxx.md](drafts/render_xxx.md) — `render_*` derives a small value from own state
 - [drafts/var_names_error.md](drafts/var_names_error.md) — a caught error is always named `error`
@@ -85,6 +85,7 @@ npx vbarbarosh/rules src
 
 ## Glossaries
 
+- **[docs/glossaries.html](docs/glossaries.html) — every term below, in one filterable page**
 - [glossaries/agents.md](glossaries/agents.md) — vocabulary for developing agents: parts, roles, time, messages, tools
 - [glossaries/testing.md](glossaries/testing.md) — happy path, smoke tests, flaky tests, intermittent failures, showstoppers
 

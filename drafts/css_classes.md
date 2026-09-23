@@ -59,7 +59,7 @@ Classes inside one `class="..."` attribute follow a fixed order, left to right:
 ```
 
 - layout is the flex/grid/split class, and the display or position utility
-  (`db`, `abs`, `fluid`) leads where the element carries one. A `gap*`, where
+  (`db`, `abs`) leads where the element carries one. A `gap*`, where
   one is needed, always comes directly after the layout class:
   `flex-row-c gap5`, `flex-col-c gap15`, `grid-foo gap5`,
 - spacing is `p*` / `m*`; `ph*` precedes `pv*`, and spacing comes before

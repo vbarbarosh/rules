@@ -809,7 +809,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>209</b> rules<i>·</i><b>15</b> groups<i>·</i><b>36</b> sources</p>
+    <p class="stats"><b>209</b> rules<i>·</i><b>15</b> groups<i>·</i><b>35</b> sources</p>
 </div>
 </header>
 
@@ -1178,7 +1178,7 @@ $user-&gt;render_name_email()  <span class="cmt">// state in  → string out</sp
 </article>
 <article class="rule" id="FN-13">
 <a class="code" href="#FN-13">FN-13</a>
-<div class="text"><p>Init is the first refresh. Derived state is never edited, only rederived.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/refresh.md" title="drafts/refresh.md">refresh.md</a></div>
+<div class="text"><p>Init is the first refresh.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/refresh.md" title="drafts/refresh.md">refresh.md</a></div>
 <div class="form"><pre>mounted: async function () {
     await this.refresh();
     this.ready = true;
@@ -1818,7 +1818,7 @@ value=""</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="CSS-02">
 <a class="code" href="#CSS-02">CSS-02</a>
-<div class="text"><p>Within the utilities: a display or position utility (<code>db</code>, <code>abs</code>, <code>fluid</code>) leads where the element carries one, a <code>gap*</code> always comes directly after the layout class it belongs to, <code>ph*</code> precedes <code>pv*</code>, and spacing comes before typography.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="text"><p>Within the utilities: a display or position utility (<code>db</code>, <code>abs</code>) leads where the element carries one, a <code>gap*</code> always comes directly after the layout class it belongs to, <code>ph*</code> precedes <code>pv*</code>, and spacing comes before typography.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
 <div class="form"><pre>flex-row-c gap5
 flex-col-c gap15
 grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
@@ -2111,7 +2111,7 @@ const x = a % 2;</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="LINT-02">
 <a class="code" href="#LINT-02">LINT-02</a>
-<div class="text"><p>An anonymous function has a space before its parenthesis; a named one has none.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/src/config.js" title="src/config.js">config.js</a></div>
+<div class="text"><p>An anonymous function has a space before its parenthesis; a named one has none.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
 <div class="form"><pre>server.on('error', function (error) {
 });
 
