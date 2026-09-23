@@ -16,7 +16,7 @@ Use `app-form-div` and `app-form-label` for composing forms.
             <app-input-password v-model="user.password" />
         </app-form-div>
         <div class="form-row-center mi10">
-            <app-button-orange v-on:click="emit_end(false)">
+            <app-button-orange v-on:click="modal.return(false)">
                 Cancel
             </app-button-orange>
             <app-button-green type="submit">

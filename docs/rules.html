@@ -1189,7 +1189,7 @@ $user-&gt;render_name_email()  <span class="cmt">// state in  → string out</sp
 </article>
 <article class="rule" id="FN-14">
 <a class="code" href="#FN-14">FN-14</a>
-<div class="text"><p>An interaction — modal, popover — executes its own logic and returns a boolean commit flag. It expresses intent; it does not expose control flow.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/interactions-should-return-only-boolean-flag.md" title="drafts/interactions-should-return-only-boolean-flag.md">interactions-should-return-only-boolean-flag.md</a></div>
+<div class="text"><p>An interaction — modal, popover — executes its own logic and returns a boolean commit flag. It expresses intent; it does not expose control flow. These are the best practices for vue-modal: <code>modal.return(true)</code> inside, <code>await modal_x().promise()</code> at the call site.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/interactions-should-return-only-boolean-flag.md" title="drafts/interactions-should-return-only-boolean-flag.md">interactions-should-return-only-boolean-flag.md</a></div>
 <div class="form"><pre><span class="cmt">// true  → changes were committed</span>
 <span class="cmt">// false → no-op (cancel, or no changes)</span>
 if (await modal_upload().promise()) {
@@ -1874,10 +1874,9 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 <h2><span class="tag">VUE</span><span class="name">Vue 2</span><span class="note">Components that behave like the platform.</span></h2>
 <article class="rule" id="VUE-01">
 <a class="code" href="#VUE-01">VUE-01</a>
-<div class="text"><p>Every component is provided with four global methods through a mixin.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-globals.md" title="vue2/vue-globals.md">vue-globals.md</a></div>
+<div class="text"><p>Every component is provided with three global methods through a mixin.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-globals.md" title="vue2/vue-globals.md">vue-globals.md</a></div>
 <div class="form"><pre>px(value)        <span class="cmt">// format a pixel value</span>
 uid(&#91;name])      <span class="cmt">// ids unique across components</span>
-emit_end(retval) <span class="cmt">// return a value from a modal</span>
 emit_input(v)    <span class="cmt">// return a value from an input</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="VUE-02">
@@ -1932,8 +1931,8 @@ emit_input(v)    <span class="cmt">// return a value from an input</span></pre><
 </article>
 <article class="rule" id="VUE-10">
 <a class="code" href="#VUE-10">VUE-10</a>
-<div class="text"><p>A form’s buttons close the form: cancel returns <code>false</code> through <code>emit_end</code>, submit is a <code>type=&quot;submit&quot;</code> button.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-form.md" title="vue2/vue-form.md">vue-form.md</a></div>
-<div class="form"><pre>&lt;app-button-orange v-on:click="emit_end(false)"&gt;
+<div class="text"><p>A form’s buttons close the form: cancel returns <code>false</code> through vue-modal’s <code>modal.return</code>, submit is a <code>type=&quot;submit&quot;</code> button.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-form.md" title="vue2/vue-form.md">vue-form.md</a></div>
+<div class="form"><pre>&lt;app-button-orange v-on:click="modal.return(false)"&gt;
     Cancel
 &lt;/app-button-orange&gt;
 &lt;app-button-green type="submit"&gt;

@@ -45,7 +45,7 @@ npx vbarbarosh/rules src
 - [drafts/css_classes.md](drafts/css_classes.md) — class attribute order, smcss utilities, what leads a rule block
 - [drafts/cli_main.md](drafts/cli_main.md) — an executable hands `main` to `cli(main)`
 - [drafts/endpoint_comment.md](drafts/endpoint_comment.md) — every route function carries a `METHOD /path (params)` comment
-- [drafts/interactions-should-return-only-boolean-flag.md](drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag
+- [drafts/interactions-should-return-only-boolean-flag.md](drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag; the best practices for [vue-modal](https://github.com/vbarbarosh/vue-modal)
 - [drafts/layout.md](drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
 - [drafts/value_label.md](drafts/value_label.md) — selectable options are `{value, label}`
 - [drafts/logs.md](drafts/logs.md) — `[time][group_uid][sender] details`, one event per line · [cheatsheet](drafts/logs-cheatsheet.html)
@@ -54,7 +54,7 @@ npx vbarbarosh/rules src
 ## Vue 2
 
 - [vue2/vue-formatting.md](vue2/vue-formatting.md) — `v-on`/`v-bind` spelled out; attribute order
-- [vue2/vue-globals.md](vue2/vue-globals.md) — `px`, `uid`, `emit_end`, `emit_input` mixin
+- [vue2/vue-globals.md](vue2/vue-globals.md) — `px`, `uid`, `emit_input` mixin
 - [vue2/vue-input.md](vue2/vue-input.md) — what every input component must do
 - [vue2/vue-form.md](vue2/vue-form.md) — composing forms
 - [vue2/vue-button.md](vue2/vue-button.md) — one button, one class

@@ -13,6 +13,11 @@ boolean commit flag.
 
 ## Canonical form
 
+These are the best practices for [vue-modal](https://github.com/vbarbarosh/vue-modal).
+Inside the modal, `modal.return(true)` after the change is committed and
+`modal.return(false)` on cancel; at the call site, the promise resolves with
+that flag:
+
 ```js
 if (await modal_upload().promise()) {
     await blocking(this.refresh());
