@@ -22,7 +22,6 @@ function rules_config(options = {})
                 'curly': ['error', 'all'],
                 'no-restricted-syntax': ['error',
                     {selector: 'DoWhileStatement', message: 'Use while or for instead of do...while.'},
-                    {selector: ':matches(ClassDeclaration, ClassExpression):not([superClass])', message: 'Use plain data structures and named functions; a class exists only to extend one.'},
                     {selector: 'CallExpression[callee.type="MemberExpression"][callee.property.name="forEach"]', message: 'Use for...of instead of forEach.'},
                 ],
                 'func-style': ['error', 'declaration', {allowArrowFunctions: true}],

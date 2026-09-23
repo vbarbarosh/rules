@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>209</b> rules<i>·</i><b>15</b> groups<i>·</i><b>35</b> sources</p>
+    <p class="stats"><b>208</b> rules<i>·</i><b>15</b> groups<i>·</i><b>35</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">209 rules</span>
+        <span class="count" id="count">208 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -845,7 +845,7 @@ footer .lead {
 <a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">5</span></a>
 <a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
 <a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">10</span></a>
-<a href="#LINT" data-group="LINT"><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="n">12</span></a>
+<a href="#LINT" data-group="LINT"><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="n">11</span></a>
 </nav>
 <main>
 <section class="group" id="CORE">
@@ -887,15 +887,16 @@ enabled/disabled    import/export</pre><button class="copy" type="button">Copy</
 </article>
 <article class="rule" id="NAME-02">
 <a class="code" href="#NAME-02">NAME-02</a>
-<div class="text"><p>English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Prepositions are neutral — the verb form decides the side.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="text"><p>English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Where there is no verb, a function marker — <code>_from_</code>, <code>_to_</code>, <code>_of_</code>, <code>is_</code> — makes a function.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
 <div class="form"><pre>items_sort_by_time(items)   <span class="cmt">// function</span>
 items_sorted_by_time        <span class="cmt">// data</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="NAME-03">
 <a class="code" href="#NAME-03">NAME-03</a>
-<div class="text"><p>A bare <code>_by_</code> name is always data, never a function. Lookup is bracket access, not a call.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
-<div class="form"><pre>user_by_id&#91;id]     <span class="yes">✓ right</span>
-user_by_id(id)     <span class="no">✗ wrong</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p>A bare <code>_by_</code> name is always data, never a function: it is read with brackets, or with <code>.get()</code> when it is a <code>Map</code> — never called.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a></div>
+<div class="form"><pre>user_by_id&#91;id]       <span class="yes">✓ right</span>
+user_by_id.get(id)   <span class="yes">✓ right, a Map</span>
+user_by_id(id)       <span class="no">✗ wrong</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="NAME-04">
 <a class="code" href="#NAME-04">NAME-04</a>
@@ -981,7 +982,7 @@ process() handle() util()   <span class="no">✗ avoid</span></pre><button class
 </article>
 <article class="rule" id="NAME-18">
 <a class="code" href="#NAME-18">NAME-18</a>
-<div class="text"><p><code>main</code> is the single exception to domain-first naming — reserved for the entry function of an executable script.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="text"><p>The verb-first families are the exceptions to domain-first naming: <code>main</code> — reserved for the entry function of an executable script — <code>format_*</code>, <code>render_*</code>, <code>export_*</code>, <code>is_*</code>, <code>refresh_*</code>, <code>click_*</code>, <code>emit_*</code>, and the steps of a script (<code>build_rules_html()</code>).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
 <div class="form"><pre>function main()
 {
     report_print();
@@ -1440,7 +1441,7 @@ catch {
 </article>
 <article class="rule bare" id="FLOW-09">
 <a class="code" href="#FLOW-09">FLOW-09</a>
-<div class="text"><p>Use plain data structures — <code>Set</code>, <code>Map</code> or plain <code>{}</code> for lookups. No classes, no prototypes, no mutation via shared state.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="text"><p>Use plain data structures — <code>Set</code>, <code>Map</code> or plain <code>{}</code> for lookups. No prototypes, no mutation via shared state.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
 </article>
 <article class="rule bare" id="FLOW-10">
 <a class="code" href="#FLOW-10">FLOW-10</a>
@@ -1540,7 +1541,7 @@ const {promisify} = require('util'); <span class="aside">← { after z</span></p
 </article>
 <article class="rule bare" id="FILE-17">
 <a class="code" href="#FILE-17">FILE-17</a>
-<div class="text"><p>CommonJS modules only. Use <code>const &lt;name&gt; = require('&lt;module&gt;');</code> — never <code>import</code> or <code>export</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="text"><p>This repository's own code and node scripts are CommonJS: <code>const &lt;name&gt; = require('&lt;module&gt;');</code>, never <code>import</code> or <code>export</code>. Elsewhere the rules cover both module systems.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
 </article>
 <article class="rule" id="FILE-18">
 <a class="code" href="#FILE-18">FILE-18</a>
@@ -1681,15 +1682,15 @@ EXIT_MESSAGE="${GREEN}bin/templ succeeded${RESET}"</pre><button class="copy" typ
 </article>
 </section>
 <section class="group" id="LOG">
-<h2><span class="tag">LOG</span><span class="name">Logs</span><span class="note">One line, one event, three fields.</span></h2>
+<h2><span class="tag">LOG</span><span class="name">Logs</span><span class="note">One line, one event, four fields.</span></h2>
 <article class="rule" id="LOG-01">
 <a class="code" href="#LOG-01">LOG-01</a>
-<div class="text"><p>A log is one infinite file. One physical line records one event, in three fields and nothing else.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="text"><p>A log is one infinite file. One physical line records one event, in four fields and nothing else.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
 <div class="form"><pre>[time][group_uid][sender] details</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="LOG-02">
 <a class="code" href="#LOG-02">LOG-02</a>
-<div class="text"><p>Elapsed time, status and every other measurement belong in <code>details</code>, not in a fourth field.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
+<div class="text"><p>Elapsed time, status and every other measurement belong in <code>details</code>, not in a field of their own.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a></div>
 <div class="form"><pre>[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="LOG-03">
@@ -2134,10 +2135,6 @@ function main()
 
 for (const item of items) {       <span class="yes">✓ yes</span>
 }</pre><button class="copy" type="button">Copy</button></div>
-</article>
-<article class="rule bare" id="LINT-05">
-<a class="code" href="#LINT-05">LINT-05</a>
-<div class="text"><p>The one class that may exist is a class that extends another.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
 </article>
 <article class="rule bare" id="LINT-06">
 <a class="code" href="#LINT-06">LINT-06</a>

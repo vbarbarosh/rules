@@ -68,7 +68,7 @@ project, so all JavaScript code follows the same conventions.
 * Use **plain data structures**
 
     * `Set`, `Map`, or plain `{}` for lookups
-    * No classes, no prototypes, no mutation via shared state
+    * No prototypes, no mutation via shared state
 
 * **Local helpers are allowed**
 
@@ -80,6 +80,7 @@ project, so all JavaScript code follows the same conventions.
     * Functions and files follow `items_*`, `item_*`, or domain nouns
     * Avoid generic names (`process`, `handle`, `util`)
     * `main` is reserved for the entry function of an executable script
+    * The verb-first families are the exceptions to domain-first naming: `main`, `format_*`, `render_*`, `export_*`, `is_*`, `refresh_*`, `click_*`, `emit_*`, and the steps of a script (`build_rules_html()`)
 
 * **Comments explain intent or policy only**
 
@@ -108,14 +109,15 @@ project, so all JavaScript code follows the same conventions.
     * No hidden side effects
     * No reliance on execution order side effects
 
-* **CommonJS modules only**
+* **CommonJS in this repository and in node scripts**
 
-    * Use `const <name> = require('<module>');`
-    * Do not use `import` or `export`
+    * This repository's own code and node scripts use `const <name> = require('<module>');`, never `import` or `export`
+    * Elsewhere the rules cover both module systems (see [drafts/one_export_per_file.md](drafts/one_export_per_file.md))
 
 * **Return variable naming**
 
-    * If a variable is used in a `return` statement, it **MUST be named `out`**
+    * A variable returned as it is — `return out;`, exactly — **MUST be named `out`**
+    * A value joined, stringified or otherwise transformed on its way out is named by what it is: `return lines.join('\n');` (see [drafts/return_out.md](drafts/return_out.md))
     * Returning **literals or expressions** directly is allowed
     * Early guard returns may return literals (`null`, `false`, `[]`, `{}`)
     * `const out = {...}; return out;` should be rewritten as `return {...};`

@@ -1,8 +1,8 @@
 Memo: name markers, collected. Not polished — raw law for later.
 
 Core observation: English verb morphology is the function/data marker.
-Imperative verb = function. Past participle = data. Prepositions are
-neutral; the verb form decides the side.
+Imperative verb = function. Past participle = data. Where there is no verb,
+a function marker (`_from_`, `_to_`, `_of_`, `is_`) makes a function.
 
 ```js
 const items_sorted_by_time = items_sort_by_time(items);

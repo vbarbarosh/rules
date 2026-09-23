@@ -113,8 +113,8 @@ legacy ESLint configuration; that configuration is not automatically merged.
 
 The preset also enables four-space JS indentation, aligned switch cases,
 mandatory braces, function declaration style, a space before the parenthesis
-of an anonymous function and none between a name and its parenthesis, no tabs, no `do...while`, no
-classes except one that extends another, and no `forEach`. Vue scripts use four spaces with one base indent;
+of an anonymous function and none between a name and its parenthesis, no tabs, no `do...while`,
+and no `forEach`. Vue scripts use four spaces with one base indent;
 `v-bind` and `v-on` use their full spelling, and `v-if`/`v-for` cannot share
 an element.
 

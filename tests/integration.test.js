@@ -58,12 +58,12 @@ test('a standalone stylesheet may build selectors with interpolation', async fun
     assert.deepEqual(result.messages, []);
 });
 
-test('a class exists only to extend one', async function () {
+test('classes are allowed, with or without a superclass', async function () {
     const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
-    const [ok] = await linter.lintText('class Restricted extends Error\n{\n}\n\nmodule.exports = Restricted;\n', {filePath: 'Restricted.cjs'});
-    assert.deepEqual(ok.messages.filter(v => v.ruleId === 'no-restricted-syntax'), []);
-    const [bad] = await linter.lintText('class Logger\n{\n}\n\nmodule.exports = Logger;\n', {filePath: 'Logger.cjs'});
-    assert.equal(bad.messages.filter(v => v.ruleId === 'no-restricted-syntax').length, 1);
+    const [extended] = await linter.lintText('class Restricted extends Error\n{\n}\n\nmodule.exports = Restricted;\n', {filePath: 'Restricted.cjs'});
+    assert.deepEqual(extended.messages, []);
+    const [plain] = await linter.lintText('class Logger\n{\n}\n\nmodule.exports = Logger;\n', {filePath: 'Logger.cjs'});
+    assert.deepEqual(plain.messages, []);
 });
 
 test('standalone SCSS supports transition mixin definitions', async function () {

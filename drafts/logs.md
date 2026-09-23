@@ -78,7 +78,7 @@ One physical line records one event:
 [time][group_uid][sender] details
 ```
 
-A line carries these three fields and nothing else. Elapsed time, status, and
+A line carries these four fields and nothing else. Elapsed time, status, and
 every other measurement belongs in `details`.
 
 When the program owns the timestamp:

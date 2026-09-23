@@ -28,7 +28,7 @@ npx vbarbarosh/rules src
 ## Rules
 
 - **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](docs/rules.html) — every rule below, all 209 of them, in one filterable table**
+- **[docs/rules.html](docs/rules.html) — every rule below, all 208 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - Bash scripts — all scripts follow [bin/templ](bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
@@ -119,8 +119,8 @@ users_by_role[role]               // → User[]
 children_by_parent_id[parent_id]  // → Node[]
 ```
 
-A bare `<noun>_by_<key>` is always data, never a function.
-Lookup is bracket access, not a call.
+A bare `<noun>_by_<key>` is always data, never a function: it is read with
+brackets, or with `.get()` when it is a `Map` — never called.
 
 For invariant plurals (`fish`, `data`, `series`) cardinality cannot be
 stated by plurality — fall back to `_grouped_by_` for many-per-key, or
@@ -128,7 +128,8 @@ prefer a countable noun. See [drafts/var_names.md](drafts/var_names.md).
 
 ### Functions
 
-A function name must contain a verb. The criterion follows the verb:
+A function name contains a verb or a function marker (`_from_`, `_to_`,
+`_of_`, `is_`). The criterion follows the verb:
 
 ```js
 users_index_by_id(users)     // → user_by_id

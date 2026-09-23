@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-209 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
+208 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -19,13 +19,13 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 24 | One entry function, one fixed order. |
 | PROJ | Project layout | 15 | A directory is a program; bin/ holds its verbs. |
-| LOG | Logs | 23 | One line, one event, three fields. |
+| LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 10 | A fixed class order; every class has a rule. |
 | VUE | Vue 2 | 18 | Components that behave like the platform. |
 | UI | User interface | 5 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
 | DOC | Writing the rules | 10 | How a document in this repo is built. |
-| LINT | Stated by the linter | 12 | Rules that only LINTING.md and the preset spell out. |
+| LINT | Stated by the linter | 11 | Rules that only LINTING.md and the preset spell out. |
 
 | Code | Rule | Canonical form | Source |
 |------|------|----------------|--------|
@@ -36,8 +36,8 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CORE-04 | Opposites come from the established pairs, not from invention. | <pre>construct/destruct  create/destroy<br>open/close          begin/end<br>start/finish        first/last<br>next/previous       get/put<br>src/dest            source/destination<br>res/rej             resolve/reject<br>req/res             request/response<br>setup/teardown      push/pull<br>enabled/disabled    import/export</pre> | [README.md](../README.md) |
 | **NAME** | **Naming grammar** — Verb morphology decides function or data. | | |
 | NAME-01 | Functions are verb phrases, data are noun phrases. Each assignment reads as a sentence — the verb performs, the noun holds. | `const users_by_role = users_group_by_role(users);` | [README.md](../README.md) |
-| NAME-02 | English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Prepositions are neutral — the verb form decides the side. | <pre>items_sort_by_time(items)   // function<br>items_sorted_by_time        // data</pre> | [naming_markers.md](../drafts/naming_markers.md) |
-| NAME-03 | A bare `_by_` name is always data, never a function. Lookup is bracket access, not a call. | <pre>user_by_id&#91;id]     ✓ right<br>user_by_id(id)     ✗ wrong</pre> | [naming_markers.md](../drafts/naming_markers.md) |
+| NAME-02 | English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Where there is no verb, a function marker — `_from_`, `_to_`, `_of_`, `is_` — makes a function. | <pre>items_sort_by_time(items)   // function<br>items_sorted_by_time        // data</pre> | [naming_markers.md](../drafts/naming_markers.md) |
+| NAME-03 | A bare `_by_` name is always data, never a function: it is read with brackets, or with `.get()` when it is a `Map` — never called. | <pre>user_by_id&#91;id]       ✓ right<br>user_by_id.get(id)   ✓ right, a Map<br>user_by_id(id)       ✗ wrong</pre> | [naming_markers.md](../drafts/naming_markers.md) |
 | NAME-04 | Plurality of the first word states lookup cardinality — what one key returns, not how big the container is. | <pre>user_by_id&#91;id]                    // User<br>users_by_role&#91;role]               // User&#91;]<br>children_by_parent_id&#91;parent_id]  // Node&#91;]</pre> | [var_names.md](../drafts/var_names.md) |
 | NAME-05 | `_sorted_by_` marks data of the same shape, reordered. The participle survives here because it carries what shape alone cannot. | `items_sorted_by_time   // Item[], still an array` | [naming_markers.md](../drafts/naming_markers.md) |
 | NAME-06 | `_per_` marks a ratio or a rate. | `clicks_per_visit` | [naming_markers.md](../drafts/naming_markers.md) |
@@ -52,7 +52,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | NAME-15 | `is_` is a predicate and returns a boolean. | `is_ancestor(a, b)` | [naming_markers.md](../drafts/naming_markers.md) |
 | NAME-16 | A standalone conversion and the variable it fills share their first word. | `const json = json_from_tree(tree);` | [naming_markers.md](../drafts/naming_markers.md) |
 | NAME-17 | Naming is domain-first. Functions and files follow `items_*`, `item_*` or domain nouns; generic names are avoided. | <pre>items_index_by_uid()   ✓ right<br>process() handle() util()   ✗ avoid</pre> | [FORMATTING.md](../FORMATTING.md) |
-| NAME-18 | `main` is the single exception to domain-first naming — reserved for the entry function of an executable script. | <pre>function main()<br>{<br>    report_print();<br>}</pre> | [FORMATTING.md](../FORMATTING.md) |
+| NAME-18 | The verb-first families are the exceptions to domain-first naming: `main` — reserved for the entry function of an executable script — `format_*`, `render_*`, `export_*`, `is_*`, `refresh_*`, `click_*`, `emit_*`, and the steps of a script (`build_rules_html()`). | <pre>function main()<br>{<br>    report_print();<br>}</pre> | [FORMATTING.md](../FORMATTING.md) |
 | **VAR** | **Variables** — A name states the shape of its data. | | |
 | VAR-01 | A variable name states the shape of its data. | <pre>users                  // User&#91;]<br>user_by_id             // Record&lt;id, User&gt;<br>users_by_role          // Record&lt;role, User&#91;]&gt;<br>items_sorted_by_time   // Item&#91;], reordered</pre> | [var_names.md](../drafts/var_names.md) |
 | VAR-02 | If a variable is used in a `return` statement, it must be named `out` — `return out;`, exactly. | <pre>function emails_from_users(users)<br>{<br>    const out = &#91;];<br>    for (const user of users) {<br>        if (user.email) {<br>            out.push(user.email);<br>        }<br>    }<br>    return out;<br>}</pre> | [return_out.md](../drafts/return_out.md) |
@@ -119,7 +119,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FLOW-06 | Do not use arrow functions for non-trivial logic. Arrows are allowed only for tiny callbacks. | <pre>const uids = items.map(v =&gt; v.uid);<br>fresh.catch(ignore);</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-07 | An arrow with a block body does not exist — it becomes `function (...) {}`, with an optional `_this` inside. | <pre>req.on('end', async () =&gt; {          ✗ does not exist<br>});<br><br>req.on('end', async function () {     ✓ this<br>});</pre> | [formatting_blocks.md](../drafts/formatting_blocks.md) |
 | FLOW-08 | A `catch` that ignores the error binds nothing. | <pre>try {<br>}<br>catch {<br>}</pre> | [formatting_blocks.md](../drafts/formatting_blocks.md) |
-| FLOW-09 | Use plain data structures — `Set`, `Map` or plain `{}` for lookups. No classes, no prototypes, no mutation via shared state. | — | [FORMATTING.md](../FORMATTING.md) |
+| FLOW-09 | Use plain data structures — `Set`, `Map` or plain `{}` for lookups. No prototypes, no mutation via shared state. | — | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-10 | No implicit magic. No hidden side effects, no reliance on execution-order side effects. | — | [FORMATTING.md](../FORMATTING.md) |
 | **FILE** | **File and module structure** — One entry function, one fixed order. | | |
 | FILE-01 | A library module exports one function, with `module.exports` at the end of the file. | `module.exports = items_index_by_uid;` | [FORMATTING.md](../FORMATTING.md) |
@@ -138,7 +138,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FILE-14 | The public entry function is the first function in the file. In an executable, the first function declaration is `function main()`. | — | [FORMATTING.md](../FORMATTING.md) |
 | FILE-15 | Helpers are defined after the public entry function, and before a library’s final export. | — | [FORMATTING.md](../FORMATTING.md) |
 | FILE-16 | Helpers must be named functions, not inline lambdas. | — | [FORMATTING.md](../FORMATTING.md) |
-| FILE-17 | CommonJS modules only. Use `const <name> = require('<module>');` — never `import` or `export`. | — | [FORMATTING.md](../FORMATTING.md) |
+| FILE-17 | This repository's own code and node scripts are CommonJS: `const <name> = require('<module>');`, never `import` or `export`. Elsewhere the rules cover both module systems. | — | [FORMATTING.md](../FORMATTING.md) |
 | FILE-18 | Library order is fixed. | `requires → constants → public entry → helpers → module.exports` | [FORMATTING.md](../FORMATTING.md) |
 | FILE-19 | Executable order is fixed. | `shebang → requires → globals → cli(main); → main() → helpers` | [FORMATTING.md](../FORMATTING.md) |
 | FILE-20 | A file exports exactly one thing, as its last statement, and is named after it. The rule is the same for both module systems: `module.exports = name;` or `export default name;`. | <pre>// items_index_by_uid.js<br>export default items_index_by_uid;</pre> | [one_export_per_file.md](../drafts/one_export_per_file.md) |
@@ -162,9 +162,9 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | PROJ-13 | `docs/` holds the official documentation, `notes/` holds working notes — hints and findings made during development — and `img/` holds static images, mostly for the README. | — | [layout.md](../drafts/layout.md) |
 | PROJ-14 | The project root carries the same standard files. | <pre>.env  .env.example  .gitignore  Dockerfile<br>LICENSE  README.md  package.json</pre> | [layout.md](../drafts/layout.md) |
 | PROJ-15 | Every bash script follows `bin/templ`: strict mode, the `script` / `scriptdir` / `scriptname` diagnostics, a temporary directory removed by an `EXIT` trap, and a colored exit message that starts as failed and is switched to succeeded on the last line. | <pre>set -o nounset -o errexit -o pipefail<br><br>EXIT_MESSAGE="${RED}bin/templ failed${RESET}"<br><br>tempdir=&#96;mktemp -d -t tmp.XXXXXXXXXX&#96;<br>trap 'rm -rf $tempdir; echo -e "$EXIT_MESSAGE"' EXIT<br>cd $tempdir<br><br>EXIT_MESSAGE="${GREEN}bin/templ succeeded${RESET}"</pre> | [templ](../bin/templ) |
-| **LOG** | **Logs** — One line, one event, three fields. | | |
-| LOG-01 | A log is one infinite file. One physical line records one event, in three fields and nothing else. | `[time][group_uid][sender] details` | [logs.md](../drafts/logs.md) |
-| LOG-02 | Elapsed time, status and every other measurement belong in `details`, not in a fourth field. | `[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT` | [logs.md](../drafts/logs.md) |
+| **LOG** | **Logs** — One line, one event, four fields. | | |
+| LOG-01 | A log is one infinite file. One physical line records one event, in four fields and nothing else. | `[time][group_uid][sender] details` | [logs.md](../drafts/logs.md) |
+| LOG-02 | Elapsed time, status and every other measurement belong in `details`, not in a field of their own. | `[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT` | [logs.md](../drafts/logs.md) |
 | LOG-03 | `time` is ISO-8601 UTC with milliseconds. | `2026-08-17T16:09:20.185Z` | [logs.md](../drafts/logs.md) |
 | LOG-04 | Include `time` when writing directly to a file; omit it when the runtime already timestamps the line, as docker does. | <pre>&#91;2026-08-17T16:09:20.185Z]&#91;cd8e5vqp]&#91;db_query_begin] name=select_users<br>&#91;cd8e5vqp]&#91;db_query_begin] name=select_users</pre> | [logs.md](../drafts/logs.md) |
 | LOG-05 | A group is one unit of work — a request, a job, a cron run. Every event carries its group’s uid, an opaque string, usually a cuid. | — | [logs.md](../drafts/logs.md) |
@@ -245,7 +245,6 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | LINT-02 | An anonymous function has a space before its parenthesis; a named one has none. | <pre>server.on('error', function (error) {<br>});<br><br>function main()<br>{<br>}</pre> | [LINTING.md](../LINTING.md) |
 | LINT-03 | A tiny arrow is a single-line expression callback, passed as a call argument or as an object property value. It fits one line; the number of parameters does not matter. A lone parameter is `v`, nested `vv`; in a `.catch` it is `error`. It is taken whole — `v => v.uid`, not `({uid}) => uid`. A named helper is a function declaration. | — | [LINTING.md](../LINTING.md) |
 | LINT-04 | `forEach` does not exist. Use `for...of`. | <pre>items.forEach(function (item) {   ✗ no<br>});<br><br>for (const item of items) {       ✓ yes<br>}</pre> | [LINTING.md](../LINTING.md) |
-| LINT-05 | The one class that may exist is a class that extends another. | — | [LINTING.md](../LINTING.md) |
 | LINT-06 | Imports are the first statements of a file, one statement per line. Side-effect imports — `import './x'`, a bare `require('x')` — form their own block at the top, kept in the order they run; one blank line may separate it from the sorted named imports. | — | [LINTING.md](../LINTING.md) |
 | LINT-07 | Module format is the consuming project’s choice: JavaScript defaults to ES modules, `.cjs` is CommonJS, and the sorting rule supports both import forms. CommonJS-only is this repository’s own rule. | — | [LINTING.md](../LINTING.md) |
 | LINT-08 | `gap*` closes the layout group: the flex/grid/split container, then its `flex-*` modifiers, then the gap. Put a layout and its gap in the same class value. | — | [LINTING.md](../LINTING.md) |
