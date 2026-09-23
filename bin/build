@@ -154,7 +154,8 @@ function html_from_rule(rule)
 // A glossary: a "# Name (TAG)" title and its note, then terms, either
 // directly or under "**Group** (TAG)" lines, each with its own note. A term
 // is a table row or a "- term – definition" list item, and a "## Terms"
-// section names a term whose long form replaces its one-line definition.
+// section names a term whose paragraphs replace its one-line definition
+// and whose code example stands on the right.
 function glossary_from_markdown(markdown, file)
 {
     const lines = markdown.split('\n');
@@ -282,9 +283,11 @@ function html_from_terms(terms, tag, file)
     for (let i = 0, end = terms.length; i < end; ++i) {
         const term = terms[i];
         const code = tag + '-' + String(i + 1).padStart(2, '0');
-        const paragraphs = term.paragraphs.length ? term.paragraphs.map(v => v.join(' ')) : [format_term_definition(term)];
-        const prose = paragraphs.filter(Boolean).map(v => `<p>${html_from_inline(v)}</p>`).join('');
-        const bare = (!prose && !term.code);
+        // A "## Term" section is the entry's full text and replaces the
+        // one-line definition of the list.
+        const definition = term.paragraphs.length ? null : format_term_definition(term);
+        const details = term.paragraphs.map(v => `<p>${html_from_inline(v.join(' '))}</p>`).join('');
+        const bare = !term.code;
         let sources = `<a class="src" href="${blob_url}${file}" title="${file}">${path.basename(file)}</a>`;
         if (term.url) {
             const host = new URL(term.url).hostname.split('.');
@@ -292,8 +295,7 @@ function html_from_terms(terms, tag, file)
         }
         out += `<article class="rule${bare ? ' bare' : ''}" id="${code}">\n`
             + `<a class="code" href="#${code}">${code}</a>\n`
-            + `<div class="text"><p><dfn>${html_from_inline(term.name)}</dfn></p>${sources}</div>\n`
-            + (prose ? `<div class="form prose">${prose}</div>\n` : '')
+            + `<div class="text"><p><dfn>${html_from_inline(term.name)}</dfn></p>${definition ? `<p>${html_from_inline(definition)}</p>` : ''}${details}${sources}</div>\n`
             + (term.code ? html_from_lines(term.code.map(html_escape)) + '\n' : '')
             + '</article>\n';
     }

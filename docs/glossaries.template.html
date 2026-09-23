@@ -783,6 +783,21 @@ footer .lead {
     font-weight: 600;
 }
 
+/* The term stands on its own line; the definition is the first paragraph
+   under it, the paragraphs of a long entry follow, and only a code example
+   stands on the right. A term without one takes the whole width. */
+.rule.bare .text {
+    max-width: none;
+}
+
+.rule .text p + p {
+    margin-top: 8px;
+}
+
+.rule .text dfn + p, .rule .text p:first-child + p {
+    margin-top: 3px;
+}
+
 .form.prose p + p {
     margin-top: 8px;
 }

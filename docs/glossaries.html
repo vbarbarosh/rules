@@ -783,6 +783,21 @@ footer .lead {
     font-weight: 600;
 }
 
+/* The term stands on its own line; the definition is the first paragraph
+   under it, the paragraphs of a long entry follow, and only a code example
+   stands on the right. A term without one takes the whole width. */
+.rule.bare .text {
+    max-width: none;
+}
+
+.rule .text p + p {
+    margin-top: 8px;
+}
+
+.rule .text dfn + p, .rule .text p:first-child + p {
+    margin-top: 3px;
+}
+
 .form.prose p + p {
     margin-top: 8px;
 }
@@ -951,282 +966,233 @@ footer .lead {
 <h2><span class="tag">AGENT</span><span class="name">Agents</span><span class="note">Vocabulary to use when developing agents (coding agents, design agents, embedded agents, etc.).</span></h2>
 <section class="sub" id="PART">
 <h3><span class="tag">PART</span><span class="name">Parts</span><span class="note">What an agent is made of.</span></h3>
-<article class="rule" id="PART-01">
+<article class="rule bare" id="PART-01">
 <a class="code" href="#PART-01">PART-01</a>
-<div class="text"><p><dfn>agent</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>harness + model + tools + policy. Never the model alone.</p></div>
+<div class="text"><p><dfn>agent</dfn></p><p>harness + model + tools + policy. Never the model alone.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="PART-02">
+<article class="rule bare" id="PART-02">
 <a class="code" href="#PART-02">PART-02</a>
-<div class="text"><p><dfn>model</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>The LLM, identified by a string (<code>claude-opus-5</code>). Stateless: one context in, one message out.</p></div>
+<div class="text"><p><dfn>model</dfn></p><p>The LLM, identified by a string (<code>claude-opus-5</code>). Stateless: one context in, one message out.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="PART-03">
+<article class="rule bare" id="PART-03">
 <a class="code" href="#PART-03">PART-03</a>
-<div class="text"><p><dfn>harness</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>The code that runs the loop: builds context, calls the model, executes tools, appends results, stops.</p></div>
+<div class="text"><p><dfn>harness</dfn></p><p>The code that runs the loop: builds context, calls the model, executes tools, appends results, stops.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="PART-04">
+<article class="rule bare" id="PART-04">
 <a class="code" href="#PART-04">PART-04</a>
-<div class="text"><p><dfn>tool</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>A named operation the model may request. The model sees its definition; the harness owns its implementation.</p></div>
+<div class="text"><p><dfn>tool</dfn></p><p>A named operation the model may request. The model sees its definition; the harness owns its implementation.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="PART-05">
+<article class="rule bare" id="PART-05">
 <a class="code" href="#PART-05">PART-05</a>
-<div class="text"><p><dfn>policy</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Text in the system message that constrains behavior. Read, not enforced. Enforcement is permission, gate and sandbox.</p></div>
+<div class="text"><p><dfn>policy</dfn></p><p>Text in the system message that constrains behavior. Read, not enforced. Enforcement is permission, gate and sandbox.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="PART-06">
+<article class="rule bare" id="PART-06">
 <a class="code" href="#PART-06">PART-06</a>
-<div class="text"><p><dfn>skill</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Instructions loaded into context on demand, not resident in every call.</p></div>
+<div class="text"><p><dfn>skill</dfn></p><p>Instructions loaded into context on demand, not resident in every call.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="PART-07">
+<article class="rule bare" id="PART-07">
 <a class="code" href="#PART-07">PART-07</a>
-<div class="text"><p><dfn>workspace</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>What tools act on: a repo, a canvas, an app database.</p></div>
+<div class="text"><p><dfn>workspace</dfn></p><p>What tools act on: a repo, a canvas, an app database.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 </section>
 <section class="sub" id="ROLE">
 <h3><span class="tag">ROLE</span><span class="name">Roles</span><span class="note">Who stands outside the loop.</span></h3>
-<article class="rule" id="ROLE-01">
+<article class="rule bare" id="ROLE-01">
 <a class="code" href="#ROLE-01">ROLE-01</a>
-<div class="text"><p><dfn>user</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Who starts a turn: a person or a calling application.</p></div>
+<div class="text"><p><dfn>user</dfn></p><p>Who starts a turn: a person or a calling application.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="ROLE-02">
+<article class="rule bare" id="ROLE-02">
 <a class="code" href="#ROLE-02">ROLE-02</a>
-<div class="text"><p><dfn>operator</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Who configures and deploys the agent.</p></div>
+<div class="text"><p><dfn>operator</dfn></p><p>Who configures and deploys the agent.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 </section>
 <section class="sub" id="TIME">
 <h3><span class="tag">TIME</span><span class="name">Time</span><span class="note">From one call to a whole session.</span></h3>
-<article class="rule" id="TIME-01">
+<article class="rule bare" id="TIME-01">
 <a class="code" href="#TIME-01">TIME-01</a>
-<div class="text"><p><dfn>call</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>One request to the model.</p></div>
+<div class="text"><p><dfn>call</dfn></p><p>One request to the model.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TIME-02">
+<article class="rule bare" id="TIME-02">
 <a class="code" href="#TIME-02">TIME-02</a>
-<div class="text"><p><dfn>round</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>One call plus execution of the tool_calls it returned. Zero tool_calls for a final.</p></div>
+<div class="text"><p><dfn>round</dfn></p><p>One call plus execution of the tool_calls it returned. Zero tool_calls for a final.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TIME-03">
+<article class="rule bare" id="TIME-03">
 <a class="code" href="#TIME-03">TIME-03</a>
-<div class="text"><p><dfn>turn</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>One user message (or one scheduled task) through to the final. One or many rounds.</p></div>
+<div class="text"><p><dfn>turn</dfn></p><p>One user message (or one scheduled task) through to the final. One or many rounds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TIME-04">
+<article class="rule bare" id="TIME-04">
 <a class="code" href="#TIME-04">TIME-04</a>
-<div class="text"><p><dfn>session</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Ordered turns sharing one transcript.</p></div>
+<div class="text"><p><dfn>session</dfn></p><p>Ordered turns sharing one transcript.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TIME-05">
+<article class="rule bare" id="TIME-05">
 <a class="code" href="#TIME-05">TIME-05</a>
-<div class="text"><p><dfn>run</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>One launch of the harness process (CLI invocation, cron job).</p></div>
+<div class="text"><p><dfn>run</dfn></p><p>One launch of the harness process (CLI invocation, cron job).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 </section>
 <section class="sub" id="MSG">
 <h3><span class="tag">MSG</span><span class="name">Messages</span><span class="note">What the transcript holds and a call sends.</span></h3>
-<article class="rule" id="MSG-01">
+<article class="rule bare" id="MSG-01">
 <a class="code" href="#MSG-01">MSG-01</a>
-<div class="text"><p><dfn>message</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>One unit of the transcript. Has a role: system, user, assistant, tool.</p></div>
+<div class="text"><p><dfn>message</dfn></p><p>One unit of the transcript. Has a role: system, user, assistant, tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="MSG-02">
+<article class="rule bare" id="MSG-02">
 <a class="code" href="#MSG-02">MSG-02</a>
-<div class="text"><p><dfn>transcript</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Every message of the session so far, append-only. Includes tool_calls and tool_results.</p></div>
+<div class="text"><p><dfn>transcript</dfn></p><p>Every message of the session so far, append-only. Includes tool_calls and tool_results.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="MSG-03">
+<article class="rule bare" id="MSG-03">
 <a class="code" href="#MSG-03">MSG-03</a>
-<div class="text"><p><dfn>context</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>What one call sends: system, tool_definitions, the transcript or its compacted form, grounding.</p></div>
+<div class="text"><p><dfn>context</dfn></p><p>What one call sends: system, tool_definitions, the transcript or its compacted form, grounding.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="MSG-04">
+<article class="rule bare" id="MSG-04">
 <a class="code" href="#MSG-04">MSG-04</a>
-<div class="text"><p><dfn>sidecar</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>A second payload carried beside a message, never merged into it: the untruncated tool output, file handles, timings. The request goes over the wire; the sidecar stays with the harness.</p></div>
+<div class="text"><p><dfn>sidecar</dfn></p><p>A second payload carried beside a message, never merged into it: the untruncated tool output, file handles, timings. The request goes over the wire; the sidecar stays with the harness.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="MSG-05">
+<article class="rule bare" id="MSG-05">
 <a class="code" href="#MSG-05">MSG-05</a>
-<div class="text"><p><dfn>memory</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>What outlives one context: the transcript, plus external stores (notes, a database).</p></div>
+<div class="text"><p><dfn>memory</dfn></p><p>What outlives one context: the transcript, plus external stores (notes, a database).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="MSG-06">
+<article class="rule bare" id="MSG-06">
 <a class="code" href="#MSG-06">MSG-06</a>
-<div class="text"><p><dfn>system</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>The message that holds the policy. Tool_definitions travel beside it, not in it.</p></div>
+<div class="text"><p><dfn>system</dfn></p><p>The message that holds the policy. Tool_definitions travel beside it, not in it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="MSG-07">
+<article class="rule bare" id="MSG-07">
 <a class="code" href="#MSG-07">MSG-07</a>
-<div class="text"><p><dfn>tool_call</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Model → harness: tool name, arguments, id.</p></div>
+<div class="text"><p><dfn>tool_call</dfn></p><p>Model → harness: tool name, arguments, id.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="MSG-08">
+<article class="rule bare" id="MSG-08">
 <a class="code" href="#MSG-08">MSG-08</a>
-<div class="text"><p><dfn>tool_result</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Harness → model: output or error of one tool_call, paired by id. Data, never instructions.</p></div>
+<div class="text"><p><dfn>tool_result</dfn></p><p>Harness → model: output or error of one tool_call, paired by id. Data, never instructions.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="MSG-09">
+<article class="rule bare" id="MSG-09">
 <a class="code" href="#MSG-09">MSG-09</a>
-<div class="text"><p><dfn>final</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>An assistant message with no tool_call. Ends the turn. Says nothing about whether the task succeeded.</p></div>
+<div class="text"><p><dfn>final</dfn></p><p>An assistant message with no tool_call. Ends the turn. Says nothing about whether the task succeeded.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="MSG-10">
+<article class="rule bare" id="MSG-10">
 <a class="code" href="#MSG-10">MSG-10</a>
-<div class="text"><p><dfn>stop_reason</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Why a call ended: final, tool_call, max_tokens, refusal. The names are the API's.</p></div>
+<div class="text"><p><dfn>stop_reason</dfn></p><p>Why a call ended: final, tool_call, max_tokens, refusal. The names are the API's.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 </section>
 <section class="sub" id="TOOL">
 <h3><span class="tag">TOOL</span><span class="name">Tools</span><span class="note">What the model may request, and what contains it.</span></h3>
-<article class="rule" id="TOOL-01">
+<article class="rule bare" id="TOOL-01">
 <a class="code" href="#TOOL-01">TOOL-01</a>
-<div class="text"><p><dfn>tool_definition</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>name + description + input_schema. What the model sees. The description is what makes the model pick it.</p></div>
+<div class="text"><p><dfn>tool_definition</dfn></p><p>name + description + input_schema. What the model sees. The description is what makes the model pick it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TOOL-02">
+<article class="rule bare" id="TOOL-02">
 <a class="code" href="#TOOL-02">TOOL-02</a>
-<div class="text"><p><dfn>input_schema</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>The shape of a tool's arguments, as JSON Schema.</p></div>
+<div class="text"><p><dfn>input_schema</dfn></p><p>The shape of a tool's arguments, as JSON Schema.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TOOL-03">
+<article class="rule bare" id="TOOL-03">
 <a class="code" href="#TOOL-03">TOOL-03</a>
-<div class="text"><p><dfn>readonly</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Observes only: view, grep, query. Declared at registration; a tool is classed by the worst its arguments allow.</p></div>
+<div class="text"><p><dfn>readonly</dfn></p><p>Observes only: view, grep, query. Declared at registration; a tool is classed by the worst its arguments allow.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TOOL-04">
+<article class="rule bare" id="TOOL-04">
 <a class="code" href="#TOOL-04">TOOL-04</a>
-<div class="text"><p><dfn>mutating</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Changes the workspace: edit, insert, shell.</p></div>
+<div class="text"><p><dfn>mutating</dfn></p><p>Changes the workspace: edit, insert, shell.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TOOL-05">
+<article class="rule bare" id="TOOL-05">
 <a class="code" href="#TOOL-05">TOOL-05</a>
-<div class="text"><p><dfn>destructive</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Mutating and hard to undo: rm, drop, deploy.</p></div>
+<div class="text"><p><dfn>destructive</dfn></p><p>Mutating and hard to undo: rm, drop, deploy.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TOOL-06">
+<article class="rule bare" id="TOOL-06">
 <a class="code" href="#TOOL-06">TOOL-06</a>
-<div class="text"><p><dfn>permission</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>What the harness lets a tool touch: paths, hosts, commands. Enforced before the tool runs.</p></div>
+<div class="text"><p><dfn>permission</dfn></p><p>What the harness lets a tool touch: paths, hosts, commands. Enforced before the tool runs.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TOOL-07">
+<article class="rule bare" id="TOOL-07">
 <a class="code" href="#TOOL-07">TOOL-07</a>
-<div class="text"><p><dfn>gate</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>User approval required before a tool runs. Default for destructive.</p></div>
+<div class="text"><p><dfn>gate</dfn></p><p>User approval required before a tool runs. Default for destructive.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TOOL-08">
+<article class="rule bare" id="TOOL-08">
 <a class="code" href="#TOOL-08">TOOL-08</a>
-<div class="text"><p><dfn>sandbox</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>The boundary that contains a tool's effects: files, network, processes.</p></div>
+<div class="text"><p><dfn>sandbox</dfn></p><p>The boundary that contains a tool's effects: files, network, processes.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="TOOL-09">
+<article class="rule bare" id="TOOL-09">
 <a class="code" href="#TOOL-09">TOOL-09</a>
-<div class="text"><p><dfn>grounding</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Workspace state the harness injects into context each turn.</p></div>
+<div class="text"><p><dfn>grounding</dfn></p><p>Workspace state the harness injects into context each turn.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 </section>
 <section class="sub" id="LIM">
 <h3><span class="tag">LIM</span><span class="name">Limits</span><span class="note">Caps, and what is cut to fit them.</span></h3>
-<article class="rule" id="LIM-01">
+<article class="rule bare" id="LIM-01">
 <a class="code" href="#LIM-01">LIM-01</a>
-<div class="text"><p><dfn>max_rounds</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Hard cap on rounds per turn.</p></div>
+<div class="text"><p><dfn>max_rounds</dfn></p><p>Hard cap on rounds per turn.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="LIM-02">
+<article class="rule bare" id="LIM-02">
 <a class="code" href="#LIM-02">LIM-02</a>
-<div class="text"><p><dfn>budget</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Token, time or cost cap, scoped to a turn, run or session.</p></div>
+<div class="text"><p><dfn>budget</dfn></p><p>Token, time or cost cap, scoped to a turn, run or session.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="LIM-03">
+<article class="rule bare" id="LIM-03">
 <a class="code" href="#LIM-03">LIM-03</a>
-<div class="text"><p><dfn>truncate</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Cut one tool_result to fit. The full output stays in the sidecar.</p></div>
+<div class="text"><p><dfn>truncate</dfn></p><p>Cut one tool_result to fit. The full output stays in the sidecar.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="LIM-04">
+<article class="rule bare" id="LIM-04">
 <a class="code" href="#LIM-04">LIM-04</a>
-<div class="text"><p><dfn>compact</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Replace the older part of the transcript in context with a summary. The replaced messages stay in the transcript and in the sidecar.</p></div>
+<div class="text"><p><dfn>compact</dfn></p><p>Replace the older part of the transcript in context with a summary. The replaced messages stay in the transcript and in the sidecar.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 </section>
 <section class="sub" id="FAIL">
 <h3><span class="tag">FAIL</span><span class="name">Failure</span><span class="note">How a turn goes wrong.</span></h3>
-<article class="rule" id="FAIL-01">
+<article class="rule bare" id="FAIL-01">
 <a class="code" href="#FAIL-01">FAIL-01</a>
-<div class="text"><p><dfn>stall</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Rounds continue without progress. Reading counts as progress; repeating the same call does not.</p></div>
+<div class="text"><p><dfn>stall</dfn></p><p>Rounds continue without progress. Reading counts as progress; repeating the same call does not.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="FAIL-02">
+<article class="rule bare" id="FAIL-02">
 <a class="code" href="#FAIL-02">FAIL-02</a>
-<div class="text"><p><dfn>runaway</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>A turn stopped by max_rounds or budget.</p></div>
+<div class="text"><p><dfn>runaway</dfn></p><p>A turn stopped by max_rounds or budget.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 </section>
 <section class="sub" id="RECOV">
 <h3><span class="tag">RECOV</span><span class="name">Recovery</span><span class="note">What follows a final.</span></h3>
-<article class="rule" id="RECOV-01">
+<article class="rule bare" id="RECOV-01">
 <a class="code" href="#RECOV-01">RECOV-01</a>
-<div class="text"><p><dfn>check</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Harness runs tests or lint after final and re-prompts on failure. Extends the turn.</p></div>
+<div class="text"><p><dfn>check</dfn></p><p>Harness runs tests or lint after final and re-prompts on failure. Extends the turn.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="RECOV-02">
+<article class="rule bare" id="RECOV-02">
 <a class="code" href="#RECOV-02">RECOV-02</a>
-<div class="text"><p><dfn>review</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>One extra call asking a model to inspect the result against the task. Same model, another agent, or a human.</p></div>
+<div class="text"><p><dfn>review</dfn></p><p>One extra call asking a model to inspect the result against the task. Same model, another agent, or a human.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="RECOV-03">
+<article class="rule bare" id="RECOV-03">
 <a class="code" href="#RECOV-03">RECOV-03</a>
-<div class="text"><p><dfn>handoff</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>Agent stops and passes the task and its context to the user or to another agent.</p></div>
+<div class="text"><p><dfn>handoff</dfn></p><p>Agent stops and passes the task and its context to the user or to another agent.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 </section>
 <section class="sub" id="KIND">
 <h3><span class="tag">KIND</span><span class="name">Kinds</span><span class="note">An agent is named by its workspace.</span></h3>
-<article class="rule" id="KIND-01">
+<article class="rule bare" id="KIND-01">
 <a class="code" href="#KIND-01">KIND-01</a>
-<div class="text"><p><dfn>coding agent</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>workspace = repo; tools = view, grep, edit, shell.</p></div>
+<div class="text"><p><dfn>coding agent</dfn></p><p>workspace = repo; tools = view, grep, edit, shell.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="KIND-02">
+<article class="rule bare" id="KIND-02">
 <a class="code" href="#KIND-02">KIND-02</a>
-<div class="text"><p><dfn>design agent</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>workspace = canvas or artifact; tools = inspect, render, place, style.</p></div>
+<div class="text"><p><dfn>design agent</dfn></p><p>workspace = canvas or artifact; tools = inspect, render, place, style.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
-<article class="rule" id="KIND-03">
+<article class="rule bare" id="KIND-03">
 <a class="code" href="#KIND-03">KIND-03</a>
-<div class="text"><p><dfn>embedded agent</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
-<div class="form prose"><p>workspace = app data via the app's API; scope enforced by the app's access controls.</p></div>
+<div class="text"><p><dfn>embedded agent</dfn></p><p>workspace = app data via the app's API; scope enforced by the app's access controls.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 </section>
 </section>
 <section class="group" id="TEST">
 <h2><span class="tag">TEST</span><span class="name">Testing</span><span class="note">Words for failures, and for the tests that find them.</span></h2>
-<article class="rule" id="TEST-01">
+<article class="rule bare" id="TEST-01">
 <a class="code" href="#TEST-01">TEST-01</a>
-<div class="text"><p><dfn>Happy Path</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a><a class="src" href="https://en.wikipedia.org/wiki/Happy_path" title="en.wikipedia.org/wiki/Happy_path">wikipedia</a></div>
-<div class="form prose"><p>The ideal scenario without errors.</p></div>
+<div class="text"><p><dfn>Happy Path</dfn></p><p>The ideal scenario without errors.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a><a class="src" href="https://en.wikipedia.org/wiki/Happy_path" title="en.wikipedia.org/wiki/Happy_path">wikipedia</a></div>
 </article>
-<article class="rule" id="TEST-02">
+<article class="rule bare" id="TEST-02">
 <a class="code" href="#TEST-02">TEST-02</a>
-<div class="text"><p><dfn>Smoke Tests</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a><a class="src" href="https://en.wikipedia.org/wiki/Smoke_testing_(software)" title="en.wikipedia.org/wiki/Smoke_testing_(software)">wikipedia</a></div>
-<div class="form prose"><p>A small set of basic tests that verify whether the most critical parts of a system work at all. They answer one question: Does the application run without immediately breaking? If smoke tests fail, deeper testing is usually pointless. (Why "smoke"? From hardware: Power it on – if smoke comes out, something is seriously broken.)</p></div>
+<div class="text"><p><dfn>Smoke Tests</dfn></p><p>A small set of basic tests that verify whether the most critical parts of a system work at all.  They answer one question: Does the application run without immediately breaking? If smoke tests fail, deeper testing is usually pointless. (Why "smoke"? From hardware: Power it on – if smoke comes out, something is seriously broken.)</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a><a class="src" href="https://en.wikipedia.org/wiki/Smoke_testing_(software)" title="en.wikipedia.org/wiki/Smoke_testing_(software)">wikipedia</a></div>
 </article>
 <article class="rule bare" id="TEST-03">
 <a class="code" href="#TEST-03">TEST-03</a>
-<div class="text"><p><dfn>Edge Case</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a><a class="src" href="https://en.wikipedia.org/wiki/Edge_case" title="en.wikipedia.org/wiki/Edge_case">wikipedia</a></div>
+<div class="text"><p><dfn>Edge Case</dfn></p><p>A situation at an extreme of the input – an empty list, the first or the last item, the maximum size – where code written for the usual case breaks.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a><a class="src" href="https://en.wikipedia.org/wiki/Edge_case" title="en.wikipedia.org/wiki/Edge_case">wikipedia</a></div>
 </article>
-<article class="rule" id="TEST-04">
+<article class="rule bare" id="TEST-04">
 <a class="code" href="#TEST-04">TEST-04</a>
-<div class="text"><p><dfn>Transient Error</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
-<div class="form prose"><p>Temporary issues that resolve quickly.</p></div>
+<div class="text"><p><dfn>Transient Error</dfn></p><p>Temporary issues that resolve quickly.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
 </article>
 <article class="rule" id="TEST-05">
 <a class="code" href="#TEST-05">TEST-05</a>
-<div class="text"><p><dfn>Intermittent Failure</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
-<div class="form prose"><p>A failure that happens sometimes, unpredictably, and usually cannot be reproduced consistently. Run #1 works, run #2 fails, run #3 works again — even though nothing was changed.</p><p>Common causes: timing issues and race conditions, network instability, concurrency issues (threads or processes interfering), uninitialized values, hardware flakiness (bad RAM, overheating), resource limits hit sometimes (a connection pool exhausted).</p><p>Painful because it does not fail every time, logs often do not show a clear cause, and "works on my machine" happens a lot.</p></div>
+<div class="text"><p><dfn>Intermittent Failure</dfn></p><p>A failure that happens sometimes, unpredictably, and usually cannot be reproduced consistently. Run #1 works, run #2 fails, run #3 works again — even though nothing was changed.</p><p>Common causes: timing issues and race conditions, network instability, concurrency issues (threads or processes interfering), uninitialized values, hardware flakiness (bad RAM, overheating), resource limits hit sometimes (a connection pool exhausted).</p><p>Painful because it does not fail every time, logs often do not show a clear cause, and "works on my machine" happens a lot.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
 <div class="form"><pre><span class="cmt">// Sometimes fetch() returns slow, causing timeout.</span>
 <span class="cmt">// Sometimes it's fast. So the test occasionally fails.</span>
 test(&quot;API returns data&quot;, async function () {
@@ -1234,33 +1200,28 @@ test(&quot;API returns data&quot;, async function () {
     expect(response.ok).toBe(true);
 });</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule" id="TEST-06">
+<article class="rule bare" id="TEST-06">
 <a class="code" href="#TEST-06">TEST-06</a>
-<div class="text"><p><dfn>Error Flood</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
-<div class="form prose"><p>Scenario with 75% errors (?)</p></div>
+<div class="text"><p><dfn>Error Flood</dfn></p><p>Scenario with 75% errors (?)</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
 </article>
-<article class="rule" id="TEST-07">
+<article class="rule bare" id="TEST-07">
 <a class="code" href="#TEST-07">TEST-07</a>
-<div class="text"><p><dfn>Flaky Test</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
-<div class="form prose"><p>Tests that produce inconsistent results, sometimes passing and sometimes failing, without any changes to the code or test being tested.</p></div>
+<div class="text"><p><dfn>Flaky Test</dfn></p><p>Tests that produce inconsistent results, sometimes passing and sometimes failing, without any changes to the code or test being tested.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
 </article>
-<article class="rule" id="TEST-08">
+<article class="rule bare" id="TEST-08">
 <a class="code" href="#TEST-08">TEST-08</a>
-<div class="text"><p><dfn>Showstopper Bug</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
-<div class="form prose"><p>A defect so severe that it prevents the system from functioning or blocks further progress (development, testing, or release). Work cannot reasonably continue until it is fixed.</p></div>
+<div class="text"><p><dfn>Showstopper Bug</dfn></p><p>A defect so severe that it prevents the system from functioning or blocks further progress (development, testing, or release). Work cannot reasonably continue until it is fixed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
 </article>
 </section>
 <section class="group" id="WORD">
 <h2><span class="tag">WORD</span><span class="name">Documents</span><span class="note">Words about words.</span></h2>
-<article class="rule" id="WORD-01">
+<article class="rule bare" id="WORD-01">
 <a class="code" href="#WORD-01">WORD-01</a>
-<div class="text"><p><dfn>vocabulary</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md" title="glossaries/doc.md">doc.md</a></div>
-<div class="form prose"><p>Which words we have/use.</p></div>
+<div class="text"><p><dfn>vocabulary</dfn></p><p>Which words we have/use.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md" title="glossaries/doc.md">doc.md</a></div>
 </article>
-<article class="rule" id="WORD-02">
+<article class="rule bare" id="WORD-02">
 <a class="code" href="#WORD-02">WORD-02</a>
-<div class="text"><p><dfn>glossary</dfn></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md" title="glossaries/doc.md">doc.md</a></div>
-<div class="form prose"><p>The words of a vocabulary, with their description and meaning.</p></div>
+<div class="text"><p><dfn>glossary</dfn></p><p>The words of a vocabulary, with their description and meaning.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md" title="glossaries/doc.md">doc.md</a></div>
 </article>
 </section>
 <p class="nothing" id="nothing" hidden>No term matches that.</p>
