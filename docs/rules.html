@@ -2433,20 +2433,21 @@ function copy_state(button, label, state)
     }
 }
 
-function click_copy(event)
+async function click_copy(event)
 {
     const button = event.target.closest('.copy');
     if (!button) {
         return;
     }
     const text = snippet_from_pre(button.parentNode.querySelector('pre'));
-    clipboard_write(text).then(function () {
+    try {
+        await clipboard_write(text);
         copy_state(button, 'Copied', 'done');
-    })
-    .catch(function (error) {
+    }
+    catch (error) {
         console.log(error.message);
         copy_state(button, 'Failed', 'failed');
-    });
+    }
 }
 
 function keydown_document(event)
