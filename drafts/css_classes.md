@@ -58,10 +58,15 @@ Classes inside one `class="..."` attribute follow a fixed order, left to right:
 <div class="flex-row-cl gap10 app-font-b14 #-title-trigger" />
 ```
 
-- layout is the flex/grid/split class, and the display or position utility
-  (`db`, `abs`) leads where the element carries one. A `gap*`, where
-  one is needed, always comes directly after the layout class:
-  `flex-row-c gap5`, `flex-col-c gap15`, `grid-foo gap5`,
+- an item class, which places the element inside its parent — `fluid`,
+  `grow`, `shrink`, `flex-fluid`, `flex-grow`, `flex-nogrow`, `flex-shrink`,
+  `flex-noshrink`, `flex-static` — leads, together with a display or position
+  utility (`db`, `abs`): `fluid flex-row gap10 oa`,
+- layout is the flex/grid/split group: the container and its `flex-*`
+  modifiers. A `gap*`, where one is needed, closes the group — `flex* gap`,
+  `grid* gap`, `hsplit gap`, `vsplit gap`: `flex-row flex-align-center gap10
+  mt10`, `flex-col-c gap15`, `grid-foo gap5`. `grid*` and `flex*` never share
+  an element,
 - spacing is `p*` / `m*`; `ph*` precedes `pv*`, and spacing comes before
   typography,
 - sizing is `w*` / `h*` / `max-w*` / `min-h*`,

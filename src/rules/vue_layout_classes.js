@@ -25,6 +25,12 @@ function vue_layout_classes(context)
             }
             for (const tokens of classes.variants) {
                 const layout = tokens.some(v => patterns.some(vv => vv.test(v.name)));
+                // An element is a grid or a flex container, never both.
+                const grid = tokens.find(v => /^grid(?:$|[-\d])/.test(v.name));
+                const flex = tokens.find(v => /^i?flex-/.test(v.name) && class_category(v.name, []) === 1);
+                if (grid && flex) {
+                    report(tokens.indexOf(grid) < tokens.indexOf(flex) ? flex : grid, 'grid_flex');
+                }
                 for (let i = 0, end = tokens.length; i < end; ++i) {
                     const token = tokens[i];
                     // gap closes the layout group: container first, then its
@@ -69,6 +75,7 @@ module.exports = {
             gap: 'Place "{{name}}" right after the layout group: the flex/grid/split container and its flex-* modifiers.',
             margin: 'Use gap utilities to space flex/grid children; "{{name}}" belongs on block containers.',
             fluid: 'Use fluid/grow/shrink under hsplit/vsplit, and flex-fluid/flex-grow/flex-shrink under flex-row/flex-col.',
+            grid_flex: 'Do not put grid* and flex* layout classes on one element; "{{name}}" is the second layout.',
         },
     },
     create: vue_layout_classes,

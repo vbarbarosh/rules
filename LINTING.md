@@ -105,8 +105,8 @@ legacy ESLint configuration; that configuration is not automatically merged.
 | `error-name` | `error` in catches, inline promise rejection handlers, and inline error event handlers; optional catch bindings remain valid. |
 | `return-out` | Return expressions directly instead of `const out = ...; return out;` (also checks other const names). Arrays, objects and `new` results accumulated across statements use `out`. Passed-through parameters and outer-scope values are allowed. |
 | `operator-spacing` | Tight `*`, `/`, `**`; spaces around other binary/logical/assignment operators. Preserves comments and necessary separation before a regex literal. |
-| `vue-class-order` | Layout → spacing → sizing → decoration → typography → app prefixes → local classes. `ph*` before `pv*`; `fs*` and `fw*` before `lh*`. Multiple local classes form the final group. Families come from the smcss 0.10.0 registry; `x*` resets, item-flex classes, and any class outside the registry, the app prefixes and `#-` are left unconstrained. |
-| `vue-layout-classes` | `gap*` closes the layout group: the flex/grid/split container, then its `flex-*` modifiers, then gap; no `mg*`/`mi*` on flex/grid containers; correct fluid/grow/shrink family under a known parent. |
+| `vue-class-order` | Layout → spacing → sizing → decoration → typography → app prefixes → local classes. `ph*` before `pv*`; `fs*` and `fw*` before `lh*`. Multiple local classes form the final group. Item classes (`fluid`, `grow`, `shrink`, `flex-fluid`, `flex-noshrink`, ...) lead, with position and display. Families come from the smcss 0.10.0 registry; `x*` resets and any class outside the registry, the app prefixes and `#-` are left unconstrained. |
+| `vue-layout-classes` | `gap*` closes the layout group: the flex/grid/split container, then its `flex-*` modifiers, then gap; `grid*` and `flex*` layout classes never share an element; no `mg*`/`mi*` on flex/grid containers; correct fluid/grow/shrink family under a known parent. |
 | `vue-hashtag-syntax` | Exact source forms supported by the existing hashtag loader; catches unsupported quoting, spaces around `=`, unsupported attributes and JS strings. |
 | `vue-local-class-style` | Each statically known `#-*` template class or supported JS selector has a nonempty style selector in the same component. Style syntax/coverage failures are errors once a `#-*` class asks to be verified. |
 | `vue-style-conventions` | `@import` first in a component style block; inside a rule, `@include` first, ahead of the property declarations (`$variables` do not count; root-level includes are free); transition properties through the shared mixins; no `all`. Whether a transition belongs on the base rule or on a state is a design call and is not checked. |
@@ -171,9 +171,10 @@ module.exports = rules_config({
   the same value. Parent checks only use layout classes visible in this file;
   component fallthrough and layouts from external CSS are not inferred.
 - **Utility categories:** every smcss 0.10.0 class is recognized by its
-  family. `x*` resets, item-flex classes (`fluid`, `flex-noshrink`, ...) and
-  classes outside the registry are left unconstrained, so a component or
-  vendor class never triggers an ordering error. App prefixes and compatible
+  family. Item classes (`fluid`, `flex-noshrink`, ...) lead with position and
+  display. `x*` resets and classes outside the registry are left
+  unconstrained, so a component or vendor class never triggers an ordering
+  error. App prefixes and compatible
   layout patterns are configurable.
 - **Local definitions:** checks declaration coverage, not actual DOM selector
   matching, CSS specificity, computed styling, or whether a mixin emits CSS.

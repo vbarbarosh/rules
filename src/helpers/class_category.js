@@ -1,11 +1,12 @@
 // Utility families follow @vbarbarosh/smcss 0.10.0 (src/smcss/*.sass): one
 // mixin per class name, numeric suffixes parsed by parser/smcss.sass and
 // parser/eval-size.sass. Unknown classes return null and do not constrain the
-// order; so do the x* resets ("usually before setters") and the item-flex
-// classes, which the codebase places on either side of sizing.
+// order; so do the x* resets ("usually before setters"). An item class states
+// the element's place in its parent, so it leads with position and display.
 const decoration = /^(?:black|gray|silver|white|red|green|blue|yellow|cyan|gradient|checkerboard|rainbow|border|dashed|br\d+p?|bs\d+|is\d+|cur-[a-z-]+|o\d+|outline|oa|oh|os|no-pointer-events|resize(?:-[hv])?|no-scrollbars|theme-[a-z]+|hflip|vflip|scale\d+|rot(?:ate)?\d+|no-user-select|fit-(?:contain|cover|fill|none|scale-down))$/;
-const free = /^(?:x(?:bg|border(?:-[tlrbvh]{1,2})?|br|bs|button|d|f|c|fs|fw|ls|m[tlrbvh]?|o|outline|p[tlrbvh]?|resize|x)?|flex-(?:fluid|grow|shrink|noshrink|nogrow|static)|fluid|grow|shrink)$/;
+const free = /^(?:x(?:bg|border(?:-[tlrbvh]{1,2})?|br|bs|button|d|f|c|fs|fw|ls|m[tlrbvh]?|o|outline|p[tlrbvh]?|resize|x)?)$/;
 const gap = /^gap(?:[xyhv])?\d+n?$/;
+const item = /^(?:flex-(?:fluid|grow|shrink|noshrink|nogrow|static)|fluid|grow|shrink)$/;
 const layout = /^(?:i?flex-[a-z-]+|[hv]split(?:-[a-z0-9-]+)?|grid(?:$|[-\d]).*)$/;
 const position = new RegExp('^(?:stat|rel|abs|fix|sticky|tlbr\\d*|[tlrb](?:\\d+[pnm%]?|[aiwh]|0)|(?:abs|fix|sticky)-[a-z-]+|db|di|dib|dt|dtc|fl|fr|cb|cl|cr|clearfix|floats|expand(?:-[\\d-]+)?)$');
 const sizing = new RegExp('^(?:(?:min-|max-)?[wh](?:\\d+[pnm%]?|[aiwh]|0)?|min\\d+x\\d+|max\\d+x\\d+|bbox|cbox|z\\d+n?)$');
@@ -22,6 +23,9 @@ function class_category(name, prefixes)
     }
     if (free.test(name)) {
         return null;
+    }
+    if (item.test(name)) {
+        return 0;
     }
     if (gap.test(name)) {
         return 2;

@@ -1820,8 +1820,9 @@ value=""</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="CSS-02">
 <a class="code" href="#CSS-02">CSS-02</a>
-<div class="text"><p>Within the utilities: a display or position utility (<code>db</code>, <code>abs</code>) leads where the element carries one, a <code>gap*</code> always comes directly after the layout class it belongs to, <code>ph*</code> precedes <code>pv*</code>, and spacing comes before typography.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
-<div class="form"><pre>flex-row-c gap5
+<div class="text"><p>Within the utilities: an item class (<code>fluid</code>, <code>grow</code>, <code>shrink</code>, <code>flex-fluid</code>, <code>flex-grow</code>, <code>flex-nogrow</code>, <code>flex-shrink</code>, <code>flex-noshrink</code>, <code>flex-static</code>) or a display or position utility (<code>db</code>, <code>abs</code>) leads where the element carries one; a <code>gap*</code> closes the layout group — every <code>flex*</code>, <code>grid*</code> or split class first, then the gap; <code>grid*</code> and <code>flex*</code> never share an element; <code>ph*</code> precedes <code>pv*</code>, and spacing comes before typography.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="form"><pre>fluid flex-row gap10 oa
+flex-row flex-align-center gap10 mt10
 flex-col-c gap15
 grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 </article>
@@ -1865,7 +1866,7 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule bare" id="CSS-10">
 <a class="code" href="#CSS-10">CSS-10</a>
-<div class="text"><p>What each family holds: layout is the flex/grid/split class; spacing is <code>p*</code> / <code>m*</code>; sizing is <code>w*</code> / <code>h*</code> / <code>max-w*</code> / <code>min-h*</code>; decoration is <code>br*</code>, <code>fit-cover</code>, <code>cur-pointer</code> and the other shape and surface utilities; typography is <code>fs*</code> <code>fw*</code> <code>lh*</code>, then alignment and <code>nowrap</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="text"><p>What each family holds: layout is the flex/grid/split container and its <code>flex-*</code> modifiers; spacing is <code>p*</code> / <code>m*</code>; sizing is <code>w*</code> / <code>h*</code> / <code>max-w*</code> / <code>min-h*</code>; decoration is <code>br*</code>, <code>fit-cover</code>, <code>cur-pointer</code> and the other shape and surface utilities; typography is <code>fs*</code> <code>fw*</code> <code>lh*</code>, then alignment and <code>nowrap</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
 </article>
 </section>
 <section class="group" id="VUE">
