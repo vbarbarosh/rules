@@ -40,16 +40,20 @@ these commands do not rewrite application files.
 
 The package ships one executable, `lint`. It takes files or directories,
 builds the configuration from the environment, and exits non-zero when any
-error is reported:
+error is reported, or when a path it was given is not checked — ignored by
+the preset, or matched by no configuration:
 
 ```sh
-PREFIXES=vb- npx @vbarbarosh/rules resources/
+PREFIXES=vb- npx vbarbarosh/rules resources/
 ```
 
 `PREFIXES` is a comma- or space-separated list that replaces the default
 `app_prefixes`. The first prefix also names the transition mixin, so
-`PREFIXES=vb-` expects `@include vb-transition(...)`. Until the package is published, point npx at a tarball made
-with `npm pack`:
+`PREFIXES=vb-` expects `@include vb-transition(...)`. Paths may lie outside
+the working directory. `lint` takes no options; there is no `--fix`.
+
+npx installs the package from GitHub. To try a local checkout instead, point
+npx at a tarball made with `npm pack`:
 
 ```sh
 PREFIXES=vb- npx --package=/path/to/vbarbarosh-rules-0.1.0.tgz lint resources/
@@ -92,8 +96,8 @@ legacy ESLint configuration; that configuration is not automatically merged.
 | Rule (`rules/` prefix) | What it enforces |
 | --- | --- |
 | `imports-sorted` | First statements, one statement per line, no internal comments/blank lines, full source lines compared as UTF-8 bytes. Side-effect imports (`import './x'`, bare `require('x')`) form their own block at the top, kept in the order they run, and one blank line may separate it from the sorted named imports. Handles `import`, bare `require`, assigned and destructured `require`, and `require(...).member`. |
-| `block-layout` | Module-level function opening brace on the next line; nested functions/callbacks/control flow on the declaration line; bodies and closing braces on their own lines; `else`, `catch`, `finally` on new lines. |
-| `tiny-arrows` | Only single-line expression callbacks, passed as call arguments or as object property values; one parameter named `v`, nested `vv`, etc. A `.catch` arrow uses `error`. Named helpers use function declarations. |
+| `block-layout` | Module-level function opening brace on the next line; nested functions/callbacks/control flow on the declaration line; bodies and closing braces on their own lines; `else`, `catch`, `finally` on new lines. An arrow's `{}` body is left to `tiny-arrows`. |
+| `tiny-arrows` | An arrow with a `{}` body is reported on its own: it becomes `function (...) {}`. Otherwise only single-line expression callbacks, passed as call arguments or as object property values; any number of parameters (`(a, b, c, d) => a + b + c + d` is fine); a lone parameter is named `v`, nested `vv`, etc., and is taken whole, not destructured (`v => v.uid`, not `({uid}) => uid`). A `.catch` arrow uses `error`. Named helpers use function declarations. |
 | `error-name` | `error` in catches, inline promise rejection handlers, and inline error event handlers; optional catch bindings remain valid. |
 | `return-out` | Return expressions directly instead of `const out = ...; return out;` (also checks other const names). Arrays, objects and `new` results accumulated across statements use `out`. Passed-through parameters and outer-scope values are allowed. |
 | `operator-spacing` | Tight `*`, `/`, `**`; spaces around other binary/logical/assignment operators. Preserves comments and necessary separation before a regex literal. |
@@ -104,7 +108,8 @@ legacy ESLint configuration; that configuration is not automatically merged.
 | `vue-style-conventions` | `@import` first in a component style block; inside a rule, `@include` first, ahead of the property declarations (`$variables` do not count; root-level includes are free); transition properties through the shared mixins; no `all`. Whether a transition belongs on the base rule or on a state is a design call and is not checked. |
 
 The preset also enables four-space JS indentation, aligned switch cases,
-mandatory braces, function declaration style, no tabs, no `do...while`, no
+mandatory braces, function declaration style, a space before the parenthesis
+of an anonymous function and none between a name and its parenthesis, no tabs, no `do...while`, no
 classes except one that extends another, and no `forEach`. Vue scripts use four spaces with one base indent;
 `v-bind` and `v-on` use their full spelling, and `v-if`/`v-for` cannot share
 an element.

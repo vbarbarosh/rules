@@ -1,31 +1,73 @@
 #!/usr/bin/env node
 
 const ESLint = require('eslint').ESLint;
+const ExitCodeError = require('@vbarbarosh/node-helpers/src/errors/ExitCodeError');
 const cli = require('@vbarbarosh/node-helpers/src/cli');
+const path = require('node:path');
 const rules_config = require('../src/config');
 
-cli(main);
+const usage = [
+    'usage: [PREFIXES=vb-,app-] lint <path>...',
+    '       [PREFIXES=vb-,app-] npx vbarbarosh/rules <path>...',
+].join('\n');
+
+cli(main, report);
 
 async function main()
 {
-    const paths = process.argv.slice(2);
-    if (paths.length === 0) {
-        console.error('usage: [PREFIXES=vb-,app-] lint <path>...');
-        console.error('usage: [PREFIXES=vb-,app-] npx @vbarbarosh/rules <path>...');
-        process.exitCode = 1;
-        return;
+    const args = process.argv.slice(2);
+    if (args.length === 0 || args.some(v => v.startsWith('-'))) {
+        throw new ExitCodeError(1, usage);
     }
+    const targets = args.map(v => path.resolve(v));
     const options = {};
     if (process.env.PREFIXES) {
         options.app_prefixes = process.env.PREFIXES.split(/[\s,]+/).filter(v => v);
     }
-    const eslint = new ESLint({overrideConfigFile: true, overrideConfig: rules_config(options)});
-    const results = await eslint.lintFiles(paths);
+    // ESLint ignores every path outside its cwd and reports it only as a
+    // warning, so the cwd widens until it contains all targets.
+    const eslint = new ESLint({cwd: targets_dir(targets), overrideConfigFile: true, overrideConfig: rules_config(options)});
+    const results = await targets_lint(eslint, targets);
     const formatter = await eslint.loadFormatter('stylish');
     process.stdout.write(await formatter.format(results));
-    for (const result of results) {
-        if (result.errorCount > 0) {
-            process.exitCode = 1;
+    // A warning is a file that was given but not checked; it never passes.
+    if (results.some(v => v.errorCount > 0 || v.warningCount > 0)) {
+        throw new ExitCodeError(1);
+    }
+}
+
+function report(error)
+{
+    if (!(error instanceof ExitCodeError)) {
+        console.error(error);
+        return;
+    }
+    if (error.message) {
+        console.error(error.message);
+    }
+}
+
+function targets_dir(targets)
+{
+    let out = process.cwd();
+    for (const target of targets) {
+        const dir = path.dirname(target);
+        while (dir !== out && !dir.startsWith(out + path.sep) && out !== path.dirname(out)) {
+            out = path.dirname(out);
         }
+    }
+    return out;
+}
+
+async function targets_lint(eslint, targets)
+{
+    try {
+        return await eslint.lintFiles(targets);
+    }
+    catch (error) {
+        if (['file-not-found', 'all-matched-files-ignored'].includes(error.messageTemplate)) {
+            throw new ExitCodeError(1, 'lint: ' + error.message);
+        }
+        throw error;
     }
 }

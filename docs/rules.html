@@ -2121,7 +2121,7 @@ function main()
 </article>
 <article class="rule bare" id="LINT-03">
 <a class="code" href="#LINT-03">LINT-03</a>
-<div class="text"><p>A tiny arrow is a single-line expression callback, passed as a call argument or as an object property value, with one parameter. In a <code>.catch</code> that parameter is <code>error</code>. A named helper is a function declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
+<div class="text"><p>A tiny arrow is a single-line expression callback, passed as a call argument or as an object property value. It fits one line; the number of parameters does not matter. A lone parameter is <code>v</code>, nested <code>vv</code>; in a <code>.catch</code> it is <code>error</code>. It is taken whole — <code>v =&gt; v.uid</code>, not <code>({uid}) =&gt; uid</code>. A named helper is a function declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a></div>
 </article>
 <article class="rule" id="LINT-04">
 <a class="code" href="#LINT-04">LINT-04</a>

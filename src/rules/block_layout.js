@@ -17,6 +17,11 @@ function block_layout(context)
         });
     }
     function check_block(node) {
+        // An arrow's {} body is reported by tiny-arrows; laying it out would
+        // "fix" it into another arrow that should not exist.
+        if (node.parent?.type === 'ArrowFunctionExpression') {
+            return;
+        }
         const open = source.getFirstToken(node);
         const close = source.getLastToken(node);
         const parent = node.parent;
