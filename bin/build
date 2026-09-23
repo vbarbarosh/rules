@@ -7,17 +7,35 @@ const path = require('node:path');
 const blob_url = 'https://github.com/vbarbarosh/rules/blob/main/';
 const class_by_marker = {'//': 'cmt', '&lt;!--': 'cmt', '✓': 'yes', '✗': 'no', '←': 'aside'};
 const docs_dir = path.join(__dirname, '..', 'docs');
+const glossary_files = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md'];
 const marker_regex = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
+const root_dir = path.join(__dirname, '..');
 
 cli(main);
 
 function main()
+{
+    build_rules_html();
+    build_glossaries_html();
+}
+
+function build_rules_html()
 {
     const markdown = fs.readFileSync(path.join(docs_dir, 'rules.md'), 'utf8');
     const template = fs.readFileSync(path.join(docs_dir, 'rules.template.html'), 'utf8');
     const index = index_from_markdown(markdown);
     index_assert_counts(index);
     fs.writeFileSync(path.join(docs_dir, 'rules.html'), html_from_index(template, index));
+}
+
+function build_glossaries_html()
+{
+    const template = fs.readFileSync(path.join(docs_dir, 'glossaries.template.html'), 'utf8');
+    const glossaries = [];
+    for (const file of glossary_files) {
+        glossaries.push(glossary_from_markdown(fs.readFileSync(path.join(root_dir, file), 'utf8'), file));
+    }
+    fs.writeFileSync(path.join(docs_dir, 'glossaries.html'), html_from_glossaries(template, glossaries));
 }
 
 // rules.md: a title, a lede, a stats line, the group table, the rule table.
@@ -97,9 +115,14 @@ function html_from_index(template, index)
         groups_nav: index.groups.map(html_from_group_link).join(''),
         groups_main: index.groups.map(html_from_group).join(''),
     };
+    return template_fill(template, values);
+}
+
+function template_fill(template, values)
+{
     return template.replace(/\{\{(\w+)\}\}/g, function (match, key) {
         if (values[key] === undefined) {
-            throw new Error(`rules.template.html: unknown placeholder ${match}`);
+            throw new Error(`template: unknown placeholder ${match}`);
         }
         return values[key];
     });
@@ -126,6 +149,166 @@ function html_from_rule(rule)
         + `<div class="text"><p>${html_from_inline(rule.text)}</p>${source}</div>\n`
         + form
         + '</article>\n';
+}
+
+// A glossary: a "# Name (TAG)" title and its note, then terms, either
+// directly or under "**Group** (TAG)" lines, each with its own note. A term
+// is a table row or a "- term – definition" list item, and a "## Terms"
+// section names a term whose long form replaces its one-line definition.
+function glossary_from_markdown(markdown, file)
+{
+    const lines = markdown.split('\n');
+    const title = lines[0].match(/^# (.+) \(([A-Z]+)\)$/);
+    if (!title) {
+        throw new Error(`${file}: the first line must be "# Name (TAG)"`);
+    }
+    const out = {file, name: title[1], tag: title[2], note: '', terms: [], groups: []};
+    let owner = out;
+    let item = null;
+    let section = null;
+    let paragraph = null;
+    let code = null;
+    for (const line of lines.slice(1)) {
+        if (code) {
+            if (line.startsWith('```')) {
+                section.code = code;
+                code = null;
+            }
+            else {
+                code.push(line);
+            }
+            continue;
+        }
+        const group = line.match(/^\*\*(.+)\*\* \(([A-Z]+)\)$/);
+        const heading = line.match(/^## (.+)$/);
+        const bullet = line.match(/^- (.*)$/);
+        if (line.trim() === '') {
+            item = null;
+            paragraph = null;
+        }
+        else if (group) {
+            owner = {name: group[1], tag: group[2], note: '', terms: []};
+            out.groups.push(owner);
+        }
+        else if (heading) {
+            const name = heading[1].toLowerCase();
+            section = out.terms.find(v => v.name.toLowerCase() === name || v.name.toLowerCase() + 's' === name);
+            if (!section) {
+                throw new Error(`${file}: "## ${heading[1]}" names no term`);
+            }
+        }
+        else if (section && line.startsWith('```')) {
+            code = [];
+        }
+        else if (section) {
+            if (!paragraph) {
+                paragraph = [];
+                section.paragraphs.push(paragraph);
+            }
+            paragraph.push(line);
+        }
+        else if (line.startsWith('|')) {
+            const cells = cells_from_row(line);
+            if (cells[0] !== 'Term' && !cells.every(v => /^-+$/.test(v))) {
+                owner.terms.push({name: cells[0], definition: cells[1], sentence: false, url: null, paragraphs: [], code: null});
+            }
+        }
+        else if (bullet) {
+            item = term_from_item(bullet[1]);
+            owner.terms.push(item);
+        }
+        else if (item && /^\s/.test(line)) {
+            item.definition += ' ' + line.trim();
+        }
+        else {
+            owner.note += (owner.note ? ' ' : '') + line;
+        }
+    }
+    return out;
+}
+
+// "[Term](url) – definition", "Term – definition" or a bare "Term".
+function term_from_item(text)
+{
+    const link = text.match(/^\[([^\]]+)\]\((\S+?)\)(?: – (.*))?$/);
+    if (link) {
+        return {name: link[1], definition: link[3] ?? null, sentence: true, url: link[2], paragraphs: [], code: null};
+    }
+    const [name, ...rest] = text.split(' – ');
+    return {name, definition: rest.length ? rest.join(' – ') : null, sentence: true, url: null, paragraphs: [], code: null};
+}
+
+function html_from_glossaries(template, glossaries)
+{
+    const groups = glossaries.flatMap(v => v.groups);
+    const terms = glossaries.flatMap(v => [...v.terms, ...v.groups.flatMap(vv => vv.terms)]);
+    const links = glossaries.map(v => `<a href="${blob_url}${v.file}">${path.basename(v.file)}</a>`);
+    const values = {
+        terms_count: String(terms.length),
+        glossaries_count: String(glossaries.length),
+        groups_count: String(groups.length),
+        groups_nav: glossaries.map(html_from_glossary_links).join(''),
+        groups_main: glossaries.map(html_from_glossary).join(''),
+        glossary_links: links.join(', '),
+    };
+    return template_fill(template, values);
+}
+
+function html_from_glossary_links(glossary)
+{
+    const count = glossary.terms.length + glossary.groups.reduce((sum, v) => sum + v.terms.length, 0);
+    let out = `<a href="#${glossary.tag}" data-group="${glossary.tag}"><span class="tag">${glossary.tag}</span><span class="name">${glossary.name}</span><span class="n">${count}</span></a>\n`;
+    for (const group of glossary.groups) {
+        out += `<a class="sub" href="#${group.tag}" data-group="${group.tag}"><span class="tag">${group.tag}</span><span class="name">${group.name}</span><span class="n">${group.terms.length}</span></a>\n`;
+    }
+    return out;
+}
+
+function html_from_glossary(glossary)
+{
+    const heading = `<h2><span class="tag">${glossary.tag}</span><span class="name">${glossary.name}</span><span class="note">${html_from_inline(glossary.note)}</span></h2>`;
+    let out = `<section class="group" id="${glossary.tag}">\n${heading}\n`;
+    out += html_from_terms(glossary.terms, glossary.tag, glossary.file);
+    for (const group of glossary.groups) {
+        const subheading = `<h3><span class="tag">${group.tag}</span><span class="name">${group.name}</span><span class="note">${html_from_inline(group.note)}</span></h3>`;
+        out += `<section class="sub" id="${group.tag}">\n${subheading}\n${html_from_terms(group.terms, group.tag, glossary.file)}</section>\n`;
+    }
+    return out + '</section>\n';
+}
+
+function html_from_terms(terms, tag, file)
+{
+    let out = '';
+    for (let i = 0, end = terms.length; i < end; ++i) {
+        const term = terms[i];
+        const code = tag + '-' + String(i + 1).padStart(2, '0');
+        const paragraphs = term.paragraphs.length ? term.paragraphs.map(v => v.join(' ')) : [format_term_definition(term)];
+        const prose = paragraphs.filter(Boolean).map(v => `<p>${html_from_inline(v)}</p>`).join('');
+        const bare = (!prose && !term.code);
+        let sources = `<a class="src" href="${blob_url}${file}" title="${file}">${path.basename(file)}</a>`;
+        if (term.url) {
+            const host = new URL(term.url).hostname.split('.');
+            sources += `<a class="src" href="${term.url}" title="${term.url.replace(/^https?:\/\//, '')}">${host[host.length - 2]}</a>`;
+        }
+        out += `<article class="rule${bare ? ' bare' : ''}" id="${code}">\n`
+            + `<a class="code" href="#${code}">${code}</a>\n`
+            + `<div class="text"><p><dfn>${html_from_inline(term.name)}</dfn></p>${sources}</div>\n`
+            + (prose ? `<div class="form prose">${prose}</div>\n` : '')
+            + (term.code ? html_from_lines(term.code.map(html_escape)) + '\n' : '')
+            + '</article>\n';
+    }
+    return out;
+}
+
+// A list definition is written as a note; the page shows it as a sentence.
+// A table definition is shown as written.
+function format_term_definition(term)
+{
+    if (!term.definition || !term.sentence) {
+        return term.definition;
+    }
+    const out = term.definition.charAt(0).toUpperCase() + term.definition.slice(1);
+    return /[\p{L}\p{N}]$/u.test(out) ? out + '.' : out;
 }
 
 // A canonical form is a <pre> block, one code span, or prose. Code is shown

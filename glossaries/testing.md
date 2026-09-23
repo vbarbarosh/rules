@@ -1,3 +1,6 @@
+# Testing (TEST)
+
+Words for failures, and for the tests that find them.
 
 - [Happy Path](https://en.wikipedia.org/wiki/Happy_path) – the ideal scenario without errors
 - [Smoke Tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)) – a small set of basic

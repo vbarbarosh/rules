@@ -23,7 +23,7 @@
   "scripts": {
     "lint": "eslint bin/build bin/lint src tests eslint.config.js eslint.projects.config.js",
     "test": "node --test tests/*.test.js",
-    "check": "npm run lint && npm test && bin/build && git diff --exit-code -- docs/rules.html"
+    "check": "npm run lint && npm test && bin/build && git diff --exit-code -- docs/rules.html docs/glossaries.html"
   },
   "peerDependencies": {
     "eslint": "^9.39.0 || ^10.0.0"
