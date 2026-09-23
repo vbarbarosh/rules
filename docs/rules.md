@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-208 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
+207 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -17,7 +17,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FN | Function contracts | 16 | What a prefix promises the caller. |
 | FMT | Formatting | 25 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
-| FILE | File and module structure | 24 | One entry function, one fixed order. |
+| FILE | File and module structure | 23 | One entry function, one fixed order. |
 | PROJ | Project layout | 15 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 10 | A fixed class order; every class has a rule. |
@@ -143,7 +143,6 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FILE-19 | Executable order is fixed. | `shebang → requires → globals → cli(main); → main() → helpers` | [FORMATTING.md](../FORMATTING.md) |
 | FILE-20 | A file exports exactly one thing, as its last statement, and is named after it. The rule is the same for both module systems: `module.exports = name;` or `export default name;`. | <pre>// items_index_by_uid.js<br>export default items_index_by_uid;</pre> | [one_export_per_file.md](../drafts/one_export_per_file.md) |
 | FILE-21 | No named exports — and the consuming side is banned as well: several names are never taken from a local module. Several functions are several files, each named after its function. | <pre>export {engine_run, engine_transport};                   ✗ no<br>import {engine_run, engine_transport} from './engine';   ✗ no<br><br>import engine_run from './engine_run';                   ✓ yes<br>import engine_transport from './engine_transport';</pre> | [one_export_per_file.md](../drafts/one_export_per_file.md) |
-| FILE-22 | A module which is a set of operations on shared state is one object with one default export. The callers reach the operations through the object — `engine.run(prompt)`. | <pre>const engine = {<br>    transport: null,<br>    run: async function (prompt) {<br>    },<br>};<br><br>export default engine;</pre> | [one_export_per_file.md](../drafts/one_export_per_file.md) |
 | FILE-23 | Research, scratch and test-support code inside a repository is not exempt from one export per file. | — | [one_export_per_file.md](../drafts/one_export_per_file.md) |
 | FILE-24 | A named import from a library is the library’s shape, and a file whose shape is dictated by a tool follows the tool — `module.exports.mochaHooks` in a mocha hooks file. | `import {mapState} from 'vuex';` | [one_export_per_file.md](../drafts/one_export_per_file.md) |
 | **PROJ** | **Project layout** — A directory is a program; bin/ holds its verbs. | | |

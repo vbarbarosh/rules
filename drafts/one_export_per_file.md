@@ -1,7 +1,6 @@
 - one default export per file
 - never `export {a, b}`; never `import {a, b}` from a local module
 - several functions = several files
-- operations on shared state = one object, one default export (`engine.run`, `engine.transport`)
 - research and scratch code is not exempt
 
 
@@ -43,27 +42,6 @@ Several functions are several files, each named after its function:
 // GOOD
 import engine_run from './engine_run';
 import engine_transport from './engine_transport';
-```
-
-## Shared state
-
-A module which is a set of operations on shared state is one object with one
-default export. The callers reach the operations through the object:
-
-```js
-const engine = {
-    transport: null,
-    run: async function (prompt) {
-    },
-};
-
-export default engine;
-```
-
-```js
-import engine from './engine';
-
-await engine.run(prompt);
 ```
 
 ## Not exempt
