@@ -40,8 +40,8 @@
     --surface: #16181b;
     --surface-2: #1d2024;
     --code-bg: #0b0c0e;
-    --ink: #e8e6df;
-    --ink-2: #c9c7bf;
+    --ink: #d3d1c9;
+    --ink-2: #b0aea6;
     --muted: #92958c;
     --line: #2c3035;
     --line-heavy: #4a4f57;
@@ -781,6 +781,8 @@ footer .lead {
 .rule dfn {
     font-style: normal;
     font-weight: 600;
+    color: var(--accent);
+    transition: color var(--fast);
 }
 
 /* The term stands on its own line; the definition is the first paragraph
@@ -796,6 +798,12 @@ footer .lead {
 
 .rule .text dfn + p, .rule .text p:first-child + p {
     margin-top: 3px;
+}
+
+/* The term carries the ink; its text sits a step back, like the prose column. */
+.rule .text p:not(:first-child) {
+    color: var(--ink-2);
+    transition: color var(--fast);
 }
 
 .form.prose p + p {
