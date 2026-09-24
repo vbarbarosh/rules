@@ -131,7 +131,7 @@ project, so all JavaScript code follows the same conventions.
     * The public entry function must be the first function in the file
     * All helper functions must be defined after the public entry function
     * In an executable script, the first function declaration must be `function main()`
-    * No executable code other than `cli(main);` may appear before the public entry function
+    * No executable code other than `cli(main);` may appear before the public entry function — no module-level `if`, `for` or `while`; an executable's setup happens in `main`
     * A library module ends with `module.exports = public_entry_function;`
 
 > Library order = `requires → constants → public entry → helpers → module.exports`

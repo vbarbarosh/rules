@@ -24,22 +24,10 @@ class Logger
         // ...
     }
 }
-
-// if at module level
-if (process.env.DEBUG) {
-    // ...
-}
-
-// for at module level
-for (const size of sizes) {
-    // ...
-}
-
-// while at module level
-while (queue.length > 0) {
-    // ...
-}
 ```
+
+Nothing else runs at module level: no `if`, `for` or `while` outside a
+function. An executable's setup happens in `main`, its entry point.
 
 ## Nested (inside a function)
 

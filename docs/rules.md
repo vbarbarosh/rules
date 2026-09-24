@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-207 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
+206 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -15,7 +15,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
 | VAR | Variables | 13 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
-| FMT | Formatting | 25 | Braces, breaks, blank lines, comments. |
+| FMT | Formatting | 24 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 23 | One entry function, one fixed order. |
 | PROJ | Project layout | 15 | A directory is a program; bin/ holds its verbs. |
@@ -90,7 +90,6 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT-03 | A function declared inside another function keeps its opening brace on the declaration line. | <pre>function main()<br>{<br>    function limit_print(limit) {<br>    }<br>}</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-04 | Function expressions, callbacks and Promise executors keep the opening brace on the declaration line. | <pre>server.on('error', function (error) {<br>});<br><br>return new Promise(function (resolve, reject) {<br>});</pre> | [formatting_blocks.md](../drafts/formatting_blocks.md) |
 | FMT-05 | A class declaration puts its brace on the next line; its methods keep the brace on the declaration line. | <pre>class Logger<br>{<br>    constructor(parent_group_uid) {<br>    }<br><br>    write(format, ...values) {<br>    }<br>}</pre> | [formatting_blocks.md](../drafts/formatting_blocks.md) |
-| FMT-06 | Module-level `if`, `for` and `while` keep the brace on the statement line. | <pre>if (process.env.DEBUG) {<br>}<br><br>for (const size of sizes) {<br>}</pre> | [formatting_blocks.md](../drafts/formatting_blocks.md) |
 | FMT-07 | Always use braces for `if`, `else`, `for`, `while`. No single-line bodies. | <pre>if (!user) return null;   ✗ no<br><br>if (!user) {              ✓ yes<br>    return null;<br>}</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-08 | `else` starts on a new line. | <pre>if (a) {<br>}<br>else if (b) {<br>}<br>else {<br>}</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-09 | `catch` and `finally` start on a new line. | <pre>try {<br>}<br>catch (error) {<br>}<br>finally {<br>}</pre> | [formatting_blocks.md](../drafts/formatting_blocks.md) |
