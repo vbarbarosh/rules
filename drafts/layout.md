@@ -61,7 +61,7 @@ same in every language.
 
     bin/build      bb   produce build/
     bin/configure       make a fresh checkout ready for development; the only command to run after git pull
-    bin/release         release a new version: bin/release major|minor|patch
+    bin/release         release a new version: bin/release major|minor|patch; commits dist/
     bin/run        rr   start the program
     bin/test       tt   run the tests
     bin/watch      ww   rebuild on change
@@ -78,6 +78,9 @@ wrappers are still worth having:
 
 - `build/` holds what `bin/build` produced. Never committed, always
   reproducible.
+- `dist/` holds the released build — what `bin/release` ships. It is
+  committed, at release time only (see
+  [../packaging/packaging.md](../packaging/packaging.md)).
 - `data/` holds runtime state, for example `data/logs/2026-08-24.txt`. Never
   committed.
 - `.env` holds local values and is never committed. `.env.example` documents

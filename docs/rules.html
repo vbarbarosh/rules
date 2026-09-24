@@ -1601,9 +1601,11 @@ alias tt='bin/test'
 alias bb='bin/build'
 alias ww='bin/watch'</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule bare" id="PROJ-04">
+<article class="rule" id="PROJ-04">
 <a class="code" href="#PROJ-04">PROJ-04</a>
-<div class="text"><p><code>build/</code> holds what <code>bin/build</code> produced. Never committed, always reproducible.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="text"><p><code>build/</code> holds what <code>bin/build</code> produced. Never committed, always reproducible. <code>dist/</code> holds the released build, committed by <code>bin/release</code> at release time only.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a></div>
+<div class="form"><pre>build/   bin/build output, never committed
+dist/    released build, committed by bin/release</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="PROJ-05">
 <a class="code" href="#PROJ-05">PROJ-05</a>
