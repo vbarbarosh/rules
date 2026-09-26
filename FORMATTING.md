@@ -169,3 +169,18 @@ project, so all JavaScript code follows the same conventions.
       // GOOD
       {uid: item.uid, parent_uid: item.parent_uid, index}
       ```
+    * A single-line object or array literal has no space inside its braces or brackets — a standalone literal, a nested one, or one row of a list:
+
+      ```
+      // BAD
+      const RANGE_UNITS = { s: 1, m: 60, h: 3600, d: 86400, w: 604800 };
+      text: { type: String, default: '' },
+      { value: 'today', label: 'Today' },
+      const LABELS_OPEN_BY_DEFAULT = [ 'remote', 'host', 'service' ];
+
+      // GOOD
+      const RANGE_UNITS = {s: 1, m: 60, h: 3600, d: 86400, w: 604800};
+      text: {type: String, default: ''},
+      {value: 'today', label: 'Today'},
+      const LABELS_OPEN_BY_DEFAULT = ['remote', 'host', 'service'];
+      ```

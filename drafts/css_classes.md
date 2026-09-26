@@ -119,6 +119,9 @@ several aligned fields per row. A stack of flex rows is not a table: the
 columns line up only until one cell is wider. Flex rows stay for content that
 is genuinely not tabular — toolbars, button rows, a field beside its label.
 
+A header is aligned the way its column's data is: centered data gets a
+centered header, right-aligned data a right-aligned header.
+
 ## Writing modules
 
 `@import` comes first in a block. `@include` comes first in a rule, ahead of

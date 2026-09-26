@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-206 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
+208 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -15,12 +15,12 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
 | VAR | Variables | 13 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
-| FMT | Formatting | 24 | Braces, breaks, blank lines, comments. |
+| FMT | Formatting | 25 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 23 | One entry function, one fixed order. |
 | PROJ | Project layout | 15 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
-| CSS | Classes and styles | 10 | A fixed class order; every class has a rule. |
+| CSS | Classes and styles | 11 | A fixed class order; every class has a rule. |
 | VUE | Vue 2 | 18 | Components that behave like the platform. |
 | UI | User interface | 5 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
@@ -109,6 +109,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT-23 | A header is prefixed with `header:`; a path parameter is spelled in the path itself. | <pre>header:x-filename<br>/file/&lt;name&gt;</pre> | [endpoint_comment.md](../drafts/endpoint_comment.md) |
 | FMT-24 | An intent comment continues the same block on the next line. | <pre>// POST /upload (body, header:x-filename)<br>// Streams to data/ before the body is fully read.</pre> | [endpoint_comment.md](../drafts/endpoint_comment.md) |
 | FMT-25 | Every named function — top-level or nested — is a `function name(...)` declaration. | <pre>function report_print()<br>{<br>}</pre> | [FORMATTING.md](../FORMATTING.md) |
+| FMT-26 | A single-line object or array literal has no space inside its braces or brackets — a standalone literal, a nested one, or one row of a list. | <pre>{ value: 'today', label: 'Today' }   ✗ no<br>{value: 'today', label: 'Today'}     ✓ yes<br><br>&#91; 'remote', 'host', 'service' ]     ✗ no<br>&#91;'remote', 'host', 'service']       ✓ yes</pre> | [FORMATTING.md](../FORMATTING.md) |
 | **FLOW** | **Control flow** — Imperative, explicit, no magic. | | |
 | FLOW-01 | Prefer imperative control flow. | — | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-02 | Prefer `for...of` when the index is not needed. | <pre>for (const item of items) {<br>}</pre> | [for_of.md](../drafts/for_of.md) |
@@ -195,6 +196,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CSS-08 | `@import` comes first in a block; `@include` comes first in a rule, ahead of the property declarations — the mixin brings the base, the block overrides it. | <pre>.#-card<br>    @include app-transition(box-shadow, border-color)<br>    box-sizing: border-box</pre> | [css_classes.md](../drafts/css_classes.md) |
 | CSS-09 | A `transition:` property is not written by hand — `@include app-transition(props…)` fills it, expanding each property into `<prop> <speed>` against the one shared speed. `app-transition-fast` and `app-transition-debug` are the same mixin at the fast and debug speeds. List the exact properties that change, never `all`, and put the include on the base rule rather than the state variant, so the animation covers both directions. | `@include app-transition(box-shadow, border-color)` | [css_classes.md](../drafts/css_classes.md) |
 | CSS-10 | What each family holds: layout is the flex/grid/split container and its `flex-*` modifiers; spacing is `p*` / `m*`; sizing is `w*` / `h*` / `max-w*` / `min-h*`; decoration is `br*`, `fit-cover`, `cur-pointer` and the other shape and surface utilities; typography is `fs*` `fw*` `lh*`, then alignment and `nowrap`. | — | [css_classes.md](../drafts/css_classes.md) |
+| CSS-11 | A table header is aligned the way its column's data is: centered data, centered header; right-aligned data, right-aligned header. | — | [css_classes.md](../drafts/css_classes.md) |
 | **VUE** | **Vue 2** — Components that behave like the platform. | | |
 | VUE-01 | Every component is provided with three global methods through a mixin. | <pre>px(value)        // format a pixel value<br>uid(&#91;name])      // ids unique across components<br>emit_input(value) // return a value from an input</pre> | [vue-globals.md](../vue2/vue-globals.md) |
 | VUE-02 | Generated ids are bound to the current element and are what `id` and `label[for]` use. The name `uid` was chosen so it does not conflict with the `id` attribute every element may carry. | <pre>uid: function (name) {<br>    return name ? &#96;c${this.&#95;uid}&#95;${name}&#96; : &#96;c${this.&#95;uid}&#96;;<br>},</pre> | [vue-globals.md](../vue2/vue-globals.md) |
