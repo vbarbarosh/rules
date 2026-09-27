@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>208</b> rules<i>·</i><b>15</b> groups<i>·</i><b>35</b> sources</p>
+    <p class="stats"><b>210</b> rules<i>·</i><b>15</b> groups<i>·</i><b>36</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">208 rules</span>
+        <span class="count" id="count">210 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -838,7 +838,7 @@ footer .lead {
 <a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">25</span></a>
 <a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">10</span></a>
 <a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">23</span></a>
-<a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">15</span></a>
+<a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">17</span></a>
 <a href="#LOG" data-group="LOG"><span class="tag">LOG</span><span class="name">Logs</span><span class="n">23</span></a>
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">11</span></a>
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">18</span></a>
@@ -1678,6 +1678,18 @@ trap 'rm -rf $tempdir; echo -e "$EXIT_MESSAGE"' EXIT
 cd $tempdir
 
 EXIT_MESSAGE="${GREEN}bin/templ succeeded${RESET}"</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="PROJ-16">
+<a class="code" href="#PROJ-16">PROJ-16</a>
+<div class="text"><p><code>bin/configure</code> asks every question it may have — the <code>sudo</code> password, a choice, a key — at the very start, before any work. Once the work has started there are no more questions; it never stops halfway, waiting for a password.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/configure.md" title="drafts/configure.md">configure.md</a></div>
+</article>
+<article class="rule" id="PROJ-17">
+<a class="code" href="#PROJ-17">PROJ-17</a>
+<div class="text"><p><code>bin/configure</code> first works out what the run will need. When a step will need <code>sudo</code> — an Electron <code>chrome-sandbox</code> that is missing or not <code>root:4755</code>, for example — it takes <code>sudo -v</code> up front, and the later <code>sudo</code> calls reuse it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/configure.md" title="drafts/configure.md">configure.md</a></div>
+<div class="form"><pre>sandbox=node_modules/electron/dist/chrome-sandbox
+if &#91; "&#96;stat -c %U:%a $sandbox 2&gt;/dev/null&#96;" != "root:4755" ]; then
+    sudo -v
+fi</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="LOG">

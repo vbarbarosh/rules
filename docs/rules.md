@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-208 rules · 15 groups · 35 sources · filterable version: [rules.html](rules.html)
+210 rules · 15 groups · 36 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -18,7 +18,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT | Formatting | 25 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 23 | One entry function, one fixed order. |
-| PROJ | Project layout | 15 | A directory is a program; bin/ holds its verbs. |
+| PROJ | Project layout | 17 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 11 | A fixed class order; every class has a rule. |
 | VUE | Vue 2 | 18 | Components that behave like the platform. |
@@ -161,6 +161,8 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | PROJ-13 | `docs/` holds the official documentation, `notes/` holds working notes — hints and findings made during development — and `img/` holds static images, mostly for the README. | — | [layout.md](../drafts/layout.md) |
 | PROJ-14 | The project root carries the same standard files. | <pre>.env  .env.example  .gitignore  Dockerfile<br>LICENSE  README.md  package.json</pre> | [layout.md](../drafts/layout.md) |
 | PROJ-15 | Every bash script follows `bin/templ`: strict mode, the `script` / `scriptdir` / `scriptname` diagnostics, a temporary directory removed by an `EXIT` trap, and a colored exit message that starts as failed and is switched to succeeded on the last line. | <pre>set -o nounset -o errexit -o pipefail<br><br>EXIT_MESSAGE="${RED}bin/templ failed${RESET}"<br><br>tempdir=&#96;mktemp -d -t tmp.XXXXXXXXXX&#96;<br>trap 'rm -rf $tempdir; echo -e "$EXIT_MESSAGE"' EXIT<br>cd $tempdir<br><br>EXIT_MESSAGE="${GREEN}bin/templ succeeded${RESET}"</pre> | [templ](../bin/templ) |
+| PROJ-16 | `bin/configure` asks every question it may have — the `sudo` password, a choice, a key — at the very start, before any work. Once the work has started there are no more questions; it never stops halfway, waiting for a password. | — | [configure.md](../drafts/configure.md) |
+| PROJ-17 | `bin/configure` first works out what the run will need. When a step will need `sudo` — an Electron `chrome-sandbox` that is missing or not `root:4755`, for example — it takes `sudo -v` up front, and the later `sudo` calls reuse it. | <pre>sandbox=node_modules/electron/dist/chrome-sandbox<br>if &#91; "&#96;stat -c %U:%a $sandbox 2&gt;/dev/null&#96;" != "root:4755" ]; then<br>    sudo -v<br>fi</pre> | [configure.md](../drafts/configure.md) |
 | **LOG** | **Logs** — One line, one event, four fields. | | |
 | LOG-01 | A log is one infinite file. One physical line records one event, in four fields and nothing else. | `[time][group_uid][sender] details` | [logs.md](../drafts/logs.md) |
 | LOG-02 | Elapsed time, status and every other measurement belong in `details`, not in a field of their own. | `[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT` | [logs.md](../drafts/logs.md) |
