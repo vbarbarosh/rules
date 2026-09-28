@@ -104,6 +104,23 @@ project, so all JavaScript code follows the same conventions.
     * Do not split an assignment after `=` when its right-hand side is a single function call
     * Break a statement only when its size or nested structure makes the break necessary
 
+* **Parentheses expose precedence**
+
+    * In a logical expression (`&&`, `||`, `??`) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses
+    * A simple operand stays bare: an identifier, member access, call, template literal or unary negation — the line VUE-06 draws for directive values
+    * A chain of one logical operator is one expression: `a && b && c` stays bare
+    * Example:
+
+      ```
+      // BAD
+      return this.dev.is_ai_chat_dev || i === this.messages.length - 1;
+      const pressed = button.dataset.set === theme ? 'true' : 'false';
+
+      // GOOD
+      return this.dev.is_ai_chat_dev || (i === this.messages.length - 1);
+      const pressed = (button.dataset.set === theme) ? 'true' : 'false';
+      ```
+
 * **No implicit magic**
 
     * No hidden side effects

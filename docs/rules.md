@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-210 rules · 15 groups · 36 sources · filterable version: [rules.html](rules.html)
+211 rules · 15 groups · 36 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -15,7 +15,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
 | VAR | Variables | 13 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
-| FMT | Formatting | 25 | Braces, breaks, blank lines, comments. |
+| FMT | Formatting | 26 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 23 | One entry function, one fixed order. |
 | PROJ | Project layout | 17 | A directory is a program; bin/ holds its verbs. |
@@ -110,6 +110,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT-24 | An intent comment continues the same block on the next line. | <pre>// POST /upload (body, header:x-filename)<br>// Streams to data/ before the body is fully read.</pre> | [endpoint_comment.md](../drafts/endpoint_comment.md) |
 | FMT-25 | Every named function — top-level or nested — is a `function name(...)` declaration. | <pre>function report_print()<br>{<br>}</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-26 | A single-line object or array literal has no space inside its braces or brackets — a standalone literal, a nested one, or one row of a list. | <pre>{ value: 'today', label: 'Today' }   ✗ no<br>{value: 'today', label: 'Today'}     ✓ yes<br><br>&#91; 'remote', 'host', 'service' ]     ✗ no<br>&#91;'remote', 'host', 'service']       ✓ yes</pre> | [FORMATTING.md](../FORMATTING.md) |
+| FMT-27 | In a logical expression (`&&`, `\|\|`, `??`) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses. A simple operand — identifier, member access, call, template literal, unary negation — stays bare, and a chain of one logical operator is one expression. | <pre>return is_dev &#124;&#124; i === end - 1;     ✗ no<br>return is_dev &#124;&#124; (i === end - 1);   ✓ yes<br><br>(state === 'done') ? 'ok' : 'wait'</pre> | [FORMATTING.md](../FORMATTING.md) |
 | **FLOW** | **Control flow** — Imperative, explicit, no magic. | | |
 | FLOW-01 | Prefer imperative control flow. | — | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-02 | Prefer `for...of` when the index is not needed. | <pre>for (const item of items) {<br>}</pre> | [for_of.md](../drafts/for_of.md) |

@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>210</b> rules<i>·</i><b>15</b> groups<i>·</i><b>36</b> sources</p>
+    <p class="stats"><b>211</b> rules<i>·</i><b>15</b> groups<i>·</i><b>36</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">210 rules</span>
+        <span class="count" id="count">211 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -835,7 +835,7 @@ footer .lead {
 <a href="#NAME" data-group="NAME"><span class="tag">NAME</span><span class="name">Naming grammar</span><span class="n">18</span></a>
 <a href="#VAR" data-group="VAR"><span class="tag">VAR</span><span class="name">Variables</span><span class="n">13</span></a>
 <a href="#FN" data-group="FN"><span class="tag">FN</span><span class="name">Function contracts</span><span class="n">16</span></a>
-<a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">25</span></a>
+<a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">26</span></a>
 <a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">10</span></a>
 <a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">23</span></a>
 <a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">17</span></a>
@@ -1388,6 +1388,14 @@ function upload_post(req, res)
 
 &#91; 'remote', 'host', 'service' ]     <span class="no">✗ no</span>
 &#91;'remote', 'host', 'service']       <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FMT-27">
+<a class="code" href="#FMT-27">FMT-27</a>
+<div class="text"><p>In a logical expression (<code>&amp;&amp;</code>, <code>||</code>, <code>??</code>) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses. A simple operand — identifier, member access, call, template literal, unary negation — stays bare, and a chain of one logical operator is one expression.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>return is_dev &#124;&#124; i === end - 1;     <span class="no">✗ no</span>
+return is_dev &#124;&#124; (i === end - 1);   <span class="yes">✓ yes</span>
+
+(state === 'done') ? 'ok' : 'wait'</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="FLOW">
