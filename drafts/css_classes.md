@@ -144,3 +144,19 @@ fast and debug speeds.
 List the exact properties that change; never `all`. The include goes on the
 base rule, not on the `:hover` / `.active` variant, so the animation covers
 both directions.
+
+## Selector lists
+
+A rule that applies to several selectors puts each one on its own line, the
+comma closing the line; the brace follows the last one.
+
+```css
+/* BAD */
+.docs th, .docs td {
+}
+
+/* GOOD */
+.docs th,
+.docs td {
+}
+```

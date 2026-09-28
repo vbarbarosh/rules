@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>214</b> rules<i>·</i><b>15</b> groups<i>·</i><b>37</b> sources</p>
+    <p class="stats"><b>215</b> rules<i>·</i><b>15</b> groups<i>·</i><b>37</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">214 rules</span>
+        <span class="count" id="count">215 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -840,7 +840,7 @@ footer .lead {
 <a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">23</span></a>
 <a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">19</span></a>
 <a href="#LOG" data-group="LOG"><span class="tag">LOG</span><span class="name">Logs</span><span class="n">23</span></a>
-<a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">11</span></a>
+<a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">12</span></a>
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">19</span></a>
 <a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">5</span></a>
 <a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
@@ -1901,6 +1901,14 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 <article class="rule bare" id="CSS-11">
 <a class="code" href="#CSS-11">CSS-11</a>
 <div class="text"><p>A table header is aligned the way its column's data is: centered data, centered header; right-aligned data, right-aligned header.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+</article>
+<article class="rule" id="CSS-12">
+<a class="code" href="#CSS-12">CSS-12</a>
+<div class="text"><p>A selector list puts each selector on its own line, the comma closing the line; the brace follows the last one.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a></div>
+<div class="form"><pre>.docs th, .docs td {   <span class="no">✗ no</span>
+
+.docs th,
+.docs td {             <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="VUE">
