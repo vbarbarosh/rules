@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>211</b> rules<i>·</i><b>15</b> groups<i>·</i><b>36</b> sources</p>
+    <p class="stats"><b>213</b> rules<i>·</i><b>15</b> groups<i>·</i><b>37</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">211 rules</span>
+        <span class="count" id="count">213 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -838,7 +838,7 @@ footer .lead {
 <a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">26</span></a>
 <a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">10</span></a>
 <a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">23</span></a>
-<a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">17</span></a>
+<a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">19</span></a>
 <a href="#LOG" data-group="LOG"><span class="tag">LOG</span><span class="name">Logs</span><span class="n">23</span></a>
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">11</span></a>
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">18</span></a>
@@ -1698,6 +1698,16 @@ EXIT_MESSAGE="${GREEN}bin/templ succeeded${RESET}"</pre><button class="copy" typ
 if &#91; "&#96;stat -c %U:%a $sandbox 2&gt;/dev/null&#96;" != "root:4755" ]; then
     sudo -v
 fi</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="PROJ-18">
+<a class="code" href="#PROJ-18">PROJ-18</a>
+<div class="text"><p><code>data/</code> is the project's permanent data: a restart, a redeploy or a migration does not delete it. Everything the program writes and has to keep lives under <code>data/</code>, and nowhere else.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/data.md" title="drafts/data.md">data.md</a></div>
+</article>
+<article class="rule" id="PROJ-19">
+<a class="code" href="#PROJ-19">PROJ-19</a>
+<div class="text"><p>A docker image carries the code, never the data. One mount of <code>data/</code> — a named volume or a host directory — is all it takes to keep it; moving the project is moving its <code>data/</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/data.md" title="drafts/data.md">data.md</a></div>
+<div class="form"><pre>docker run -v app-data:/app/data app
+docker run -v /srv/app/data:/app/data app</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="LOG">

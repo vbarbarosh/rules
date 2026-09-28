@@ -28,7 +28,7 @@ npx vbarbarosh/rules src
 ## Rules
 
 - **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](docs/rules.html) — every rule below, all 211 of them, in one filterable table**
+- **[docs/rules.html](docs/rules.html) — every rule below, all 213 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - Bash scripts — all scripts follow [bin/templ](bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
@@ -47,6 +47,8 @@ npx vbarbarosh/rules src
 - [drafts/endpoint_comment.md](drafts/endpoint_comment.md) — every route function carries a `METHOD /path (params)` comment
 - [drafts/interactions-should-return-only-boolean-flag.md](drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag; the best practices for [vue-modal](https://github.com/vbarbarosh/vue-modal)
 - [drafts/layout.md](drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
+- [drafts/configure.md](drafts/configure.md) — `bin/configure` asks every question up front, `sudo` included
+- [drafts/data.md](drafts/data.md) — `data/` is the project's permanent data; one mount keeps it in docker
 - [drafts/value_label.md](drafts/value_label.md) — selectable options are `{value, label}`
 - [drafts/logs.md](drafts/logs.md) — `[time][group_uid][sender] details`, one event per line · [cheatsheet](drafts/logs-cheatsheet.html)
 - [drafts/one_export_per_file.md](drafts/one_export_per_file.md) — a file exports exactly one thing, as its last statement
