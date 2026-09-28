@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>213</b> rules<i>·</i><b>15</b> groups<i>·</i><b>37</b> sources</p>
+    <p class="stats"><b>214</b> rules<i>·</i><b>15</b> groups<i>·</i><b>37</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">213 rules</span>
+        <span class="count" id="count">214 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -841,7 +841,7 @@ footer .lead {
 <a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">19</span></a>
 <a href="#LOG" data-group="LOG"><span class="tag">LOG</span><span class="name">Logs</span><span class="n">23</span></a>
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">11</span></a>
-<a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">18</span></a>
+<a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">19</span></a>
 <a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">5</span></a>
 <a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
 <a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">10</span></a>
@@ -2021,6 +2021,14 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 <a class="code" href="#VUE-18">VUE-18</a>
 <div class="text"><p>After the text or icon is changed, rename the corresponding event handler.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-components.md" title="vue2/vue-components.md">vue-components.md</a></div>
 <div class="form"><pre>Approve → Accept     <span class="cmt">// click_approve → click_accept</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VUE-19">
+<a class="code" href="#VUE-19">VUE-19</a>
+<div class="text"><p>An element without a body closes itself — a component, an HTML element and a void element alike. This holds in <code>.vue</code> files and string templates; an in-DOM template is parsed by the browser first.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-formatting.md" title="vue2/vue-formatting.md">vue-formatting.md</a></div>
+<div class="form"><pre>&lt;th&gt;&lt;/th&gt;   <span class="no">✗ no</span>
+&lt;th /&gt;       <span class="yes">✓ yes</span>
+
+&lt;app-input-email v-model="user.email" /&gt;</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="UI">

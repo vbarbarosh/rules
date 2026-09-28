@@ -8,6 +8,16 @@ Stick to the following order of props
 
     ref v-if v-for v-on v-bind:ref v-bind [...] class type placeholder title
 
+An element without a body closes itself: a component, an HTML element and a
+void element alike.
+
+    <th />                                    not  <th></th>
+    <app-input-email v-model="user.email" />  not  <app-input-email v-model="user.email"></app-input-email>
+    <img v-bind:src="banner.thumbnail_url" />
+
+This holds in `.vue` files and string templates. An in-DOM template is parsed
+by the browser first, and the browser does not close `<th />`.
+
 Avoid using `v-if` and `v-for` on the same component.
 
     <template v-if="items">

@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-213 rules · 15 groups · 37 sources · filterable version: [rules.html](rules.html)
+214 rules · 15 groups · 37 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -21,7 +21,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | PROJ | Project layout | 19 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 11 | A fixed class order; every class has a rule. |
-| VUE | Vue 2 | 18 | Components that behave like the platform. |
+| VUE | Vue 2 | 19 | Components that behave like the platform. |
 | UI | User interface | 5 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
 | DOC | Writing the rules | 10 | How a document in this repo is built. |
@@ -221,6 +221,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VUE-16 | An event handler is named after the UI part it is bound to — the event, then the button text. | <pre>&lt;button v-on:click="click_approve"&gt;<br>    Approve<br>&lt;/button&gt;</pre> | [vue-components.md](../vue2/vue-components.md) |
 | VUE-17 | A handler on an icon is named after the icon. | <pre>&lt;button v-on:click="click_icon_archive"&gt;<br>    &lt;svg-icon-archive /&gt;<br>&lt;/button&gt;</pre> | [vue-components.md](../vue2/vue-components.md) |
 | VUE-18 | After the text or icon is changed, rename the corresponding event handler. | `Approve → Accept     // click_approve → click_accept` | [vue-components.md](../vue2/vue-components.md) |
+| VUE-19 | An element without a body closes itself — a component, an HTML element and a void element alike. This holds in `.vue` files and string templates; an in-DOM template is parsed by the browser first. | <pre>&lt;th&gt;&lt;/th&gt;   ✗ no<br>&lt;th /&gt;       ✓ yes<br><br>&lt;app-input-email v-model="user.email" /&gt;</pre> | [vue-formatting.md](../vue2/vue-formatting.md) |
 | **UI** | **User interface** — What every new screen carries. | | |
 | UI-01 | Every new UI — a SPA, an app screen, a report, a standalone HTML page — carries a visible light/dark switch. No exceptions: a page that only follows `prefers-color-scheme` has no switch, and does not count. | — | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-02 | The switch has exactly two states, **Light** and **Dark**. There is no System, Auto or follow-the-OS option, not even as the default. | — | [theme_switch.md](../drafts/theme_switch.md) |
