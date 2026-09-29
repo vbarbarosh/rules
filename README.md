@@ -28,7 +28,7 @@ npx vbarbarosh/rules src
 ## Rules
 
 - **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](docs/rules.html) — every rule below, all 215 of them, in one filterable table**
+- **[docs/rules.html](docs/rules.html) — every rule below, all 221 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - Bash scripts — all scripts follow [bin/templ](bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
@@ -45,6 +45,7 @@ npx vbarbarosh/rules src
 - [drafts/css_classes.md](drafts/css_classes.md) — class attribute order, smcss utilities, what leads a rule block
 - [drafts/cli_main.md](drafts/cli_main.md) — an executable hands `main` to `cli(main)`
 - [drafts/endpoint_comment.md](drafts/endpoint_comment.md) — every route function carries a `METHOD /path (params)` comment
+- [drafts/sql.md](drafts/sql.md) — a MySQL query is laid out like code: upper-case keywords, top-level clauses on their own lines
 - [drafts/interactions-should-return-only-boolean-flag.md](drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag; the best practices for [vue-modal](https://github.com/vbarbarosh/vue-modal)
 - [drafts/layout.md](drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
 - [drafts/configure.md](drafts/configure.md) — `bin/configure` asks every question up front, `sudo` included

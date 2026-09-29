@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-215 rules · 15 groups · 37 sources · filterable version: [rules.html](rules.html)
+221 rules · 16 groups · 38 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -21,6 +21,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | PROJ | Project layout | 19 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 12 | A fixed class order; every class has a rule. |
+| SQL | SQL queries | 6 | Upper-case keywords; the query laid out like code. |
 | VUE | Vue 2 | 19 | Components that behave like the platform. |
 | UI | User interface | 5 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
@@ -203,6 +204,13 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CSS-10 | What each family holds: layout is the flex/grid/split container and its `flex-*` modifiers; spacing is `p*` / `m*`; sizing is `w*` / `h*` / `max-w*` / `min-h*`; decoration is `br*`, `fit-cover`, `cur-pointer` and the other shape and surface utilities; typography is `fs*` `fw*` `lh*`, then alignment and `nowrap`. | — | [css_classes.md](../drafts/css_classes.md) |
 | CSS-11 | A table header is aligned the way its column's data is: centered data, centered header; right-aligned data, right-aligned header. | — | [css_classes.md](../drafts/css_classes.md) |
 | CSS-12 | A selector list puts each selector on its own line, the comma closing the line; the brace follows the last one. | <pre>.docs th, .docs td {   ✗ no<br><br>.docs th,<br>.docs td {             ✓ yes</pre> | [css_classes.md](../drafts/css_classes.md) |
+| **SQL** | **SQL queries** — Upper-case keywords; the query laid out like code. | | |
+| SQL-01 | A query that spans lines opens its template literal with a line break and closes it on a line of its own; the query is indented one level deeper than the call that runs it. | <pre>await knex.raw(&#96;<br>    UPDATE<br>        user_identities<br>    ...<br>&#96;);</pre> | [sql.md](../drafts/sql.md) |
+| SQL-02 | Every keyword, type and function is upper case; tables, columns, indexes and aliases stay lower case, spelled as the schema spells them. | <pre>SELECT MIN(id) AS id FROM user_identities   ✓ yes<br>select min(id) as id from user_identities   ✗ no</pre> | [sql.md](../drafts/sql.md) |
+| SQL-03 | At the top level of a statement, each clause starts a line of its own — `SELECT`, `FROM`, every `JOIN`, `UPDATE`, `SET`, `CREATE UNIQUE INDEX`, `ON`, `WHERE`, `ALTER TABLE`, `DROP INDEX` — and what the clause takes goes on the next line, indented four spaces. A keyword of several words stays on one line. | <pre>CREATE UNIQUE INDEX<br>    user_identities_primary_user_id_unique<br>ON<br>    user_identities (user_id)<br>WHERE<br>    primary_at IS NOT NULL<br><br>UPDATE<br>    user_identities<br>SET<br>    primary_at = verified_at</pre> | [sql.md](../drafts/sql.md) |
+| SQL-04 | A subquery opens with `(` at the end of the line that uses it; its body is indented one level, and `)` closes it on a line of its own at that line's indent, followed by the alias. | <pre>WHERE id IN (<br>    SELECT id FROM (<br>        SELECT MIN(id) AS id<br>        ...<br>    ) AS oldest<br>)</pre> | [sql.md](../drafts/sql.md) |
+| SQL-05 | A short expression stays on one line: a `WHERE` that opens a subquery, even at the top level, and the clauses inside a subquery. | <pre>WHERE id IN (<br>    SELECT id FROM (<br>        SELECT MIN(id) AS id<br>        FROM user_identities</pre> | [sql.md](../drafts/sql.md) |
+| SQL-06 | Each action of an `ALTER TABLE` is a clause of its own, its operand indented under it; the comma between two actions ends the first operand's line. A column definition stays whole on its line. | <pre>ALTER TABLE<br>    user_identities<br>DROP INDEX<br>    user_identities_primary_user_id_unique,<br>DROP COLUMN<br>    primary_user_id</pre> | [sql.md](../drafts/sql.md) |
 | **VUE** | **Vue 2** — Components that behave like the platform. | | |
 | VUE-01 | Every component is provided with three global methods through a mixin. | <pre>px(value)        // format a pixel value<br>uid(&#91;name])      // ids unique across components<br>emit_input(value) // return a value from an input</pre> | [vue-globals.md](../vue2/vue-globals.md) |
 | VUE-02 | Generated ids are bound to the current element and are what `id` and `label[for]` use. The name `uid` was chosen so it does not conflict with the `id` attribute every element may carry. | <pre>uid: function (name) {<br>    return name ? &#96;c${this.&#95;uid}&#95;${name}&#96; : &#96;c${this.&#95;uid}&#96;;<br>},</pre> | [vue-globals.md](../vue2/vue-globals.md) |
