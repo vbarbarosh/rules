@@ -28,7 +28,7 @@ npx vbarbarosh/rules src
 ## Rules
 
 - **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](docs/rules.html) — every rule below, all 221 of them, in one filterable table**
+- **[docs/rules.html](docs/rules.html) — every rule below, all 223 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - Bash scripts — all scripts follow [bin/templ](bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
@@ -40,6 +40,7 @@ npx vbarbarosh/rules src
 - [drafts/format_xxx.md](drafts/format_xxx.md) — `format_*` returns a string for human display
 - [drafts/render_xxx.md](drafts/render_xxx.md) — `render_*` derives a small value from own state
 - [drafts/var_names_error.md](drafts/var_names_error.md) — a caught error is always named `error`
+- [drafts/var_names_time0.md](drafts/var_names_time0.md) — the start time of a measurement is always named `time0`
 - [drafts/formatting_blocks.md](drafts/formatting_blocks.md) — brace and layout catalog, construction by construction
 - [drafts/imports_sorted.md](drafts/imports_sorted.md) — the import block is a plain byte-order line sort
 - [drafts/css_classes.md](drafts/css_classes.md) — class attribute order, smcss utilities, what leads a rule block

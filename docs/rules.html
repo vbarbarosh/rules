@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>221</b> rules<i>·</i><b>16</b> groups<i>·</i><b>38</b> sources</p>
+    <p class="stats"><b>223</b> rules<i>·</i><b>16</b> groups<i>·</i><b>39</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">221 rules</span>
+        <span class="count" id="count">223 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -833,7 +833,7 @@ footer .lead {
 <nav class="groups" aria-label="Groups">
 <a href="#CORE" data-group="CORE"><span class="tag">CORE</span><span class="name">Uniformity</span><span class="n">4</span></a>
 <a href="#NAME" data-group="NAME"><span class="tag">NAME</span><span class="name">Naming grammar</span><span class="n">18</span></a>
-<a href="#VAR" data-group="VAR"><span class="tag">VAR</span><span class="name">Variables</span><span class="n">13</span></a>
+<a href="#VAR" data-group="VAR"><span class="tag">VAR</span><span class="name">Variables</span><span class="n">15</span></a>
 <a href="#FN" data-group="FN"><span class="tag">FN</span><span class="name">Function contracts</span><span class="n">16</span></a>
 <a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">26</span></a>
 <a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">10</span></a>
@@ -1095,6 +1095,21 @@ for (const child of node.children) { }</pre><button class="copy" type="button">C
     }
     return lines.join('&#92;n');
 }</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-14">
+<a class="code" href="#VAR-14">VAR-14</a>
+<div class="text"><p>The variable holding the start time of a measurement is always named <code>time0</code>. The elapsed time is the current time minus <code>time0</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_time0.md" title="drafts/var_names_time0.md">var_names_time0.md</a></div>
+<div class="form"><pre>$time0 = microtime(true);
+printf("%.3fs&#92;n", microtime(true) - $time0);
+
+const time0 = Date.now();
+console.log(&#96;${Date.now() - time0}ms&#96;);</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-15">
+<a class="code" href="#VAR-15">VAR-15</a>
+<div class="text"><p><code>begin</code>, <code>start</code> and <code>t0</code> do not exist.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_time0.md" title="drafts/var_names_time0.md">var_names_time0.md</a></div>
+<div class="form"><pre>$begin = microtime(true);   <span class="no">✗ no</span>
+$time0 = microtime(true);   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="FN">
