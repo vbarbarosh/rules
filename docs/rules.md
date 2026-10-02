@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-228 rules · 16 groups · 40 sources · filterable version: [rules.html](rules.html)
+230 rules · 16 groups · 41 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -13,7 +13,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 |-----|-------|------:|---|
 | CORE | Uniformity | 4 | The rule behind the rules. |
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
-| VAR | Variables | 15 | A name states the shape of its data. |
+| VAR | Variables | 17 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
 | FMT | Formatting | 28 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
@@ -70,6 +70,8 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VAR-13 | Only that variable is `out`. A value that is joined, stringified or otherwise transformed on its way out is not `out`; it is named by what it is. | <pre>function csv_from_rows(rows)<br>{<br>    const lines = &#91;];<br>    for (const row of rows) {<br>        lines.push(row.join(','));<br>    }<br>    return lines.join('&#92;n');<br>}</pre> | [return_out.md](../drafts/return_out.md) |
 | VAR-14 | The variable holding the start time of a measurement is always named `time0`. The elapsed time is the current time minus `time0`. | <pre>$time0 = microtime(true);<br>printf("%.3fs&#92;n", microtime(true) - $time0);<br><br>const time0 = Date.now();<br>console.log(&#96;${Date.now() - time0}ms&#96;);</pre> | [var_names_time0.md](../drafts/var_names_time0.md) |
 | VAR-15 | `begin`, `start` and `t0` do not exist. | <pre>$begin = microtime(true);   ✗ no<br>$time0 = microtime(true);   ✓ yes</pre> | [var_names_time0.md](../drafts/var_names_time0.md) |
+| VAR-16 | A variable is never a bare `e`. An event handler's parameter is `event`; `e` stands only as the parameter of an arrow that fits on one line. | <pre>function (e) {       ✗ no<br>function (event) {   ✓ yes<br><br>el.addEventListener('click', e =&gt; e.stopPropagation());</pre> | [var_names_event.md](../drafts/var_names_event.md) |
+| VAR-17 | A catch inside another one's catch names its error `error2`, the next level `error3`, so no name hides another. | <pre>catch (error) {<br>    try {<br>        await save_backup(scene);<br>    }<br>    catch (error2) {<br>    }<br>}</pre> | [var_names_event.md](../drafts/var_names_event.md) |
 | **FN** | **Function contracts** — What a prefix promises the caller. | | |
 | FN-01 | `format_*` returns a string intended for human display. | <pre>format_bytes(1457664)    // "1.4 MB"<br>format_duration(155000)  // "2m 35s"<br>format_usd(1299)         // "$12.99"</pre> | [format_xxx.md](../drafts/format_xxx.md) |
 | FN-02 | A display conversion is never hand-rolled at a call site — an inline one is a missed `format_*`. | <pre>${Math.round(bytes / 1024)}kB   ✗ missed call<br>format_bytes(bytes)             ✓ right</pre> | [format_xxx.md](../drafts/format_xxx.md) |

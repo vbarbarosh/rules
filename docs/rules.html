@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>228</b> rules<i>·</i><b>16</b> groups<i>·</i><b>40</b> sources</p>
+    <p class="stats"><b>230</b> rules<i>·</i><b>16</b> groups<i>·</i><b>41</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">228 rules</span>
+        <span class="count" id="count">230 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -833,7 +833,7 @@ footer .lead {
 <nav class="groups" aria-label="Groups">
 <a href="#CORE" data-group="CORE"><span class="tag">CORE</span><span class="name">Uniformity</span><span class="n">4</span></a>
 <a href="#NAME" data-group="NAME"><span class="tag">NAME</span><span class="name">Naming grammar</span><span class="n">18</span></a>
-<a href="#VAR" data-group="VAR"><span class="tag">VAR</span><span class="name">Variables</span><span class="n">15</span></a>
+<a href="#VAR" data-group="VAR"><span class="tag">VAR</span><span class="name">Variables</span><span class="n">17</span></a>
 <a href="#FN" data-group="FN"><span class="tag">FN</span><span class="name">Function contracts</span><span class="n">16</span></a>
 <a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">28</span></a>
 <a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">10</span></a>
@@ -1110,6 +1110,25 @@ console.log(&#96;${Date.now() - time0}ms&#96;);</pre><button class="copy" type="
 <div class="text"><p><code>begin</code>, <code>start</code> and <code>t0</code> do not exist.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_time0.md" title="drafts/var_names_time0.md">var_names_time0.md</a></div>
 <div class="form"><pre>$begin = microtime(true);   <span class="no">✗ no</span>
 $time0 = microtime(true);   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-16">
+<a class="code" href="#VAR-16">VAR-16</a>
+<div class="text"><p>A variable is never a bare <code>e</code>. An event handler's parameter is <code>event</code>; <code>e</code> stands only as the parameter of an arrow that fits on one line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_event.md" title="drafts/var_names_event.md">var_names_event.md</a></div>
+<div class="form"><pre>function (e) {       <span class="no">✗ no</span>
+function (event) {   <span class="yes">✓ yes</span>
+
+el.addEventListener('click', e =&gt; e.stopPropagation());</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="VAR-17">
+<a class="code" href="#VAR-17">VAR-17</a>
+<div class="text"><p>A catch inside another one's catch names its error <code>error2</code>, the next level <code>error3</code>, so no name hides another.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_event.md" title="drafts/var_names_event.md">var_names_event.md</a></div>
+<div class="form"><pre>catch (error) {
+    try {
+        await save_backup(scene);
+    }
+    catch (error2) {
+    }
+}</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="FN">

@@ -85,9 +85,21 @@ tester.run('tiny-arrows', plugin.rules['tiny-arrows'], {
 });
 
 tester.run('error-name', plugin.rules['error-name'], {
-    valid: ['try {} catch (error) {}', 'try {} catch {}', "server.on('error', function (error) {});", 'promise.catch(function () {});'],
+    valid: [
+        'try {} catch (error) {}',
+        'try {} catch {}',
+        "server.on('error', function (error) {});",
+        'promise.catch(function () {});',
+        'try { try {} catch (error) {} } catch (error) {}',
+        'try {} catch (error) { try {} catch (error2) {} }',
+        'try {} catch (error) { try {} catch (error2) { try {} catch (error3) {} } }',
+        'try {} catch (error) { promise.catch(error2 => report(error2)); }',
+    ],
     invalid: [
         {code: 'try {} catch (err) {}', errors: [{messageId: 'name'}]},
+        {code: 'try {} catch (error2) {}', errors: [{messageId: 'name'}]},
+        {code: 'try {} catch (error) { try {} catch (error) {} }', errors: [{messageId: 'name'}]},
+        {code: 'try {} catch (error) { try {} catch (error2) { try {} catch (error2) {} } }', errors: [{messageId: 'name'}]},
         {code: 'try {} catch ({message}) {}', errors: [{messageId: 'name'}]},
         {code: 'promise.catch(function (e) {});', errors: [{messageId: 'name'}]},
         {code: "server.once('error', function (ex) {});", errors: [{messageId: 'name'}]},
