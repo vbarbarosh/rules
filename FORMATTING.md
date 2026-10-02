@@ -98,6 +98,34 @@ project, so all JavaScript code follows the same conventions.
     * Do not separate tightly coupled setup and use merely because the statement type changes
     * Add a blank line only when the following statement begins an independent conceptual step
 
+* **Top-level functions stand one blank line apart**
+
+    * Each function declared at module level is followed by one blank line before the next one
+    * Example:
+
+      ```
+      // BAD
+      function sync_settings()
+      {
+          sync_view_button();
+      }
+      function toggle_sound()
+      {
+          muted = !muted;
+      }
+
+      // GOOD
+      function sync_settings()
+      {
+          sync_view_button();
+      }
+
+      function toggle_sound()
+      {
+          muted = !muted;
+      }
+      ```
+
 * **Line breaks must expose structure**
 
     * Keep an expression on one line when it fits on one line
