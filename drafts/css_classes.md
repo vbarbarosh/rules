@@ -160,3 +160,29 @@ comma closing the line; the brace follows the last one.
 .docs td {
 }
 ```
+
+## Blank lines between rules
+
+Rules stand one blank line apart: each closing brace is followed by one
+empty line before the next selector. Never two, never none.
+
+```css
+/* BAD */
+.hidden {
+    display: none !important;
+}
+.intro {
+    display: grid;
+    gap: 50px;
+}
+
+/* GOOD */
+.hidden {
+    display: none !important;
+}
+
+.intro {
+    display: grid;
+    gap: 50px;
+}
+```

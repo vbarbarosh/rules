@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-225 rules · 16 groups · 40 sources · filterable version: [rules.html](rules.html)
+226 rules · 16 groups · 40 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -20,7 +20,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FILE | File and module structure | 25 | One entry function, one fixed order. |
 | PROJ | Project layout | 19 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
-| CSS | Classes and styles | 12 | A fixed class order; every class has a rule. |
+| CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | Upper-case keywords; the query laid out like code. |
 | VUE | Vue 2 | 19 | Components that behave like the platform. |
 | UI | User interface | 5 | What every new screen carries. |
@@ -208,6 +208,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CSS-10 | What each family holds: layout is the flex/grid/split container and its `flex-*` modifiers; spacing is `p*` / `m*`; sizing is `w*` / `h*` / `max-w*` / `min-h*`; decoration is `br*`, `fit-cover`, `cur-pointer` and the other shape and surface utilities; typography is `fs*` `fw*` `lh*`, then alignment and `nowrap`. | — | [css_classes.md](../drafts/css_classes.md) |
 | CSS-11 | A table header is aligned the way its column's data is: centered data, centered header; right-aligned data, right-aligned header. | — | [css_classes.md](../drafts/css_classes.md) |
 | CSS-12 | A selector list puts each selector on its own line, the comma closing the line; the brace follows the last one. | <pre>.docs th, .docs td {   ✗ no<br><br>.docs th,<br>.docs td {             ✓ yes</pre> | [css_classes.md](../drafts/css_classes.md) |
+| CSS-13 | Rules stand one blank line apart: each closing brace is followed by one empty line before the next selector — never two, never none. | <pre>.hidden {<br>    display: none !important;<br>}<br>.intro {          ✗ no blank line<br><br>.hidden {<br>    display: none !important;<br>}<br><br>.intro {          ✓ one blank line</pre> | [css_classes.md](../drafts/css_classes.md) |
 | **SQL** | **SQL queries** — Upper-case keywords; the query laid out like code. | | |
 | SQL-01 | A query that spans lines opens its template literal with a line break and closes it on a line of its own; the query is indented one level deeper than the call that runs it. | <pre>await knex.raw(&#96;<br>    UPDATE<br>        user_identities<br>    ...<br>&#96;);</pre> | [sql.md](../drafts/sql.md) |
 | SQL-02 | Every keyword, type and function is upper case; tables, columns, indexes and aliases stay lower case, spelled as the schema spells them. | <pre>SELECT MIN(id) AS id FROM user_identities   ✓ yes<br>select min(id) as id from user_identities   ✗ no</pre> | [sql.md](../drafts/sql.md) |
