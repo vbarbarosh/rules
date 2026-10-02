@@ -121,6 +121,24 @@ project, so all JavaScript code follows the same conventions.
       const pressed = (button.dataset.set === theme) ? 'true' : 'false';
       ```
 
+* **One variable per declaration**
+
+    * Each variable gets its own `const` or `let` statement; a declaration never lists several variables separated by commas
+    * The header of an indexed loop is the exception: `for (let i = 0, end = items.length; i < end; ++i)`
+    * Example:
+
+      ```
+      // BAD
+      const osc = c.createOscillator(),
+          gain = c.createGain(),
+          nodes = [osc, gain];
+
+      // GOOD
+      const osc = c.createOscillator();
+      const gain = c.createGain();
+      const nodes = [osc, gain];
+      ```
+
 * **No implicit magic**
 
     * No hidden side effects

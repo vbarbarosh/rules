@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-226 rules · 16 groups · 40 sources · filterable version: [rules.html](rules.html)
+227 rules · 16 groups · 40 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -15,7 +15,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
 | VAR | Variables | 15 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
-| FMT | Formatting | 26 | Braces, breaks, blank lines, comments. |
+| FMT | Formatting | 27 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 25 | One entry function, one fixed order. |
 | PROJ | Project layout | 19 | A directory is a program; bin/ holds its verbs. |
@@ -114,6 +114,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT-25 | Every named function — top-level or nested — is a `function name(...)` declaration. | <pre>function report_print()<br>{<br>}</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-26 | A single-line object or array literal has no space inside its braces or brackets — a standalone literal, a nested one, or one row of a list. | <pre>{ value: 'today', label: 'Today' }   ✗ no<br>{value: 'today', label: 'Today'}     ✓ yes<br><br>&#91; 'remote', 'host', 'service' ]     ✗ no<br>&#91;'remote', 'host', 'service']       ✓ yes</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-27 | In a logical expression (`&&`, `\|\|`, `??`) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses. A simple operand — identifier, member access, call, template literal, unary negation — stays bare, and a chain of one logical operator is one expression. | <pre>return is_dev &#124;&#124; i === end - 1;     ✗ no<br>return is_dev &#124;&#124; (i === end - 1);   ✓ yes<br><br>(state === 'done') ? 'ok' : 'wait'</pre> | [FORMATTING.md](../FORMATTING.md) |
+| FMT-28 | Each variable gets its own `const` or `let` statement; a declaration never lists several variables separated by commas. The header of an indexed loop is the exception. | <pre>const osc = c.createOscillator(),<br>    gain = c.createGain();          ✗ no<br><br>const osc = c.createOscillator();<br>const gain = c.createGain();        ✓ yes</pre> | [FORMATTING.md](../FORMATTING.md) |
 | **FLOW** | **Control flow** — Imperative, explicit, no magic. | | |
 | FLOW-01 | Prefer imperative control flow. | — | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-02 | Prefer `for...of` when the index is not needed. | <pre>for (const item of items) {<br>}</pre> | [for_of.md](../drafts/for_of.md) |
