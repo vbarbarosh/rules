@@ -28,7 +28,7 @@ npx vbarbarosh/rules src
 ## Rules
 
 - **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](docs/rules.html) — every rule below, all 223 of them, in one filterable table**
+- **[docs/rules.html](docs/rules.html) — every rule below, all 225 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - Bash scripts — all scripts follow [bin/templ](bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
@@ -43,6 +43,7 @@ npx vbarbarosh/rules src
 - [drafts/var_names_time0.md](drafts/var_names_time0.md) — the start time of a measurement is always named `time0`
 - [drafts/formatting_blocks.md](drafts/formatting_blocks.md) — brace and layout catalog, construction by construction
 - [drafts/imports_sorted.md](drafts/imports_sorted.md) — the import block is a plain byte-order line sort
+- [drafts/new_code_placement.md](drafts/new_code_placement.md) — new code takes its place from its surroundings; a run of `render_*` stays unbroken
 - [drafts/css_classes.md](drafts/css_classes.md) — class attribute order, smcss utilities, what leads a rule block
 - [drafts/cli_main.md](drafts/cli_main.md) — an executable hands `main` to `cli(main)`
 - [drafts/endpoint_comment.md](drafts/endpoint_comment.md) — every route function carries a `METHOD /path (params)` comment

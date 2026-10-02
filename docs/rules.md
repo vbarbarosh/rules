@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-223 rules · 16 groups · 39 sources · filterable version: [rules.html](rules.html)
+225 rules · 16 groups · 40 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -17,7 +17,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FN | Function contracts | 16 | What a prefix promises the caller. |
 | FMT | Formatting | 26 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 10 | Imperative, explicit, no magic. |
-| FILE | File and module structure | 23 | One entry function, one fixed order. |
+| FILE | File and module structure | 25 | One entry function, one fixed order. |
 | PROJ | Project layout | 19 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 12 | A fixed class order; every class has a rule. |
@@ -149,6 +149,8 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FILE-21 | No named exports — and the consuming side is banned as well: several names are never taken from a local module. Several functions are several files, each named after its function. | <pre>export {engine_run, engine_transport};                   ✗ no<br>import {engine_run, engine_transport} from './engine';   ✗ no<br><br>import engine_run from './engine_run';                   ✓ yes<br>import engine_transport from './engine_transport';</pre> | [one_export_per_file.md](../drafts/one_export_per_file.md) |
 | FILE-23 | Research, scratch and test-support code inside a repository is not exempt from one export per file. | — | [one_export_per_file.md](../drafts/one_export_per_file.md) |
 | FILE-24 | A named import from a library is the library’s shape, and a file whose shape is dictated by a tool follows the tool — `module.exports.mochaHooks` in a mocha hooks file. | `import {mapState} from 'vuex';` | [one_export_per_file.md](../drafts/one_export_per_file.md) |
+| FILE-25 | New code takes its place from its surroundings. Read the code around the insertion point — what stands together, in what order — and continue it; the new edit does not differ from what is around it. | — | [new_code_placement.md](../drafts/new_code_placement.md) |
+| FILE-26 | A run of functions of one family — `render_*`, `format_*`, `click_*` — stays unbroken. A new member joins the run; a function of another family goes outside it, never between two members. | <pre>render_css()<br>describe()            ✗ splits the run<br>render_human_status()<br><br>render_css()<br>render_human_status()<br>describe()            ✓ after the run</pre> | [new_code_placement.md](../drafts/new_code_placement.md) |
 | **PROJ** | **Project layout** — A directory is a program; bin/ holds its verbs. | | |
 | PROJ-01 | Every project keeps one shape. A directory is a program, and `bin/` holds its methods — one executable per verb, working the same in every language. | <pre>bin/build      bb<br>bin/configure<br>bin/release<br>bin/run        rr<br>bin/test       tt<br>bin/watch      ww</pre> | [layout.md](../drafts/layout.md) |
 | PROJ-02 | `bin/configure` is the only command to run after `git pull` to make a checkout ready for development. | — | [layout.md](../drafts/layout.md) |
