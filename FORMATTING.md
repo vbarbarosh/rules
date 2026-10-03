@@ -203,6 +203,20 @@ project, so all JavaScript code follows the same conventions.
       const nodes = [osc, gain];
       ```
 
+* **Template literals build strings**
+
+    * A string built from parts is a template literal; `+` never joins a string to a value
+    * Plain quotes stay for a string with nothing to interpolate
+    * Example:
+
+      ```
+      // BAD
+      sprite_draw_box('weapons/turret-' + weapon.id, weapon.color, box);
+
+      // GOOD
+      sprite_draw_box(`weapons/turret-${weapon.id}`, weapon.color, box);
+      ```
+
 * **No implicit magic**
 
     * No hidden side effects

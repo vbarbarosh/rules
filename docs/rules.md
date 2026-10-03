@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-232 rules · 16 groups · 41 sources · filterable version: [rules.html](rules.html)
+233 rules · 16 groups · 41 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -15,7 +15,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
 | VAR | Variables | 17 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
-| FMT | Formatting | 29 | Braces, breaks, blank lines, comments. |
+| FMT | Formatting | 30 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 11 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 25 | One entry function, one fixed order. |
 | PROJ | Project layout | 19 | A directory is a program; bin/ holds its verbs. |
@@ -119,6 +119,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT-28 | Each variable gets its own `const` or `let` statement; a declaration never lists several variables separated by commas. The header of an indexed loop is the exception. | <pre>const osc = c.createOscillator(),<br>    gain = c.createGain();          ✗ no<br><br>const osc = c.createOscillator();<br>const gain = c.createGain();        ✓ yes</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-29 | Top-level functions stand one blank line apart: each function declared at module level is followed by one blank line before the next one. | <pre>}<br>function toggle_sound()   ✗ no blank line<br><br>}<br><br>function toggle_sound()   ✓ one blank line</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-30 | Only the last argument of a call may span several lines; nothing follows a multi-line argument — no further argument after `}`, no chained call after `})`. A function that would leave arguments dangling is declared inside the caller and passed by name; a chained call becomes a variable. | <pre>page.evaluate(function (text) {<br>}, text);                          ✗ dangling<br><br>page.evaluate(find_families, text);   ✓ yes<br><br>items.filter(function (item) {<br>}).map(v =&gt; v.uid);               ✗ dangling</pre> | [FORMATTING.md](../FORMATTING.md) |
+| FMT-31 | A string built from parts is a template literal; `+` never joins a string to a value. Plain quotes stay for a string with nothing to interpolate. | <pre>'weapons/turret-' + weapon.id    ✗ no<br>&#96;weapons/turret-${weapon.id}&#96;    ✓ yes</pre> | [FORMATTING.md](../FORMATTING.md) |
 | **FLOW** | **Control flow** — Imperative, explicit, no magic. | | |
 | FLOW-01 | Prefer imperative control flow. | — | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-02 | Prefer `for...of` when the index is not needed. | <pre>for (const item of items) {<br>}</pre> | [for_of.md](../drafts/for_of.md) |
