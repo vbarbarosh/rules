@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>230</b> rules<i>·</i><b>16</b> groups<i>·</i><b>41</b> sources</p>
+    <p class="stats"><b>232</b> rules<i>·</i><b>16</b> groups<i>·</i><b>41</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">230 rules</span>
+        <span class="count" id="count">232 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -835,8 +835,8 @@ footer .lead {
 <a href="#NAME" data-group="NAME"><span class="tag">NAME</span><span class="name">Naming grammar</span><span class="n">18</span></a>
 <a href="#VAR" data-group="VAR"><span class="tag">VAR</span><span class="name">Variables</span><span class="n">17</span></a>
 <a href="#FN" data-group="FN"><span class="tag">FN</span><span class="name">Function contracts</span><span class="n">16</span></a>
-<a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">28</span></a>
-<a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">10</span></a>
+<a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">29</span></a>
+<a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">11</span></a>
 <a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">25</span></a>
 <a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">19</span></a>
 <a href="#LOG" data-group="LOG"><span class="tag">LOG</span><span class="name">Logs</span><span class="n">23</span></a>
@@ -1451,6 +1451,17 @@ function toggle_sound()   <span class="no">✗ no blank line</span>
 
 function toggle_sound()   <span class="yes">✓ one blank line</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
+<article class="rule" id="FMT-30">
+<a class="code" href="#FMT-30">FMT-30</a>
+<div class="text"><p>Only the last argument of a call may span several lines; nothing follows a multi-line argument — no further argument after <code>}</code>, no chained call after <code>})</code>. A function that would leave arguments dangling is declared inside the caller and passed by name; a chained call becomes a variable.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>page.evaluate(function (text) {
+}, text);                          <span class="no">✗ dangling</span>
+
+page.evaluate(find_families, text);   <span class="yes">✓ yes</span>
+
+items.filter(function (item) {
+}).map(v =&gt; v.uid);               <span class="no">✗ dangling</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
 </section>
 <section class="group" id="FLOW">
 <h2><span class="tag">FLOW</span><span class="name">Control flow</span><span class="note">Imperative, explicit, no magic.</span></h2>
@@ -1508,6 +1519,15 @@ catch {
 <article class="rule bare" id="FLOW-10">
 <a class="code" href="#FLOW-10">FLOW-10</a>
 <div class="text"><p>No implicit magic. No hidden side effects, no reliance on execution-order side effects.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+</article>
+<article class="rule" id="FLOW-11">
+<a class="code" href="#FLOW-11">FLOW-11</a>
+<div class="text"><p>A callback whose body is only <code>return &lt;expression&gt;</code>, and whose arrow fits on one line, is written as that arrow — the mirror of FLOW-07. <code>function</code> stays for a callback that does more, or that needs <code>this</code> or <code>arguments</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a></div>
+<div class="form"><pre>items.filter(function (item) {
+    return item_text(item) === text;
+});                                       <span class="no">✗ no</span>
+
+items.filter(v =&gt; item_text(v) === text);   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="FILE">

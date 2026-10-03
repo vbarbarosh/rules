@@ -24,6 +24,16 @@ project, so all JavaScript code follows the same conventions.
     * Function expressions and callbacks also keep the opening brace on the declaration line
     * Do **not** use arrow functions for non-trivial logic
     * Arrow functions allowed **only** for tiny callbacks (`v => v.uid`)
+    * A callback whose body is only `return <expression>`, and whose arrow fits on one line, is written as that arrow; `function` stays for a callback that does more, or that needs `this` or `arguments`:
+      ```js
+      // BAD
+      const text_items = items.filter(function (item) {
+          return item_text(item) === text;
+      });
+
+      // GOOD
+      const text_items = items.filter(v => item_text(v) === text);
+      ```
     * Prefer `v` as the variable name for lambda callbacks
     * Use `vv` for nested lambda callbacks (`items.map(v => v.some(vv => vv.permissions.includes(...)))`)
 
@@ -131,6 +141,32 @@ project, so all JavaScript code follows the same conventions.
     * Keep an expression on one line when it fits on one line
     * Do not split an assignment after `=` when its right-hand side is a single function call
     * Break a statement only when its size or nested structure makes the break necessary
+
+* **No dangling arguments**
+
+    * Only the last argument of a call may span several lines; every argument before it fits on one line
+    * Nothing follows a multi-line argument: no further argument after `}`, no chained call after `})`
+    * A function that would leave arguments dangling gets a name: declare it inside the caller and pass the name, so the call fits on one line
+    * A chained call after a multi-line callback becomes a variable, and the next step works on that variable
+    * Example:
+
+      ```
+      // BAD
+      const families = await page.evaluate(function (text) {
+          return window.app.app.canvas.items.filter(function (item) {
+              return item_text(item) === text;
+          }).map(v => v.font_family);
+      }, text);
+
+      // GOOD
+      const families = await page.evaluate(find_families, text);
+      expect(families.length).toBe(1);
+      return families[0];
+      function find_families(text) {
+          const text_items = window.app.app.canvas.items.filter(v => item_text(v) === text);
+          return text_items.map(v => v.font_family);
+      }
+      ```
 
 * **Parentheses expose precedence**
 

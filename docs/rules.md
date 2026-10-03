@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-230 rules · 16 groups · 41 sources · filterable version: [rules.html](rules.html)
+232 rules · 16 groups · 41 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -15,8 +15,8 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
 | VAR | Variables | 17 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
-| FMT | Formatting | 28 | Braces, breaks, blank lines, comments. |
-| FLOW | Control flow | 10 | Imperative, explicit, no magic. |
+| FMT | Formatting | 29 | Braces, breaks, blank lines, comments. |
+| FLOW | Control flow | 11 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 25 | One entry function, one fixed order. |
 | PROJ | Project layout | 19 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
@@ -118,6 +118,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT-27 | In a logical expression (`&&`, `\|\|`, `??`) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses. A simple operand — identifier, member access, call, template literal, unary negation — stays bare, and a chain of one logical operator is one expression. | <pre>return is_dev &#124;&#124; i === end - 1;     ✗ no<br>return is_dev &#124;&#124; (i === end - 1);   ✓ yes<br><br>(state === 'done') ? 'ok' : 'wait'</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-28 | Each variable gets its own `const` or `let` statement; a declaration never lists several variables separated by commas. The header of an indexed loop is the exception. | <pre>const osc = c.createOscillator(),<br>    gain = c.createGain();          ✗ no<br><br>const osc = c.createOscillator();<br>const gain = c.createGain();        ✓ yes</pre> | [FORMATTING.md](../FORMATTING.md) |
 | FMT-29 | Top-level functions stand one blank line apart: each function declared at module level is followed by one blank line before the next one. | <pre>}<br>function toggle_sound()   ✗ no blank line<br><br>}<br><br>function toggle_sound()   ✓ one blank line</pre> | [FORMATTING.md](../FORMATTING.md) |
+| FMT-30 | Only the last argument of a call may span several lines; nothing follows a multi-line argument — no further argument after `}`, no chained call after `})`. A function that would leave arguments dangling is declared inside the caller and passed by name; a chained call becomes a variable. | <pre>page.evaluate(function (text) {<br>}, text);                          ✗ dangling<br><br>page.evaluate(find_families, text);   ✓ yes<br><br>items.filter(function (item) {<br>}).map(v =&gt; v.uid);               ✗ dangling</pre> | [FORMATTING.md](../FORMATTING.md) |
 | **FLOW** | **Control flow** — Imperative, explicit, no magic. | | |
 | FLOW-01 | Prefer imperative control flow. | — | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-02 | Prefer `for...of` when the index is not needed. | <pre>for (const item of items) {<br>}</pre> | [for_of.md](../drafts/for_of.md) |
@@ -129,6 +130,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FLOW-08 | A `catch` that ignores the error binds nothing. | <pre>try {<br>}<br>catch {<br>}</pre> | [formatting_blocks.md](../drafts/formatting_blocks.md) |
 | FLOW-09 | Use plain data structures — `Set`, `Map` or plain `{}` for lookups. No prototypes, no mutation via shared state. | — | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-10 | No implicit magic. No hidden side effects, no reliance on execution-order side effects. | — | [FORMATTING.md](../FORMATTING.md) |
+| FLOW-11 | A callback whose body is only `return <expression>`, and whose arrow fits on one line, is written as that arrow — the mirror of FLOW-07. `function` stays for a callback that does more, or that needs `this` or `arguments`. | <pre>items.filter(function (item) {<br>    return item_text(item) === text;<br>});                                       ✗ no<br><br>items.filter(v =&gt; item_text(v) === text);   ✓ yes</pre> | [FORMATTING.md](../FORMATTING.md) |
 | **FILE** | **File and module structure** — One entry function, one fixed order. | | |
 | FILE-01 | A library module exports one function, with `module.exports` at the end of the file. | `module.exports = items_index_by_uid;` | [FORMATTING.md](../FORMATTING.md) |
 | FILE-02 | An executable script uses `main` as its entry function and does not export. | — | [FORMATTING.md](../FORMATTING.md) |
