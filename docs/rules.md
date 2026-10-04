@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-233 rules · 16 groups · 41 sources · filterable version: [rules.html](rules.html)
+237 rules · 17 groups · 42 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -25,6 +25,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VUE | Vue 2 | 19 | Components that behave like the platform. |
 | UI | User interface | 5 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
+| GIT | Commits | 4 | A lowercase title, scope first; details below. |
 | DOC | Writing the rules | 10 | How a document in this repo is built. |
 | LINT | Stated by the linter | 11 | Rules that only LINTING.md and the preset spell out. |
 
@@ -256,6 +257,11 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | REL-04 | `bin/release major\|minor\|patch` performs the whole release. | `bin/release patch` | [packaging.md](../packaging/packaging.md) |
 | REL-05 | A release script runs under bash strict mode. | `set -o nounset -o errexit -o pipefail` | [packaging.md](../packaging/packaging.md) |
 | REL-06 | A bad argument prints usage to stderr and exits 1. | <pre>echo usage: release 'major&#124;minor&#124;patch' &gt;&amp;2<br>exit 1</pre> | [packaging.md](../packaging/packaging.md) |
+| **GIT** | **Commits** — A lowercase title, scope first; details below. | | |
+| GIT-01 | A commit title is a scope, a colon and a short description. The scope is one or two words: the part of the project the commit changes, its category. | `maps: placement rules for gates and portals, and map-check` | [commits.md](../drafts/commits.md) |
+| GIT-02 | The title is all lowercase, names included. | <pre>readme: elites and arcade saves as the code has them   ✓ yes<br>README: Elites and arcade saves                        ✗ no</pre> | [commits.md](../drafts/commits.md) |
+| GIT-03 | The whole title, scope included, is 72 characters at most. | — | [commits.md](../drafts/commits.md) |
+| GIT-04 | Details go in a body after one blank line, only when they are really needed. A body is short, in ordinary sentences. | <pre>docs: link the placement rules, gates and portals as they stand<br><br>docs/README.md lists placement.md; objects.md describes gates and<br>portals as the placement rules now put them.</pre> | [commits.md](../drafts/commits.md) |
 | **DOC** | **Writing the rules** — How a document in this repo is built. | | |
 | DOC-01 | A document has two halves. The author writes the top half, compressed around what he already knows; the AI writes the bottom half, restating it for a reader who lacks that context. | — | [WRITING.md](../drafts/WRITING.md) |
 | DOC-02 | The top half is the source of truth. When the halves disagree, the top half is right. | — | [WRITING.md](../drafts/WRITING.md) |

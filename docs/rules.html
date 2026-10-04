@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>233</b> rules<i>·</i><b>16</b> groups<i>·</i><b>41</b> sources</p>
+    <p class="stats"><b>237</b> rules<i>·</i><b>17</b> groups<i>·</i><b>42</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">233 rules</span>
+        <span class="count" id="count">237 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -845,6 +845,7 @@ footer .lead {
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">19</span></a>
 <a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">5</span></a>
 <a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
+<a href="#GIT" data-group="GIT"><span class="tag">GIT</span><span class="name">Commits</span><span class="n">4</span></a>
 <a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">10</span></a>
 <a href="#LINT" data-group="LINT"><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="n">11</span></a>
 </nav>
@@ -2277,6 +2278,32 @@ git tag v$(...)</pre><button class="copy" type="button">Copy</button></div>
 <div class="text"><p>A bad argument prints usage to stderr and exits 1.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a></div>
 <div class="form"><pre>echo usage: release 'major&#124;minor&#124;patch' &gt;&amp;2
 exit 1</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="GIT">
+<h2><span class="tag">GIT</span><span class="name">Commits</span><span class="note">A lowercase title, scope first; details below.</span></h2>
+<article class="rule" id="GIT-01">
+<a class="code" href="#GIT-01">GIT-01</a>
+<div class="text"><p>A commit title is a scope, a colon and a short description. The scope is one or two words: the part of the project the commit changes, its category.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a></div>
+<div class="form"><pre>maps: placement rules for gates and portals, and map-check</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="GIT-02">
+<a class="code" href="#GIT-02">GIT-02</a>
+<div class="text"><p>The title is all lowercase, names included.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a></div>
+<div class="form"><pre>readme: elites and arcade saves as the code has them   <span class="yes">✓ yes</span>
+README: Elites and arcade saves                        <span class="no">✗ no</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="GIT-03">
+<a class="code" href="#GIT-03">GIT-03</a>
+<div class="text"><p>The whole title, scope included, is 72 characters at most.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a></div>
+</article>
+<article class="rule" id="GIT-04">
+<a class="code" href="#GIT-04">GIT-04</a>
+<div class="text"><p>Details go in a body after one blank line, only when they are really needed. A body is short, in ordinary sentences.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a></div>
+<div class="form"><pre>docs: link the placement rules, gates and portals as they stand
+
+docs/README.md lists placement.md; objects.md describes gates and
+portals as the placement rules now put them.</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="DOC">

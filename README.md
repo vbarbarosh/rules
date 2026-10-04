@@ -28,7 +28,7 @@ npx vbarbarosh/rules src
 ## Rules
 
 - **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](docs/rules.html) — every rule below, all 233 of them, in one filterable table**
+- **[docs/rules.html](docs/rules.html) — every rule below, all 237 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - Bash scripts — all scripts follow [bin/templ](bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
@@ -58,6 +58,7 @@ npx vbarbarosh/rules src
 - [drafts/one_export_per_file.md](drafts/one_export_per_file.md) — a file exports exactly one thing, as its last statement
 - [drafts/theme_switch.md](drafts/theme_switch.md) — every new UI carries a light/dark switch; two states, never System
 - [drafts/audit_note.md](drafts/audit_note.md) — a full audit goes to `notes/audit-<date>.md`; its register is the issue list
+- [drafts/commits.md](drafts/commits.md) — a commit title is `scope: description`, lowercase, 72 characters at most
 - [drafts/WRITING.md](drafts/WRITING.md) — a document has two halves: the author's top, the regenerated bottom
 - [packaging/packaging.md](packaging/packaging.md) — releasing a prebuilt `dist/` with `bin/release`
 - [demos/](demos/) — naming demos; `item_to.js` shows a superseded convention
