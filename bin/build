@@ -10,6 +10,8 @@ const docs_dir = path.join(__dirname, '..', 'docs');
 const glossary_files = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md'];
 const marker_regex = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
 const root_dir = path.join(__dirname, '..');
+const static_pages = ['formatting.html', 'drafts/logs-cheatsheet.html'];
+const version = `v${require('../package.json').version}`;
 
 cli(main);
 
@@ -17,6 +19,7 @@ function main()
 {
     build_rules_html();
     build_glossaries_html();
+    stamp_static_pages_version();
 }
 
 function build_rules_html()
@@ -36,6 +39,16 @@ function build_glossaries_html()
         glossaries.push(glossary_from_markdown(fs.readFileSync(path.join(root_dir, file), 'utf8'), file));
     }
     fs.writeFileSync(path.join(docs_dir, 'glossaries.html'), html_from_glossaries(template, glossaries));
+}
+
+// The pages written by hand carry the version in their header too.
+function stamp_static_pages_version()
+{
+    for (const file of static_pages) {
+        const file_path = path.join(root_dir, file);
+        const html = fs.readFileSync(file_path, 'utf8');
+        fs.writeFileSync(file_path, html.replace(/<span class="version">[^<]*<\/span>/, `<span class="version">${version}</span>`));
+    }
 }
 
 // rules.md: a title, a lede, a stats line, the group table, the rule table.
@@ -108,6 +121,7 @@ function html_from_index(template, index)
     const rules = index.groups.flatMap(v => v.rules);
     const values = {
         title: html_escape(index.title),
+        version,
         lede: html_escape(index.lede),
         rules_count: String(rules.length),
         groups_count: String(index.groups.length),
@@ -245,6 +259,7 @@ function html_from_glossaries(template, glossaries)
     const terms = glossaries.flatMap(v => [...v.terms, ...v.groups.flatMap(vv => vv.terms)]);
     const links = glossaries.map(v => `<a href="${blob_url}${v.file}">${path.basename(v.file)}</a>`);
     const values = {
+        version,
         terms_count: String(terms.length),
         glossaries_count: String(glossaries.length),
         groups_count: String(groups.length),
