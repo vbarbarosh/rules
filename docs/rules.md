@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-246 rules · 17 groups · 43 sources · filterable version: [rules.html](rules.html)
+255 rules · 17 groups · 46 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -23,7 +23,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | Upper-case keywords; the query laid out like code. |
 | VUE | Vue 2 | 19 | Components that behave like the platform. |
-| UI | User interface | 5 | What every new screen carries. |
+| UI | User interface | 14 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
 | GIT | Commits | 4 | A lowercase title, scope first; details below. |
 | DOC | Writing the rules | 10 | How a document in this repo is built. |
@@ -259,6 +259,15 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | UI-03 | The light palette lives on bare `:root`; the dark one redefines the same tokens under `:root[data-theme="dark"]`. | <pre>:root {<br>    --color-bg: #FFFFFF;<br>    --color-text: #1B1F23;<br>}<br>:root&#91;data-theme="dark"] {<br>    --color-bg: #15181C;<br>    --color-text: #E6E8EB;<br>}</pre> | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-04 | The root element is always stamped with `data-theme="light"` or `data-theme="dark"` — on load, before the first paint. The initial value comes from `localStorage`; with nothing stored, `prefers-color-scheme` is read once. The choice is saved back, and both the read and the write sit in `try`/`catch`. | `document.documentElement.dataset.theme = theme;` | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-05 | On a long page with a sticky bar, a second copy of the switch is docked at the far right of that bar — after any count label, not before it. It is shown only while the header one is off screen, and collapses to zero width otherwise. | — | [theme_switch.md](../drafts/theme_switch.md) |
+| UI-06 | Every page of a project's website opens with one header bar: the project at the left end, the theme switch and the GitHub link at the right end. A documentation site and a single page made from the README alike. Search and section links, when there are any, sit between the two ends; on a page with a sidebar, the search starts at the left edge of the content column. | — | [page_header.md](../drafts/page_header.md) |
+| UI-07 | The left end is the project: its icon when it has one, its name, and its released version. | <pre>&#91;icon]  Authwall Docs  v1.16.0</pre> | [page_header.md](../drafts/page_header.md) |
+| UI-08 | The right end is the theme switch, then the GitHub link in the far right corner: the GitHub icon, a link to the project's repository. The same order on every page. | <pre>&#91;Light &#124; Dark]  &#91;GitHub]</pre> | [page_header.md](../drafts/page_header.md) |
+| UI-09 | Content the app adds, removes or resizes on its own never moves what the reader is looking at: the element on the middle line of the view stays at the same screen position, to the pixel, and the scroll position takes up the difference. A change the reader makes, a block they click open, is not covered. | — | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
+| UI-10 | The browser's own scroll anchoring is not relied on: it does nothing at the very top of a view, anchors to a growing element at the top of the view, and loses its anchor in a re-render. Every change the app makes on its own goes through `scroll_keep`: note the element on the middle line by its `data-uid`, apply the change, find the element again by its uid and scroll by the difference. | <pre>const keep = scroll_keep(scroller);<br>await keep(async function () {<br>    summary.text = text;<br>    await vm.$nextTick();<br>});</pre> | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
+| UI-11 | Every view with dynamic content has a test of UI-09: scroll, note the screen position of the element on the middle line, make the change, assert it moved 0 px. One case per kind of change, in the middle of the view and at the very top, and one check that the browser alone fails it. | `assert.equal(shift, 0);` | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
+| UI-12 | An element that takes files or folders through an input also takes them dropped onto it. The input and the drop are built together; neither without the other. | — | [file_drop.md](../drafts/file_drop.md) |
+| UI-13 | The drop takes what the input takes: the same `accept` types, one or many as `multiple` says, and folders when the input takes folders, read through `webkitGetAsEntry()`. A picked file and a dropped one go to the same handler. | <pre>const entries = &#91;...event.dataTransfer.items].map(v =&gt; v.webkitGetAsEntry());</pre> | [file_drop.md](../drafts/file_drop.md) |
+| UI-14 | While files are dragged over it, the element highlights. A drop beside it never opens the file in the tab: the window cancels `dragover` and `drop`. | <pre>window.addEventListener('dragover', event =&gt; event.preventDefault());<br>window.addEventListener('drop', event =&gt; event.preventDefault());</pre> | [file_drop.md](../drafts/file_drop.md) |
 | **REL** | **Packaging and release** — Ship a prebuilt dist/. | | |
 | REL-01 | Distribute a prebuilt `dist/` from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do. | `<script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>` | [packaging.md](../packaging/packaging.md) |
 | REL-02 | The release workflow is fixed: ensure there are no changes, increase the version, update `dist/`, commit, tag. | <pre>rm -rf dist<br>npm run build<br>git add package.json package-lock.json dist<br>git commit -m "release v$(...)"<br>git tag v$(...)</pre> | [packaging.md](../packaging/packaging.md) |
