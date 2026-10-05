@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scroll anchoring</title>
+<style>
+:root {
+    --bg: #f3f0e8;
+    --paper: #fffdf7;
+    --ink: #172019;
+    --muted: #687168;
+    --line: #c9cec4;
+    --card: #eeebe2;
+    --summary: #e4e9ff;
+    --mark: #e5484d;
+    --accent: #3d62ff;
+}
+:root[data-theme="dark"] {
+    --bg: #0f1713;
+    --paper: #14201a;
+    --ink: #f4f6ed;
+    --muted: #91a196;
+    --line: #2c3c33;
+    --card: #1e2d25;
+    --summary: #1f2a4d;
+    --mark: #ff6b6b;
+    --accent: #82a0ff;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+    padding: 24px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+.head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.title { font-size: 24px; font-weight: 900; letter-spacing: -0.03em; }
+.spacer { flex: 1; }
+button {
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+.theme { display: flex; }
+.theme button:first-child { border-radius: 8px 0 0 8px; }
+.theme button:last-child { border-radius: 0 8px 8px 0; border-left: 0; }
+.theme button.is-on { background: var(--ink); color: var(--paper); }
+.panes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.pane-title { margin-bottom: 8px; font-size: 16px; font-weight: 800; }
+.pane-note { font-weight: 400; color: var(--muted); }
+.frame { position: relative; }
+.scroller {
+    height: 420px;
+    overflow-y: auto;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+}
+.line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 2px dashed var(--mark);
+    pointer-events: none;
+}
+.feed { display: flex; flex-direction: column; gap: 10px; padding: 12px; }
+.summary {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--summary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+.message {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--card);
+    font-size: 14px;
+    line-height: 1.5;
+}
+.message b { display: block; margin-bottom: 2px; }
+.message.is-new { outline: 2px solid var(--accent); }
+</style>
+<script>
+document.documentElement.dataset.theme = theme_read();
+
+function theme_read()
+{
+    try {
+        const out = localStorage.getItem('theme');
+        if (out === 'light' || out === 'dark') {
+            return out;
+        }
+    }
+    catch (error) {
+        console.warn(error);
+    }
+    return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+</script>
+</head>
+<body>
+<div class="head">
+    <div class="title">Content changes above, the reading line stays</div>
+    <div class="spacer"></div>
+    <button id="add" type="button">Add above</button>
+    <button id="grow" type="button">Grow the summary</button>
+    <button id="rerender" type="button">Grow by a re-render</button>
+    <div class="theme">
+        <button data-theme="light" type="button">Light</button>
+        <button data-theme="dark" type="button">Dark</button>
+    </div>
+</div>
+<div class="panes">
+    <div>
+        <div class="pane-title">Browser only <span class="pane-note">overflow-anchor: auto</span></div>
+        <div class="frame">
+            <div class="scroller" id="plain"><div class="feed"></div></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div>
+        <div class="pane-title">Kept in place <span class="pane-note">scroll_keep()</span></div>
+        <div class="frame">
+            <div class="scroller" id="kept"><div class="feed"></div></div>
+            <div class="line"></div>
+        </div>
+    </div>
+</div>
+<script>
+const SUMMARY_SHORT = 'Summing up…';
+const SUMMARY_LONG = 'Author asked how the work is going. The agent says everything sent since 14:32 is built, and the full test run is on now. Done: Settings, AI spending, Incidents, Goal and Plans now match their frames. The message box keeps Voice, Screen recording, Files and Template. The broken layouts are fixed, with a narrow-window test that fails on the old layout.';
+
+const state = {summary: SUMMARY_SHORT, messages: []};
+for (let i = 1; i <= 24; ++i) {
+    state.messages.push({uid: `m${i}`, title: `Message ${i}`, text: 'Everything you sent is built; the full test run is on now, about four minutes. A reply to each message follows once it passes.', is_new: false});
+}
+
+const scroller_plain = document.getElementById('plain');
+const scroller_kept = document.getElementById('kept');
+const keep = scroll_keep(scroller_kept);
+
+render(scroller_plain);
+render(scroller_kept);
+scroller_plain.scrollTop = 120;
+scroller_kept.scrollTop = 120;
+
+document.getElementById('add').addEventListener('click', function () {
+    const n = state.messages.length + 1;
+    const message = {uid: `m${n}`, title: `Message ${n}, new`, text: 'Added above while you read.', is_new: true};
+    state.messages.unshift(message);
+    update(function (scroller) {
+        const summary = scroller.querySelector('[data-uid="summary"]');
+        summary.after(message_render(message));
+    });
+});
+document.getElementById('grow').addEventListener('click', function () {
+    state.summary = (state.summary === SUMMARY_SHORT) ? SUMMARY_LONG : SUMMARY_SHORT;
+    update(function (scroller) {
+        scroller.querySelector('[data-uid="summary"]').textContent = state.summary;
+    });
+});
+document.getElementById('rerender').addEventListener('click', function () {
+    state.summary = (state.summary === SUMMARY_SHORT) ? SUMMARY_LONG : SUMMARY_SHORT;
+    update(render);
+});
+for (const button of document.querySelectorAll('.theme button')) {
+    button.addEventListener('click', function () {
+        theme_write(button.dataset.theme);
+    });
+}
+theme_buttons_refresh();
+
+// Applies one change to both feeds; only the right one is kept in place.
+function update(change)
+{
+    change(scroller_plain);
+    keep(function () {
+        change(scroller_kept);
+    });
+}
+
+// Builds the feed from scratch, as a template engine re-rendering a list does.
+function render(scroller)
+{
+    const feed = scroller.querySelector('.feed');
+    feed.replaceChildren();
+    const summary = document.createElement('div');
+    summary.className = 'summary';
+    summary.dataset.uid = 'summary';
+    summary.textContent = state.summary;
+    feed.append(summary);
+    for (const message of state.messages) {
+        feed.append(message_render(message));
+    }
+}
+
+function message_render(message)
+{
+    const out = document.createElement('div');
+    out.className = message.is_new ? 'message is-new' : 'message';
+    out.dataset.uid = message.uid;
+    const b = document.createElement('b');
+    b.textContent = message.title;
+    out.append(b, message.text);
+    return out;
+}
+
+// Returns keep(update): runs update() and moves the scroll position so
+// the element on the middle line of the scroller stays where it was.
+// update() may be async: with Vue it ends with `await this.$nextTick()`.
+function scroll_keep(scroller)
+{
+    return async function (update) {
+        const anchor0 = scroll_anchor_find(scroller);
+        await update();
+        if (!anchor0) {
+            return;
+        }
+        const anchor = scroller.querySelector(`[data-uid="${anchor0.uid}"]`);
+        if (anchor) {
+            scroller.scrollTop += anchor.getBoundingClientRect().top - anchor0.top;
+        }
+    };
+}
+
+// The first element with a data-uid that reaches below the middle line.
+function scroll_anchor_find(scroller)
+{
+    const rect = scroller.getBoundingClientRect();
+    const middle = rect.top + rect.height/2;
+    for (const element of scroller.querySelectorAll('[data-uid]')) {
+        const element_rect = element.getBoundingClientRect();
+        if (element_rect.bottom > middle) {
+            return {uid: element.dataset.uid, top: element_rect.top};
+        }
+    }
+    return null;
+}
+
+function theme_write(theme)
+{
+    document.documentElement.dataset.theme = theme;
+    try {
+        localStorage.setItem('theme', theme);
+    }
+    catch (error) {
+        console.warn(error);
+    }
+    theme_buttons_refresh();
+}
+
+function theme_buttons_refresh()
+{
+    for (const button of document.querySelectorAll('.theme button')) {
+        button.classList.toggle('is-on', button.dataset.theme === document.documentElement.dataset.theme);
+    }
+}
+</script>
+</body>
+</html>
