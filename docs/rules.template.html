@@ -526,6 +526,30 @@ h1 {
     align-self: start;
 }
 
+/* A picture in place of the canonical form: under the text, across both
+   columns, so it reads at a useful size; the theme shows one of the twins. */
+.figure {
+    grid-column: 2 / -1;
+    max-width: 960px;
+}
+
+.rule:has(.figure) .text {
+    grid-column: 2 / -1;
+    max-width: 75ch;
+}
+
+.figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    transition: border-color var(--fast);
+}
+
+:root[data-theme="dark"] .figure .light, :root:not([data-theme="dark"]) .figure .dark {
+    display: none;
+}
+
 .form pre {
     margin: 0;
     padding: 11px 14px 12px;
@@ -937,6 +961,10 @@ function haystack_from_rule(rule_el)
     for (const el of rule_el.querySelectorAll('.text p, .src, .form pre, .form.prose')) {
         parts.push(el.textContent);
     }
+    const img = rule_el.querySelector('.figure img');
+    if (img) {
+        parts.push(img.alt);
+    }
     return parts.join(' ').toLowerCase();
 }
 
@@ -993,6 +1021,17 @@ function input_q()
     catch {
     }
     filter_apply();
+    results_scroll_top();
+}
+
+// The reader typed: the matches start right under the sticky bar, not
+// cut off above it where the old scroll position left them.
+function results_scroll_top()
+{
+    const top = document.querySelector('.mast').offsetHeight;
+    if (window.scrollY > top) {
+        window.scrollTo(0, top);
+    }
 }
 
 // Every word of the query must occur somewhere in the rule: its code,

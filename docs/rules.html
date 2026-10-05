@@ -526,6 +526,30 @@ h1 {
     align-self: start;
 }
 
+/* A picture in place of the canonical form: under the text, across both
+   columns, so it reads at a useful size; the theme shows one of the twins. */
+.figure {
+    grid-column: 2 / -1;
+    max-width: 960px;
+}
+
+.rule:has(.figure) .text {
+    grid-column: 2 / -1;
+    max-width: 75ch;
+}
+
+.figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    transition: border-color var(--fast);
+}
+
+:root[data-theme="dark"] .figure .light, :root:not([data-theme="dark"]) .figure .dark {
+    display: none;
+}
+
 .form pre {
     margin: 0;
     padding: 11px 14px 12px;
@@ -1851,14 +1875,7 @@ docker run -v /srv/app/data:/app/data app</pre><button class="copy" type="button
 <article class="rule" id="PROJ-20">
 <a class="code" href="#PROJ-20">PROJ-20</a>
 <div class="text"><p>A GitHub <code>README.md</code> runs in one order: badges, cover image, name, short description, website, quick start, documentation, license. Badges, the website link and the further documentation pages may be absent; the rest are always there.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
-<div class="form"><pre>badges         optional
-cover image
-# name
-short description
-Website        left out when it is the documentation
-quick start
-## Documentation
-## License      last</pre><button class="copy" type="button">Copy</button></div>
+<a class="form figure" href="../drafts/readme-structure.png"><img class="light" src="../drafts/readme-structure.png" alt="the parts of a README, top to bottom" loading="lazy"><img class="dark" src="../drafts/readme-structure-dark.png" alt="the parts of a README, top to bottom" loading="lazy"></a>
 </article>
 <article class="rule bare" id="PROJ-21">
 <a class="code" href="#PROJ-21">PROJ-21</a>
@@ -2316,15 +2333,15 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 <h2><span class="tag">UI</span><span class="name">User interface</span><span class="note">What every new screen carries.</span></h2>
 <article class="rule bare" id="UI-01">
 <a class="code" href="#UI-01">UI-01</a>
-<div class="text"><p>Every new UI — a SPA, an app screen, a report, a standalone HTML page — carries a visible light/dark switch. No exceptions: a page that only follows <code>prefers-color-scheme</code> has no switch, and does not count.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+<div class="text"><p><strong>Every screen has a light/dark switch.</strong> An app screen, a report, a standalone page: each shows a switch the reader can click. Following the OS setting alone does not count.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
 </article>
 <article class="rule bare" id="UI-02">
 <a class="code" href="#UI-02">UI-02</a>
-<div class="text"><p>The switch has exactly two states, <strong>Light</strong> and <strong>Dark</strong>. There is no System, Auto or follow-the-OS option, not even as the default.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+<div class="text"><p><strong>Two states: Light and Dark.</strong> No System or Auto option, not even as the default.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
 </article>
 <article class="rule" id="UI-03">
 <a class="code" href="#UI-03">UI-03</a>
-<div class="text"><p>The light palette lives on bare <code>:root</code>; the dark one redefines the same tokens under <code>:root[data-theme=&quot;dark&quot;]</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+<div class="text"><p><strong>The dark theme redefines the light colors.</strong> The light colors live on <code>:root</code>; the dark theme sets the same variables under <code>:root[data-theme=&quot;dark&quot;]</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
 <div class="form"><pre>:root {
     --color-bg: #FFFFFF;
     --color-text: #1B1F23;
@@ -2336,34 +2353,36 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 </article>
 <article class="rule" id="UI-04">
 <a class="code" href="#UI-04">UI-04</a>
-<div class="text"><p>The root element is always stamped with <code>data-theme=&quot;light&quot;</code> or <code>data-theme=&quot;dark&quot;</code> — on load, before the first paint. The initial value comes from <code>localStorage</code>; with nothing stored, <code>prefers-color-scheme</code> is read once. The choice is saved back, and both the read and the write sit in <code>try</code>/<code>catch</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+<div class="text"><p><strong>The theme is set before the page shows.</strong> The page reads the saved choice from <code>localStorage</code> (the OS setting once, when nothing is saved), puts it on <code>&lt;html&gt;</code> as <code>data-theme</code>, and saves each new choice; storage access sits in <code>try</code>/<code>catch</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
 <div class="form"><pre>document.documentElement.dataset.theme = theme;</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule bare" id="UI-05">
 <a class="code" href="#UI-05">UI-05</a>
-<div class="text"><p>On a long page with a sticky bar, a second copy of the switch is docked at the far right of that bar — after any count label, not before it. It is shown only while the header one is off screen, and collapses to zero width otherwise.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
+<div class="text"><p><strong>The switch stays in reach on a long page.</strong> When the header scrolls away, a copy of the switch appears at the right end of the sticky bar.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a></div>
 </article>
-<article class="rule bare" id="UI-06">
+<article class="rule" id="UI-06">
 <a class="code" href="#UI-06">UI-06</a>
-<div class="text"><p>Every page of a project's website opens with one header bar: the project at the left end, the theme switch and the GitHub link at the right end. A documentation site and a single page made from the README alike. Search and section links, when there are any, sit between the two ends; on a page with a sidebar, the search starts at the left edge of the content column.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a></div>
+<div class="text"><p><strong>Every project page opens with the same header.</strong> The project on the left; the theme switch and GitHub on the right; search and section links between them, the search lined up with the content column.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a></div>
+<a class="form figure" href="../drafts/page-header-structure.png"><img class="light" src="../drafts/page-header-structure.png" alt="the parts of a page header, left to right" loading="lazy"><img class="dark" src="../drafts/page-header-structure-dark.png" alt="the parts of a page header, left to right" loading="lazy"></a>
 </article>
 <article class="rule" id="UI-07">
 <a class="code" href="#UI-07">UI-07</a>
-<div class="text"><p>The left end is the project: its icon when it has one, its name, and its released version.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a></div>
+<div class="text"><p><strong>Left: icon, name, version.</strong> The project's icon when it has one, its name, and its released version.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a></div>
 <div class="form"><pre>&#91;icon]  Authwall Docs  v1.16.0</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="UI-08">
 <a class="code" href="#UI-08">UI-08</a>
-<div class="text"><p>The right end is the theme switch, then the GitHub link in the far right corner: the GitHub icon, a link to the project's repository. The same order on every page.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a></div>
+<div class="text"><p><strong>Right: the theme switch, then GitHub in the corner.</strong> The GitHub icon links to the repository. The same order on every page.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a></div>
 <div class="form"><pre>&#91;Light &#124; Dark]  &#91;GitHub]</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule bare" id="UI-09">
+<article class="rule" id="UI-09">
 <a class="code" href="#UI-09">UI-09</a>
-<div class="text"><p>Content the app adds, removes or resizes on its own never moves what the reader is looking at: the element on the middle line of the view stays at the same screen position, to the pixel, and the scroll position takes up the difference. A change the reader makes, a block they click open, is not covered.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a></div>
+<div class="text"><p><strong>Nothing jumps.</strong> When the app adds or grows content on its own — a new message, a summary that finishes loading — what the reader is looking at stays exactly where it is on the screen; the scroll position adjusts instead. Only the reader's own clicks may move things.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a></div>
+<a class="form figure" href="../drafts/scroll-anchoring.gif"><img class="light" src="../drafts/scroll-anchoring.gif" alt="a summary grows above; on the left the message being read drops, on the right it stays" loading="lazy"><img class="dark" src="../drafts/scroll-anchoring-dark.gif" alt="a summary grows above; on the left the message being read drops, on the right it stays" loading="lazy"></a>
 </article>
 <article class="rule" id="UI-10">
 <a class="code" href="#UI-10">UI-10</a>
-<div class="text"><p>The browser's own scroll anchoring is not relied on: it does nothing at the very top of a view, anchors to a growing element at the top of the view, and loses its anchor in a re-render. Every change the app makes on its own goes through <code>scroll_keep</code>: note the element on the middle line by its <code>data-uid</code>, apply the change, find the element again by its uid and scroll by the difference.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a></div>
+<div class="text"><p><strong>Keep the place yourself; the browser won't.</strong> Before such a change, note the element in the middle of the view and where it is on the screen; after the change, scroll by however far it moved. The browser keeps the place only when the change is entirely above the view: not at the very top, not when the growing block is itself on screen, not after a re-render.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a></div>
 <div class="form"><pre>const keep = scroll_keep(scroller);
 await keep(async function () {
     summary.text = text;
@@ -2372,36 +2391,38 @@ await keep(async function () {
 </article>
 <article class="rule" id="UI-11">
 <a class="code" href="#UI-11">UI-11</a>
-<div class="text"><p>Every view with dynamic content has a test of UI-09: scroll, note the screen position of the element on the middle line, make the change, assert it moved 0 px. One case per kind of change, in the middle of the view and at the very top, and one check that the browser alone fails it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a></div>
+<div class="text"><p><strong>Test it.</strong> For each kind of change, a test notes where the middle element is, makes the change, and checks it moved 0 px — at the top of the view and in the middle. One more check runs without the fix and must see the jump.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a></div>
 <div class="form"><pre>assert.equal(shift, 0);</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule bare" id="UI-12">
+<article class="rule" id="UI-12">
 <a class="code" href="#UI-12">UI-12</a>
-<div class="text"><p>An element that takes files or folders through an input also takes them dropped onto it. The input and the drop are built together; neither without the other.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a></div>
+<div class="text"><p><strong>A file input also takes a drop.</strong> Anything that lets the user pick files or a folder also takes them dragged onto it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a></div>
+<a class="form figure" href="../drafts/file-drop.png"><img class="light" src="../drafts/file-drop.png" alt="a file field: picked with its button, or a file dragged onto it" loading="lazy"><img class="dark" src="../drafts/file-drop-dark.png" alt="a file field: picked with its button, or a file dragged onto it" loading="lazy"></a>
 </article>
 <article class="rule" id="UI-13">
 <a class="code" href="#UI-13">UI-13</a>
-<div class="text"><p>The drop takes what the input takes: the same <code>accept</code> types, one or many as <code>multiple</code> says, and folders when the input takes folders, read through <code>webkitGetAsEntry()</code>. A picked file and a dropped one go to the same handler.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a></div>
+<div class="text"><p><strong>The drop takes what the input takes.</strong> The same file types, one or many, folders too; a dropped file goes down the same path as a picked one.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a></div>
 <div class="form"><pre>const entries = &#91;...event.dataTransfer.items].map(v =&gt; v.webkitGetAsEntry());</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="UI-14">
 <a class="code" href="#UI-14">UI-14</a>
-<div class="text"><p>While files are dragged over it, the element highlights. A drop beside it never opens the file in the tab: the window cancels <code>dragover</code> and <code>drop</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a></div>
+<div class="text"><p><strong>Show the drop target; never lose the page.</strong> The element lights up while files are dragged over it, and a file dropped beside it does not open in the tab.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a></div>
 <div class="form"><pre>window.addEventListener('dragover', event =&gt; event.preventDefault());
 window.addEventListener('drop', event =&gt; event.preventDefault());</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule bare" id="UI-15">
+<article class="rule" id="UI-15">
 <a class="code" href="#UI-15">UI-15</a>
-<div class="text"><p>Trust the user: they mean what they do. An action happens at once: delete, rename, move, cancel or clear, without an "Are you sure?" dialog. The user keeps working.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a></div>
+<div class="text"><p><strong>Trust the user: no "Are you sure?".</strong> Delete, rename, move, cancel: it happens at once, and the user keeps working.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a></div>
+<a class="form figure" href="../drafts/no-confirmations.png"><img class="light" src="../drafts/no-confirmations.png" alt="not a dialog on every delete, but done at once with Undo" loading="lazy"><img class="dark" src="../drafts/no-confirmations-dark.png" alt="not a dialog on every delete, but done at once with Undo" loading="lazy"></a>
 </article>
 <article class="rule" id="UI-16">
 <a class="code" href="#UI-16">UI-16</a>
-<div class="text"><p>Every such action can be taken back: a deleted thing goes to a trash it can be restored from; a rename, an edit or a move has an Undo, backed by a short history. The way back is at hand right after the action.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a></div>
+<div class="text"><p><strong>Undo instead.</strong> A deleted thing goes to a trash; a rename, an edit or a move can be undone. The way back is right there after the action.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a></div>
 <div class="form"><pre>Deleted · Undo</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule bare" id="UI-17">
 <a class="code" href="#UI-17">UI-17</a>
-<div class="text"><p>A confirmation is for the exceptional case only — an action that cannot be undone and costs a lot — and even there it is a deliberate step, typing the name or a link sent by email, never the everyday OK/Cancel modal.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a></div>
+<div class="text"><p><strong>Confirm only what cannot be undone and costs a lot.</strong> Closing an account, erasing data for good. Even then, not an OK/Cancel box but a deliberate step: typing the name, or a link sent by email.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a></div>
 </article>
 </section>
 <section class="group" id="REL">
@@ -2635,6 +2656,10 @@ function haystack_from_rule(rule_el)
     for (const el of rule_el.querySelectorAll('.text p, .src, .form pre, .form.prose')) {
         parts.push(el.textContent);
     }
+    const img = rule_el.querySelector('.figure img');
+    if (img) {
+        parts.push(img.alt);
+    }
     return parts.join(' ').toLowerCase();
 }
 
@@ -2691,6 +2716,17 @@ function input_q()
     catch {
     }
     filter_apply();
+    results_scroll_top();
+}
+
+// The reader typed: the matches start right under the sticky bar, not
+// cut off above it where the old scroll position left them.
+function results_scroll_top()
+{
+    const top = document.querySelector('.mast').offsetHeight;
+    if (window.scrollY > top) {
+        window.scrollTo(0, top);
+    }
 }
 
 // Every word of the query must occur somewhere in the rule: its code,

@@ -1117,6 +1117,17 @@ function input_q()
     catch {
     }
     filter_apply();
+    results_scroll_top();
+}
+
+// The reader typed: the matches start right under the sticky bar, not
+// cut off above it where the old scroll position left them.
+function results_scroll_top()
+{
+    const top = document.querySelector('.mast').offsetHeight;
+    if (window.scrollY > top) {
+        window.scrollTo(0, top);
+    }
 }
 
 // Every word of the query must occur somewhere in the term: its code,

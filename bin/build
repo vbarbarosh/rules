@@ -332,6 +332,10 @@ function format_term_definition(term)
 // byte for byte: <pre> keeps the entities rules.md already wrote.
 function html_from_form(form)
 {
+    const image = form.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (image) {
+        return html_from_image(image[1], image[2]);
+    }
     const pre = form.match(/^<pre>(.*)<\/pre>$/);
     if (pre) {
         return html_from_lines(pre[1].split('<br>'));
@@ -346,6 +350,19 @@ function html_from_form(form)
         return `<div class="form prose"><ol>${list}</ol></div>`;
     }
     return `<div class="form prose"><p>${html_from_inline(form)}</p></div>`;
+}
+
+// A picture, with its -dark twin when there is one; the page's theme picks which shows.
+function html_from_image(alt, url)
+{
+    const url_dark = url.replace(/(\.\w+)$/, '-dark$1');
+    if (!fs.existsSync(path.join(docs_dir, url))) {
+        throw new Error(`rules.md: no picture at ${url}`);
+    }
+    if (!fs.existsSync(path.join(docs_dir, url_dark))) {
+        return `<a class="form figure" href="${url}"><img src="${url}" alt="${html_escape(alt)}" loading="lazy"></a>`;
+    }
+    return `<a class="form figure" href="${url}"><img class="light" src="${url}" alt="${html_escape(alt)}" loading="lazy"><img class="dark" src="${url_dark}" alt="${html_escape(alt)}" loading="lazy"></a>`;
 }
 
 function html_from_lines(lines)
