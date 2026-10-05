@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-255 rules · 17 groups · 46 sources · filterable version: [rules.html](rules.html)
+258 rules · 17 groups · 47 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -23,7 +23,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | Upper-case keywords; the query laid out like code. |
 | VUE | Vue 2 | 19 | Components that behave like the platform. |
-| UI | User interface | 14 | What every new screen carries. |
+| UI | User interface | 17 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
 | GIT | Commits | 4 | A lowercase title, scope first; details below. |
 | DOC | Writing the rules | 10 | How a document in this repo is built. |
@@ -268,6 +268,9 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | UI-12 | An element that takes files or folders through an input also takes them dropped onto it. The input and the drop are built together; neither without the other. | — | [file_drop.md](../drafts/file_drop.md) |
 | UI-13 | The drop takes what the input takes: the same `accept` types, one or many as `multiple` says, and folders when the input takes folders, read through `webkitGetAsEntry()`. A picked file and a dropped one go to the same handler. | <pre>const entries = &#91;...event.dataTransfer.items].map(v =&gt; v.webkitGetAsEntry());</pre> | [file_drop.md](../drafts/file_drop.md) |
 | UI-14 | While files are dragged over it, the element highlights. A drop beside it never opens the file in the tab: the window cancels `dragover` and `drop`. | <pre>window.addEventListener('dragover', event =&gt; event.preventDefault());<br>window.addEventListener('drop', event =&gt; event.preventDefault());</pre> | [file_drop.md](../drafts/file_drop.md) |
+| UI-15 | Trust the user: they mean what they do. An action happens at once: delete, rename, move, cancel or clear, without an "Are you sure?" dialog. The user keeps working. | — | [no_confirmations.md](../drafts/no_confirmations.md) |
+| UI-16 | Every such action can be taken back: a deleted thing goes to a trash it can be restored from; a rename, an edit or a move has an Undo, backed by a short history. The way back is at hand right after the action. | `Deleted · Undo` | [no_confirmations.md](../drafts/no_confirmations.md) |
+| UI-17 | A confirmation is for the exceptional case only — an action that cannot be undone and costs a lot — and even there it is a deliberate step, typing the name or a link sent by email, never the everyday OK/Cancel modal. | — | [no_confirmations.md](../drafts/no_confirmations.md) |
 | **REL** | **Packaging and release** — Ship a prebuilt dist/. | | |
 | REL-01 | Distribute a prebuilt `dist/` from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do. | `<script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>` | [packaging.md](../packaging/packaging.md) |
 | REL-02 | The release workflow is fixed: ensure there are no changes, increase the version, update `dist/`, commit, tag. | <pre>rm -rf dist<br>npm run build<br>git add package.json package-lock.json dist<br>git commit -m "release v$(...)"<br>git tag v$(...)</pre> | [packaging.md](../packaging/packaging.md) |

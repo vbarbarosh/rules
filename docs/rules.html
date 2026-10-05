@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>255</b> rules<i>·</i><b>17</b> groups<i>·</i><b>46</b> sources</p>
+    <p class="stats"><b>258</b> rules<i>·</i><b>17</b> groups<i>·</i><b>47</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">255 rules</span>
+        <span class="count" id="count">258 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -843,7 +843,7 @@ footer .lead {
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">13</span></a>
 <a href="#SQL" data-group="SQL"><span class="tag">SQL</span><span class="name">SQL queries</span><span class="n">6</span></a>
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">19</span></a>
-<a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">14</span></a>
+<a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">17</span></a>
 <a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
 <a href="#GIT" data-group="GIT"><span class="tag">GIT</span><span class="name">Commits</span><span class="n">4</span></a>
 <a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">10</span></a>
@@ -2346,6 +2346,19 @@ await keep(async function () {
 <div class="text"><p>While files are dragged over it, the element highlights. A drop beside it never opens the file in the tab: the window cancels <code>dragover</code> and <code>drop</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a></div>
 <div class="form"><pre>window.addEventListener('dragover', event =&gt; event.preventDefault());
 window.addEventListener('drop', event =&gt; event.preventDefault());</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="UI-15">
+<a class="code" href="#UI-15">UI-15</a>
+<div class="text"><p>Trust the user: they mean what they do. An action happens at once: delete, rename, move, cancel or clear, without an "Are you sure?" dialog. The user keeps working.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a></div>
+</article>
+<article class="rule" id="UI-16">
+<a class="code" href="#UI-16">UI-16</a>
+<div class="text"><p>Every such action can be taken back: a deleted thing goes to a trash it can be restored from; a rename, an edit or a move has an Undo, backed by a short history. The way back is at hand right after the action.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a></div>
+<div class="form"><pre>Deleted · Undo</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="UI-17">
+<a class="code" href="#UI-17">UI-17</a>
+<div class="text"><p>A confirmation is for the exceptional case only — an action that cannot be undone and costs a lot — and even there it is a deliberate step, typing the name or a link sent by email, never the everyday OK/Cancel modal.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a></div>
 </article>
 </section>
 <section class="group" id="REL">
