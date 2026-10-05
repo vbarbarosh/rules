@@ -811,7 +811,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>237</b> rules<i>·</i><b>17</b> groups<i>·</i><b>42</b> sources</p>
+    <p class="stats"><b>246</b> rules<i>·</i><b>17</b> groups<i>·</i><b>43</b> sources</p>
 </div>
 </header>
 
@@ -821,7 +821,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">237 rules</span>
+        <span class="count" id="count">246 rules</span>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -838,7 +838,7 @@ footer .lead {
 <a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">30</span></a>
 <a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">11</span></a>
 <a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">25</span></a>
-<a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">19</span></a>
+<a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">28</span></a>
 <a href="#LOG" data-group="LOG"><span class="tag">LOG</span><span class="name">Logs</span><span class="n">23</span></a>
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">13</span></a>
 <a href="#SQL" data-group="SQL"><span class="tag">SQL</span><span class="name">SQL queries</span><span class="n">6</span></a>
@@ -1804,6 +1804,65 @@ fi</pre><button class="copy" type="button">Copy</button></div>
 <div class="text"><p>A docker image carries the code, never the data. One mount of <code>data/</code> — a named volume or a host directory — is all it takes to keep it; moving the project is moving its <code>data/</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/data.md" title="drafts/data.md">data.md</a></div>
 <div class="form"><pre>docker run -v app-data:/app/data app
 docker run -v /srv/app/data:/app/data app</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="PROJ-20">
+<a class="code" href="#PROJ-20">PROJ-20</a>
+<div class="text"><p>A GitHub <code>README.md</code> runs in one order: badges, cover image, name, short description, website, quick start, documentation, license. Badges, the website link and the further documentation pages may be absent; the rest are always there.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
+<div class="form"><pre>badges         optional
+cover image
+# name
+short description
+Website        left out when it is the documentation
+quick start
+## Documentation
+## License      last</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="PROJ-21">
+<a class="code" href="#PROJ-21">PROJ-21</a>
+<div class="text"><p>Badges sit at the very top, above the cover, a row per kind: the package and its numbers on one row, the CI workflows on the next. As many as the project has.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
+</article>
+<article class="rule" id="PROJ-22">
+<a class="code" href="#PROJ-22">PROJ-22</a>
+<div class="text"><p>The cover image is a file in <code>img/</code>, shown with <code>&lt;picture&gt;</code> and a dark twin when the colours need one.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
+<div class="form"><pre>&lt;picture&gt;
+  &lt;source media="(prefers-color-scheme: dark)" srcset="img/cover-dark.png"&gt;
+  &lt;img alt="rules" src="img/cover.png"&gt;
+&lt;/picture&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="PROJ-23">
+<a class="code" href="#PROJ-23">PROJ-23</a>
+<div class="text"><p>The name is the one <code>#</code> heading, right under the cover: the name of the repository.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
+<div class="form"><pre># rules</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule bare" id="PROJ-24">
+<a class="code" href="#PROJ-24">PROJ-24</a>
+<div class="text"><p>The short description is one sentence on its own line, and the same sentence is the repository's About text and the <code>description</code> of <code>package.json</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
+</article>
+<article class="rule" id="PROJ-25">
+<a class="code" href="#PROJ-25">PROJ-25</a>
+<div class="text"><p>A link with the text <code>Website</code> follows the description. Its address is the repository's About → Website and the <code>homepage</code> of <code>package.json</code>. It is left out when the website is the documentation.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
+<div class="form"><pre>**[Website](https://vbarbarosh.github.io/rules/)**</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="PROJ-26">
+<a class="code" href="#PROJ-26">PROJ-26</a>
+<div class="text"><p>A quick start shows how to install and run the project, in a few lines.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
+<div class="form"><pre>npx vbarbarosh/rules src</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="PROJ-27">
+<a class="code" href="#PROJ-27">PROJ-27</a>
+<div class="text"><p>A <code>## Documentation</code> section opens with the link to the full documentation. Further pages follow as a short list, each with what it covers.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
+<div class="form"><pre>## Documentation
+
+Full documentation: &#42;&#42;&#91;docs/rules.html](docs/rules.html)&#42;&#42;
+
+&#42; &#91;Formatting](FORMATTING.md) — the JavaScript spec</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="PROJ-28">
+<a class="code" href="#PROJ-28">PROJ-28</a>
+<div class="text"><p><code>## License</code> is the last section: the license named and linked to <code>LICENSE</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a></div>
+<div class="form"><pre>## License
+
+&#91;MIT](LICENSE)</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="LOG">

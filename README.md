@@ -28,7 +28,7 @@ npx vbarbarosh/rules src
 ## Rules
 
 - **[Linter setup and coverage](LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](docs/rules.html) — every rule below, all 237 of them, in one filterable table**
+- **[docs/rules.html](docs/rules.html) — every rule below, all 246 of them, in one filterable table**
 - JavaScript formatting — [specification](FORMATTING.md) · [visual representation](formatting.html)
 - Bash scripts — all scripts follow [bin/templ](bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](drafts/var_names.md) — a variable name states the shape of its data
@@ -51,6 +51,7 @@ npx vbarbarosh/rules src
 - [drafts/sql.md](drafts/sql.md) — a MySQL query is laid out like code: upper-case keywords, top-level clauses on their own lines
 - [drafts/interactions-should-return-only-boolean-flag.md](drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag; the best practices for [vue-modal](https://github.com/vbarbarosh/vue-modal)
 - [drafts/layout.md](drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
+- [drafts/readme.md](drafts/readme.md) — a README in one order: badges, cover, name, description, website, quick start, docs, license
 - [drafts/configure.md](drafts/configure.md) — `bin/configure` asks every question up front, `sudo` included
 - [drafts/data.md](drafts/data.md) — `data/` is the project's permanent data; one mount keeps it in docker
 - [drafts/value_label.md](drafts/value_label.md) — selectable options are `{value, label}`

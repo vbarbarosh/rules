@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>README structure</title>
+<style>
+:root {
+    --bg: #f3f0e8;
+    --paper: #fffdf7;
+    --ink: #172019;
+    --muted: #687168;
+    --line: #c9cec4;
+    --code-bg: #eeebe2;
+    --accent: #3d62ff;
+    --optional: #8a9288;
+    --optional-bg: #f7f4ec;
+}
+html.dark {
+    --bg: #0f1713;
+    --paper: #14201a;
+    --ink: #f4f6ed;
+    --muted: #91a196;
+    --line: #2c3c33;
+    --code-bg: #1e2d25;
+    --accent: #82a0ff;
+    --optional: #6f8076;
+    --optional-bg: #18241e;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1280px; }
+body {
+    padding: 56px 72px 64px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+.mono { font-family: "JetBrains Mono", "Noto Sans Mono", "DejaVu Sans Mono", monospace; }
+.head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+.title {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+.legend {
+    display: flex;
+    gap: 28px;
+    font-size: 16px;
+    color: var(--muted);
+}
+.legend span::before {
+    display: inline-block;
+    width: 26px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: -1px;
+    border: 2px solid var(--ink);
+    content: "";
+}
+.legend .is-optional::before {
+    border: 2px dashed var(--optional);
+    background: var(--optional-bg);
+}
+.grid {
+    display: grid;
+    grid-template-columns: 620px 1fr;
+}
+.page {
+    padding: 14px 40px;
+    border-left: 2px solid var(--ink);
+    border-right: 2px solid var(--ink);
+    background: var(--paper);
+}
+.page-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border: 2px solid var(--ink);
+    border-bottom-width: 1px;
+    background: var(--code-bg);
+    font-size: 15px;
+    font-weight: 700;
+}
+.page-first { padding-top: 28px; }
+.page-last {
+    padding-bottom: 36px;
+    border-bottom: 2px solid var(--ink);
+}
+.part {
+    position: relative;
+    padding: 4px 0;
+}
+.part.is-optional {
+    padding: 10px 12px;
+    border: 2px dashed var(--optional);
+    background: var(--optional-bg);
+}
+.cover { display: block; width: 100%; border: 1px solid var(--line); }
+.h1 {
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    font-size: 34px;
+    font-weight: 800;
+}
+.h2 {
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    font-size: 24px;
+    font-weight: 800;
+}
+.text { font-size: 17px; line-height: 1.5; }
+.badges { display: flex; flex-direction: column; gap: 6px; }
+.badge-row { display: flex; gap: 8px; }
+.badge {
+    display: flex;
+    font-size: 12px;
+    color: #fff;
+}
+.badge b { padding: 3px 7px; background: #555; font-weight: 500; }
+.badge i { padding: 3px 7px; background: #3a8a3a; font-style: normal; }
+.badge i.blue { background: #2f74c0; }
+.badge i.grey { background: #7a7a7a; }
+.code {
+    padding: 12px 16px;
+    background: var(--code-bg);
+    font-size: 15px;
+}
+.docs {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+}
+.links { margin: 0; padding-left: 22px; font-size: 16px; line-height: 1.7; }
+.links a, .text a { color: var(--accent); text-decoration: none; }
+.website { font-weight: 800; }
+.label {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+}
+.label::before {
+    flex: none;
+    width: 46px;
+    height: 0;
+    border-top: 2px solid var(--ink);
+    content: "";
+}
+.label.is-optional::before { border-top: 2px dashed var(--optional); }
+.num {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-right: 16px;
+    border: 2px solid var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 20px;
+    font-weight: 900;
+}
+.label.is-optional .num {
+    border: 2px dashed var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+}
+.label-name { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+.label-note { margin-top: 3px; font-size: 16px; color: var(--muted); }
+.gap { height: 18px; }
+.foot {
+    margin-top: 28px;
+    font-size: 17px;
+    color: var(--muted);
+}
+</style>
+<script>
+if (location.search === '?dark') {
+    document.documentElement.classList.add('dark');
+}
+</script>
+</head>
+<body>
+<div class="head">
+    <div class="title">README.md, top to bottom</div>
+    <div class="legend">
+        <span>always</span>
+        <span class="is-optional">optional</span>
+    </div>
+</div>
+<div class="grid">
+    <div class="page-top mono">&#9776; README.md</div>
+    <div></div>
+
+    <div class="page page-first">
+        <div class="part is-optional badges">
+            <div class="badge-row">
+                <span class="badge"><b>npm</b><i>v0.1.0</i></span>
+                <span class="badge"><b>license</b><i class="blue">MIT</i></span>
+                <span class="badge"><b>stars</b><i class="grey">12</i></span>
+            </div>
+            <div class="badge-row">
+                <span class="badge"><b>lint</b><i>passing</i></span>
+                <span class="badge"><b>tests</b><i>passing</i></span>
+            </div>
+        </div>
+    </div>
+    <div class="label is-optional">
+        <div class="num">1</div>
+        <div><div class="label-name">Badges</div><div class="label-note">at the very top, a row per kind</div></div>
+    </div>
+
+    <div class="page">
+        <div class="part"><img class="cover" id="cover" src="../img/cover.png" alt="cover"></div>
+    </div>
+    <div class="label">
+        <div class="num">2</div>
+        <div><div class="label-name">Cover image</div><div class="label-note"><span class="mono">img/cover.png + a dark twin</span></div></div>
+    </div>
+
+    <div class="page">
+        <div class="part h1">rules</div>
+    </div>
+    <div class="label">
+        <div class="num">3</div>
+        <div><div class="label-name">Name</div><div class="label-note">the one # heading, as the repo is called</div></div>
+    </div>
+
+    <div class="page">
+        <div class="part text">Rules for naming files, functions, classes, methods, variables, etc.</div>
+    </div>
+    <div class="label">
+        <div class="num">4</div>
+        <div><div class="label-name">Short description</div><div class="label-note">one sentence = GitHub About = package.json</div></div>
+    </div>
+
+    <div class="page">
+        <div class="part is-optional text"><a class="website">Website &rarr;</a></div>
+    </div>
+    <div class="label is-optional">
+        <div class="num">5</div>
+        <div><div class="label-name">Website</div><div class="label-note">left out when it is the documentation</div></div>
+    </div>
+
+    <div class="page">
+        <div class="part"><div class="code mono">npx vbarbarosh/rules src</div></div>
+    </div>
+    <div class="label">
+        <div class="num">6</div>
+        <div><div class="label-name">Quick start</div><div class="label-note">install and first run, a few lines</div></div>
+    </div>
+
+    <div class="page">
+        <div class="part h2">Documentation</div>
+        <div class="part text">Full documentation: <a class="website">docs/rules.html</a></div>
+    </div>
+    <div class="label">
+        <div class="num">7</div>
+        <div><div class="label-name">Documentation</div><div class="label-note">## heading, the main link first</div></div>
+    </div>
+
+    <div class="page">
+        <div class="part is-optional">
+            <ul class="links">
+                <li><a>Formatting</a> &mdash; the JavaScript spec</li>
+                <li><a>Linting</a> &mdash; the ESLint preset</li>
+                <li><a>Logs</a> &mdash; one line, one event</li>
+            </ul>
+        </div>
+    </div>
+    <div class="label is-optional">
+        <div class="num">8</div>
+        <div><div class="label-name">More pages</div><div class="label-note">each with what it covers</div></div>
+    </div>
+
+    <div class="page"><div class="gap"></div></div>
+    <div></div>
+
+    <div class="page page-last">
+        <div class="part h2">License</div>
+        <div class="part text"><a>MIT</a> &copy; Vladimir Barbaros</div>
+    </div>
+    <div class="label">
+        <div class="num">9</div>
+        <div><div class="label-name">License</div><div class="label-note">always the last section</div></div>
+    </div>
+</div>
+<div class="foot">Nothing else: the rest lives in the documentation.</div>
+<script>
+if (location.search === '?dark') {
+    document.getElementById('cover').src = '../img/cover-dark.png';
+}
+</script>
+</body>
+</html>

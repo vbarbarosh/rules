@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-237 rules · 17 groups · 42 sources · filterable version: [rules.html](rules.html)
+246 rules · 17 groups · 43 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -18,7 +18,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT | Formatting | 30 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 11 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 25 | One entry function, one fixed order. |
-| PROJ | Project layout | 19 | A directory is a program; bin/ holds its verbs. |
+| PROJ | Project layout | 28 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | Upper-case keywords; the query laid out like code. |
@@ -179,6 +179,15 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | PROJ-17 | `bin/configure` first works out what the run will need. When a step will need `sudo` — an Electron `chrome-sandbox` that is missing or not `root:4755`, for example — it takes `sudo -v` up front, and the later `sudo` calls reuse it. | <pre>sandbox=node_modules/electron/dist/chrome-sandbox<br>if &#91; "&#96;stat -c %U:%a $sandbox 2&gt;/dev/null&#96;" != "root:4755" ]; then<br>    sudo -v<br>fi</pre> | [configure.md](../drafts/configure.md) |
 | PROJ-18 | `data/` is the project's permanent data: a restart, a redeploy or a migration does not delete it. Everything the program writes and has to keep lives under `data/`, and nowhere else. | — | [data.md](../drafts/data.md) |
 | PROJ-19 | A docker image carries the code, never the data. One mount of `data/` — a named volume or a host directory — is all it takes to keep it; moving the project is moving its `data/`. | <pre>docker run -v app-data:/app/data app<br>docker run -v /srv/app/data:/app/data app</pre> | [data.md](../drafts/data.md) |
+| PROJ-20 | A GitHub `README.md` runs in one order: badges, cover image, name, short description, website, quick start, documentation, license. Badges, the website link and the further documentation pages may be absent; the rest are always there. | <pre>badges         optional<br>cover image<br># name<br>short description<br>Website        left out when it is the documentation<br>quick start<br>## Documentation<br>## License      last</pre> | [readme.md](../drafts/readme.md) |
+| PROJ-21 | Badges sit at the very top, above the cover, a row per kind: the package and its numbers on one row, the CI workflows on the next. As many as the project has. | — | [readme.md](../drafts/readme.md) |
+| PROJ-22 | The cover image is a file in `img/`, shown with `<picture>` and a dark twin when the colours need one. | <pre>&lt;picture&gt;<br>  &lt;source media="(prefers-color-scheme: dark)" srcset="img/cover-dark.png"&gt;<br>  &lt;img alt="rules" src="img/cover.png"&gt;<br>&lt;/picture&gt;</pre> | [readme.md](../drafts/readme.md) |
+| PROJ-23 | The name is the one `#` heading, right under the cover: the name of the repository. | `# rules` | [readme.md](../drafts/readme.md) |
+| PROJ-24 | The short description is one sentence on its own line, and the same sentence is the repository's About text and the `description` of `package.json`. | — | [readme.md](../drafts/readme.md) |
+| PROJ-25 | A link with the text `Website` follows the description. Its address is the repository's About → Website and the `homepage` of `package.json`. It is left out when the website is the documentation. | `**[Website](https://vbarbarosh.github.io/rules/)**` | [readme.md](../drafts/readme.md) |
+| PROJ-26 | A quick start shows how to install and run the project, in a few lines. | `npx vbarbarosh/rules src` | [readme.md](../drafts/readme.md) |
+| PROJ-27 | A `## Documentation` section opens with the link to the full documentation. Further pages follow as a short list, each with what it covers. | <pre>## Documentation<br><br>Full documentation: &#42;&#42;&#91;docs/rules.html](docs/rules.html)&#42;&#42;<br><br>&#42; &#91;Formatting](FORMATTING.md) — the JavaScript spec</pre> | [readme.md](../drafts/readme.md) |
+| PROJ-28 | `## License` is the last section: the license named and linked to `LICENSE`. | <pre>## License<br><br>&#91;MIT](LICENSE)</pre> | [readme.md](../drafts/readme.md) |
 | **LOG** | **Logs** — One line, one event, four fields. | | |
 | LOG-01 | A log is one infinite file. One physical line records one event, in four fields and nothing else. | `[time][group_uid][sender] details` | [logs.md](../drafts/logs.md) |
 | LOG-02 | Elapsed time, status and every other measurement belong in `details`, not in a field of their own. | `[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT` | [logs.md](../drafts/logs.md) |
