@@ -28,6 +28,7 @@ Full documentation: **[vbarbarosh.github.io/rules/docs/rules.html](https://vbarb
 * [Formatting](FORMATTING.md) — the JavaScript formatting spec · [visual guide](https://vbarbarosh.github.io/rules/formatting.html)
 * [Linting](LINTING.md) — the ESLint preset, its rules, and how to run it
 * [Glossaries](https://vbarbarosh.github.io/rules/docs/glossaries.html) — every term, in one filterable page
+* [Instructions for agents](https://vbarbarosh.github.io/rules/docs/agents.html) — what is expected of an agent, ready to paste into CLAUDE.md · [as Markdown](agents/)
 
 ## License
 

@@ -19,6 +19,7 @@ function main()
 {
     build_rules_html();
     build_glossaries_html();
+    build_agents_html();
     stamp_static_pages_version();
 }
 
@@ -42,6 +43,17 @@ function build_glossaries_html()
 }
 
 // The pages written by hand carry the version in their header too.
+function build_agents_html()
+{
+    const template = fs.readFileSync(path.join(docs_dir, 'agents.template.html'), 'utf8');
+    const readme = fs.readFileSync(path.join(root_dir, 'agents', 'README.md'), 'utf8');
+    const guides = [];
+    for (const file of guide_files_from_readme(readme)) {
+        guides.push(guide_from_markdown(fs.readFileSync(path.join(root_dir, 'agents', file), 'utf8'), file));
+    }
+    fs.writeFileSync(path.join(docs_dir, 'agents.html'), html_from_guides(template, readme, guides));
+}
+
 function stamp_static_pages_version()
 {
     for (const file of static_pages) {
@@ -160,7 +172,7 @@ function html_from_rule(rule)
     const form = bare ? '' : html_from_form(rule.form) + '\n';
     return `<article class="rule${bare ? ' bare' : ''}" id="${rule.code}">\n`
         + `<a class="code" href="#${rule.code}">${rule.code}</a>\n`
-        + `<div class="text"><p>${html_from_inline(rule.text)}</p>${source}</div>\n`
+        + `<div class="text"><p>${html_from_inline(rule.text)}</p>${source}<button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>\n`
         + form
         + '</article>\n';
 }
@@ -382,16 +394,180 @@ function html_from_line(line)
     return line.slice(0, start) + `<span class="${class_by_marker[match[2]]}">` + line.slice(start) + '</span>';
 }
 
+// Code spans first, so a ** inside one is code; a bold run may hold code spans.
 function html_from_inline(text)
 {
     let out = '';
+    let bold = false;
     for (const part of text.split(/(`[^`]+`)/)) {
         if (part.startsWith('`')) {
             out += '<code>' + html_escape(part.slice(1, -1)) + '</code>';
+            continue;
+        }
+        const pieces = part.split('**');
+        out += pieces[0];
+        for (let i = 1, end = pieces.length; i < end; ++i) {
+            bold = !bold;
+            out += (bold ? '<strong>' : '</strong>') + pieces[i];
+        }
+    }
+    if (bold) {
+        out += '</strong>';
+    }
+    return out;
+}
+
+// agents/README.md: a title, a lede, then one "- [file](file) — note" line per guide, in reading order.
+function guide_files_from_readme(readme)
+{
+    const out = [];
+    for (const line of readme.split('\n')) {
+        const match = line.match(/^- \[[^\]]+\]\(([^)]+\.md)\)/);
+        if (match) {
+            out.push(match[1]);
+        }
+    }
+    return out;
+}
+
+// A guide is a two-half document: the author's words on top, then the
+// guide itself from its "# Title" line down.
+function guide_from_markdown(markdown, file)
+{
+    const lines = markdown.replace(/\n+$/, '').split('\n');
+    const title_index = lines.findIndex(v => v.startsWith('# '));
+    if (title_index === -1) {
+        throw new Error(`agents/${file}: no "# Title" line starts the guide`);
+    }
+    return {
+        id: path.basename(file, '.md'),
+        file: `agents/${file}`,
+        title: lines[title_index].slice(2),
+        words: lines.slice(0, title_index).join('\n').trim(),
+        body: lines.slice(title_index + 1).join('\n').trim(),
+    };
+}
+
+function html_from_guides(template, readme, guides)
+{
+    const lines = readme.split('\n');
+    const values = {
+        title: html_escape(lines[0].replace(/^# /, '')),
+        version,
+        lede: html_from_guide_inline(lines.slice(2, lines.indexOf('', 2)).join(' ')),
+        guides_count: String(guides.length),
+        guides_nav: guides.map(html_from_guide_link).join(''),
+        guides_main: guides.map(html_from_guide).join(''),
+        handover: html_escape(format_guides_handover(guides)),
+    };
+    return template_fill(template, values);
+}
+
+// What a project's CLAUDE.md or AGENTS.md carries to hand the guides over.
+function format_guides_handover(guides)
+{
+    const out = ['Work the way these guides say; read them before the first edit:'];
+    for (const guide of guides) {
+        out.push(`- ${guide.title}: https://raw.githubusercontent.com/vbarbarosh/rules/main/${guide.file}`);
+    }
+    return out.join('\n');
+}
+
+function html_from_guide_link(guide, index)
+{
+    const tag = String(index + 1).padStart(2, '0');
+    return `<a href="#${guide.id}" data-group="${guide.id}"><span class="tag">${tag}</span><span class="name">${html_escape(guide.title)}</span></a>\n`;
+}
+
+function html_from_guide(guide, index)
+{
+    const tag = String(index + 1).padStart(2, '0');
+    const source = `<a class="src" href="${blob_url}${guide.file}" title="${guide.file}">${path.basename(guide.file)}</a>`;
+    return `<section class="group guide" id="${guide.id}">\n`
+        + `<h2><span class="tag">${tag}</span><span class="name">${html_escape(guide.title)}</span></h2>\n`
+        + `<article class="prose">\n${html_from_guide_markdown(guide.body)}</article>\n`
+        + '<div class="guide-foot">\n'
+        + `<details class="words"><summary>In the author's words</summary>\n${html_from_guide_markdown(guide.words)}</details>\n`
+        + `<div class="guide-actions">${source}<button class="copy-guide" type="button">Copy for an agent</button></div>\n`
+        + '</div>\n'
+        + `<pre class="md" hidden>${html_escape(`# ${guide.title}\n\n${guide.body}\n`)}</pre>\n`
+        + '</section>\n';
+}
+
+// Enough Markdown for a guide: "## " headings, paragraphs, pictures, and
+// "1." or "-" lists whose items continue on indented lines and may hold a
+// nested "-" list.
+function html_from_guide_markdown(markdown)
+{
+    let out = '';
+    for (const block of markdown.split(/\n{2,}/)) {
+        const lines = block.split('\n');
+        if (lines[0].startsWith('## ')) {
+            out += `<h3>${html_from_guide_inline(lines[0].slice(3))}</h3>\n`;
+            continue;
+        }
+        const image = block.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+        if (image) {
+            const url = `../agents/${image[2]}`;
+            if (!fs.existsSync(path.join(docs_dir, url))) {
+                throw new Error(`agents: no picture at ${image[2]}`);
+            }
+            out += `<a class="figure" href="${url}"><img src="${url}" alt="${html_escape(image[1])}" loading="lazy"></a>\n`;
+            continue;
+        }
+        if (/^(\d+\.|-) /.test(lines[0])) {
+            out += html_from_guide_list(lines) + '\n';
+            continue;
+        }
+        out += `<p>${html_from_guide_inline(lines.join(' '))}</p>\n`;
+    }
+    return out;
+}
+
+function html_from_guide_list(lines)
+{
+    const ordered = /^\d+\. /.test(lines[0]);
+    const items = [];
+    for (const line of lines) {
+        if (/^(\d+\.|-) /.test(line)) {
+            items.push([line.replace(/^(\d+\.|-) /, '')]);
         }
         else {
-            out += part.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            items[items.length - 1].push(line);
         }
+    }
+    const tag = ordered ? 'ol' : 'ul';
+    const html_items = items.map(function (item) {
+        const nested_index = item.findIndex((v, i) => i > 0 && /^\s+- /.test(v));
+        const text = (nested_index === -1) ? item : item.slice(0, nested_index);
+        const nested = (nested_index === -1) ? '' : html_from_guide_list(item.slice(nested_index).map(v => v.trim()));
+        return `<li>${html_from_guide_inline(text.map(v => v.trim()).join(' '))}${nested}</li>`;
+    });
+    return `<${tag}>${html_items.join('')}</${tag}>`;
+}
+
+// Like html_from_inline, for text that is plain Markdown: it is escaped, and
+// a link to another guide stays on the page.
+function html_from_guide_inline(text)
+{
+    let out = '';
+    let bold = false;
+    for (const part of text.split(/(`[^`]+`)/)) {
+        if (part.startsWith('`')) {
+            out += '<code>' + html_escape(part.slice(1, -1)) + '</code>';
+            continue;
+        }
+        const pieces = html_escape(part).replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (match, label, url) {
+            return /^[\w-]+\.md$/.test(url) ? `<a href="#${url.slice(0, -3)}">${label}</a>` : `<a href="${url}">${label}</a>`;
+        }).split('**');
+        out += pieces[0];
+        for (let i = 1, end = pieces.length; i < end; ++i) {
+            bold = !bold;
+            out += (bold ? '<strong>' : '</strong>') + pieces[i];
+        }
+    }
+    if (bold) {
+        out += '</strong>';
     }
     return out;
 }

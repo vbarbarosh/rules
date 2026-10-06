@@ -520,6 +520,68 @@ h1 {
     text-decoration: underline;
 }
 
+/* Copy a rule, or the rules shown, as Markdown for an agent. */
+.copy-rule, .copy-shown {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline dotted;
+    transition: color var(--fast);
+}
+
+.copy-rule {
+    margin-left: 14px;
+}
+
+.copy-rule:hover, .copy-shown:hover {
+    color: var(--accent);
+}
+
+.copy-rule.done, .copy-shown.done {
+    color: var(--yes);
+}
+
+.copy-rule.failed, .copy-shown.failed {
+    color: var(--no);
+}
+
+.copy-shown {
+    font-size: 12.5px;
+    white-space: nowrap;
+}
+
+/* ---------- hand them to an agent ---------- */
+
+.use .prose {
+    max-width: 72ch;
+    padding: 18px 2px 4px;
+}
+
+.use .prose p, .use .prose ul {
+    margin: 0 0 12px;
+}
+
+.use .prose li {
+    margin-bottom: 6px;
+}
+
+.use .prose code {
+    font-size: .8em;
+    padding: 1px 3px 2px;
+    background: var(--code-bg);
+    border: 1px solid var(--line-2);
+    transition: background-color var(--fast), border-color var(--fast);
+}
+
+.use .form {
+    max-width: 960px;
+    margin: 0 2px 28px;
+}
+
 .form {
     position: relative;
     min-width: 0;
@@ -773,7 +835,7 @@ footer .lead {
         gap: 4px;
     }
 
-    .rule.bare .text {
+    .rule.bare .text, .rule:has(.figure) .text, .figure {
         grid-column: auto;
     }
 
@@ -866,6 +928,7 @@ footer .lead {
         </div>
         <nav class="pages" aria-label="Pages">
             <a href="rules.html" aria-current="page">Rules</a>
+            <a href="agents.html">Agents</a>
             <a href="glossaries.html">Glossaries</a>
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
@@ -889,6 +952,7 @@ footer .lead {
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
         <span class="count" id="count">{{rules_count}} rules</span>
+        <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
             <button type="button" data-set="dark" aria-pressed="false">Dark</button>
@@ -898,8 +962,28 @@ footer .lead {
 
 <div class="wrap layout">
 <nav class="groups" aria-label="Groups">
+<a href="#use" data-group="use"><span class="tag">USE</span><span class="name">Hand them to an agent</span><span class="n"></span></a>
 {{groups_nav}}</nav>
 <main>
+<section class="group use" id="use">
+<h2><span class="tag">USE</span><span class="name">Hand them to an agent</span></h2>
+<div class="prose">
+<p>For every project: paste this into its <code>CLAUDE.md</code> or <code>AGENTS.md</code>. It is read at every start, so the agent follows the rules without being told.</p>
+</div>
+<div class="form"><pre>Follow the rules of vbarbarosh/rules. Read them before the first edit:
+https://raw.githubusercontent.com/vbarbarosh/rules/main/docs/rules.md
+Each rule cites its source document; read the source when a rule is unclear.
+Work the way the instructions for agents say:
+https://raw.githubusercontent.com/vbarbarosh/rules/main/agents/README.md
+Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy" type="button">Copy</button></div>
+<div class="prose">
+<ul>
+<li><b>Some rules</b>, for one task: filter them (<code>UI</code>, <code>logs.md</code>, <code>brace</code>), then <b>Copy</b> next to the count in the bar. The rules shown go to the clipboard as Markdown, each with its source link, ready for a conversation or a file.</li>
+<li><b>One rule</b>: <b>Copy</b> next to its source.</li>
+<li><b>How an agent works</b>, not how the code looks: <a href="agents.html">Instructions for agents</a>.</li>
+</ul>
+</div>
+</section>
 {{groups_main}}<p class="nothing" id="nothing" hidden>No rule matches that.</p>
 </main>
 </div>
@@ -918,7 +1002,10 @@ const count_el = document.getElementById('count');
 const nothing_el = document.getElementById('nothing');
 const theme_el = document.getElementById('theme');
 const bar_el = document.querySelector('.bar');
-const group_els = Array.from(document.querySelectorAll('section.group'));
+const use_el = document.getElementById('use');
+const copy_shown_el = document.getElementById('copy_shown');
+const group_els = Array.from(document.querySelectorAll('section.group:not(.use)'));
+const section_els = Array.from(document.querySelectorAll('section.group'));
 const rule_els = Array.from(document.querySelectorAll('article.rule'));
 const nav_by_group = {};
 const haystack_by_id = {};
@@ -947,6 +1034,8 @@ function main()
     filter_apply();
 
     document.addEventListener('click', click_copy);
+    document.addEventListener('click', click_copy_rule);
+    copy_shown_el.addEventListener('click', click_copy_shown);
     document.addEventListener('keydown', keydown_document);
     // Chrome on Wayland can hold a drag started by a quick double click.
     document.addEventListener('dragstart', dragstart_document);
@@ -1057,7 +1146,10 @@ function filter_apply()
         a.classList.toggle('none', visible === 0);
         a.querySelector('.n').textContent = (visible === rules.length) ? rules.length : `${visible}/${rules.length}`;
     }
+    use_el.hidden = (words.length > 0);
+    nav_by_group.use.classList.toggle('none', words.length > 0);
     nothing_el.hidden = (total > 0);
+    copy_shown_el.hidden = (total === 0);
     count_el.textContent = (total === rule_els.length) ? `${total} rules` : `${total} of ${rule_els.length} rules`;
     spy_apply();
 }
@@ -1077,7 +1169,7 @@ function spy_apply()
     spy_pending = false;
     const line = bar_el.getBoundingClientRect().bottom + 80;
     let current = null;
-    for (const group_el of group_els) {
+    for (const group_el of section_els) {
         if (group_el.hidden) {
             continue;
         }
@@ -1085,7 +1177,7 @@ function spy_apply()
             current = group_el.id;
         }
     }
-    for (const group_el of group_els) {
+    for (const group_el of section_els) {
         const a = nav_by_group[group_el.id];
         const was_current = a.classList.contains('current');
         a.classList.toggle('current', group_el.id === current);
@@ -1198,6 +1290,95 @@ async function click_copy(event)
         console.log(error.message);
         copy_state(button, 'Failed', 'failed');
     }
+}
+
+async function click_copy_rule(event)
+{
+    const button = event.target.closest('.copy-rule');
+    if (!button) {
+        return;
+    }
+    await copy_markdown(button, md_from_rule(button.closest('article.rule')));
+}
+
+// The rules the filter shows, under their group headings, with a link back to the same view.
+async function click_copy_shown()
+{
+    const out = [`# Rules from vbarbarosh/rules`, '', `Shown on ${location.href.replace(/#.*$/, '')}`];
+    for (const group_el of group_els) {
+        if (group_el.hidden) {
+            continue;
+        }
+        out.push('', `## ${group_el.querySelector('h2 .tag').textContent} · ${group_el.querySelector('h2 .name').textContent}`);
+        for (const rule_el of group_el.querySelectorAll('article.rule:not([hidden])')) {
+            out.push('', md_from_rule(rule_el));
+        }
+    }
+    await copy_markdown(copy_shown_el, out.join('\n') + '\n');
+}
+
+async function copy_markdown(button, text)
+{
+    try {
+        await clipboard_write(text);
+        copy_state(button, 'Copied', 'done');
+    }
+    catch (error) {
+        console.log(error.message);
+        copy_state(button, 'Failed', 'failed');
+    }
+}
+
+// A rule as Markdown for an agent: code, text, canonical form, source.
+// The verdicts stay in the form: to an agent ✓ and ✗ are the point.
+function md_from_rule(rule_el)
+{
+    const out = [`### ${rule_el.id}`, '', md_from_inline(rule_el.querySelector('.text p'))];
+    for (const form_el of rule_el.querySelectorAll('.form')) {
+        out.push('', md_from_form(form_el));
+    }
+    out.push('', `Source: ${rule_el.querySelector('.src').href}`);
+    return out.join('\n');
+}
+
+function md_from_form(form_el)
+{
+    const pre = form_el.querySelector('pre');
+    if (pre) {
+        return '```\n' + pre.textContent.replace(/\s+$/, '') + '\n```';
+    }
+    const img = form_el.querySelector('img');
+    if (img) {
+        return `![${img.alt}](${img.src})`;
+    }
+    const items = form_el.querySelectorAll('li');
+    if (items.length) {
+        return Array.from(items).map((v, i) => `${i + 1}. ${md_from_inline(v)}`).join('\n');
+    }
+    return md_from_inline(form_el);
+}
+
+function md_from_inline(el)
+{
+    let out = '';
+    for (const node of el.childNodes) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            out += node.textContent;
+        }
+        else if (node.matches('strong, b')) {
+            out += `**${md_from_inline(node)}**`;
+        }
+        else if (node.matches('code')) {
+            out += '`' + node.textContent + '`';
+        }
+        else if (node.matches('a')) {
+            out += `[${md_from_inline(node)}](${node.href})`;
+        }
+        else {
+            out += md_from_inline(node);
+        }
+    }
+    return out.trim();
 }
 
 function keydown_document(event)
