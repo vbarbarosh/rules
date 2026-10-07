@@ -1477,11 +1477,12 @@ default:
 </article>
 <article class="rule" id="FMT-12">
 <a class="code" href="#FMT-12">FMT-12</a>
-<div class="text"><p><strong>Options-style methods are function expressions.</strong> An object of methods — Vue options style — spells each method as a function expression.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Options-style methods are always function expressions.</strong> Even a return-only method without its own <code>this</code> or <code>arguments</code> keeps that form; the tiny-arrow rule applies to callbacks and value factories.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const options = {
     refresh: async function () {
     },
-    format_name: function () {
+    px: function (value) {
+        return value ? `${value}px` : '0';
     },
 };</pre><button class="copy" type="button">Copy</button></div>
 </article>
@@ -1673,7 +1674,7 @@ catch {
 </article>
 <article class="rule" id="FLOW-11">
 <a class="code" href="#FLOW-11">FLOW-11</a>
-<div class="text"><p><strong>A return-only callback is an arrow.</strong> A callback whose body is only <code>return &lt;expression&gt;</code>, and whose arrow fits on one line, is written as that arrow — the mirror of FLOW-07. <code>function</code> stays for a callback that does more, or that needs <code>this</code> or <code>arguments</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>A return-only callback is an arrow.</strong> Options-style methods retain function expressions (FMT-12). A callback whose body is only <code>return &lt;expression&gt;</code>, and whose arrow fits on one line, is written as that arrow — the mirror of FLOW-07. <code>function</code> stays for a callback that does more, or that needs <code>this</code> or <code>arguments</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>items.filter(function (item) {
     return item_text(item) === text;
 });                                       <span class="no">✗ no</span>
@@ -2663,7 +2664,7 @@ function main()
 </article>
 <article class="rule bare" id="LINT-03">
 <a class="code" href="#LINT-03">LINT-03</a>
-<div class="text"><p><strong>Tiny arrows fit one line.</strong> A tiny arrow is a single-line expression callback, passed as a call argument or as an object property value. It fits one line; the number of parameters does not matter. A lone value/event parameter is <code>v</code>, nested <code>vv</code> by total arrow depth; an error parameter stays <code>e</code> at every depth (VAR-05), including <code>.catch</code>, <code>.then</code> rejection callbacks and EventEmitter error listeners. It is taken whole — <code>v =&gt; v.uid</code>, not <code>({uid}) =&gt; uid</code>. A named helper is a function declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Tiny arrows fit one line.</strong> A tiny arrow is a single-line expression callback or value factory, passed as a call argument or as an object property value. Options-style methods retain function expressions (FMT-12); literal <code>methods: {...}</code> tables reject arrows. It fits one line; the number of parameters does not matter. A lone value/event parameter is <code>v</code>, nested <code>vv</code> by total arrow depth; an error parameter stays <code>e</code> at every depth (VAR-05), including <code>.catch</code>, <code>.then</code> rejection callbacks and EventEmitter error listeners. It is taken whole — <code>v =&gt; v.uid</code>, not <code>({uid}) =&gt; uid</code>. A named helper is a function declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
 <article class="rule" id="LINT-04">
 <a class="code" href="#LINT-04">LINT-04</a>

@@ -24,6 +24,7 @@ project, so all JavaScript code follows the same conventions.
     * Function expressions and callbacks also keep the opening brace on the declaration line
     * Do **not** use arrow functions for non-trivial logic
     * Arrow functions allowed **only** for tiny callbacks (`v => v.uid`)
+    * Options-style methods always use function expressions, including return-only methods; tiny callback and value-factory arrows keep their own scope
     * A callback whose body is only `return <expression>`, and whose arrow fits on one line, is written as that arrow; `function` stays for a callback that does more, or that needs `this` or `arguments`:
       ```js
       // BAD

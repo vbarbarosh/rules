@@ -4,6 +4,10 @@ function tiny_arrows(context)
 {
     return {
         ArrowFunctionExpression: function (node) {
+            if (is_options_method(node)) {
+                context.report({node, messageId: 'method'});
+                return;
+            }
             if (node.body.type === 'BlockStatement') {
                 context.report({node, messageId: 'block'});
             }
@@ -25,11 +29,29 @@ function tiny_arrows(context)
     };
 }
 
+function is_options_method(node)
+{
+    const property = node.parent;
+    const table = property?.parent;
+    const option = table?.parent;
+    if ((property?.type !== 'Property') || (property.value !== node) || (table?.type !== 'ObjectExpression') || (option?.type !== 'Property') || (option.value !== table)) {
+        return false;
+    }
+    if (option.key.type === 'Identifier') {
+        return !option.computed && (option.key.name === 'methods');
+    }
+    if (option.key.type === 'TemplateLiteral') {
+        return (option.key.expressions.length === 0) && (option.key.quasis[0].value.cooked === 'methods');
+    }
+    return (option.key.type === 'Literal') && (option.key.value === 'methods');
+}
+
 module.exports = {
     meta: {
         type: 'suggestion',
         schema: [],
         messages: {
+            method: 'Options-style methods use function expressions, even when they only return an expression.',
             block: 'An arrow with a {} body is not an arrow; write function (...) { ... } instead.',
             tiny: 'Use a function declaration/expression; arrows are only single-line expression callbacks.',
             name: 'Name this arrow parameter "{{expected}}".',

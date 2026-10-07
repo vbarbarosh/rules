@@ -10,7 +10,7 @@ Each Vue component will be provided with the following methods:
 Vue.mixin({
     methods: {
         px: function (value) {
-            return value ? `${value}px` : 0;
+            return value ? `${value}px` : '0';
         },
         // Generated ids are bound to current element. They are
         // necessary for `id` and `label[for]` attributes. Name

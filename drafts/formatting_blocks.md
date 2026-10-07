@@ -140,6 +140,11 @@ with method bodies below illustrates a multiline layout.
 
 ## Object with methods (vue options style)
 
+Options-style methods use function expressions, even when the body only
+returns an expression and does not use `this` or `arguments`. The tiny-arrow
+rule applies to callbacks and value factories, such as a prop default,
+and does not convert methods into arrows.
+
 ```js
 const options = {
     refresh: async function () {
@@ -147,6 +152,9 @@ const options = {
     },
     format_name: function () {
         // ...
+    },
+    px: function (value) {
+        return value ? `${value}px` : '0';
     },
 };
 ```

@@ -3,6 +3,19 @@ const config = require('../src/config');
 const test = require('node:test');
 const {ESLint} = require('eslint');
 
+test('the preset keeps options methods as functions and accepts tiny factories in JavaScript and Vue', async function () {
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const source = "const component = {\n    props: {items: {default: () => []}},\n    methods: {\n        px: function (value) {\n            return value ? `${value}px` : '0';\n        },\n        uids: function () {\n            return items.map(v => v.uid);\n        },\n    },\n};\nexport default component;";
+    const invalid = source.replace("px: function (value) {\n            return value ? `${value}px` : '0';\n        },", "px: v => v ? `${v}px` : '0',");
+    for (const file_path of ['options.js', 'options.vue']) {
+        for (const [code, expected] of [[source, []], [invalid, [['rules/tiny-arrows', 'method']]]]) {
+            const text = file_path.endsWith('.vue') ? `<script>\n${code.split('\n').map(v => `    ${v}`).join('\n')}\n</script>` : code;
+            const [result] = await linter.lintText(text, {filePath: file_path});
+            assert.deepEqual(result.messages.map(v => [v.ruleId, v.messageId]), expected, text);
+        }
+    }
+});
+
 test('the full preset agrees on value, event and error callback names', async function () {
     const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
     const sources = [

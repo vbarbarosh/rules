@@ -291,3 +291,24 @@ do not require a multiline layout. When size or nested structure requires
 multiple lines, use one field per line and a trailing comma. Align the short
 canonical example with this rule. This choice does not establish a numeric
 line-width limit.
+
+## MP-28 — Options-style methods are always function expressions
+
+**Scope:** FMT-12, FLOW-11, LINT-03, [formatting](FORMATTING.md),
+[formatting blocks](drafts/formatting_blocks.md), options-method examples and lint guidance.
+**Approved:** 2026-10-07, author choice A in `20261007_210538-me`.
+
+Options-style methods use function expressions, including methods whose body
+only returns an expression and does not use this or arguments. The tiny-arrow
+permission applies to callbacks and value factories, not these methods.
+Keep the actual px method as a function expression. Native class-method
+syntax keeps its existing scope.
+
+## MP-29 — Px returns the string zero
+
+**Scope:** px in [Vue global methods](vue2/vue-globals.md) and its examples.
+**Approved:** 2026-10-07, author correction in `20261007_210538-me`.
+
+The px helper returns ``value ? `${value}px` : '0'``. Its empty/zero branch is
+the string '0', not numeric zero. Preserve this correction when rewriting
+the example.
