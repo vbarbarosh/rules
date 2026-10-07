@@ -1232,10 +1232,7 @@ module.exports = users_group_by_role;</code></pre>
         <article class="payload-card bad">
             <h3>Implicit payload</h3>
             <p>The output grows whenever <code>item</code> grows.</p>
-<pre><code><span class="kw">return</span> {
-    ...item,
-    index,
-};</code></pre>
+<pre><code><span class="kw">return</span> {...item, index};</code></pre>
             <div class="payload" aria-label="Fields included by spreading">
                 <span>uid</span><span>parent_uid</span><span class="unwanted">token</span><span class="unwanted">debug</span><span>index</span>
             </div>
@@ -1243,11 +1240,7 @@ module.exports = users_group_by_role;</code></pre>
         <article class="payload-card good">
             <h3>Declared payload</h3>
             <p>The output changes only when this code changes.</p>
-<pre><code><span class="kw">return</span> {
-    uid: item.uid,
-    parent_uid: item.parent_uid,
-    index,
-};</code></pre>
+<pre><code><span class="kw">return</span> {uid: item.uid, parent_uid: item.parent_uid, index};</code></pre>
             <div class="payload" aria-label="Explicitly selected fields">
                 <span>uid</span><span>parent_uid</span><span>index</span>
             </div>

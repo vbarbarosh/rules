@@ -1472,12 +1472,8 @@ default:
 </article>
 <article class="rule" id="FMT-11">
 <a class="code" href="#FMT-11">FMT-11</a>
-<div class="text"><p><strong>One field per line, trailing comma.</strong> A multi-line object literal holds one field per line, trailing comma included.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>const next = {
-    uid: item.uid,
-    parent_uid: item.parent_uid,
-    index,
-};</pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p><strong>Keep short objects on one line; expand only when needed.</strong> Multiple fields alone do not require line breaks. When size or nested structure requires a multi-line object literal, use one field per line and a trailing comma.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>const next = {uid: item.uid, parent_uid: item.parent_uid, index};</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FMT-12">
 <a class="code" href="#FMT-12">FMT-12</a>

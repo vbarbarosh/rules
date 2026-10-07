@@ -279,3 +279,15 @@ Use **UI mechanics** for how interfaces work, distinct from their appearance.
 Place primary-search typing and default-item selection there, alongside
 scroll anchoring, file drop, undo/confirmation and optimistic updates. Keep
 existing rule IDs and deep links when organizing the rules into this category.
+
+## MP-27 — Short objects stay on one line when they fit
+
+**Scope:** FMT-11/13/15/18, [formatting](FORMATTING.md),
+[formatting blocks](drafts/formatting_blocks.md) and their visual examples.
+**Approved:** 2026-10-07, author choice A in `20261007_205159-me`.
+
+Keep a short object literal on one line when it fits. Multiple fields alone
+do not require a multiline layout. When size or nested structure requires
+multiple lines, use one field per line and a trailing comma. Align the short
+canonical example with this rule. This choice does not establish a numeric
+line-width limit.

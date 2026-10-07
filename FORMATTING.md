@@ -276,6 +276,8 @@ project, so all JavaScript code follows the same conventions.
 
 * **Object construction**
 
+    * Keep a short object literal on one line when it fits; multiple fields alone do not require a line break
+    * When size or nested structure requires a multi-line object, put one field per line and include a trailing comma
     * Prefer explicitly listing **only the required fields** when constructing objects
     * Avoid spreading full objects when only a subset is needed
     * Example:

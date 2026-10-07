@@ -129,13 +129,14 @@ function demo()
     }
 
     // object literal: data
-    const next = {
-        uid: item.uid,
-        parent_uid: item.parent_uid,
-        index,
-    };
+    const next = {uid: item.uid, parent_uid: item.parent_uid, index};
 }
 ```
+
+Keep a short object on one line when it fits; having several fields does
+not by itself require multiple lines. When size or nested structure requires
+a multiline object, use one field per line and a trailing comma. The object
+with method bodies below illustrates a multiline layout.
 
 ## Object with methods (vue options style)
 
