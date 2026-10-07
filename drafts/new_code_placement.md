@@ -63,6 +63,10 @@ This governs new code. Existing code may predate the current rules;
 introducing a rule does not require rewriting or reorganizing it.
 Refactoring that code is separate work for a suitable opportunity.
 
+The original report above predates the display-text clarification: its
+`render_human_status()` would now be `format_human_status()`. The current
+asset-family example below uses `render_css()` and `render_html()`.
+
 A run of functions of one family — `render_*`, `format_*`, `click_*` —
 stays unbroken. A new function of the family joins the run. A function of
 another family goes outside it, never between two of its members.
@@ -72,7 +76,7 @@ public function render_css()
 {
 }
 
-public function render_human_status()
+public function render_html()
 {
 }
 
@@ -82,5 +86,5 @@ public function describe(): void
 }
 ```
 
-- `describe()` between `render_css()` and `render_human_status()` splits
+- `describe()` between `render_css()` and `render_html()` splits
   the run; it goes after it.

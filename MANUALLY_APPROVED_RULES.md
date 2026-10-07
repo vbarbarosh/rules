@@ -195,3 +195,54 @@ Declare the helper or exported value separately above. Put
 `export default name;` at the bottom as the last statement. Never combine
 its declaration with the export. This approval settles placement and syntax;
 it does not by itself settle the separate question of permitted export types.
+
+## MP-19 — One public export may be a function, class, configuration or data
+
+**Scope:** library/reusable modules, FILE-01/20/21/23 and FN-16.
+**Approved:** 2026-10-07, author clarification `20261007_201355-me`.
+
+Both the helper-function and settings/configuration examples are valid.
+The rule is one public exported value, declared above and exported by name
+last. Executable scripts export nothing; tool-shaped files follow the tool.
+Class methods are allowed inside one exported class.
+
+## MP-20 — Format and render are adjacent, distinct output families
+
+**Scope:** [format](drafts/format_xxx.md), [render](drafts/render_xxx.md),
+FN-01/05/09, naming examples and their presentation.
+**Approved:** 2026-10-07, author clarification `20261007_201355-me`.
+
+Format strictly returns a string to be shown to a person. Render constructs
+asset content. Present the two definitions beside each other. Asset content
+can also be a string; output purpose distinguishes it from human-facing text.
+Do not invent `render_json()` usage to force a decision: the author has not
+established that convention. Existing purity/delivery distinctions keep
+their scope until separately changed.
+
+## MP-21 — Time0 for elapsed measurements; start belongs to a pair
+
+**Scope:** [timing names](drafts/var_names_time0.md), VAR-14/15, CORE-04.
+**Approved:** 2026-10-07, author clarification `20261007_201355-me`.
+
+An elapsed-time measurement uses time0. Outside that role, use start/finish
+or begin/end when the corresponding pair is actually used. This is not an
+absolute ban on start in other contexts or on externally defined API fields.
+
+## MP-22 — Req/res is reserved for Express
+
+**Scope:** CORE-04, route examples and request/response callbacks.
+**Approved:** 2026-10-07, author clarification `20261007_201355-me`.
+
+Req/res names the Express request/response pair only. Elsewhere use
+request/response. Promise executor names are a separate pair, addressed by
+MP-23 below.
+
+## MP-23 — Keep res/rej for Promise executors
+
+**Scope:** CORE-04, natural pairs, [file-drop Promise examples](drafts/file_drop.md).
+**Approved:** 2026-10-07, author choice A in `20261007_203200-me`.
+
+Res/rej is a valid abbreviation for Promise executor resolve/reject
+callbacks. Keep that pair in the file-drop examples. The full names
+resolve/reject remain valid too. Req/res is the separate Express
+request/response pair under MP-22.

@@ -1019,14 +1019,14 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
 </article>
 <article class="rule" id="CORE-04">
 <a class="code" href="#CORE-04">CORE-04</a>
-<div class="text"><p><strong>Opposites come from the established pairs, not from invention.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Opposites come from the established pairs, not from invention.</strong> <code>req/res</code> is Express-only; <code>res/rej</code> is valid for Promise executors, as are the full names <code>resolve/reject</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>construct/destruct  create/destroy
 open/close          begin/end
 start/finish        first/last
 next/previous       get/put
 src/dest            source/destination
-res/rej             resolve/reject
-req/res             request/response
+res/rej (Promise)   resolve/reject
+req/res (Express)   request/response
 setup/teardown      push/pull
 enabled/disabled    import/export</pre><button class="copy" type="button">Copy</button></div>
 </article>
@@ -1264,9 +1264,11 @@ console.log(&#96;${Date.now() - time0}ms&#96;);</pre><button class="copy" type="
 </article>
 <article class="rule" id="VAR-15">
 <a class="code" href="#VAR-15">VAR-15</a>
-<div class="text"><p><strong>No begin, start or t0.</strong> <code>begin</code>, <code>start</code> and <code>t0</code> do not exist.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_time0.md" title="drafts/var_names_time0.md">var_names_time0.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>$begin = microtime(true);   <span class="no">✗ no</span>
-$time0 = microtime(true);   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p><strong>Use time0 for measurement; paired names for other roles.</strong> Do not name an elapsed-time start <code>begin</code>, <code>start</code> or <code>t0</code>. Outside that role, use <code>start/finish</code> or <code>begin/end</code> when the pair is actually used.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_time0.md" title="drafts/var_names_time0.md">var_names_time0.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>const time0 = Date.now();  <span class="cmt">// elapsed-time measurement</span>
+
+const start = range.start;
+const finish = range.finish;</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="VAR-16">
 <a class="code" href="#VAR-16">VAR-16</a>
@@ -1294,10 +1296,18 @@ el.addEventListener('error', function (event) {
 <h2><span class="tag">FN</span><span class="name">Function contracts</span><span class="note">What a prefix promises the caller.</span></h2>
 <article class="rule" id="FN-01">
 <a class="code" href="#FN-01">FN-01</a>
-<div class="text"><p><strong>"format" returns display text.</strong> <code>format_*</code> returns a string intended for human display.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>"format" strictly returns human-facing text.</strong> <code>format_*</code> returns a string to show to a person, including when the value comes from object state.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>format_bytes(1457664)    <span class="cmt">// "1.4 MB"</span>
 format_duration(155000)  <span class="cmt">// "2m 35s"</span>
 format_usd(1299)         <span class="cmt">// "$12.99"</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="FN-05">
+<a class="code" href="#FN-05">FN-05</a>
+<div class="text"><p><strong>"render" constructs asset content.</strong> <code>render_*</code> constructs content such as CSS, HTML or SVG from state. The result can be a string; its purpose is an asset rather than a human-facing formatted value.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>public function render_css(): string
+{
+    return "body { color: {$this-&gt;text_color}; }";
+}</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FN-02">
 <a class="code" href="#FN-02">FN-02</a>
@@ -1316,41 +1326,30 @@ format_bytes(bytes)             <span class="yes">✓ right</span></pre><button 
 <div class="form"><pre>format_user(user)     <span class="cmt">// "Vladimir B. (admin)" — humans</span>
 json_from_user(user)  <span class="cmt">// machines</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule" id="FN-05">
-<a class="code" href="#FN-05">FN-05</a>
-<div class="text"><p><strong>"render" derives a small value from self.</strong> <code>render_*</code> derives a small value — usually a string — from the object’s own state. The Vue analogy is a computed property, written as a method.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>public function render_name_email()
-{
-    if ($this-&gt;name) {
-        return sprintf('%s &lt;%s&gt;', $this-&gt;name, $this-&gt;email);
-    }
-    return $this-&gt;email;
-}</pre><button class="copy" type="button">Copy</button></div>
-</article>
 <article class="rule" id="FN-06">
 <a class="code" href="#FN-06">FN-06</a>
-<div class="text"><p><strong>"render" is recomputed, never stored.</strong> The prefix separates derived values from stored attributes. <code>render_*</code> is recomputed per call — never cached, never stored.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>$this-&gt;email                  <span class="cmt">// a column</span>
-$this-&gt;render_dashboard_url() <span class="cmt">// computed every call</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p><strong>"render" is recomputed, never stored.</strong> The prefix separates constructed content from stored attributes. <code>render_*</code> is recomputed per call — never cached, never stored.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>$this-&gt;text_color     <span class="cmt">// stored attribute</span>
+$this-&gt;render_css()   <span class="cmt">// constructed content</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FN-07">
 <a class="code" href="#FN-07">FN-07</a>
 <div class="text"><p><strong>"render" may return null or throw.</strong> <code>render_*</code> may return <code>null</code> when not applicable, and may throw when the state makes the value meaningless.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>if (!$this-&gt;partner_email) {
+<div class="form"><pre>if (!$this-&gt;theme) {
     return null;
 }</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FN-08">
 <a class="code" href="#FN-08">FN-08</a>
-<div class="text"><p><strong>"render" is sync and pure; downloads are "export".</strong> <code>render_*</code> is never async and never side-effectful. A downloadable, substantial artifact — a zip, a csv, an xlsx — is <code>export_*</code>, which may be both.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>$user-&gt;render_name_email()   <span class="cmt">// small, sync, pure</span>
-export_zip()                 <span class="cmt">// artifact, may be async</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p><strong>"render" is sync and pure; downloads are "export".</strong> <code>render_*</code> constructs content without DOM updates, file writes or downloads. A downloadable artifact — zip, csv or xlsx — is <code>export_*</code>, which may be async and side-effectful.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>$theme-&gt;render_css()   <span class="cmt">// construct CSS content</span>
+export_zip()           <span class="cmt">// produce a downloadable artifact</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FN-09">
 <a class="code" href="#FN-09">FN-09</a>
-<div class="text"><p><strong>Format takes input; render reads self.</strong> <code>format_*</code> transforms an input it is given; <code>render_*</code> derives from self.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>format_usd($cents)          <span class="cmt">// value in  → string out</span>
-$user-&gt;render_name_email()  <span class="cmt">// state in  → string out</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p><strong>Format and render differ by output purpose.</strong> <code>format_*</code> returns a string a person reads; <code>render_*</code> constructs asset content. Both may return strings; reading object state does not turn display text into render output.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>format_bytes(1457664)   <span class="cmt">// "1.4 MB", human-facing text</span>
+$theme-&gt;render_css()   <span class="cmt">// CSS asset content</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FN-10">
 <a class="code" href="#FN-10">FN-10</a>
@@ -1396,7 +1395,7 @@ if (await modal_upload().promise()) {
 </article>
 <article class="rule bare" id="FN-16">
 <a class="code" href="#FN-16">FN-16</a>
-<div class="text"><p><strong>One public entry function per file.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>One public value per library module.</strong> A reusable module exports one function, class, configuration or data value. Executable scripts export nothing; tool-shaped files follow the tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
 </section>
 <section class="group" id="FMT">
@@ -1497,7 +1496,7 @@ default:
 <div class="form"><pre>const options = {
     refresh: async function () {
     },
-    render_name: function () {
+    format_name: function () {
     },
 };</pre><button class="copy" type="button">Copy</button></div>
 </article>
@@ -1542,7 +1541,8 @@ const users_by_role = users_group_by_role(users);   <span class="yes">✓ yes</s
 <article class="rule" id="FMT-21">
 <a class="code" href="#FMT-21">FMT-21</a>
 <div class="text"><p><strong>Every route has a route comment.</strong> Every route function carries a route comment directly above it: <code>METHOD /path (params)</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/endpoint_comment.md" title="drafts/endpoint_comment.md">endpoint_comment.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre><span class="cmt">// GET /file/&lt;name&gt;</span>
+<div class="form"><pre><span class="cmt">// Express route handler</span>
+<span class="cmt">// GET /file/&lt;name&gt;</span>
 async function file_get(req, res)
 {
 }</pre><button class="copy" type="button">Copy</button></div>
@@ -1550,7 +1550,8 @@ async function file_get(req, res)
 <article class="rule" id="FMT-22">
 <a class="code" href="#FMT-22">FMT-22</a>
 <div class="text"><p><strong>Parentheses only when the route takes input.</strong> Parentheses appear only when the endpoint takes input — body, headers, query, comma-separated, in that order.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/endpoint_comment.md" title="drafts/endpoint_comment.md">endpoint_comment.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre><span class="cmt">// POST /upload (body, header:x-filename)</span>
+<div class="form"><pre><span class="cmt">// Express route handler</span>
+<span class="cmt">// POST /upload (body, header:x-filename)</span>
 function upload_post(req, res)
 {
 }</pre><button class="copy" type="button">Copy</button></div>
@@ -1569,7 +1570,7 @@ function upload_post(req, res)
 </article>
 <article class="rule" id="FMT-25">
 <a class="code" href="#FMT-25">FMT-25</a>
-<div class="text"><p><strong>Named functions are "function" declarations.</strong> Every named function — top-level or nested — is a <code>function name(...)</code> declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Named functions outside class bodies are "function" declarations.</strong> Every named function outside a class — top-level or nested — is a <code>function name(...)</code> declaration. Class methods use their class syntax.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>function report_print()
 {
 }</pre><button class="copy" type="button">Copy</button></div>
@@ -1663,10 +1664,10 @@ fresh.catch(ignore);</pre><button class="copy" type="button">Copy</button></div>
 <article class="rule" id="FLOW-07">
 <a class="code" href="#FLOW-07">FLOW-07</a>
 <div class="text"><p><strong>A block-body arrow becomes a function.</strong> An arrow with a block body does not exist — it becomes <code>function (...) {}</code>, with an optional <code>_this</code> inside.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>req.on('end', async () =&gt; {          <span class="no">✗ does not exist</span>
+<div class="form"><pre>request.on('end', async () =&gt; {          <span class="no">✗ does not exist</span>
 });
 
-req.on('end', async function () {     <span class="yes">✓ this</span>
+request.on('end', async function () {     <span class="yes">✓ this</span>
 });</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FLOW-08">
@@ -1699,7 +1700,7 @@ items.filter(v =&gt; item_text(v) === text);   <span class="yes">✓ yes</span><
 <h2><span class="tag">FILE</span><span class="name">File and module structure</span><span class="note">One entry function, one fixed order.</span></h2>
 <article class="rule" id="FILE-01">
 <a class="code" href="#FILE-01">FILE-01</a>
-<div class="text"><p><strong>A library module exports one function, with <code>module.exports</code> at the end of the file.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>A library module exports one public value last.</strong> The value may be a function, class, configuration or data. Declare it above and export its name at file end; tool-shaped files follow their tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>module.exports = items_index_by_uid;</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule bare" id="FILE-02">
@@ -1810,7 +1811,7 @@ import {promisify} from 'util';</pre><button class="copy" type="button">Copy</bu
 </article>
 <article class="rule" id="FILE-20">
 <a class="code" href="#FILE-20">FILE-20</a>
-<div class="text"><p><strong>One export, last, and the file bears its name.</strong> A file exports exactly one thing, as its last statement, and is named after it. Declare the exported value above; export its name as the last statement: <code>module.exports = name;</code> or <code>export default name;</code>. Never combine an ES-module declaration with its export or export an inline expression.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>One library export, last, and the file bears its name.</strong> A reusable/library module exports one public value; the file is named after that value. Declare it above and export its name last: <code>module.exports = name;</code> or <code>export default name;</code>. Never combine an ES-module declaration with its export or export an inline expression. Executable scripts export nothing; tool-shaped files follow the tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre><span class="cmt">// helper.js</span>
 function helper()
 {
@@ -1821,7 +1822,7 @@ export default helper;</pre><button class="copy" type="button">Copy</button></di
 </article>
 <article class="rule" id="FILE-21">
 <a class="code" href="#FILE-21">FILE-21</a>
-<div class="text"><p><strong>No named exports; one function per file.</strong> No named exports — and the consuming side is banned as well: several names are never taken from a local module. Several functions are several files, each named after its function.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>No named exports; one public value per library module.</strong> Several independent public functions are several modules, each named after its export. One exported class can contain methods. Several names are never taken from a local module.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>export {engine_run, engine_transport};                   <span class="no">✗ no</span>
 import {engine_run, engine_transport} from './engine';   <span class="no">✗ no</span>
 
@@ -1830,7 +1831,7 @@ import engine_transport from './engine_transport';</pre><button class="copy" typ
 </article>
 <article class="rule bare" id="FILE-23">
 <a class="code" href="#FILE-23">FILE-23</a>
-<div class="text"><p><strong>Scratch and test code export one thing too.</strong> Research, scratch and test-support code inside a repository is not exempt from one export per file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Reusable scratch and test modules export one value too.</strong> Research, scratch and test-support modules are not exempt. Executable scripts export nothing; tool-shaped files follow the tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
 <article class="rule" id="FILE-24">
 <a class="code" href="#FILE-24">FILE-24</a>
@@ -1846,10 +1847,10 @@ import engine_transport from './engine_transport';</pre><button class="copy" typ
 <div class="text"><p><strong>A function family stays unbroken.</strong> A run of functions of one family — <code>render_*</code>, <code>format_*</code>, <code>click_*</code> — stays unbroken. A new member joins the run; a function of another family goes outside it, never between two members.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/new_code_placement.md" title="drafts/new_code_placement.md">new_code_placement.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>render_css()
 describe()            <span class="no">✗ splits the run</span>
-render_human_status()
+render_html()
 
 render_css()
-render_human_status()
+render_html()
 describe()            <span class="yes">✓ after the run</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>

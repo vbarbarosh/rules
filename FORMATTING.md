@@ -3,7 +3,7 @@ project, so all JavaScript code follows the same conventions.
 
 ## **Project JavaScript Coding Style**
 
-* Use **`function name(...)` declarations** for all top-level and nested named functions
+* Use **`function name(...)` declarations** for all top-level and nested named functions outside class bodies
 
     * A top-level function declaration puts its opening brace on the next line:
       ```js
@@ -42,9 +42,9 @@ project, so all JavaScript code follows the same conventions.
     * With several parameters, choose names for their roles; the first parameter of an error handler still follows the error naming rule
     * A lone value parameter and an error handler’s first parameter are taken whole, not destructured; see [error names](drafts/var_names_error.md) and [nested handlers](drafts/var_names_event.md)
 
-* **One public entry function per file**
+* **One public value per library module**
 
-    * Library modules export one function with `module.exports = <function_name>;` at file end
+    * Library modules export one public value — a function, class, configuration or data — with `module.exports = <name>;` at file end; declare the value above and name the file after it
     * An executable script uses `main` as its entry function and does not export
     * Hand `main` to `cli` with `cli(main);` immediately after `require` statements and all global initialization
     * Never call `main()` directly; `cli` owns the process contract (see [drafts/cli_main.md](drafts/cli_main.md))
@@ -246,11 +246,11 @@ project, so all JavaScript code follows the same conventions.
     * `require` statements must follow, sorted as plain text lines in byte order — vim's `:sort`, or `LC_ALL=C sort` (see [drafts/imports_sorted.md](drafts/imports_sorted.md))
     * File-level constants and variables must follow `require` statements
     * An executable script must call `cli(main);` immediately after all global initialization
-    * The public entry function must be the first function in the file
-    * All helper functions must be defined after the public entry function
+    * When the public value is a function, it must be the first function in the file
+    * Private helper functions must be defined after the public entry declaration
     * In an executable script, the first function declaration must be `function main()`
     * No executable code other than `cli(main);` may appear before the public entry function — no module-level `if`, `for` or `while`; an executable's setup happens in `main`
-    * A library module ends with `module.exports = public_entry_function;`
+    * A library module ends with `module.exports = public_value;`; executable scripts export nothing, and tool-shaped files follow the tool
 
 > Library order = `requires → constants → public entry → helpers → module.exports`
 >

@@ -7,6 +7,9 @@ Every route function carries a route comment directly above it:
 - A path parameter is spelled in the path itself: `/file/<name>`.
 - An intent comment continues the same block on the next line.
 
+The examples below are Express route handlers: `req` and `res` are reserved
+for that context. Other request/response contexts use the full names.
+
 ```js
 // POST /upload (body, header:x-filename)
 function upload_post(req, res)

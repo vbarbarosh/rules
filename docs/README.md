@@ -31,7 +31,7 @@ It's just not written down.
 - [drafts/return_out.md](../drafts/return_out.md) — the constructed return value is named `out`
 - [drafts/refresh.md](../drafts/refresh.md) — `refresh` and `refresh_*` sync local vars with remote data
 - [drafts/format_xxx.md](../drafts/format_xxx.md) — `format_*` returns a string for human display
-- [drafts/render_xxx.md](../drafts/render_xxx.md) — `render_*` derives a small value from own state
+- [drafts/render_xxx.md](../drafts/render_xxx.md) — `render_*` constructs asset content; compare with the neighboring `format_*` rule
 - [drafts/var_names_error.md](../drafts/var_names_error.md) — errors use `e` in arrows and `error` in regular handlers
 - [drafts/var_names_time0.md](../drafts/var_names_time0.md) — the start time of a measurement is always named `time0`
 - [drafts/var_names_event.md](../drafts/var_names_event.md) — events use `v` in arrows and `event` in regular functions; nested handler names
@@ -54,7 +54,7 @@ It's just not written down.
 - [drafts/data.md](../drafts/data.md) — `data/` is the project's permanent data; one mount keeps it in docker
 - [drafts/value_label.md](../drafts/value_label.md) — selectable options are `{value, label}`
 - [drafts/logs.md](../drafts/logs.md) — `[time][group_uid][sender] details`, one event per line · [cheatsheet](../drafts/logs-cheatsheet.html)
-- [drafts/one_export_per_file.md](../drafts/one_export_per_file.md) — a file exports exactly one thing, as its last statement
+- [drafts/one_export_per_file.md](../drafts/one_export_per_file.md) — a reusable module exports one public value last; executable scripts export nothing
 - [drafts/theme_switch.md](../drafts/theme_switch.md) — every new UI carries a light/dark switch; two states, never System
 - [drafts/audit_note.md](../drafts/audit_note.md) — a full audit goes to `notes/audit-<date>.md`; its register is the issue list
 - [drafts/commits.md](../drafts/commits.md) — a commit title is `scope: description`, lowercase, 72 characters at most
@@ -86,14 +86,22 @@ It's just not written down.
 - get/put
 - src/dest
 - source/destination
-- res/rej
+- res/rej — allowed abbreviations for Promise executor resolve/reject callbacks
 - resolve/reject
-- req/res
+- req/res — Express request/response only; elsewhere use request/response
 - request/response
 - setup/teardown
 - push/pull
 - enabled/disabled
 - import/export
+
+`req/res` abbreviates request/response only in Express handlers. `res/rej`
+abbreviates resolve/reject in Promise executors; the full names
+`resolve/reject` are also valid.
+
+```js
+new Promise((res, rej) => entry.file(res, rej));
+```
 
 ## Glossaries
 

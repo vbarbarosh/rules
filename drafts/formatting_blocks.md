@@ -45,7 +45,7 @@ function demo()
     });
 
     // async function expression callback
-    req.on('end', async function () {
+    request.on('end', async function () {
         // ...
     });
 
@@ -144,7 +144,7 @@ const options = {
     refresh: async function () {
         // ...
     },
-    render_name: function () {
+    format_name: function () {
         // ...
     },
 };

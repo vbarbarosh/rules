@@ -22,8 +22,8 @@ const users_by_role = users_group_by_role(users);
 | `_to_`         | function | convert; source first (method position)      | `tree.to_json()`              |
 | `_of_`         | function | possession query                             | `descendants_of(node)`        |
 | `is_`          | function | predicate, returns boolean                   | `is_ancestor(a, b)`           |
-| `format_`      | function | returns string for human display             | `format_bytes(n)`             |
-| `render_`      | function | derives small value from own state           | `$user->render_name_email()`  |
+| `format_`      | function | strictly returns text for human display             | `format_bytes(n)`             |
+| `render_`      | function | constructs asset content from state           | `$theme->render_css()`  |
 | `export_`      | function | produces downloadable artifact; may be async | `export_zip()`                |
 
 Rulings:

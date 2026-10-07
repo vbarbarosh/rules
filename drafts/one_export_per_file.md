@@ -1,14 +1,18 @@
-- one default export per file
+- one default export per reusable/library module: a function, class, configuration or data
+- executable scripts export nothing; tool-shaped files follow the tool
 - declare the exported value above; the last statement is `export default name;`
 - never combine the declaration with the export: no `export default function` or `export default class`
 - never `export {a, b}`; never `import {a, b}` from a local module
-- several functions = several files
+- several independent public functions = several files
 - research and scratch code is not exempt
 
 
 # One export per file
 
-A file exports exactly one thing, as its last statement. The rule is the same
+A reusable/library module exports exactly one public value: a function,
+class, configuration or data. Declare it separately and export its name as
+the last statement. Executable scripts export nothing; a file whose shape
+is dictated by a tool follows the tool. The rule is the same
 for both module systems:
 
 ```js
@@ -40,6 +44,29 @@ export default function items_index_by_uid(items)
 
 The file is named after what it exports: `items_index_by_uid.js`.
 
+Both of these are valid, in separate files:
+
+```js
+// helper.js
+function helper()
+{
+    return null;
+}
+
+export default helper;
+```
+
+```js
+// settings.js
+const settings = {port: 8080};
+
+export default settings;
+```
+
+The filename follows the exported value: `helper.js`, `Logger.js` or
+`settings.js`. Several independent public functions are several modules;
+this does not forbid methods inside one exported class.
+
 ## No named exports
 
 ```js
@@ -57,7 +84,7 @@ import {engine_run, engine_transport} from './engine';
 const {engine_run, engine_transport} = require('./engine');
 ```
 
-Several functions are several files, each named after its function:
+Several independent public functions are several files, each named after its function:
 
 ```js
 // GOOD

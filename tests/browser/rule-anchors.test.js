@@ -16,15 +16,15 @@ let server;
 let origin;
 
 test.before(async function () {
-    server = http.createServer(function (req, res) {
-        const file = path.resolve(root_dir, '.' + new URL(req.url, 'http://localhost').pathname);
+    server = http.createServer(function (request, response) {
+        const file = path.resolve(root_dir, '.' + new URL(request.url, 'http://localhost').pathname);
         if (!file.startsWith(root_dir + path.sep) || !fs.existsSync(file)) {
-            res.writeHead(404).end();
+            response.writeHead(404).end();
             return;
         }
         const types = {'.html': 'text/html', '.png': 'image/png', '.gif': 'image/gif'};
-        res.setHeader('Content-Type', types[path.extname(file)] || 'application/octet-stream');
-        fs.createReadStream(file).pipe(res);
+        response.setHeader('Content-Type', types[path.extname(file)] || 'application/octet-stream');
+        fs.createReadStream(file).pipe(response);
     });
     await new Promise(v => server.listen(0, '127.0.0.1', v));
     origin = `http://127.0.0.1:${server.address().port}`;
@@ -171,7 +171,7 @@ async function scroll_settle(page)
         return new Promise(function (resolve, reject) {
             let last = scrollY;
             let stable = 0;
-            const start = performance.now();
+            const time0 = performance.now();
             requestAnimationFrame(tick);
             function tick() {
                 stable = scrollY === last ? stable + 1 : 0;
@@ -179,7 +179,7 @@ async function scroll_settle(page)
                 if (stable >= 12) {
                     resolve();
                 }
-                else if (performance.now() - start > 5000) {
+                else if (performance.now() - time0 > 5000) {
                     reject(new Error('scroll did not settle'));
                 }
                 else {

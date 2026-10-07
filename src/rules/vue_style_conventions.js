@@ -18,9 +18,9 @@ function vue_style_conventions(context)
         Program: function () {
             for (const block of vue_styles(source).blocks) {
                 function report(node, messageId) {
-                    const start = node.source.start;
-                    const line = source.getLocFromIndex(block.offset).line + start.line - 1;
-                    const column = start.line === 1 ? source.getLocFromIndex(block.offset).column + start.column - 1 : start.column - 1;
+                    const position = node.source.start;
+                    const line = source.getLocFromIndex(block.offset).line + position.line - 1;
+                    const column = position.line === 1 ? source.getLocFromIndex(block.offset).column + position.column - 1 : position.column - 1;
                     context.report({loc: {line, column}, messageId, data: {mixin: mixin_name}});
                 }
                 block.root.walk(function (node) {

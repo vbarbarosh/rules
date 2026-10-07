@@ -1,4 +1,4 @@
-`format_*` returns a string intended for human display:
+`format_*` strictly returns a string intended to be shown to a person:
 
 ```js
 format_bytes(1457664)    // "1.4 MB"
@@ -22,5 +22,14 @@ format_user(user)     // "Vladimir B. (admin)" — for humans
 json_from_user(user)  // for machines
 ```
 
-`format_*` transforms an input it is given; deriving a string from
-an object's own state is `render_*`.
+The output purpose determines the name, including for a method that reads
+its own state. Human-facing text is `format_*`; constructed asset content
+is `render_*`. An HTML/CSS/SVG asset may also be a string, so the return type
+alone does not distinguish them.
+
+| Family | Output purpose | Example |
+|---|---|---|
+| `format_*` | String a person reads | `format_bytes(1457664)` → `"1.4 MB"` |
+| `render_*` | Constructed asset content | `$theme->render_css()` → CSS content |
+
+See [render_xxx.md](render_xxx.md).
