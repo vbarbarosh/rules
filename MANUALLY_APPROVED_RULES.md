@@ -31,8 +31,8 @@ approval file and record any later author-approved change to a decision.
 [implementation](https://github.com/vbarbarosh/rules/commit/6521671).
 
 `build/` is reproducible scratch output and is never committed. `dist/` is
-released output and is committed at release time. This decision does not
-specify the command that transfers or builds the release output.
+released output and is committed at release time. The command that fills
+`dist/` is decided in MP-32.
 
 ## MP-03 — Classes are allowed
 
@@ -342,3 +342,15 @@ before the first `## ` section, are the author's. Each `## ` section is the
 AI's explanation of a term, regenerated from the author's line and the
 applicable approved entries. A new term in the author's list needs the
 author's request.
+
+## MP-32 — Release runs the one build, then copies it
+
+**Scope:** PROJ-03, PROJ-04, REL-02, [project layout](drafts/layout.md),
+[packaging](packaging/packaging.md); completes MP-02.
+**Approved:** 2026-10-07, author choice A in `20261007_234134-me`.
+
+A project has one build command, `bin/build` (`npm run build`), and it
+writes `build/`. `bin/release` makes the release from it: it runs that same
+build, may pass it flags or environment variables, and may clear the output
+directory first; then it copies `build/` into `dist/`. There is no second
+build command for releases.
