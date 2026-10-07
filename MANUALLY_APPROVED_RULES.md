@@ -60,8 +60,9 @@ and the rule for node scripts; it is not imposed on every consuming project.
 
 The result variable governed by the `out` rule is returned as `return out;`,
 exactly. A value joined, stringified or otherwise transformed on its way out
-is named by what it is. The scope for parameters, loop values and outer values
-remains a separate open finding; this entry does not decide it.
+is named by what it is. A parameter, a loop variable or an outer value
+returned unchanged keeps its own name (author's decision 2026-10-07,
+C:RULES-60 and R:RULES-06).
 
 ## MP-06 — Four fields in a log line
 

@@ -1143,7 +1143,7 @@ items_sorted_by_time   <span class="cmt">// Item&#91;], reordered</span></pre><b
 </article>
 <article class="rule" id="VAR-02">
 <a class="code" href="#VAR-02">VAR-02</a>
-<div class="text"><p><strong>Name the result out.</strong> If a variable is used in a <code>return</code> statement, it must be named <code>out</code> — <code>return out;</code>, exactly.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/return_out.md" title="drafts/return_out.md">return_out.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Name the result out.</strong> A variable the function builds and returns unchanged is named <code>out</code> — <code>return out;</code>, exactly. A parameter, a loop variable or an outer value returned unchanged keeps its own name: <code>return user;</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/return_out.md" title="drafts/return_out.md">return_out.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>function emails_from_users(users)
 {
     const out = &#91;];

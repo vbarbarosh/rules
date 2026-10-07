@@ -235,7 +235,8 @@ project, so all JavaScript code follows the same conventions.
 
 * **Return variable naming**
 
-    * A variable returned as it is — `return out;`, exactly — **MUST be named `out`**
+    * A variable the function builds and returns unchanged — `return out;`, exactly — **MUST be named `out`**
+    * A parameter, a loop variable or an outer value returned unchanged keeps its own name: `return user;`
     * A value joined, stringified or otherwise transformed on its way out is named by what it is: `return lines.join('\n');` (see [drafts/return_out.md](drafts/return_out.md))
     * Returning **literals or expressions** directly is allowed
     * Early guard returns may return literals (`null`, `false`, `[]`, `{}`)

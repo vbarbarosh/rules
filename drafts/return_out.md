@@ -1,4 +1,4 @@
-If a variable is used in a `return` statement, it must be named `out`: `return out;`, exactly.
+A variable the function builds and returns unchanged is named `out`: `return out;`, exactly.
 
 ```js
 function emails_from_users(users)
@@ -34,6 +34,21 @@ function csv_from_rows(rows)
         lines.push(row.join(','));
     }
     return lines.join('\n');
+}
+```
+
+A parameter, a loop variable or an outer value returned unchanged keeps its own
+name; it is not copied into `out`:
+
+```js
+function users_find_by_email(users, email)
+{
+    for (const user of users) {
+        if (user.email === email) {
+            return user;
+        }
+    }
+    return null;
 }
 ```
 

@@ -143,6 +143,7 @@ tester.run('return-out', plugin.rules['return-out'], {
     valid: [
         'function f() { const out = []; out.push(1); return out; }',
         'function f(value) { return value; }',
+        'function f(users) { for (const user of users) { if (user.ok) { return user; } } return null; }',
         'function f() { return {}; }',
         'const items = []; function f() { return items; }',
         'function f() { const data = fetch(); log(data); return data; }',
