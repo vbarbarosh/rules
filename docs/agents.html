@@ -1024,7 +1024,7 @@ discover it after.
 <h2><span class="tag">03</span><span class="name">Every state before done</span></h2>
 <article class="prose">
 <p>A piece of UI is not done when it looks right with the one text it was built with. It is done when it holds with every text and value it will be given. The agent tries those before saying &quot;done&quot;, not the author after. It is one case of <a href="#consequences_first">Consequences first</a>.</p>
-<a class="figure" href="../agents/every-state-alert.png"><img src="../agents/every-state-alert.png" alt="the close button pushed under a long alert message" loading="lazy"></a>
+<a class="figure" href="../agents/every-state-alert.png"><img src="../agents/every-state-alert.png" alt="the close button pushed under a long alert message" width="2320" height="210" loading="lazy"></a>
 <p>The alert above was built with a short message. A long one took the whole row, and the close button wrapped to a line of its own, under the text. One long message in a test would have shown it.</p>
 <h3>Why</h3>
 <p>The author sees the UI with real data, and real data is never the sample the agent typed: a name is long, a title is missing, a count is zero or a million. Each of those breaks a layout made for the sample, and each break costs the author a screenshot and a message. Trying the states takes the agent minutes; finding them one by one takes the author days.</p>
