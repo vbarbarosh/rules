@@ -184,3 +184,14 @@ Use the same SVG sun/crescent pair everywhere. Show the current theme: sun for
 Light, crescent for Dark. One click toggles directly between those two states,
 with no menu, System or Auto option. Size and border may follow the interface.
 The selected pair is retained in `img/theme-sun.svg` and `img/theme-moon.svg`.
+
+## MP-18 — Declare first, export the name last
+
+**Scope:** FILE-20, [one export per file](drafts/one_export_per_file.md),
+ES-module examples and controls that explain that rule.
+**Approved:** 2026-10-07, author clarification `20261007_200654-me`.
+
+Declare the helper or exported value separately above. Put
+`export default name;` at the bottom as the last statement. Never combine
+its declaration with the export. This approval settles placement and syntax;
+it does not by itself settle the separate question of permitted export types.

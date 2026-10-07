@@ -1810,9 +1810,14 @@ import {promisify} from 'util';</pre><button class="copy" type="button">Copy</bu
 </article>
 <article class="rule" id="FILE-20">
 <a class="code" href="#FILE-20">FILE-20</a>
-<div class="text"><p><strong>One export, last, and the file bears its name.</strong> A file exports exactly one thing, as its last statement, and is named after it. The rule is the same for both module systems: <code>module.exports = name;</code> or <code>export default name;</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre><span class="cmt">// items_index_by_uid.js</span>
-export default items_index_by_uid;</pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p><strong>One export, last, and the file bears its name.</strong> A file exports exactly one thing, as its last statement, and is named after it. Declare the exported value above; export its name as the last statement: <code>module.exports = name;</code> or <code>export default name;</code>. Never combine an ES-module declaration with its export or export an inline expression.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre><span class="cmt">// helper.js</span>
+function helper()
+{
+    return null;
+}
+
+export default helper;</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FILE-21">
 <a class="code" href="#FILE-21">FILE-21</a>
