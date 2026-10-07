@@ -10,7 +10,7 @@ const docs_dir = path.join(__dirname, '..', 'docs');
 const glossary_files = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md'];
 const marker_regex = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
 const root_dir = path.join(__dirname, '..');
-const static_pages = ['formatting.html', 'drafts/logs-cheatsheet.html'];
+const static_pages = ['formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html'];
 const version = `v${require('../package.json').version}`;
 
 cli(main);
@@ -59,8 +59,19 @@ function stamp_static_pages_version()
     for (const file of static_pages) {
         const file_path = path.join(root_dir, file);
         const html = fs.readFileSync(file_path, 'utf8');
-        fs.writeFileSync(file_path, html.replace(/<span class="version">[^<]*<\/span>/, `<span class="version">${version}</span>`));
+        const updated = html.replace(/<span class="version">[^<]*<\/span>/, `<span class="version">${version}</span>`);
+        fs.writeFileSync(file_path, updated.replace(/<!-- theme-icons -->[\s\S]*?<!-- \/theme-icons -->/g, `<!-- theme-icons -->${html_from_theme_icons()}<!-- /theme-icons -->`));
     }
+}
+
+// Inline the shared assets so currentColor and local file previews both work.
+function html_from_theme_icons()
+{
+    const icons = [['sun', 'light'], ['moon', 'dark']].map(function ([name, theme]) {
+        return fs.readFileSync(path.join(root_dir, 'img', `theme-${name}.svg`), 'utf8').trim()
+            .replace('<svg ', `<svg class="theme-icon theme-${theme}" aria-hidden="true" focusable="false" `);
+    });
+    return '<!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. -->' + icons.join('');
 }
 
 // rules.md: a title, a lede, a stats line, the group table, the rule table.
@@ -147,6 +158,9 @@ function html_from_index(template, index)
 function template_fill(template, values)
 {
     return template.replace(/\{\{(\w+)\}\}/g, function (match, key) {
+        if (key === 'theme_icons') {
+            return html_from_theme_icons();
+        }
         if (values[key] === undefined) {
             throw new Error(`template: unknown placeholder ${match}`);
         }

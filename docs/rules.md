@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-259 rules · 17 groups · 48 sources · filterable version: [rules.html](rules.html)
+260 rules · 17 groups · 49 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -26,7 +26,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | UI | User interface | 18 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
 | GIT | Commits | 4 | A lowercase title, scope first; details below. |
-| DOC | Writing the rules | 10 | How a document in this repo is built. |
+| DOC | Writing the rules | 11 | How a document in this repo is built. |
 | LINT | Stated by the linter | 11 | Rules that only LINTING.md and the preset spell out. |
 
 | Code | Rule | Canonical form | Source |
@@ -255,13 +255,13 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VUE-19 | **Empty elements close themselves.** An element without a body closes itself — a component, an HTML element and a void element alike. This holds in `.vue` files and string templates; an in-DOM template is parsed by the browser first. | <pre>&lt;th&gt;&lt;/th&gt;   ✗ no<br>&lt;th /&gt;       ✓ yes<br><br>&lt;app-input-email v-model="user.email" /&gt;</pre> | [vue-formatting.md](../vue2/vue-formatting.md) |
 | **UI** | **User interface** — What every new screen carries. | | |
 | UI-01 | **Every screen has a light/dark switch.** An app screen, a report, a standalone page: each shows a switch the reader can click. Following the OS setting alone does not count. | — | [theme_switch.md](../drafts/theme_switch.md) |
-| UI-02 | **Two states: Light and Dark.** No System or Auto option, not even as the default. | — | [theme_switch.md](../drafts/theme_switch.md) |
+| UI-02 | **Two states, one shared icon button.** Show the current theme: sun for Light, crescent for Dark. Use `img/theme-sun.svg` and `img/theme-moon.svg`; size and border may vary. Click toggles directly, with no menu, System or Auto option. | <pre>Sun: Light → Crescent: Dark → Sun: Light</pre> | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-03 | **The dark theme redefines the light colors.** The light colors live on `:root`; the dark theme sets the same variables under `:root[data-theme="dark"]`. | <pre>:root {<br>    --color-bg: #FFFFFF;<br>    --color-text: #1B1F23;<br>}<br>:root&#91;data-theme="dark"] {<br>    --color-bg: #15181C;<br>    --color-text: #E6E8EB;<br>}</pre> | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-04 | **The theme is set before the page shows.** The page reads the saved choice from `localStorage` (the OS setting once, when nothing is saved), puts it on `<html>` as `data-theme`, and saves each new choice; storage access sits in `try`/`catch`. | `document.documentElement.dataset.theme = theme;` | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-05 | **The switch stays in reach on a long page.** When the header scrolls away, a copy of the switch appears at the right end of the sticky bar. | — | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-06 | **Every project page opens with the same header.** The project on the left; the theme switch and GitHub on the right; search and section links between them, the search lined up with the content column. | ![the parts of a page header, left to right](../drafts/page-header-structure.png) | [page_header.md](../drafts/page_header.md) |
 | UI-07 | **Left: icon, name, version.** The project's icon when it has one, its name, and its released version. | <pre>&#91;icon]  Authwall Docs  v1.16.0</pre> | [page_header.md](../drafts/page_header.md) |
-| UI-08 | **Right: the theme switch, then GitHub in the corner.** The GitHub icon links to the repository. The same order on every page. | <pre>&#91;Light &#124; Dark]  &#91;GitHub]</pre> | [page_header.md](../drafts/page_header.md) |
+| UI-08 | **Right: the theme switch, then GitHub in the corner.** The GitHub icon links to the repository. The same order on every page. | <pre>&#91;Current theme icon]  &#91;GitHub]</pre> | [page_header.md](../drafts/page_header.md) |
 | UI-09 | **Nothing jumps.** When the app adds or grows content on its own — a new message, a summary that finishes loading — what the reader is looking at stays exactly where it is on the screen; the scroll position adjusts instead. Only the reader's own clicks may move things. | ![a summary grows above; on the left the message being read drops, on the right it stays](../drafts/scroll-anchoring.gif) | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
 | UI-10 | **Keep the place yourself; the browser won't.** Before such a change, note the element in the middle of the view and where it is on the screen; after the change, scroll by however far it moved. The browser keeps the place only when the change is entirely above the view: not at the very top, not when the growing block is itself on screen, not after a re-render. | <pre>const keep = scroll_keep(scroller);<br>await keep(async function () {<br>    summary.text = text;<br>    await vm.$nextTick();<br>});</pre> | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
 | UI-11 | **Test it.** For each kind of change, a test notes where the middle element is, makes the change, and checks it moved 0 px — at the top of the view and in the middle. One more check runs without the fix and must see the jump. | `assert.equal(shift, 0);` | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
@@ -286,15 +286,16 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | GIT-04 | **A short body, only when needed.** Details go in a body after one blank line, only when they are really needed. A body is short, in ordinary sentences. | <pre>docs: link the placement rules, gates and portals as they stand<br><br>docs/README.md lists placement.md; objects.md describes gates and<br>portals as the placement rules now put them.</pre> | [commits.md](../drafts/commits.md) |
 | **DOC** | **Writing the rules** — How a document in this repo is built. | | |
 | DOC-01 | **A document has two halves.** The author writes the top half, compressed around what he already knows; the AI writes the bottom half, restating it for a reader who lacks that context. | — | [WRITING.md](../drafts/WRITING.md) |
-| DOC-02 | **The top half wins.** The top half is the source of truth. When the halves disagree, the top half is right. | — | [WRITING.md](../drafts/WRITING.md) |
+| DOC-02 | **Author sources govern the explanation.** Read the top half and applicable manually approved rules. An approved entry may explicitly clarify older wording within its scope; if the sources disagree without such a decision, ask before regenerating. | — | [WRITING.md](../drafts/WRITING.md) |
 | DOC-03 | **No AI patches the top half.** The one exception is an explicit request from the author. | — | [WRITING.md](../drafts/WRITING.md) |
-| DOC-04 | **Regenerate the bottom half, never edit it.** The bottom half is never edited in place. After the top half changes, it is regenerated from it. | — | [WRITING.md](../drafts/WRITING.md) |
+| DOC-04 | **Regenerate the bottom half from both sources, never edit it.** After the top half or an applicable manually approved rule changes, regenerate the explanation from both. Preserve approved decisions and their scope. | — | [WRITING.md](../drafts/WRITING.md) |
 | DOC-05 | **Usually a heading starts the bottom half.** Most of the time the bottom half starts with a `#` heading, and that heading is the boundary. A `---` line or a closing fence before it is decoration. There is no strict marker. | `--- ✨ AI-Generated Content Below ✨ ---` | [WRITING.md](../drafts/WRITING.md) |
 | DOC-06 | **One audit, one file; its register is the issue list.** The report of a full audit is one file, `notes/audit-<YYYY-MM-DD>.md`. The projects have no issue tracker: the finding register of the newest audit note is the issue list, and later audits refer to findings by their ids. | `notes/audit-2026-09-02.md` | [audit_note.md](../drafts/audit_note.md) |
 | DOC-07 | **Audit notes keep one section order.** An audit note keeps one order: title, repository line, scope, verdict with a health-at-a-glance table, finding register, findings, what is good, recommended order of work, status of prior findings, file inventory. | — | [audit_note.md](../drafts/audit_note.md) |
 | DOC-08 | **Scope says what ran and what did not.** The scope lists every check actually run, and what was not exercised. A check which was not run is said so; it is never implied. | — | [audit_note.md](../drafts/audit_note.md) |
 | DOC-09 | **Findings have permanent ids and evidence.** A finding id is `<PROJECT>-NN`, never reused and never renumbered. Each finding is one section citing `file:line` and the evidence — the quoted lines, the command which was run and what it printed. | `### RULES-01 Classes banned in one file, shown in another (high)` | [audit_note.md](../drafts/audit_note.md) |
 | DOC-10 | **Audit notes have no top half and stay untracked.** An audit note is written by the AI as a whole, so it has no top half and no separator. It is left untracked; it is committed only on request. | — | [audit_note.md](../drafts/audit_note.md) |
+| DOC-11 | **Keep manually approved rules outside regenerated text.** Record only explicit author decisions in MANUALLY_APPROVED_RULES.md, with scope, approval date and evidence. Read applicable entries when rewriting explanations. Maintain the approval file; never regenerate it or treat an AI suggestion as approval. | <pre>author source + manually approved rules<br>→ regenerated explanation</pre> | [MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md) |
 | **LINT** | **Stated by the linter** — Rules that only LINTING.md and the preset spell out. | | |
 | LINT-01 | **Spaces around operators, except multiplicative ones.** Multiplicative operators are tight — `*`, `/`, `**`. Every other binary, logical and assignment operator has a space on each side. | <pre>const x = a&#42;b + c/d - e&#42;&#42;2;<br>const x = a % 2;</pre> | [LINTING.md](../LINTING.md) |
 | LINT-02 | **Space before an anonymous function's parenthesis.** An anonymous function has a space before its parenthesis; a named one has none. | <pre>server.on('error', function (error) {<br>});<br><br>function main()<br>{<br>}</pre> | [LINTING.md](../LINTING.md) |

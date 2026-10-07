@@ -212,10 +212,12 @@ code, pre {
     color: var(--ink);
 }
 
-.theme button[aria-pressed="true"] {
-    color: var(--bg);
-    background: var(--ink);
-}
+
+.theme-icon { display: block; width: 24px; height: 24px; flex: none; }
+.theme-icon.theme-dark { display: none; }
+:root[data-theme="dark"] .theme-icon.theme-light { display: none; }
+:root[data-theme="dark"] .theme-icon.theme-dark { display: block; }
+
 
 h1 {
     margin: 0;
@@ -933,15 +935,14 @@ footer .lead {
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
         </nav>
-        <div class="theme" id="theme" role="group" aria-label="Color theme">
-            <button type="button" data-set="light" aria-pressed="false">Light</button>
-            <button type="button" data-set="dark" aria-pressed="false">Dark</button>
+        <div class="theme" id="theme">
+            <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons --><!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. --><svg class="theme-icon theme-light" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg class="theme-icon theme-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><!-- /theme-icons --></button>
         </div>
         <a class="github" href="https://github.com/vbarbarosh/rules" title="github.com/vbarbarosh/rules" aria-label="GitHub repository"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>259</b> rules<i>·</i><b>17</b> groups<i>·</i><b>48</b> sources</p>
+    <p class="stats"><b>260</b> rules<i>·</i><b>17</b> groups<i>·</i><b>49</b> sources</p>
 </div>
 </header>
 
@@ -951,11 +952,10 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">259 rules</span>
+        <span class="count" id="count">260 rules</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
-        <div class="theme theme-docked" role="group" aria-label="Color theme">
-            <button type="button" data-set="light" aria-pressed="false">Light</button>
-            <button type="button" data-set="dark" aria-pressed="false">Dark</button>
+        <div class="theme theme-docked">
+            <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons --><!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. --><svg class="theme-icon theme-light" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg class="theme-icon theme-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><!-- /theme-icons --></button>
         </div>
     </div>
 </div>
@@ -978,7 +978,7 @@ footer .lead {
 <a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">18</span></a>
 <a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
 <a href="#GIT" data-group="GIT"><span class="tag">GIT</span><span class="name">Commits</span><span class="n">4</span></a>
-<a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">10</span></a>
+<a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">11</span></a>
 <a href="#LINT" data-group="LINT"><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="n">11</span></a>
 </nav>
 <main>
@@ -2426,9 +2426,10 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 <a class="code" href="#UI-01">UI-01</a>
 <div class="text"><p><strong>Every screen has a light/dark switch.</strong> An app screen, a report, a standalone page: each shows a switch the reader can click. Following the OS setting alone does not count.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
-<article class="rule bare" id="UI-02">
+<article class="rule" id="UI-02">
 <a class="code" href="#UI-02">UI-02</a>
-<div class="text"><p><strong>Two states: Light and Dark.</strong> No System or Auto option, not even as the default.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Two states, one shared icon button.</strong> Show the current theme: sun for Light, crescent for Dark. Use <code>img/theme-sun.svg</code> and <code>img/theme-moon.svg</code>; size and border may vary. Click toggles directly, with no menu, System or Auto option.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>Sun: Light → Crescent: Dark → Sun: Light</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="UI-03">
 <a class="code" href="#UI-03">UI-03</a>
@@ -2464,7 +2465,7 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 <article class="rule" id="UI-08">
 <a class="code" href="#UI-08">UI-08</a>
 <div class="text"><p><strong>Right: the theme switch, then GitHub in the corner.</strong> The GitHub icon links to the repository. The same order on every page.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>&#91;Light &#124; Dark]  &#91;GitHub]</pre><button class="copy" type="button">Copy</button></div>
+<div class="form"><pre>&#91;Current theme icon]  &#91;GitHub]</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="UI-09">
 <a class="code" href="#UI-09">UI-09</a>
@@ -2594,7 +2595,7 @@ portals as the placement rules now put them.</pre><button class="copy" type="but
 </article>
 <article class="rule bare" id="DOC-02">
 <a class="code" href="#DOC-02">DOC-02</a>
-<div class="text"><p><strong>The top half wins.</strong> The top half is the source of truth. When the halves disagree, the top half is right.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Author sources govern the explanation.</strong> Read the top half and applicable manually approved rules. An approved entry may explicitly clarify older wording within its scope; if the sources disagree without such a decision, ask before regenerating.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
 <article class="rule bare" id="DOC-03">
 <a class="code" href="#DOC-03">DOC-03</a>
@@ -2602,7 +2603,7 @@ portals as the placement rules now put them.</pre><button class="copy" type="but
 </article>
 <article class="rule bare" id="DOC-04">
 <a class="code" href="#DOC-04">DOC-04</a>
-<div class="text"><p><strong>Regenerate the bottom half, never edit it.</strong> The bottom half is never edited in place. After the top half changes, it is regenerated from it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Regenerate the bottom half from both sources, never edit it.</strong> After the top half or an applicable manually approved rule changes, regenerate the explanation from both. Preserve approved decisions and their scope.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
 <article class="rule" id="DOC-05">
 <a class="code" href="#DOC-05">DOC-05</a>
@@ -2630,6 +2631,12 @@ portals as the placement rules now put them.</pre><button class="copy" type="but
 <article class="rule bare" id="DOC-10">
 <a class="code" href="#DOC-10">DOC-10</a>
 <div class="text"><p><strong>Audit notes have no top half and stay untracked.</strong> An audit note is written by the AI as a whole, so it has no top half and no separator. It is left untracked; it is committed only on request.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+</article>
+<article class="rule" id="DOC-11">
+<a class="code" href="#DOC-11">DOC-11</a>
+<div class="text"><p><strong>Keep manually approved rules outside regenerated text.</strong> Record only explicit author decisions in MANUALLY_APPROVED_RULES.md, with scope, approval date and evidence. Read applicable entries when rewriting explanations. Maintain the approval file; never regenerate it or treat an AI suggestion as approval.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/MANUALLY_APPROVED_RULES.md" title="MANUALLY_APPROVED_RULES.md">MANUALLY_APPROVED_RULES.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>author source + manually approved rules
+→ regenerated explanation</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="LINT">
@@ -2769,7 +2776,9 @@ function theme_render()
 {
     const theme = root_el.getAttribute('data-theme');
     for (const button of document.querySelectorAll('.theme button')) {
-        button.setAttribute('aria-pressed', (button.dataset.set === theme) ? 'true' : 'false');
+        const label = `${theme === 'dark' ? 'Dark' : 'Light'} theme. Switch to ${theme === 'dark' ? 'light' : 'dark'} theme.`;
+        button.setAttribute('aria-label', label);
+        button.title = label;
     }
 }
 
@@ -2794,9 +2803,10 @@ function click_theme(event)
     if (!button) {
         return;
     }
-    root_el.setAttribute('data-theme', button.dataset.set);
+    const theme = root_el.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root_el.setAttribute('data-theme', theme);
     try {
-        localStorage.setItem('rules-theme', button.dataset.set);
+        localStorage.setItem('rules-theme', theme);
     }
     catch {
     }

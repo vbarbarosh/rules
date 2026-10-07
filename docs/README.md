@@ -21,7 +21,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below, all 259 of them, in one filterable table**
+- **[docs/rules.html](rules.html) — every rule below, all 260 of them, in one filterable table**
 - JavaScript formatting — [specification](../FORMATTING.md) · [visual representation](../formatting.html)
 - Bash scripts — all scripts follow [bin/templ](../bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](../drafts/var_names.md) — a variable name states the shape of its data
@@ -58,7 +58,8 @@ It's just not written down.
 - [drafts/theme_switch.md](../drafts/theme_switch.md) — every new UI carries a light/dark switch; two states, never System
 - [drafts/audit_note.md](../drafts/audit_note.md) — a full audit goes to `notes/audit-<date>.md`; its register is the issue list
 - [drafts/commits.md](../drafts/commits.md) — a commit title is `scope: description`, lowercase, 72 characters at most
-- [drafts/WRITING.md](../drafts/WRITING.md) — a document has two halves: the author's top, the regenerated bottom
+- [drafts/WRITING.md](../drafts/WRITING.md) — author notes and manually approved rules govern the regenerated explanation
+- [MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md) — durable author-approved decisions, preserved when explanations are rewritten
 - [packaging/packaging.md](../packaging/packaging.md) — releasing a prebuilt `dist/` with `bin/release`
 - [demos/](../demos/) — naming demos; `item_to.js` shows a superseded convention
 

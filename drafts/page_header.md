@@ -31,7 +31,7 @@ optional; the rest are always there.
    the columns below it: the project over the sidebar, the search over the
    content.
 5. **Theme switch.** The light/dark switch of [theme_switch.md](theme_switch.md):
-   two states, on every page.
+   one sun/crescent button showing the current theme, on every page.
 6. **GitHub.** The GitHub icon, in the far right corner, a link to the
    project's repository.
 

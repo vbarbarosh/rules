@@ -10,7 +10,7 @@ let fixture_dir;
 
 test.before(function () {
     fixture_dir = fs.mkdtempSync(path.join(os.tmpdir(), 'rules-build-'));
-    for (const file of ['bin/build', 'package.json', 'docs', 'drafts', 'agents', 'glossaries', 'formatting.html']) {
+    for (const file of ['bin/build', 'package.json', 'docs', 'drafts', 'agents', 'glossaries', 'img', 'formatting.html']) {
         fs.cpSync(path.join(root_dir, file), path.join(fixture_dir, file), {recursive: true});
     }
     fs.symlinkSync(path.join(root_dir, 'node_modules'), path.join(fixture_dir, 'node_modules'), 'dir');
@@ -33,6 +33,25 @@ test('generated rule and guide images all reserve positive dimensions, including
         }
     }
     assert.ok(count >= 11);
+});
+
+test('all built theme icons follow the shared SVG assets, including handwritten diagrams', function () {
+    const file = path.join(fixture_dir, 'img/theme-sun.svg');
+    const original = fs.readFileSync(file, 'utf8');
+    try {
+        fs.writeFileSync(file, original.replace('M12,9', 'M12,8.5'));
+        const result = build();
+        assert.equal(result.status, 0, result.stderr);
+        for (const file of ['docs/rules.html', 'docs/agents.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html']) {
+            const html = fs.readFileSync(path.join(fixture_dir, file), 'utf8');
+            assert.ok(html.includes('d="M12,8.5'), file);
+            assert.ok(!html.includes('d="M12,9'), file);
+            assert.ok(!html.includes('data-set="light"'), file);
+        }
+    }
+    finally {
+        fs.writeFileSync(file, original);
+    }
 });
 
 for (const item of [

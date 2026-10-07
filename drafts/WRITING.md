@@ -2,9 +2,12 @@
 - top is written around what I already know
 - bottom - is a paraphrase of it
     - same thing, different and more decompressed wording
-- always consider top part as a source of truth
-- in case bottom part contradicts, stick to top part
-- when top part changes, bottom part is regenerated from it (never patched on its own)
+- the top part and applicable entries in ../MANUALLY_APPROVED_RULES.md are the source of truth
+- in case bottom part contradicts, follow those sources
+- a manually approved entry can explicitly clarify older wording within its scope; if the sources disagree without such a decision, ask before regenerating
+- when either source changes, regenerate the bottom part from both (never patch it on its own)
+- keep manually approved decisions in ../MANUALLY_APPROVED_RULES.md, outside the bottom half
+- that file is maintained, never regenerated; add or change an entry only after explicit author approval, with scope, date and evidence
 - no AI is allowed to patch top part (unless explicitly asked)
 - most of the time bottom part starts with a # heading
     - that heading is the boundary
@@ -16,24 +19,43 @@
 
 # Two-half documents
 
-A document has two halves. The author writes the top half. The AI writes the
-bottom half.
+The author writes the top half. The AI writes the bottom half, restating the
+author's notes and the applicable manually approved rules for a reader who
+lacks that context.
 
-## Top half
+## Author sources
 
-The author writes it for himself, compressed around what he already knows. His
-wording, and even his typos, carry how he understands the subject.
+The top half and applicable entries in
+[MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md) govern the explanation.
+An approved entry can explicitly clarify older wording within its stated
+scope. If the sources disagree without such a decision, establish the answer
+with the author before regenerating.
 
-- It is the source of truth. When the halves disagree, the top half is right.
-- No AI patches it. The one exception is an explicit request from the author.
+The author writes the top half around what he already knows. Its wording,
+and even its typos, carry how he understands the subject. No AI patches it
+unless the author explicitly asks.
+
+## Manually approved rules
+
+An approved decision must not live only in an AI explanation: rewriting that
+explanation could erase it. Record the decision in
+[MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md), with its scope,
+approval date and evidence. Read the applicable entries before rewriting.
+
+The approval file is maintained, never regenerated. Only an explicit author
+decision permits adding or changing an entry. An AI suggestion, an audit
+finding or existing AI wording is not approval.
 
 ## Bottom half
 
-The AI restates the top half: the same content, decompressed for a reader who
-lacks the author's context.
+The AI restates the same content in more explicit language. When either the
+author's top half or an applicable approved entry changes, regenerate the
+bottom half from both sources. Preserve each approved decision's meaning and
+scope; never patch the bottom half independently.
 
-- It is never edited in place. After the top half changes, the AI regenerates
-  the bottom half from it.
+For example, the author notes in `layout.md` describe `build/`. MP-02 records
+the approved `dist/` release decision. A rewritten layout explanation must
+retain both scratch-build and release-output rules.
 
 ## Boundary
 
