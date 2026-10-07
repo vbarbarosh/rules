@@ -195,7 +195,8 @@ function html_from_rule(rule)
 // directly or under "**Group** (TAG)" lines, each with its own note. A term
 // is a table row or a "- term – definition" list item, and a "## Terms"
 // section names a term whose paragraphs replace its one-line definition
-// and whose code example stands on the right.
+// and whose code example stands on the right. Everything before the first
+// "## " section is the author's; the sections are the AI's (MP-31).
 function glossary_from_markdown(markdown, file)
 {
     const lines = markdown.split('\n');

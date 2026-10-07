@@ -76,3 +76,14 @@ an ordinary file, and the AI edits it for the task the author asked for
 When the author's section exists, it stays at the top of the file and is
 never overwritten; only the author's explicit request changes it. When it is
 unclear where the author's section ends, ask before editing.
+
+## Glossaries
+
+A glossary has no separator. Its title, note, group lines and term list,
+everything before the first `## ` section, are the author's, and are never
+rewritten. Each `## ` section explains one term; the AI regenerates it from
+the author's line and the applicable approved entries (MP-31).
+
+The same holds for any text the author wrote by hand or marked as fixed: the
+AI adds its own below it and never rewrites it. AI text not marked as fixed
+may be rewritten.

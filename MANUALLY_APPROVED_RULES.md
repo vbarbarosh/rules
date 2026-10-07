@@ -326,3 +326,19 @@ asked for. Where the author's section exists, it stays at the top of the
 file and is never overwritten; only an explicit request of the author
 changes it (DOC-03). When it is unclear where the author's section ends,
 ask before editing.
+
+## MP-31 — A glossary keeps the author's terms; the AI explains below them
+
+**Scope:** DOC-13, [glossaries](glossaries/), the glossary builder in
+`bin/build`, [writing conventions](drafts/WRITING.md).
+**Approved:** 2026-10-07, author choice B in `20261007_233717-me`.
+
+Text the author wrote by hand, or text explicitly marked as fixed, is never
+rewritten; the AI may only add its own below it. AI text not marked as fixed
+may be rewritten or paraphrased.
+
+In a glossary, the title, its note, the group lines and the term list, all
+before the first `## ` section, are the author's. Each `## ` section is the
+AI's explanation of a term, regenerated from the author's line and the
+applicable approved entries. A new term in the author's list needs the
+author's request.
