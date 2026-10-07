@@ -86,13 +86,16 @@ wrappers are still worth having:
   needs to, then copies `build/` into `dist/` (MP-32).
 - `data/` holds runtime state, for example `data/logs/2026-08-24.txt`. Never
   committed.
-- `.env` holds local values and is never committed. `.env.example` documents
-  the expected keys and is committed.
+- `.env` belongs to whoever runs the application, not to the application;
+  docker usually loads it, or the Dockerfile sets the variables. The rules
+  set nothing for it (MP-33).
 
 ## config/
 
-Configuration lives in one place and is populated once, when the project is
-set up. Code reads it through one path:
+Configuration lives in one place, `config/`, and it is the project's code.
+`config/index.js` reads the environment variables, may load files, and gives
+the application its configuration ready to use, so code reads it through one
+path:
 
     const config = require('../config');
 

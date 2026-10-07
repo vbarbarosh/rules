@@ -1877,12 +1877,15 @@ dist/    released build, committed by bin/release</pre><button class="copy" type
 </article>
 <article class="rule bare" id="PROJ-06">
 <a class="code" href="#PROJ-06">PROJ-06</a>
-<div class="text"><p><strong>.env stays local; .env.example is committed.</strong> <code>.env</code> holds local values and is never committed. <code>.env.example</code> documents the expected keys and is.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>.env belongs to whoever runs the app.</strong> <code>.env</code> is not the application's: docker loads it, or the Dockerfile sets the variables. The rules set nothing for it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
 <article class="rule" id="PROJ-07">
 <a class="code" href="#PROJ-07">PROJ-07</a>
-<div class="text"><p><strong>Configuration lives in config/.</strong> Configuration lives in <code>config/</code>, is populated once when the project is set up, and code reads it through one path.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>const config = require('../config');</pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p><strong>config/ turns the environment into configuration.</strong> <code>config/</code> is the one place of the application's configuration. <code>config/index.js</code> reads the environment variables, may load files, and gives the code its configuration ready to use, through one path.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre><span class="cmt">// config/index.js</span>
+module.exports = make_config(process.env);
+
+const config = require('../config');</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="PROJ-08">
 <a class="code" href="#PROJ-08">PROJ-08</a>
@@ -1947,11 +1950,11 @@ fi</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule bare" id="PROJ-18">
 <a class="code" href="#PROJ-18">PROJ-18</a>
-<div class="text"><p><strong>Everything kept lives in data/.</strong> <code>data/</code> is the project's permanent data: a restart, a redeploy or a migration does not delete it. Everything the program writes and has to keep lives under <code>data/</code>, and nowhere else.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/data.md" title="drafts/data.md">data.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Everything kept lives in data/.</strong> <code>data/</code> is the project's permanent data: a restart, a redeploy or a migration does not delete it. Everything the program writes and has to keep lives under <code>data/</code>, and nowhere else. Configuration is not there: it comes from <code>config/</code> and the environment.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/data.md" title="drafts/data.md">data.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
 <article class="rule" id="PROJ-19">
 <a class="code" href="#PROJ-19">PROJ-19</a>
-<div class="text"><p><strong>Docker images carry code, not data.</strong> A docker image carries the code, never the data. One mount of <code>data/</code> — a named volume or a host directory — is all it takes to keep it; moving the project is moving its <code>data/</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/data.md" title="drafts/data.md">data.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Docker images carry code, not data.</strong> A docker image carries the code, never the data. One mount of <code>data/</code> — a named volume or a host directory — is all it takes to keep it; moving the project is moving its <code>data/</code> and running it with the same environment.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/data.md" title="drafts/data.md">data.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>docker run -v app-data:/app/data app
 docker run -v /srv/app/data:/app/data app</pre><button class="copy" type="button">Copy</button></div>
 </article>

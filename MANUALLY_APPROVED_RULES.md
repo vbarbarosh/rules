@@ -354,3 +354,26 @@ writes `build/`. `bin/release` makes the release from it: it runs that same
 build, may pass it flags or environment variables, and may clear the output
 directory first; then it copies `build/` into `dist/`. There is no second
 build command for releases.
+
+## MP-33 — data/ is what the app writes; config/ makes the configuration
+
+**Scope:** PROJ-05, PROJ-06, PROJ-07, PROJ-18, PROJ-19,
+[project layout](drafts/layout.md), [data](drafts/data.md).
+**Approved:** 2026-10-07, author answer in `20261007_234755-me`.
+
+`data/` is where the application writes its data: whatever it writes and
+keeps goes there.
+
+`config/` is the one central place of the application's configuration.
+`config/index.js` reads the environment variables, may load files, and gives
+the application its configuration ready to use; code reads it as
+`require('../config')`. [authwall](https://github.com/vbarbarosh/authwall/tree/main/config)
+is the example: `index.js` exports `make_config(process.env)`, and
+`make_config.js` checks each value and resolves the paths into `data/`.
+This clarifies "populated once" in the layout notes: `config/` is the
+project's code, and what differs from one install to another comes from the
+environment.
+
+`.env` is not the application's; it belongs to whoever runs it, and these
+rules set nothing for it. Usually docker loads it, or the variables are set
+in the Dockerfile.

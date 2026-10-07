@@ -24,4 +24,12 @@ docker run -v app-data:/app/data app          # a named volume
 docker run -v /srv/app/data:/app/data app     # a host directory
 ```
 
-Moving the project to another host is moving its `data/`.
+Moving the project to another host is moving its `data/`, and running it
+with the same environment variables.
+
+## Configuration
+
+Configuration does not live in `data/`. `config/` is part of the code: it
+reads the environment variables, may load files, and gives the application
+its configuration ready to use. The environment, a `.env` file included,
+belongs to whoever runs the application, not to the application (MP-33).
