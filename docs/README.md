@@ -21,7 +21,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below, all 258 of them, in one filterable table**
+- **[docs/rules.html](rules.html) — every rule below, all 259 of them, in one filterable table**
 - JavaScript formatting — [specification](../FORMATTING.md) · [visual representation](../formatting.html)
 - Bash scripts — all scripts follow [bin/templ](../bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](../drafts/var_names.md) — a variable name states the shape of its data
@@ -49,6 +49,7 @@ It's just not written down.
 - [drafts/scroll_anchoring.md](../drafts/scroll_anchoring.md) — content the app changes on its own never moves what the reader is looking at; with a test
 - [drafts/file_drop.md](../drafts/file_drop.md) — an element that takes files or folders through an input also takes them dropped onto it
 - [drafts/no_confirmations.md](../drafts/no_confirmations.md) — trust the user: no "Are you sure?"; the action happens at once and can be undone
+- [drafts/optimistic_updates.md](../drafts/optimistic_updates.md) — show local changes immediately over an immutable backend snapshot; confirm, refresh and reconcile, with safe retries
 - [drafts/configure.md](../drafts/configure.md) — `bin/configure` asks every question up front, `sudo` included
 - [drafts/data.md](../drafts/data.md) — `data/` is the project's permanent data; one mount keeps it in docker
 - [drafts/value_label.md](../drafts/value_label.md) — selectable options are `{value, label}`

@@ -941,7 +941,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>258</b> rules<i>·</i><b>17</b> groups<i>·</i><b>47</b> sources</p>
+    <p class="stats"><b>259</b> rules<i>·</i><b>17</b> groups<i>·</i><b>48</b> sources</p>
 </div>
 </header>
 
@@ -951,7 +951,7 @@ footer .lead {
             <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">258 rules</span>
+        <span class="count" id="count">259 rules</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
         <div class="theme theme-docked" role="group" aria-label="Color theme">
             <button type="button" data-set="light" aria-pressed="false">Light</button>
@@ -975,7 +975,7 @@ footer .lead {
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">13</span></a>
 <a href="#SQL" data-group="SQL"><span class="tag">SQL</span><span class="name">SQL queries</span><span class="n">6</span></a>
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">19</span></a>
-<a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">17</span></a>
+<a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">18</span></a>
 <a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
 <a href="#GIT" data-group="GIT"><span class="tag">GIT</span><span class="name">Commits</span><span class="n">4</span></a>
 <a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">10</span></a>
@@ -2514,6 +2514,12 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 <article class="rule bare" id="UI-17">
 <a class="code" href="#UI-17">UI-17</a>
 <div class="text"><p><strong>Confirm only what cannot be undone and costs a lot.</strong> Closing an account, erasing data for good. Even then, not an OK/Cancel box but a deliberate step: typing the name, or a link sent by email.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+</article>
+<article class="rule" id="UI-18">
+<a class="code" href="#UI-18">UI-18</a>
+<div class="text"><p><strong>Use optimistic updates; the user keeps working.</strong> Keep the backend snapshot immutable and local pending changes separate. Show the local change and send its update immediately. After acknowledgement, reread the backend, replace the snapshot, and clear only the pending change confirmed by that result; preserve later actions and reject stale refreshes. Keep failures visible as unsynchronized and retry safely; if only the reread failed, retry that step.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/optimistic_updates.md" title="drafts/optimistic_updates.md">optimistic_updates.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>Read → local overlay → update → acknowledgement
+→ refresh → replace snapshot → clear confirmed overlay</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="REL">

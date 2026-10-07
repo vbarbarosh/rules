@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-258 rules · 17 groups · 47 sources · filterable version: [rules.html](rules.html)
+259 rules · 17 groups · 48 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -23,7 +23,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | Upper-case keywords; the query laid out like code. |
 | VUE | Vue 2 | 19 | Components that behave like the platform. |
-| UI | User interface | 17 | What every new screen carries. |
+| UI | User interface | 18 | What every new screen carries. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
 | GIT | Commits | 4 | A lowercase title, scope first; details below. |
 | DOC | Writing the rules | 10 | How a document in this repo is built. |
@@ -271,6 +271,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | UI-15 | **Trust the user: no "Are you sure?".** Delete, rename, move, cancel: it happens at once, and the user keeps working. | ![not a dialog on every delete, but done at once with Undo](../drafts/no-confirmations.png) | [no_confirmations.md](../drafts/no_confirmations.md) |
 | UI-16 | **Undo instead.** A deleted thing goes to a trash; a rename, an edit or a move can be undone. The way back is right there after the action. | `Deleted · Undo` | [no_confirmations.md](../drafts/no_confirmations.md) |
 | UI-17 | **Confirm only what cannot be undone and costs a lot.** Closing an account, erasing data for good. Even then, not an OK/Cancel box but a deliberate step: typing the name, or a link sent by email. | — | [no_confirmations.md](../drafts/no_confirmations.md) |
+| UI-18 | **Use optimistic updates; the user keeps working.** Keep the backend snapshot immutable and local pending changes separate. Show the local change and send its update immediately. After acknowledgement, reread the backend, replace the snapshot, and clear only the pending change confirmed by that result; preserve later actions and reject stale refreshes. Keep failures visible as unsynchronized and retry safely; if only the reread failed, retry that step. | <pre>Read → local overlay → update → acknowledgement<br>→ refresh → replace snapshot → clear confirmed overlay</pre> | [optimistic_updates.md](../drafts/optimistic_updates.md) |
 | **REL** | **Packaging and release** — Ship a prebuilt dist/. | | |
 | REL-01 | **Ship a prebuilt dist/.** Distribute a prebuilt `dist/` from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do. | `<script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>` | [packaging.md](../packaging/packaging.md) |
 | REL-02 | **Release order: clean, bump, build, commit, tag.** The release workflow is fixed: ensure there are no changes, increase the version, update `dist/`, commit, tag. | <pre>rm -rf dist<br>npm run build<br>git add package.json package-lock.json dist<br>git commit -m "release v$(...)"<br>git tag v$(...)</pre> | [packaging.md](../packaging/packaging.md) |
