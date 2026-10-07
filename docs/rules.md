@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-262 rules · 18 groups · 51 sources · filterable version: [rules.html](rules.html)
+263 rules · 18 groups · 51 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -28,7 +28,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | UIM | UI mechanics | 12 | How a screen works. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
 | GIT | Commits | 4 | A lowercase title, scope first; details below. |
-| DOC | Writing the rules | 11 | How a document in this repo is built. |
+| DOC | Writing the rules | 12 | How a document in this repo is built. |
 | LINT | Stated by the linter | 11 | Rules that only LINTING.md and the preset spell out. |
 
 | Code | Rule | Canonical form | Source |
@@ -301,6 +301,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | DOC-09 | **Findings have permanent ids and evidence.** A finding id is `<PROJECT>-NN`, never reused and never renumbered. Each finding is one section citing `file:line` and the evidence — the quoted lines, the command which was run and what it printed. | `### RULES-01 Classes banned in one file, shown in another (high)` | [audit_note.md](../drafts/audit_note.md) |
 | DOC-10 | **Audit notes have no top half and stay untracked.** An audit note is written by the AI as a whole, so it has no top half and no separator. It is left untracked; it is committed only on request. | — | [audit_note.md](../drafts/audit_note.md) |
 | DOC-11 | **Keep manually approved rules outside regenerated text.** Record only explicit author decisions in MANUALLY_APPROVED_RULES.md, with scope, approval date and evidence. Read applicable entries when rewriting explanations. Maintain the approval file; never regenerate it or treat an AI suggestion as approval. | <pre>author source + manually approved rules<br>→ regenerated explanation</pre> | [MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md) |
+| DOC-12 | **A document without an author section is open to requested edits.** A document with no author notes above a heading is an ordinary file: the AI edits it for the task asked. Where the author's section exists, it stays on top and is never overwritten. When its end is unclear, ask first. | <pre>author notes        → never overwritten<br># Heading<br>explanation         → regenerated<br><br>no author notes     → edited on request</pre> | [WRITING.md](../drafts/WRITING.md) |
 | **LINT** | **Stated by the linter** — Rules that only LINTING.md and the preset spell out. | | |
 | LINT-01 | **Spaces around operators, except multiplicative ones.** Multiplicative operators are tight — `*`, `/`, `**`. Every other binary, logical and assignment operator has a space on each side. | <pre>const x = a&#42;b + c/d - e&#42;&#42;2;<br>const x = a % 2;</pre> | [LINTING.md](../LINTING.md) |
 | LINT-02 | **Space before an anonymous function's parenthesis.** An anonymous function has a space before its parenthesis; a named one has none. | <pre>server.on('error', function (error) {<br>});<br><br>function main()<br>{<br>}</pre> | [LINTING.md](../LINTING.md) |

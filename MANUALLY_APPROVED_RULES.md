@@ -313,3 +313,16 @@ syntax keeps its existing scope.
 The px helper returns ``value ? `${value}px` : '0'``. Its empty/zero branch is
 the string '0', not numeric zero. Preserve this correction when rewriting
 the example.
+
+## MP-30 — A document without an author section is open to requested edits
+
+**Scope:** DOC-03, DOC-05, DOC-12, [writing conventions](drafts/WRITING.md),
+one-part documents such as the 15 drafts listed in C:RULES-101.
+**Approved:** 2026-10-07, author choice A in `20261007_233143-me`.
+
+A document with no author section, no notes of the author above the
+boundary, is an ordinary file: the AI may edit it for the task the author
+asked for. Where the author's section exists, it stays at the top of the
+file and is never overwritten; only an explicit request of the author
+changes it (DOC-03). When it is unclear where the author's section ends,
+ask before editing.

@@ -65,3 +65,14 @@ There is no strict marker.
 
 `drafts/logs.md`, `drafts/layout.md`, and `drafts/refresh.md` follow this
 convention.
+
+## Documents without an author section
+
+A document may have no author section at all: no notes of the author above
+a heading, only explanation, as in `drafts/for_of.md`. Such a document is
+an ordinary file, and the AI edits it for the task the author asked for
+(MP-30).
+
+When the author's section exists, it stays at the top of the file and is
+never overwritten; only the author's explicit request changes it. When it is
+unclear where the author's section ends, ask before editing.
