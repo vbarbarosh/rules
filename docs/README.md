@@ -21,7 +21,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below, all 260 of them, in one filterable table**
+- **[docs/rules.html](rules.html) — every rule below, all 262 of them, in one filterable table**
 - JavaScript formatting — [specification](../FORMATTING.md) · [visual representation](../formatting.html)
 - Bash scripts — all scripts follow [bin/templ](../bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](../drafts/var_names.md) — a variable name states the shape of its data
@@ -46,10 +46,6 @@ It's just not written down.
 - [drafts/layout.md](../drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
 - [drafts/readme.md](../drafts/readme.md) — a README in one order: badges, cover, name, description, website, quick start, docs, license
 - [drafts/page_header.md](../drafts/page_header.md) — every project page opens with one header: name and version on the left, theme switch and GitHub on the right
-- [drafts/scroll_anchoring.md](../drafts/scroll_anchoring.md) — content the app changes on its own never moves what the reader is looking at; with a test
-- [drafts/file_drop.md](../drafts/file_drop.md) — an element that takes files or folders through an input also takes them dropped onto it
-- [drafts/no_confirmations.md](../drafts/no_confirmations.md) — trust the user: no "Are you sure?"; the action happens at once and can be undone
-- [drafts/optimistic_updates.md](../drafts/optimistic_updates.md) — show local changes immediately over an immutable backend snapshot; confirm, refresh and reconcile, with safe retries
 - [drafts/configure.md](../drafts/configure.md) — `bin/configure` asks every question up front, `sudo` included
 - [drafts/data.md](../drafts/data.md) — `data/` is the project's permanent data; one mount keeps it in docker
 - [drafts/value_label.md](../drafts/value_label.md) — selectable options are `{value, label}`
@@ -62,6 +58,18 @@ It's just not written down.
 - [MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md) — durable author-approved decisions, preserved when explanations are rewritten
 - [packaging/packaging.md](../packaging/packaging.md) — releasing a prebuilt `dist/` with `bin/release`
 - [demos/](../demos/) — naming demos; `item_to.js` shows a superseded convention
+
+## UI mechanics
+
+How a screen works: keyboard interaction, choosing an action, updating state,
+and keeping the reader's place. See the [UI mechanics group](rules.html#UIM).
+
+- [drafts/scroll_anchoring.md](../drafts/scroll_anchoring.md) — content the app changes on its own never moves what the reader is looking at; with a test
+- [drafts/file_drop.md](../drafts/file_drop.md) — an element that takes files or folders through an input also takes them dropped onto it
+- [drafts/no_confirmations.md](../drafts/no_confirmations.md) — trust the user: no "Are you sure?"; the action happens at once and can be undone
+- [drafts/optimistic_updates.md](../drafts/optimistic_updates.md) — show local changes immediately over an immutable backend snapshot; confirm, refresh and reconcile, with safe retries
+- [drafts/main_search.md](../drafts/main_search.md) — typing outside editable fields focuses the primary search and keeps the first character
+- [drafts/default_list_item.md](../drafts/default_list_item.md) — select the first actionable list item by default; Enter acts on it unless the user selects another
 
 ## Vue 2
 

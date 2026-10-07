@@ -246,3 +246,36 @@ Res/rej is a valid abbreviation for Promise executor resolve/reject
 callbacks. Keep that pair in the file-drop examples. The full names
 resolve/reject remain valid too. Req/res is the separate Express
 request/response pair under MP-22.
+
+## MP-24 — Typing focuses the primary search and keeps the first character
+
+**Scope:** [main search](drafts/main_search.md), UI-19, pages with one primary
+search/filter input and their matching keyboard handlers.
+**Approved:** 2026-10-07, author recording `20261007_203850-me`.
+
+When no editable field has focus, typing immediately focuses the page's
+main search/filter and puts the first typed character into it too. Local
+inputs keep their own typing. A click or focus shortcut is not required.
+The recording's initial autofocus is an example, not a separate requirement
+to focus every search on page load.
+
+## MP-25 — The first actionable list item is selected by default
+
+**Scope:** [default list item](drafts/default_list_item.md), UI-20, lists
+whose items are targets for an action.
+**Approved:** 2026-10-07, author recording `20261007_203850-me`.
+
+Select the first item in displayed order by default. Enter acts on it unless
+the user explicitly selects another item. The recording's SQLite/LinkedIn
+example demonstrates that the first result wins, even when a later one
+looks like the intended match. An empty list has no action target.
+
+## MP-26 — UI mechanics is a reusable rule category
+
+**Scope:** the rule index and documentation navigation; interaction rules.
+**Approved:** 2026-10-07, author clarification `20261007_204300-me`.
+
+Use **UI mechanics** for how interfaces work, distinct from their appearance.
+Place primary-search typing and default-item selection there, alongside
+scroll anchoring, file drop, undo/confirmation and optimistic updates. Keep
+existing rule IDs and deep links when organizing the rules into this category.

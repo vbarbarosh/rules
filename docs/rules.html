@@ -282,17 +282,6 @@ h1 {
     max-width: 460px;
 }
 
-.search .slash {
-    position: absolute;
-    left: 11px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--muted);
-    pointer-events: none;
-}
-
 .search input {
     width: 100%;
     font-family: var(--mono);
@@ -301,7 +290,7 @@ h1 {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 0;
-    padding: 8px 12px 8px 30px;
+    padding: 8px 12px;
     transition: border-color var(--fast), background-color var(--fast), color var(--fast);
 }
 
@@ -942,17 +931,16 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>260</b> rules<i>·</i><b>17</b> groups<i>·</i><b>49</b> sources</p>
+    <p class="stats"><b>262</b> rules<i>·</i><b>18</b> groups<i>·</i><b>51</b> sources</p>
 </div>
 </header>
 
 <div class="bar">
     <div class="wrap bar-in">
         <label class="search">
-            <span class="slash">/</span>
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">260 rules</span>
+        <span class="count" id="count">262 rules</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
         <div class="theme theme-docked">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons --><!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. --><svg class="theme-icon theme-light" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg class="theme-icon theme-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><!-- /theme-icons --></button>
@@ -975,7 +963,8 @@ footer .lead {
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">13</span></a>
 <a href="#SQL" data-group="SQL"><span class="tag">SQL</span><span class="name">SQL queries</span><span class="n">6</span></a>
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">19</span></a>
-<a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">User interface</span><span class="n">18</span></a>
+<a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">UI appearance</span><span class="n">8</span></a>
+<a href="#UIM" data-group="UIM"><span class="tag">UIM</span><span class="name">UI mechanics</span><span class="n">12</span></a>
 <a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
 <a href="#GIT" data-group="GIT"><span class="tag">GIT</span><span class="name">Commits</span><span class="n">4</span></a>
 <a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">11</span></a>
@@ -2427,7 +2416,7 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 </article>
 </section>
 <section class="group" id="UI">
-<h2><span class="tag">UI</span><span class="name">User interface</span><span class="note">What every new screen carries.</span></h2>
+<h2><span class="tag">UI</span><span class="name">UI appearance</span><span class="note">How a screen looks.</span></h2>
 <article class="rule bare" id="UI-01">
 <a class="code" href="#UI-01">UI-01</a>
 <div class="text"><p><strong>Every screen has a light/dark switch.</strong> An app screen, a report, a standalone page: each shows a switch the reader can click. Following the OS setting alone does not count.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
@@ -2473,6 +2462,9 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 <div class="text"><p><strong>Right: the theme switch, then GitHub in the corner.</strong> The GitHub icon links to the repository. The same order on every page.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&#91;Current theme icon]  &#91;GitHub]</pre><button class="copy" type="button">Copy</button></div>
 </article>
+</section>
+<section class="group" id="UIM">
+<h2><span class="tag">UIM</span><span class="name">UI mechanics</span><span class="note">How a screen works.</span></h2>
 <article class="rule" id="UI-09">
 <a class="code" href="#UI-09">UI-09</a>
 <div class="text"><p><strong>Nothing jumps.</strong> When the app adds or grows content on its own — a new message, a summary that finishes loading — what the reader is looking at stays exactly where it is on the screen; the scroll position adjusts instead. Only the reader's own clicks may move things.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
@@ -2527,6 +2519,16 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 <div class="text"><p><strong>Use optimistic updates; the user keeps working.</strong> Keep the backend snapshot immutable and local pending changes separate. Show the local change and send its update immediately. After acknowledgement, reread the backend, replace the snapshot, and clear only the pending change confirmed by that result; preserve later actions and reject stale refreshes. Keep failures visible as unsynchronized and retry safely; if only the reread failed, retry that step.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/optimistic_updates.md" title="drafts/optimistic_updates.md">optimistic_updates.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Read → local overlay → update → acknowledgement
 → refresh → replace snapshot → clear confirmed overlay</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="UI-19">
+<a class="code" href="#UI-19">UI-19</a>
+<div class="text"><p><strong>Typing focuses the main search, first character included.</strong> On a page with one primary search/filter, typing outside editable fields focuses it immediately and enters the first character too. Local inputs retain their typing; respect shortcuts and native keyboard behavior.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/main_search.md" title="drafts/main_search.md">main_search.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>Click background → type sm → main filter contains sm</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="UI-20">
+<a class="code" href="#UI-20">UI-20</a>
+<div class="text"><p><strong>Select the first actionable item by default.</strong> In a list of action targets, the first visible actionable item in displayed order is selected by default; Enter acts on it. An explicit user selection wins. A new filtered list defaults to its first actionable item; an empty list has no action.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/default_list_item.md" title="drafts/default_list_item.md">default_list_item.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>SQLite, LinkedIn → Enter opens SQLite</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="REL">
@@ -3107,15 +3109,28 @@ function md_from_inline(el)
 
 function keydown_document(event)
 {
-    if (event.key === '/' && document.activeElement !== q_el && !event.ctrlKey && !event.metaKey && !event.altKey) {
-        event.preventDefault();
-        q_el.focus();
-        q_el.select();
+    if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
+        return;
     }
     if (event.key === 'Escape' && document.activeElement === q_el) {
         q_el.value = '';
         input_q();
+        return;
     }
+    const editing = event.composedPath().some(v => v instanceof HTMLElement && (v.matches('input, textarea, select') || v.isContentEditable));
+    if (editing || Array.from(event.key).length !== 1 || q_el.disabled || q_el.readOnly) {
+        return;
+    }
+    if (event.key === ' ' && document.activeElement.matches('button, input, summary, [role="button"]')) {
+        return;
+    }
+    if (document.querySelector('dialog[open], [aria-modal="true"]')) {
+        return;
+    }
+    event.preventDefault();
+    q_el.focus({preventScroll: true});
+    q_el.setRangeText(event.key, q_el.selectionStart, q_el.selectionEnd, 'end');
+    q_el.dispatchEvent(new Event('input', {bubbles: true}));
 }
 
 function dragstart_document(event)

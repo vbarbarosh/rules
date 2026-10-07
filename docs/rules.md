@@ -3,10 +3,11 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-260 rules · 17 groups · 49 sources · filterable version: [rules.html](rules.html)
+262 rules · 18 groups · 51 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
+Existing codes stay stable when a rule moves to another group.
 In the canonical forms, `✓` and `✗` are verdicts, not code.
 
 | Tag | Group | Rules | |
@@ -23,7 +24,8 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | Upper-case keywords; the query laid out like code. |
 | VUE | Vue 2 | 19 | Components that behave like the platform. |
-| UI | User interface | 18 | What every new screen carries. |
+| UI | UI appearance | 8 | How a screen looks. |
+| UIM | UI mechanics | 12 | How a screen works. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
 | GIT | Commits | 4 | A lowercase title, scope first; details below. |
 | DOC | Writing the rules | 11 | How a document in this repo is built. |
@@ -253,7 +255,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VUE-17 | **A handler on an icon is named after the icon.** | <pre>&lt;button v-on:click="click_icon_archive"&gt;<br>    &lt;svg-icon-archive /&gt;<br>&lt;/button&gt;</pre> | [vue-components.md](../vue2/vue-components.md) |
 | VUE-18 | **Rename the handler with its label.** After the text or icon is changed, rename the corresponding event handler. | `Approve → Accept     // click_approve → click_accept` | [vue-components.md](../vue2/vue-components.md) |
 | VUE-19 | **Empty elements close themselves.** An element without a body closes itself — a component, an HTML element and a void element alike. This holds in `.vue` files and string templates; an in-DOM template is parsed by the browser first. | <pre>&lt;th&gt;&lt;/th&gt;   ✗ no<br>&lt;th /&gt;       ✓ yes<br><br>&lt;app-input-email v-model="user.email" /&gt;</pre> | [vue-formatting.md](../vue2/vue-formatting.md) |
-| **UI** | **User interface** — What every new screen carries. | | |
+| **UI** | **UI appearance** — How a screen looks. | | |
 | UI-01 | **Every screen has a light/dark switch.** An app screen, a report, a standalone page: each shows a switch the reader can click. Following the OS setting alone does not count. | — | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-02 | **Two states, one shared icon button.** Show the current theme: sun for Light, crescent for Dark. Use `img/theme-sun.svg` and `img/theme-moon.svg`; size and border may vary. Click toggles directly, with no menu, System or Auto option. | <pre>Sun: Light → Crescent: Dark → Sun: Light</pre> | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-03 | **The dark theme redefines the light colors.** The light colors live on `:root`; the dark theme sets the same variables under `:root[data-theme="dark"]`. | <pre>:root {<br>    --color-bg: #FFFFFF;<br>    --color-text: #1B1F23;<br>}<br>:root&#91;data-theme="dark"] {<br>    --color-bg: #15181C;<br>    --color-text: #E6E8EB;<br>}</pre> | [theme_switch.md](../drafts/theme_switch.md) |
@@ -262,6 +264,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | UI-06 | **Every project page opens with the same header.** The project on the left; the theme switch and GitHub on the right; search and section links between them, the search lined up with the content column. | ![the parts of a page header, left to right](../drafts/page-header-structure.png) | [page_header.md](../drafts/page_header.md) |
 | UI-07 | **Left: icon, name, version.** The project's icon when it has one, its name, and its released version. | <pre>&#91;icon]  Authwall Docs  v1.16.0</pre> | [page_header.md](../drafts/page_header.md) |
 | UI-08 | **Right: the theme switch, then GitHub in the corner.** The GitHub icon links to the repository. The same order on every page. | <pre>&#91;Current theme icon]  &#91;GitHub]</pre> | [page_header.md](../drafts/page_header.md) |
+| **UIM** | **UI mechanics** — How a screen works. | | |
 | UI-09 | **Nothing jumps.** When the app adds or grows content on its own — a new message, a summary that finishes loading — what the reader is looking at stays exactly where it is on the screen; the scroll position adjusts instead. Only the reader's own clicks may move things. | ![a summary grows above; on the left the message being read drops, on the right it stays](../drafts/scroll-anchoring.gif) | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
 | UI-10 | **Keep the place yourself; the browser won't.** Before such a change, note the element in the middle of the view and where it is on the screen; after the change, scroll by however far it moved. The browser keeps the place only when the change is entirely above the view: not at the very top, not when the growing block is itself on screen, not after a re-render. | <pre>const keep = scroll_keep(scroller);<br>await keep(async function () {<br>    summary.text = text;<br>    await vm.$nextTick();<br>});</pre> | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
 | UI-11 | **Test it.** For each kind of change, a test notes where the middle element is, makes the change, and checks it moved 0 px — at the top of the view and in the middle. One more check runs without the fix and must see the jump. | `assert.equal(shift, 0);` | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
@@ -272,6 +275,8 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | UI-16 | **Undo instead.** A deleted thing goes to a trash; a rename, an edit or a move can be undone. The way back is right there after the action. | `Deleted · Undo` | [no_confirmations.md](../drafts/no_confirmations.md) |
 | UI-17 | **Confirm only what cannot be undone and costs a lot.** Closing an account, erasing data for good. Even then, not an OK/Cancel box but a deliberate step: typing the name, or a link sent by email. | — | [no_confirmations.md](../drafts/no_confirmations.md) |
 | UI-18 | **Use optimistic updates; the user keeps working.** Keep the backend snapshot immutable and local pending changes separate. Show the local change and send its update immediately. After acknowledgement, reread the backend, replace the snapshot, and clear only the pending change confirmed by that result; preserve later actions and reject stale refreshes. Keep failures visible as unsynchronized and retry safely; if only the reread failed, retry that step. | <pre>Read → local overlay → update → acknowledgement<br>→ refresh → replace snapshot → clear confirmed overlay</pre> | [optimistic_updates.md](../drafts/optimistic_updates.md) |
+| UI-19 | **Typing focuses the main search, first character included.** On a page with one primary search/filter, typing outside editable fields focuses it immediately and enters the first character too. Local inputs retain their typing; respect shortcuts and native keyboard behavior. | <pre>Click background → type sm → main filter contains sm</pre> | [main_search.md](../drafts/main_search.md) |
+| UI-20 | **Select the first actionable item by default.** In a list of action targets, the first visible actionable item in displayed order is selected by default; Enter acts on it. An explicit user selection wins. A new filtered list defaults to its first actionable item; an empty list has no action. | <pre>SQLite, LinkedIn → Enter opens SQLite</pre> | [default_list_item.md](../drafts/default_list_item.md) |
 | **REL** | **Packaging and release** — Ship a prebuilt dist/. | | |
 | REL-01 | **Ship a prebuilt dist/.** Distribute a prebuilt `dist/` from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do. | `<script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>` | [packaging.md](../packaging/packaging.md) |
 | REL-02 | **Release order: clean, bump, build, commit, tag.** The release workflow is fixed: ensure there are no changes, increase the version, update `dist/`, commit, tag. | <pre>rm -rf dist<br>npm run build<br>git add package.json package-lock.json dist<br>git commit -m "release v$(...)"<br>git tag v$(...)</pre> | [packaging.md](../packaging/packaging.md) |
