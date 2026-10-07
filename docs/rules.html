@@ -1005,8 +1005,8 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
 <h2><span class="tag">CORE</span><span class="name">Uniformity</span><span class="note">The rule behind the rules.</span></h2>
 <article class="rule" id="CORE-01">
 <a class="code" href="#CORE-01">CORE-01</a>
-<div class="text"><p><strong>Write new code the way the existing code is written.</strong> Uniformity outranks personal preference.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form prose"><p>Everything should look uniform.</p></div>
+<div class="text"><p><strong>Explicit rules take priority for new code.</strong> Follow the surrounding code only where no explicit rule applies. A new rule does not require rewriting existing code; that refactoring can happen separately.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form prose"><p>An explicit rule requires <code>error</code>: use <code>function (error)</code> in new code even beside older <code>function (err)</code> handlers.</p></div>
 </article>
 <article class="rule bare" id="CORE-02">
 <a class="code" href="#CORE-02">CORE-02</a>
@@ -1827,7 +1827,7 @@ import engine_transport from './engine_transport';</pre><button class="copy" typ
 </article>
 <article class="rule bare" id="FILE-25">
 <a class="code" href="#FILE-25">FILE-25</a>
-<div class="text"><p><strong>New code takes its place from its surroundings.</strong> Read the code around the insertion point — what stands together, in what order — and continue it; the new edit does not differ from what is around it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/new_code_placement.md" title="drafts/new_code_placement.md">new_code_placement.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>New code takes its place from its surroundings where no explicit rule applies.</strong> Read the code around the insertion point — what stands together, in what order — and continue it within that scope. Explicit rules take priority (CORE-01); this does not require reorganizing existing code.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/new_code_placement.md" title="drafts/new_code_placement.md">new_code_placement.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
 <article class="rule" id="FILE-26">
 <a class="code" href="#FILE-26">FILE-26</a>

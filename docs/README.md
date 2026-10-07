@@ -5,7 +5,13 @@ is also in [the rule index](rules.html), one row each.
 
 ## Everything should look uniform
 
-The generic advice is as follows: write new code in the same way the existing code is written.
+Explicit rules take priority when writing new code. Follow the surrounding
+code only where no explicit rule applies.
+
+Rules develop as the work makes the intended behavior, formatting and style
+clearer, so existing code may predate them. A new rule does not require
+rewriting that code; it can be refactored separately when there is an
+opportunity.
 
 If something isn't explicitly specified, it doesn't mean it's not important.
 The naming of files, functions, CSS classes, formatting, and even the order of

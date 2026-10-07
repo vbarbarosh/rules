@@ -49,13 +49,19 @@ was inserted by agent;
 
 - there is a set of render functions, render_css, render_human_status and many more, and the agent put describe between them for no reason; that must not happen. Look at the surroundings, work out their rules even when nowhere written, and make the new edit not differ from what is around it. Here describe goes after the render functions, never between them
 
+- explicit rules take priority for new code. Follow the surrounding code only where no explicit rule applies. Rules emerge during the work; introducing one does not require rewriting code that predates it. That code can be refactored separately when there is an opportunity.
+
 # New code takes its place from its surroundings
 
 Before inserting code, read the code around the place it goes: which
 functions stand together, in what order, with what comments and spacing.
-Continue that order. An order nobody wrote down is still an order
-(CORE-02); a new edit that breaks it is as wrong as one that breaks a
-written rule.
+Follow explicit rules first (CORE-01). Where no explicit rule applies,
+continue the surrounding order and style: an order nobody wrote down is
+still an order (CORE-02).
+
+This governs new code. Existing code may predate the current rules;
+introducing a rule does not require rewriting or reorganizing it.
+Refactoring that code is separate work for a suitable opportunity.
 
 A run of functions of one family — `render_*`, `format_*`, `click_*` —
 stays unbroken. A new function of the family joins the run. A function of
