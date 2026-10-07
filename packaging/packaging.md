@@ -30,8 +30,10 @@ packages. This project can do the same. Here is a workflow:
 # Increase a version without commiting it and making a tag
 npm version $1 --no-git-tag-version
 # Rebuild dist
-rm -rf dist
+rm -rf build
 npm run build
+rm -rf dist
+cp -r build dist
 git add package.json package-lock.json dist
 git commit -m "release v$(node -e 'console.log(require("./package.json").version)')"
 # Create a tag
@@ -73,8 +75,10 @@ will do all of this. Feel free to use and tweak it:
     # Increase a version without commiting it and making a tag
     npm version $1 --no-git-tag-version
     # Rebuild dist
-    rm -rf dist
+    rm -rf build
     npm run build
+    rm -rf dist
+    cp -r build dist
     git add package.json package-lock.json dist
     git commit -m "release v$(node -e 'console.log(require("./package.json").version)')"
     # Create a tag

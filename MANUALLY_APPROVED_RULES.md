@@ -355,6 +355,9 @@ build, may pass it flags or environment variables, and may clear the output
 directory first; then it copies `build/` into `dist/`. There is no second
 build command for releases.
 
+The release steps, confirmed in `20261007_235933-me`: `rm -rf build`,
+`npm run build`, `rm -rf dist`, `cp -r build dist`.
+
 ## MP-33 — data/ is what the app writes; config/ makes the configuration
 
 **Scope:** PROJ-05, PROJ-06, PROJ-07, PROJ-18, PROJ-19,

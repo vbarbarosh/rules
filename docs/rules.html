@@ -2541,8 +2541,9 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 <article class="rule" id="REL-02">
 <a class="code" href="#REL-02">REL-02</a>
 <div class="text"><p><strong>Release order: clean, bump, build, commit, tag.</strong> The release workflow is fixed: ensure there are no changes, increase the version, update <code>dist/</code>, commit, tag. <code>dist/</code> is updated by the one build, then a copy of <code>build/</code> (MP-32).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>rm -rf build dist
+<div class="form"><pre>rm -rf build
 npm run build
+rm -rf dist
 cp -r build dist
 git add package.json package-lock.json dist
 git commit -m "release v$(...)"
