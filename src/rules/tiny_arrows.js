@@ -1,3 +1,5 @@
+const is_error_callback = require('../helpers/is_error_callback');
+
 function tiny_arrows(context)
 {
     return {
@@ -8,12 +10,10 @@ function tiny_arrows(context)
             else if (node.loc.start.line !== node.loc.end.line || !['CallExpression', 'NewExpression', 'Property'].includes(node.parent.type)) {
                 context.report({node, messageId: 'tiny'});
             }
-            if (node.params.length === 1) {
+            if ((node.params.length === 1) && !is_error_callback(node)) {
                 const param = node.params[0];
                 const depth = context.sourceCode.getAncestors(node).filter(v => v.type === 'ArrowFunctionExpression').length;
-                const error_handler = node.parent.callee?.type === 'MemberExpression'
-                    && node.parent.callee.property.name === 'catch';
-                const expected = error_handler ? 'error' : 'v'.repeat(depth + 1);
+                const expected = 'v'.repeat(depth + 1);
                 if (param.type === 'Identifier' && param.name !== expected) {
                     context.report({node: param, messageId: 'name', data: {expected}});
                 }

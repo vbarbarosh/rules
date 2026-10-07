@@ -64,7 +64,12 @@ tester.run('tiny-arrows', plugin.rules['tiny-arrows'], {
         'items.map(v => v.some(vv => vv.active));',
         'items.sort((a, b) => a - b);',
         'items.map(v => ({uid: v.uid}));',
+        'promise.catch(e => log(e));',
+        "server.on('error', e => log(e));",
+        'promise.catch(e => values.map(vv => vv.uid));',
+        // Error parameters belong to error-name, including destructuring.
         'promise.catch(error => log(error));',
+        'promise.catch(({message}) => log(message));',
         'hover(el, {end: () => this.hover_lock = null});',
         'const handlers = {end: () => done()};',
     ],
@@ -80,7 +85,8 @@ tester.run('tiny-arrows', plugin.rules['tiny-arrows'], {
         {code: 'items.map(({uid}) => uid);', errors: [{messageId: 'destructured'}]},
         {code: 'rows.map(([key, value]) => key + value);', errors: [{messageId: 'destructured'}]},
         {code: 'items.map(v => v.map(({uid}) => uid));', errors: [{messageId: 'destructured', data: {expected: 'vv'}}]},
-        {code: 'promise.catch(({message}) => log(message));', errors: [{messageId: 'destructured', data: {expected: 'error'}}]},
+        {code: 'promise.catch(e => { report(e); });', errors: [{messageId: 'block'}]},
+        {code: 'promise.catch(e =>\n    report(e));', errors: [{messageId: 'tiny'}]},
     ],
 });
 
@@ -93,7 +99,16 @@ tester.run('error-name', plugin.rules['error-name'], {
         'try { try {} catch (error) {} } catch (error) {}',
         'try {} catch (error) { try {} catch (error2) {} }',
         'try {} catch (error) { try {} catch (error2) { try {} catch (error3) {} } }',
-        'try {} catch (error) { promise.catch(error2 => report(error2)); }',
+        'try {} catch (error) { promise.catch(e => report(e)); }',
+        'try {} catch (error) { promise.catch(function (error) {}); }',
+        'promise.catch(e => fallback.catch(e => report(e)));',
+        'promise.catch(function (error) { fallback.catch(function (error) {}); });',
+        'promise.catch(e => report(e));',
+        "promise['catch'](e => report(e));",
+        'promise.then(v => v, e => report(e));',
+        "server.on('error', e => report(e));",
+        "el.addEventListener('error', function (event) {});",
+        "el.addEventListener('error', v => report(v));",
     ],
     invalid: [
         {code: 'try {} catch (err) {}', errors: [{messageId: 'name'}]},
@@ -104,6 +119,11 @@ tester.run('error-name', plugin.rules['error-name'], {
         {code: 'promise.catch(function (e) {});', errors: [{messageId: 'name'}]},
         {code: "server.once('error', function (ex) {});", errors: [{messageId: 'name'}]},
         {code: "promise['catch'](err => report(err));", errors: [{messageId: 'name'}]},
+        {code: 'promise.catch(error => report(error));', errors: [{messageId: 'name', data: {name: 'e'}}]},
+        {code: 'promise.catch(({message}) => report(message));', errors: [{messageId: 'name', data: {name: 'e'}}]},
+        {code: 'promise.then(null, v => report(v));', errors: [{messageId: 'name', data: {name: 'e'}}]},
+        {code: 'try {} catch (error) { promise.catch(function (error2) {}); }', errors: [{messageId: 'name', data: {name: 'error'}}]},
+        {code: 'promise.catch(e => fallback.catch(ee => report(ee)));', errors: [{messageId: 'name', data: {name: 'e'}}]},
     ],
 });
 

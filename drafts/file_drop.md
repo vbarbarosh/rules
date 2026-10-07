@@ -2,6 +2,8 @@
   or files, must also understand drag-and-drop onto it: a file dropped on it.
 - When such an element is made, the drop is made with it: the user expects
   this behaviour.
+- Event examples follow the callback naming rules: `v` in a one-parameter
+  arrow, `event` in a regular function.
 
 # File drop
 
@@ -27,8 +29,8 @@ an element that ignores the drop looks broken.
 ## Canonical form
 
 ```js
-window.addEventListener('dragover', event => event.preventDefault());
-window.addEventListener('drop', event => event.preventDefault());
+window.addEventListener('dragover', v => v.preventDefault());
+window.addEventListener('drop', v => v.preventDefault());
 
 function file_drop_bind(element, take)
 {

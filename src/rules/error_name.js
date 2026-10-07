@@ -1,9 +1,11 @@
+const is_error_callback = require('../helpers/is_error_callback');
+
 function error_name(context)
 {
-    // error at the top, error2 inside a catch, error3 inside two
     function check(node, anchor) {
-        const depth = context.sourceCode.getAncestors(anchor).filter(v => v.type === 'CatchClause').length;
-        const name = depth ? `error${depth + 1}` : 'error';
+        const arrow = anchor.type === 'ArrowFunctionExpression';
+        const depth = (anchor.type === 'CatchClause') ? context.sourceCode.getAncestors(anchor).filter(v => v.type === 'CatchClause').length : 0;
+        const name = arrow ? 'e' : depth ? `error${depth + 1}` : 'error';
         if (node && (node.type !== 'Identifier' || node.name !== name)) {
             context.report({node, messageId: 'name', data: {name}});
         }
@@ -12,16 +14,9 @@ function error_name(context)
         CatchClause: function (node) {
             check(node.param, node);
         },
-        CallExpression: function (node) {
-            const callee = node.callee;
-            if (callee.type !== 'MemberExpression') {
-                return;
-            }
-            const name = callee.computed ? callee.property.value : callee.property.name;
-            const event = ['on', 'once', 'addListener', 'addEventListener'].includes(name) && node.arguments[0]?.value === 'error';
-            const callback = name === 'catch' ? node.arguments[0] : event ? node.arguments[1] : null;
-            if (callback && ['FunctionExpression', 'ArrowFunctionExpression'].includes(callback.type)) {
-                check(callback.params[0], node);
+        ':matches(FunctionExpression, ArrowFunctionExpression)': function (node) {
+            if (is_error_callback(node)) {
+                check(node.params[0], node);
             }
         },
     };

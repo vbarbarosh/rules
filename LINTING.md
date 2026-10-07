@@ -101,8 +101,8 @@ legacy ESLint configuration; that configuration is not automatically merged.
 | --- | --- |
 | `imports-sorted` | First statements, one statement per line, no internal comments/blank lines, full source lines compared as UTF-8 bytes. Up to three blocks, one blank line between them: side-effect imports (`import './x'`, bare `require('x')`) first, kept in the order they run; then the sorted default imports; then, optionally set apart, the sorted named imports (`import {a, b}`, `const {a, b} = require(...)`). Handles `import`, bare `require`, assigned and destructured `require`, and `require(...).member`. |
 | `block-layout` | Module-level function opening brace on the next line; nested functions/callbacks/control flow on the declaration line; bodies and closing braces on their own lines; `else`, `catch`, `finally` on new lines. An arrow's `{}` body is left to `tiny-arrows`. |
-| `tiny-arrows` | An arrow with a `{}` body is reported on its own: it becomes `function (...) {}`. Otherwise only single-line expression callbacks, passed as call arguments or as object property values; any number of parameters (`(a, b, c, d) => a + b + c + d` is fine); a lone parameter is named `v`, nested `vv`, etc., and is taken whole, not destructured (`v => v.uid`, not `({uid}) => uid`). A `.catch` arrow uses `error`. Named helpers use function declarations. |
-| `error-name` | `error` in catches, inline promise rejection handlers, and inline error event handlers; `error2` inside another catch, `error3` inside two; optional catch bindings remain valid. |
+| `tiny-arrows` | An arrow with a `{}` body is reported on its own: it becomes `function (...) {}`. Otherwise only single-line expression callbacks, passed as call arguments or as object property values; any number of parameters (`(a, b, c, d) => a + b + c + d` is fine). A lone value/event parameter is `v`, nested `vv` by total arrow depth (including error arrows), and is taken whole, not destructured (`v => v.uid`, not `({uid}) => uid`). Error callback parameters are checked only by `error-name`; arrow shape is still checked here. Named helpers use function declarations. |
+| `error-name` | Error callback parameters use `e` in arrows and `error` in regular functions at every depth. Catch bindings use `error`, then `error2` / `error3` inside enclosing catches; see [nested names](drafts/var_names_event.md). Checks the first parameter of inline `.catch` callbacks, second-argument `.then` callbacks, and EventEmitter `error` listeners (`on`, `once`, `addListener`, `prependListener`, `prependOnceListener`). The parameter is taken whole; omitted parameters and optional catch bindings are valid. DOM `addEventListener` callbacks receive events, so their one-parameter arrows use `v`. |
 | `return-out` | Return expressions directly instead of `const out = ...; return out;` (also checks other const names). Arrays, objects and `new` results accumulated across statements use `out`. Passed-through parameters and outer-scope values are allowed. |
 | `operator-spacing` | Tight `*`, `/`, `**`; spaces around other binary/logical/assignment operators. Preserves comments and necessary separation before a regex literal. |
 | `vue-class-order` | Layout → spacing → sizing → decoration → typography → app prefixes → local classes. `ph*` before `pv*`; `fs*` and `fw*` before `lh*`. Multiple local classes form the final group. Item classes (`fluid`, `grow`, `shrink`, `flex-fluid`, `flex-noshrink`, ...) lead, with position and display. Families come from the smcss 0.10.0 registry; `x*` resets and any class outside the registry, the app prefixes and `#-` are left unconstrained. |
@@ -187,6 +187,11 @@ module.exports = rules_config({
   function definitions do not count as component styles. CSS/Sass parse errors cannot pass as
   verified styles. Standalone styles use the same style checks through an
   ESLint processor with original line numbers.
+- **Callback naming:** known literal method names are recognized in direct,
+  computed-string and optional calls. Only the actual inline callback argument
+  is classified. Named handler references, dynamically selected methods,
+  arbitrary error-first APIs and parameter types are not inferred. Regular DOM
+  event parameter naming (`event`) is documented but not enforced by these rules.
 - **Return naming:** construction through arbitrary function calls,
   reassignment or complex data flow is not inferred. The rule is deliberately
   limited to locally initialized arrays, objects and constructor calls.

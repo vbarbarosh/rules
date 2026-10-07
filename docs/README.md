@@ -32,9 +32,9 @@ It's just not written down.
 - [drafts/refresh.md](../drafts/refresh.md) — `refresh` and `refresh_*` sync local vars with remote data
 - [drafts/format_xxx.md](../drafts/format_xxx.md) — `format_*` returns a string for human display
 - [drafts/render_xxx.md](../drafts/render_xxx.md) — `render_*` derives a small value from own state
-- [drafts/var_names_error.md](../drafts/var_names_error.md) — a caught error is always named `error`
+- [drafts/var_names_error.md](../drafts/var_names_error.md) — errors use `e` in arrows and `error` in regular handlers
 - [drafts/var_names_time0.md](../drafts/var_names_time0.md) — the start time of a measurement is always named `time0`
-- [drafts/var_names_event.md](../drafts/var_names_event.md) — never a bare `e`: an event is `event`, a catch inside a catch takes `error2`
+- [drafts/var_names_event.md](../drafts/var_names_event.md) — events use `v` in arrows and `event` in regular functions; nested handler names
 - [drafts/formatting_blocks.md](../drafts/formatting_blocks.md) — brace and layout catalog, construction by construction
 - [drafts/imports_sorted.md](../drafts/imports_sorted.md) — the import block is a plain byte-order line sort
 - [drafts/new_code_placement.md](../drafts/new_code_placement.md) — new code takes its place from its surroundings; a run of `render_*` stays unbroken

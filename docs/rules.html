@@ -1182,21 +1182,25 @@ return {a, b};       <span class="yes">✓ as this</span></pre><button class="co
 </article>
 <article class="rule" id="VAR-05">
 <a class="code" href="#VAR-05">VAR-05</a>
-<div class="text"><p><strong>A caught error is named "error".</strong> The variable holding a caught error is always named <code>error</code> — in <code>try/catch</code>, in <code>.catch(...)</code>, and in error event handlers alike.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_error.md" title="drafts/var_names_error.md">var_names_error.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>catch (error) {
-    console.log(error.message);
-}
+<div class="text"><p><strong>Errors use e in arrows, error in regular handlers.</strong> A caught error is <code>error</code> in a catch binding or regular function, and <code>e</code> in an arrow. This applies to promise rejection handlers and EventEmitter error listeners. Callback names stay <code>e</code> / <code>error</code> at every depth. DOM error events follow VAR-16; only nested catch bindings use numbered names (VAR-17).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_error.md" title="drafts/var_names_error.md">var_names_error.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>promise.catch(e =&gt; report(e));
 
 server.on('error', function (error) {
     throw error;
-});</pre><button class="copy" type="button">Copy</button></div>
+});
+
+catch (error) {
+    console.log(error.message);
+}</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="VAR-06">
 <a class="code" href="#VAR-06">VAR-06</a>
-<div class="text"><p><strong>No e, err or ex.</strong> <code>e</code>, <code>err</code> and <code>ex</code> do not exist.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_error.md" title="drafts/var_names_error.md">var_names_error.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Reserve e for error arrows; no err or ex.</strong> <code>e</code> names an arrow error parameter. A regular error parameter or catch binding uses <code>error</code>, never <code>e</code>, <code>err</code> or <code>ex</code>; only catch bindings get the nested numbers in VAR-17.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_error.md" title="drafts/var_names_error.md">var_names_error.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>catch (e)     <span class="no">✗ no</span>
 catch (err)   <span class="no">✗ no</span>
-catch (error) <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+catch (error) <span class="yes">✓ yes</span>
+
+promise.catch(e =&gt; report(e));   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="VAR-07">
 <a class="code" href="#VAR-07">VAR-07</a>
@@ -1210,9 +1214,10 @@ err      <span class="no">✗ wrong</span></pre><button class="copy" type="butto
 </article>
 <article class="rule" id="VAR-09">
 <a class="code" href="#VAR-09">VAR-09</a>
-<div class="text"><p><strong>Lambda parameters are v and vv.</strong> A lambda parameter is named <code>v</code>; a nested one is <code>vv</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Arrow values use v; arrow errors use e.</strong> A lone value or event parameter is <code>v</code>; nested value arrows use <code>vv</code>, then <code>vvv</code>, by total arrow depth, including error arrows. Error arrows keep <code>e</code> at every depth (VAR-05). With several parameters, choose names for their roles; an error callback’s first parameter still follows the error naming rule.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>items.map(v =&gt; v.uid)
-items.some(v =&gt; v.sizes.some(vv =&gt; vv.width &gt; 100))</pre><button class="copy" type="button">Copy</button></div>
+items.some(v =&gt; v.sizes.some(vv =&gt; vv.width &gt; 100))
+promise.catch(e =&gt; report(e))</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="VAR-10">
 <a class="code" href="#VAR-10">VAR-10</a>
@@ -1265,15 +1270,17 @@ $time0 = microtime(true);   <span class="yes">✓ yes</span></pre><button class=
 </article>
 <article class="rule" id="VAR-16">
 <a class="code" href="#VAR-16">VAR-16</a>
-<div class="text"><p><strong>No bare e outside a one-line arrow.</strong> A variable is never a bare <code>e</code>. An event handler's parameter is <code>event</code>; <code>e</code> stands only as the parameter of an arrow that fits on one line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_event.md" title="drafts/var_names_event.md">var_names_event.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>function (e) {       <span class="no">✗ no</span>
-function (event) {   <span class="yes">✓ yes</span>
+<div class="text"><p><strong>Events use v in arrows, event in regular functions.</strong> A DOM event is a value, including an event whose type is <code>error</code>. A one-parameter arrow uses <code>v</code>; a regular event handler uses <code>event</code>. Reserve <code>e</code> for error values in arrows.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_event.md" title="drafts/var_names_event.md">var_names_event.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>el.addEventListener('click', v =&gt; v.stopPropagation());
+el.addEventListener('error', v =&gt; report(v));
 
-el.addEventListener('click', e =&gt; e.stopPropagation());</pre><button class="copy" type="button">Copy</button></div>
+el.addEventListener('error', function (event) {
+    report(event);
+});</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="VAR-17">
 <a class="code" href="#VAR-17">VAR-17</a>
-<div class="text"><p><strong>Nested catches name error2, error3.</strong> A catch inside another one's catch names its error <code>error2</code>, the next level <code>error3</code>, so no name hides another.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_event.md" title="drafts/var_names_event.md">var_names_event.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Nested catch bindings use error2, error3.</strong> A catch inside another catch names its binding <code>error2</code>, the next level <code>error3</code>. This applies only to catch bindings: callback parameters stay <code>e</code> in arrows and <code>error</code> in regular functions, even inside a catch.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_event.md" title="drafts/var_names_event.md">var_names_event.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>catch (error) {
     try {
         await save_backup(scene);
@@ -2491,8 +2498,8 @@ await keep(async function () {
 <article class="rule" id="UI-14">
 <a class="code" href="#UI-14">UI-14</a>
 <div class="text"><p><strong>Show the drop target; never lose the page.</strong> The element lights up while files are dragged over it, and a file dropped beside it does not open in the tab.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>window.addEventListener('dragover', event =&gt; event.preventDefault());
-window.addEventListener('drop', event =&gt; event.preventDefault());</pre><button class="copy" type="button">Copy</button></div>
+<div class="form"><pre>window.addEventListener('dragover', v =&gt; v.preventDefault());
+window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="UI-15">
 <a class="code" href="#UI-15">UI-15</a>
@@ -2639,7 +2646,7 @@ function main()
 </article>
 <article class="rule bare" id="LINT-03">
 <a class="code" href="#LINT-03">LINT-03</a>
-<div class="text"><p><strong>Tiny arrows fit one line.</strong> A tiny arrow is a single-line expression callback, passed as a call argument or as an object property value. It fits one line; the number of parameters does not matter. A lone parameter is <code>v</code>, nested <code>vv</code>; in a <code>.catch</code> it is <code>error</code>. It is taken whole — <code>v =&gt; v.uid</code>, not <code>({uid}) =&gt; uid</code>. A named helper is a function declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Tiny arrows fit one line.</strong> A tiny arrow is a single-line expression callback, passed as a call argument or as an object property value. It fits one line; the number of parameters does not matter. A lone value/event parameter is <code>v</code>, nested <code>vv</code> by total arrow depth; an error parameter stays <code>e</code> at every depth (VAR-05), including <code>.catch</code>, <code>.then</code> rejection callbacks and EventEmitter error listeners. It is taken whole — <code>v =&gt; v.uid</code>, not <code>({uid}) =&gt; uid</code>. A named helper is a function declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
 <article class="rule" id="LINT-04">
 <a class="code" href="#LINT-04">LINT-04</a>

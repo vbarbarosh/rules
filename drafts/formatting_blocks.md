@@ -54,10 +54,10 @@ function demo()
         // ...
     });
 
-    // tiny arrow callback: expression body only; param v, nested vv
+    // tiny arrow callback: values v / vv; errors e
     const uids = items.map(v => v.uid);
     const found = items.some(v => v.sizes.some(vv => vv.width > 100));
-    fresh.catch(ignore);
+    fresh.catch(e => report(e));
 
     // arrow with a block body does not exist — it becomes function (...) {}
     // with optional _this inside

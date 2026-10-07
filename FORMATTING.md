@@ -34,8 +34,13 @@ project, so all JavaScript code follows the same conventions.
       // GOOD
       const text_items = items.filter(v => item_text(v) === text);
       ```
-    * Prefer `v` as the variable name for lambda callbacks
-    * Use `vv` for nested lambda callbacks (`items.map(v => v.some(vv => vv.permissions.includes(...)))`)
+    * A lone value or event parameter in an arrow is `v`; an error parameter is `e`
+    * Value arrows use `v`, `vv`, `vvv` by arrow nesting depth, including an enclosing error arrow (`promise.catch(e => items.map(vv => vv.uid))`)
+    * Error arrows include promise rejection handlers and EventEmitter `error` listeners: `promise.catch(e => report(e))`, `server.on('error', e => report(e))`
+    * A DOM event is a value even when its type is `error`: `el.addEventListener('error', v => report(v))`
+    * Error callback names stay `e` / `error` at every depth; regular DOM event handlers use `function (event)`. Only nested catch bindings use `error2`, `error3`
+    * With several parameters, choose names for their roles; the first parameter of an error handler still follows the error naming rule
+    * A lone value parameter and an error handler’s first parameter are taken whole, not destructured; see [error names](drafts/var_names_error.md) and [nested handlers](drafts/var_names_event.md)
 
 * **One public entry function per file**
 
