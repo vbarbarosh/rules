@@ -1,0 +1,569 @@
+# Independent consistency review — 2026-10-06
+
+Repository: `vbarbarosh/rules`, branch `main`, HEAD `a3364ed8f0435ef5b124a576a9173f4a4cbefe4b`; 126 tracked files, 147 commits; first commit 2025-04-09, latest commit 2026-10-06. The tracked tree was clean before and after verification. This review is a new, untracked file; no rule, source, implementation or generated page was changed.
+
+> Coordination note: another agent posted a completed audit in note message `20261006_184211-agent` while this review was being written. Its reply assigns RULES-56..133 and reports 78 new findings. That full report was not available to this session for comparison; the shared output path currently contained this session’s 29-item report when checked. To avoid reusing permanent IDs, the new observations below use REVIEW-01..17. Counts, severity and withdrawn statuses here are this reviewer’s assessment, not a reconciliation of the unseen report. The other agent’s claimed browser results are not included as evidence here.
+
+## Scope
+
+Requested: a detailed consistency audit, saved in repository `notes/`, including logical placement of rules in sections. This resumes the plan for note message `20261006_182146-me` and incorporates `20261006_182544-me`.
+
+Checks performed:
+
+- Read all 258 indexed rules and their 47 cited sources, including author/AI halves; compared policy, scope, terminology, examples and source strength. Read the three agent guides, three glossaries, README and rulebook overview.
+- Revisited every permanent finding RULES-01..55, including the end-of-day rulings in the September 23 audit. Read the September 28 conversation audit; it assigned no new permanent IDs, its observations were rechecked rather than assumed current.
+- Reviewed `bin/build`, `bin/lint`, bash scripts, preset configuration, error/arrow/return rules and relevant tests. This is not a line-by-line audit of every parser/helper in `src/`.
+- Ran `npm run check`: lint passed, 215 tests in 33 suites passed, generated-page diff check passed. Node v24.20.0, npm 11.19.0.
+- Independently counted 258 unique rule IDs, 17 groups and 47 sources, and compared the complete ordered rule-ID list against generated HTML: equal. A reproducible build verifies derivation, not semantic agreement with every source.
+- Checked 349 local Markdown file/directory links outside historical audit notes and fenced examples: all resolve. This does not validate remote URLs, Markdown heading fragments or every HTML resource.
+- Ran 10 full-preset probes for conflicting event/error names, return exemptions, formatting coverage, classes and layout order. Extracted and linted inline JavaScript from the Rules, Agents and Glossaries templates plus Formatting and Logs: all five clean under the current preset.
+- Executed the canonical file-drop code with a simulated missing entries API. Reviewed guide clipboard serialization statically.
+- Ran `npm audit --json`: 0 reported vulnerabilities. Checked MySQL examples against the official 8.4 CREATE/DROP INDEX grammars.
+
+Not exercised: browser rendering/screenshots, real clipboard interaction, live MySQL, Electron/sudo installation, release/version/commit/tag commands, GitHub About settings or deployed Pages, all remote links, secret/history scan, every language/version, and fresh-install/platform matrices. Historical browser checks are not presented as fresh results. No commits or pushes were made.
+
+## Verdict
+
+The rulebook is substantially better aligned than the September audit, and its generated index is reproducible. It is **not fully consistent**. The highest-priority concrete defect is two active linter rules giving incompatible instructions for the same error callback. Other significant issues are a configure example that can prompt late, invalid MySQL canonical syntax, an undefined build-to-release handoff, and source qualifiers becoming stronger requirements in the index.
+
+There are **29 open findings: 11 medium and 18 low**. Twelve reference prior RULES IDs; seventeen use review-local REVIEW IDs, not new permanent RULES IDs. This is not a count of 29 direct contradictions: it also includes example defects, scope ambiguity, navigation, enforcement gaps and minor carried hygiene items. No high-severity finding is established by this audit.
+
+| Area | Status |
+|---|---|
+| Standard verification | Lint clean; 215/215 tests pass; generated files unchanged |
+| Index structure | 258 unique rules, 17 groups, 47 sources; Markdown/HTML ID order equal |
+| Internal Markdown file links | 349/349 resolve under the stated scope |
+| Canonical code versus full preset | Event examples fail; error-arrow requirements conflict |
+| Source fidelity | Qualifiers and applicability drift in several rule families |
+| Project organization | README and bin conventions are already under PROJ; subdivision and cross-group cleanup needed |
+| SQL examples | Two index syntax forms do not match stated MySQL dialect |
+| Main page JavaScript | Five extracted page/template scripts lint clean |
+| Browser/UI behavior | Not rendered in this audit; no new visual certification |
+| Dependencies | npm audit reports 0 vulnerabilities |
+| Changes made | Audit and note reply only; no fixes applied |
+
+## Finding register
+
+| Id | Severity | Area | Title |
+|---|---|---|---|
+| RULES-06 | low | scope | The return rule still has a broader headline than its exceptions |
+| RULES-10 | medium | project | The build-to-release handoff is still unspecified |
+| RULES-11 | low | project | The required bash diagnostics are absent from the examples |
+| RULES-14 | low | wording | The theme prose denies the inheritance its initialization uses |
+| RULES-15 | low | scope | Transition placement is mandatory in CSS and discretionary in lint documentation |
+| RULES-16 | low | wording | The reset-class title again contradicts its exception |
+| RULES-17 | low | scope | Intent-only comments lack the explicit route-metadata exception |
+| RULES-25 | low | glossary | An unresolved Error Flood definition is still published |
+| RULES-26 | low | source | The authoritative log notes still contain a different spawn keyword |
+| RULES-28 | low | maintenance | The naming grammar remains duplicated in a handwritten overview |
+| RULES-29 | low | hygiene | The unused logo remains in the tracked tree |
+| RULES-53 | low | self-compliance | The repository still departs from the universal project layout |
+| REVIEW-01 | medium | linter | The event-arrow examples violate the parameter naming rule |
+| REVIEW-02 | medium | linter | Two enabled rules demand incompatible names for error arrows |
+| REVIEW-03 | medium | project | The configure example cannot guarantee that all prompts happen first |
+| REVIEW-04 | medium | examples | The MySQL formatting example contains non-MySQL index syntax |
+| REVIEW-05 | medium | release | The canonical release workflow conflicts with the commit rule |
+| REVIEW-06 | medium | project | The one-directory migration promise omits local configuration |
+| REVIEW-07 | low | examples | A canonical small object conflicts with the line-fitting rule |
+| REVIEW-08 | low | examples | The GOOD literal examples obscure the naming grammar |
+| REVIEW-09 | low | wording | The import source says one exception while documenting two |
+| REVIEW-10 | low | wording | The transition rule promises one speed and supplies three |
+| REVIEW-11 | medium | examples | The file-drop fallback is unreachable when the entries API is absent |
+| REVIEW-12 | medium | handoff | Copy for an agent loses the base URL for guide links and images |
+| REVIEW-13 | low | enforcement | A green check does not cover the newest formatting policies or the whole site |
+| REVIEW-14 | medium | organization | Rules are grouped partly by subject and partly by where they were discovered |
+| REVIEW-15 | low | glossary | Final both ends a turn and can be followed by work extending that turn |
+| REVIEW-16 | medium | source fidelity | The index and generated halves sometimes strengthen the source |
+| REVIEW-17 | low | scope | Exactly one export needs a library-module scope |
+
+## Findings
+
+IDs are retained even when a finding is only partially open. Each item distinguishes a contradiction from an example problem, ambiguity or maintenance risk.
+
+### RULES-06 The return rule still has a broader headline than its exceptions (low)
+
+`docs/rules.md:60` and `drafts/return_out.md:1` say “used in a return statement”; `docs/rules.md:71` expressly allows `return lines.join(...)`. `FORMATTING.md:232` has the narrower, correct wording: “returned as it is”. Also, `LINTING.md:106` allows passed-through parameters and outer values, while the prose does not state that exception. The `return_parameter` probe passes with `return value;`.
+
+This is the remaining wording/exception portion of RULES-06, not a new demand to rename transformed values. Use one definition everywhere and state whether parameter/outer-value exemptions are policy or only limits of enforcement.
+
+### RULES-10 The build-to-release handoff is still unspecified (medium)
+
+`docs/rules.md:165` makes `bin/build` wrap `npm run build`; `docs/rules.md:166` says its output is uncommitted `build/`. In contrast, `packaging/packaging.md:33` removes `dist`, runs the same `npm run build`, and immediately stages `dist`. No promotion/copy from `build/` to `dist/` appears.
+
+Having two directories is not itself contradictory. The missing step is how one build command satisfies the two output contracts. Specify a reproducible build to `build/` followed by explicit release promotion, or specify distinct build modes. This is the unresolved portion of RULES-10.
+
+### RULES-11 The required bash diagnostics are absent from the examples (low)
+
+`docs/rules.md:177` and `docs/README.md:20` require diagnostics as part of following `bin/templ`. `bin/templ:22` prints script, scriptdir, scriptname and tempdir. `bin/configure` and the release script in `packaging/packaging.md` compute those variables but print none of them.
+
+The earlier missing strict mode, cleanup and exit messages have been fixed. Only diagnostics remain. Either make their output optional in the rule or carry them into the two scripts.
+
+### RULES-14 The theme prose denies the inheritance its initialization uses (low)
+
+`drafts/theme_switch.md:16` says the reader does not inherit the theme. `drafts/theme_switch.md:37` explicitly reads the OS once when no choice is saved. UI-02/04 carry the same distinction without fully explaining it.
+
+The implementation model is coherent: two selectable states, one initial OS-derived choice. Say “no continuously following System mode; initial choice may come from the OS”. This is wording, not a request to remove OS initialization.
+
+### RULES-15 Transition placement is mandatory in CSS and discretionary in lint documentation (low)
+
+`docs/rules.md:224` and `drafts/css_classes.md:145` require the base rule. `LINTING.md:112` calls base-versus-state placement a design call and says it is not checked.
+
+A linter may leave a mandatory rule unenforced; that is not a contradiction. Calling the policy discretionary is. Change the coverage wording to “required by CSS-09, not checked”, or make the policy discretionary consistently.
+
+### RULES-16 The reset-class title again contradicts its exception (low)
+
+`drafts/css_classes.md:106` now gives the accurate rule. But `docs/rules.md:221` is titled “The x class comes before its setter” while its own valid example `m5 xml` puts the reset last.
+
+Keep the corrected body and use “Broad before narrow” as the index title too. This carries the old RULES-16 under its original ID; the source heading was repaired but the new title reintroduces the problem.
+
+### RULES-17 Intent-only comments lack the explicit route-metadata exception (low)
+
+`docs/rules.md:111` says comments explain intent or policy only. `docs/rules.md:113` requires method/path/input metadata; `drafts/endpoint_comment.md:8` distinguishes that metadata from an intent comment.
+
+Route metadata is useful, but it is another permitted class of comment. State the exception explicitly rather than making a reader decide which mandatory rule wins.
+
+### RULES-25 An unresolved Error Flood definition is still published (low)
+
+`glossaries/testing.md:18` retains “scenario with 75% errors (?)”. The generated glossary reproduces it. The question mark marks an unresolved definition, not an established threshold.
+
+The author should choose a definition; remove the unsupported percentage or label the entry as provisional until then. No external claim about a correct threshold is made here.
+
+### RULES-26 The authoritative log notes still contain a different spawn keyword (low)
+
+`drafts/logs.md:46` uses `[spawn]`; the established keyword in the same top half is `group_spawn`. The top also retains “each each” and “pring”. DOC-02 makes that half authoritative even though the expanded half uses the correct keyword.
+
+Report only: the top half belongs to the author. The keyword mismatch matters more than the spelling errors. Confirm its correction when editing the source, then regenerate the bottom half.
+
+### RULES-28 The naming grammar remains duplicated in a handwritten overview (low)
+
+`docs/README.md:107` and `drafts/var_names.md:1` repeat the same shape table and cardinality explanation; `docs/README.md:134` repeats `drafts/naming_markers.md`. These copies currently mostly agree.
+
+This is a drift risk, not a current semantic contradiction. Keep a short linked overview or generate the repeated portion from the authoritative source.
+
+### RULES-29 The unused logo remains in the tracked tree (low)
+
+`img/logo-by-chat-gpt.png` is 1,379,545 bytes. A tracked-text search finds no use of that filename; the README uses `img/cover.png` and its dark twin. This is the carried asset-hygiene item, not a rules contradiction. Keep it explicitly as a source asset or remove it in a separate cleanup; no asset was deleted during the audit.
+
+### RULES-53 The repository still departs from the universal project layout (low)
+
+`docs/rules.md:165` promises npm wrapper scripts, but `bin/build` implements the generator directly and `package.json` has no `build` script. There is no `bin/test`, while `npm test` exists. `docs/rules.md:172` places unit tests beside implementation; `tests/javascript.test.js` and `tests/vue.test.js` exercise individual rules from `tests/`, whose stated role is whole-program suites.
+
+`docs/rules.md:175` locates official documentation in `docs/`; `FORMATTING.md`, `LINTING.md`, `formatting.html` and source documents under `drafts/` remain official reading paths. `docs/rules.md:176` presents `.env.example` and `Dockerfile` as standard files, but neither exists here. The short README itself is now compliant.
+
+Do not add meaningless runtime files just to satisfy a checklist. Define applicability by project type, then align the scripts, test locations and documentation entry points that actually apply. The generator's committed HTML also needs a documented exception to PROJ-04's “build output is never committed”.
+
+### REVIEW-01 The event-arrow examples violate the parameter naming rule (medium)
+
+`docs/rules.md:74` explicitly allows `e => e.stopPropagation()`. `docs/rules.md:270` and `drafts/file_drop.md:30` use `event => event.preventDefault()`. `docs/rules.md:67` and `docs/rules.md:300` require `v` for a single-parameter arrow.
+
+The full installed preset rejects both examples: probes `event_e` and `event_event` each produce `rules/tiny-arrows: Name this arrow parameter "v".` The decision is whether event callbacks are a naming exception. Once decided, update prose, examples and the rule together, and test the full preset rather than an isolated rule.
+
+### REVIEW-02 Two enabled rules demand incompatible names for error arrows (medium)
+
+`src/rules/tiny_arrows.js:16` expects `error` only for `.catch`, otherwise `v`. `src/rules/error_name.js:21` recognizes error events, and its catch-depth calculation requires `error2` inside a catch.
+
+Reproduced with the full preset:
+
+| Form | Result |
+|---|---|
+| `server.on('error', error => console.log(error))` | tiny-arrows demands `v` |
+| `server.on('error', v => console.log(v))` | error-name demands `error` |
+| `.catch(error2 => ...)` inside a catch | tiny-arrows demands `error` |
+| `.catch(error => ...)` inside a catch | error-name demands `error2` |
+
+`tests/javascript.test.js:96` even declares the nested form valid in an isolated error-name test. The all-green suite does not compose that example with tiny-arrows. Share the callback classification/depth policy, and add integration cases with both rules enabled. A function-expression workaround exists, so this is medium rather than a repository-wide blocker.
+
+### REVIEW-03 The configure example cannot guarantee that all prompts happen first (medium)
+
+`docs/rules.md:178` forbids a password prompt after work begins. In `drafts/configure.md:34`, sudo is primed only if the current sandbox needs repair; `npm install` then runs before the second check and ordinary `sudo chown/chmod` calls. An install that replaces a currently valid sandbox reaches those calls without priming sudo. The text discusses the analogous `npm ci` case but does not repair the `npm install` example.
+
+Also, `drafts/configure.md:55` silently backgrounds a keepalive without making later sudo calls noninteractive. Its continued success is assumed.
+
+This is a control-flow counterexample; no sudo or Electron install was executed. Predict whether installation can replace the sandbox, authenticate before it, and use noninteractive later calls that fail clearly if authorization expires. Do not state a universal timeout guarantee based on an assumed sudo configuration.
+
+### REVIEW-04 The MySQL formatting example contains non-MySQL index syntax (medium)
+
+`drafts/sql.md:1` explicitly says MySQL. `drafts/sql.md:34` demonstrates `CREATE UNIQUE INDEX ... ON ... WHERE primary_at IS NOT NULL`; `docs/rules.md:232` publishes that as its canonical form. The standalone `DROP INDEX` examples omit the required table.
+
+Compared with the official MySQL 8.4 grammar: CREATE INDEX has no predicate WHERE clause, and standalone DROP INDEX requires `ON tbl_name`. The generated-column ALTER TABLE example already shows an appropriate MySQL direction. [MySQL CREATE INDEX](https://dev.mysql.com/doc/refman/8.4/en/create-index.html), [MySQL DROP INDEX](https://dev.mysql.com/doc/refman/8.4/en/drop-index.html).
+
+This was a grammar check, not execution against a live database. Label examples by dialect or replace the MySQL examples with valid MySQL syntax. Author-owned examples need an explicit source correction followed by regeneration.
+
+### REVIEW-05 The canonical release workflow conflicts with the commit rule (medium)
+
+`packaging/packaging.md:36` emits `release v...`; `docs/rules.md:282` requires `scope: description`. The same unscoped title is in REL-02. A reader following release instructions violates the commit convention.
+
+The workflow also promises “Ensure that there are no changes” at `packaging/packaging.md:23`, while its script contains no explicit clean-tree guard before bump/build/stage. It should check the intended starting state itself and document staged/untracked handling. Release was not run, because it changes versions, commits and tags.
+
+Use a compliant title such as `release: v0.1.1`, add an explicit precondition check, and resolve RULES-10's build promotion in the same release example.
+
+### REVIEW-06 The one-directory migration promise omits local configuration (medium)
+
+`drafts/data.md:13` says everything except `data/` can be rebuilt from the repository; `drafts/data.md:27` equates moving the project with moving `data/`. But `docs/rules.md:168` keeps real `.env` values out of git, and `docs/rules.md:169` populates `config/` at setup time. Neither is guaranteed reconstructible from the repository or included in the single data mount.
+
+Runtime data, reconstructible configuration and secret configuration need distinct recovery requirements. Narrow the claim to application state and explicitly include configuration/secret provisioning in migration instructions; alternatively define which persistent config belongs under data. This is a missing scope condition, not evidence that this repository has lost data.
+
+### REVIEW-07 A canonical small object conflicts with the line-fitting rule (low)
+
+`docs/rules.md:103` and `drafts/formatting_blocks.md:132` split three short fields across lines. `docs/rules.md:105` says an expression that fits stays on one line; `docs/rules.md:110` demonstrates the same three fields on one line as good.
+
+A rule explaining how to format an already-long object is reasonable, but its sample should actually be long enough to require wrapping. Either change the example or state that deliberate field-per-line data layouts are an exception. No numeric line width is defined, so this audit does not invent one.
+
+### REVIEW-08 The GOOD literal examples obscure the naming grammar (low)
+
+`FORMATTING.md:295` presents a unit-to-seconds map as `RANGE_UNITS`; `FORMATTING.md:298` presents an array with `BY` in its name. VAR-01 asks names to state shape and NAME-03 reserves bare by-names for keyed lookup. The surrounding examples use lowercase snake_case.
+
+This is an ambiguity in illustrative names, not proof that uppercase constants are explicitly banned. A typography example should not require a separate naming exception: use `seconds_by_unit` and a plain plural array name, or document a constant-name grammar. Keep the bad/good difference limited to the spacing being taught.
+
+### REVIEW-09 The import source says one exception while documenting two (low)
+
+`drafts/imports_sorted.md:42` calls side-effect imports “the one exception”, and calls the following `import Vue`/`import axios` block “named imports”. `drafts/imports_sorted.md:53` then adds a separate optional block for actual named imports. FILE-11 correctly says two exceptions; LINT-06 and the implementation allow up to three blocks.
+
+The old behavioral conflict RULES-04 is fixed. Regenerate this source's explanation so terminology and exception count match the agreed behavior.
+
+### REVIEW-10 The transition rule promises one speed and supplies three (low)
+
+`drafts/css_classes.md:140` and `docs/rules.md:224` say every transition runs at one shared speed. The same paragraph and the author-provided mixins define default, fast and debug speeds.
+
+The intended design can be coherent: a shared set of named speeds with a default. Say that, rather than one speed for every transition.
+
+### REVIEW-11 The file-drop fallback is unreachable when the entries API is absent (medium)
+
+`drafts/file_drop.md:47` calls `v.webkitGetAsEntry()` unconditionally; `drafts/file_drop.md:52` contains a fallback to `dataTransfer.files` later. UI-12/13 promise that ordinary files accepted through the picker also work through drop.
+
+Executing the documented code in a VM with a dropped file exposing `getAsFile()` and `dataTransfer.files`, but no `webkitGetAsEntry`, produces `v.webkitGetAsEntry is not a function`; `take` is never called. This is a feature-absence simulation, not a browser support survey.
+
+Feature-detect the entries method, capture ordinary files before yielding, and define the folder fallback separately. Keep picker and drop validation in their shared intake path; the sample's `take` implementation is absent, so this audit does not claim its accept/multiple validation is broken.
+
+### REVIEW-12 Copy for an agent loses the base URL for guide links and images (medium)
+
+`bin/build:493` stores raw guide body Markdown. `docs/agents.template.html:1132` copies that text without adding a source/base URL or rewriting relative paths.
+
+The copied Every state guide contains `(every-state-alert.png)` and `(consequences_first.md)`. In a different repository's AGENTS.md or an isolated conversation, those paths have no valid base. The website's rendered links work, but the advertised handoff is not self-contained. This follows directly from the clipboard serializer; the browser clipboard was not driven in this audit.
+
+Resolve copied links/images against the guide's original URL and include a source link. Apply it to both individual and filtered-guide copying; keep the existing raw-link handover block.
+
+### REVIEW-13 A green check does not cover the newest formatting policies or the whole site (low)
+
+`package.json:8` limits lint to implementation, tests and configs. The preset at `src/config.js:15` has no enforcement for FMT-27 through FMT-31, CSS-12/13 or the full module structure. The `newer_format_rules` probe deliberately combines a comma declaration, string concatenation, adjacent top-level functions and unparenthesized compound logic: zero diagnostics.
+
+The repository itself still uses string-building `+` at `bin/build:173` and `bin/lint:69`, contrary to FMT-31. The templates write raw `transition:` properties (for example `docs/rules.template.html:77`) despite CSS-09, and keep multiple selectors on one line despite CSS-12. The five principal pages' extracted JavaScript does pass the current preset.
+
+This is a documented enforcement boundary plus self-compliance drift, not a claim that ESLint promises to enforce all prose. Publish coverage beside the rules and check canonical examples with the full preset. Either adapt standalone-CSS policy or give it an explicit scope exception.
+
+### REVIEW-14 Rules are grouped partly by subject and partly by where they were discovered (medium)
+
+`docs/rules.md:12` defines subject groups, but `docs/rules.md:298` begins a second collection mixing formatting, control flow, modules, CSS and Vue. `docs/rules.md:92` duplicates file structure; CORE-03 is an option-data contract amid general uniformity. These are navigation and ownership issues, not a claim that the README rules are misplaced: PROJ-20..28 already put them with the project rules.
+
+The complete group review and exact proposed moves are below. Keep IDs stable; display grouping need not determine the permanent code. Rename Project layout to Project conventions and give it subsections. Add enforcement metadata/filtering rather than using LINT as a second subject taxonomy.
+
+### REVIEW-15 Final both ends a turn and can be followed by work extending that turn (low)
+
+`glossaries/agents.md:37` defines a turn through to the final; `glossaries/agents.md:55` says final ends it. `glossaries/agents.md:100` then runs a check after final and “Extends the turn”. A final message is also defined solely by having no tool call, which does not distinguish intermediate commentary.
+
+Define a provisional model completion versus a harness-completed turn, or say a failed post-check starts another turn. The `stop_reason` row also says its labels are “the API's” without naming an API/version; label them conceptual names unless a concrete interface is specified. This finding concerns the glossary's own definitions, not a claim about every vendor's protocol.
+
+### REVIEW-16 The index and generated halves sometimes strengthen the source (medium)
+
+DOC-02 makes the author's top half authoritative; DOC-01/04 make the bottom a restatement. Several levels do not preserve the same strength:
+
+| Source | Index or expanded text | Difference |
+|---|---|---|
+| `drafts/layout.md` says wrappers are “usually” thin aliases | PROJ-03 and the bottom half say they are thin wrappers | recommendation becomes unconditional |
+| `vue2/vue-slider.md` says “prefer” top/left percentages | VUE-12 commands positioning that way | preference becomes requirement |
+| `drafts/logs.md` says “Try to keep” a line under 2k | LOG-21 says “Keep” it under 2k | target becomes hard limit |
+| `drafts/refresh.md` top asks for refresh naming/sync | bottom adds “Idempotent: safe ... any moment”; FN-11 repeats it | new concurrency/behavioral contract |
+| `drafts/readme.md` permits badges | PROJ-21 reads as unconditional in isolation | copied rule loses PROJ-20's optionality |
+
+Evidence: `drafts/layout.md:37`, `docs/rules.md:165`, `vue2/vue-slider.md:4`, `docs/rules.md:248`, `drafts/logs.md:201`, `docs/rules.md:212`, `drafts/refresh.md:10`, `docs/rules.md:87`, `docs/rules.md:183`.
+
+Decide which stronger policies are intended. Put approved additions in the authoritative source, regenerate derived wording, and preserve qualifiers in copyable rules. Do not silently weaken a rule or rewrite the author's top half during an audit.
+
+### REVIEW-17 Exactly one export needs a library-module scope (low)
+
+`docs/rules.md:138` says scripts export nothing; `docs/rules.md:156` and `drafts/one_export_per_file.md:9` say a file exports exactly one thing. FILE-23 extends that wording to scratch and support code. Tool-shaped files are exempted, executable scripts are not explicitly named in that source.
+
+The obvious intended distinction is a reusable module versus an executable. Make it explicit in the heading/first sentence and in individually copied rules. Likewise explain the precedence of FILE-24's tool-shape exception over FILE-01's one-function formulation. This is a scope defect, not a recommendation to add exports to scripts.
+
+
+### Placement review supporting REVIEW-14
+
+The requested README/bin move is **already present in the index**. `PROJ-01..17` includes bin commands, layout and configuration; `PROJ-20..28` is the README sequence. Their source documents are separate files, but both are project conventions. `DOC` currently concerns writing the rulebook/audits, not README layout.
+
+The problem is the presentation: Project layout is too narrow a name for its contents, sources are a flat list in `docs/README.md`, and release/commit/audit workflow has no obvious project-level parent. This is a proposed organization, not a silent relocation.
+
+| Existing group | Review of the whole group | Proposed action |
+|---|---|---|
+| CORE (4) | CORE-01/02 are general uniformity; CORE-03 is a selectable-option schema; CORE-04 is naming vocabulary | Keep 01/02 in Principles; display 03 with UI data contracts and 04 with Naming; retain codes/links |
+| NAME (18) | Grammar, markers, cardinality and domain naming form a coherent subject | Keep together; cross-link VAR's special-variable exceptions and FN's prefix contracts |
+| VAR (17) | Specific variable names and return/loop naming are coherent | Keep; make event/error/out exceptions explicit, link loop rules from FLOW |
+| FN (16) | 01..13 define function families; 14 defines modal semantics; 15 is control flow; 16 is module shape | Keep 01..13; display 14 under UI interactions with a function-contract cross-link; move display of 15 to FLOW; consolidate 16 with FILE-01 |
+| FMT (30) | Braces, lines, comments and declarations belong together; 18 specifies which data to copy | Keep formatting rules; display 18 under data/function contracts and cross-link its formatting example |
+| FLOW (11) | Execution/control-flow rules are coherent | Add FN-15 and the subject matter of LINT-03/04; state callback naming elsewhere once |
+| FILE (25) | Module exports/imports, order and insertion placement are coherent | Keep FILE-25/26 here; link to agent guidance. Fold LINT-06/07 into existing import/module policy and eliminate repeated formulations |
+| PROJ (28) | README and bin conventions are correctly here; title understates contents | Rename display label to Project conventions; add subsections listed below |
+| LOG (23) | Log format, lifecycle, details and bounds belong together | Keep; consolidate repeated begin/end constraints by cross-link, preserve distinct rules where behavior differs |
+| CSS (13) | Utility order and stylesheet policy fit; 07/11 are table semantics/alignment | Display 07/11 under UI tables; bring LINT-08..11's CSS subject matter here |
+| SQL (6) | Dialect, case and layout form a coherent group | Keep; label dialect and repair canonical syntax |
+| VUE (19) | Framework conventions belong here, including component option/attribute order | Keep; add LINT-12's script indentation; cross-link general CSS, UI and FN contracts |
+| UI (17) | Theme, header, anchoring, file drop and undo are coherent subsections | Keep; add option schema, modal contracts and table behavior by display grouping; cross-link project website conventions |
+| REL (6) | Release is a project lifecycle subtopic, not a rival layout definition | Keep permanent REL codes; put it under the Project conventions navigation parent and link build output contract |
+| GIT (4) | Commit messages form a useful small subject | Keep codes and section; nest navigation under Project workflow alongside release |
+| DOC (10) | 01..05 govern author/AI source ownership; 06..10 govern audits across projects | Give two named subsections, “Writing this rulebook” and “Audit reports”; link the latter from Project workflow. State the audit exception to two halves |
+| LINT (11) | Discovery/enforcement provenance is not a subject; its contents overlap six other groups | Redistribute display by subject; expose enforcement and coverage as metadata/filter, retain historical LINT anchors |
+
+Exact LINT destinations:
+
+| IDs | Subject destination | Existing relationship |
+|---|---|---|
+| LINT-01, LINT-02 | FMT | Operator spacing; anonymous/named function spacing |
+| LINT-03 | FLOW + VAR cross-link | Overlaps FLOW-06/07/11, VAR-09 and error exceptions |
+| LINT-04 | FLOW | No forEach; paired with FLOW-02 |
+| LINT-06 | FILE | Duplicates/clarifies FILE-08..11 |
+| LINT-07 | FILE | Scope clarification for FILE-17 |
+| LINT-08 | CSS | Overlaps CSS-02/04; adds same-binding requirement |
+| LINT-09 | CSS | Clarifies CSS-01/10 typography and final local group |
+| LINT-10, LINT-11 | CSS | Hashtag syntax and local style coverage, related to CSS-03 |
+| LINT-12 | VUE | Vue script indentation |
+
+Project conventions subsections, keeping every current PROJ ID:
+
+1. **Commands and setup:** PROJ-01..03, PROJ-15..17. This is where a reader finds `bin/run`, `bin/test`, `bin/build`, `bin/watch`, `bin/configure` and the bash template.
+2. **Build, release and state:** PROJ-04..07, PROJ-18/19; release workflow links to REL, with a single build/dist contract.
+3. **Source and tests:** PROJ-08..11.
+4. **Documentation and standard files:** PROJ-12..14; clarify applicability of Docker/environment files and documentation-source locations.
+5. **README front page:** PROJ-20..28, with PROJ-12 as the short overview. Do not move this to the author/AI-writing DOC section.
+6. **Project workflow links:** REL, GIT and DOC-06..10 (audit reports).
+
+A new folder hierarchy is optional. Section labels, a grouped source index and cross-links solve most of the discovery problem without breaking existing paths. If files are moved later, update every rule source, page/template link, raw GitHub handover URL, image path and copy serializer in the same change. Keep old code anchors or redirects. Do not renumber rules to make the table contiguous: FMT-06, FILE-22 and LINT-05 are deliberate retired-code gaps.
+
+### Cases reviewed but not counted as contradictions
+
+- **Agent clarifications versus UI “no confirmations”:** UI-15..17 govern an application's everyday action dialogs; agent guides ask about ambiguous requirements. These have different subjects and can both hold.
+- **Author words versus the agent guide:** the three guides carry neutral text and the same intended policy in both halves. They remain separate from the code-rule index by the author's explicit decision.
+- **PHP versus JavaScript braces:** FORMATTING.md explicitly scopes itself to JavaScript. PHP examples do not prove a contradictory JavaScript rule; they would benefit from scope labels.
+- **Vue lifecycle listing order:** there is no rule requiring options to be listed in invocation order. `mounted` before `created` is a style choice, not a correctness defect by itself.
+- **Separator variants:** WRITING.md says “most of the time” and “no strict marker”. Heading-only versus decorative separators are permitted, not audit violations.
+- **The DB query's child group:** the current log example lasts about 30 seconds, which meets LOG-12's explicit “seconds of work” criterion. The September 28 objection should not be carried forward.
+- **Cancel's default type:** the custom `app-button-orange` implementation is absent. The example could benefit from an explicit `type="button"`, but an actual accidental submission is not established here.
+- **No function-marker verb in Vue's `px` and `uid`:** these are explicitly framework mixin methods in VUE-01; documenting naming exceptions would help, but framework-specific requirements should not be treated as proof all such names are forbidden.
+- **Rule versus enforcement gap:** a linter not implementing a policy is different from actively rejecting compliant code. REVIEW-01/02 are the latter; REVIEW-13 primarily documents the former.
+
+## What is good
+
+- The rules have stable IDs, source links and readable titles; the complete index count is correct.
+- The generator exists, the five checked pages are reproducible, and retired IDs were not reused.
+- The README is short, has its documentation entry point and license, and the README-specific rules already share PROJ with bin/layout rules.
+- The module-system wording, import block exceptions, class allowance, fluid/gap order and Vue form example are substantially aligned since September.
+- The linter's outside-working-directory and ignored-path behavior has integration coverage, which passed in this run.
+- Source ownership and audit-report conventions are explicit; author-owned contradictions can be reported without silently changing their meaning.
+- The agent guides distinguish decisions the agent can make from genuine requirement ambiguities. Keep that distinction.
+
+## Recommended order of work
+
+1. Resolve and test full-preset callback classification: REVIEW-01/02. This directly affects projects consuming the linter.
+2. Repair examples people may execute: REVIEW-03 (configure), REVIEW-04 (SQL), REVIEW-11 (drop). Correct author-owned source text explicitly and regenerate its derived wording.
+3. Define one project lifecycle contract: RULES-10, REVIEW-05, REVIEW-06 and the applicable portions of RULES-53. Build output, release output and migration inputs must agree.
+4. Preserve source intent and scope: REVIEW-16, RULES-06/14/15/17 and REVIEW-17. Decide stronger policies once, then carry identical exceptions into copyable rows.
+5. Make handoffs portable: REVIEW-12. Copied guides need source URLs and absolute asset/link references.
+6. Improve navigation without breaking IDs: REVIEW-14. Keep README and bin under Project conventions; remove LINT as a competing subject taxonomy.
+7. Bring examples and self-compliance into line: REVIEW-07..10, REVIEW-13, RULES-11 and RULES-16. Expand coverage only for policies intended to be mechanically enforced.
+8. Finish the glossary/source wording: RULES-25/26 and REVIEW-15. Leave the author half unchanged until its corrections are authorized.
+9. Optional maintenance cleanup: RULES-28/29. Neither is a blocker to using the rules.
+
+## Status of prior findings
+
+Every ID in the September 23 register is accounted for. “Fixed” means the cited defect is repaired in the current source and relevant checks where available; it does not imply browser or external-service checks were rerun. “Withdrawn” means this audit no longer considers the item a demonstrated defect. RULES-30 retains the author's explicit won't-fix ruling.
+
+| ID | Status | Current evidence / disposition |
+|---|---|---|
+| RULES-01 | fixed | Class ban removed from FORMATTING/preset; allowed-class full-preset probe passes. |
+| RULES-02 | fixed | FILE-17 explicitly scopes CommonJS to this repository; LINT-07 permits both elsewhere. FORMATTING heading could be clearer, but the universal ban is gone. |
+| RULES-03 | fixed | Shared-state export exception removed; FILE-22 retired; one_export_per_file.md rejects a local multi-function export object. |
+| RULES-04 | fixed | FILE-11, LINT-06, imports_sorted.md and preset now allow the same blocks; residual wording is REVIEW-09. |
+| RULES-05 | fixed | CSS-02 puts modifiers before gap; full-preset flex-row flex-wrap gap5 probe passes. |
+| RULES-06 | still open | Only headline/exception scope remains; see current finding, not the original unqualified formulation. |
+| RULES-07 | fixed | naming_markers.md:4 and docs/README.md Functions allow function markers without a verb. |
+| RULES-08 | fixed | NAME-18 and FORMATTING list multiple verb-first exceptions. |
+| RULES-09 | fixed | formatting_blocks.md removes the module-level if/for/while examples; FILE-13 explicitly distinguishes initialization. |
+| RULES-10 | still open | Build/dist policies are distinct, but release promotion is missing; current finding narrows the original. |
+| RULES-11 | still open | Strict mode/cleanup/messages fixed; diagnostics remain absent from configure/release examples. |
+| RULES-12 | fixed | NAME-03 and docs/README.md explicitly allow Map.get. |
+| RULES-13 | withdrawn | Settled prior ruling: emit_end retired; vue-modal returns a boolean commit flag. |
+| RULES-14 | still open | OS-once initialization is sound, “does not inherit” wording remains. |
+| RULES-15 | still open | CSS base-placement mandate versus discretionary wording in LINTING. |
+| RULES-16 | still open | Source heading fixed; CSS-06 title still says reset before setter. |
+| RULES-17 | still open | Route-metadata exception is not explicit in intent-only comment policy. |
+| RULES-18 | fixed | vue-form.md uses app-label and flex-row gap10 consistently. |
+| RULES-19 | fixed | demos/items_by.js accumulates groups and returns Object.values(groups), not transformed out. |
+| RULES-20 | fixed | demos/item_to.js explicitly labels standalone _to_ as superseded and names the replacement convention. |
+| RULES-21 | fixed | FN-13 now says init is first refresh, which refresh.md contains. |
+| RULES-22 | fixed | All current stated counts agree: 258 rules, 17 groups, 47 sources. |
+| RULES-23 | fixed | Log source/index/cheatsheet describe four fields. |
+| RULES-24 | fixed | Orphaned README References fragment removed; current README is compact. |
+| RULES-25 | still open | Error Flood still carries the unresolved 75% (?) definition. |
+| RULES-26 | still open | Author log notes retain spelling and spawn-keyword inconsistencies. |
+| RULES-27 | fixed | docs/README.md now links the missing drafts, glossaries and demos; root README links the overview. |
+| RULES-28 | still open | Naming overview and source tables remain independently handwritten copies; maintenance risk only. |
+| RULES-29 | still open | Unused 1,379,545-byte logo remains tracked. |
+| RULES-30 | won’t fix | Author ruling preserved; no mailmap or history rewrite requested. |
+| RULES-31 | fixed | packaging.md no longer contains __PROJECT_NAME__ or --git=/bin/true; release-contract defects have separate IDs. |
+| RULES-32 | fixed | vue-globals.md explicitly warns that _uid is private Vue 2 and absent in Vue 3. |
+| RULES-33 | withdrawn | Author allowed multiple parameters; LINT-03 and tiny-arrows match that ruling. New name conflicts are REVIEW-01/02. |
+| RULES-34 | fixed | LINTING.md documents anonymous/named function parenthesis spacing. |
+| RULES-35 | fixed | Item classes lead in source and implementation; existing tests pass. |
+| RULES-36 | fixed | bin/lint expands cwd to include targets; outside-directory integration test passes. |
+| RULES-37 | fixed | README, LINTING and CLI usage use the GitHub npx form; published-install execution not repeated. |
+| RULES-38 | fixed | CLI rejects flags/missing paths with ExitCodeError; integration test passes. |
+| RULES-39 | fixed | sass-parser pin is 0.4.57; current npm audit returns zero reported vulnerabilities. |
+| RULES-40 | fixed | Both older pages now contain theme controls and responsive CSS. Source repair confirmed; fresh phone rendering not performed. |
+| RULES-41 | fixed | bin/build generates the three main pages; npm run check detects generated-page drift. |
+| RULES-42 | fixed | Glossary uses WORD codes; the DOC rule namespace no longer collides. |
+| RULES-43 | fixed | Five-page navigation is present and README links Glossaries/Agents; local Markdown links resolve. |
+| RULES-44 | fixed / withdrawn | Extracted scripts from all five pages/templates lint clean; browser main() exemption was a settled ruling. |
+| RULES-45 | fixed | Cover render source and formatting example no longer include the extra module-level usage call between function and export. |
+| RULES-46 | fixed | Formatting object example uses direct return; its multiline size example is discussed separately in REVIEW-07. |
+| RULES-47 | fixed | Log sample uses the correct group and four-field wording; source and cheatsheet show the same query example. |
+| RULES-48 | fixed | vue-form.md now includes a form with submit handling. |
+| RULES-49 | fixed | Testing example names the fetch result response. |
+| RULES-50 | fixed | emit_input consistently takes value in prose and implementation. |
+| RULES-51 | withdrawn | No rule requires source option order to follow lifecycle execution order; retain author preference. |
+| RULES-52 | withdrawn | JavaScript formatting scope is explicit; PHP brace examples are not a demonstrated conflict. |
+| RULES-53 | still open | Unit test placement, command wrappers and documentation layout remain; README length repaired. |
+| RULES-54 | withdrawn | WRITING allows nonuniform boundaries; its three examples are not stated to be an exhaustive inventory. |
+| RULES-55 | withdrawn | Different file roles use different conventions; no explicit universal separator rule establishes these paths are erroneous. Rename only under a chosen path policy. |
+
+## Appendix: file inventory
+
+Tracked snapshot before the audit: 126 files. Listing a file here does not claim its binary contents or every implementation line was examined. Rule/source documents were read; implementation, generated views and test coverage were reviewed as described in Scope; image binaries and lockfile package contents were not individually audited. Historical audit notes were used for prior findings.
+
+```text
+.gitignore
+FORMATTING.md
+LICENSE
+LINTING.md
+README.md
+agents/README.md
+agents/consequences_first.md
+agents/every-state-alert.png
+agents/every_state_before_done.md
+agents/one_example_all_cases.md
+bin/build
+bin/configure
+bin/lint
+bin/templ
+demos/item_from.js
+demos/item_to.js
+demos/items_by.js
+docs/README.md
+docs/agents.html
+docs/agents.template.html
+docs/glossaries.html
+docs/glossaries.template.html
+docs/rules.html
+docs/rules.md
+docs/rules.template.html
+drafts/WRITING.md
+drafts/audit_note.md
+drafts/cli_main.md
+drafts/commits.md
+drafts/configure.md
+drafts/css_classes.md
+drafts/data.md
+drafts/endpoint_comment.md
+drafts/file-drop-dark.png
+drafts/file-drop.html
+drafts/file-drop.png
+drafts/file_drop.md
+drafts/for_i_end_ii_jj_kk.md
+drafts/for_of.md
+drafts/format_xxx.md
+drafts/formatting_blocks.md
+drafts/imports_sorted.md
+drafts/interactions-should-return-only-boolean-flag.md
+drafts/layout.md
+drafts/logs-cheatsheet.html
+drafts/logs.md
+drafts/naming_markers.md
+drafts/new_code_placement.md
+drafts/no-confirmations-dark.png
+drafts/no-confirmations.html
+drafts/no-confirmations.png
+drafts/no_confirmations.md
+drafts/one_export_per_file.md
+drafts/page-header-structure-dark.png
+drafts/page-header-structure.html
+drafts/page-header-structure.png
+drafts/page_header.md
+drafts/readme-structure-dark.png
+drafts/readme-structure.html
+drafts/readme-structure.png
+drafts/readme.md
+drafts/refresh.md
+drafts/render_xxx.md
+drafts/return_out.md
+drafts/scroll-anchoring-dark.gif
+drafts/scroll-anchoring-dark.png
+drafts/scroll-anchoring.gif
+drafts/scroll-anchoring.html
+drafts/scroll-anchoring.png
+drafts/scroll-anchoring.test.js
+drafts/scroll_anchoring.md
+drafts/sql.md
+drafts/theme_switch.md
+drafts/value_label.md
+drafts/var_names.md
+drafts/var_names_error.md
+drafts/var_names_event.md
+drafts/var_names_time0.md
+eslint.config.js
+eslint.projects.config.js
+formatting.html
+glossaries/agents.md
+glossaries/doc.md
+glossaries/testing.md
+img/cover-dark.png
+img/cover.html
+img/cover.png
+img/logo-by-chat-gpt.png
+index.html
+notes/audit-2026-09-02.md
+notes/audit-2026-09-20.md
+notes/audit-2026-09-23.md
+package-lock.json
+package.json
+packaging/packaging.md
+src/config.js
+src/helpers/class_attribute_name.js
+src/helpers/class_category.js
+src/helpers/class_values.js
+src/helpers/sass_keyframes_normalize.js
+src/helpers/vue_styles.js
+src/index.js
+src/rules/block_layout.js
+src/rules/error_name.js
+src/rules/imports_sorted.js
+src/rules/operator_spacing.js
+src/rules/return_out.js
+src/rules/tiny_arrows.js
+src/rules/vue_class_order.js
+src/rules/vue_hashtag_syntax.js
+src/rules/vue_layout_classes.js
+src/rules/vue_local_class_style.js
+src/rules/vue_style_conventions.js
+src/style_processor.js
+tests/integration.test.js
+tests/javascript.test.js
+tests/lint.test.js
+tests/vue.test.js
+vue2/vue-button.md
+vue2/vue-components.md
+vue2/vue-form.md
+vue2/vue-formatting.md
+vue2/vue-globals.md
+vue2/vue-input.md
+vue2/vue-slider.md
+vue2/vue-svg-icon.md
+```
+
+Evidence bundle: the note reply includes this report, the full standard-check log, exact full-preset probe code/output, page-script lint probe/output, link/count checker/output, file-drop reproduction and dependency audit JSON. This independent review does not supersede the other agent’s permanent finding register. Its REVIEW IDs are local to this document.
