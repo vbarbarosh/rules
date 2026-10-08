@@ -2486,12 +2486,12 @@ await keep(async function () {
 </article>
 <article class="rule" id="UI-12">
 <a class="code" href="#UI-12">UI-12</a>
-<div class="text"><p><strong>A file input also takes a drop.</strong> Anything that lets the user pick files or a folder also takes them dragged onto it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<a class="form figure" href="../drafts/file-drop.png"><img class="light" src="../drafts/file-drop.png" alt="a file field: picked with its button, or a file dragged onto it" width="2560" height="1120" loading="lazy"><img class="dark" src="../drafts/file-drop-dark.png" alt="a file field: picked with its button, or a file dragged onto it" width="2560" height="1120" loading="lazy"></a>
+<div class="text"><p><strong>A file input also takes a drop.</strong> Anything that lets the user pick files also takes files dragged onto it; anything that lets them pick a whole folder also takes a folder dragged onto it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/file-drop.png"><img class="light" src="../drafts/file-drop.png" alt="a file field and a folder field: each picked with its button, or dragged onto it" width="2560" height="1730" loading="lazy"><img class="dark" src="../drafts/file-drop-dark.png" alt="a file field and a folder field: each picked with its button, or dragged onto it" width="2560" height="1730" loading="lazy"></a>
 </article>
 <article class="rule" id="UI-13">
 <a class="code" href="#UI-13">UI-13</a>
-<div class="text"><p><strong>The drop takes what the input takes.</strong> The same file types, one or many, folders too; a dropped file goes down the same path as a picked one.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>The drop takes what the dialog takes.</strong> The same file types, one or many; a whole folder when the dialog picks folders, read file by file. A dropped file goes down the same path as a picked one.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const entries = &#91;...event.dataTransfer.items].map(v =&gt; v.webkitGetAsEntry());</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="UI-14">

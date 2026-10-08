@@ -33,10 +33,10 @@ body {
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 .title { margin-bottom: 28px; font-size: 40px; font-weight: 900; letter-spacing: -0.04em; }
-.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
 .caption { margin-bottom: 12px; font-size: 22px; font-weight: 800; }
 .caption span { font-weight: 400; color: var(--muted); }
-.card { padding: 28px; border: 2px solid var(--ink); background: var(--paper); }
+.card { padding: 22px 28px 26px; border: 2px solid var(--ink); background: var(--paper); }
 .label { margin-bottom: 10px; font-size: 16px; font-weight: 700; }
 .zone {
     position: relative;
@@ -45,8 +45,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    height: 200px;
-    padding-bottom: 40px;
+    height: 176px;
+    padding-bottom: 48px;
     border: 2px dashed var(--line);
     border-radius: 10px;
     font-size: 17px;
@@ -57,7 +57,7 @@ body {
 .file {
     position: absolute;
     right: 70px;
-    bottom: 16px;
+    bottom: 8px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -71,7 +71,9 @@ body {
     transform: rotate(-4deg);
 }
 .file-icon { width: 22px; height: 28px; border: 2px solid var(--accent); border-radius: 3px; }
-.cursor { position: absolute; right: 52px; bottom: 2px; width: 26px; height: 30px; fill: var(--ink); stroke: var(--paper); stroke-width: 1.5; }
+.folder-icon { width: 30px; height: 22px; border: 2px solid var(--accent); border-radius: 3px 3px 4px 4px; border-top-width: 6px; }
+.file small { color: var(--muted); }
+.cursor { position: absolute; right: 52px; bottom: -6px; width: 26px; height: 30px; fill: var(--ink); stroke: var(--paper); stroke-width: 1.5; }
 .foot { margin-top: 26px; font-size: 18px; color: var(--muted); }
 .foot b { color: var(--ink); }
 </style>
@@ -82,10 +84,10 @@ if (location.search === '?dark') {
 </script>
 </head>
 <body>
-<div class="title">A file input also takes a drop</div>
+<div class="title">What the dialog takes, the drop takes</div>
 <div class="panels">
     <div>
-        <div class="caption">Pick <span>the input, as always</span></div>
+        <div class="caption">Pick files <span>with the dialog, as always</span></div>
         <div class="card">
             <div class="label">Attachments</div>
             <div class="zone">
@@ -95,7 +97,7 @@ if (location.search === '?dark') {
         </div>
     </div>
     <div>
-        <div class="caption">Drop <span>the same field, a file dragged over it</span></div>
+        <div class="caption">Drop files <span>on the same field</span></div>
         <div class="card">
             <div class="label">Attachments</div>
             <div class="zone is-over">
@@ -106,7 +108,29 @@ if (location.search === '?dark') {
             </div>
         </div>
     </div>
+    <div>
+        <div class="caption">Pick a folder <span>with the dialog</span></div>
+        <div class="card">
+            <div class="label">Photo album</div>
+            <div class="zone">
+                <div class="button">Choose folder…</div>
+                <div>or drop a folder here</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="caption">Drop the folder <span>on the same field</span></div>
+        <div class="card">
+            <div class="label">Photo album</div>
+            <div class="zone is-over">
+                <div class="button">Choose folder…</div>
+                <div>Drop to add the folder</div>
+                <div class="file"><div class="folder-icon"></div>trip-2026 <small>214 files</small></div>
+                <svg class="cursor" viewBox="0 0 26 30"><path d="M2 2 L2 24 L8 18 L12 28 L16 26 L12 17 L20 17 Z"/></svg>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="foot"><b>Same types, one or many, folders too.</b> The field lights up while files are over it; a file dropped beside it never opens in the tab.</div>
+<div class="foot"><b>Same types, one or many, a whole folder when the dialog takes folders.</b> The field lights up while they are over it; a drop beside it never opens in the tab.</div>
 </body>
 </html>

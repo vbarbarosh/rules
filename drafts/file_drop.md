@@ -4,24 +4,29 @@
   this behaviour.
 - Event examples follow the callback naming rules: `v` in a one-parameter
   arrow, `event` in a regular function.
+- If a component supports adding files, it must also react to drag-and-drop.
+  If it supports adding whole folders, it must also take them by
+  drag-and-drop. Whatever it takes through the dialog, it must take through
+  drag-and-drop as well.
 
 # File drop
 
-Anywhere the user can pick files or a folder, they can also drag them in. An
-element that takes files through an input, whether a `<input type="file">` or a
-"Choose folder…" button, also takes the same files dropped onto it. People
-drag a file from their file manager first and look for the button second;
-an element that ignores the drop looks broken.
+What the dialog takes, the drop takes. An element that takes files through
+its dialog also takes files dropped onto it; one that takes whole folders
+also takes a folder dropped onto it. People drag from their file manager
+first and look for the button second; an element that ignores the drop, or
+takes a file but not the folder its dialog offers, looks broken.
 
 ## The rule
 
 1. **Input and drop come together.** An element that takes files or folders
    through an input also takes them dropped onto it. Neither is built without
    the other.
-2. **The drop takes what the input takes.** That means the same `accept`
-   types, one file or many as `multiple` says, and folders when the input
-   takes folders (`webkitdirectory`). A dropped folder is read through
-   `webkitGetAsEntry()`, file by file.
+2. **The drop takes what the dialog takes.** Files: the same `accept` types,
+   one file or many as `multiple` says. Folders: when the dialog picks a
+   whole folder (`webkitdirectory`, a "Choose folder…" button), a folder
+   dropped onto the element is taken too, read through `webkitGetAsEntry()`
+   file by file, its inner folders included.
 3. **The element shows it will take them.** While files are dragged over it,
    it highlights. A drop beside it never opens the file in the tab and loses
    the page: the window cancels `dragover` and `drop`.
