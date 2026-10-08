@@ -536,14 +536,15 @@ function html_from_guide(guide, index)
         + '</section>\n';
 }
 
-// A picture of a guide; pictures on consecutive lines share one row.
+// A picture of a guide, with its -dark twin when there is one; pictures on
+// consecutive lines share one row.
 function html_from_guide_image(image)
 {
-    const url = `../agents/${image[2]}`;
+    const url = path.posix.join('../agents', image[2]);
     if (!fs.existsSync(path.join(docs_dir, url))) {
         throw new Error(`agents: no picture at ${image[2]}`);
     }
-    return `<a class="figure" href="${url}"><img src="${url}" alt="${html_escape(image[1])}" ${image_dimensions(url)} loading="lazy"></a>`;
+    return html_from_image(image[1], url, 'figure');
 }
 
 // Enough Markdown for a guide: "## " headings, paragraphs, pictures (in one

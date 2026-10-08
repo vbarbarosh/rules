@@ -618,6 +618,11 @@ footer code {
     grid-column: auto;
 }
 
+/* One picture alone takes the width a single figure has. */
+.figures:has(> :only-child) {
+    grid-template-columns: minmax(0, 960px);
+}
+
 .figure img {
     display: block;
     width: 100%;

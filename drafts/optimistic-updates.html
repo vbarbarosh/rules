@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Optimistic updates</title>
+<style>
+:root {
+    --bg: #f3f0e8;
+    --paper: #fffdf7;
+    --ink: #172019;
+    --muted: #687168;
+    --line: #c9cec4;
+    --code-bg: #eeebe2;
+    --accent: #3d62ff;
+    --no: #d63b3b;
+    --yes: #2f8a4a;
+    --badge-bg: #e3e8ff;
+    --button: #3d62ff;
+}
+
+html.dark {
+    --bg: #0f1713;
+    --paper: #14201a;
+    --ink: #f4f6ed;
+    --muted: #91a196;
+    --line: #2c3c33;
+    --code-bg: #1e2d25;
+    --accent: #82a0ff;
+    --no: #ff6b6b;
+    --yes: #5fd08a;
+    --badge-bg: #26304f;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body { margin: 0; width: 1280px; }
+
+body {
+    padding: 48px 72px 52px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.title { margin-bottom: 28px; font-size: 40px; font-weight: 900; letter-spacing: -0.04em; }
+
+.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+.caption { display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px; font-size: 22px; font-weight: 800; }
+
+.caption.no { color: var(--no); }
+
+.caption.yes { color: var(--yes); }
+
+.caption span { font-weight: 400; color: var(--muted); }
+
+.clock { margin-left: auto; font-family: ui-monospace, "DejaVu Sans Mono", monospace; font-size: 20px; font-weight: 400; color: var(--muted); }
+
+.screen { display: flex; flex-direction: column; gap: 12px; height: 300px; padding: 18px 20px; border: 2px solid var(--ink); background: var(--paper); }
+
+.comment { padding: 12px 16px; border-radius: 8px; background: var(--code-bg); font-size: 17px; }
+
+.comment.hidden { visibility: hidden; }
+
+.head { display: flex; align-items: center; gap: 8px; height: 22px; font-size: 15px; color: var(--muted); }
+
+.head b { color: var(--ink); }
+
+.badge { height: 22px; padding: 0 10px; border-radius: 11px; background: var(--badge-bg); color: var(--accent); font-size: 14px; line-height: 22px; }
+
+.badge.hidden { display: none; }
+
+.text { margin-top: 4px; }
+
+.form { display: flex; gap: 10px; margin-top: auto; }
+
+.input { flex: 1; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 17px; color: var(--muted); }
+
+.input.typed { color: var(--ink); }
+
+.send { width: 120px; padding: 10px 0; border-radius: 8px; background: var(--button); color: #fff; font-size: 17px; font-weight: 600; text-align: center; }
+
+.send.pressed { filter: brightness(.8); }
+
+.send.waiting { background: var(--code-bg); color: var(--muted); }
+
+.foot { margin-top: 26px; font-size: 18px; color: var(--muted); }
+
+.foot b { color: var(--ink); }
+</style>
+<script>
+if (location.search === '?dark') {
+    document.documentElement.classList.add('dark');
+}
+</script>
+</head>
+<body>
+<div class="title">Optimistic updates: there at once, not after the server</div>
+<div class="panels">
+    <div>
+        <div class="caption no">✗ Not this <span>waits for the server</span><span class="clock">0.000 s</span></div>
+        <div class="screen" data-panel="before">
+            <div class="comment">
+                <div class="head"><b>Dana</b> 10:02</div>
+                <div class="text">Moved the deadline to Friday.</div>
+            </div>
+            <div class="comment mine">
+                <div class="head"><b>You</b> 10:05</div>
+                <div class="text">Friday works for me.</div>
+            </div>
+            <div class="form"><div class="input">Write a comment…</div><div class="send">Send</div></div>
+        </div>
+    </div>
+    <div>
+        <div class="caption yes">✓ This <span>there at once, marked Sending</span><span class="clock">0.000 s</span></div>
+        <div class="screen" data-panel="after">
+            <div class="comment">
+                <div class="head"><b>Dana</b> 10:02</div>
+                <div class="text">Moved the deadline to Friday.</div>
+            </div>
+            <div class="comment mine">
+                <div class="head"><b>You</b> 10:05 <span class="badge">Sending</span></div>
+                <div class="text">Friday works for me.</div>
+            </div>
+            <div class="form"><div class="input">Write a comment…</div><div class="send">Send</div></div>
+        </div>
+    </div>
+</div>
+<div class="foot"><b>The change shows where the user made it, at once</b>, marked as waiting; the mark goes when the server has it.</div>
+<script>
+// One frame of the loop: typed until PRESS_MS, the server answers WAIT_MS after the press.
+const PRESS_MS = 600;
+const WAIT_MS = 2000;
+
+main();
+
+function main()
+{
+    frame_render(0);
+}
+
+function frame_render(ms)
+{
+    const since_press = Math.min(Math.max(ms - PRESS_MS, 0), WAIT_MS);
+    const pressed = (ms >= PRESS_MS);
+    const answered = (ms >= PRESS_MS + WAIT_MS);
+    for (const clock_el of document.querySelectorAll('.clock')) {
+        clock_el.textContent = `${(since_press/1000).toFixed(3)} s`;
+    }
+    for (const screen_el of document.querySelectorAll('.screen')) {
+        const optimistic = (screen_el.dataset.panel === 'after');
+        const input_el = screen_el.querySelector('.input');
+        const send_el = screen_el.querySelector('.send');
+        input_el.textContent = pressed ? 'Write a comment…' : 'Friday works for me.';
+        input_el.classList.toggle('typed', !pressed);
+        send_el.classList.toggle('pressed', (ms >= PRESS_MS - 120) && !pressed);
+        send_el.classList.toggle('waiting', pressed && !answered && !optimistic);
+        send_el.textContent = (pressed && !answered && !optimistic) ? 'Sending…' : 'Send';
+        screen_el.querySelector('.mine').classList.toggle('hidden', !answered && !(optimistic && pressed));
+        screen_el.querySelector('.badge')?.classList.toggle('hidden', answered);
+    }
+}
+</script>
+</body>
+</html>

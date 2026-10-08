@@ -69,6 +69,16 @@ filed elsewhere, the other place links to it; it does not vanish from where
 the user put it. A comment that blinks out and shows up seconds later breaks
 the rule as surely as a spinner does.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="optimistic-updates-dark.gif">
+  <img alt="Send is pressed: on the left the comment is nowhere for 2 seconds, then it shows; on the right it shows at once marked Sending, and the mark goes when the server has it" src="optimistic-updates.gif">
+</picture>
+
+The picture is drawn by [optimistic-updates.html](optimistic-updates.html):
+`frame_render(ms)` draws the moment `ms` after the start, rendered at 30
+frames a second to `optimistic-updates.gif` and `optimistic-updates-dark.gif`
+(`?dark`).
+
 ## Failure and retry
 
 Keep a failed change identifiable as unsynchronized and provide a retry

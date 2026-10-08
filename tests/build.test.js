@@ -35,21 +35,30 @@ test('generated rule and guide images all reserve positive dimensions, including
     assert.ok(count >= 11);
 });
 
-test('guide pictures on consecutive lines share one row', function () {
-    const result = build();
-    assert.equal(result.status, 0, result.stderr);
-    const html = fs.readFileSync(path.join(fixture_dir, 'docs/agents.html'), 'utf8');
-    assert.match(html, /<div class="figures"><a class="figure" href="..\/agents\/every-view-comment-before.gif">.*?<\/a><a class="figure" href="..\/agents\/every-view-comment-after.gif">/);
-    assert.match(html, /\n<a class="figure" href="..\/agents\/every-state-alert.png">/);
+test('guide pictures on consecutive lines share one row, each with its dark twin', function () {
+    const file = path.join(fixture_dir, 'agents/every_state_before_done.md');
+    const original = fs.readFileSync(file, 'utf8');
+    try {
+        fs.writeFileSync(file, `${original}\n![one](every-state-alert.png)\n![two](../drafts/optimistic-updates.gif)\n`);
+        const result = build();
+        assert.equal(result.status, 0, result.stderr);
+        const html = fs.readFileSync(path.join(fixture_dir, 'docs/agents.html'), 'utf8');
+        assert.match(html, /<div class="figures"><a class="figure" href="..\/agents\/every-state-alert.png">.*?<\/a><a class="figure" href="..\/drafts\/optimistic-updates.gif">/);
+        assert.match(html, /<img class="dark" src="..\/drafts\/optimistic-updates-dark.gif"/);
+        assert.match(html, /\n<a class="figure" href="..\/agents\/every-state-alert.png">/);
+    }
+    finally {
+        fs.writeFileSync(file, original);
+    }
 });
 
-test('pictures after a rule form share one row under the form', function () {
+test('a picture after a rule form goes under the text and the form', function () {
     const result = build();
     assert.equal(result.status, 0, result.stderr);
     const html = fs.readFileSync(path.join(fixture_dir, 'docs/rules.html'), 'utf8');
     const rule = html.match(/<article class="rule" id="UI-18">[\s\S]*?<\/article>/)[0];
     assert.match(rule, /<div class="form"><pre>Read → local overlay/);
-    assert.match(rule, /<div class="figures"><a class="figure" href="..\/agents\/every-view-comment-before.gif">.*?<\/a><a class="figure" href="..\/agents\/every-view-comment-after.gif">/);
+    assert.match(rule, /<div class="figures"><a class="figure" href="..\/drafts\/optimistic-updates.gif"><img class="light" .*?><img class="dark" src="..\/drafts\/optimistic-updates-dark.gif"/);
 });
 
 test('all built theme icons follow the shared SVG assets, including handwritten diagrams', function () {

@@ -510,6 +510,11 @@ footer code {
     transition: border-color var(--fast);
 }
 
+:root[data-theme="dark"] .figure .light,
+:root:not([data-theme="dark"]) .figure .dark {
+    display: none;
+}
+
 .guide-foot {
     max-width: 72ch;
     padding: 0 2px;

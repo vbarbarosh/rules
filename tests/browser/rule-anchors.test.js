@@ -138,24 +138,35 @@ for (const theme of ['light', 'dark']) {
     }
 }
 
-test('the Agents page also reserves its guide image and matches its intrinsic size', async function () {
-    const page = await browser.newPage();
+test('the Agents page also reserves its guide images, each at its intrinsic size', async function () {
+    for (const color_scheme of ['light', 'dark']) {
+        await guide_images_check(color_scheme);
+    }
+});
+
+// The images the theme shows; a dark twin is hidden in the light theme and never loads there.
+async function guide_images_check(color_scheme)
+{
+    const page = await browser.newPage({colorScheme: color_scheme});
     try {
         await page.goto(`${origin}/docs/agents.html`);
-        const image = page.locator('.figure img');
-        await image.scrollIntoViewIfNeeded();
-        const size = await image.evaluate(async function (img) {
-            await img.decode();
-            return {width: Number(img.getAttribute('width')), height: Number(img.getAttribute('height')), natural_width: img.naturalWidth, natural_height: img.naturalHeight};
-        });
-        assert.equal(size.width, size.natural_width);
-        assert.equal(size.height, size.natural_height);
-        assert.ok(size.width > 0 && size.height > 0);
+        const images = await page.locator('.figure img:visible').all();
+        assert.ok(images.length > 0);
+        for (const image of images) {
+            await image.scrollIntoViewIfNeeded();
+            const size = await image.evaluate(async function (img) {
+                await img.decode();
+                return {src: img.getAttribute('src'), width: Number(img.getAttribute('width')), height: Number(img.getAttribute('height')), natural_width: img.naturalWidth, natural_height: img.naturalHeight};
+            });
+            assert.equal(size.width, size.natural_width, size.src);
+            assert.equal(size.height, size.natural_height, size.src);
+            assert.ok((size.width > 0) && (size.height > 0), size.src);
+        }
     }
     finally {
         await page.close();
     }
-});
+}
 
 async function target_position(page, target)
 {

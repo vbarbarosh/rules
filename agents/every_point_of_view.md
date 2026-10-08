@@ -26,8 +26,7 @@ implementation does inside.
 
 It is one case of [Consequences first](consequences_first.md).
 
-![before: Send is pressed, the comment is nowhere for 2 seconds, then it shows](every-view-comment-before.gif)
-![after: Send is pressed, the comment shows at once marked Sending, and the mark goes when the server has it](every-view-comment-after.gif)
+![Send is pressed: on the left the comment is nowhere for 2 seconds, then it shows; on the right it shows at once marked Sending, and the mark goes when the server has it](../drafts/optimistic-updates.gif)
 
 Above, a comment sent under a task. In the implementation's story it goes
 to the server, waits until it is filed, and comes back with the next
