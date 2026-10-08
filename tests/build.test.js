@@ -35,6 +35,14 @@ test('generated rule and guide images all reserve positive dimensions, including
     assert.ok(count >= 11);
 });
 
+test('guide pictures on consecutive lines share one row', function () {
+    const result = build();
+    assert.equal(result.status, 0, result.stderr);
+    const html = fs.readFileSync(path.join(fixture_dir, 'docs/agents.html'), 'utf8');
+    assert.match(html, /<div class="figures"><a class="figure" href="..\/agents\/every-view-comment-before.gif">.*?<\/a><a class="figure" href="..\/agents\/every-view-comment-after.gif">/);
+    assert.match(html, /\n<a class="figure" href="..\/agents\/every-state-alert.png">/);
+});
+
 test('all built theme icons follow the shared SVG assets, including handwritten diagrams', function () {
     const file = path.join(fixture_dir, 'img/theme-sun.svg');
     const original = fs.readFileSync(file, 'utf8');

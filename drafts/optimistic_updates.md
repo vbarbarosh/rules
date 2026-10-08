@@ -60,6 +60,15 @@ for example by serializing writes for that item or using backend revisions.
 Different items can update independently. Undo is another intended change;
 it must not be overwritten when an earlier action finishes.
 
+## Where the change shows
+
+The local change shows where the user made it, whatever route the backend
+takes. A comment sent under a task appears under that task at once, marked
+as sending, even when the server queues it and files it later. If it is
+filed elsewhere, the other place links to it; it does not vanish from where
+the user put it. A comment that blinks out and shows up seconds later breaks
+the rule as surely as a spinner does.
+
 ## Failure and retry
 
 Keep a failed change identifiable as unsynchronized and provide a retry

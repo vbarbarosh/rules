@@ -111,6 +111,18 @@ abbreviates resolve/reject in Promise executors; the full names
 new Promise((res, rej) => entry.file(res, rej));
 ```
 
+## Points of View
+
+One task, told as each person's story; see
+[agents/every_point_of_view.md](../agents/every_point_of_view.md).
+
+- user — what I do, what I see, what I expect next
+- implementation — where data goes, in what order, what fails
+- attacker — what I can reach that I should not
+- operator — suggested: can I tell from the logs what happened, and restart it
+- next developer — suggested: can I find it, read why, change it safely
+- newcomer — suggested: does the screen say what it is and what just happened
+
 ## Glossaries
 
 - **[docs/glossaries.html](glossaries.html) — every term below, in one filterable page**

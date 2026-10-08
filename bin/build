@@ -530,9 +530,19 @@ function html_from_guide(guide, index)
         + '</section>\n';
 }
 
-// Enough Markdown for a guide: "## " headings, paragraphs, pictures, and
-// "1." or "-" lists whose items continue on indented lines and may hold a
-// nested "-" list.
+// A picture of a guide; pictures on consecutive lines share one row.
+function html_from_guide_image(image)
+{
+    const url = `../agents/${image[2]}`;
+    if (!fs.existsSync(path.join(docs_dir, url))) {
+        throw new Error(`agents: no picture at ${image[2]}`);
+    }
+    return `<a class="figure" href="${url}"><img src="${url}" alt="${html_escape(image[1])}" ${image_dimensions(url)} loading="lazy"></a>`;
+}
+
+// Enough Markdown for a guide: "## " headings, paragraphs, pictures (in one
+// row when several stand on consecutive lines), and "1." or "-" lists whose
+// items continue on indented lines and may hold a nested "-" list.
 function html_from_guide_markdown(markdown)
 {
     let out = '';
@@ -542,13 +552,10 @@ function html_from_guide_markdown(markdown)
             out += `<h3>${html_from_guide_inline(lines[0].slice(3))}</h3>\n`;
             continue;
         }
-        const image = block.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
-        if (image) {
-            const url = `../agents/${image[2]}`;
-            if (!fs.existsSync(path.join(docs_dir, url))) {
-                throw new Error(`agents: no picture at ${image[2]}`);
-            }
-            out += `<a class="figure" href="${url}"><img src="${url}" alt="${html_escape(image[1])}" ${image_dimensions(url)} loading="lazy"></a>\n`;
+        const images = lines.map(v => v.match(/^!\[([^\]]*)\]\(([^)]+)\)$/));
+        if (images.every(Boolean)) {
+            const figures = images.map(html_from_guide_image).join('');
+            out += (images.length === 1) ? `${figures}\n` : `<div class="figures">${figures}</div>\n`;
             continue;
         }
         if (/^(\d+\.|-) /.test(lines[0])) {

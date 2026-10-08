@@ -23,8 +23,9 @@ costs the author a message, found one at a time.
    when the data is long, empty, absurd? What does the author not see from
    where they stand?
 2. **Let the answers shape the work.** They decide the scope (see
-   [One example, all cases](one_example_all_cases.md)) and the states to
-   test (see [Every state before done](every_state_before_done.md)).
+   [One example, all cases](one_example_all_cases.md)), the states to
+   test (see [Every state before done](every_state_before_done.md)) and the
+   stories to tell (see [Every point of view](every_point_of_view.md)).
 3. **Tell the author what was found.** A consequence that makes the change a
    poor one is said before the change, with the better way. What was decided
    along the way is said for information. What is truly ambiguous is asked,
