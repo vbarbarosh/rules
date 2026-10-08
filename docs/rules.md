@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-264 rules · 18 groups · 51 sources · filterable version: [rules.html](rules.html)
+265 rules · 18 groups · 51 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -19,7 +19,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT | Formatting | 30 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 11 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 25 | One entry function, one fixed order. |
-| PROJ | Project layout | 28 | A directory is a program; bin/ holds its verbs. |
+| PROJ | Project layout | 29 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | Upper-case keywords; the query laid out like code. |
@@ -190,6 +190,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | PROJ-26 | **A quick start in a few lines.** A quick start shows how to install and run the project, in a few lines. | `npx vbarbarosh/rules src` | [readme.md](../drafts/readme.md) |
 | PROJ-27 | **Documentation opens with the full docs link.** A `## Documentation` section opens with the link to the full documentation. Further pages follow as a short list, each with what it covers. | <pre>## Documentation<br><br>Full documentation: &#42;&#42;&#91;docs/rules.html](docs/rules.html)&#42;&#42;<br><br>&#42; &#91;Formatting](FORMATTING.md) — the JavaScript spec</pre> | [readme.md](../drafts/readme.md) |
 | PROJ-28 | **License is the last section.** `## License` is the last section: the license named and linked to `LICENSE`. | <pre>## License<br><br>&#91;MIT](LICENSE)</pre> | [readme.md](../drafts/readme.md) |
+| PROJ-29 | **Demos live in demos/.** Small demos — a short runnable file that shows how something is used — live in `demos/`, never in `examples/`. | <pre>demos/items_by.js      ✓ right<br>examples/items_by.js   ✗ wrong</pre> | [layout.md](../drafts/layout.md) |
 | **LOG** | **Logs** — One line, one event, four fields. | | |
 | LOG-01 | **One line, one event, four fields.** A log is one infinite file. One physical line records one event, in four fields and nothing else. | `[time][group_uid][sender] details` | [logs.md](../drafts/logs.md) |
 | LOG-02 | **Measurements go in details.** Elapsed time, status and every other measurement belong in `details`, not in a field of their own. | `[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT` | [logs.md](../drafts/logs.md) |

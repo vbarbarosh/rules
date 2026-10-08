@@ -118,3 +118,10 @@ A unit test sits next to the file it tests:
 - `docs/` holds the official documentation.
 - `notes/` holds working notes: hints and findings made during development.
 - `img/` holds static images, mostly for `README.md`.
+
+## demos/
+
+Small demos live in `demos/`: a short runnable file that shows how something
+is used. The name is `demos/`, never `examples/`.
+
+    demos/items_by.js
