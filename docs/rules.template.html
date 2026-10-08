@@ -586,9 +586,23 @@ h1 {
     max-width: 960px;
 }
 
-.rule:has(.figure) .text {
+.rule:has(> .figure) .text {
     grid-column: 2 / -1;
     max-width: 75ch;
+}
+
+/* Pictures after a canonical form: one row under the text and the form,
+   each at the size it was drawn for. */
+.figures {
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 360px));
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.figures .figure {
+    grid-column: auto;
 }
 
 .figure img {
@@ -826,7 +840,7 @@ footer .lead {
         gap: 4px;
     }
 
-    .rule.bare .text, .rule:has(.figure) .text, .figure {
+    .rule.bare .text, .rule:has(> .figure) .text, .figure, .figures {
         grid-column: auto;
     }
 

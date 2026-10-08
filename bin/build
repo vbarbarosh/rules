@@ -359,6 +359,12 @@ function format_term_definition(term)
 // byte for byte: <pre> keeps the entities rules.md already wrote.
 function html_from_form(form)
 {
+    // Pictures after a form, one space apart, share a row under the text and the form.
+    const tail = form.match(/^(.+?)((?: !\[[^\]]*\]\([^)]+\))+)$/);
+    if (tail) {
+        const figures = [...tail[2].matchAll(/!\[([^\]]*)\]\(([^)]+)\)/g)].map(v => html_from_image(v[1], v[2], 'figure'));
+        return html_from_form(tail[1]) + `\n<div class="figures">${figures.join('')}</div>`;
+    }
     const image = form.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
     if (image) {
         return html_from_image(image[1], image[2]);
@@ -380,16 +386,16 @@ function html_from_form(form)
 }
 
 // A picture, with its -dark twin when there is one; the page's theme picks which shows.
-function html_from_image(alt, url)
+function html_from_image(alt, url, classes = 'form figure')
 {
     const url_dark = url.replace(/(\.\w+)$/, '-dark$1');
     if (!fs.existsSync(path.join(docs_dir, url))) {
         throw new Error(`rules.md: no picture at ${url}`);
     }
     if (!fs.existsSync(path.join(docs_dir, url_dark))) {
-        return `<a class="form figure" href="${url}"><img src="${url}" alt="${html_escape(alt)}" ${image_dimensions(url)} loading="lazy"></a>`;
+        return `<a class="${classes}" href="${url}"><img src="${url}" alt="${html_escape(alt)}" ${image_dimensions(url)} loading="lazy"></a>`;
     }
-    return `<a class="form figure" href="${url}"><img class="light" src="${url}" alt="${html_escape(alt)}" ${image_dimensions(url)} loading="lazy"><img class="dark" src="${url_dark}" alt="${html_escape(alt)}" ${image_dimensions(url_dark)} loading="lazy"></a>`;
+    return `<a class="${classes}" href="${url}"><img class="light" src="${url}" alt="${html_escape(alt)}" ${image_dimensions(url)} loading="lazy"><img class="dark" src="${url_dark}" alt="${html_escape(alt)}" ${image_dimensions(url_dark)} loading="lazy"></a>`;
 }
 
 // Reserve space before a local PNG or GIF loads, using its own intrinsic size.

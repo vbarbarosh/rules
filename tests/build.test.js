@@ -43,6 +43,15 @@ test('guide pictures on consecutive lines share one row', function () {
     assert.match(html, /\n<a class="figure" href="..\/agents\/every-state-alert.png">/);
 });
 
+test('pictures after a rule form share one row under the form', function () {
+    const result = build();
+    assert.equal(result.status, 0, result.stderr);
+    const html = fs.readFileSync(path.join(fixture_dir, 'docs/rules.html'), 'utf8');
+    const rule = html.match(/<article class="rule" id="UI-18">[\s\S]*?<\/article>/)[0];
+    assert.match(rule, /<div class="form"><pre>Read → local overlay/);
+    assert.match(rule, /<div class="figures"><a class="figure" href="..\/agents\/every-view-comment-before.gif">.*?<\/a><a class="figure" href="..\/agents\/every-view-comment-after.gif">/);
+});
+
 test('all built theme icons follow the shared SVG assets, including handwritten diagrams', function () {
     const file = path.join(fixture_dir, 'img/theme-sun.svg');
     const original = fs.readFileSync(file, 'utf8');
