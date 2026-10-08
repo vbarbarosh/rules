@@ -127,7 +127,7 @@ One task, told as each person's story; see
 
 - **[docs/glossaries.html](glossaries.html) — every term below, in one filterable page**
 - [glossaries/agents.md](../glossaries/agents.md) — vocabulary for developing agents: parts, roles, time, messages, tools
-- [glossaries/testing.md](../glossaries/testing.md) — happy path, smoke tests, flaky tests, intermittent failures, showstoppers
+- [glossaries/testing.md](../glossaries/testing.md) — happy path, smoke tests, flaky tests, intermittent failures, showstoppers, self-check
 - [glossaries/doc.md](../glossaries/doc.md) — vocabulary and glossary: the words about words
 
 ## Naming Grammar

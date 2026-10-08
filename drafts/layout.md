@@ -63,6 +63,7 @@ same in every language.
     bin/configure       make a fresh checkout ready for development; the only command to run after git pull
     bin/release         release a new version: bin/release major|minor|patch; builds, copies build/ to dist/, commits dist/
     bin/run        rr   start the program
+    bin/self-check      the application checks itself: one probe per thing it needs; the last step of bin/build
     bin/test       tt   run the tests
     bin/watch      ww   rebuild on change
 
@@ -84,6 +85,12 @@ wrappers are still worth having:
 - There is one build. `bin/release` runs the same `bin/build`, with flags or
   environment variables if it needs them and after clearing the output if it
   needs to, then copies `build/` into `dist/` (MP-32).
+- The build ends with the self-check. The last step of `bin/build` runs
+  `bin/self-check`: the application's own check that it is fit to work, one
+  probe per thing it needs, the programs it calls and what the build was to
+  produce, each in its own strict shell and prefixed with its name, so the
+  log says which one lit (the glossary's Self-check). A build that fails it
+  ships nothing: an image is never made, `build/` is never released.
 - `data/` holds runtime state, for example `data/logs/2026-08-24.txt`. Never
   committed.
 - `.env` belongs to whoever runs the application, not to the application;

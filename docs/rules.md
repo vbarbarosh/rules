@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-265 rules · 18 groups · 51 sources · filterable version: [rules.html](rules.html)
+266 rules · 18 groups · 51 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -19,7 +19,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT | Formatting | 30 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 11 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 25 | One entry function, one fixed order. |
-| PROJ | Project layout | 29 | A directory is a program; bin/ holds its verbs. |
+| PROJ | Project layout | 30 | A directory is a program; bin/ holds its verbs. |
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | Upper-case keywords; the query laid out like code. |
@@ -162,7 +162,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FILE-25 | **New code takes its place from its surroundings where no explicit rule applies.** Read the code around the insertion point — what stands together, in what order — and continue it within that scope. Explicit rules take priority (CORE-01); this does not require reorganizing existing code. | — | [new_code_placement.md](../drafts/new_code_placement.md) |
 | FILE-26 | **A function family stays unbroken.** A run of functions of one family — `render_*`, `format_*`, `click_*` — stays unbroken. A new member joins the run; a function of another family goes outside it, never between two members. | <pre>render_css()<br>describe()            ✗ splits the run<br>render_html()<br><br>render_css()<br>render_html()<br>describe()            ✓ after the run</pre> | [new_code_placement.md](../drafts/new_code_placement.md) |
 | **PROJ** | **Project layout** — A directory is a program; bin/ holds its verbs. | | |
-| PROJ-01 | **One project shape; bin/ holds the verbs.** Every project keeps one shape. A directory is a program, and `bin/` holds its methods — one executable per verb, working the same in every language. | <pre>bin/build      bb<br>bin/configure<br>bin/release<br>bin/run        rr<br>bin/test       tt<br>bin/watch      ww</pre> | [layout.md](../drafts/layout.md) |
+| PROJ-01 | **One project shape; bin/ holds the verbs.** Every project keeps one shape. A directory is a program, and `bin/` holds its methods — one executable per verb, working the same in every language. | <pre>bin/build      bb<br>bin/configure<br>bin/release<br>bin/run        rr<br>bin/self-check<br>bin/test       tt<br>bin/watch      ww</pre> | [layout.md](../drafts/layout.md) |
 | PROJ-02 | **After git pull, run bin/configure.** `bin/configure` is the only command to run after `git pull` to make a checkout ready for development. | — | [layout.md](../drafts/layout.md) |
 | PROJ-03 | **Run, test, build and watch wrap npm.** In a node.js project `run`, `test`, `build` and `watch` are thin wrappers over npm. The wrappers still earn their keep: `rr`, `tt`, `bb`, `ww` are shorter than any npm form, and the names hold for projects that are not node.js. | <pre>alias rr='bin/run'<br>alias tt='bin/test'<br>alias bb='bin/build'<br>alias ww='bin/watch'</pre> | [layout.md](../drafts/layout.md) |
 | PROJ-04 | **build/ is never committed; dist/ is the release.** `build/` holds what `bin/build` produced. Never committed, always reproducible. `dist/` holds the released build, committed by `bin/release` at release time only. There is one build: `bin/release` runs it and copies `build/` into `dist/`. | <pre>build/   bin/build output, never committed<br>dist/    released build, committed by bin/release</pre> | [layout.md](../drafts/layout.md) |
@@ -191,6 +191,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | PROJ-27 | **Documentation opens with the full docs link.** A `## Documentation` section opens with the link to the full documentation. Further pages follow as a short list, each with what it covers. | <pre>## Documentation<br><br>Full documentation: &#42;&#42;&#91;docs/rules.html](docs/rules.html)&#42;&#42;<br><br>&#42; &#91;Formatting](FORMATTING.md) — the JavaScript spec</pre> | [readme.md](../drafts/readme.md) |
 | PROJ-28 | **License is the last section.** `## License` is the last section: the license named and linked to `LICENSE`. | <pre>## License<br><br>&#91;MIT](LICENSE)</pre> | [readme.md](../drafts/readme.md) |
 | PROJ-29 | **Demos live in demos/.** Small demos — a short runnable file that shows how something is used — live in `demos/`, never in `examples/`. | <pre>demos/items_by.js      ✓ right<br>examples/items_by.js   ✗ wrong</pre> | [layout.md](../drafts/layout.md) |
+| PROJ-30 | **The build ends with the self-check.** The last step of `bin/build` runs `bin/self-check`: the application's own check that it is fit to work, one probe per thing it needs, the programs it calls and what the build was to produce; a lit lamp names what to fix (TEST-09). A build that fails it ships nothing. | <pre># bin/build, the last step<br>bin/self-check<br><br>[ffmpeg] ffmpeg version 6.1.1<br>[pyftsubset] zopfli: 4120 &lt; 5312 bytes<br>build/front.d: missing      ✗ ships nothing</pre> | [layout.md](../drafts/layout.md) |
 | **LOG** | **Logs** — One line, one event, four fields. | | |
 | LOG-01 | **One line, one event, four fields.** A log is one infinite file. One physical line records one event, in four fields and nothing else. | `[time][group_uid][sender] details` | [logs.md](../drafts/logs.md) |
 | LOG-02 | **Measurements go in details.** Elapsed time, status and every other measurement belong in `details`, not in a field of their own. | `[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT` | [logs.md](../drafts/logs.md) |
