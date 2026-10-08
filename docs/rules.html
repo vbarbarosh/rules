@@ -63,8 +63,12 @@
 }
 
 html {
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+}
+
+/* smooth only after load: the jump to a rule link must land before anything moves */
+html.loaded {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -884,7 +888,7 @@ footer .lead {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html {
+    html.loaded {
         scroll-behavior: auto;
     }
 
@@ -1006,14 +1010,14 @@ footer .lead {
 <a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">11</span></a>
 <a href="#FILE" data-group="FILE"><span class="tag">FILE</span><span class="name">File and module structure</span><span class="n">25</span></a>
 <a href="#PROJ" data-group="PROJ"><span class="tag">PROJ</span><span class="name">Project layout</span><span class="n">30</span></a>
+<a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
+<a href="#GIT" data-group="GIT"><span class="tag">GIT</span><span class="name">Commits</span><span class="n">4</span></a>
 <a href="#LOG" data-group="LOG"><span class="tag">LOG</span><span class="name">Logs</span><span class="n">23</span></a>
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">13</span></a>
 <a href="#SQL" data-group="SQL"><span class="tag">SQL</span><span class="name">SQL queries</span><span class="n">6</span></a>
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">19</span></a>
 <a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">UI appearance</span><span class="n">8</span></a>
 <a href="#UIM" data-group="UIM"><span class="tag">UIM</span><span class="name">UI mechanics</span><span class="n">12</span></a>
-<a href="#REL" data-group="REL"><span class="tag">REL</span><span class="name">Packaging and release</span><span class="n">6</span></a>
-<a href="#GIT" data-group="GIT"><span class="tag">GIT</span><span class="name">Commits</span><span class="n">4</span></a>
 <a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">13</span></a>
 <a href="#LINT" data-group="LINT"><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="n">11</span></a>
 </nav>
@@ -2093,6 +2097,75 @@ bin/self-check
 build/front.d: missing      <span class="no">✗ ships nothing</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
+<section class="group" id="REL">
+<h2><span class="tag">REL</span><span class="name">Packaging and release</span><span class="note">Ship a prebuilt dist/.</span></h2>
+<article class="rule" id="REL-01">
+<a class="code" href="#REL-01">REL-01</a>
+<div class="text"><p><strong>Ship a prebuilt dist/.</strong> Distribute a prebuilt <code>dist/</code> from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>&lt;script src=&quot;https://unpkg.com/vue@2.6.11/dist/vue.js&quot;&gt;&lt;/script&gt;</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-02">
+<a class="code" href="#REL-02">REL-02</a>
+<div class="text"><p><strong>Release order: clean, bump, build, commit, tag.</strong> The release workflow is fixed: ensure there are no changes, increase the version, update <code>dist/</code>, commit, tag. <code>dist/</code> is updated by the one build, then a copy of <code>build/</code> (MP-32).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>rm -rf build
+npm run build
+rm -rf dist
+cp -r build dist
+git add package.json package-lock.json dist
+git commit -m "release: v$(...)"
+git tag v$(...)</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-03">
+<a class="code" href="#REL-03">REL-03</a>
+<div class="text"><p><strong>The script commits and tags, not the bump.</strong> Bump the version without committing or tagging, then own both steps in the script.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>npm version $1 --no-git-tag-version</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-04">
+<a class="code" href="#REL-04">REL-04</a>
+<div class="text"><p><strong>One command does the whole release.</strong> <code>bin/release major|minor|patch</code> performs the whole release.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>bin/release patch</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-05">
+<a class="code" href="#REL-05">REL-05</a>
+<div class="text"><p><strong>A release script runs under bash strict mode.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>set -o nounset -o errexit -o pipefail</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="REL-06">
+<a class="code" href="#REL-06">REL-06</a>
+<div class="text"><p><strong>A bad argument prints usage to stderr and exits 1.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>echo usage: release 'major&#124;minor&#124;patch' &gt;&amp;2
+exit 1</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
+<section class="group" id="GIT">
+<h2><span class="tag">GIT</span><span class="name">Commits</span><span class="note">A lowercase title, scope first; details below.</span></h2>
+<article class="rule" id="GIT-01">
+<a class="code" href="#GIT-01">GIT-01</a>
+<div class="text"><p><strong>A commit title is a scope, a colon and a short description.</strong> The scope is one or two words: the part of the project the commit changes, its category.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>maps: placement rules for gates and portals, and map-check</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="GIT-02">
+<a class="code" href="#GIT-02">GIT-02</a>
+<div class="text"><p><strong>Commit titles are lowercase.</strong> The title is all lowercase, names included.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>readme: elites and arcade saves as the code has them   <span class="yes">✓ yes</span>
+README: Elites and arcade saves                        <span class="no">✗ no</span></pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="GIT-03">
+<a class="code" href="#GIT-03">GIT-03</a>
+<div class="text"><p><strong>Commit titles aim for 70 characters, 72 as the rule.</strong> The whole title, scope included, aims for 70 characters and stays within 72; in a rare case, when nothing shorter says it, 75 is allowed. Short is the rule; the numbers are guidance, not a floor.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>maps: one name for the gate jump reach     38
+docs: build-docs and a github pages workflow     44
+70 to aim for · 72 the rule · 75 in a rare case</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="GIT-04">
+<a class="code" href="#GIT-04">GIT-04</a>
+<div class="text"><p><strong>A short body, only when needed.</strong> Details go in a body after one blank line, only when they are really needed. A body is short, in ordinary sentences.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>docs: link the placement rules, gates and portals as they stand
+
+docs/README.md lists placement.md; objects.md describes gates and
+portals as the placement rules now put them.</pre><button class="copy" type="button">Copy</button></div>
+</article>
+</section>
 <section class="group" id="LOG">
 <h2><span class="tag">LOG</span><span class="name">Logs</span><span class="note">One line, one event, four fields.</span></h2>
 <article class="rule" id="LOG-01">
@@ -2616,75 +2689,6 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 <div class="form"><pre>SQLite, LinkedIn → Enter opens SQLite</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
-<section class="group" id="REL">
-<h2><span class="tag">REL</span><span class="name">Packaging and release</span><span class="note">Ship a prebuilt dist/.</span></h2>
-<article class="rule" id="REL-01">
-<a class="code" href="#REL-01">REL-01</a>
-<div class="text"><p><strong>Ship a prebuilt dist/.</strong> Distribute a prebuilt <code>dist/</code> from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>&lt;script src=&quot;https://unpkg.com/vue@2.6.11/dist/vue.js&quot;&gt;&lt;/script&gt;</pre><button class="copy" type="button">Copy</button></div>
-</article>
-<article class="rule" id="REL-02">
-<a class="code" href="#REL-02">REL-02</a>
-<div class="text"><p><strong>Release order: clean, bump, build, commit, tag.</strong> The release workflow is fixed: ensure there are no changes, increase the version, update <code>dist/</code>, commit, tag. <code>dist/</code> is updated by the one build, then a copy of <code>build/</code> (MP-32).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>rm -rf build
-npm run build
-rm -rf dist
-cp -r build dist
-git add package.json package-lock.json dist
-git commit -m "release: v$(...)"
-git tag v$(...)</pre><button class="copy" type="button">Copy</button></div>
-</article>
-<article class="rule" id="REL-03">
-<a class="code" href="#REL-03">REL-03</a>
-<div class="text"><p><strong>The script commits and tags, not the bump.</strong> Bump the version without committing or tagging, then own both steps in the script.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>npm version $1 --no-git-tag-version</pre><button class="copy" type="button">Copy</button></div>
-</article>
-<article class="rule" id="REL-04">
-<a class="code" href="#REL-04">REL-04</a>
-<div class="text"><p><strong>One command does the whole release.</strong> <code>bin/release major|minor|patch</code> performs the whole release.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>bin/release patch</pre><button class="copy" type="button">Copy</button></div>
-</article>
-<article class="rule" id="REL-05">
-<a class="code" href="#REL-05">REL-05</a>
-<div class="text"><p><strong>A release script runs under bash strict mode.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>set -o nounset -o errexit -o pipefail</pre><button class="copy" type="button">Copy</button></div>
-</article>
-<article class="rule" id="REL-06">
-<a class="code" href="#REL-06">REL-06</a>
-<div class="text"><p><strong>A bad argument prints usage to stderr and exits 1.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>echo usage: release 'major&#124;minor&#124;patch' &gt;&amp;2
-exit 1</pre><button class="copy" type="button">Copy</button></div>
-</article>
-</section>
-<section class="group" id="GIT">
-<h2><span class="tag">GIT</span><span class="name">Commits</span><span class="note">A lowercase title, scope first; details below.</span></h2>
-<article class="rule" id="GIT-01">
-<a class="code" href="#GIT-01">GIT-01</a>
-<div class="text"><p><strong>A commit title is a scope, a colon and a short description.</strong> The scope is one or two words: the part of the project the commit changes, its category.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>maps: placement rules for gates and portals, and map-check</pre><button class="copy" type="button">Copy</button></div>
-</article>
-<article class="rule" id="GIT-02">
-<a class="code" href="#GIT-02">GIT-02</a>
-<div class="text"><p><strong>Commit titles are lowercase.</strong> The title is all lowercase, names included.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>readme: elites and arcade saves as the code has them   <span class="yes">✓ yes</span>
-README: Elites and arcade saves                        <span class="no">✗ no</span></pre><button class="copy" type="button">Copy</button></div>
-</article>
-<article class="rule" id="GIT-03">
-<a class="code" href="#GIT-03">GIT-03</a>
-<div class="text"><p><strong>Commit titles aim for 70 characters, 72 as the rule.</strong> The whole title, scope included, aims for 70 characters and stays within 72; in a rare case, when nothing shorter says it, 75 is allowed. Short is the rule; the numbers are guidance, not a floor.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>maps: one name for the gate jump reach     38
-docs: build-docs and a github pages workflow     44
-70 to aim for · 72 the rule · 75 in a rare case</pre><button class="copy" type="button">Copy</button></div>
-</article>
-<article class="rule" id="GIT-04">
-<a class="code" href="#GIT-04">GIT-04</a>
-<div class="text"><p><strong>A short body, only when needed.</strong> Details go in a body after one blank line, only when they are really needed. A body is short, in ordinary sentences.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>docs: link the placement rules, gates and portals as they stand
-
-docs/README.md lists placement.md; objects.md describes gates and
-portals as the placement rules now put them.</pre><button class="copy" type="button">Copy</button></div>
-</article>
-</section>
 <section class="group" id="DOC">
 <h2><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="note">How a document in this repo is built.</span></h2>
 <article class="rule bare" id="DOC-01">
@@ -2873,6 +2877,7 @@ function main()
     document.addEventListener('keydown', keydown_document);
     // Chrome on Wayland can hold a drag started by a quick double click.
     document.addEventListener('dragstart', dragstart_document);
+    window.addEventListener('load', load_window);
     window.addEventListener('scroll', scroll_window, {passive: true});
     window.addEventListener('resize', scroll_window);
     spy_apply();
@@ -3242,6 +3247,11 @@ function keydown_document(event)
     q_el.focus({preventScroll: true});
     q_el.setRangeText(event.key, q_el.selectionStart, q_el.selectionEnd, 'end');
     q_el.dispatchEvent(new Event('input', {bubbles: true}));
+}
+
+function load_window()
+{
+    root_el.classList.add('loaded');
 }
 
 function dragstart_document(event)
