@@ -1,6 +1,6 @@
-const class_attribute_name = require('../helpers/class_attribute_name');
-const class_category = require('../helpers/class_category');
-const class_values = require('../helpers/class_values');
+const category_of_class = require('../helpers/category_of_class');
+const class_attribute_name_of = require('../helpers/class_attribute_name_of');
+const classes_from_attribute = require('../helpers/classes_from_attribute');
 
 function vue_layout_classes(context)
 {
@@ -11,34 +11,34 @@ function vue_layout_classes(context)
     }
     return services.defineTemplateBodyVisitor({
         VAttribute: function (node) {
-            if (!class_attribute_name(node)) {
+            if (!class_attribute_name_of(node)) {
                 return;
             }
-            const classes = class_values(node);
+            const classes = classes_from_attribute(node);
             const reported = new Set();
             function report(token, messageId) {
-                const key = messageId + ':' + token.name;
+                const key = `${messageId}:${token.name}`;
                 if (!reported.has(key)) {
                     context.report({node: token.node, messageId, data: {name: token.name}});
                     reported.add(key);
                 }
             }
-            for (const tokens of classes.variants) {
-                const layout = tokens.some(v => patterns.some(vv => vv.test(v.name)));
+            for (const variant of classes.variants) {
+                const layout = variant.some(v => patterns.some(vv => vv.test(v.name)));
                 // An element is a grid or a flex container, never both.
-                const grid = tokens.find(v => /^grid(?:$|[-\d])/.test(v.name));
-                const flex = tokens.find(v => /^i?flex-/.test(v.name) && class_category(v.name, []) === 1);
+                const grid = variant.find(v => /^grid(?:$|[-\d])/.test(v.name));
+                const flex = variant.find(v => /^i?flex-/.test(v.name) && (category_of_class(v.name, []) === 1));
                 if (grid && flex) {
-                    report(tokens.indexOf(grid) < tokens.indexOf(flex) ? flex : grid, 'grid_flex');
+                    report((variant.indexOf(grid) < variant.indexOf(flex)) ? flex : grid, 'grid_flex');
                 }
-                for (let i = 0, end = tokens.length; i < end; ++i) {
-                    const token = tokens[i];
+                for (let i = 0, end = variant.length; i < end; ++i) {
+                    const token = variant[i];
                     // gap closes the layout group: container first, then its
                     // flex modifiers, then gap — nothing else in between.
                     if (/^gap(?:[xyhv])?\d/.test(token.name)) {
-                        const previous = tokens[i - 1];
-                        const after_layout = previous && (patterns.some(v => v.test(previous.name)) || class_category(previous.name, []) === 1);
-                        if (!after_layout || !tokens.slice(0, i).some(v => patterns.some(vv => vv.test(v.name)))) {
+                        const previous = variant[i - 1];
+                        const after_layout = previous && (patterns.some(v => v.test(previous.name)) || (category_of_class(previous.name, []) === 1));
+                        if (!after_layout || !variant.slice(0, i).some(v => patterns.some(vv => vv.test(v.name)))) {
                             report(token, 'gap');
                         }
                     }
@@ -47,17 +47,17 @@ function vue_layout_classes(context)
                     }
                     if (['fluid', 'grow', 'shrink', 'flex-fluid', 'flex-grow', 'flex-shrink'].includes(token.name)) {
                         let parent = node.parent.parent.parent;
-                        while (parent?.type === 'VElement' && parent.name === 'template') {
+                        while ((parent?.type === 'VElement') && (parent.name === 'template')) {
                             parent = parent.parent;
                         }
                         if (parent?.type !== 'VElement') {
                             continue;
                         }
-                        const attributes = parent.startTag.attributes.filter(v => class_attribute_name(v) === 'class');
-                        const names = attributes.flatMap(v => class_values(v).tokens.map(vv => vv.name));
-                        const split = names.some(v => /^[hv]split(?:$|-)/.test(v));
-                        const flex = names.some(v => /^flex-(row|col)(?:$|-)/.test(v));
-                        if (split && token.name.startsWith('flex-') || flex && !token.name.startsWith('flex-')) {
+                        const attributes = parent.startTag.attributes.filter(v => class_attribute_name_of(v) === 'class');
+                        const names = attributes.flatMap(v => classes_from_attribute(v).tokens.map(vv => vv.name));
+                        const parent_split = names.some(v => /^[hv]split(?:$|-)/.test(v));
+                        const parent_flex = names.some(v => /^flex-(row|col)(?:$|-)/.test(v));
+                        if ((parent_split && token.name.startsWith('flex-')) || (parent_flex && !token.name.startsWith('flex-'))) {
                             report(token, 'fluid');
                         }
                     }

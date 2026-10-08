@@ -7,19 +7,19 @@ const {chromium} = require('playwright');
 
 // Run with Playwright and Chromium: node --test tests/browser/main-search.test.js
 const root_dir = path.join(__dirname, '../..');
-const pages = ['rules', 'agents', 'glossaries'];
+const page_names = ['rules', 'agents', 'glossaries'];
 let browser;
 let server;
 let origin;
 
 test.before(async function () {
     server = http.createServer(function (request, response) {
-        const file = path.resolve(root_dir, '.' + new URL(request.url, 'http://localhost').pathname);
-        if (!file.startsWith(root_dir + path.sep) || !fs.existsSync(file)) {
+        const file = path.resolve(root_dir, `.${new URL(request.url, 'http://localhost').pathname}`);
+        if (!file.startsWith(`${root_dir}${path.sep}`) || !fs.existsSync(file)) {
             response.writeHead(404).end();
             return;
         }
-        response.setHeader('Content-Type', path.extname(file) === '.html' ? 'text/html' : 'application/octet-stream');
+        response.setHeader('Content-Type', (path.extname(file) === '.html') ? 'text/html' : 'application/octet-stream');
         fs.createReadStream(file).pipe(response);
     });
     await new Promise(v => server.listen(0, '127.0.0.1', v));
@@ -34,9 +34,9 @@ test.after(async function () {
     }
 });
 
-for (const name of pages) {
-    test(`${name}: background typing keeps the first character, selection and input events`, async function () {
-        const page = await open_page(name);
+for (const page_name of page_names) {
+    test(`${page_name}: background typing keeps the first character, selection and input events`, async function () {
+        const page = await open_page(page_name);
         try {
             await page.evaluate(function () {
                 window.input_events = 0;
@@ -81,8 +81,8 @@ for (const name of pages) {
         }
     });
 
-    test(`${name}: local editable fields retain typing, including an input inside a shadow root`, async function () {
-        const page = await open_page(name);
+    test(`${page_name}: local editable fields retain typing, including an input inside a shadow root`, async function () {
+        const page = await open_page(page_name);
         try {
             await page.evaluate(function () {
                 const fixture = document.createElement('div');
@@ -93,7 +93,7 @@ for (const name of pages) {
             for (const selector of ['#local', '#text', '#editable', '#shadow']) {
                 await page.locator(selector).focus();
                 await page.keyboard.type('local');
-                const text = await page.locator(selector).evaluate(v => 'value' in v ? v.value : v.textContent);
+                const text = await page.locator(selector).evaluate(v => ('value' in v) ? v.value : v.textContent);
                 assert.equal(text, 'local');
                 assert.equal(await page.locator('#q').inputValue(), '');
             }
@@ -107,8 +107,8 @@ for (const name of pages) {
         }
     });
 
-    test(`${name}: commands, buttons, dialogs, composition and unavailable search are preserved`, async function () {
-        const page = await open_page(name);
+    test(`${page_name}: commands, buttons, dialogs, composition and unavailable search are preserved`, async function () {
+        const page = await open_page(page_name);
         try {
             for (const key of ['Control+a', 'Meta+a', 'Alt+x', 'Enter', 'ArrowDown', 'Escape']) {
                 await page.keyboard.press(key);

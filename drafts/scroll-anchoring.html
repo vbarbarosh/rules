@@ -130,9 +130,9 @@ document.documentElement.dataset.theme = theme_read();
 function theme_read()
 {
     try {
-        const out = localStorage.getItem('theme');
-        if (out === 'light' || out === 'dark') {
-            return out;
+        const theme = localStorage.getItem('theme');
+        if ((theme === 'light') || (theme === 'dark')) {
+            return theme;
         }
     }
     catch (error) {
@@ -174,20 +174,34 @@ const SUMMARY_SHORT = 'Summing up…';
 const SUMMARY_LONG = 'Author asked how the work is going. The agent says everything sent since 14:32 is built, and the full test run is on now. Done: Settings, AI spending, Incidents, Goal and Plans now match their frames. The message box keeps Voice, Screen recording, Files and Template. The broken layouts are fixed, with a narrow-window test that fails on the old layout.';
 
 const state = {summary: SUMMARY_SHORT, messages: []};
-for (let i = 1; i <= 24; ++i) {
-    state.messages.push({uid: `m${i}`, title: `Message ${i}`, text: 'Everything you sent is built; the full test run is on now, about four minutes. A reply to each message follows once it passes.', is_new: false});
-}
-
 const scroller_plain = document.getElementById('plain');
 const scroller_kept = document.getElementById('kept');
 const keep = scroll_keep(scroller_kept);
 
-render(scroller_plain);
-render(scroller_kept);
-scroller_plain.scrollTop = 120;
-scroller_kept.scrollTop = 120;
+main();
 
-document.getElementById('add').addEventListener('click', function () {
+function main()
+{
+    for (let i = 1; i <= 24; ++i) {
+        state.messages.push({uid: `m${i}`, title: `Message ${i}`, text: 'Everything you sent is built; the full test run is on now, about four minutes. A reply to each message follows once it passes.', is_new: false});
+    }
+
+    feed_build(scroller_plain);
+    feed_build(scroller_kept);
+    scroller_plain.scrollTop = 120;
+    scroller_kept.scrollTop = 120;
+
+    document.getElementById('add').addEventListener('click', click_add);
+    document.getElementById('grow').addEventListener('click', click_grow);
+    document.getElementById('rerender').addEventListener('click', click_rerender);
+    for (const button of document.querySelectorAll('.theme button')) {
+        button.addEventListener('click', click_theme);
+    }
+    theme_labels_update();
+}
+
+function click_add()
+{
     const n = state.messages.length + 1;
     const message = {uid: `m${n}`, title: `Message ${n}, new`, text: 'Added above while you read.', is_new: true};
     state.messages.unshift(message);
@@ -195,23 +209,26 @@ document.getElementById('add').addEventListener('click', function () {
         const summary = scroller.querySelector('[data-uid="summary"]');
         summary.after(message_render(message));
     });
-});
-document.getElementById('grow').addEventListener('click', function () {
+}
+
+function click_grow()
+{
     state.summary = (state.summary === SUMMARY_SHORT) ? SUMMARY_LONG : SUMMARY_SHORT;
     update(function (scroller) {
         scroller.querySelector('[data-uid="summary"]').textContent = state.summary;
     });
-});
-document.getElementById('rerender').addEventListener('click', function () {
-    state.summary = (state.summary === SUMMARY_SHORT) ? SUMMARY_LONG : SUMMARY_SHORT;
-    update(render);
-});
-for (const button of document.querySelectorAll('.theme button')) {
-    button.addEventListener('click', function () {
-        theme_write(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
-    });
 }
-theme_buttons_refresh();
+
+function click_rerender()
+{
+    state.summary = (state.summary === SUMMARY_SHORT) ? SUMMARY_LONG : SUMMARY_SHORT;
+    update(feed_build);
+}
+
+function click_theme()
+{
+    theme_write((document.documentElement.dataset.theme === 'dark') ? 'light' : 'dark');
+}
 
 // Applies one change to both feeds; only the right one is kept in place.
 function update(change)
@@ -223,7 +240,7 @@ function update(change)
 }
 
 // Builds the feed from scratch, as a template engine re-rendering a list does.
-function render(scroller)
+function feed_build(scroller)
 {
     const feed = scroller.querySelector('.feed');
     feed.replaceChildren();
@@ -289,14 +306,14 @@ function theme_write(theme)
     catch (error) {
         console.warn(error);
     }
-    theme_buttons_refresh();
+    theme_labels_update();
 }
 
-function theme_buttons_refresh()
+function theme_labels_update()
 {
     for (const button of document.querySelectorAll('.theme button')) {
         const theme = document.documentElement.dataset.theme;
-        const label = `${theme === 'dark' ? 'Dark' : 'Light'} theme. Switch to ${theme === 'dark' ? 'light' : 'dark'} theme.`;
+        const label = `${(theme === 'dark') ? 'Dark' : 'Light'} theme. Switch to ${(theme === 'dark') ? 'light' : 'dark'} theme.`;
         button.setAttribute('aria-label', label);
         button.title = label;
     }

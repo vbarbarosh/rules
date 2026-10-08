@@ -5,7 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
 
-const lint = path.join(__dirname, '..', 'bin', 'lint');
+const lint_path = path.join(__dirname, '..', 'bin', 'lint');
 const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rules-lint-'));
 
 fs.mkdirSync(path.join(root, 'project', 'node_modules'), {recursive: true});
@@ -43,11 +43,11 @@ test('flags and a missing path print one line of usage, not a stack', function (
         const result = lint_run(args, root);
         assert.equal(result.status, 1);
         assert.doesNotMatch(result.stderr, /\n\s+at /);
-        assert.match(result.stderr, args[0] === 'missing.js' ? /^lint: No files matching/ : /^usage: /);
+        assert.match(result.stderr, (args[0] === 'missing.js') ? /^lint: No files matching/ : /^usage: /);
     }
 });
 
 function lint_run(args, cwd)
 {
-    return child_process.spawnSync(process.execPath, [lint, ...args], {cwd, encoding: 'utf8'});
+    return child_process.spawnSync(process.execPath, [lint_path, ...args], {cwd, encoding: 'utf8'});
 }

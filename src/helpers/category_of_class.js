@@ -13,7 +13,7 @@ const sizing = new RegExp('^(?:(?:min-|max-)?[wh](?:\\d+[pnm%]?|[aiwh]|0)?|min\\
 const spacing = new RegExp('^(?:[mp](?:[tlrbhv]|in|ax)?(?:\\d+[pnm%]?|[aiwh]|0)?|mg\\d+|mi\\d+|pg\\d+|pi\\d+)$');
 const typography = /^(?:fs\d+|fw\d+|lh\d+|ls\d+|n|i|q|ii|nowrap|u|s|uc|lc|cc|[lrbcj]|vm|vt|vb|ellipsis|text-.+)$/;
 
-function class_category(name, prefixes)
+function category_of_class(name, prefixes)
 {
     if (name.startsWith('#-')) {
         return 100;
@@ -51,4 +51,4 @@ function class_category(name, prefixes)
     return null;
 }
 
-module.exports = class_category;
+module.exports = category_of_class;

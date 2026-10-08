@@ -948,7 +948,7 @@ footer .lead {
     }
     catch {
     }
-    if (theme !== 'light' && theme !== 'dark') {
+    if ((theme !== 'light') && (theme !== 'dark')) {
         theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     document.documentElement.setAttribute('data-theme', theme);
@@ -2684,7 +2684,7 @@ portals as the placement rules now put them.</pre><button class="copy" type="but
 <article class="rule" id="DOC-09">
 <a class="code" href="#DOC-09">DOC-09</a>
 <div class="text"><p><strong>Findings have permanent ids and evidence.</strong> A finding id is <code>&lt;PROJECT&gt;-NN</code>, never reused and never renumbered. Each finding is one section citing <code>file:line</code> and the evidence — the quoted lines, the command which was run and what it printed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>### RULES-01 Classes banned in one file, shown in another (high)</pre><button class="copy" type="button">Copy</button></div>
+<div class="form"><pre>### DEMO-01 Classes banned in one file, shown in another (high)</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule bare" id="DOC-10">
 <a class="code" href="#DOC-10">DOC-10</a>
@@ -2815,7 +2815,7 @@ function main()
         haystack_by_id[rule_el.id] = haystack_from_rule(rule_el);
     }
 
-    theme_render();
+    theme_labels_update();
     document.addEventListener('click', click_theme);
     theme_dock_watch();
 
@@ -2847,11 +2847,11 @@ function haystack_from_rule(rule_el)
     return parts.join(' ').toLowerCase();
 }
 
-function theme_render()
+function theme_labels_update()
 {
     const theme = root_el.getAttribute('data-theme');
     for (const button of document.querySelectorAll('.theme button')) {
-        const label = `${theme === 'dark' ? 'Dark' : 'Light'} theme. Switch to ${theme === 'dark' ? 'light' : 'dark'} theme.`;
+        const label = `${(theme === 'dark') ? 'Dark' : 'Light'} theme. Switch to ${(theme === 'dark') ? 'light' : 'dark'} theme.`;
         button.setAttribute('aria-label', label);
         button.title = label;
     }
@@ -2870,22 +2870,6 @@ function theme_dock_watch()
         }
     });
     observer.observe(theme_el);
-}
-
-function click_theme(event)
-{
-    const button = event.target.closest('.theme button');
-    if (!button) {
-        return;
-    }
-    const theme = root_el.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root_el.setAttribute('data-theme', theme);
-    try {
-        localStorage.setItem('rules-theme', theme);
-    }
-    catch {
-    }
-    theme_render();
 }
 
 function input_q()
@@ -2923,12 +2907,12 @@ function filter_apply()
     const words = q_el.value.toLowerCase().split(/\s+/).filter(v => v);
     let total = 0;
     for (const group_el of group_els) {
-        const rules = group_el.querySelectorAll('article.rule');
+        const group_rule_els = group_el.querySelectorAll('article.rule');
         let visible = 0;
-        for (const rule_el of rules) {
-            const haystack = haystack_by_id[rule_el.id];
+        for (const group_rule_el of group_rule_els) {
+            const haystack = haystack_by_id[group_rule_el.id];
             const ok = words.every(v => haystack.includes(v));
-            rule_el.hidden = !ok;
+            group_rule_el.hidden = !ok;
             if (ok) {
                 visible++;
             }
@@ -2937,7 +2921,7 @@ function filter_apply()
         group_el.hidden = (visible === 0);
         const a = nav_by_group[group_el.id];
         a.classList.toggle('none', visible === 0);
-        a.querySelector('.n').textContent = (visible === rules.length) ? rules.length : `${visible}/${rules.length}`;
+        a.querySelector('.n').textContent = (visible === group_rule_els.length) ? group_rule_els.length : `${visible}/${group_rule_els.length}`;
     }
     use_el.hidden = (words.length > 0);
     nav_by_group.use.classList.toggle('none', words.length > 0);
@@ -2962,19 +2946,19 @@ function spy_apply()
     spy_pending = false;
     const line = bar_el.getBoundingClientRect().bottom + 80;
     let current = null;
-    for (const group_el of section_els) {
-        if (group_el.hidden) {
+    for (const section_el of section_els) {
+        if (section_el.hidden) {
             continue;
         }
-        if (current === null || group_el.getBoundingClientRect().top <= line) {
-            current = group_el.id;
+        if ((current === null) || (section_el.getBoundingClientRect().top <= line)) {
+            current = section_el.id;
         }
     }
-    for (const group_el of section_els) {
-        const a = nav_by_group[group_el.id];
+    for (const section_el of section_els) {
+        const a = nav_by_group[section_el.id];
         const was_current = a.classList.contains('current');
-        a.classList.toggle('current', group_el.id === current);
-        if (!was_current && group_el.id === current) {
+        a.classList.toggle('current', section_el.id === current);
+        if (!was_current && (section_el.id === current)) {
             nav_reveal(a);
         }
     }
@@ -3000,10 +2984,10 @@ function nav_reveal(a)
     };
     nav.scrollTo({top: nav_target.top, left: nav_target.left, behavior: 'smooth'});
     clearTimeout(nav_timer);
-    nav_timer = setTimeout(nav_settled, 700);
+    nav_timer = setTimeout(nav_target_clear, 700);
 }
 
-function nav_settled()
+function nav_target_clear()
 {
     nav_target = null;
 }
@@ -3026,9 +3010,7 @@ function snippet_from_pre(pre)
 function clipboard_write(text)
 {
     if (navigator.clipboard && window.isSecureContext) {
-        return navigator.clipboard.writeText(text).catch(function (error) {
-            return clipboard_write_legacy(text);
-        });
+        return navigator.clipboard.writeText(text).catch(e => clipboard_write_legacy(text));
     }
     return clipboard_write_legacy(text);
 }
@@ -3055,17 +3037,34 @@ function clipboard_write_legacy(text)
     });
 }
 
-function copy_state(button, label, state)
+function copy_state_show(button, label, state)
 {
     button.textContent = label;
     button.classList.toggle('done', state === 'done');
     button.classList.toggle('failed', state === 'failed');
     clearTimeout(button.copy_timer);
     if (state) {
-        button.copy_timer = setTimeout(function () {
-            copy_state(button, 'Copy', null);
-        }, 1400);
+        button.copy_timer = setTimeout(copy_reset, 1400);
     }
+    function copy_reset() {
+        copy_state_show(button, 'Copy', null);
+    }
+}
+
+function click_theme(event)
+{
+    const button = event.target.closest('.theme button');
+    if (!button) {
+        return;
+    }
+    const theme = (root_el.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+    root_el.setAttribute('data-theme', theme);
+    try {
+        localStorage.setItem('rules-theme', theme);
+    }
+    catch {
+    }
+    theme_labels_update();
 }
 
 async function click_copy(event)
@@ -3074,14 +3073,14 @@ async function click_copy(event)
     if (!button) {
         return;
     }
-    const text = snippet_from_pre(button.parentNode.querySelector('pre'));
+    const snippet = snippet_from_pre(button.parentNode.querySelector('pre'));
     try {
-        await clipboard_write(text);
-        copy_state(button, 'Copied', 'done');
+        await clipboard_write(snippet);
+        copy_state_show(button, 'Copied', 'done');
     }
     catch (error) {
         console.log(error.message);
-        copy_state(button, 'Failed', 'failed');
+        copy_state_show(button, 'Failed', 'failed');
     }
 }
 
@@ -3097,28 +3096,28 @@ async function click_copy_rule(event)
 // The rules the filter shows, under their group headings, with a link back to the same view.
 async function click_copy_shown()
 {
-    const out = [`# Rules from vbarbarosh/rules`, '', `Shown on ${location.href.replace(/#.*$/, '')}`];
+    const lines = ['# Rules from vbarbarosh/rules', '', `Shown on ${location.href.replace(/#.*$/, '')}`];
     for (const group_el of group_els) {
         if (group_el.hidden) {
             continue;
         }
-        out.push('', `## ${group_el.querySelector('h2 .tag').textContent} · ${group_el.querySelector('h2 .name').textContent}`);
+        lines.push('', `## ${group_el.querySelector('h2 .tag').textContent} · ${group_el.querySelector('h2 .name').textContent}`);
         for (const rule_el of group_el.querySelectorAll('article.rule:not([hidden])')) {
-            out.push('', md_from_rule(rule_el));
+            lines.push('', md_from_rule(rule_el));
         }
     }
-    await copy_markdown(copy_shown_el, out.join('\n') + '\n');
+    await copy_markdown(copy_shown_el, `${lines.join('\n')}\n`);
 }
 
 async function copy_markdown(button, text)
 {
     try {
         await clipboard_write(text);
-        copy_state(button, 'Copied', 'done');
+        copy_state_show(button, 'Copied', 'done');
     }
     catch (error) {
         console.log(error.message);
-        copy_state(button, 'Failed', 'failed');
+        copy_state_show(button, 'Failed', 'failed');
     }
 }
 
@@ -3126,19 +3125,20 @@ async function copy_markdown(button, text)
 // The verdicts stay in the form: to an agent ✓ and ✗ are the point.
 function md_from_rule(rule_el)
 {
-    const out = [`### ${rule_el.id}`, '', md_from_inline(rule_el.querySelector('.text p'))];
+    const lines = [`### ${rule_el.id}`, '', md_from_inline(rule_el.querySelector('.text p'))];
     for (const form_el of rule_el.querySelectorAll('.form')) {
-        out.push('', md_from_form(form_el));
+        lines.push('', md_from_form(form_el));
     }
-    out.push('', `Source: ${rule_el.querySelector('.src').href}`);
-    return out.join('\n');
+    lines.push('', `Source: ${rule_el.querySelector('.src').href}`);
+    return lines.join('\n');
 }
 
 function md_from_form(form_el)
 {
     const pre = form_el.querySelector('pre');
     if (pre) {
-        return '```\n' + pre.textContent.replace(/\s+$/, '') + '\n```';
+        const fence = '```';
+        return `${fence}\n${pre.textContent.replace(/\s+$/, '')}\n${fence}`;
     }
     const img = form_el.querySelector('img');
     if (img) {
@@ -3153,25 +3153,25 @@ function md_from_form(form_el)
 
 function md_from_inline(el)
 {
-    let out = '';
+    let markdown = '';
     for (const node of el.childNodes) {
         if (node.nodeType === Node.TEXT_NODE) {
-            out += node.textContent;
+            markdown += node.textContent;
         }
         else if (node.matches('strong, b')) {
-            out += `**${md_from_inline(node)}**`;
+            markdown += `**${md_from_inline(node)}**`;
         }
         else if (node.matches('code')) {
-            out += '`' + node.textContent + '`';
+            markdown += `\`${node.textContent}\``;
         }
         else if (node.matches('a')) {
-            out += `[${md_from_inline(node)}](${node.href})`;
+            markdown += `[${md_from_inline(node)}](${node.href})`;
         }
         else {
-            out += md_from_inline(node);
+            markdown += md_from_inline(node);
         }
     }
-    return out.trim();
+    return markdown.trim();
 }
 
 function keydown_document(event)
@@ -3179,16 +3179,16 @@ function keydown_document(event)
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
         return;
     }
-    if (event.key === 'Escape' && document.activeElement === q_el) {
+    if ((event.key === 'Escape') && (document.activeElement === q_el)) {
         q_el.value = '';
         input_q();
         return;
     }
-    const editing = event.composedPath().some(v => v instanceof HTMLElement && (v.matches('input, textarea, select') || v.isContentEditable));
-    if (editing || Array.from(event.key).length !== 1 || q_el.disabled || q_el.readOnly) {
+    const editing = event.composedPath().some(v => (v instanceof HTMLElement) && (v.matches('input, textarea, select') || v.isContentEditable));
+    if (editing || (Array.from(event.key).length !== 1) || q_el.disabled || q_el.readOnly) {
         return;
     }
-    if (event.key === ' ' && document.activeElement.matches('button, input, summary, [role="button"]')) {
+    if ((event.key === ' ') && document.activeElement.matches('button, input, summary, [role="button"]')) {
         return;
     }
     if (document.querySelector('dialog[open], [aria-modal="true"]')) {

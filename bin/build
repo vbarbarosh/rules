@@ -2,6 +2,7 @@
 
 const cli = require('@vbarbarosh/node-helpers/src/cli');
 const fs = require('node:fs');
+const package_json = require('../package.json');
 const path = require('node:path');
 
 const blob_url = 'https://github.com/vbarbarosh/rules/blob/main/';
@@ -11,7 +12,7 @@ const glossary_files = ['glossaries/agents.md', 'glossaries/testing.md', 'glossa
 const marker_regex = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
 const root_dir = path.join(__dirname, '..');
 const static_pages = ['formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html'];
-const version = `v${require('../package.json').version}`;
+const version = `v${package_json.version}`;
 
 cli(main);
 
@@ -36,8 +37,9 @@ function build_glossaries_html()
 {
     const template = fs.readFileSync(path.join(docs_dir, 'glossaries.template.html'), 'utf8');
     const glossaries = [];
-    for (const file of glossary_files) {
-        glossaries.push(glossary_from_markdown(fs.readFileSync(path.join(root_dir, file), 'utf8'), file));
+    for (const glossary_file of glossary_files) {
+        const markdown = fs.readFileSync(path.join(root_dir, glossary_file), 'utf8');
+        glossaries.push(glossary_from_markdown(markdown, glossary_file));
     }
     fs.writeFileSync(path.join(docs_dir, 'glossaries.html'), html_from_glossaries(template, glossaries));
 }
@@ -48,19 +50,22 @@ function build_agents_html()
     const template = fs.readFileSync(path.join(docs_dir, 'agents.template.html'), 'utf8');
     const readme = fs.readFileSync(path.join(root_dir, 'agents', 'README.md'), 'utf8');
     const guides = [];
-    for (const file of guide_files_from_readme(readme)) {
-        guides.push(guide_from_markdown(fs.readFileSync(path.join(root_dir, 'agents', file), 'utf8'), file));
+    for (const guide_file of guide_files_from_readme(readme)) {
+        const markdown = fs.readFileSync(path.join(root_dir, 'agents', guide_file), 'utf8');
+        guides.push(guide_from_markdown(markdown, guide_file));
     }
     fs.writeFileSync(path.join(docs_dir, 'agents.html'), html_from_guides(template, readme, guides));
 }
 
 function stamp_static_pages_version()
 {
-    for (const file of static_pages) {
-        const file_path = path.join(root_dir, file);
+    for (const static_page of static_pages) {
+        const file_path = path.join(root_dir, static_page);
         const html = fs.readFileSync(file_path, 'utf8');
-        const updated = html.replace(/<span class="version">[^<]*<\/span>/, `<span class="version">${version}</span>`);
-        fs.writeFileSync(file_path, updated.replace(/<!-- theme-icons -->[\s\S]*?<!-- \/theme-icons -->/g, `<!-- theme-icons -->${html_from_theme_icons()}<!-- /theme-icons -->`));
+        const icons = `<!-- theme-icons -->${html_from_theme_icons()}<!-- /theme-icons -->`;
+        const html_versioned = html.replace(/<span class="version">[^<]*<\/span>/, `<span class="version">${version}</span>`);
+        const html_stamped = html_versioned.replace(/<!-- theme-icons -->[\s\S]*?<!-- \/theme-icons -->/g, icons);
+        fs.writeFileSync(file_path, html_stamped);
     }
 }
 
@@ -68,10 +73,10 @@ function stamp_static_pages_version()
 function html_from_theme_icons()
 {
     const icons = [['sun', 'light'], ['moon', 'dark']].map(function ([name, theme]) {
-        return fs.readFileSync(path.join(root_dir, 'img', `theme-${name}.svg`), 'utf8').trim()
-            .replace('<svg ', `<svg class="theme-icon theme-${theme}" aria-hidden="true" focusable="false" `);
+        const svg = fs.readFileSync(path.join(root_dir, 'img', `theme-${name}.svg`), 'utf8').trim();
+        return svg.replace('<svg ', `<svg class="theme-icon theme-${theme}" aria-hidden="true" focusable="false" `);
     });
-    return '<!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. -->' + icons.join('');
+    return `<!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. -->${icons.join('')}`;
 }
 
 // rules.md: a title, a lede, a stats line, the group table, the rule table.
@@ -107,7 +112,7 @@ function index_from_markdown(markdown)
             out.groups.push(next);
             group_by_tag[next.tag] = next;
         }
-        else if (table === 'rules' && /^\*\*[A-Z]+\*\*$/.test(cells[0])) {
+        else if ((table === 'rules') && /^\*\*[A-Z]+\*\*$/.test(cells[0])) {
             group = group_by_tag[cells[0].slice(2, -2)];
             if (cells[1] !== `**${group.name}** — ${group.note}`) {
                 throw new Error(`rules.md: the ${group.tag} header row does not match the group table: ${cells[1]}`);
@@ -183,12 +188,11 @@ function html_from_rule(rule)
 {
     const bare = (rule.form === '—');
     const source = `<a class="src" href="${blob_url}${rule.source_path}" title="${rule.source_path}">${rule.source_label}</a>`;
-    const form = bare ? '' : html_from_form(rule.form) + '\n';
+    const form = bare ? '' : `${html_from_form(rule.form)}\n`;
     return `<article class="rule${bare ? ' bare' : ''}" id="${rule.code}">\n`
         + `<a class="code" href="#${rule.code}">${rule.code}</a>\n`
         + `<div class="text"><p>${html_from_inline(rule.text)}</p>${source}<button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>\n`
-        + form
-        + '</article>\n';
+        + `${form}</article>\n`;
 }
 
 // A glossary: a "# Name (TAG)" title and its note, then terms, either
@@ -206,7 +210,7 @@ function glossary_from_markdown(markdown, file)
     }
     const out = {file, name: title[1], tag: title[2], note: '', terms: [], groups: []};
     let owner = out;
-    let item = null;
+    let term = null;
     let section = null;
     let paragraph = null;
     let code = null;
@@ -225,7 +229,7 @@ function glossary_from_markdown(markdown, file)
         const heading = line.match(/^## (.+)$/);
         const bullet = line.match(/^- (.*)$/);
         if (line.trim() === '') {
-            item = null;
+            term = null;
             paragraph = null;
         }
         else if (group) {
@@ -234,7 +238,7 @@ function glossary_from_markdown(markdown, file)
         }
         else if (heading) {
             const name = heading[1].toLowerCase();
-            section = out.terms.find(v => v.name.toLowerCase() === name || v.name.toLowerCase() + 's' === name);
+            section = out.terms.find(v => (v.name.toLowerCase() === name) || (`${v.name.toLowerCase()}s` === name));
             if (!section) {
                 throw new Error(`${file}: "## ${heading[1]}" names no term`);
             }
@@ -251,19 +255,19 @@ function glossary_from_markdown(markdown, file)
         }
         else if (line.startsWith('|')) {
             const cells = cells_from_row(line);
-            if (cells[0] !== 'Term' && !cells.every(v => /^-+$/.test(v))) {
+            if ((cells[0] !== 'Term') && !cells.every(v => /^-+$/.test(v))) {
                 owner.terms.push({name: cells[0], definition: cells[1], sentence: false, url: null, paragraphs: [], code: null});
             }
         }
         else if (bullet) {
-            item = term_from_item(bullet[1]);
-            owner.terms.push(item);
+            term = term_from_item(bullet[1]);
+            owner.terms.push(term);
         }
-        else if (item && /^\s/.test(line)) {
-            item.definition += ' ' + line.trim();
+        else if (term && /^\s/.test(line)) {
+            term.definition += ` ${line.trim()}`;
         }
         else {
-            owner.note += (owner.note ? ' ' : '') + line;
+            owner.note += `${owner.note ? ' ' : ''}${line}`;
         }
     }
     return out;
@@ -316,7 +320,8 @@ function html_from_glossary(glossary)
         const subheading = `<h3><span class="tag">${group.tag}</span><span class="name">${group.name}</span><span class="note">${html_from_inline(group.note)}</span></h3>`;
         out += `<section class="sub" id="${group.tag}">\n${subheading}\n${html_from_terms(group.terms, group.tag, glossary.file)}</section>\n`;
     }
-    return out + '</section>\n';
+    out += '</section>\n';
+    return out;
 }
 
 function html_from_terms(terms, tag, file)
@@ -324,7 +329,7 @@ function html_from_terms(terms, tag, file)
     let out = '';
     for (let i = 0, end = terms.length; i < end; ++i) {
         const term = terms[i];
-        const code = tag + '-' + String(i + 1).padStart(2, '0');
+        const code = `${tag}-${String(i + 1).padStart(2, '0')}`;
         // A "## Term" section is the entry's full text and replaces the
         // one-line definition of the list.
         const definition = term.paragraphs.length ? null : format_term_definition(term);
@@ -332,14 +337,14 @@ function html_from_terms(terms, tag, file)
         const bare = !term.code;
         let sources = `<a class="src" href="${blob_url}${file}" title="${file}">${path.basename(file)}</a>`;
         if (term.url) {
-            const host = new URL(term.url).hostname.split('.');
-            sources += `<a class="src" href="${term.url}" title="${term.url.replace(/^https?:\/\//, '')}">${host[host.length - 2]}</a>`;
+            const host_labels = new URL(term.url).hostname.split('.');
+            sources += `<a class="src" href="${term.url}" title="${term.url.replace(/^https?:\/\//, '')}">${host_labels[host_labels.length - 2]}</a>`;
         }
+        const form = term.code ? `${html_from_lines(term.code.map(html_escape))}\n` : '';
         out += `<article class="rule${bare ? ' bare' : ''}" id="${code}">\n`
             + `<a class="code" href="#${code}">${code}</a>\n`
             + `<div class="text"><p><dfn>${html_from_inline(term.name)}</dfn></p>${definition ? `<p>${html_from_inline(definition)}</p>` : ''}${details}${sources}</div>\n`
-            + (term.code ? html_from_lines(term.code.map(html_escape)) + '\n' : '')
-            + '</article>\n';
+            + `${form}</article>\n`;
     }
     return out;
 }
@@ -351,8 +356,8 @@ function format_term_definition(term)
     if (!term.definition || !term.sentence) {
         return term.definition;
     }
-    const out = term.definition.charAt(0).toUpperCase() + term.definition.slice(1);
-    return /[\p{L}\p{N}]$/u.test(out) ? out + '.' : out;
+    const text = `${term.definition.charAt(0).toUpperCase()}${term.definition.slice(1)}`;
+    return /[\p{L}\p{N}]$/u.test(text) ? `${text}.` : text;
 }
 
 // A canonical form is a <pre> block, one code span, or prose. Code is shown
@@ -363,7 +368,7 @@ function html_from_form(form)
     const tail = form.match(/^(.+?)((?: !\[[^\]]*\]\([^)]+\))+)$/);
     if (tail) {
         const figures = [...tail[2].matchAll(/!\[([^\]]*)\]\(([^)]+)\)/g)].map(v => html_from_image(v[1], v[2], 'figure'));
-        return html_from_form(tail[1]) + `\n<div class="figures">${figures.join('')}</div>`;
+        return `${html_from_form(tail[1])}\n<div class="figures">${figures.join('')}</div>`;
     }
     const image = form.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
     if (image) {
@@ -379,7 +384,7 @@ function html_from_form(form)
     }
     const items = form.split('<br>');
     if (items.every(v => /^\d+\. /.test(v))) {
-        const list = items.map(v => '<li>' + html_from_inline(v.replace(/^\d+\. /, '')) + '</li>').join('');
+        const list = items.map(v => `<li>${html_from_inline(v.replace(/^\d+\. /, ''))}</li>`).join('');
         return `<div class="form prose"><ol>${list}</ol></div>`;
     }
     return `<div class="form prose"><p>${html_from_inline(form)}</p></div>`;
@@ -393,23 +398,23 @@ function html_from_image(alt, url, classes = 'form figure')
         throw new Error(`rules.md: no picture at ${url}`);
     }
     if (!fs.existsSync(path.join(docs_dir, url_dark))) {
-        return `<a class="${classes}" href="${url}"><img src="${url}" alt="${html_escape(alt)}" ${image_dimensions(url)} loading="lazy"></a>`;
+        return `<a class="${classes}" href="${url}"><img src="${url}" alt="${html_escape(alt)}" ${size_attributes_from_image(url)} loading="lazy"></a>`;
     }
-    return `<a class="${classes}" href="${url}"><img class="light" src="${url}" alt="${html_escape(alt)}" ${image_dimensions(url)} loading="lazy"><img class="dark" src="${url_dark}" alt="${html_escape(alt)}" ${image_dimensions(url_dark)} loading="lazy"></a>`;
+    return `<a class="${classes}" href="${url}"><img class="light" src="${url}" alt="${html_escape(alt)}" ${size_attributes_from_image(url)} loading="lazy"><img class="dark" src="${url_dark}" alt="${html_escape(alt)}" ${size_attributes_from_image(url_dark)} loading="lazy"></a>`;
 }
 
 // Reserve space before a local PNG or GIF loads, using its own intrinsic size.
 // Fail the build for other formats rather than emitting an unsized picture.
-function image_dimensions(url)
+function size_attributes_from_image(url)
 {
     const data = fs.readFileSync(path.join(docs_dir, url));
     let width;
     let height;
-    if (data.length >= 24 && data.toString('hex', 0, 8) === '89504e470d0a1a0a' && data.toString('ascii', 12, 16) === 'IHDR') {
+    if ((data.length >= 24) && (data.toString('hex', 0, 8) === '89504e470d0a1a0a') && (data.toString('ascii', 12, 16) === 'IHDR')) {
         width = data.readUInt32BE(16);
         height = data.readUInt32BE(20);
     }
-    else if (data.length >= 10 && ['GIF87a', 'GIF89a'].includes(data.toString('ascii', 0, 6))) {
+    else if ((data.length >= 10) && ['GIF87a', 'GIF89a'].includes(data.toString('ascii', 0, 6))) {
         width = data.readUInt16LE(6);
         height = data.readUInt16LE(8);
     }
@@ -433,7 +438,7 @@ function html_from_line(line)
         return line;
     }
     const start = match.index + match[1].length;
-    return line.slice(0, start) + `<span class="${class_by_marker[match[2]]}">` + line.slice(start) + '</span>';
+    return `${line.slice(0, start)}<span class="${class_by_marker[match[2]]}">${line.slice(start)}</span>`;
 }
 
 // Code spans first, so a ** inside one is code; a bold run may hold code spans.
@@ -443,14 +448,14 @@ function html_from_inline(text)
     let bold = false;
     for (const part of text.split(/(`[^`]+`)/)) {
         if (part.startsWith('`')) {
-            out += '<code>' + html_escape(part.slice(1, -1)) + '</code>';
+            out += `<code>${html_escape(part.slice(1, -1))}</code>`;
             continue;
         }
         const pieces = part.split('**');
         out += pieces[0];
-        for (let i = 1, end = pieces.length; i < end; ++i) {
+        for (const piece of pieces.slice(1)) {
             bold = !bold;
-            out += (bold ? '<strong>' : '</strong>') + pieces[i];
+            out += `${bold ? '<strong>' : '</strong>'}${piece}`;
         }
     }
     if (bold) {
@@ -508,11 +513,11 @@ function html_from_guides(template, readme, guides)
 // What a project's CLAUDE.md or AGENTS.md carries to hand the guides over.
 function format_guides_handover(guides)
 {
-    const out = ['Work the way these guides say; read them before the first edit:'];
+    const lines = ['Work the way these guides say; read them before the first edit:'];
     for (const guide of guides) {
-        out.push(`- ${guide.title}: https://raw.githubusercontent.com/vbarbarosh/rules/main/${guide.file}`);
+        lines.push(`- ${guide.title}: https://raw.githubusercontent.com/vbarbarosh/rules/main/${guide.file}`);
     }
-    return out.join('\n');
+    return lines.join('\n');
 }
 
 function html_from_guide_link(guide, index)
@@ -532,7 +537,7 @@ function html_from_guide(guide, index)
         + `<details class="words"><summary>In the author's words</summary>\n${html_from_guide_markdown(guide.words)}</details>\n`
         + `<div class="guide-actions">${source}<button class="copy-guide" type="button">Copy for an agent</button></div>\n`
         + '</div>\n'
-        + `<pre class="md" hidden>${html_escape(`# ${guide.title}\n\n${guide.body}\n`)}</pre>\n`
+        + `<pre data-md hidden>${html_escape(`# ${guide.title}\n\n${guide.body}\n`)}</pre>\n`
         + '</section>\n';
 }
 
@@ -566,7 +571,7 @@ function html_from_guide_markdown(markdown)
             continue;
         }
         if (/^(\d+\.|-) /.test(lines[0])) {
-            out += html_from_guide_list(lines) + '\n';
+            out += `${html_from_guide_list(lines)}\n`;
             continue;
         }
         out += `<p>${html_from_guide_inline(lines.join(' '))}</p>\n`;
@@ -588,7 +593,7 @@ function html_from_guide_list(lines)
     }
     const tag = ordered ? 'ol' : 'ul';
     const html_items = items.map(function (item) {
-        const nested_index = item.findIndex((v, i) => i > 0 && /^\s+- /.test(v));
+        const nested_index = item.findIndex((v, i) => (i > 0) && /^\s+- /.test(v));
         const text = (nested_index === -1) ? item : item.slice(0, nested_index);
         const nested = (nested_index === -1) ? '' : html_from_guide_list(item.slice(nested_index).map(v => v.trim()));
         return `<li>${html_from_guide_inline(text.map(v => v.trim()).join(' '))}${nested}</li>`;
@@ -604,16 +609,15 @@ function html_from_guide_inline(text)
     let bold = false;
     for (const part of text.split(/(`[^`]+`)/)) {
         if (part.startsWith('`')) {
-            out += '<code>' + html_escape(part.slice(1, -1)) + '</code>';
+            out += `<code>${html_escape(part.slice(1, -1))}</code>`;
             continue;
         }
-        const pieces = html_escape(part).replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (match, label, url) {
-            return /^[\w-]+\.md$/.test(url) ? `<a href="#${url.slice(0, -3)}">${label}</a>` : `<a href="${url}">${label}</a>`;
-        }).split('**');
+        const part_html = html_escape(part).replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, label, url) => /^[\w-]+\.md$/.test(url) ? `<a href="#${url.slice(0, -3)}">${label}</a>` : `<a href="${url}">${label}</a>`);
+        const pieces = part_html.split('**');
         out += pieces[0];
-        for (let i = 1, end = pieces.length; i < end; ++i) {
+        for (const piece of pieces.slice(1)) {
             bold = !bold;
-            out += (bold ? '<strong>' : '</strong>') + pieces[i];
+            out += `${bold ? '<strong>' : '</strong>'}${piece}`;
         }
     }
     if (bold) {

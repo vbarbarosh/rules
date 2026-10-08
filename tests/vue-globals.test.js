@@ -8,13 +8,14 @@ test('the documented Vue px helper returns strings for dimensions and empty valu
     const markdown = fs.readFileSync(path.join(__dirname, '../vue2/vue-globals.md'), 'utf8');
     const source = markdown.match(/```\n([\s\S]*?)\n```/)[1];
     let methods;
-    vm.runInNewContext(source, {Vue: {mixin: function (options) {
-        methods = options.methods;
-    }}});
+    vm.runInNewContext(source, {Vue: {mixin}});
     for (const value of [0, null, undefined, false, '', NaN]) {
         assert.equal(methods.px(value), '0');
     }
     for (const [value, expected] of [[10, '10px'], [-1, '-1px'], [1.5, '1.5px']]) {
         assert.equal(methods.px(value), expected);
+    }
+    function mixin(options) {
+        methods = options.methods;
     }
 });

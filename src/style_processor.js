@@ -3,7 +3,7 @@ const path = require('node:path');
 function style_preprocess(text, filename)
 {
     const lang = path.extname(filename).slice(1);
-    return ['<template />\n<style lang="' + lang + '">\n' + text + '\n</style>'];
+    return [`<template />\n<style lang="${lang}">\n${text}\n</style>`];
 }
 
 function style_postprocess(messages)
@@ -19,4 +19,6 @@ function style_postprocess(messages)
     return out;
 }
 
-module.exports = {preprocess: style_preprocess, postprocess: style_postprocess, supportsAutofix: false};
+const style_processor = {preprocess: style_preprocess, postprocess: style_postprocess, supportsAutofix: false};
+
+module.exports = style_processor;

@@ -6,7 +6,7 @@ function error_name(context)
         const arrow = anchor.type === 'ArrowFunctionExpression';
         const depth = (anchor.type === 'CatchClause') ? context.sourceCode.getAncestors(anchor).filter(v => v.type === 'CatchClause').length : 0;
         const name = arrow ? 'e' : depth ? `error${depth + 1}` : 'error';
-        if (node && (node.type !== 'Identifier' || node.name !== name)) {
+        if (node && ((node.type !== 'Identifier') || (node.name !== name))) {
             context.report({node, messageId: 'name', data: {name}});
         }
     }

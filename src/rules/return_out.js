@@ -5,12 +5,12 @@ function return_out(context)
             if (node.argument?.type !== 'Identifier') {
                 return;
             }
-            const statements = node.parent.type === 'BlockStatement' ? node.parent.body : [];
+            const statements = (node.parent.type === 'BlockStatement') ? node.parent.body : [];
             const previous = statements[statements.indexOf(node) - 1];
-            if (previous?.type === 'VariableDeclaration' && previous.kind === 'const' && previous.declarations.length === 1) {
+            if ((previous?.type === 'VariableDeclaration') && (previous.kind === 'const') && (previous.declarations.length === 1)) {
                 const declaration = previous.declarations[0];
                 const variable = context.sourceCode.getDeclaredVariables(previous)[0];
-                if (declaration.id.name === node.argument.name && declaration.init
+                if ((declaration.id.name === node.argument.name) && declaration.init
                     && variable.references.filter(v => v.isRead()).every(v => v.identifier === node.argument)) {
                     context.report({node, messageId: 'direct'});
                     return;
@@ -25,8 +25,8 @@ function return_out(context)
                 if (variable) {
                     const definition = variable.defs[0];
                     const init = definition?.node?.init;
-                    if (definition?.type === 'Variable' && ['ObjectExpression', 'ArrayExpression', 'NewExpression'].includes(init?.type)
-                        && variable.scope.variableScope === context.sourceCode.getScope(node).variableScope) {
+                    if ((definition?.type === 'Variable') && ['ObjectExpression', 'ArrayExpression', 'NewExpression'].includes(init?.type)
+                        && (variable.scope.variableScope === context.sourceCode.getScope(node).variableScope)) {
                         context.report({node: node.argument, messageId: 'name'});
                     }
                     return;

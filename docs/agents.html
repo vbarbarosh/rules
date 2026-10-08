@@ -871,7 +871,7 @@ footer {
     }
     catch {
     }
-    if (theme !== 'light' && theme !== 'dark') {
+    if ((theme !== 'light') && (theme !== 'dark')) {
         theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     document.documentElement.setAttribute('data-theme', theme);
@@ -953,7 +953,7 @@ footer {
 </details>
 <div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/agents/consequences_first.md" title="agents/consequences_first.md">consequences_first.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
 </div>
-<pre class="md" hidden># Consequences first
+<pre data-md hidden># Consequences first
 
 A developer given a task does not start typing. They first picture what the
 change leads to: what if this, what if that. Only then do they start, and the
@@ -1000,7 +1000,7 @@ costs the author a message, found one at a time.
 </details>
 <div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/agents/one_example_all_cases.md" title="agents/one_example_all_cases.md">one_example_all_cases.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
 </div>
-<pre class="md" hidden># One example, all cases
+<pre data-md hidden># One example, all cases
 
 The author shows one case and means all cases like it. A request that points
 at a dropdown, a button or a query names a kind of thing through one
@@ -1065,7 +1065,7 @@ discover it after.
 </details>
 <div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/agents/every_state_before_done.md" title="agents/every_state_before_done.md">every_state_before_done.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
 </div>
-<pre class="md" hidden># Every state before done
+<pre data-md hidden># Every state before done
 
 A piece of UI is not done when it looks right with the one text it was built
 with. It is done when it holds with every text and value it will be given.
@@ -1139,7 +1139,7 @@ agent minutes; finding them one by one takes the author days.
 </details>
 <div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/agents/every_point_of_view.md" title="agents/every_point_of_view.md">every_point_of_view.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
 </div>
-<pre class="md" hidden># Every point of view
+<pre data-md hidden># Every point of view
 
 One task is several stories told side by side: how the user uses it, how it
 is built, how someone would break it. An agent tells each story before
@@ -1235,10 +1235,10 @@ function main()
         nav_by_group[a.dataset.group] = a;
     }
     for (const guide_el of guide_els) {
-        haystack_by_id[guide_el.id] = guide_el.querySelector('pre.md').textContent.toLowerCase();
+        haystack_by_id[guide_el.id] = guide_el.querySelector('[data-md]').textContent.toLowerCase();
     }
 
-    theme_render();
+    theme_labels_update();
     document.addEventListener('click', click_theme);
     theme_dock_watch();
 
@@ -1255,11 +1255,11 @@ function main()
     spy_apply();
 }
 
-function theme_render()
+function theme_labels_update()
 {
     const theme = root_el.getAttribute('data-theme');
     for (const button of document.querySelectorAll('.theme button')) {
-        const label = `${theme === 'dark' ? 'Dark' : 'Light'} theme. Switch to ${theme === 'dark' ? 'light' : 'dark'} theme.`;
+        const label = `${(theme === 'dark') ? 'Dark' : 'Light'} theme. Switch to ${(theme === 'dark') ? 'light' : 'dark'} theme.`;
         button.setAttribute('aria-label', label);
         button.title = label;
     }
@@ -1278,22 +1278,6 @@ function theme_dock_watch()
         }
     });
     observer.observe(theme_el);
-}
-
-function click_theme(event)
-{
-    const button = event.target.closest('.theme button');
-    if (!button) {
-        return;
-    }
-    const theme = root_el.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root_el.setAttribute('data-theme', theme);
-    try {
-        localStorage.setItem('rules-theme', theme);
-    }
-    catch {
-    }
-    theme_render();
 }
 
 function input_q()
@@ -1366,7 +1350,7 @@ function spy_apply()
             continue;
         }
         // A short last section never reaches the line; the end of the page is its turn.
-        if (current === null || at_bottom || section_el.getBoundingClientRect().top <= line) {
+        if ((current === null) || at_bottom || (section_el.getBoundingClientRect().top <= line)) {
             current = section_el;
         }
     }
@@ -1378,9 +1362,7 @@ function spy_apply()
 function clipboard_write(text)
 {
     if (navigator.clipboard && window.isSecureContext) {
-        return navigator.clipboard.writeText(text).catch(function (error) {
-            return clipboard_write_legacy(text);
-        });
+        return navigator.clipboard.writeText(text).catch(e => clipboard_write_legacy(text));
     }
     return clipboard_write_legacy(text);
 }
@@ -1407,16 +1389,17 @@ function clipboard_write_legacy(text)
     });
 }
 
-function copy_state(button, label, state)
+function copy_state_show(button, label, state)
 {
     button.textContent = (state === 'done') ? 'Copied' : (state === 'failed') ? 'Failed' : label;
     button.classList.toggle('done', state === 'done');
     button.classList.toggle('failed', state === 'failed');
     clearTimeout(button.copy_timer);
     if (state) {
-        button.copy_timer = setTimeout(function () {
-            copy_state(button, label, null);
-        }, 1400);
+        button.copy_timer = setTimeout(copy_reset, 1400);
+    }
+    function copy_reset() {
+        copy_state_show(button, label, null);
     }
 }
 
@@ -1428,9 +1411,25 @@ function text_from_copy_button(button)
         return button.parentNode.querySelector('pre').textContent;
     }
     if (button.classList.contains('copy-guide')) {
-        return button.closest('section').querySelector('pre.md').textContent;
+        return button.closest('section').querySelector('[data-md]').textContent;
     }
-    return guide_els.filter(v => !v.hidden).map(v => v.querySelector('pre.md').textContent).join('\n');
+    return guide_els.filter(v => !v.hidden).map(v => v.querySelector('[data-md]').textContent).join('\n');
+}
+
+function click_theme(event)
+{
+    const button = event.target.closest('.theme button');
+    if (!button) {
+        return;
+    }
+    const theme = (root_el.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+    root_el.setAttribute('data-theme', theme);
+    try {
+        localStorage.setItem('rules-theme', theme);
+    }
+    catch {
+    }
+    theme_labels_update();
 }
 
 async function click_copy(event)
@@ -1443,11 +1442,11 @@ async function click_copy(event)
     button.copy_label = label;
     try {
         await clipboard_write(text_from_copy_button(button));
-        copy_state(button, label, 'done');
+        copy_state_show(button, label, 'done');
     }
     catch (error) {
         console.log(error.message);
-        copy_state(button, label, 'failed');
+        copy_state_show(button, label, 'failed');
     }
 }
 
@@ -1456,16 +1455,16 @@ function keydown_document(event)
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
         return;
     }
-    if (event.key === 'Escape' && document.activeElement === q_el) {
+    if ((event.key === 'Escape') && (document.activeElement === q_el)) {
         q_el.value = '';
         input_q();
         return;
     }
-    const editing = event.composedPath().some(v => v instanceof HTMLElement && (v.matches('input, textarea, select') || v.isContentEditable));
-    if (editing || Array.from(event.key).length !== 1 || q_el.disabled || q_el.readOnly) {
+    const editing = event.composedPath().some(v => (v instanceof HTMLElement) && (v.matches('input, textarea, select') || v.isContentEditable));
+    if (editing || (Array.from(event.key).length !== 1) || q_el.disabled || q_el.readOnly) {
         return;
     }
-    if (event.key === ' ' && document.activeElement.matches('button, input, summary, [role="button"]')) {
+    if ((event.key === ' ') && document.activeElement.matches('button, input, summary, [role="button"]')) {
         return;
     }
     if (document.querySelector('dialog[open], [aria-modal="true"]')) {

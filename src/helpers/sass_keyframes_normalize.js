@@ -10,7 +10,7 @@ function sass_keyframes_normalize(text)
             continue;
         }
         const indent = line.match(/^\s*/)[0].length;
-        if (keyframes_indent !== null && indent <= keyframes_indent) {
+        if ((keyframes_indent !== null) && (indent <= keyframes_indent)) {
             keyframes_indent = null;
             frame_indent = null;
         }
@@ -20,12 +20,10 @@ function sass_keyframes_normalize(text)
         }
         else if (keyframes_indent !== null) {
             frame_indent ??= indent;
-            if (indent === frame_indent && /^(?:from|to|\d*\.?\d+%)(?:\s*,\s*(?:from|to|\d*\.?\d+%))*\s*$/.test(trimmed)) {
+            if ((indent === frame_indent) && /^(?:from|to|\d*\.?\d+%)(?:\s*,\s*(?:from|to|\d*\.?\d+%))*\s*$/.test(trimmed)) {
                 // sass-parser currently treats percentages as ordinary selectors.
                 // Frame selectors are excluded from class analysis; retain offsets.
-                lines[i] = line.replace(/\d*\.?\d+%/g, function (value) {
-                    return 'x'.repeat(value.length);
-                });
+                lines[i] = line.replace(/\d*\.?\d+%/g, v => 'x'.repeat(v.length));
             }
         }
     }

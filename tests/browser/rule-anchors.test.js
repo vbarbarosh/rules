@@ -17,13 +17,13 @@ let origin;
 
 test.before(async function () {
     server = http.createServer(function (request, response) {
-        const file = path.resolve(root_dir, '.' + new URL(request.url, 'http://localhost').pathname);
-        if (!file.startsWith(root_dir + path.sep) || !fs.existsSync(file)) {
+        const file = path.resolve(root_dir, `.${new URL(request.url, 'http://localhost').pathname}`);
+        if (!file.startsWith(`${root_dir}${path.sep}`) || !fs.existsSync(file)) {
             response.writeHead(404).end();
             return;
         }
-        const types = {'.html': 'text/html', '.png': 'image/png', '.gif': 'image/gif'};
-        response.setHeader('Content-Type', types[path.extname(file)] || 'application/octet-stream');
+        const type_by_extension = {'.html': 'text/html', '.png': 'image/png', '.gif': 'image/gif'};
+        response.setHeader('Content-Type', type_by_extension[path.extname(file)] || 'application/octet-stream');
         fs.createReadStream(file).pipe(response);
     });
     await new Promise(v => server.listen(0, '127.0.0.1', v));
@@ -59,42 +59,34 @@ for (const theme of ['light', 'dark']) {
                                 await route.abort();
                             }
                         });
-                        await page.goto(`${origin}/docs/rules.html${navigation === 'direct' ? '#' + target : ''}`, {waitUntil: 'domcontentloaded'});
+                        await page.goto(`${origin}/docs/rules.html${(navigation === 'direct') ? `#${target}` : ''}`, {waitUntil: 'domcontentloaded'});
                         // Include images outside the lazy-loading range in the delayed batch.
                         await page.evaluate(function () {
-                            for (const img of document.images) {
-                                img.loading = 'eager';
+                            for (const image of document.images) {
+                                image.loading = 'eager';
                             }
                         });
                         if (navigation === 'link') {
                             await page.evaluate(v => document.querySelector(`#${v} a.code`).click(), target);
                         }
                         await scroll_settle(page);
-                        const before = await target_position(page, target);
-                        assert.ok(before.top >= before.margin - 2 && before.top < 400, JSON.stringify({target, before}));
+                        const before = await target_position_measure(page, target);
+                        assert.ok((before.top >= before.margin - 2) && (before.top < 400), JSON.stringify({target, before}));
                         release();
                         await page.evaluate(v => Promise.all([...document.images].map(vv => vv.decode())), null);
                         await scroll_settle(page);
-                        const after = await target_position(page, target);
+                        const after = await target_position_measure(page, target);
                         assert.ok(Math.abs(after.top - before.top) <= 1, JSON.stringify({target, before, after}));
                         assert.equal(after.overflow, false);
                         const sizes = await page.evaluate(function () {
-                            return [...document.images].map(function (img) {
-                                return {
-                                    src: img.getAttribute('src'),
-                                    width: Number(img.getAttribute('width')),
-                                    height: Number(img.getAttribute('height')),
-                                    natural_width: img.naturalWidth,
-                                    natural_height: img.naturalHeight,
-                                };
-                            });
+                            return [...document.images].map(v => ({src: v.getAttribute('src'), width: Number(v.getAttribute('width')), height: Number(v.getAttribute('height')), natural_width: v.naturalWidth, natural_height: v.naturalHeight}));
                         });
                         for (const size of sizes) {
-                            assert.ok(size.width > 0 && size.height > 0, JSON.stringify(size));
+                            assert.ok((size.width > 0) && (size.height > 0), JSON.stringify(size));
                             assert.equal(size.width, size.natural_width, size.src);
                             assert.equal(size.height, size.natural_height, size.src);
                         }
-                        if (process.env.RULES_SCREENSHOTS && navigation === 'direct' && target === 'DOC-01') {
+                        if (process.env.RULES_SCREENSHOTS && (navigation === 'direct') && (target === 'DOC-01')) {
                             fs.mkdirSync(process.env.RULES_SCREENSHOTS, {recursive: true});
                             await page.screenshot({path: path.join(process.env.RULES_SCREENSHOTS, `anchor-${theme}-${width}.png`)});
                             await page.locator('#UI-12').scrollIntoViewIfNeeded();
@@ -113,7 +105,7 @@ for (const theme of ['light', 'dark']) {
             const page = await browser.newPage({viewport: {width, height: 800}, colorScheme: theme});
             try {
                 await page.route('**/*', async function (route) {
-                    if (route.request().resourceType() === 'image' || !route.request().url().startsWith(origin)) {
+                    if ((route.request().resourceType() === 'image') || !route.request().url().startsWith(origin)) {
                         await route.abort();
                     }
                     else {
@@ -122,12 +114,12 @@ for (const theme of ['light', 'dark']) {
                 });
                 await page.goto(`${origin}/docs/rules.html#DOC-01`);
                 await scroll_settle(page);
-                const position = await target_position(page, 'DOC-01');
-                assert.ok(position.top >= position.margin - 2 && position.top < 400, JSON.stringify(position));
+                const position = await target_position_measure(page, 'DOC-01');
+                assert.ok((position.top >= position.margin - 2) && (position.top < 400), JSON.stringify(position));
                 const heights = await page.evaluate(function () {
-                    return [...document.querySelectorAll('.figure img')]
-                        .filter(v => getComputedStyle(v).display !== 'none')
-                        .map(v => v.getBoundingClientRect().height);
+                    const images = [...document.querySelectorAll('.figure img')];
+                    const images_shown = images.filter(v => getComputedStyle(v).display !== 'none');
+                    return images_shown.map(v => v.getBoundingClientRect().height);
                 });
                 assert.ok(heights.every(v => v > 20), JSON.stringify(heights));
             }
@@ -168,12 +160,13 @@ async function guide_images_check(color_scheme)
     }
 }
 
-async function target_position(page, target)
+async function target_position_measure(page, target)
 {
-    return page.evaluate(function (id) {
+    return page.evaluate(position_measure, target);
+    function position_measure(id) {
         const el = document.getElementById(id);
         return {top: el.getBoundingClientRect().top, margin: parseFloat(getComputedStyle(el).scrollMarginTop), overflow: document.documentElement.scrollWidth > innerWidth};
-    }, target);
+    }
 }
 
 async function scroll_settle(page)
@@ -185,7 +178,7 @@ async function scroll_settle(page)
             const time0 = performance.now();
             requestAnimationFrame(tick);
             function tick() {
-                stable = scrollY === last ? stable + 1 : 0;
+                stable = (scrollY === last) ? stable + 1 : 0;
                 last = scrollY;
                 if (stable >= 12) {
                     resolve();

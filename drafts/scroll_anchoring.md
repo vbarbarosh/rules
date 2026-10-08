@@ -121,6 +121,6 @@ pass too.
 demo. With the keeping turned off, four of its seven checks fail.
 
 ```
-npm i --no-save playwright && npx playwright install chromium
+bin/configure
 node --test drafts/scroll-anchoring.test.js
 ```

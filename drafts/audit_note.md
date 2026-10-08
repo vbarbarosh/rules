@@ -34,8 +34,8 @@ In this order:
 
         | Id       | Severity | Area    | Title                              |
         |----------|----------|---------|------------------------------------|
-        | RULES-01 | high     | docs    | Classes banned in one file, shown in another |
-        | RULES-02 | low      | hygiene | No `.gitignore`                    |
+        | DEMO-01  | high     | docs    | Classes banned in one file, shown in another |
+        | DEMO-02  | low      | hygiene | No `.gitignore`                    |
 
 6. **Findings** — numbered sections by area, one `### <id> <title> (<severity>)`
    per finding.

@@ -6,7 +6,7 @@ const {chromium} = require('playwright');
 
 // Run with Playwright and Chromium installed: node --test tests/browser/theme-switch.test.js
 const root_dir = path.join(__dirname, '../..');
-const pages = ['docs/rules.html', 'docs/agents.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html'];
+const page_files = ['docs/rules.html', 'docs/agents.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html'];
 const paths = ['sun', 'moon'].map(v => fs.readFileSync(path.join(root_dir, 'img', `theme-${v}.svg`), 'utf8').match(/ d="([^"]+)"/)[1]);
 let browser;
 
@@ -18,9 +18,9 @@ test.after(async function () {
     await browser?.close();
 });
 
-for (const file of pages) {
+for (const page_file of page_files) {
     for (const initial of ['light', 'dark']) {
-        test(`${file}: ${initial} current icon, direct toggle, keyboard, persistence and blocked storage`, async function () {
+        test(`${page_file}: ${initial} current icon, direct toggle, keyboard, persistence and blocked storage`, async function () {
             for (const blocked of [false, true]) {
                 const context = await browser.newContext({colorScheme: initial, viewport: {width: 1280, height: 800}});
                 const page = await context.newPage();
@@ -30,19 +30,20 @@ for (const file of pages) {
                     await page.route('https://**/*', v => v.abort());
                     if (blocked) {
                         await page.addInitScript(function () {
-                            Object.defineProperty(window, 'localStorage', {get: function () {
+                            Object.defineProperty(window, 'localStorage', {get: storage_throw});
+                            function storage_throw() {
                                 throw new Error('Storage blocked for this test');
-                            }});
+                            }
                         });
                     }
-                    await page.goto('file://' + path.join(root_dir, file));
+                    await page.goto(`file://${path.join(root_dir, page_file)}`);
                     await state_assert(page, initial);
                     const button = page.locator('.theme button').first();
                     assert.equal(await button.getAttribute('type'), 'button');
                     assert.equal(await button.getAttribute('aria-haspopup'), null);
                     assert.equal(await button.locator('svg').count(), 2);
                     assert.deepEqual(await button.locator('path').evaluateAll(v => v.map(vv => vv.getAttribute('d'))), paths);
-                    const other = initial === 'dark' ? 'light' : 'dark';
+                    const other = (initial === 'dark') ? 'light' : 'dark';
                     // A path click must reach the enclosing button and toggle exactly once.
                     await button.locator(`.theme-${initial} path`).click();
                     await state_assert(page, other);
@@ -53,7 +54,7 @@ for (const file of pages) {
                     await state_assert(page, blocked ? other : initial);
                     await page.keyboard.press('Space');
                     await state_assert(page, blocked ? initial : other);
-                    if (file !== 'drafts/scroll-anchoring.html') {
+                    if (page_file !== 'drafts/scroll-anchoring.html') {
                         await page.evaluate(function () {
                             window.scrollTo(0, document.documentElement.scrollHeight);
                         });
@@ -85,8 +86,8 @@ async function state_assert(page, theme)
     });
     assert.ok(states.length > 0);
     for (const state of states) {
-        assert.equal(state.label, `${theme === 'dark' ? 'Dark' : 'Light'} theme. Switch to ${theme === 'dark' ? 'light' : 'dark'} theme.`);
-        assert.equal(state.light, theme === 'light' ? 'block' : 'none');
-        assert.equal(state.dark, theme === 'dark' ? 'block' : 'none');
+        assert.equal(state.label, `${(theme === 'dark') ? 'Dark' : 'Light'} theme. Switch to ${(theme === 'dark') ? 'light' : 'dark'} theme.`);
+        assert.equal(state.light, (theme === 'light') ? 'block' : 'none');
+        assert.equal(state.dark, (theme === 'dark') ? 'block' : 'none');
     }
 }

@@ -750,6 +750,10 @@ th {
     background: var(--surface-2);
 }
 
+th.status {
+    text-align: center;
+}
+
 td.mono {
     font-size: 13px;
 }
@@ -848,7 +852,7 @@ li.mono {
     }
     catch {
     }
-    if (theme !== 'light' && theme !== 'dark') {
+    if ((theme !== 'light') && (theme !== 'dark')) {
         theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     document.documentElement.setAttribute('data-theme', theme);
@@ -1119,7 +1123,7 @@ li.mono {
                         <tr>
                             <th>group_uid</th>
                             <th>parent</th>
-                            <th>status</th>
+                            <th class="status">status</th>
                             <th>duration</th>
                             <th>children</th>
                         </tr>
@@ -1206,7 +1210,7 @@ function main()
     for (const a of sections_el.querySelectorAll('a')) {
         link_by_id[a.getAttribute('href').slice(1)] = a;
     }
-    theme_render();
+    theme_labels_update();
     document.addEventListener('click', click_theme);
     theme_dock_watch();
     // Chrome on Wayland can hold a drag started by a quick double click.
@@ -1216,11 +1220,11 @@ function main()
     spy_apply();
 }
 
-function theme_render()
+function theme_labels_update()
 {
     const theme = root_el.getAttribute('data-theme');
     for (const button of document.querySelectorAll('.theme button')) {
-        const label = `${theme === 'dark' ? 'Dark' : 'Light'} theme. Switch to ${theme === 'dark' ? 'light' : 'dark'} theme.`;
+        const label = `${(theme === 'dark') ? 'Dark' : 'Light'} theme. Switch to ${(theme === 'dark') ? 'light' : 'dark'} theme.`;
         button.setAttribute('aria-label', label);
         button.title = label;
     }
@@ -1247,14 +1251,14 @@ function click_theme(event)
     if (!button) {
         return;
     }
-    const theme = root_el.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    const theme = (root_el.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
     root_el.setAttribute('data-theme', theme);
     try {
         localStorage.setItem('rules-theme', theme);
     }
     catch {
     }
-    theme_render();
+    theme_labels_update();
 }
 
 function scroll_window()
@@ -1275,7 +1279,7 @@ function spy_apply()
     const at_bottom = (window.innerHeight + window.scrollY >= root_el.scrollHeight - 2);
     let current = null;
     for (const section_el of section_els) {
-        if (at_bottom || section_el.getBoundingClientRect().top <= line) {
+        if (at_bottom || (section_el.getBoundingClientRect().top <= line)) {
             current = section_el.id;
         }
     }
@@ -1283,7 +1287,7 @@ function spy_apply()
         const a = link_by_id[id];
         const was_current = a.classList.contains('current');
         a.classList.toggle('current', id === current);
-        if (!was_current && id === current) {
+        if (!was_current && (id === current)) {
             link_reveal(a);
         }
     }

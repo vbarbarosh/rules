@@ -49,7 +49,8 @@ test('the check sees the jump the browser alone lets through', async function ()
 // middle line, clicks the button, and returns how far that element moved.
 async function anchor_shift(page, scroller_id, button_id, scroll_top)
 {
-    return page.evaluate(async function ([scroller_id, button_id, scroll_top]) {
+    return page.evaluate(shift_measure, [scroller_id, button_id, scroll_top]);
+    async function shift_measure([scroller_id, button_id, scroll_top]) {
         const scroller = document.getElementById(scroller_id);
         scroller.scrollTop = scroll_top;
         await frames_wait();
@@ -65,5 +66,5 @@ async function anchor_shift(page, scroller_id, button_id, scroll_top)
         function frames_wait() {
             return new Promise(v => requestAnimationFrame(() => requestAnimationFrame(v)));
         }
-    }, [scroller_id, button_id, scroll_top]);
+    }
 }

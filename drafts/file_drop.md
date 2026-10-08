@@ -17,6 +17,14 @@ also takes a folder dropped onto it. People drag from their file manager
 first and look for the button second; an element that ignores the drop, or
 takes a file but not the folder its dialog offers, looks broken.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="file-drop-dark.png">
+  <img alt="a file field and a folder field: each picked with its button, or dragged onto it" src="file-drop.png">
+</picture>
+
+The picture is drawn by [file-drop.html](file-drop.html) and rendered to
+`file-drop.png` and `file-drop-dark.png` (`?dark`).
+
 ## The rule
 
 1. **Input and drop come together.** An element that takes files or folders

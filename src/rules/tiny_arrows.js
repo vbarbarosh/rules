@@ -11,14 +11,14 @@ function tiny_arrows(context)
             if (node.body.type === 'BlockStatement') {
                 context.report({node, messageId: 'block'});
             }
-            else if (node.loc.start.line !== node.loc.end.line || !['CallExpression', 'NewExpression', 'Property'].includes(node.parent.type)) {
+            else if ((node.loc.start.line !== node.loc.end.line) || !['CallExpression', 'NewExpression', 'Property'].includes(node.parent.type)) {
                 context.report({node, messageId: 'tiny'});
             }
             if ((node.params.length === 1) && !is_error_callback(node)) {
                 const param = node.params[0];
                 const depth = context.sourceCode.getAncestors(node).filter(v => v.type === 'ArrowFunctionExpression').length;
                 const expected = 'v'.repeat(depth + 1);
-                if (param.type === 'Identifier' && param.name !== expected) {
+                if ((param.type === 'Identifier') && (param.name !== expected)) {
                     context.report({node: param, messageId: 'name', data: {expected}});
                 }
                 if (['ObjectPattern', 'ArrayPattern'].includes(param.type)) {

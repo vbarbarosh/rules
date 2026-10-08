@@ -27,6 +27,14 @@ really want it. You typed it, so you meant it. An app can do one better and
 keep the way back open: it trusts the user like the terminal does, and still
 lets them undo.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="no-confirmations-dark.png">
+  <img alt="not a dialog on every delete, but done at once with Undo" src="no-confirmations.png">
+</picture>
+
+The picture is drawn by [no-confirmations.html](no-confirmations.html) and
+rendered to `no-confirmations.png` and `no-confirmations-dark.png` (`?dark`).
+
 ## Why
 
 A confirmation that comes every time stops being read. After the third

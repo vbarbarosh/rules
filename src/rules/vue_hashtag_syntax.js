@@ -1,4 +1,4 @@
-const class_attribute_name = require('../helpers/class_attribute_name');
+const class_attribute_name_of = require('../helpers/class_attribute_name_of');
 
 function vue_hashtag_syntax(context)
 {
@@ -13,17 +13,19 @@ function vue_hashtag_syntax(context)
             context.report({node, messageId: 'script'});
         }
     }
-    return services.defineTemplateBodyVisitor({
+    const template_visitor = {
         VAttribute: function (node) {
             const raw = source.getText(node);
-            if (raw.includes('#-') && (!class_attribute_name(node) || !/\b(class|card_class)="[^"]+?"/.test(raw))) {
+            if (raw.includes('#-') && (!class_attribute_name_of(node) || !/\b(class|card_class)="[^"]+?"/.test(raw))) {
                 context.report({node, messageId: 'template'});
             }
         },
-    }, {
+    };
+    const script_visitor = {
         Literal: check_script,
         TemplateLiteral: check_script,
-    });
+    };
+    return services.defineTemplateBodyVisitor(template_visitor, script_visitor);
 }
 
 module.exports = {

@@ -11,7 +11,7 @@ scriptname=`basename $script`
 BLACK="\e[30m" RED="\e[31m" GREEN="\e[32m" YELLOW="\e[33m" BLUE="\e[34m"
 PURPLE="\e[35m" CYAN="\e[36m" WHITE="\e[37m" RESET="\e[0m"
 
-EXIT_MESSAGE="${RED}bin/configure failed${RESET}"
+EXIT_MESSAGE="${RED}bin/test failed${RESET}"
 
 # http://redsymbol.net/articles/bash-exit-traps/
 tempdir=`mktemp -d -t tmp.XXXXXXXXXX`
@@ -23,7 +23,6 @@ echo scriptdir=$scriptdir
 echo scriptname=$scriptname
 echo tempdir=$tempdir
 
-npm ci --include=dev
-npx playwright install chromium
+npm test
 
-EXIT_MESSAGE="${GREEN}bin/configure succeeded${RESET}"
+EXIT_MESSAGE="${GREEN}bin/test succeeded${RESET}"

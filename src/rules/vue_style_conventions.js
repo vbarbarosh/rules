@@ -1,4 +1,4 @@
-const vue_styles = require('../helpers/vue_styles');
+const vue_styles_parse = require('../helpers/vue_styles_parse');
 
 function vue_style_conventions(context)
 {
@@ -10,39 +10,39 @@ function vue_style_conventions(context)
     // assembled from sections, each led by its own @import.
     const standalone = /\.(?:css|scss|sass)$/.test(context.physicalFilename);
     const prefixes = context.options[0]?.app_prefixes || ['app-', 'vb-', 'np-'];
-    const mixin_name = prefixes[0] + 'transition';
+    const mixin_name = `${prefixes[0]}transition`;
     const mixin_alternatives = prefixes.map(v => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
-    const include_regex = new RegExp('^(?:' + mixin_alternatives + ')transition(?:-fast|-debug)?\\s*\\(');
-    const mixin_regex = new RegExp('^(?:' + mixin_alternatives + ')transition(?:-fast|-debug)?(?:\\s|\\(|$)');
+    const include_regex = new RegExp(`^(?:${mixin_alternatives})transition(?:-fast|-debug)?\\s*\\(`);
+    const mixin_regex = new RegExp(`^(?:${mixin_alternatives})transition(?:-fast|-debug)?(?:\\s|\\(|$)`);
     return {
         Program: function () {
-            for (const block of vue_styles(source).blocks) {
+            for (const block of vue_styles_parse(source).blocks) {
                 function report(node, messageId) {
                     const position = node.source.start;
                     const line = source.getLocFromIndex(block.offset).line + position.line - 1;
-                    const column = position.line === 1 ? source.getLocFromIndex(block.offset).column + position.column - 1 : position.column - 1;
+                    const column = (position.line === 1) ? source.getLocFromIndex(block.offset).column + position.column - 1 : position.column - 1;
                     context.report({loc: {line, column}, messageId, data: {mixin: mixin_name}});
                 }
                 block.root.walk(function (node) {
-                    if (node.type === 'atrule' && ['import', 'include'].includes(node.name)) {
-                        const previous = node.parent.nodes.slice(0, node.parent.nodes.indexOf(node));
-                        if (node.name === 'include' && node.parent.type === 'rule' && previous.some(v => v.type === 'decl' && !v.prop.startsWith('$'))) {
+                    if ((node.type === 'atrule') && ['import', 'include'].includes(node.name)) {
+                        const siblings_before = node.parent.nodes.slice(0, node.parent.nodes.indexOf(node));
+                        if ((node.name === 'include') && (node.parent.type === 'rule') && siblings_before.some(v => (v.type === 'decl') && !v.prop.startsWith('$'))) {
                             report(node, 'include');
                         }
-                        if (node.name === 'import' && !(standalone && node.parent.type === 'root') && previous.some(v => v.type !== 'comment' && !(v.type === 'atrule' && ['charset', 'use', 'forward', 'import'].includes(v.name)))) {
+                        if ((node.name === 'import') && !(standalone && (node.parent.type === 'root')) && siblings_before.some(v => (v.type !== 'comment') && !((v.type === 'atrule') && ['charset', 'use', 'forward', 'import'].includes(v.name)))) {
                             report(node, 'import');
                         }
-                        if (node.name === 'include' && include_regex.test(node.params)) {
+                        if ((node.name === 'include') && include_regex.test(node.params)) {
                             if (/(?:\(|,)\s*['"]?all['"]?\s*(?:,|\))/.test(node.params)) {
                                 report(node, 'all');
                             }
                         }
                     }
-                    if (node.type === 'decl' && /^(?:-\w+-)?transition(?:-|$)/.test(node.prop)) {
+                    if ((node.type === 'decl') && /^(?:-\w+-)?transition(?:-|$)/.test(node.prop)) {
                         let parent = node.parent;
                         let mixin = false;
                         while (parent) {
-                            mixin ||= parent.type === 'atrule' && parent.name === 'mixin' && mixin_regex.test(parent.params);
+                            mixin ||= (parent.type === 'atrule') && (parent.name === 'mixin') && mixin_regex.test(parent.params);
                             parent = parent.parent;
                         }
                         if (!mixin) {

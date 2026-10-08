@@ -11,7 +11,7 @@ const vue_layout_classes = require('./rules/vue_layout_classes');
 const vue_local_class_style = require('./rules/vue_local_class_style');
 const vue_style_conventions = require('./rules/vue_style_conventions');
 
-module.exports = {
+const plugin = {
     meta: {name: '@vbarbarosh/rules', version: '0.1.0'},
     processors: {styles: style_processor},
     rules: {
@@ -28,3 +28,5 @@ module.exports = {
         'vue-style-conventions': vue_style_conventions,
     },
 };
+
+module.exports = plugin;

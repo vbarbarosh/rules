@@ -12,7 +12,7 @@ function block_layout(context)
             messageId: newline ? 'newline' : 'same',
             fix: /^\s*$/.test(gap) ? function (fixer) {
                 const indent = source.lines[after.loc.start.line - 1].match(/^\s*/)[0];
-                return fixer.replaceTextRange([before.range[1], after.range[0]], newline ? '\n' + indent : ' ');
+                return fixer.replaceTextRange([before.range[1], after.range[0]], newline ? `\n${indent}` : ' ');
             } : null,
         });
     }
@@ -25,9 +25,9 @@ function block_layout(context)
         const open = source.getFirstToken(node);
         const close = source.getLastToken(node);
         const parent = node.parent;
-        if (parent && parent.type !== 'Program' && parent.type !== 'BlockStatement') {
+        if (parent && (parent.type !== 'Program') && (parent.type !== 'BlockStatement')) {
             const ancestors = source.getAncestors(parent);
-            const top = parent.type === 'FunctionDeclaration' && !ancestors.some(v => /Function/.test(v.type));
+            const top = (parent.type === 'FunctionDeclaration') && !ancestors.some(v => /Function/.test(v.type));
             check_gap(source.getTokenBefore(open), open, top);
         }
         if (source.getTokenAfter(open) !== close) {

@@ -16,7 +16,7 @@ function imports_sorted(context)
                 if (statement.loc.start.line !== statement.loc.end.line) {
                     context.report({node: statement, messageId: 'single'});
                 }
-                if (source.getAllComments().some(v => v.loc.start.line <= statement.loc.end.line && v.loc.end.line >= statement.loc.start.line)) {
+                if (source.getAllComments().some(v => (v.loc.start.line <= statement.loc.end.line) && (v.loc.end.line >= statement.loc.start.line))) {
                     context.report({node: statement, messageId: 'comments'});
                 }
                 if (previous) {
@@ -24,23 +24,23 @@ function imports_sorted(context)
                     // in the order they run; the sorted default imports; and,
                     // optionally set apart, the sorted named imports
                     // ({foo, bar}). One blank line may separate the blocks.
-                    const kind = statement_kind(statement);
-                    const kind_previous = statement_kind(previous);
+                    const kind = kind_of_statement(statement);
+                    const kind_previous = kind_of_statement(previous);
                     const boundary = kind_previous < kind;
                     if (kind < kind_previous) {
-                        context.report({node: statement, messageId: kind === 0 ? 'anonymous' : 'destructured'});
+                        context.report({node: statement, messageId: (kind === 0) ? 'anonymous' : 'destructured'});
                     }
                     const gap = statement.loc.start.line - previous.loc.end.line;
-                    if (gap !== 1 && !(boundary && gap === 2)) {
+                    if ((gap !== 1) && !(boundary && (gap === 2))) {
                         context.report({node: statement, messageId: 'contiguous'});
                     }
                     const before = Buffer.from(source.lines[previous.loc.start.line - 1]);
                     const after = Buffer.from(source.lines[statement.loc.start.line - 1]);
-                    if (kind > 0 && kind === kind_previous && Buffer.compare(before, after) > 0) {
+                    if ((kind > 0) && (kind === kind_previous) && (Buffer.compare(before, after) > 0)) {
                         context.report({node: statement, messageId: 'order'});
                     }
                     const comments = source.getCommentsAfter(previous);
-                    if (comments.some(v => v.loc.start.line > previous.loc.end.line && v.range[0] < statement.range[0])) {
+                    if (comments.some(v => (v.loc.start.line > previous.loc.end.line) && (v.range[0] < statement.range[0]))) {
                         context.report({node: statement, messageId: 'comments'});
                     }
                 }
@@ -58,13 +58,13 @@ function statement_is_import(node)
     if (node.type === 'ExpressionStatement') {
         return expression_is_require(node.expression);
     }
-    return node.type === 'VariableDeclaration' && node.declarations.every(v => expression_is_require(v.init));
+    return (node.type === 'VariableDeclaration') && node.declarations.every(v => expression_is_require(v.init));
 }
 
 // 0: import './x'; or require('x'); — nothing is bound.
 // 1: import x from 'x'; or const x = require('x');
 // 2: import {a, b} from 'x'; or const {a, b} = require('x');
-function statement_kind(node)
+function kind_of_statement(node)
 {
     if (node.type === 'ImportDeclaration') {
         if (node.specifiers.length === 0) {
@@ -83,9 +83,9 @@ function expression_is_require(node)
     if (node?.type === 'MemberExpression') {
         return expression_is_require(node.object);
     }
-    return node?.type === 'CallExpression' && node.callee.type === 'Identifier'
-        && node.callee.name === 'require' && node.arguments.length === 1
-        && node.arguments[0].type === 'Literal' && typeof node.arguments[0].value === 'string';
+    return (node?.type === 'CallExpression') && (node.callee.type === 'Identifier')
+        && (node.callee.name === 'require') && (node.arguments.length === 1)
+        && (node.arguments[0].type === 'Literal') && (typeof node.arguments[0].value === 'string');
 }
 
 module.exports = {

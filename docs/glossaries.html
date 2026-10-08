@@ -961,7 +961,7 @@ footer .lead {
     }
     catch {
     }
-    if (theme !== 'light' && theme !== 'dark') {
+    if ((theme !== 'light') && (theme !== 'dark')) {
         theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     document.documentElement.setAttribute('data-theme', theme);
@@ -1321,7 +1321,7 @@ function main()
         haystack_by_id[rule_el.id] = haystack_from_rule(rule_el);
     }
 
-    theme_render();
+    theme_labels_update();
     document.addEventListener('click', click_theme);
     theme_dock_watch();
 
@@ -1347,11 +1347,11 @@ function haystack_from_rule(rule_el)
     return parts.join(' ').toLowerCase();
 }
 
-function theme_render()
+function theme_labels_update()
 {
     const theme = root_el.getAttribute('data-theme');
     for (const button of document.querySelectorAll('.theme button')) {
-        const label = `${theme === 'dark' ? 'Dark' : 'Light'} theme. Switch to ${theme === 'dark' ? 'light' : 'dark'} theme.`;
+        const label = `${(theme === 'dark') ? 'Dark' : 'Light'} theme. Switch to ${(theme === 'dark') ? 'light' : 'dark'} theme.`;
         button.setAttribute('aria-label', label);
         button.title = label;
     }
@@ -1370,22 +1370,6 @@ function theme_dock_watch()
         }
     });
     observer.observe(theme_el);
-}
-
-function click_theme(event)
-{
-    const button = event.target.closest('.theme button');
-    if (!button) {
-        return;
-    }
-    const theme = root_el.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root_el.setAttribute('data-theme', theme);
-    try {
-        localStorage.setItem('rules-theme', theme);
-    }
-    catch {
-    }
-    theme_render();
 }
 
 function input_q()
@@ -1432,12 +1416,12 @@ function filter_apply()
         }
     }
     for (const group_el of group_els) {
-        const rules = group_el.querySelectorAll('article.rule');
+        const group_rule_els = group_el.querySelectorAll('article.rule');
         const visible = group_el.querySelectorAll('article.rule:not([hidden])').length;
         group_el.hidden = (visible === 0);
         const a = nav_by_group[group_el.id];
         a.classList.toggle('none', visible === 0);
-        a.querySelector('.n').textContent = (visible === rules.length) ? rules.length : `${visible}/${rules.length}`;
+        a.querySelector('.n').textContent = (visible === group_rule_els.length) ? group_rule_els.length : `${visible}/${group_rule_els.length}`;
     }
     nothing_el.hidden = (total > 0);
     count_el.textContent = (total === rule_els.length) ? `${total} terms` : `${total} of ${rule_els.length} terms`;
@@ -1467,7 +1451,7 @@ function spy_apply()
             continue;
         }
         // A short last group never reaches the line; the end of the page is its turn.
-        if (current === null || at_bottom || group_el.getBoundingClientRect().top <= line) {
+        if ((current === null) || at_bottom || (group_el.getBoundingClientRect().top <= line)) {
             current = group_el;
         }
     }
@@ -1475,8 +1459,8 @@ function spy_apply()
         const a = nav_by_group[group_el.id];
         const was_current = a.classList.contains('current');
         a.classList.toggle('current', group_el === current);
-        a.classList.toggle('within', current !== null && group_el !== current && group_el.contains(current));
-        if (!was_current && group_el === current) {
+        a.classList.toggle('within', (current !== null) && (group_el !== current) && group_el.contains(current));
+        if (!was_current && (group_el === current)) {
             nav_reveal(a);
         }
     }
@@ -1502,10 +1486,10 @@ function nav_reveal(a)
     };
     nav.scrollTo({top: nav_target.top, left: nav_target.left, behavior: 'smooth'});
     clearTimeout(nav_timer);
-    nav_timer = setTimeout(nav_settled, 700);
+    nav_timer = setTimeout(nav_target_clear, 700);
 }
 
-function nav_settled()
+function nav_target_clear()
 {
     nav_target = null;
 }
@@ -1528,9 +1512,7 @@ function snippet_from_pre(pre)
 function clipboard_write(text)
 {
     if (navigator.clipboard && window.isSecureContext) {
-        return navigator.clipboard.writeText(text).catch(function (error) {
-            return clipboard_write_legacy(text);
-        });
+        return navigator.clipboard.writeText(text).catch(e => clipboard_write_legacy(text));
     }
     return clipboard_write_legacy(text);
 }
@@ -1557,17 +1539,34 @@ function clipboard_write_legacy(text)
     });
 }
 
-function copy_state(button, label, state)
+function copy_state_show(button, label, state)
 {
     button.textContent = label;
     button.classList.toggle('done', state === 'done');
     button.classList.toggle('failed', state === 'failed');
     clearTimeout(button.copy_timer);
     if (state) {
-        button.copy_timer = setTimeout(function () {
-            copy_state(button, 'Copy', null);
-        }, 1400);
+        button.copy_timer = setTimeout(copy_reset, 1400);
     }
+    function copy_reset() {
+        copy_state_show(button, 'Copy', null);
+    }
+}
+
+function click_theme(event)
+{
+    const button = event.target.closest('.theme button');
+    if (!button) {
+        return;
+    }
+    const theme = (root_el.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+    root_el.setAttribute('data-theme', theme);
+    try {
+        localStorage.setItem('rules-theme', theme);
+    }
+    catch {
+    }
+    theme_labels_update();
 }
 
 async function click_copy(event)
@@ -1576,14 +1575,14 @@ async function click_copy(event)
     if (!button) {
         return;
     }
-    const text = snippet_from_pre(button.parentNode.querySelector('pre'));
+    const snippet = snippet_from_pre(button.parentNode.querySelector('pre'));
     try {
-        await clipboard_write(text);
-        copy_state(button, 'Copied', 'done');
+        await clipboard_write(snippet);
+        copy_state_show(button, 'Copied', 'done');
     }
     catch (error) {
         console.log(error.message);
-        copy_state(button, 'Failed', 'failed');
+        copy_state_show(button, 'Failed', 'failed');
     }
 }
 
@@ -1592,16 +1591,16 @@ function keydown_document(event)
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
         return;
     }
-    if (event.key === 'Escape' && document.activeElement === q_el) {
+    if ((event.key === 'Escape') && (document.activeElement === q_el)) {
         q_el.value = '';
         input_q();
         return;
     }
-    const editing = event.composedPath().some(v => v instanceof HTMLElement && (v.matches('input, textarea, select') || v.isContentEditable));
-    if (editing || Array.from(event.key).length !== 1 || q_el.disabled || q_el.readOnly) {
+    const editing = event.composedPath().some(v => (v instanceof HTMLElement) && (v.matches('input, textarea, select') || v.isContentEditable));
+    if (editing || (Array.from(event.key).length !== 1) || q_el.disabled || q_el.readOnly) {
         return;
     }
-    if (event.key === ' ' && document.activeElement.matches('button, input, summary, [role="button"]')) {
+    if ((event.key === ' ') && document.activeElement.matches('button, input, summary, [role="button"]')) {
         return;
     }
     if (document.querySelector('dialog[open], [aria-modal="true"]')) {

@@ -1,10 +1,10 @@
 const assert = require('node:assert/strict');
-const config = require('../src/config');
+const rules_config = require('../src/config');
 const test = require('node:test');
 const {ESLint} = require('eslint');
 
 test('the preset keeps options methods as functions and accepts tiny factories in JavaScript and Vue', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const source = "const component = {\n    props: {items: {default: () => []}},\n    methods: {\n        px: function (value) {\n            return value ? `${value}px` : '0';\n        },\n        uids: function () {\n            return items.map(v => v.uid);\n        },\n    },\n};\nexport default component;";
     const invalid = source.replace("px: function (value) {\n            return value ? `${value}px` : '0';\n        },", "px: v => v ? `${v}px` : '0',");
     for (const file_path of ['options.js', 'options.vue']) {
@@ -17,7 +17,7 @@ test('the preset keeps options methods as functions and accepts tiny factories i
 });
 
 test('the full preset agrees on value, event and error callback names', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const sources = [
         'items.map(v => v.uid);',
         'items.sort((a, b) => a - b);',
@@ -61,7 +61,7 @@ test('the full preset agrees on value, event and error callback names', async fu
 });
 
 test('the full preset assigns each callback naming diagnostic to one rule', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const cases = [
         ['promise.catch(v => report(v));', 'error-name', 'name'],
         ['promise.catch(error => report(error));', 'error-name', 'name'],
@@ -87,8 +87,8 @@ test('the full preset assigns each callback naming diagnostic to one rule', asyn
 });
 
 test('the preset checks JavaScript and template/style references in the same Vue file', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
-    const [result] = await linter.lintText(`<template>
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
+    const source = `<template>
     <div class="flex-row-c gap5 app-shadow #-foo" />
 </template>
 <script>
@@ -108,12 +108,13 @@ test('the preset checks JavaScript and template/style references in the same Vue
         color: red
         &:hover
             color: blue
-</style>`, {filePath: 'example.vue'});
+</style>`;
+    const [result] = await linter.lintText(source, {filePath: 'example.vue'});
     assert.deepEqual(result.messages, []);
 });
 
 test('standalone CSS reports positions in the original file', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const [result] = await linter.lintText('.foo {\n    transition: all 1s;\n}\n', {filePath: 'example.css'});
     assert.equal(result.messages.length, 1);
     assert.equal(result.messages[0].ruleId, 'rules/vue-style-conventions');
@@ -122,7 +123,7 @@ test('standalone CSS reports positions in the original file', async function () 
 });
 
 test('standalone Sass preserves includes and reports their original lines', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const [result] = await linter.lintText('.foo\n    color: red\n    @include app-border-b\n', {filePath: 'example.sass'});
     assert.equal(result.messages.length, 1);
     assert.equal(result.messages[0].messageId, 'include');
@@ -130,19 +131,19 @@ test('standalone Sass preserves includes and reports their original lines', asyn
 });
 
 test('a standalone stylesheet may be assembled from sections, each led by its own @import', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const [result] = await linter.lintText('@import a\n.a\n    color: red\n\n@import b\n.b\n    color: blue\n', {filePath: 'example.sass'});
     assert.deepEqual(result.messages, []);
 });
 
 test('a standalone stylesheet may build selectors with interpolation', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const [result] = await linter.lintText('@for $i from 1 through 3\n    .gap#{$i}\n        gap: #{$i}px\n', {filePath: 'example.sass'});
     assert.deepEqual(result.messages, []);
 });
 
 test('classes are allowed, with or without a superclass', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const [extended] = await linter.lintText('class Restricted extends Error\n{\n}\n\nmodule.exports = Restricted;\n', {filePath: 'Restricted.cjs'});
     assert.deepEqual(extended.messages, []);
     const [plain] = await linter.lintText('class Logger\n{\n}\n\nmodule.exports = Logger;\n', {filePath: 'Logger.cjs'});
@@ -150,20 +151,20 @@ test('classes are allowed, with or without a superclass', async function () {
 });
 
 test('standalone SCSS supports transition mixin definitions', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const [result] = await linter.lintText('@mixin app-transition($props...) { transition: $props; }', {filePath: 'example.scss'});
     assert.deepEqual(result.messages, []);
 });
 
 test('a missing local class in a later file cannot borrow another component definition', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     await linter.lintText('<template><div class="#-foo" /></template><style>.#-foo { color: red; }</style>', {filePath: 'first.vue'});
     const [result] = await linter.lintText('<template><div class="#-foo" /></template>', {filePath: 'second.vue'});
     assert.equal(result.messages[0].messageId, 'missing');
 });
 
 test('formatting fixes converge and preserve JavaScript parsing', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config(), fix: true});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config(), fix: true});
     const [result] = await linter.lintText('function main() { return 2 * 3; }\n', {filePath: 'example.js'});
     assert.equal(result.output, 'function main()\n{\n    return 2*3;\n}\n');
     assert.deepEqual(result.messages, []);
@@ -173,7 +174,7 @@ test('formatting fixes converge and preserve JavaScript parsing', async function
 });
 
 test('CSS processing does not offer fixes in synthetic source coordinates', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config(), fix: true});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config(), fix: true});
     const source = '.foo { transition: all 1s; }';
     const [result] = await linter.lintText(source, {filePath: 'example.css'});
     assert.equal(result.output, undefined);
@@ -182,7 +183,7 @@ test('CSS processing does not offer fixes in synthetic source coordinates', asyn
 });
 
 test('malformed Sass is reported instead of silently accepting local classes', async function () {
-    const linter = new ESLint({overrideConfigFile: true, overrideConfig: config()});
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: rules_config()});
     const [result] = await linter.lintText('<template><div class="#-foo" /></template><style lang="sass">\n.#-foo\n    color: (\n</style>', {filePath: 'example.vue'});
-    assert.equal(result.messages.some(v => v.ruleId === 'rules/vue-local-class-style' && v.messageId === 'parse'), true);
+    assert.equal(result.messages.some(v => (v.ruleId === 'rules/vue-local-class-style') && (v.messageId === 'parse')), true);
 });
