@@ -80,8 +80,9 @@ a {
     color: var(--accent);
 }
 
-/* Code is shown byte for byte: no ligature may turn <!-- or => into an arrow. */
-code, pre {
+/* Code is shown byte for byte: no ligature may turn \3c !-- or => into an arrow. */
+code,
+pre {
     font-family: var(--mono);
     font-variant-ligatures: none;
     font-feature-settings: "liga" 0, "calt" 0;
@@ -211,12 +212,13 @@ code, pre {
     color: var(--ink);
 }
 
-
 .theme-icon { display: block; width: 24px; height: 24px; flex: none; }
-.theme-icon.theme-dark { display: none; }
-:root[data-theme="dark"] .theme-icon.theme-light { display: none; }
-:root[data-theme="dark"] .theme-icon.theme-dark { display: block; }
 
+.theme-icon.theme-dark { display: none; }
+
+:root[data-theme="dark"] .theme-icon.theme-light { display: none; }
+
+:root[data-theme="dark"] .theme-icon.theme-dark { display: block; }
 
 h1 {
     margin: 0;
@@ -385,7 +387,8 @@ h1 {
     opacity: .38;
 }
 
-.groups .tag, .groups .n {
+.groups .tag,
+.groups .n {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: .06em;
@@ -394,7 +397,8 @@ h1 {
     transition: color var(--fast);
 }
 
-.groups a.current .tag, .groups a.current .n {
+.groups a.current .tag,
+.groups a.current .n {
     color: var(--accent);
 }
 
@@ -476,7 +480,8 @@ h1 {
     transition: color var(--fast);
 }
 
-.rule .code:hover, .rule:target .code {
+.rule .code:hover,
+.rule:target .code {
     color: var(--accent);
 }
 
@@ -485,7 +490,10 @@ h1 {
     text-wrap: pretty;
 }
 
-.text code, .form.prose code, .lede code, footer code {
+.text code,
+.form.prose code,
+.lede code,
+footer code {
     font-size: .8em;
     padding: 1px 3px 2px;
     background: var(--code-bg);
@@ -556,7 +564,8 @@ h1 {
     transition: border-color var(--fast);
 }
 
-.form.prose p, .form.prose ol {
+.form.prose p,
+.form.prose ol {
     margin: 0;
 }
 
@@ -585,7 +594,10 @@ h1 {
     transition: opacity var(--fast), color var(--fast), border-color var(--fast), background-color var(--fast);
 }
 
-.form:hover .copy, .copy:focus-visible, .copy.done, .copy.failed {
+.form:hover .copy,
+.copy:focus-visible,
+.copy.done,
+.copy.failed {
     opacity: 1;
 }
 
@@ -761,13 +773,16 @@ footer .lead {
         scroll-behavior: auto;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
         transition-duration: 1ms !important;
     }
 }
 
 @media print {
-    :root, :root[data-theme="dark"] {
+    :root,
+    :root[data-theme="dark"] {
         --bg: #fff;
         --surface: #fff;
         --code-bg: #f6f6f6;
@@ -785,7 +800,11 @@ footer .lead {
         font-size: 11pt;
     }
 
-    .bar, .groups, .pages, .theme, .copy {
+    .bar,
+    .groups,
+    .pages,
+    .theme,
+    .copy {
         display: none;
     }
 
@@ -826,7 +845,8 @@ footer .lead {
     margin-top: 8px;
 }
 
-.rule .text dfn + p, .rule .text p:first-child + p {
+.rule .text dfn + p,
+.rule .text p:first-child + p {
     margin-top: 3px;
 }
 

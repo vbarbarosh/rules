@@ -80,8 +80,9 @@ a {
     color: var(--accent);
 }
 
-/* Code is shown byte for byte: no ligature may turn <!-- or => into an arrow. */
-code, pre {
+/* Code is shown byte for byte: no ligature may turn \3c !-- or => into an arrow. */
+code,
+pre {
     font-family: var(--mono);
     font-variant-ligatures: none;
     font-feature-settings: "liga" 0, "calt" 0;
@@ -211,12 +212,13 @@ code, pre {
     color: var(--ink);
 }
 
-
 .theme-icon { display: block; width: 24px; height: 24px; flex: none; }
-.theme-icon.theme-dark { display: none; }
-:root[data-theme="dark"] .theme-icon.theme-light { display: none; }
-:root[data-theme="dark"] .theme-icon.theme-dark { display: block; }
 
+.theme-icon.theme-dark { display: none; }
+
+:root[data-theme="dark"] .theme-icon.theme-light { display: none; }
+
+:root[data-theme="dark"] .theme-icon.theme-dark { display: block; }
 
 h1 {
     margin: 0;
@@ -299,7 +301,9 @@ footer .lead {
         scroll-behavior: auto;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
         transition-duration: 1ms !important;
     }
 }
@@ -428,7 +432,11 @@ pre {
     transition: background-color var(--fast), border-color var(--fast), color var(--fast);
 }
 
-p code, h3 code, b code, .annotation code, .grammar-line code {
+p code,
+h3 code,
+b code,
+.annotation code,
+.grammar-line code {
     font-size: .8em;
     padding: 1px 3px 2px;
     background: var(--code-bg);
@@ -881,7 +889,10 @@ main {
 /* ---------- narrow ---------- */
 
 @media (max-width: 920px) {
-    .hero, .anatomy, .pair, .grammar {
+    .hero,
+    .anatomy,
+    .pair,
+    .grammar {
         grid-template-columns: minmax(0, 1fr);
     }
 
@@ -939,11 +950,14 @@ main {
         font-size: 18px;
     }
 
-    .annotations, .flow, .checklist {
+    .annotations,
+    .flow,
+    .checklist {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .flow article, .flow article:nth-child(2) {
+    .flow article,
+    .flow article:nth-child(2) {
         border-right: 0;
         border-bottom: 1px solid var(--line-2);
     }
@@ -967,7 +981,9 @@ main {
 }
 
 @media print {
-    .bar, .pages, .theme {
+    .bar,
+    .pages,
+    .theme {
         display: none;
     }
 

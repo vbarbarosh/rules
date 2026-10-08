@@ -16,6 +16,7 @@
     --yes: #2f8a4a;
     --veil: rgba(23, 32, 25, .35);
 }
+
 html.dark {
     --bg: #0f1713;
     --paper: #14201a;
@@ -28,24 +29,39 @@ html.dark {
     --yes: #5fd08a;
     --veil: rgba(0, 0, 0, .5);
 }
+
 * { box-sizing: border-box; }
-html, body { margin: 0; width: 1280px; }
+
+html,
+body { margin: 0; width: 1280px; }
+
 body {
     padding: 48px 72px 52px;
     background: var(--bg);
     color: var(--ink);
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
+
 .title { margin-bottom: 28px; font-size: 40px; font-weight: 900; letter-spacing: -0.04em; }
+
 .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
 .caption { margin-bottom: 12px; font-size: 22px; font-weight: 800; }
+
 .caption.no { color: var(--no); }
+
 .caption.yes { color: var(--yes); }
+
 .caption span { font-weight: 400; color: var(--muted); }
+
 .screen { position: relative; height: 300px; border: 2px solid var(--ink); background: var(--paper); overflow: hidden; }
+
 .row { display: flex; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--line); font-size: 17px; }
+
 .row span { color: var(--muted); }
+
 .veil { position: absolute; inset: 0; background: var(--veil); }
+
 .dialog {
     position: absolute;
     left: 50%;
@@ -57,11 +73,17 @@ body {
     box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
     transform: translate(-50%, -50%);
 }
+
 .dialog-title { font-size: 19px; font-weight: 800; }
+
 .dialog-text { margin-top: 8px; font-size: 16px; color: var(--muted); }
+
 .buttons { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+
 .button { padding: 7px 16px; border: 1px solid var(--line); border-radius: 8px; font-weight: 600; font-size: 15px; }
+
 .button.is-main { border-color: var(--no); background: var(--no); color: #fff; }
+
 .toast {
     position: absolute;
     left: 50%;
@@ -77,8 +99,11 @@ body {
     white-space: nowrap;
     transform: translateX(-50%);
 }
+
 .toast b { color: var(--accent); }
+
 .foot { margin-top: 26px; font-size: 18px; color: var(--muted); }
+
 .foot b { color: var(--ink); }
 </style>
 <script>

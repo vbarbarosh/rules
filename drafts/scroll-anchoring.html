@@ -16,6 +16,7 @@
     --mark: #e5484d;
     --accent: #3d62ff;
 }
+
 :root[data-theme="dark"] {
     --bg: #0f1713;
     --paper: #14201a;
@@ -27,22 +28,30 @@
     --mark: #ff6b6b;
     --accent: #82a0ff;
 }
+
 * { box-sizing: border-box; }
-html, body { margin: 0; }
+
+html,
+body { margin: 0; }
+
 body {
     padding: 24px;
     background: var(--bg);
     color: var(--ink);
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
+
 .head {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 16px;
 }
+
 .title { font-size: 24px; font-weight: 900; letter-spacing: -0.03em; }
+
 .spacer { flex: 1; }
+
 button {
     padding: 6px 12px;
     border: 1px solid var(--line);
@@ -53,11 +62,15 @@ button {
     font-size: 14px;
     cursor: pointer;
 }
+
 .theme { display: flex; }
 
 .theme-icon { display: block; width: 24px; height: 24px; flex: none; }
+
 .theme-icon.theme-dark { display: none; }
+
 :root[data-theme="dark"] .theme-icon.theme-light { display: none; }
+
 :root[data-theme="dark"] .theme-icon.theme-dark { display: block; }
 
 .panes {
@@ -65,15 +78,20 @@ button {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
 }
+
 .pane-title { margin-bottom: 8px; font-size: 16px; font-weight: 800; }
+
 .pane-note { font-weight: 400; color: var(--muted); }
+
 .frame { position: relative; }
+
 .scroller {
     height: 420px;
     overflow-y: auto;
     border: 2px solid var(--ink);
     background: var(--paper);
 }
+
 .line {
     position: absolute;
     top: 50%;
@@ -83,7 +101,9 @@ button {
     border-top: 2px dashed var(--mark);
     pointer-events: none;
 }
+
 .feed { display: flex; flex-direction: column; gap: 10px; padding: 12px; }
+
 .summary {
     padding: 10px 12px;
     border-radius: 8px;
@@ -91,6 +111,7 @@ button {
     font-size: 14px;
     line-height: 1.5;
 }
+
 .message {
     padding: 10px 12px;
     border-radius: 8px;
@@ -98,7 +119,9 @@ button {
     font-size: 14px;
     line-height: 1.5;
 }
+
 .message b { display: block; margin-bottom: 2px; }
+
 .message.is-new { outline: 2px solid var(--accent); }
 </style>
 <script>

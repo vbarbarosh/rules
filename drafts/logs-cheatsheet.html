@@ -80,8 +80,9 @@ a {
     color: var(--accent);
 }
 
-/* Code is shown byte for byte: no ligature may turn <!-- or => into an arrow. */
-code, pre {
+/* Code is shown byte for byte: no ligature may turn \3c !-- or => into an arrow. */
+code,
+pre {
     font-family: var(--mono);
     font-variant-ligatures: none;
     font-feature-settings: "liga" 0, "calt" 0;
@@ -211,12 +212,13 @@ code, pre {
     color: var(--ink);
 }
 
-
 .theme-icon { display: block; width: 24px; height: 24px; flex: none; }
-.theme-icon.theme-dark { display: none; }
-:root[data-theme="dark"] .theme-icon.theme-light { display: none; }
-:root[data-theme="dark"] .theme-icon.theme-dark { display: block; }
 
+.theme-icon.theme-dark { display: none; }
+
+:root[data-theme="dark"] .theme-icon.theme-light { display: none; }
+
+:root[data-theme="dark"] .theme-icon.theme-dark { display: block; }
 
 h1 {
     margin: 0;
@@ -299,7 +301,9 @@ footer .lead {
         scroll-behavior: auto;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
         transition-duration: 1ms !important;
     }
 }
@@ -389,20 +393,33 @@ footer .lead {
 }
 
 .t { color: var(--log-time); }
+
 .g { color: var(--log-group); }
+
 .s { color: var(--log-sender); }
+
 .e { color: var(--log-error); }
+
 .k { color: var(--log-spawn); }
+
 .d { color: var(--log-details); }
+
 .m { color: var(--muted); }
 
-.t, .g, .s, .e, .k, .d, .m {
+.t,
+.g,
+.s,
+.e,
+.k,
+.d,
+.m {
     transition: color var(--fast);
 }
 
 /* ---------- code ---------- */
 
-code, .mono {
+code,
+.mono {
     font-family: var(--mono);
 }
 
@@ -423,7 +440,9 @@ pre.tight {
     line-height: 1.65;
 }
 
-p code, li code, .val code {
+p code,
+li code,
+.val code {
     font-size: .8em;
     padding: 1px 3px 2px;
     background: var(--code-bg);
@@ -508,7 +527,8 @@ li ul {
     margin-top: 7px;
 }
 
-.caption, .note {
+.caption,
+.note {
     margin: 14px 0 8px;
     font-style: italic;
     color: var(--muted);
@@ -673,20 +693,35 @@ li ul {
 }
 
 .v-muted { fill: var(--muted); }
+
 .v-axis { stroke: var(--line); }
+
 .v-grid { stroke: var(--line-2); }
+
 .v-conn { stroke: var(--line); }
+
 .v-chip { fill: var(--log-group-soft); stroke: var(--log-group-line); }
+
 .v-group { fill: var(--log-group); }
+
 .v-spawn-line { stroke: var(--log-spawn); }
+
 .v-spawn { fill: var(--log-spawn); }
+
 .v-ok-dot { fill: var(--log-sender); }
+
 .v-ok-box { fill: var(--log-sender-soft); stroke: var(--log-sender-line); }
+
 .v-ok { fill: var(--log-sender); }
+
 .v-err-dot { fill: var(--log-error); }
+
 .v-err-box { fill: var(--log-error-soft); stroke: var(--log-error-line); }
+
 .v-err { fill: var(--log-error); }
+
 .v-mark { stroke: var(--surface); }
+
 .v-detail { fill: var(--log-details); }
 
 /* ---------- table ---------- */
@@ -697,7 +732,8 @@ table {
     font-size: 15px;
 }
 
-th, td {
+th,
+td {
     padding: 7px 10px;
     text-align: left;
     border: 1px solid var(--line);
@@ -718,7 +754,8 @@ td.mono {
     font-size: 13px;
 }
 
-td.err, td.open {
+td.err,
+td.open {
     font-family: var(--mono);
     font-size: 12px;
     font-weight: 600;
@@ -738,7 +775,9 @@ td.open {
 /* ---------- narrow ---------- */
 
 @media (max-width: 920px) {
-    .pair, .pair.wide-first, .viz {
+    .pair,
+    .pair.wide-first,
+    .viz {
         grid-template-columns: minmax(0, 1fr);
     }
 }
@@ -782,7 +821,9 @@ td.open {
 }
 
 @media print {
-    .bar, .pages, .theme {
+    .bar,
+    .pages,
+    .theme {
         display: none;
     }
 

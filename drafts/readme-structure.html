@@ -15,6 +15,7 @@
     --optional: #8a9288;
     --optional-bg: #f7f4ec;
 }
+
 html.dark {
     --bg: #0f1713;
     --paper: #14201a;
@@ -26,32 +27,41 @@ html.dark {
     --optional: #6f8076;
     --optional-bg: #18241e;
 }
+
 * { box-sizing: border-box; }
-html, body { margin: 0; width: 1280px; }
+
+html,
+body { margin: 0; width: 1280px; }
+
 body {
     padding: 56px 72px 64px;
     background: var(--bg);
     color: var(--ink);
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
+
 .mono { font-family: "JetBrains Mono", "Noto Sans Mono", "DejaVu Sans Mono", monospace; }
+
 .head {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 32px;
 }
+
 .title {
     font-size: 40px;
     font-weight: 900;
     letter-spacing: -0.04em;
 }
+
 .legend {
     display: flex;
     gap: 28px;
     font-size: 16px;
     color: var(--muted);
 }
+
 .legend span::before {
     display: inline-block;
     width: 26px;
@@ -61,20 +71,24 @@ body {
     border: 2px solid var(--ink);
     content: "";
 }
+
 .legend .is-optional::before {
     border: 2px dashed var(--optional);
     background: var(--optional-bg);
 }
+
 .grid {
     display: grid;
     grid-template-columns: 620px 1fr;
 }
+
 .page {
     padding: 14px 40px;
     border-left: 2px solid var(--ink);
     border-right: 2px solid var(--ink);
     background: var(--paper);
 }
+
 .page-top {
     display: flex;
     align-items: center;
@@ -86,63 +100,86 @@ body {
     font-size: 15px;
     font-weight: 700;
 }
+
 .page-first { padding-top: 28px; }
+
 .page-last {
     padding-bottom: 36px;
     border-bottom: 2px solid var(--ink);
 }
+
 .part {
     position: relative;
     padding: 4px 0;
 }
+
 .part.is-optional {
     padding: 10px 12px;
     border: 2px dashed var(--optional);
     background: var(--optional-bg);
 }
+
 .cover { display: block; width: 100%; border: 1px solid var(--line); }
+
 .h1 {
     padding-bottom: 8px;
     border-bottom: 1px solid var(--line);
     font-size: 34px;
     font-weight: 800;
 }
+
 .h2 {
     padding-bottom: 6px;
     border-bottom: 1px solid var(--line);
     font-size: 24px;
     font-weight: 800;
 }
+
 .text { font-size: 17px; line-height: 1.5; }
+
 .badges { display: flex; flex-direction: column; gap: 6px; }
+
 .badge-row { display: flex; gap: 8px; }
+
 .badge {
     display: flex;
     font-size: 12px;
     color: #fff;
 }
+
 .badge b { padding: 3px 7px; background: #555; font-weight: 500; }
+
 .badge i { padding: 3px 7px; background: #3a8a3a; font-style: normal; }
+
 .badge i.blue { background: #2f74c0; }
+
 .badge i.grey { background: #7a7a7a; }
+
 .code {
     padding: 12px 16px;
     background: var(--code-bg);
     font-size: 15px;
 }
+
 .docs {
     font-size: 20px;
     font-weight: 800;
     color: var(--accent);
 }
+
 .links { margin: 0; padding-left: 22px; font-size: 16px; line-height: 1.7; }
-.links a, .text a { color: var(--accent); text-decoration: none; }
+
+.links a,
+.text a { color: var(--accent); text-decoration: none; }
+
 .website { font-weight: 800; }
+
 .label {
     display: flex;
     align-items: center;
     padding-left: 0;
 }
+
 .label::before {
     flex: none;
     width: 46px;
@@ -150,7 +187,9 @@ body {
     border-top: 2px solid var(--ink);
     content: "";
 }
+
 .label.is-optional::before { border-top: 2px dashed var(--optional); }
+
 .num {
     flex: none;
     display: flex;
@@ -165,14 +204,19 @@ body {
     font-size: 20px;
     font-weight: 900;
 }
+
 .label.is-optional .num {
     border: 2px dashed var(--ink);
     background: var(--paper);
     color: var(--ink);
 }
+
 .label-name { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+
 .label-note { margin-top: 3px; font-size: 16px; color: var(--muted); }
+
 .gap { height: 18px; }
+
 .foot {
     margin-top: 28px;
     font-size: 17px;
