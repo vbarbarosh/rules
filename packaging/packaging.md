@@ -35,7 +35,7 @@ npm run build
 rm -rf dist
 cp -r build dist
 git add package.json package-lock.json dist
-git commit -m "release v$(node -e 'console.log(require("./package.json").version)')"
+git commit -m "release: v$(node -e 'console.log(require("./package.json").version)')"
 # Create a tag
 git tag v$(node -e 'console.log(require("./package.json").version)')
 ```
@@ -80,7 +80,7 @@ will do all of this. Feel free to use and tweak it:
     rm -rf dist
     cp -r build dist
     git add package.json package-lock.json dist
-    git commit -m "release v$(node -e 'console.log(require("./package.json").version)')"
+    git commit -m "release: v$(node -e 'console.log(require("./package.json").version)')"
     # Create a tag
     git tag v$(node -e 'console.log(require("./package.json").version)')
 

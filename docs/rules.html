@@ -2516,7 +2516,7 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 </article>
 <article class="rule" id="UI-18">
 <a class="code" href="#UI-18">UI-18</a>
-<div class="text"><p><strong>Use optimistic updates; the user keeps working.</strong> Keep the backend snapshot immutable and local pending changes separate. Show the local change and send its update immediately. After acknowledgement, reread the backend, replace the snapshot, and clear only the pending change confirmed by that result; preserve later actions and reject stale refreshes. Keep failures visible as unsynchronized and retry safely; if only the reread failed, retry that step.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/optimistic_updates.md" title="drafts/optimistic_updates.md">optimistic_updates.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Use optimistic updates; the user keeps working.</strong> Keep the backend snapshot immutable and local pending changes separate. Show the local change and send its update immediately. After acknowledgement, reread the backend, replace the snapshot, and clear only the pending change confirmed by that result; preserve later actions and reject stale refreshes. Show the change where the user made it, at once, marked as waiting, whatever route it takes inside. Keep failures visible as unsynchronized and retry safely; if only the reread failed, retry that step.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/optimistic_updates.md" title="drafts/optimistic_updates.md">optimistic_updates.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Read → local overlay → update → acknowledgement
 → refresh → replace snapshot → clear confirmed overlay</pre><button class="copy" type="button">Copy</button></div>
 </article>
@@ -2546,7 +2546,7 @@ npm run build
 rm -rf dist
 cp -r build dist
 git add package.json package-lock.json dist
-git commit -m "release v$(...)"
+git commit -m "release: v$(...)"
 git tag v$(...)</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="REL-03">

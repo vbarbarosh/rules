@@ -380,3 +380,12 @@ environment.
 `.env` is not the application's; it belongs to whoever runs it, and these
 rules set nothing for it. Usually docker loads it, or the variables are set
 in the Dockerfile.
+
+## MP-34 — A release commit is titled release: v1.2.3
+
+**Scope:** REL-02, GIT-01, [packaging](packaging/packaging.md).
+**Approved:** 2026-10-08, author answer in `20261008_000619-me`.
+
+A release commit is titled `release: v<version>`, for example
+`release: v5.57.6`: `release` is the scope, so the title follows GIT-01 with
+no exception. Vue and Vite title their releases the same way.
