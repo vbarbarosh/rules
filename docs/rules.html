@@ -2545,13 +2545,13 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 </section>
 <section class="group" id="UIM">
 <h2><span class="tag">UIM</span><span class="name">UI mechanics</span><span class="note">How a screen works.</span></h2>
-<article class="rule" id="UI-09">
-<a class="code" href="#UI-09">UI-09</a>
+<article class="rule" id="UIM-01">
+<a class="code" href="#UIM-01">UIM-01</a>
 <div class="text"><p><strong>Nothing jumps.</strong> When the app adds or grows content on its own — a new message, a summary that finishes loading — what the reader is looking at stays exactly where it is on the screen; the scroll position adjusts instead. Only the reader's own clicks may move things.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/scroll-anchoring.gif"><img class="light" src="../drafts/scroll-anchoring.gif" alt="a summary grows above; on the left the message being read drops, on the right it stays" width="960" height="450" loading="lazy"><img class="dark" src="../drafts/scroll-anchoring-dark.gif" alt="a summary grows above; on the left the message being read drops, on the right it stays" width="960" height="450" loading="lazy"></a>
 </article>
-<article class="rule" id="UI-10">
-<a class="code" href="#UI-10">UI-10</a>
+<article class="rule" id="UIM-02">
+<a class="code" href="#UIM-02">UIM-02</a>
 <div class="text"><p><strong>Keep the place yourself; the browser won't.</strong> Before such a change, note the element in the middle of the view and where it is on the screen; after the change, scroll by however far it moved. The browser keeps the place only when the change is entirely above the view: not at the very top, not when the growing block is itself on screen, not after a re-render.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const keep = scroll_keep(scroller);
 await keep(async function () {
@@ -2559,55 +2559,55 @@ await keep(async function () {
     await vm.$nextTick();
 });</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule" id="UI-11">
-<a class="code" href="#UI-11">UI-11</a>
+<article class="rule" id="UIM-03">
+<a class="code" href="#UIM-03">UIM-03</a>
 <div class="text"><p><strong>Test it.</strong> For each kind of change, a test notes where the middle element is, makes the change, and checks it moved 0 px — at the top of the view and in the middle. One more check runs without the fix and must see the jump.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>assert.equal(shift, 0);</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule" id="UI-12">
-<a class="code" href="#UI-12">UI-12</a>
+<article class="rule" id="UIM-04">
+<a class="code" href="#UIM-04">UIM-04</a>
 <div class="text"><p><strong>A file input also takes a drop.</strong> Anything that lets the user pick files also takes files dragged onto it; anything that lets them pick a whole folder also takes a folder dragged onto it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/file-drop.png"><img class="light" src="../drafts/file-drop.png" alt="a file field and a folder field: each picked with its button, or dragged onto it" width="2560" height="1730" loading="lazy"><img class="dark" src="../drafts/file-drop-dark.png" alt="a file field and a folder field: each picked with its button, or dragged onto it" width="2560" height="1730" loading="lazy"></a>
 </article>
-<article class="rule" id="UI-13">
-<a class="code" href="#UI-13">UI-13</a>
+<article class="rule" id="UIM-05">
+<a class="code" href="#UIM-05">UIM-05</a>
 <div class="text"><p><strong>The drop takes what the dialog takes.</strong> The same file types, one or many; a whole folder when the dialog picks folders, read file by file. A dropped file goes down the same path as a picked one.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const entries = &#91;...event.dataTransfer.items].map(v =&gt; v.webkitGetAsEntry());</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule" id="UI-14">
-<a class="code" href="#UI-14">UI-14</a>
+<article class="rule" id="UIM-06">
+<a class="code" href="#UIM-06">UIM-06</a>
 <div class="text"><p><strong>Show the drop target; never lose the page.</strong> The element lights up while files are dragged over it, and a file dropped beside it does not open in the tab.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>window.addEventListener('dragover', v =&gt; v.preventDefault());
 window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule" id="UI-15">
-<a class="code" href="#UI-15">UI-15</a>
+<article class="rule" id="UIM-07">
+<a class="code" href="#UIM-07">UIM-07</a>
 <div class="text"><p><strong>Trust the user: no "Are you sure?".</strong> Delete, rename, move, cancel: it happens at once, and the user keeps working.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/no-confirmations.png"><img class="light" src="../drafts/no-confirmations.png" alt="not a dialog on every delete, but done at once with Undo" width="2560" height="1120" loading="lazy"><img class="dark" src="../drafts/no-confirmations-dark.png" alt="not a dialog on every delete, but done at once with Undo" width="2560" height="1120" loading="lazy"></a>
 </article>
-<article class="rule" id="UI-16">
-<a class="code" href="#UI-16">UI-16</a>
+<article class="rule" id="UIM-08">
+<a class="code" href="#UIM-08">UIM-08</a>
 <div class="text"><p><strong>Undo instead.</strong> A deleted thing goes to a trash; a rename, an edit or a move can be undone. The way back is right there after the action.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Deleted · Undo</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule bare" id="UI-17">
-<a class="code" href="#UI-17">UI-17</a>
+<article class="rule bare" id="UIM-09">
+<a class="code" href="#UIM-09">UIM-09</a>
 <div class="text"><p><strong>Confirm only what cannot be undone and costs a lot.</strong> Closing an account, erasing data for good. Even then, not an OK/Cancel box but a deliberate step: typing the name, or a link sent by email.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 </article>
-<article class="rule" id="UI-18">
-<a class="code" href="#UI-18">UI-18</a>
+<article class="rule" id="UIM-10">
+<a class="code" href="#UIM-10">UIM-10</a>
 <div class="text"><p><strong>Use optimistic updates; the user keeps working.</strong> Keep the backend snapshot immutable and local pending changes separate. Show the local change and send its update immediately. After acknowledgement, reread the backend, replace the snapshot, and clear only the pending change confirmed by that result; preserve later actions and reject stale refreshes. Show the change where the user made it, at once, marked as waiting, whatever route it takes inside. Keep failures visible as unsynchronized and retry safely; if only the reread failed, retry that step.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/optimistic_updates.md" title="drafts/optimistic_updates.md">optimistic_updates.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Read → local overlay → update → acknowledgement
 → refresh → replace snapshot → clear confirmed overlay</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../drafts/optimistic-updates.gif"><img class="light" src="../drafts/optimistic-updates.gif" alt="Send is pressed: on the left the comment is nowhere for 2 seconds, then it shows; on the right it shows at once marked Sending, and the mark goes when the server has it" width="1280" height="562" loading="lazy"><img class="dark" src="../drafts/optimistic-updates-dark.gif" alt="Send is pressed: on the left the comment is nowhere for 2 seconds, then it shows; on the right it shows at once marked Sending, and the mark goes when the server has it" width="1280" height="562" loading="lazy"></a></div>
 </article>
-<article class="rule" id="UI-19">
-<a class="code" href="#UI-19">UI-19</a>
+<article class="rule" id="UIM-11">
+<a class="code" href="#UIM-11">UIM-11</a>
 <div class="text"><p><strong>Typing focuses the main search, first character included.</strong> On a page with one primary search/filter, typing outside editable fields focuses it immediately and enters the first character too. Local inputs retain their typing; respect shortcuts and native keyboard behavior.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/main_search.md" title="drafts/main_search.md">main_search.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Click background → type sm → main filter contains sm</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule" id="UI-20">
-<a class="code" href="#UI-20">UI-20</a>
+<article class="rule" id="UIM-12">
+<a class="code" href="#UIM-12">UIM-12</a>
 <div class="text"><p><strong>Select the first actionable item by default.</strong> In a list of action targets, the first visible actionable item in displayed order is selected by default; Enter acts on it. An explicit user selection wins. A new filtered list defaults to its first actionable item; an empty list has no action.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/default_list_item.md" title="drafts/default_list_item.md">default_list_item.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>SQLite, LinkedIn → Enter opens SQLite</pre><button class="copy" type="button">Copy</button></div>
 </article>
@@ -2823,6 +2823,7 @@ for (const item of items) {       <span class="yes">✓ yes</span>
 
 <script>
 const root_el = document.documentElement;
+const RENAMED = {'UI-09': 'UIM-01', 'UI-10': 'UIM-02', 'UI-11': 'UIM-03', 'UI-12': 'UIM-04', 'UI-13': 'UIM-05', 'UI-14': 'UIM-06', 'UI-15': 'UIM-07', 'UI-16': 'UIM-08', 'UI-17': 'UIM-09', 'UI-18': 'UIM-10', 'UI-19': 'UIM-11', 'UI-20': 'UIM-12'};   // old codes still open the rule
 const q_el = document.getElementById('q');
 const count_el = document.getElementById('count');
 const nothing_el = document.getElementById('nothing');
@@ -2855,6 +2856,9 @@ function main()
     document.addEventListener('click', click_theme);
     theme_dock_watch();
 
+    if (RENAMED[location.hash.slice(1)]) {
+        location.replace(`#${RENAMED[location.hash.slice(1)]}`);
+    }
     q_el.value = new URLSearchParams(location.search).get('q') || '';
     q_el.addEventListener('input', input_q);
     filter_apply();

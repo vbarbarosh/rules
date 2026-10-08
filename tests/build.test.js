@@ -56,7 +56,7 @@ test('a picture after a rule form goes under the text and the form', function ()
     const result = build();
     assert.equal(result.status, 0, result.stderr);
     const html = fs.readFileSync(path.join(fixture_dir, 'docs/rules.html'), 'utf8');
-    const rule = html.match(/<article class="rule" id="UI-18">[\s\S]*?<\/article>/)[0];
+    const rule = html.match(/<article class="rule" id="UIM-10">[\s\S]*?<\/article>/)[0];
     assert.match(rule, /<div class="form"><pre>Read → local overlay/);
     assert.match(rule, /<div class="figures"><a class="figure" href="..\/drafts\/optimistic-updates.gif"><img class="light" .*?><img class="dark" src="..\/drafts\/optimistic-updates-dark.gif"/);
 });

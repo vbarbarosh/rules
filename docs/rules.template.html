@@ -1032,6 +1032,7 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
 
 <script>
 const root_el = document.documentElement;
+const RENAMED = {'UI-09': 'UIM-01', 'UI-10': 'UIM-02', 'UI-11': 'UIM-03', 'UI-12': 'UIM-04', 'UI-13': 'UIM-05', 'UI-14': 'UIM-06', 'UI-15': 'UIM-07', 'UI-16': 'UIM-08', 'UI-17': 'UIM-09', 'UI-18': 'UIM-10', 'UI-19': 'UIM-11', 'UI-20': 'UIM-12'};   // old codes still open the rule
 const q_el = document.getElementById('q');
 const count_el = document.getElementById('count');
 const nothing_el = document.getElementById('nothing');
@@ -1064,6 +1065,9 @@ function main()
     document.addEventListener('click', click_theme);
     theme_dock_watch();
 
+    if (RENAMED[location.hash.slice(1)]) {
+        location.replace(`#${RENAMED[location.hash.slice(1)]}`);
+    }
     q_el.value = new URLSearchParams(location.search).get('q') || '';
     q_el.addEventListener('input', input_q);
     filter_apply();

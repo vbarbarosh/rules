@@ -10,7 +10,7 @@ const {chromium} = require('playwright');
 // Optional screenshots: RULES_SCREENSHOTS=/absolute/output/path
 
 const root_dir = path.join(__dirname, '../..');
-const targets = ['UI-16', 'DOC-01', 'FN-01'];
+const targets = ['UIM-08', 'DOC-01', 'FN-01'];
 let browser;
 let server;
 let origin;
@@ -89,7 +89,7 @@ for (const theme of ['light', 'dark']) {
                         if (process.env.RULES_SCREENSHOTS && (navigation === 'direct') && (target === 'DOC-01')) {
                             fs.mkdirSync(process.env.RULES_SCREENSHOTS, {recursive: true});
                             await page.screenshot({path: path.join(process.env.RULES_SCREENSHOTS, `anchor-${theme}-${width}.png`)});
-                            await page.locator('#UI-12').scrollIntoViewIfNeeded();
+                            await page.locator('#UIM-04').scrollIntoViewIfNeeded();
                             await scroll_settle(page);
                             await page.screenshot({path: path.join(process.env.RULES_SCREENSHOTS, `image-${theme}-${width}.png`)});
                         }

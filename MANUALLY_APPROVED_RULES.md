@@ -156,7 +156,7 @@ DOM error events follow event naming, not Error-callback naming.
 
 ## MP-15 — Optimistic updates
 
-**Scope:** UI-18, [optimistic updates](drafts/optimistic_updates.md).
+**Scope:** UIM-10, [optimistic updates](drafts/optimistic_updates.md).
 **Approved:** 2026-10-07;
 [implementation](https://github.com/vbarbarosh/rules/commit/4d0cb22).
 
@@ -250,7 +250,7 @@ request/response pair under MP-22.
 
 ## MP-24 — Typing focuses the primary search and keeps the first character
 
-**Scope:** [main search](drafts/main_search.md), UI-19, pages with one primary
+**Scope:** [main search](drafts/main_search.md), UIM-11, pages with one primary
 search/filter input and their matching keyboard handlers.
 **Approved:** 2026-10-07, author recording `20261007_203850-me`.
 
@@ -262,7 +262,7 @@ to focus every search on page load.
 
 ## MP-25 — The first actionable list item is selected by default
 
-**Scope:** [default list item](drafts/default_list_item.md), UI-20, lists
+**Scope:** [default list item](drafts/default_list_item.md), UIM-12, lists
 whose items are targets for an action.
 **Approved:** 2026-10-07, author recording `20261007_203850-me`.
 
@@ -481,3 +481,14 @@ MySQL. A `CREATE INDEX` takes no `WHERE` (no partial indexes; a generated
 column with a unique index does the same), and `DROP INDEX` names its table
 with `ON`. The two examples in the author's half of sql.md that say
 otherwise are the author's to amend.
+
+## MP-43 — The UI mechanics rules are coded UIM
+
+**Scope:** the UIM group, the rule index header.
+**Approved:** 2026-10-08, author comment in `20261008_234958-me` ("why UIM
+there and UI here; they should all be UIM").
+
+The rules of the UI mechanics group carry the group's own code: UI-09 to
+UI-20 are UIM-01 to UIM-12. A link to an old code still opens the rule: the
+page redirects it. A code still never changes when a rule moves between
+existing groups; a group of its own is the one case that gets new codes.
