@@ -63,8 +63,12 @@
 }
 
 html {
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+}
+
+/* smooth only after load: the jump to a rule link must land before anything moves */
+html.loaded {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -884,7 +888,7 @@ footer .lead {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html {
+    html.loaded {
         scroll-behavior: auto;
     }
 
@@ -1078,6 +1082,7 @@ function main()
     document.addEventListener('keydown', keydown_document);
     // Chrome on Wayland can hold a drag started by a quick double click.
     document.addEventListener('dragstart', dragstart_document);
+    window.addEventListener('load', load_window);
     window.addEventListener('scroll', scroll_window, {passive: true});
     window.addEventListener('resize', scroll_window);
     spy_apply();
@@ -1447,6 +1452,11 @@ function keydown_document(event)
     q_el.focus({preventScroll: true});
     q_el.setRangeText(event.key, q_el.selectionStart, q_el.selectionEnd, 'end');
     q_el.dispatchEvent(new Event('input', {bubbles: true}));
+}
+
+function load_window()
+{
+    root_el.classList.add('loaded');
 }
 
 function dragstart_document(event)
