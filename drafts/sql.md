@@ -113,13 +113,18 @@ SET
 CREATE UNIQUE INDEX
     user_identities_primary_user_id_unique
 ON
-    user_identities (user_id)
-WHERE
-    primary_at IS NOT NULL
+    user_identities (primary_user_id)
 
 DROP INDEX
     user_identities_primary_user_id_unique
+ON
+    user_identities
 ```
+
+The dialect is MySQL (decided 2026-10-08, MP-42), and the forms here are
+MySQL's: a `CREATE INDEX` takes no `WHERE`, for MySQL has no partial index;
+the same end is reached with a generated column and a unique index on it, as
+the `ALTER TABLE` below shows. `DROP INDEX` names its table with `ON`.
 
 ## ALTER TABLE
 

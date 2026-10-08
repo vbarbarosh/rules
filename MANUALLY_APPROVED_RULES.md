@@ -469,3 +469,15 @@ The two controls at the right end of the header are, left to right, the
 theme switch and then the GitHub icon in the corner, the same on every page.
 The author's note "to decide" in the top half of page_header.md is answered
 by this entry; the note itself is the author's to change.
+
+## MP-42 — The SQL rules are MySQL's
+
+**Scope:** the SQL group, SQL-03, [sql](drafts/sql.md).
+**Approved:** 2026-10-08, author decision A in `20261008_234451-me` ("I work
+with MySQL; this is specifically for MySQL").
+
+The SQL group is MySQL: the group says so, and every canonical form is valid
+MySQL. A `CREATE INDEX` takes no `WHERE` (no partial indexes; a generated
+column with a unique index does the same), and `DROP INDEX` names its table
+with `ON`. The two examples in the author's half of sql.md that say
+otherwise are the author's to amend.

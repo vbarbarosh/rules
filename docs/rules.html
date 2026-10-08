@@ -2309,7 +2309,7 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="SQL">
-<h2><span class="tag">SQL</span><span class="name">SQL queries</span><span class="note">Upper-case keywords; the query laid out like code.</span></h2>
+<h2><span class="tag">SQL</span><span class="name">SQL queries</span><span class="note">MySQL: upper-case keywords; the query laid out like code.</span></h2>
 <article class="rule" id="SQL-01">
 <a class="code" href="#SQL-01">SQL-01</a>
 <div class="text"><p><strong>A long query opens and closes on its own line.</strong> A query that spans lines opens its template literal with a line break and closes it on a line of its own; the query is indented one level deeper than the call that runs it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/sql.md" title="drafts/sql.md">sql.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
@@ -2327,18 +2327,16 @@ select min(id) as id from user_identities   <span class="no">✗ no</span></pre>
 </article>
 <article class="rule" id="SQL-03">
 <a class="code" href="#SQL-03">SQL-03</a>
-<div class="text"><p><strong>Each clause on its own line.</strong> At the top level of a statement, each clause starts a line of its own — <code>SELECT</code>, <code>FROM</code>, every <code>JOIN</code>, <code>UPDATE</code>, <code>SET</code>, <code>CREATE UNIQUE INDEX</code>, <code>ON</code>, <code>WHERE</code>, <code>ALTER TABLE</code>, <code>DROP INDEX</code> — and what the clause takes goes on the next line, indented four spaces. A keyword of several words stays on one line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/sql.md" title="drafts/sql.md">sql.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Each clause on its own line.</strong> The dialect is MySQL. At the top level of a statement, each clause starts a line of its own — <code>SELECT</code>, <code>FROM</code>, every <code>JOIN</code>, <code>UPDATE</code>, <code>SET</code>, <code>CREATE UNIQUE INDEX</code>, <code>ON</code>, <code>WHERE</code>, <code>ALTER TABLE</code>, <code>DROP INDEX</code> — and what the clause takes goes on the next line, indented four spaces. A keyword of several words stays on one line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/sql.md" title="drafts/sql.md">sql.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>CREATE UNIQUE INDEX
     user_identities_primary_user_id_unique
 ON
-    user_identities (user_id)
-WHERE
-    primary_at IS NOT NULL
+    user_identities (primary_user_id)
 
-UPDATE
-    user_identities
-SET
-    primary_at = verified_at</pre><button class="copy" type="button">Copy</button></div>
+DROP INDEX
+    user_identities_primary_user_id_unique
+ON
+    user_identities</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="SQL-04">
 <a class="code" href="#SQL-04">SQL-04</a>
