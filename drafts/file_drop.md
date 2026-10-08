@@ -45,7 +45,7 @@ The picture is drawn by [file-drop.html](file-drop.html) and rendered to
 window.addEventListener('dragover', v => v.preventDefault());
 window.addEventListener('drop', v => v.preventDefault());
 
-function file_drop_bind(element, take)
+function file_drop_bind(element, input, take)
 {
     element.addEventListener('dragover', function (event) {
         event.preventDefault();
@@ -59,36 +59,72 @@ function file_drop_bind(element, take)
     element.addEventListener('drop', async function (event) {
         event.preventDefault();
         element.classList.remove('is-drop-over');
-        const entries = [...event.dataTransfer.items].map(v => v.webkitGetAsEntry()).filter(Boolean);
+        const entries = [...event.dataTransfer.items].map(v => v.webkitGetAsEntry?.()).filter(Boolean);
         const files = [];
         for (const entry of entries) {
-            await entry_files_read(entry, files);
+            if (entry.isFile || input.webkitdirectory) {
+                await entry_files_read(entry, files);
+            }
         }
-        take(files.length ? files : [...event.dataTransfer.files]);
+        take(files_as_dialog_takes(files.length ? files : [...event.dataTransfer.files], input));
     });
 }
 
-async function entry_files_read(entry, out)
+async function entry_files_read(entry, files)
 {
     if (entry.isFile) {
-        out.push(await new Promise((res, rej) => entry.file(res, rej)));
+        files.push(await new Promise((res, rej) => entry.file(res, rej)));
         return;
     }
     const reader = entry.createReader();
     while (true) {
-        const entries = await new Promise((res, rej) => reader.readEntries(res, rej));
-        if (entries.length === 0) {
+        const children = await new Promise((res, rej) => reader.readEntries(res, rej));
+        if (children.length === 0) {
             break;
         }
-        for (const child of entries) {
-            await entry_files_read(child, out);
+        for (const child of children) {
+            await entry_files_read(child, files);
         }
     }
+}
+
+function files_as_dialog_takes(files, input)
+{
+    const accepted = files.filter(v => file_accepted(v, input.accept));
+    return input.multiple ? accepted : accepted.slice(0, 1);
+}
+
+function file_accepted(file, accept)
+{
+    if (!accept) {
+        return true;
+    }
+    const name = file.name.toLowerCase();
+    const type = file.type.toLowerCase();
+    for (const pattern of accept.toLowerCase().split(',').map(v => v.trim())) {
+        if (pattern.startsWith('.') && name.endsWith(pattern)) {
+            return true;
+        }
+        if (pattern.endsWith('/*') && type.startsWith(pattern.slice(0, -1))) {
+            return true;
+        }
+        if (pattern === type) {
+            return true;
+        }
+    }
+    return false;
 }
 ```
 
 `take` is the same function the input's `change` handler calls, so a picked
-file and a dropped one go down one path.
+file and a dropped one go down one path. The input says what the dialog
+takes, `accept`, `multiple` and `webkitdirectory`, and the drop reads them:
+a dropped folder is read only when the dialog picks folders, the files are
+kept to the accepted types, and one file only unless `multiple`.
+
+`webkitGetAsEntry?.()` leaves an empty list where the entries API is absent,
+so the plain `dataTransfer.files` fallback is reached there instead of a
+throw.
 
 The entries are taken from `dataTransfer.items` before the first `await`. The
 browser empties `dataTransfer` once the drop handler yields, so they cannot be

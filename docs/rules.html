@@ -2572,7 +2572,11 @@ await keep(async function () {
 <article class="rule" id="UIM-05">
 <a class="code" href="#UIM-05">UIM-05</a>
 <div class="text"><p><strong>The drop takes what the dialog takes.</strong> The same file types, one or many; a whole folder when the dialog picks folders, read file by file. A dropped file goes down the same path as a picked one.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>const entries = &#91;...event.dataTransfer.items].map(v =&gt; v.webkitGetAsEntry());</pre><button class="copy" type="button">Copy</button></div>
+<div class="form"><pre>file_drop_bind(element, input, take);
+
+<span class="cmt">// the input says what the dialog takes</span>
+if (entry.isFile || input.webkitdirectory)
+take(files_as_dialog_takes(files, input));</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="UIM-06">
 <a class="code" href="#UIM-06">UIM-06</a>
