@@ -23,6 +23,14 @@ call.
 - synchronous and pure: constructing content does not itself update the DOM,
   write a file or start a download
 
+`render_*` always returns its result. A function that brings a part of the
+page up to date returns nothing, so it is not a render: it is
+`refresh_<what>`, the browser's refresh button turned on one part of the
+page (see [refresh.md](refresh.md)). `refresh_theme_labels()` sets the
+switch's labels from the theme; `refresh_frame(ms)` draws one moment of a
+demo. Naming them `theme_render()` or `frame_render()` gave "render" a
+second meaning.
+
 Producing a downloadable artifact — a zip, a csv, an xlsx — is `export_*`,
 which may be async and side-effectful. Rendering its content and delivering
 an artifact are separate operations.

@@ -389,3 +389,83 @@ in the Dockerfile.
 A release commit is titled `release: v<version>`, for example
 `release: v5.57.6`: `release` is the scope, so the title follows GIT-01 with
 no exception. Vue and Vite title their releases the same way.
+
+## MP-35 — An elapsed time shown to a person goes through format_duration
+
+**Scope:** VAR-14, FN-02, [time0](drafts/var_names_time0.md),
+[format](drafts/format_xxx.md).
+**Approved:** 2026-10-08, author decision A in `20261008_225915-me`.
+
+The current time minus `time0` is a measurement, a number. Whatever is
+presented to a person is formatted for its context by a `format_*` helper,
+here `format_duration`; a raw number with a unit at the call site is a
+missed call. The author's reason: a display that reads "5 minutes" reads
+"240 minutes" once the job grows, where hours were wanted; the helper picks
+the shape, `1h 23m 33s` or a clock's `00:02:15`, with hours only when there
+are hours, and every call site shares it.
+
+## MP-36 — render always returns; a DOM update is refresh_<what>
+
+**Scope:** FN-05, FN-08, FN-10, [render](drafts/render_xxx.md),
+[refresh](drafts/refresh.md).
+**Approved:** 2026-10-08, author voice comment in `20261008_230106-me`.
+
+`render_*` always returns its result, as a computed value does. A function
+that brings a part of the page up to date returns nothing and is not a
+render: it is `refresh_<what>` (`refresh_dom`, `refresh_theme_labels`), the
+refresh button turned on one part of the page. The author weighed a `sync_`
+prefix (`sync_dom`, `sync_time`, `sync_backend`) and settled on `refresh`,
+the family that already exists.
+
+## MP-37 — Side-effect imports sit at the very top, in run order
+
+**Scope:** FLOW-10, FILE-11, LINT-06, [imports](drafts/imports_sorted.md).
+**Approved:** 2026-10-08, author voice comment in `20261008_230323-me`.
+
+Side-effect imports, the bare `import './x'` blocks, sit at the very top of
+the file, in the order they run. That is FLOW-10's one visible exception to
+"no reliance on execution-order side effects": the reliance is declared in
+the first lines, where it is seen, and nowhere else.
+
+## MP-38 — A module may own its state
+
+**Scope:** FLOW-09, [FORMATTING.md](FORMATTING.md).
+**Approved:** 2026-10-08, author voice comment in `20261008_230442-me`.
+
+A module may keep its own state and act as a singleton over its data,
+written only by its own functions; the editor and the dashboard are full of
+such modules. "Shared state" in FLOW-09 means state shared across modules:
+one module reaching into another's is what is forbidden.
+
+## MP-39 — Commit titles aim for 70, 72 as the rule, 75 rarely
+
+**Scope:** GIT-03, [commits](drafts/commits.md).
+**Approved:** 2026-10-08, author voice comment in `20261008_230600-me`.
+
+A title aims for 70 characters and stays within 72; in a rare, special case
+a little more is allowed, up to 75. It is not a hard rule: titles are short,
+and the numbers are guidance, not a floor. The author's "70-72 in all" is a
+target, not a minimum.
+
+## MP-40 — is_ names a boolean, predicate or data; check_ reads as a call
+
+**Scope:** NAME-02, NAME-15, [naming markers](drafts/naming_markers.md).
+**Approved:** 2026-10-08, author voice comment in `20261008_231532-me`.
+
+`is_` is not a function's privilege. It names a boolean: a predicate that
+returns one, `is_ancestor(a, b)`, or data that holds one, `is_open`; a
+plain `open` or `ready` is as good where it is clearer. When a check must
+read as a call, the verb `check_` says so: `check_status()`,
+`check_rating()`. This closes the audit's Boolean names question with B, and
+replaces the earlier reading that `is_` meant "call me".
+
+## MP-41 — Right of the header: the theme switch, then GitHub
+
+**Scope:** UI-08, [page header](drafts/page_header.md).
+**Approved:** 2026-10-08, author decision A in `20261008_233947-me` ("let it
+stay like this for now").
+
+The two controls at the right end of the header are, left to right, the
+theme switch and then the GitHub icon in the corner, the same on every page.
+The author's note "to decide" in the top half of page_header.md is answered
+by this entry; the note itself is the author's to change.

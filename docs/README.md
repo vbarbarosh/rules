@@ -170,7 +170,8 @@ prefer a countable noun. See [drafts/var_names.md](../drafts/var_names.md).
 ### Functions
 
 A function name contains a verb or a function marker (`_from_`, `_to_`,
-`_of_`, `is_`). The criterion follows the verb:
+`_of_`, `check_`). `is_` is not one: it names a boolean, a predicate or
+data alike (NAME-15). The criterion follows the verb:
 
 ```js
 users_index_by_id(users)     // → user_by_id

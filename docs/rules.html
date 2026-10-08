@@ -1076,7 +1076,7 @@ enabled/disabled    import/export</pre><button class="copy" type="button">Copy</
 </article>
 <article class="rule" id="NAME-02">
 <a class="code" href="#NAME-02">NAME-02</a>
-<div class="text"><p><strong>The verb form marks function or data.</strong> English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Where there is no verb, a function marker — <code>_from_</code>, <code>_to_</code>, <code>_of_</code>, <code>is_</code> — makes a function.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>The verb form marks function or data.</strong> English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Where there is no verb, a function marker — <code>_from_</code>, <code>_to_</code>, <code>_of_</code>, <code>check_</code> — makes a function.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>items_sort_by_time(items)   <span class="cmt">// function</span>
 items_sorted_by_time        <span class="cmt">// data</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
@@ -1155,8 +1155,10 @@ rows_by_source         <span class="yes">✓ over data_by_source</span></pre><bu
 </article>
 <article class="rule" id="NAME-15">
 <a class="code" href="#NAME-15">NAME-15</a>
-<div class="text"><p><strong>An "is" function returns a boolean.</strong> <code>is_</code> is a predicate and returns a boolean.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>is_ancestor(a, b)</pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p><strong>"is" names a boolean, a predicate or data.</strong> <code>is_</code> names a boolean: a predicate that returns one, or data that holds one. It is not a function marker; a check that must read as a call is <code>check_*</code>, a verb.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>is_ancestor(a, b)   <span class="cmt">// a predicate, called</span>
+is_open             <span class="cmt">// a boolean, read</span>
+check_status()      <span class="cmt">// a check that reads as a call</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="NAME-16">
 <a class="code" href="#NAME-16">NAME-16</a>
@@ -1291,12 +1293,12 @@ for (const child of node.children) { }</pre><button class="copy" type="button">C
 </article>
 <article class="rule" id="VAR-14">
 <a class="code" href="#VAR-14">VAR-14</a>
-<div class="text"><p><strong>Start time is "time0".</strong> The variable holding the start time of a measurement is always named <code>time0</code>. The elapsed time is the current time minus <code>time0</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_time0.md" title="drafts/var_names_time0.md">var_names_time0.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Start time is "time0".</strong> The variable holding the start time of a measurement is always named <code>time0</code>. The elapsed time is the current time minus <code>time0</code>: a number, shown to a person only through <code>format_duration</code> (FN-02), never as <code>${Date.now() - time0}ms</code> at the call site.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_time0.md" title="drafts/var_names_time0.md">var_names_time0.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>$time0 = microtime(true);
-printf("%.3fs&#92;n", microtime(true) - $time0);
+echo format_duration(microtime(true) - $time0);
 
 const time0 = Date.now();
-console.log(&#96;${Date.now() - time0}ms&#96;);</pre><button class="copy" type="button">Copy</button></div>
+console.log(format_duration(Date.now() - time0));</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="VAR-15">
 <a class="code" href="#VAR-15">VAR-15</a>
@@ -1377,9 +1379,10 @@ $this-&gt;render_css()   <span class="cmt">// constructed content</span></pre><b
 </article>
 <article class="rule" id="FN-08">
 <a class="code" href="#FN-08">FN-08</a>
-<div class="text"><p><strong>"render" is sync and pure; downloads are "export".</strong> <code>render_*</code> constructs content without DOM updates, file writes or downloads. A downloadable artifact — zip, csv or xlsx — is <code>export_*</code>, which may be async and side-effectful.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>$theme-&gt;render_css()   <span class="cmt">// construct CSS content</span>
-export_zip()           <span class="cmt">// produce a downloadable artifact</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="text"><p><strong>"render" is sync and pure; downloads are "export".</strong> <code>render_*</code> constructs content without DOM updates, file writes or downloads, and always returns its result. A function that brings a part of the page up to date returns nothing and is <code>refresh_&lt;what&gt;</code> (FN-10), never <code>&lt;what&gt;_render</code>. A downloadable artifact — zip, csv or xlsx — is <code>export_*</code>, which may be async and side-effectful.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>$theme-&gt;render_css()    <span class="cmt">// construct CSS content</span>
+refresh_theme_labels()  <span class="cmt">// bring a part of the page up to date</span>
+export_zip()            <span class="cmt">// produce a downloadable artifact</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FN-09">
 <a class="code" href="#FN-09">FN-09</a>
@@ -1711,13 +1714,23 @@ request.on('end', async function () {     <span class="yes">✓ this</span>
 catch {
 }</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule bare" id="FLOW-09">
+<article class="rule" id="FLOW-09">
 <a class="code" href="#FLOW-09">FLOW-09</a>
-<div class="text"><p><strong>Plain data: Set, Map or {}.</strong> Use plain data structures — <code>Set</code>, <code>Map</code> or plain <code>{}</code> for lookups. No prototypes, no mutation via shared state.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Plain data: Set, Map or {}.</strong> Use plain data structures — <code>Set</code>, <code>Map</code> or plain <code>{}</code> for lookups. No prototypes, no mutation via shared state. A module may own its state, a singleton over its own data, written only by its own functions; shared means across modules, and that is what is forbidden.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>let modal = null;    <span class="cmt">// the module's own</span>
+
+function modal_show()
+{
+    modal = modal_make();
+}</pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule bare" id="FLOW-10">
+<article class="rule" id="FLOW-10">
 <a class="code" href="#FLOW-10">FLOW-10</a>
-<div class="text"><p><strong>No implicit magic or hidden side effects.</strong> No implicit magic. No hidden side effects, no reliance on execution-order side effects.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>No implicit magic or hidden side effects.</strong> No implicit magic. No hidden side effects, no reliance on execution-order side effects. The one visible exception: side-effect imports, which sit at the very top of the file, in the order they run (FILE-11).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>import './sass/main.sass';   <span class="cmt">// the top of the file, in run order</span>
+import './main-pre';
+
+import Vue from 'vue';</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="FLOW-11">
 <a class="code" href="#FLOW-11">FLOW-11</a>
@@ -1990,11 +2003,16 @@ EXIT_MESSAGE="${GREEN}bin/templ succeeded${RESET}"</pre><button class="copy" typ
 </article>
 <article class="rule" id="PROJ-17">
 <a class="code" href="#PROJ-17">PROJ-17</a>
-<div class="text"><p><strong>bin/configure takes sudo once, up front.</strong> <code>bin/configure</code> first works out what the run will need. When a step will need <code>sudo</code> — an Electron <code>chrome-sandbox</code> that is missing or not <code>root:4755</code>, for example — it takes <code>sudo -v</code> up front, and the later <code>sudo</code> calls reuse it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/configure.md" title="drafts/configure.md">configure.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>bin/configure takes sudo once, up front.</strong> <code>bin/configure</code> first works out what the run will need, predicting the state after the install. When a step will need <code>sudo</code> — an Electron <code>chrome-sandbox</code> that is missing, not <code>root:4755</code>, or about to be replaced by the install — it takes <code>sudo -v</code> up front, and the later calls are <code>sudo -n</code>, which fail at once rather than prompt.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/configure.md" title="drafts/configure.md">configure.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>sandbox=node_modules/electron/dist/chrome-sandbox
-if &#91; "&#96;stat -c %U:%a $sandbox 2&gt;/dev/null&#96;" != "root:4755" ]; then
+state=&#96;stat -c %U:%a $sandbox 2&gt;/dev/null&#96;
+wanted=…      # electron in package-lock.json
+installed=…   # electron in node_modules
+if &#91; "$wanted" != "$installed" ] || &#91; "$state" != "root:4755" ]; then
     sudo -v
-fi</pre><button class="copy" type="button">Copy</button></div>
+fi
+
+sudo -n chown root:root $sandbox   # later: never a prompt</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule bare" id="PROJ-18">
 <a class="code" href="#PROJ-18">PROJ-18</a>
@@ -2649,9 +2667,12 @@ exit 1</pre><button class="copy" type="button">Copy</button></div>
 <div class="form"><pre>readme: elites and arcade saves as the code has them   <span class="yes">✓ yes</span>
 README: Elites and arcade saves                        <span class="no">✗ no</span></pre><button class="copy" type="button">Copy</button></div>
 </article>
-<article class="rule bare" id="GIT-03">
+<article class="rule" id="GIT-03">
 <a class="code" href="#GIT-03">GIT-03</a>
-<div class="text"><p><strong>Commit titles stay within 72 characters.</strong> The whole title, scope included, is 72 characters at most.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Commit titles aim for 70 characters, 72 as the rule.</strong> The whole title, scope included, aims for 70 characters and stays within 72; in a rare case, when nothing shorter says it, 75 is allowed. Short is the rule; the numbers are guidance, not a floor.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/commits.md" title="drafts/commits.md">commits.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>maps: one name for the gate jump reach     38
+docs: build-docs and a github pages workflow     44
+70 to aim for · 72 the rule · 75 in a rare case</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="GIT-04">
 <a class="code" href="#GIT-04">GIT-04</a>
@@ -2832,7 +2853,7 @@ function main()
         haystack_by_id[rule_el.id] = haystack_from_rule(rule_el);
     }
 
-    theme_labels_update();
+    refresh_theme_labels();
     document.addEventListener('click', click_theme);
     theme_dock_watch();
 
@@ -2864,7 +2885,7 @@ function haystack_from_rule(rule_el)
     return parts.join(' ').toLowerCase();
 }
 
-function theme_labels_update()
+function refresh_theme_labels()
 {
     const theme = root_el.getAttribute('data-theme');
     for (const button of document.querySelectorAll('.theme button')) {
@@ -3081,7 +3102,7 @@ function click_theme(event)
     }
     catch {
     }
-    theme_labels_update();
+    refresh_theme_labels();
 }
 
 async function click_copy(event)

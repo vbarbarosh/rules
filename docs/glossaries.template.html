@@ -1047,7 +1047,7 @@ function main()
         haystack_by_id[rule_el.id] = haystack_from_rule(rule_el);
     }
 
-    theme_labels_update();
+    refresh_theme_labels();
     document.addEventListener('click', click_theme);
     theme_dock_watch();
 
@@ -1073,7 +1073,7 @@ function haystack_from_rule(rule_el)
     return parts.join(' ').toLowerCase();
 }
 
-function theme_labels_update()
+function refresh_theme_labels()
 {
     const theme = root_el.getAttribute('data-theme');
     for (const button of document.querySelectorAll('.theme button')) {
@@ -1292,7 +1292,7 @@ function click_theme(event)
     }
     catch {
     }
-    theme_labels_update();
+    refresh_theme_labels();
 }
 
 async function click_copy(event)

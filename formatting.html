@@ -1318,7 +1318,7 @@ function main()
     for (const a of sections_el.querySelectorAll('a')) {
         link_by_id[a.getAttribute('href').slice(1)] = a;
     }
-    theme_labels_update();
+    refresh_theme_labels();
     document.addEventListener('click', click_theme);
     theme_dock_watch();
     // Chrome on Wayland can hold a drag started by a quick double click.
@@ -1328,7 +1328,7 @@ function main()
     spy_apply();
 }
 
-function theme_labels_update()
+function refresh_theme_labels()
 {
     const theme = root_el.getAttribute('data-theme');
     for (const button of document.querySelectorAll('.theme button')) {
@@ -1366,7 +1366,7 @@ function click_theme(event)
     }
     catch {
     }
-    theme_labels_update();
+    refresh_theme_labels();
 }
 
 function scroll_window()

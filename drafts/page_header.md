@@ -36,7 +36,8 @@ optional; the rest are always there.
    project's repository.
 
 The project sits at the left end and the two controls at the right end, in
-this order on every page. The GitHub link takes the reader off the site, so
+this order on every page: decided on 2026-10-08 (MP-41), where the notes
+above left it open. The GitHub link takes the reader off the site, so
 it gets the edge; the theme switch belongs to the page and stays inside it.
 authwall, Vite and Vue order them this way.
 

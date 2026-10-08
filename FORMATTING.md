@@ -84,7 +84,7 @@ project, so all JavaScript code follows the same conventions.
 * Use **plain data structures**
 
     * `Set`, `Map`, or plain `{}` for lookups
-    * No prototypes, no mutation via shared state
+    * No prototypes, no mutation via shared state; a module may own its own state, a singleton over its data written only by its functions — shared means across modules
 
 * **Local helpers are allowed**
 
@@ -226,7 +226,7 @@ project, so all JavaScript code follows the same conventions.
 * **No implicit magic**
 
     * No hidden side effects
-    * No reliance on execution order side effects
+    * No reliance on execution order side effects; the one visible exception is side-effect imports, which sit at the very top of the file in the order they run (see `drafts/imports_sorted.md`)
 
 * **CommonJS in this repository and in node scripts**
 

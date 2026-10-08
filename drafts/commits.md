@@ -26,7 +26,8 @@ menu: a mode card only picks, the button under the cards starts
 
 # Commit messages
 
-A commit title is `scope: description`, all lowercase, 72 characters at most.
+A commit title is `scope: description`, all lowercase, about 70 characters,
+72 at most as a rule.
 
 ```
 maps: placement rules for gates and portals, and map-check
@@ -36,7 +37,9 @@ maps: placement rules for gates and portals, and map-check
   changes, its category. `docs`, `maps`, `menu`, `readme`.
 - The description is short and follows `: `.
 - Everything is lowercase, names included: `readme`, `github pages`.
-- The whole title, scope included, is 72 characters at most.
+- The whole title, scope included, aims for 70 characters and stays within
+  72. In a rare case, when nothing shorter says it, 75 is allowed. Short is
+  the rule; the numbers are guidance, not a floor.
 
 The details go in a body, after one blank line, only when they are really
 needed. A body is short, in ordinary sentences:

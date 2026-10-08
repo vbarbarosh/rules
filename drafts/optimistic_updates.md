@@ -75,7 +75,7 @@ the rule as surely as a spinner does.
 </picture>
 
 The picture is drawn by [optimistic-updates.html](optimistic-updates.html):
-`frame_render(ms)` draws the moment `ms` after the start, rendered at 30
+`refresh_frame(ms)` draws the moment `ms` after the start, rendered at 30
 frames a second to `optimistic-updates.gif` and `optimistic-updates-dark.gif`
 (`?dark`).
 

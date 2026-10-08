@@ -967,7 +967,7 @@ function main()
         haystack_by_id[guide_el.id] = guide_el.querySelector('[data-md]').textContent.toLowerCase();
     }
 
-    theme_labels_update();
+    refresh_theme_labels();
     document.addEventListener('click', click_theme);
     theme_dock_watch();
 
@@ -984,7 +984,7 @@ function main()
     spy_apply();
 }
 
-function theme_labels_update()
+function refresh_theme_labels()
 {
     const theme = root_el.getAttribute('data-theme');
     for (const button of document.querySelectorAll('.theme button')) {
@@ -1158,7 +1158,7 @@ function click_theme(event)
     }
     catch {
     }
-    theme_labels_update();
+    refresh_theme_labels();
 }
 
 async function click_copy(event)

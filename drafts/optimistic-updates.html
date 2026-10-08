@@ -137,10 +137,10 @@ main();
 
 function main()
 {
-    frame_render(0);
+    refresh_frame(0);
 }
 
-function frame_render(ms)
+function refresh_frame(ms)
 {
     const since_press = Math.min(Math.max(ms - PRESS_MS, 0), WAIT_MS);
     const pressed = (ms >= PRESS_MS);

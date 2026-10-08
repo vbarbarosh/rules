@@ -15,14 +15,22 @@ The elapsed time is the current time minus `time0`.
 ```php
 $time0 = microtime(true);
 run_import($rows);
-printf("import: %.3fs\n", microtime(true) - $time0);
+printf("import: %s\n", format_duration(microtime(true) - $time0));
 ```
 
 ```js
 const time0 = Date.now();
 await run_import(rows);
-console.log(`import: ${Date.now() - time0}ms`);
+console.log(`import: ${format_duration(Date.now() - time0)}`);
 ```
+
+The subtraction gives a number, the measurement. What a person sees goes
+through `format_duration` (FN-02), never `${Date.now() - time0}ms` at the
+call site: a value that reads as "5 minutes" today reads as "240 minutes"
+once the job grows, where "4h" was wanted. The helper picks the shape for
+its context, `1h 23m 33s`, `2m 35s`, or a clock's `00:02:15`, and shows
+hours only when there are hours; a project has one such helper per
+context, and every call site shares it.
 
 For an elapsed-time measurement, do not substitute `begin`, `start` or `t0`
 for `time0`.

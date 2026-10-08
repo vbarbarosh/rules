@@ -26,29 +26,35 @@ it.
 ## Example: Electron
 
 Electron's downloaded `chrome-sandbox` has to be owned by root with mode 4755,
-set through `sudo`. The script checks it at the start; when the file is not
-there yet, or not set that way, `sudo` will be needed, so it is asked for
-right away:
+set through `sudo`. The script checks it at the start, and the check predicts
+the state after the install: when the file is not there yet, or not set that
+way, or the install will put a new Electron in place (the lock file wants a
+version other than the installed one), `sudo` will be needed, so it is asked
+for right away:
 
 ```bash
 sandbox=node_modules/electron/dist/chrome-sandbox
-if [ "`stat -c %U:%a $sandbox 2>/dev/null`" != "root:4755" ]; then
+wanted=`node -p "require('./package-lock.json').packages['node_modules/electron'].version"`
+installed=`node -p "require('electron/package.json').version" 2>/dev/null`
+if [ "$wanted" != "$installed" ] || [ "`stat -c %U:%a $sandbox 2>/dev/null`" != "root:4755" ]; then
     sudo -v
 fi
 
 npm install
 
 if [ "`stat -c %U:%a $sandbox`" != "root:4755" ]; then
-    sudo chown root:root $sandbox
-    sudo chmod 4755 $sandbox
+    sudo -n chown root:root $sandbox
+    sudo -n chmod 4755 $sandbox
 fi
 ```
 
-The check has to predict the state after the install: `npm ci` removes
-`node_modules`, so a script that runs it always needs `sudo` for the sandbox.
+`npm ci` removes `node_modules`, so a script that runs it always needs `sudo`
+for the sandbox. The later calls are `sudo -n`: should the ticket be gone,
+they fail at once with a clear message instead of stopping at a prompt.
 
-`sudo -v` holds for 15 minutes by default. When the run can take longer, the
-script keeps it fresh in the background, so no prompt shows up later:
+`sudo -v` holds for a while, 15 minutes on a default setup. When the run can
+take longer, the script keeps it fresh in the background, so no prompt shows
+up later:
 
 ```bash
 sudo -v

@@ -41,7 +41,9 @@ order and not this rule.
 - No blank lines and no comments inside the block — either one breaks the sort.
 - The one exception is a side-effect import — `import './x'`, a bare
   `require('x')`. Those keep the order they run in, in their own block at the
-  top; one blank line, then the sorted named imports.
+  very top of the file; one blank line, then the sorted named imports. This
+  is the one place a file relies on execution order, FLOW-10's one visible
+  exception: the imports say it in the first lines, where it is seen.
 
   ```js
   import './sass/main.sass';

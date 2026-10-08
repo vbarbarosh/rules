@@ -2,7 +2,7 @@ Memo: name markers, collected. Not polished — raw law for later.
 
 Core observation: English verb morphology is the function/data marker.
 Imperative verb = function. Past participle = data. Where there is no verb,
-a function marker (`_from_`, `_to_`, `_of_`, `is_`) makes a function.
+a function marker (`_from_`, `_to_`, `_of_`, `check_`) makes a function.
 
 ```js
 const items_sorted_by_time = items_sort_by_time(items);
@@ -21,7 +21,8 @@ const users_by_role = users_group_by_role(users);
 | `_from_`       | function | construct/derive; result first               | `user_from_token(token)`      |
 | `_to_`         | function | convert; source first (method position)      | `tree.to_json()`              |
 | `_of_`         | function | possession query                             | `descendants_of(node)`        |
-| `is_`          | function | predicate, returns boolean                   | `is_ancestor(a, b)`           |
+| `is_`          | either   | a boolean: a predicate, or data that holds one | `is_ancestor(a, b)`, `is_open` |
+| `check_`       | function | a check that must read as a call; a verb     | `check_status()`              |
 | `format_`      | function | strictly returns text for human display             | `format_bytes(n)`             |
 | `render_`      | function | constructs asset content from state           | `$theme->render_css()`  |
 | `export_`      | function | produces downloadable artifact; may be async | `export_zip()`                |
@@ -39,3 +40,7 @@ Rulings:
 - Standalone conversions prefer `_from_` (variable and function share
   their first word: `const json = json_from_tree(tree)`); `_to_` for
   method position, where the source is the receiver.
+- `is_` is not a function's privilege (author, 2026-10-08): `is_ancestor(a, b)`
+  is a predicate, `is_open` a stored boolean, and both read well; a plain
+  `open` or `ready` is as good where it is clearer. When a check must read
+  as a call, `check_` is the verb: `check_status()`, `check_rating()`.

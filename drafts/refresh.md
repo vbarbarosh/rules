@@ -41,3 +41,22 @@ mounted: async function () {
     this.ready = true;
 },
 ```
+
+## A part of the page
+
+`refresh_<what>()` also names a function that brings a part of the DOM up to
+date from state, the same button pressed on one part of the page:
+
+```js
+function refresh_theme_labels()
+{
+    const theme = root_el.getAttribute('data-theme');
+    for (const button of document.querySelectorAll('.theme button')) {
+        button.title = `${(theme === 'dark') ? 'Dark' : 'Light'} theme`;
+    }
+}
+```
+
+It returns nothing. A function that constructs content and returns it is
+`render_*` (see [render_xxx.md](render_xxx.md)); `render` never updates the
+DOM, and `refresh` never returns content.
