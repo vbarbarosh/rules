@@ -142,6 +142,14 @@ function index_assert_counts(index)
             throw new Error(`rules.md states ${group.stated} rules for ${group.tag}; the table holds ${group.rules.length}`);
         }
     }
+    // Codes skip numbers (FMT-06), so a new code counted from the rows can repeat one.
+    const codes = new Set();
+    for (const rule of rules) {
+        if (codes.has(rule.code)) {
+            throw new Error(`rules.md holds ${rule.code} twice`);
+        }
+        codes.add(rule.code);
+    }
 }
 
 function html_from_index(template, index)

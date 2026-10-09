@@ -523,7 +523,7 @@ The switch's freedom of size and border (MP-17) yields to this in a header.
 
 ## MP-46 — An empty function stays on one line
 
-**Scope:** FMT-31, FMT-04, LINT-03, [formatting](FORMATTING.md),
+**Scope:** FMT-32, FMT-04, LINT-03, [formatting](FORMATTING.md),
 `block-layout`, `tiny-arrows`.
 **Approved:** 2026-10-10, author voice comment in `20261010_005629-me`
 ("function () {} is, in effect, ignore; such a construct is acceptable; the
@@ -533,3 +533,18 @@ empty arrow, "sometimes I write it so, to be shorter").
 An empty function expression, `function () {}`, and an empty arrow,
 `() => {}`, are a no-op, as `ignore` is, and stay on one line. Splitting the
 braces over two lines is wrong. The arrow is allowed, not required.
+
+## MP-47 — out only for `return out;`; generic names have one meaning
+
+**Scope:** VAR-02, VAR-13, VAR-18, [return values](drafts/return_out.md),
+[generic names](drafts/generic_names.md), `return-out`; clarifies MP-05.
+**Approved:** 2026-10-10, author voice comments in `20261010_015447-me`
+("return out, if it is just return out; if a condition or the ?: operator
+follows, out is not needed there; then give them normal names") and
+`20261010_015542-me` (a small page of generic names, each with one meaning:
+`i`, `j`, `k` in a `for`, `v` in small arrows, `out` only for `return out;`,
+"if it is really returned").
+
+`out` is the variable returned as `return out;` and nothing else. A value
+returned on a condition or transformed on its way out gets a name of its own.
+Each generic name has one meaning, listed on one page.

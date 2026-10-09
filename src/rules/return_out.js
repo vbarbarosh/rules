@@ -1,6 +1,37 @@
 function return_out(context)
 {
     return {
+        // `out` is the value returned as `return out;`, and only that.
+        VariableDeclarator: function (node) {
+            if ((node.id.type !== 'Identifier') || (node.id.name !== 'out')) {
+                return;
+            }
+            const variable = context.sourceCode.getDeclaredVariables(node)[0];
+            const fn = variable.scope.variableScope.block;
+            if (fn.type === 'Program') {
+                return;
+            }
+            let returned = false;
+            const misshaped = new Set();
+            for (const reference of variable.references.filter(v => v.isRead())) {
+                const statement = return_of(reference.identifier, fn);
+                if (!statement) {
+                    continue;
+                }
+                if (statement.argument === reference.identifier) {
+                    returned = true;
+                }
+                else {
+                    misshaped.add(statement);
+                }
+            }
+            for (const statement of misshaped) {
+                context.report({node: statement, messageId: 'shape'});
+            }
+            if (!returned && (misshaped.size === 0)) {
+                context.report({node: node.id, messageId: 'unreturned'});
+            }
+        },
         ReturnStatement: function (node) {
             if (node.argument?.type !== 'Identifier') {
                 return;
@@ -37,6 +68,20 @@ function return_out(context)
     };
 }
 
+// The return statement of fn that holds this identifier, if any.
+function return_of(identifier, fn)
+{
+    for (let node = identifier.parent; node && (node !== fn); node = node.parent) {
+        if (node.type === 'ReturnStatement') {
+            return node;
+        }
+        if (/Function/.test(node.type)) {
+            return null;
+        }
+    }
+    return null;
+}
+
 module.exports = {
     meta: {
         type: 'suggestion',
@@ -44,6 +89,8 @@ module.exports = {
         messages: {
             name: 'Name the locally constructed return value "out".',
             direct: 'Return the expression directly instead of declaring a const only to return it.',
+            shape: '"out" is returned only as `return out;`; a value returned transformed or on a condition is named by what it is.',
+            unreturned: '"out" names the value the function returns as `return out;`; this one never is.',
         },
     },
     create: return_out,

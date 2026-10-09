@@ -163,6 +163,10 @@ tester.run('return-out', plugin.rules['return-out'], {
         'const items = []; function f() { return items; }',
         'function f() { const data = fetch(); log(data); return data; }',
         'function f() { const out = {self: function () { return out; }}; return out; }',
+        'function f(rows) { let out = \'\'; for (const row of rows) { out += row; } return out; }',
+        'function f(rows) { const out = []; if (!rows) { return out; } out.push(1); return out; }',
+        'const out = []; function f() { return out.length; }',
+        'function f(tags) { const unique_tags = [...new Set(tags)]; return (unique_tags.length === tags.length) ? tags : unique_tags; }',
     ],
     invalid: [
         {code: 'function f() { const items = []; items.push(1); return items; }', errors: [{messageId: 'name'}]},
@@ -171,6 +175,11 @@ tester.run('return-out', plugin.rules['return-out'], {
         {code: 'function f() { const out = fetch(); return out; }', errors: [{messageId: 'direct'}]},
         {code: 'async function f() { const out = await fetch(); return out; }', errors: [{messageId: 'direct'}]},
         {code: 'function f() { const result = 42; return result; }', errors: [{messageId: 'direct'}]},
+        {code: 'function f(tags) { const out = [...new Set(tags)]; return (out.length === tags.length) ? tags : out; }', errors: [{messageId: 'shape'}]},
+        {code: 'function f(rows) { const out = []; out.push(1); return out.join(\'\\n\'); }', errors: [{messageId: 'shape'}]},
+        {code: 'function f(config) { const out = stringify(config); return (out === input) ? input : out; }', errors: [{messageId: 'shape'}]},
+        {code: 'function f(rows) { const out = []; out.push(1); send(out); }', errors: [{messageId: 'unreturned'}]},
+        {code: 'function f(rows) { const out = []; out.push(1); return {out}; }', errors: [{messageId: 'shape'}]},
     ],
 });
 

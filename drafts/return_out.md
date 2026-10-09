@@ -37,6 +37,17 @@ function csv_from_rows(rows)
 }
 ```
 
+Nor is a value returned only on a condition, through `?:` or an `if`: the
+function returns one value or another, and each is named by what it is:
+
+```js
+function tags_unique(tags)
+{
+    const unique_tags = [...new Set(tags)];
+    return (unique_tags.length === tags.length) ? tags : unique_tags;
+}
+```
+
 A parameter, a loop variable or an outer value returned unchanged keeps its own
 name; it is not copied into `out`:
 

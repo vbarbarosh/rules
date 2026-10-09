@@ -25,6 +25,8 @@ It's just not written down.
 - JavaScript formatting — [specification](../FORMATTING.md) · [visual representation](../formatting.html)
 - Bash scripts — all scripts follow [bin/templ](../bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](../drafts/var_names.md) — a variable name states the shape of its data
+- [drafts/generic_names.md](../drafts/generic_names.md) — `i`, `v`, `e`, `out` and the other generic names, each with its one meaning
+- [drafts/names_written_whole.md](../drafts/names_written_whole.md) — a name is never glued from strings at run time; a known set is a `match` or a `switch`
 - [drafts/naming_markers.md](../drafts/naming_markers.md) — memo: all name markers, collected
 - [drafts/for_of.md](../drafts/for_of.md) — prefer `for...of`; loop variable is the singular
 - [drafts/for_i_end_ii_jj_kk.md](../drafts/for_i_end_ii_jj_kk.md) — cached loop bounds: `end`, `ii`, `jj`, `kk`
