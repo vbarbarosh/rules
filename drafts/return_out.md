@@ -1,5 +1,13 @@
 A variable the function builds and returns unchanged is named `out`: `return out;`, exactly.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="return-out-dark.png">
+  <img alt="out returned on a condition and out joined on its way out, each beside the same code with a name of its own; below, the one right shape: built, then return out;" src="return-out.png">
+</picture>
+
+The picture is drawn by [return-out.html](return-out.html) and rendered to
+`return-out.png` and `return-out-dark.png` (`?dark`).
+
 ```js
 function emails_from_users(users)
 {

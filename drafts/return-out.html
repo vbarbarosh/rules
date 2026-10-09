@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Return out</title>
+<style>
+:root {
+    --bg: #f3f0e8;
+    --paper: #fffdf7;
+    --ink: #172019;
+    --muted: #687168;
+    --line: #c9cec4;
+    --no: #d63b3b;
+    --no-soft: #f8dcd8;
+    --yes: #2f8a4a;
+    --yes-soft: #d9efdf;
+}
+
+html.dark {
+    --bg: #0f1713;
+    --paper: #14201a;
+    --ink: #f4f6ed;
+    --muted: #91a196;
+    --line: #2c3c33;
+    --no: #ff6b6b;
+    --no-soft: #3b1f22;
+    --yes: #5fd08a;
+    --yes-soft: #1e3318;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body { margin: 0; width: 1280px; }
+
+body {
+    padding: 48px 72px 52px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.title { margin-bottom: 28px; font-size: 40px; font-weight: 900; letter-spacing: -0.04em; }
+
+.title code { font-size: 36px; letter-spacing: 0; }
+
+.panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
+
+.caption { margin-bottom: 10px; font-size: 22px; font-weight: 800; }
+
+.caption.no { color: var(--no); }
+
+.caption.yes { color: var(--yes); }
+
+.caption span { font-weight: 400; color: var(--muted); }
+
+pre { margin: 0; padding: 16px 20px; border: 2px solid var(--ink); background: var(--paper); font: 17px/1.55 ui-monospace, 'JetBrains Mono', Menlo, monospace; white-space: pre; }
+
+.bad { background: var(--no-soft); color: var(--no); }
+
+.good { background: var(--yes-soft); color: var(--yes); }
+
+.foot { margin-top: 28px; font-size: 18px; color: var(--muted); }
+
+.foot b { color: var(--ink); }
+</style>
+<script>
+if (location.search === '?dark') {
+    document.documentElement.classList.add('dark');
+}
+</script>
+</head>
+<body>
+<div class="title">The result is <code>out</code> only as <code>return out;</code></div>
+<div class="panels">
+    <div>
+        <div class="caption no">✗ Not this <span>out returned on a condition</span></div>
+<pre>const <span class="bad">out</span> = rows.filter(v => v.ok);
+return (<span class="bad">out</span>.length > 0) ? <span class="bad">out</span> : null;</pre>
+    </div>
+    <div>
+        <div class="caption yes">✓ This <span>named by what it is</span></div>
+<pre>const <span class="good">ok_rows</span> = rows.filter(v => v.ok);
+return (<span class="good">ok_rows</span>.length > 0) ? <span class="good">ok_rows</span> : null;</pre>
+    </div>
+    <div>
+        <div class="caption no">✗ Not this <span>out transformed on its way out</span></div>
+<pre>const <span class="bad">out</span> = [];
+for (const row of rows) {
+    <span class="bad">out</span>.push(row.join(','));
+}
+return <span class="bad">out.join('\n')</span>;</pre>
+    </div>
+    <div>
+        <div class="caption yes">✓ This <span>named by what it is</span></div>
+<pre>const <span class="good">lines</span> = [];
+for (const row of rows) {
+    <span class="good">lines</span>.push(row.join(','));
+}
+return <span class="good">lines</span>.join('\n');</pre>
+    </div>
+    <div>
+        <div class="caption yes">✓ This <span>built, then returned as it is</span></div>
+<pre>const out = [];
+for (const user of users) {
+    out.push(user.email);
+}
+<span class="good">return out;</span></pre>
+    </div>
+    <div class="foot"><b>The only shape where <code>out</code> is right.</b> Anything else, <code>?:</code>, an <code>if</code>, <code>.join()</code>, a stringify, gets a name of its own.</div>
+</div>
+</body>
+</html>

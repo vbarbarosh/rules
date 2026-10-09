@@ -1279,14 +1279,7 @@ for (const child of node.children) { }</pre><button class="copy" type="button">C
 <article class="rule" id="VAR-13">
 <a class="code" href="#VAR-13">VAR-13</a>
 <div class="text"><p><strong>A transformed or conditional result is not "out".</strong> Only that variable is <code>out</code>. A value that is joined, stringified or otherwise transformed on its way out, or returned only on a condition (<code>?:</code>, <code>if</code>), is not <code>out</code>; it is named by what it is.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/return_out.md" title="drafts/return_out.md">return_out.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>function csv_from_rows(rows)
-{
-    const lines = &#91;];
-    for (const row of rows) {
-        lines.push(row.join(','));
-    }
-    return lines.join('&#92;n');
-}</pre><button class="copy" type="button">Copy</button></div>
+<a class="form figure" href="../drafts/return-out.png"><img class="light" src="../drafts/return-out.png" alt="out returned on a condition and out joined on its way out, each beside the same code with a name of its own; below, the one right shape: built, then return out;" width="2560" height="1530" loading="lazy"><img class="dark" src="../drafts/return-out-dark.png" alt="out returned on a condition and out joined on its way out, each beside the same code with a name of its own; below, the one right shape: built, then return out;" width="2560" height="1530" loading="lazy"></a>
 </article>
 <article class="rule" id="VAR-14">
 <a class="code" href="#VAR-14">VAR-14</a>
