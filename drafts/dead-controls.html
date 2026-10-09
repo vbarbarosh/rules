@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dead controls</title>
+<style>
+:root {
+    --bg: #f3f0e8;
+    --paper: #fffdf7;
+    --ink: #172019;
+    --muted: #687168;
+    --line: #c9cec4;
+    --bubble: #eeebe2;
+    --accent: #3d62ff;
+    --no: #d63b3b;
+    --yes: #2f8a4a;
+}
+
+html.dark {
+    --bg: #0f1713;
+    --paper: #14201a;
+    --ink: #f4f6ed;
+    --muted: #91a196;
+    --line: #2c3c33;
+    --bubble: #1e2d25;
+    --accent: #82a0ff;
+    --no: #ff6b6b;
+    --yes: #5fd08a;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body { margin: 0; width: 1280px; }
+
+body {
+    padding: 48px 72px 52px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.title { margin-bottom: 28px; font-size: 40px; font-weight: 900; letter-spacing: -0.04em; }
+
+.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+.caption { margin-bottom: 12px; font-size: 22px; font-weight: 800; }
+
+.caption.no { color: var(--no); }
+
+.caption.yes { color: var(--yes); }
+
+.caption span { font-weight: 400; color: var(--muted); }
+
+.screen { position: relative; height: 380px; padding: 18px 20px; border: 2px solid var(--ink); background: var(--paper); overflow: hidden; }
+
+.time { margin-bottom: 10px; font-size: 14px; text-align: center; color: var(--muted); }
+
+.bubble { padding: 14px 16px; border-radius: 12px; background: var(--bubble); font-size: 17px; }
+
+.button { margin-top: 10px; padding: 10px; border: 2px solid var(--ink); border-radius: 22px; font-size: 17px; font-weight: 700; text-align: center; }
+
+.button.is-main { border-color: var(--accent); background: var(--accent); color: var(--paper); }
+
+.button.is-pressed { outline: 3px solid var(--no); outline-offset: 3px; }
+
+.expired { margin-top: 12px; font-size: 15px; color: var(--muted); }
+
+.composer { position: absolute; left: 20px; right: 20px; bottom: 18px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; font-size: 16px; color: var(--muted); }
+
+.toast {
+    position: absolute;
+    left: 50%;
+    top: 226px;
+    width: 420px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 16px;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.foot { margin-top: 26px; font-size: 18px; color: var(--muted); }
+
+.foot b { color: var(--ink); }
+</style>
+<script>
+if (location.search === '?dark') {
+    document.documentElement.classList.add('dark');
+}
+</script>
+</head>
+<body>
+<div class="title">Show only what works: no button that only says “Sorry”</div>
+<div class="panels">
+    <div>
+        <div class="caption no">✗ Not this <span>pressed, then told it expired</span></div>
+        <div class="screen">
+            <div class="time">Yesterday 10:51</div>
+            <div class="bubble">Is there anything else I can help with?</div>
+            <div class="button is-main">Continue chat</div>
+            <div class="button is-pressed">End chat</div>
+            <div class="toast">Sorry, this option has timed out. Please type your request in the chat.</div>
+            <div class="composer">Type a message</div>
+        </div>
+    </div>
+    <div>
+        <div class="caption yes">✓ This <span>the app knew; it says so up front</span></div>
+        <div class="screen">
+            <div class="time">Yesterday 10:51</div>
+            <div class="bubble">Is there anything else I can help with?</div>
+            <div class="expired">These options expired yesterday at 10:51. Type below to go on.</div>
+            <div class="composer">Type a message</div>
+        </div>
+    </div>
+</div>
+<div class="foot"><b>Before drawing a control, ask its action “would this work now?”</b> No: hide it, or disable it with the reason on it.</div>
+</body>
+</html>

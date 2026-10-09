@@ -18,7 +18,7 @@ console.log(format_tree(tree));
 Not for machine formats — serialization is conversion, not display:
 
 ```js
-format_user(user)     // "Vladimir B. (admin)" — for humans
+format_user(user)     // "Alex K. (admin)" — for humans
 json_from_user(user)  // for machines
 ```
 
