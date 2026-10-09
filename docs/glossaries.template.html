@@ -148,9 +148,10 @@ pre {
     transition: color var(--fast), border-color var(--fast);
 }
 
-/* The repository, in the far right corner. */
+/* The repository, before the theme switch. */
 .github {
     display: flex;
+    padding: 6px;
     color: var(--muted);
     transition: color var(--fast);
 }
@@ -192,33 +193,33 @@ pre {
     border-bottom-color: var(--ink);
 }
 
+/* The switch looks like GitHub beside it: no frame, the same size. */
 .theme {
     display: inline-flex;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    transition: background-color var(--fast), border-color var(--fast);
 }
 
 .theme button {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
     color: var(--muted);
     background: transparent;
     border: 0;
-    padding: 7px 12px;
     cursor: pointer;
-    transition: color var(--fast), background-color var(--fast);
+    transition: color var(--fast);
 }
 
 .theme button:hover {
-    color: var(--ink);
+    color: var(--accent);
 }
 
+/* The sun fills 22 of its 24 units, the crescent 18: each drawn 22px, as GitHub. */
 .theme-icon { display: block; width: 24px; height: 24px; flex: none; }
 
-.theme-icon.theme-dark { display: none; }
+.theme-icon.theme-dark { display: none; width: 29px; height: 29px; }
 
 :root[data-theme="dark"] .theme-icon.theme-light { display: none; }
 
@@ -314,21 +315,17 @@ h1 {
     max-width: 0;
     margin-left: calc(-1 * var(--bar-gap));
     overflow: hidden;
-    border-width: 1px 0;
-    border-color: transparent;
     visibility: hidden;
     opacity: 0;
-    transition: background-color var(--fast), border-color var(--fast), opacity var(--fast), max-width var(--fast), margin-left var(--fast), border-width var(--fast), visibility 0s linear var(--fast);
+    transition: opacity var(--fast), max-width var(--fast), margin-left var(--fast), visibility 0s linear var(--fast);
 }
 
 .bar.docked .theme-docked {
     max-width: 140px;
     margin-left: 0;
-    border-width: 1px;
-    border-color: var(--line);
     visibility: visible;
     opacity: 1;
-    transition: background-color var(--fast), border-color var(--fast), opacity var(--fast), max-width var(--fast), margin-left var(--fast), border-width var(--fast), visibility 0s;
+    transition: opacity var(--fast), max-width var(--fast), margin-left var(--fast), visibility 0s;
 }
 
 .count {
@@ -742,10 +739,6 @@ footer .lead {
         --bar-gap: 10px;
     }
 
-    .theme-docked button {
-        padding: 7px 8px;
-    }
-
     .lede {
         font-size: 18px;
     }
@@ -988,10 +981,10 @@ footer .lead {
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
         </nav>
+        <a class="github" href="https://github.com/vbarbarosh/rules" title="github.com/vbarbarosh/rules" aria-label="GitHub repository"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
         <div class="theme" id="theme">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons -->{{theme_icons}}<!-- /theme-icons --></button>
         </div>
-        <a class="github" href="https://github.com/vbarbarosh/rules" title="github.com/vbarbarosh/rules" aria-label="GitHub repository"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
     </div>
     <h1>The Glossaries</h1>
     <p class="stats"><b>{{terms_count}}</b> terms<i>·</i><b>{{glossaries_count}}</b> glossaries<i>·</i><b>{{groups_count}}</b> groups</p>

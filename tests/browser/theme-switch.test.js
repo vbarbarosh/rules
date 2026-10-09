@@ -72,6 +72,38 @@ for (const page_file of page_files) {
     }
 }
 
+// The links come first and the switch last, at the right edge (MP-44).
+for (const page_file of page_files.filter(v => v !== 'drafts/scroll-anchoring.html')) {
+    for (const [width, theme_initial] of [[1280, 'light'], [1280, 'dark'], [375, 'dark']]) {
+        test(`${page_file}: ${width}px ${theme_initial} header ends with GitHub, then the theme switch, alike`, async function () {
+            const context = await browser.newContext({colorScheme: theme_initial, viewport: {width, height: 800}});
+            const page = await context.newPage();
+            try {
+                await page.route('https://**/*', v => v.abort());
+                await page.goto(`file://${path.join(root_dir, page_file)}`);
+                const last = await page.locator('.mast-top').evaluate(v => v.lastElementChild.id);
+                assert.equal(last, 'theme');
+                const github = await page.locator('.mast-top .github').boundingBox();
+                const theme = await page.locator('#theme').boundingBox();
+                assert.ok(github.x + github.width <= theme.x, `GitHub ends at ${github.x + github.width}, the switch starts at ${theme.x}`);
+                assert.ok(Math.abs((github.y + github.height/2) - (theme.y + theme.height/2)) < 4, 'GitHub and the switch share one line');
+                assert.ok(theme.x + theme.width <= width, 'the switch stays on screen');
+                // The two look alike: one size, no frame (MP-45).
+                const button = await page.locator('#theme button').boundingBox();
+                assert.deepEqual([button.width, button.height], [github.width, github.height]);
+                // What is drawn, not the icon's box: the crescent fills less of its box than the sun.
+                const drawn = await page.locator('.mast-top .github path, #theme .theme-icon:visible path').evaluateAll(v => v.map(vv => vv.getBoundingClientRect().width));
+                assert.ok(Math.abs(drawn[0] - drawn[1]) <= 1, `GitHub is drawn ${drawn[0]}px, the switch ${drawn[1]}px`);
+                const frames = await page.locator('#theme, #theme button, .mast-top .github').evaluateAll(v => v.map(vv => getComputedStyle(vv).borderTopWidth));
+                assert.deepEqual(frames, ['0px', '0px', '0px']);
+            }
+            finally {
+                await context.close();
+            }
+        });
+    }
+}
+
 async function state_assert(page, theme)
 {
     assert.equal(await page.locator('html').getAttribute('data-theme'), theme);

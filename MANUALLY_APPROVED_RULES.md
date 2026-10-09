@@ -470,6 +470,8 @@ theme switch and then the GitHub icon in the corner, the same on every page.
 The author's note "to decide" in the top half of page_header.md is answered
 by this entry; the note itself is the author's to change.
 
+**Superseded:** 2026-10-09 by MP-44, the theme switch last.
+
 ## MP-42 — The SQL rules are MySQL's
 
 **Scope:** the SQL group, SQL-03, [sql](drafts/sql.md).
@@ -492,3 +494,29 @@ The rules of the UI mechanics group carry the group's own code: UI-09 to
 UI-20 are UIM-01 to UIM-12. A link to an old code still opens the rule: the
 page redirects it. A code still never changes when a rule moves between
 existing groups; a group of its own is the one case that gets new codes.
+
+## MP-44 — Right of the header: the links, then the theme switch last
+
+**Scope:** UI-06, UI-08, [page header](drafts/page_header.md); supersedes
+MP-41.
+**Approved:** 2026-10-09, author request `20261009_231222-me` ("the theme
+switch must be at the very end, and GitHub goes before it"), with the reason
+to be kept in the explanation (`20261009_231249-me`).
+
+The right end of the header holds, left to right, the project's links and
+then the theme switch, always last, at the right edge, the same on every
+page. The links are the GitHub icon and, when the project has them, others
+such as Twitter or Facebook. Why: there may be several links and their
+number differs between projects; after all of them, the theme switch keeps
+one place on every page.
+
+## MP-45 — The header icons look alike
+
+**Scope:** UI-08, [page header](drafts/page_header.md),
+[theme switch](drafts/theme_switch.md) in a page header.
+**Approved:** 2026-10-09, author comment in `20261009_232540-me` ("all the
+icons should be in one style, in the same sizes").
+
+The icons at the right end of the header, the links and the theme switch,
+share one look: the same size, the same colour, no frame on any of them.
+The switch's freedom of size and border (MP-17) yields to this in a header.

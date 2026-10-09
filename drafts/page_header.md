@@ -30,16 +30,23 @@ optional; the rest are always there.
    starts at the left edge of the content column, so the header continues
    the columns below it: the project over the sidebar, the search over the
    content.
-5. **Theme switch.** The light/dark switch of [theme_switch.md](theme_switch.md):
-   one sun/crescent button showing the current theme, on every page.
-6. **GitHub.** The GitHub icon, in the far right corner, a link to the
-   project's repository.
+5. **Links.** The GitHub icon, a link to the project's repository; other
+   links of the project beside it, Twitter or Facebook, when it has them.
+6. **Theme switch.** The light/dark switch of [theme_switch.md](theme_switch.md):
+   one sun/crescent button showing the current theme, on every page, always
+   the last thing on the right.
 
-The project sits at the left end and the two controls at the right end, in
-this order on every page: decided on 2026-10-08 (MP-41), where the notes
-above left it open. The GitHub link takes the reader off the site, so
-it gets the edge; the theme switch belongs to the page and stays inside it.
-authwall, Vite and Vue order them this way.
+The project sits at the left end, the links and the theme switch at the
+right end, in this order on every page: decided on 2026-10-09 (MP-44),
+replacing the order of MP-41. A project may have several links, GitHub,
+Twitter, Facebook, and their number changes from one project to another;
+put after them, the theme switch stays in the same place on every page, at
+the right edge, where the reader finds it without looking.
+
+The icons on the right look alike: the same size, the same colour, and no
+frame on any of them; the theme switch has none of its own (MP-45). A
+switch in a frame beside a bare GitHub icon, or one larger than it, reads
+as a different kind of control.
 
 What goes at the bottom of the page is not decided yet.
 

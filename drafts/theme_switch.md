@@ -27,7 +27,9 @@ Use the same SVG paths everywhere: [sun](../img/theme-sun.svg) and
 [Rebalancer theme switch](https://facebook.github.io/rebalancer/docs/intro/).
 Do not substitute Unicode symbols, an emoji, another icon library or a newly
 drawn moon. The button's size and border may follow its interface; the pair
-and its meaning stay the same. The icons use `currentColor`.
+and its meaning stay the same. In a page header it takes the look of the
+icons beside it: the size of the GitHub icon and no frame
+([page_header.md](page_header.md)). The icons use `currentColor`.
 
 Use a native `button type="button"`. Hide its SVGs from assistive technology
 with `aria-hidden="true"` and `focusable="false"`. Its accessible label names
