@@ -22,6 +22,16 @@ project, so all JavaScript code follows the same conventions.
       }
       ```
     * Function expressions and callbacks also keep the opening brace on the declaration line
+    * An empty function expression or arrow is a no-op, as `ignore` is: its body is `{}` on one line, never split over two. A function declaration and a method keep their braces on lines of their own; a body holding only a comment is not empty:
+      ```js
+      // BAD
+      params.update = params.update || function () {
+      };
+
+      // GOOD
+      params.update = params.update || function () {};
+      promise.catch(() => {});
+      ```
     * Do **not** use arrow functions for non-trivial logic
     * Arrow functions allowed **only** for tiny callbacks (`v => v.uid`)
     * Options-style methods always use function expressions, including return-only methods; tiny callback and value-factory arrows keep their own scope

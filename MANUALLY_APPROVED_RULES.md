@@ -520,3 +520,16 @@ icons should be in one style, in the same sizes").
 The icons at the right end of the header, the links and the theme switch,
 share one look: the same size, the same colour, no frame on any of them.
 The switch's freedom of size and border (MP-17) yields to this in a header.
+
+## MP-46 — An empty function stays on one line
+
+**Scope:** FMT-31, FMT-04, LINT-03, [formatting](FORMATTING.md),
+`block-layout`, `tiny-arrows`.
+**Approved:** 2026-10-10, author voice comment in `20261010_005629-me`
+("function () {} is, in effect, ignore; such a construct is acceptable; the
+second variant is bad at all") and `20261010_005904-me` (the same for an
+empty arrow, "sometimes I write it so, to be shorter").
+
+An empty function expression, `function () {}`, and an empty arrow,
+`() => {}`, are a no-op, as `ignore` is, and stay on one line. Splitting the
+braces over two lines is wrong. The arrow is allowed, not required.

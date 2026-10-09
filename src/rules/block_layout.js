@@ -30,10 +30,28 @@ function block_layout(context)
             const top = (parent.type === 'FunctionDeclaration') && !ancestors.some(v => /Function/.test(v.type));
             check_gap(source.getTokenBefore(open), open, top);
         }
+        // An empty function expression is a no-op, as `ignore` is: `function () {}`.
+        if (is_noop(node)) {
+            if (open.range[1] !== close.range[0]) {
+                context.report({
+                    loc: close.loc,
+                    messageId: 'noop',
+                    fix: v => v.removeRange([open.range[1], close.range[0]]),
+                });
+            }
+            return;
+        }
         if (source.getTokenAfter(open) !== close) {
             check_gap(open, source.getTokenAfter(open), true);
         }
         check_gap(source.getTokenBefore(close), close, true);
+    }
+    function is_noop(node) {
+        const parent = node.parent;
+        if ((parent?.type !== 'FunctionExpression') || (node.body.length > 0) || (source.getCommentsInside(node).length > 0)) {
+            return false;
+        }
+        return (parent.parent.type !== 'MethodDefinition') && !parent.parent.method;
     }
     return {
         BlockStatement: check_block,
@@ -64,7 +82,7 @@ module.exports = {
         type: 'layout',
         fixable: 'whitespace',
         schema: [],
-        messages: {newline: 'Start this token on a new line.', same: 'Keep this opening brace on the declaration line.'},
+        messages: {newline: 'Start this token on a new line.', same: 'Keep this opening brace on the declaration line.', noop: 'An empty function is a no-op: write its body as {} on one line.'},
     },
     create: block_layout,
 };

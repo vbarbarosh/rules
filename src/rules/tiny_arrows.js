@@ -8,7 +8,7 @@ function tiny_arrows(context)
                 context.report({node, messageId: 'method'});
                 return;
             }
-            if (node.body.type === 'BlockStatement') {
+            if ((node.body.type === 'BlockStatement') && !is_noop(node, context.sourceCode)) {
                 context.report({node, messageId: 'block'});
             }
             else if ((node.loc.start.line !== node.loc.end.line) || !['CallExpression', 'NewExpression', 'Property'].includes(node.parent.type)) {
@@ -27,6 +27,12 @@ function tiny_arrows(context)
             }
         },
     };
+}
+
+// `() => {}` is a no-op, as `ignore` is; it is laid out as any tiny arrow.
+function is_noop(node, source)
+{
+    return (node.body.body.length === 0) && (source.getCommentsInside(node.body).length === 0);
 }
 
 function is_options_method(node)

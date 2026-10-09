@@ -60,7 +60,9 @@ function demo()
     fresh.catch(e => report(e));
 
     // arrow with a block body does not exist — it becomes function (...) {}
-    // with optional _this inside
+    // with optional _this inside; an empty one is a no-op, as ignore is
+    promise.catch(() => {});
+    promise.catch(function () {});
 
     // if / else if / else
     if (a) {
