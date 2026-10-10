@@ -548,3 +548,18 @@ follows, out is not needed there; then give them normal names") and
 `out` is the variable returned as `return out;` and nothing else. A value
 returned on a condition or transformed on its way out gets a name of its own.
 Each generic name has one meaning, listed on one page.
+
+## MP-48 — A piece shown in two places is one component
+
+**Scope:** VUE-20 to VUE-24, [Vue components](vue2/vue-components.md).
+**Approved:** 2026-10-10, author message `20261010_230651-me` (a rule from
+visual-agency: "Badges: one component each, named badge-*") and voice
+comment `20261010_230718-me` ("this note is about components: how to split
+an app into components, how to represent it as components").
+
+Each badge is a Vue component of its own, named `badge-<what it says>`, never
+a `<span>` with the same classes copied into every place. What changes goes
+in as a parameter, a variant is a suffix, one Sass mixin gives all of them
+one look and each sets only its own colours. The badge is the example of the
+wider rule: an app is split into components, one per piece it shows in more
+than one place.

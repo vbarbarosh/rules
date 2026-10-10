@@ -21,7 +21,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below, all 265 of them, in one filterable table**
+- **[docs/rules.html](rules.html) — every rule below, all 277 of them, in one filterable table**
 - JavaScript formatting — [specification](../FORMATTING.md) · [visual representation](../formatting.html)
 - Bash scripts — all scripts follow [bin/templ](../bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
 - [drafts/var_names.md](../drafts/var_names.md) — a variable name states the shape of its data
@@ -82,7 +82,7 @@ and keeping the reader's place. See the [UI mechanics group](rules.html#UIM).
 - [vue2/vue-button.md](../vue2/vue-button.md) — one button, one class
 - [vue2/vue-slider.md](../vue2/vue-slider.md) — thumb position is `0 .. 100%`
 - [vue2/vue-svg-icon.md](../vue2/vue-svg-icon.md) — one `svg-icon-*.vue` per icon, `currentColor`
-- [vue2/vue-components.md](../vue2/vue-components.md) — option order; `click_*` handlers named after the UI part
+- [vue2/vue-components.md](../vue2/vue-components.md) — option order; `click_*` handlers named after the UI part; a piece shown in two places is a `<kind>-*` component
 
 ## Natural Pairs
 

@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-272 rules · 18 groups · 54 sources · filterable version: [rules.html](rules.html)
+277 rules · 18 groups · 54 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -27,7 +27,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | MySQL: upper-case keywords; the query laid out like code. |
-| VUE | Vue 2 | 19 | Components that behave like the platform. |
+| VUE | Vue 2 | 24 | Components that behave like the platform. |
 | UI | UI appearance | 8 | How a screen looks. |
 | UIM | UI mechanics | 15 | How a screen works. |
 | DOC | Writing the rules | 13 | How a document in this repo is built. |
@@ -274,6 +274,11 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VUE-17 | **A handler on an icon is named after the icon.** | <pre>&lt;button v-on:click="click_icon_archive"&gt;<br>    &lt;svg-icon-archive /&gt;<br>&lt;/button&gt;</pre> | [vue-components.md](../vue2/vue-components.md) |
 | VUE-18 | **Rename the handler with its label.** After the text or icon is changed, rename the corresponding event handler. | `Approve → Accept     // click_approve → click_accept` | [vue-components.md](../vue2/vue-components.md) |
 | VUE-19 | **Empty elements close themselves.** An element without a body closes itself — a component, an HTML element and a void element alike. This holds in `.vue` files and string templates; an in-DOM template is parsed by the browser first. | <pre>&lt;th&gt;&lt;/th&gt;   ✗ no<br>&lt;th /&gt;       ✓ yes<br><br>&lt;app-input-email v-model="user.email" /&gt;</pre> | [vue-formatting.md](../vue2/vue-formatting.md) |
+| VUE-20 | **A piece shown in two places is a component.** Whatever the screen shows in more than one place, a badge most often, is a Vue component of its own, used in each place. Never the same markup and classes copied: a change then reaches some copies and misses the others. | <pre>&lt;span class="flex-row-cl gap5 br999 #-reply"&gt;   ✗ no<br>    In progress {{ detail }}<br>&lt;/span&gt;<br><br>&lt;badge-in-progress v-bind:detail="detail" /&gt;   ✓ yes</pre> | [vue-components.md](../vue2/vue-components.md) |
+| VUE-21 | **Named kind first.** A component is named `<kind>-<what it says>`, as icons are `svg-icon-*`. Sorted by name, every component of a kind sits together. | <pre>badge-filing<br>badge-in-progress<br>badge-no-reply</pre> | [vue-components.md](../vue2/vue-components.md) |
+| VUE-22 | **What changes is a prop.** What differs from place to place goes in as a prop: a count, a time, a plan's progress. The component holds the rest. | <pre>&lt;badge-new v-bind:count="3" /&gt;              // 3 new<br>&lt;badge-in-progress detail="for 4 h" /&gt;</pre> | [vue-components.md](../vue2/vue-components.md) |
+| VUE-23 | **A variant is a suffix.** A smaller or otherwise different form is a component of its own, named with a suffix; never a second copy written by hand where it is needed. | `badge-in-progress → badge-in-progress-sm` | [vue-components.md](../vue2/vue-components.md) |
+| VUE-24 | **A kind shares one look through one mixin.** What every component of a kind shares, its shape, size and type, comes from one Sass mixin; each component sets only its own colours. | <pre>.#-root<br>    @include app-badge<br>    background: var(--accent-soft)<br>    color: var(--accent)</pre> | [vue-components.md](../vue2/vue-components.md) |
 | **UI** | **UI appearance** — How a screen looks. | | |
 | UI-01 | **Every screen has a light/dark switch.** An app screen, a report, a standalone page: each shows a switch the reader can click. Following the OS setting alone does not count. | — | [theme_switch.md](../drafts/theme_switch.md) |
 | UI-02 | **Two states, one shared icon button.** Show the current theme: sun for Light, crescent for Dark. Use `img/theme-sun.svg` and `img/theme-moon.svg`; size and border may vary. Click toggles directly, with no menu, System or Auto option. | <pre>Sun: Light → Crescent: Dark → Sun: Light</pre> | [theme_switch.md](../drafts/theme_switch.md) |
