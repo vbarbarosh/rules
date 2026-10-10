@@ -26,6 +26,7 @@
     --yes: #1a7443;
     --no: #b2341f;
     --cmt: #6c6e65;
+    --scrollbar: #c2beb0;
     --bar-h: 56px;
     --bar-gap: 16px;
     --head-h: 44px;
@@ -51,6 +52,7 @@
     --yes: #72d39c;
     --no: #ff937c;
     --cmt: #878b82;
+    --scrollbar: #3b4047;
 }
 
 * {
@@ -61,8 +63,10 @@
     display: none !important;
 }
 
+/* the scrollbars take the page's colours, not the browser's white */
 html {
     -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--scrollbar) transparent;
 }
 
 /* smooth only after load: the jump to a rule link must land before anything moves */

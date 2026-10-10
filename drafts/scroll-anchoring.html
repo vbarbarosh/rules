@@ -15,6 +15,7 @@
     --summary: #e4e9ff;
     --mark: #e5484d;
     --accent: #3d62ff;
+    --scrollbar: #bec4b9;
 }
 
 :root[data-theme="dark"] {
@@ -27,6 +28,12 @@
     --summary: #1f2a4d;
     --mark: #ff6b6b;
     --accent: #82a0ff;
+    --scrollbar: #33453b;
+}
+
+/* the scrollbars take the page's colours, not the browser's white */
+html {
+    scrollbar-color: var(--scrollbar) transparent;
 }
 
 * { box-sizing: border-box; }

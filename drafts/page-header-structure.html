@@ -12,6 +12,7 @@
     --line: #c9cec4;
     --code-bg: #eeebe2;
     --accent: #3d62ff;
+    --scrollbar: #bec4b9;
     --optional: #8a9288;
     --optional-bg: #f7f4ec;
 }
@@ -25,8 +26,14 @@ html.dark,
     --line: #2c3c33;
     --code-bg: #1e2d25;
     --accent: #82a0ff;
+    --scrollbar: #33453b;
     --optional: #6f8076;
     --optional-bg: #18241e;
+}
+
+/* the scrollbars take the page's colours, not the browser's white */
+html {
+    scrollbar-color: var(--scrollbar) transparent;
 }
 
 * { box-sizing: border-box; }
