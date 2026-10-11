@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="540" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">A short body, only when needed</text>
+<text x="48" y="108" fill="#92958c" font-size="22">after one blank line, in ordinary sentences</text>
+<rect x="60" y="160" width="1080" height="200" rx="12" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<rect x="80" y="178" width="1040" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="96" y="204" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">docs: link the placement rules, gates and portals as they stand</text>
+<text x="96" y="248" fill="#92958c" font-size="17">the title</text>
+<rect x="80" y="268" width="1040" height="76" rx="6" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="96" y="296" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">docs/README.md lists placement.md; objects.md describes gates and</text>
+<text x="96" y="326" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">portals as the placement rules now put them.</text>
+<rect x="60" y="390" width="700" height="51.2" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="80.0" y="424.6" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">maps: one name for the gate jump reach</text>
+<text x="800" y="420" fill="#92958c" font-size="18">no body: none needed</text>
+<text x="48" y="520" fill="#92958c" font-size="21">A body says what the title cannot, briefly; most commits need none.</text>
+</svg>
