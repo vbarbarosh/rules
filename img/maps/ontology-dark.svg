@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="780" fill="#16181b"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#92958c"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Ontology</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the things a field talks about and how they relate; here, the words of this note</text>
+<line x1="600" y1="219" x2="600" y2="321" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="564" y="255" width="73" height="30" rx="15" fill="#16181b"/>
+<text x="600" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">holds</text>
+<line x1="720" y1="190" x2="890" y2="190" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="768" y="175" width="73" height="30" rx="15" fill="#16181b"/>
+<text x="805" y="197" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">holds</text>
+<line x1="530" y1="379" x2="260" y2="491" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="348" y="420" width="95" height="30" rx="15" fill="#16181b"/>
+<text x="395" y="442" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">made of</text>
+<line x1="190" y1="549" x2="190" y2="661" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="164" y="590" width="51" height="30" rx="15" fill="#16181b"/>
+<text x="190" y="612" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">has</text>
+<line x1="580" y1="379" x2="500" y2="491" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="476" y="420" width="128" height="30" rx="15" fill="#16181b"/>
+<text x="540" y="442" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">planned in</text>
+<line x1="480" y1="549" x2="480" y2="661" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="454" y="590" width="51" height="30" rx="15" fill="#16181b"/>
+<text x="480" y="612" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">has</text>
+<line x1="634" y1="379" x2="766" y2="491" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="674" y="420" width="51" height="30" rx="15" fill="#16181b"/>
+<text x="700" y="442" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">has</text>
+<line x1="800" y1="549" x2="800" y2="661" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="764" y="590" width="73" height="30" rx="15" fill="#16181b"/>
+<text x="800" y="612" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">shows</text>
+<line x1="678" y1="379" x2="982" y2="491" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="804" y="420" width="51" height="30" rx="15" fill="#16181b"/>
+<text x="830" y="442" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">has</text>
+<line x1="190" y1="379" x2="190" y2="491" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="159" y="420" width="62" height="30" rx="15" fill="#16181b"/>
+<text x="190" y="442" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
+<line x1="992" y1="219" x2="818" y2="491" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="868" y="340" width="73" height="30" rx="15" fill="#16181b"/>
+<text x="905" y="362" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">keeps</text>
+<rect x="480.0" y="161.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="600" y="198" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Note (agentdir)</text>
+<rect x="890.0" y="161.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="1010" y="198" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">commondir</text>
+<rect x="480.0" y="321.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="600" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Conversation</text>
+<rect x="70.0" y="491.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="190" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Message</text>
+<rect x="70.0" y="661.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="190" y="698" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Marker .working</text>
+<rect x="360.0" y="491.0" width="240" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="480" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Roadmap (plan)</text>
+<rect x="360.0" y="661.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="480" y="698" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Part  P1, P2 …</text>
+<rect x="680.0" y="491.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="800" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Subject file</text>
+<rect x="680.0" y="661.0" width="240" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="800" y="698" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Milestone</text>
+<rect x="940.0" y="491.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="1060" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Cover</text>
+<rect x="70.0" y="321.0" width="240" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="190" y="358" fill="#d3d1c9" font-size="19" font-weight="400" text-anchor="middle">20261010_055019-me</text>
+<g font-size="19" fill="#92958c"><rect x="960" y="630" width="34" height="22" rx="5" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/><text x="1004" y="648">a concept (class)</text><rect x="960" y="664" width="34" height="22" rx="5" fill="#212428" stroke="#92958c" stroke-width="2" stroke-dasharray="6 4"/><text x="1004" y="682">one thing (instance)</text><rect x="960" y="698" width="34" height="22" rx="5" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/><text x="1004" y="716">the two terms before</text><line x1="960" y1="743" x2="994" y2="743" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/><text x="1004" y="750">a relation</text></g>
+</svg>

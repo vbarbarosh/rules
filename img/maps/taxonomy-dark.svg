@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1300" height="730" fill="#16181b"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#92958c"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Taxonomy</text>
+<text x="48" y="108" fill="#92958c" font-size="22">sorting into kinds and kinds of kinds, like animal › bird › owl; here, the kinds of things in this note</text>
+<line x1="291" y1="321" x2="571" y2="219" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="401" y="255" width="60" height="30" rx="15" fill="#16181b"/>
+<text x="431" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
+<line x1="666" y1="321" x2="654" y2="219" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="630" y="255" width="60" height="30" rx="15" fill="#16181b"/>
+<text x="660" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
+<line x1="1018" y1="321" x2="732" y2="219" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="845" y="255" width="60" height="30" rx="15" fill="#16181b"/>
+<text x="875" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
+<line x1="127" y1="491" x2="195" y2="379" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="297" y1="491" x2="230" y2="379" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="579" y1="491" x2="651" y2="379" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="761" y1="491" x2="689" y2="379" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="670" y1="651" x2="670" y2="379" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="1017" y1="491" x2="1083" y2="379" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="1183" y1="491" x2="1117" y2="379" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="555.0" y="161.0" width="190" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="650" y="198" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">A thing</text>
+<rect x="117.0" y="321.0" width="190" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="212" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Message</text>
+<rect x="575.0" y="321.0" width="190" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="670" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Page</text>
+<rect x="1005.0" y="321.0" width="190" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="1100" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Marker</text>
+<rect x="15.0" y="491.0" width="190" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="110" y="528" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">the author's  -me</text>
+<rect x="220.0" y="491.0" width="190" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="315" y="528" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">the agent's  -agent</text>
+<rect x="465.0" y="491.0" width="190" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="560" y="528" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">Subject file</text>
+<rect x="685.0" y="491.0" width="190" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="780" y="528" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">Cover</text>
+<rect x="575.0" y="651.0" width="190" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="670" y="688" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">Plan</text>
+<rect x="905.0" y="491.0" width="190" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="1000" y="528" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">.working</text>
+<rect x="1105.0" y="491.0" width="190" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="1200" y="528" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">.cancelled</text>
+<g font-size="21" fill="#92958c"><text x="48" y="650">every arrow is "is a": a kind of the one above</text><text x="48" y="682">a tree of kinds; an ontology adds the other links</text></g>
+</svg>

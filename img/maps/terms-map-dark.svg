@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="730" fill="#16181b"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#92958c"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">The terms and how they relate</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the page of terms as its own small ontology</text>
+<line x1="204" y1="331" x2="396" y2="229" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="270" y="265" width="60" height="30" rx="15" fill="#16181b"/>
+<text x="300" y="287" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
+<line x1="450" y1="331" x2="450" y2="229" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="420" y="265" width="60" height="30" rx="15" fill="#16181b"/>
+<text x="450" y="287" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
+<line x1="150" y1="491" x2="150" y2="389" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="120" y="425" width="60" height="30" rx="15" fill="#16181b"/>
+<text x="150" y="447" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
+<line x1="204" y1="491" x2="396" y2="389" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="235" y="425" width="130" height="30" rx="15" fill="#16181b"/>
+<text x="300" y="447" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">backbone of</text>
+<line x1="450" y1="491" x2="450" y2="389" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="390" y="425" width="120" height="30" rx="15" fill="#16181b"/>
+<text x="450" y="447" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">grows into</text>
+<line x1="650" y1="360" x2="550" y2="360" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="570" y="345" width="60" height="30" rx="15" fill="#16181b"/>
+<text x="600" y="367" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">uses</text>
+<line x1="804" y1="331" x2="996" y2="229" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="865" y="265" width="70" height="30" rx="15" fill="#16181b"/>
+<text x="900" y="287" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">feeds</text>
+<line x1="804" y1="491" x2="996" y2="389" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="855" y="425" width="90" height="30" rx="15" fill="#16181b"/>
+<text x="900" y="447" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">laid on</text>
+<line x1="950" y1="520" x2="850" y2="520" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="865" y="505" width="70" height="30" rx="15" fill="#16181b"/>
+<text x="900" y="527" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">marks</text>
+<line x1="750" y1="651" x2="750" y2="549" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="715" y="585" width="70" height="30" rx="15" fill="#16181b"/>
+<text x="750" y="607" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">feeds</text>
+<line x1="804" y1="549" x2="996" y2="651" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="870" y="585" width="60" height="30" rx="15" fill="#16181b"/>
+<text x="900" y="607" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
+<line x1="463" y1="651" x2="687" y2="549" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="510" y="585" width="130" height="30" rx="15" fill="#16181b"/>
+<text x="575" y="607" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">opposite of</text>
+<rect x="350.0" y="171.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="450" y="208" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Graph</text>
+<rect x="950.0" y="171.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="1050" y="208" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Context</text>
+<rect x="50.0" y="331.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="150" y="368" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Tree</text>
+<rect x="350.0" y="331.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="450" y="368" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Ontology</text>
+<rect x="650.0" y="331.0" width="200" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="750" y="368" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Knowledge graph</text>
+<rect x="950.0" y="331.0" width="200" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="1050" y="368" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Timeline</text>
+<rect x="50.0" y="491.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="150" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Taxonomy</text>
+<rect x="350.0" y="491.0" width="200" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="450" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Glossary</text>
+<rect x="650.0" y="491.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="750" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Roadmap</text>
+<rect x="950.0" y="491.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="1050" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Milestone</text>
+<rect x="650.0" y="651.0" width="200" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="750" y="688" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Backlog</text>
+<rect x="950.0" y="651.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="1050" y="688" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Map</text>
+<rect x="300.0" y="651.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="400" y="688" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Breadcrumbs</text>
+<g font-size="19" fill="#92958c"><rect x="760" y="36" width="34" height="22" rx="5" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/><text x="804" y="54">the terms you named or kept</text><rect x="760" y="72" width="34" height="22" rx="5" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/><text x="804" y="90">proposed, to keep or drop</text></g>
+</svg>

@@ -529,6 +529,46 @@ footer code {
     align-self: start;
 }
 
+/* A picture of a term goes under its text, the whole width; several share one row. */
+.figure {
+    grid-column: 2 / -1;
+    max-width: 960px;
+}
+
+.rule:has(> .figure) .text {
+    grid-column: 2 / -1;
+    max-width: 75ch;
+}
+
+.figures {
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 360px));
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.figures .figure {
+    grid-column: auto;
+}
+
+.figures:has(> :only-child) {
+    grid-template-columns: minmax(0, 960px);
+}
+
+.figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    transition: border-color var(--fast);
+}
+
+:root[data-theme="dark"] .figure .light,
+:root:not([data-theme="dark"]) .figure .dark {
+    display: none;
+}
+
 .form pre {
     margin: 0;
     padding: 11px 14px 12px;
@@ -752,7 +792,10 @@ footer .lead {
         gap: 4px;
     }
 
-    .rule.bare .text {
+    .rule.bare .text,
+    .rule:has(> .figure) .text,
+    .figure,
+    .figures {
         grid-column: auto;
     }
 
@@ -1071,6 +1114,9 @@ function haystack_from_rule(rule_el)
     const parts = [rule_el.id];
     for (const el of rule_el.querySelectorAll('.text p, .src, .form pre, .form.prose')) {
         parts.push(el.textContent);
+    }
+    for (const img of rule_el.querySelectorAll('.figure img')) {
+        parts.push(img.alt);
     }
     return parts.join(' ').toLowerCase();
 }

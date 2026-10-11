@@ -131,6 +131,7 @@ One task, told as each person's story; see
 - [glossaries/agents.md](../glossaries/agents.md) — vocabulary for developing agents: parts, roles, time, messages, tools
 - [glossaries/testing.md](../glossaries/testing.md) — happy path, smoke tests, flaky tests, intermittent failures, showstoppers, self-check
 - [glossaries/doc.md](../glossaries/doc.md) — vocabulary and glossary: the words about words
+- [glossaries/maps.md](../glossaries/maps.md) — maps and ways: tree, graph, map, taxonomy, ontology, knowledge graph; roadmap, milestone, breadcrumbs, timeline, backlog
 
 ## Naming Grammar
 

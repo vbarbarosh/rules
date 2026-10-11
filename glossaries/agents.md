@@ -110,3 +110,18 @@ An agent is named by its workspace.
 | coding agent   | workspace = repo; tools = view, grep, edit, shell.                                   |
 | design agent   | workspace = canvas or artifact; tools = inspect, render, place, style.               |
 | embedded agent | workspace = app data via the app's API; scope enforced by the app's access controls. |
+
+## Context
+
+What surrounds a thing and gives it its meaning: the sentence around a word,
+the conversation around a message, the project around a file. The same
+words mean different things in different contexts, so the context is read
+first and the thing after.
+
+For an AI model, the context is the context window: everything it reads
+before it answers, counted in tokens. One call sends it whole: the system
+message, the tool definitions, the transcript or its compacted form, the
+grounding. The model has nothing else: what is not in the context does not
+exist for it, and what falls out of it (compacted away, or left behind when
+a session ends) is gone unless it was written down somewhere it will be
+read again, a note, a file, a database.

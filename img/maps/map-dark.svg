@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="730" fill="#16181b"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#92958c"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Map</text>
+<text x="48" y="108" fill="#92958c" font-size="22">a smaller picture that keeps what matters of something bigger: where things are and how they connect</text>
+<!-- territory to map -->
+<text x="48" y="170" fill="#d3d1c9" font-size="24" font-weight="700">A map of a place</text>
+<rect x="48" y="190" width="330" height="250" rx="12" fill="#212428"/>
+<path d="M60 400 C 120 330, 160 380, 220 300 S 320 230, 370 210" fill="none" stroke="#1b2346" stroke-width="26"/>
+<g fill="#16301f"><circle cx="110" cy="250" r="34"/><circle cx="300" cy="380" r="40"/><circle cx="160" cy="240" r="22"/></g>
+<rect x="250" y="250" width="40" height="30" fill="#4a4f57"/><path d="M244 252 l26 -22 26 22z" fill="#92958c"/>
+<text x="213" y="470" fill="#92958c" font-size="20" text-anchor="middle">the place: everything</text>
+<line x1="390" y1="315" x2="450" y2="315" stroke="#92958c" stroke-width="3" marker-end="url(#a)"/>
+<rect x="460" y="230" width="170" height="170" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<path d="M468 380 C 500 340, 520 360, 545 320 S 600 270, 622 255" fill="none" stroke="#9db2ff" stroke-width="5"/>
+<path d="M556 290 l12 -10 12 10z" fill="#d3d1c9"/>
+<circle cx="500" cy="270" r="8" fill="#72d39c"/><circle cx="596" cy="360" r="9" fill="#72d39c"/>
+<text x="545" y="470" fill="#92958c" font-size="20" text-anchor="middle">the map: what matters</text>
+<!-- key value -->
+<text x="700" y="170" fill="#d3d1c9" font-size="24" font-weight="700">A map in code: key → value</text>
+<g font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-size="20">
+<rect x="700" y="190" width="452" height="250" rx="12" fill="#0b0c0e"/>
+<text x="724" y="236" fill="#9db2ff">'roadmap'</text><text x="884" y="236" fill="#92958c">→</text><text x="920" y="236" fill="#d3d1c9">the way ahead</text>
+<text x="724" y="284" fill="#9db2ff">'milestone'</text><text x="884" y="284" fill="#92958c">→</text><text x="920" y="284" fill="#d3d1c9">a point on it</text>
+<text x="724" y="332" fill="#9db2ff">'tree'</text><text x="884" y="332" fill="#92958c">→</text><text x="920" y="332" fill="#d3d1c9">one parent each</text>
+<text x="724" y="380" fill="#9db2ff">'graph'</text><text x="884" y="380" fill="#92958c">→</text><text x="920" y="380" fill="#d3d1c9">any links</text>
+<text x="724" y="420" fill="#92958c">…  one value per key</text>
+</g>
+<text x="48" y="530" fill="#d3d1c9" font-size="24" font-weight="700">Here</text>
+<text x="48" y="566" fill="#92958c" font-size="21">A roadmap is a map of the way; the picture "The terms and how they relate" is a map of the terms (a concept map);</text>
+<text x="48" y="598" fill="#92958c" font-size="21">this page is a map from each term to its meaning; a subject file is a map of where a subject stands.</text>
+<text x="48" y="650" fill="#d3d1c9" font-size="21" font-style="italic">"The map is not the territory": it leaves out on purpose, and what it leaves out decides what it is good for.</text>
+</svg>

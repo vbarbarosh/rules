@@ -24,7 +24,7 @@ test('generated rule and guide images all reserve positive dimensions, including
     const result = build();
     assert.equal(result.status, 0, result.stderr);
     let count = 0;
-    for (const file of ['docs/rules.html', 'docs/agents.html']) {
+    for (const file of ['docs/rules.html', 'docs/agents.html', 'docs/glossaries.html']) {
         const html = fs.readFileSync(path.join(fixture_dir, file), 'utf8');
         for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
             assert.match(tag, /width="[1-9]\d*"/);
@@ -61,6 +61,33 @@ test('a picture after a rule form goes under the text and the form', function ()
     assert.match(rule, /<div class="figures"><a class="figure" href="..\/drafts\/optimistic-updates.gif"><img class="light" .*?><img class="dark" src="..\/drafts\/optimistic-updates-dark.gif"/);
 });
 
+test('a picture line in a glossary section goes under the term, sized from the SVG viewBox, with its dark twin', function () {
+    const result = build();
+    assert.equal(result.status, 0, result.stderr);
+    const html = fs.readFileSync(path.join(fixture_dir, 'docs/glossaries.html'), 'utf8');
+    const tree = html.match(/<article class="rule" id="MAP-01">[\s\S]*?<\/article>/)[0];
+    assert.match(tree, /<\/div>\n<a class="form figure" href="..\/img\/maps\/tree.svg"><img class="light" src="..\/img\/maps\/tree.svg" alt="Tree: the folders of a note" width="1200" height="730" loading="lazy"><img class="dark" src="..\/img\/maps\/tree-dark.svg"/);
+    assert.ok(!tree.includes('![Tree'), 'the picture line is not shown as text');
+    const ontology = html.match(/<article class="rule" id="MAP-05">[\s\S]*?<\/article>/)[0];
+    assert.match(ontology, /<div class="figures"><a class="figure" href="..\/img\/maps\/ontology.svg">.*?<\/a><a class="figure" href="..\/img\/maps\/terms-map.svg">/);
+});
+
+test('a "## Term" section finds its term under a group too', function () {
+    const file = path.join(fixture_dir, 'glossaries/agents.md');
+    const original = fs.readFileSync(file, 'utf8');
+    try {
+        fs.writeFileSync(file, `${original}\n## Compact\n\nThe older part of the transcript, summarized.\n`);
+        const result = build();
+        assert.equal(result.status, 0, result.stderr);
+        const html = fs.readFileSync(path.join(fixture_dir, 'docs/glossaries.html'), 'utf8');
+        const compact = html.match(/<article class="rule bare" id="LIM-04">[\s\S]*?<\/article>/)[0];
+        assert.match(compact, /<dfn>compact<\/dfn><\/p><p>The older part of the transcript, summarized.<\/p>/);
+    }
+    finally {
+        fs.writeFileSync(file, original);
+    }
+});
+
 test('all built theme icons follow the shared SVG assets, including handwritten diagrams', function () {
     const file = path.join(fixture_dir, 'img/theme-sun.svg');
     const original = fs.readFileSync(file, 'utf8');
@@ -85,6 +112,8 @@ for (const item of [
     {file: 'drafts/scroll-anchoring.gif', what: 'truncated GIF', data: Buffer.from('GIF89a')},
     {file: 'drafts/scroll-anchoring.gif', what: 'zero-sized GIF', data: Buffer.from('47494638396100000000', 'hex')},
     {file: 'agents/every-state-alert.png', what: 'unsupported guide image format', data: Buffer.from('<svg width="10" height="10"></svg>')},
+    {file: 'img/maps/tree.svg', what: 'SVG with no size', data: Buffer.from('<svg xmlns="http://www.w3.org/2000/svg"><rect/></svg>')},
+    {file: 'img/maps/tree-dark.svg', what: 'SVG with a zero viewBox', data: Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0"></svg>')},
 ]) {
     test(`the build rejects ${item.what} rather than silently losing reserved space`, function () {
         const file = path.join(fixture_dir, item.file);
@@ -93,7 +122,7 @@ for (const item of [
             fs.writeFileSync(file, item.data);
             const result = build();
             assert.notEqual(result.status, 0);
-            assert.match(result.stderr, /no valid PNG\/GIF dimensions at/);
+            assert.match(result.stderr, /no valid PNG\/GIF\/SVG dimensions at/);
             assert.ok(result.stderr.includes(path.basename(file)), result.stderr);
         }
         finally {

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="730" fill="#16181b"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#92958c"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Tree</text>
+<text x="48" y="108" fill="#92958c" font-size="22">one root, every other node has exactly one parent: folders, outlines, an org chart</text>
+<line x1="537" y1="219" x2="313" y2="321" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="600" y1="219" x2="600" y2="321" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="663" y1="219" x2="887" y2="321" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="250" y1="379" x2="250" y2="481" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="600" y1="379" x2="600" y2="481" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="950" y1="379" x2="950" y2="481" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="573" y1="539" x2="477" y2="641" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="627" y1="539" x2="723" y2="641" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="480.0" y="161.0" width="240" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="600" y="198" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">agentdir</text>
+<rect x="130.0" y="321.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="250" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">commondir</text>
+<rect x="480.0" y="321.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="600" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">messages</text>
+<rect x="830.0" y="321.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
+<text x="950" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">roadmaps</text>
+<rect x="130.0" y="481.0" width="240" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="250" y="518" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">…055019-me.html</text>
+<rect x="480.0" y="481.0" width="240" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="600" y="518" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">20261010_055019-me</text>
+<rect x="830.0" y="481.0" width="240" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="950" y="518" fill="#d3d1c9" font-size="20" font-weight="400" text-anchor="middle">…-agent-plan.md</text>
+<rect x="330.0" y="641.0" width="240" height="58" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2.5"/>
+<text x="450" y="678" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">files/</text>
+<rect x="630.0" y="641.0" width="240" height="58" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2.5"/>
+<text x="750" y="678" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">computed/</text>
+<g font-size="21" fill="#92958c"><text x="760" y="196">← the root: no parent</text><text x="890" y="676">leaves: no children →</text><text x="48" y="676">every node: one parent,</text><text x="48" y="704">no way back up in a circle</text></g>
+</svg>

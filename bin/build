@@ -8,7 +8,7 @@ const path = require('node:path');
 const blob_url = 'https://github.com/vbarbarosh/rules/blob/main/';
 const class_by_marker = {'//': 'cmt', '&lt;!--': 'cmt', '✓': 'yes', '✗': 'no', '←': 'aside'};
 const docs_dir = path.join(__dirname, '..', 'docs');
-const glossary_files = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md'];
+const glossary_files = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md', 'glossaries/maps.md'];
 const marker_regex = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
 const root_dir = path.join(__dirname, '..');
 const static_pages = ['formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html'];
@@ -206,9 +206,10 @@ function html_from_rule(rule)
 // A glossary: a "# Name (TAG)" title and its note, then terms, either
 // directly or under "**Group** (TAG)" lines, each with its own note. A term
 // is a table row or a "- term – definition" list item, and a "## Terms"
-// section names a term whose paragraphs replace its one-line definition
-// and whose code example stands on the right. Everything before the first
-// "## " section is the author's; the sections are the AI's (MP-31).
+// section names a term, in the list or under a group, whose paragraphs
+// replace its one-line definition, whose code example stands on the right
+// and whose pictures go under it. Everything before the first "## " section
+// is the author's; the sections are the AI's (MP-31).
 function glossary_from_markdown(markdown, file)
 {
     const lines = markdown.split('\n');
@@ -236,6 +237,7 @@ function glossary_from_markdown(markdown, file)
         const group = line.match(/^\*\*(.+)\*\* \(([A-Z]+)\)$/);
         const heading = line.match(/^## (.+)$/);
         const bullet = line.match(/^- (.*)$/);
+        const image = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
         if (line.trim() === '') {
             term = null;
             paragraph = null;
@@ -246,13 +248,17 @@ function glossary_from_markdown(markdown, file)
         }
         else if (heading) {
             const name = heading[1].toLowerCase();
-            section = out.terms.find(v => (v.name.toLowerCase() === name) || (`${v.name.toLowerCase()}s` === name));
+            const terms = [...out.terms, ...out.groups.flatMap(v => v.terms)];
+            section = terms.find(v => (v.name.toLowerCase() === name) || (`${v.name.toLowerCase()}s` === name));
             if (!section) {
                 throw new Error(`${file}: "## ${heading[1]}" names no term`);
             }
         }
         else if (section && line.startsWith('```')) {
             code = [];
+        }
+        else if (section && image) {
+            section.images.push({alt: image[1], url: image[2]});
         }
         else if (section) {
             if (!paragraph) {
@@ -264,7 +270,7 @@ function glossary_from_markdown(markdown, file)
         else if (line.startsWith('|')) {
             const cells = cells_from_row(line);
             if ((cells[0] !== 'Term') && !cells.every(v => /^-+$/.test(v))) {
-                owner.terms.push({name: cells[0], definition: cells[1], sentence: false, url: null, paragraphs: [], code: null});
+                owner.terms.push({name: cells[0], definition: cells[1], sentence: false, url: null, paragraphs: [], code: null, images: []});
             }
         }
         else if (bullet) {
@@ -286,10 +292,10 @@ function term_from_item(text)
 {
     const link = text.match(/^\[([^\]]+)\]\((\S+?)\)(?: – (.*))?$/);
     if (link) {
-        return {name: link[1], definition: link[3] ?? null, sentence: true, url: link[2], paragraphs: [], code: null};
+        return {name: link[1], definition: link[3] ?? null, sentence: true, url: link[2], paragraphs: [], code: null, images: []};
     }
     const [name, ...rest] = text.split(' – ');
-    return {name, definition: rest.length ? rest.join(' – ') : null, sentence: true, url: null, paragraphs: [], code: null};
+    return {name, definition: rest.length ? rest.join(' – ') : null, sentence: true, url: null, paragraphs: [], code: null, images: []};
 }
 
 function html_from_glossaries(template, glossaries)
@@ -342,7 +348,7 @@ function html_from_terms(terms, tag, file)
         // one-line definition of the list.
         const definition = term.paragraphs.length ? null : format_term_definition(term);
         const details = term.paragraphs.map(v => `<p>${html_from_inline(v.join(' '))}</p>`).join('');
-        const bare = !term.code;
+        const bare = !term.code && (term.images.length === 0);
         let sources = `<a class="src" href="${blob_url}${file}" title="${file}">${path.basename(file)}</a>`;
         if (term.url) {
             const host_labels = new URL(term.url).hostname.split('.');
@@ -352,9 +358,22 @@ function html_from_terms(terms, tag, file)
         out += `<article class="rule${bare ? ' bare' : ''}" id="${code}">\n`
             + `<a class="code" href="#${code}">${code}</a>\n`
             + `<div class="text"><p><dfn>${html_from_inline(term.name)}</dfn></p>${definition ? `<p>${html_from_inline(definition)}</p>` : ''}${details}${sources}</div>\n`
-            + `${form}</article>\n`;
+            + `${form}${html_from_term_figures(term, file)}</article>\n`;
     }
     return out;
+}
+
+// The pictures of a "## Term" section, their paths relative to the glossary
+// file: one alone takes the form's place under the text; several, or any
+// after a code example, share one row.
+function html_from_term_figures(term, file)
+{
+    const alone = (term.images.length === 1) && !term.code;
+    const figures = term.images.map(v => html_from_image(v.alt, path.posix.join('..', path.dirname(file), v.url), alone ? 'form figure' : 'figure'));
+    if (figures.length === 0) {
+        return '';
+    }
+    return alone ? `${figures[0]}\n` : `<div class="figures">${figures.join('')}</div>\n`;
 }
 
 // A list definition is written as a note; the page shows it as a sentence.
@@ -411,14 +430,22 @@ function html_from_image(alt, url, classes = 'form figure')
     return `<a class="${classes}" href="${url}"><img class="light" src="${url}" alt="${html_escape(alt)}" ${size_attributes_from_image(url)} loading="lazy"><img class="dark" src="${url_dark}" alt="${html_escape(alt)}" ${size_attributes_from_image(url_dark)} loading="lazy"></a>`;
 }
 
-// Reserve space before a local PNG or GIF loads, using its own intrinsic size.
-// Fail the build for other formats rather than emitting an unsized picture.
+// Reserve space before a local PNG, GIF or SVG loads, using its own intrinsic
+// size: the header of a PNG or GIF, the width and height or the viewBox of an
+// SVG. Fail the build for other formats rather than emitting an unsized picture.
 function size_attributes_from_image(url)
 {
     const data = fs.readFileSync(path.join(docs_dir, url));
     let width;
     let height;
-    if ((data.length >= 24) && (data.toString('hex', 0, 8) === '89504e470d0a1a0a') && (data.toString('ascii', 12, 16) === 'IHDR')) {
+    const svg = /\.svg$/i.test(url) ? data.toString('utf8').match(/<svg\b[^>]*>/) : null;
+    if (svg) {
+        const size = [svg[0].match(/\swidth="(\d+)(?:px)?"/), svg[0].match(/\sheight="(\d+)(?:px)?"/)];
+        const view_box = svg[0].match(/\sviewBox="\s*[-\d.]+[\s,]+[-\d.]+[\s,]+(\d+)[\s,]+(\d+)\s*"/);
+        width = Number((size[0] && size[1]) ? size[0][1] : view_box?.[1]);
+        height = Number((size[0] && size[1]) ? size[1][1] : view_box?.[2]);
+    }
+    else if ((data.length >= 24) && (data.toString('hex', 0, 8) === '89504e470d0a1a0a') && (data.toString('ascii', 12, 16) === 'IHDR')) {
         width = data.readUInt32BE(16);
         height = data.readUInt32BE(20);
     }
@@ -427,7 +454,7 @@ function size_attributes_from_image(url)
         height = data.readUInt16LE(8);
     }
     if (!width || !height) {
-        throw new Error(`no valid PNG/GIF dimensions at ${url}`);
+        throw new Error(`no valid PNG/GIF/SVG dimensions at ${url}`);
     }
     return `width="${width}" height="${height}"`;
 }

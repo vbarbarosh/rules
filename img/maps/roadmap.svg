@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="700" fill="#fffefb"/>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Roadmap</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the whole way ahead: where we go, in what order, and what is behind us</text>
+<!-- the road -->
+<path d="M60 470 C 220 470, 240 300, 420 320 S 640 470, 800 380 S 1000 200, 1150 220" fill="none" stroke="#e8e5d9" stroke-width="54" stroke-linecap="round"/>
+<path d="M60 470 C 220 470, 240 300, 420 320 S 640 470, 800 380 S 1000 200, 1150 220" fill="none" stroke="#a19f93" stroke-width="3" stroke-dasharray="16 14"/>
+<!-- stations -->
+<g font-size="22" text-anchor="middle">
+<circle cx="130" cy="466" r="26" fill="#dcefe3" stroke="#1a7443" stroke-width="4"/><path d="M118 466 l9 9 16 -18" fill="none" stroke="#1a7443" stroke-width="5"/>
+<text x="130" y="530" fill="#191a17" font-weight="700">P1</text><text x="130" y="558" fill="#686a61">Banner found</text>
+<circle cx="330" cy="342" r="26" fill="#dcefe3" stroke="#1a7443" stroke-width="4"/><path d="M318 342 l9 9 16 -18" fill="none" stroke="#1a7443" stroke-width="5"/>
+<text x="330" y="276" fill="#191a17" font-weight="700">P2</text><text x="330" y="248" fill="#686a61">Library built</text>
+<circle cx="560" cy="398" r="30" fill="#e2e7fb" stroke="#2743b8" stroke-width="5"/><circle cx="560" cy="398" r="10" fill="#2743b8"/>
+<text x="560" y="466" fill="#191a17" font-weight="700">P3 · now</text><text x="560" y="494" fill="#686a61">Rendering</text>
+<circle cx="820" cy="368" r="26" fill="#efece2" stroke="#a19f93" stroke-width="4"/>
+<text x="820" y="434" fill="#191a17" font-weight="700">P4</text><text x="820" y="462" fill="#686a61">Screenshot sent</text>
+<circle cx="1080" cy="218" r="26" fill="#efece2" stroke="#a19f93" stroke-width="4"/>
+<text x="1080" y="164" fill="#191a17" font-weight="700">P5 · added later</text><text x="1080" y="136" fill="#686a61">found on the way</text>
+</g>
+<!-- labels of the three zones -->
+<g font-size="20" font-weight="700">
+<rect x="60" y="600" width="300" height="56" rx="10" fill="#dcefe3"/><text x="84" y="636" fill="#1a7443">behind us: ticked [x]</text>
+<rect x="400" y="600" width="300" height="56" rx="10" fill="#e2e7fb"/><text x="424" y="636" fill="#2743b8">now: being done</text>
+<rect x="740" y="600" width="400" height="56" rx="10" fill="#e8e5d9" stroke="#d9d5c7"/><text x="764" y="636" fill="#686a61">ahead: [ ], new parts at the end</text>
+</g>
+</svg>

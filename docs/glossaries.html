@@ -529,6 +529,46 @@ footer code {
     align-self: start;
 }
 
+/* A picture of a term goes under its text, the whole width; several share one row. */
+.figure {
+    grid-column: 2 / -1;
+    max-width: 960px;
+}
+
+.rule:has(> .figure) .text {
+    grid-column: 2 / -1;
+    max-width: 75ch;
+}
+
+.figures {
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 360px));
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.figures .figure {
+    grid-column: auto;
+}
+
+.figures:has(> :only-child) {
+    grid-template-columns: minmax(0, 960px);
+}
+
+.figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    transition: border-color var(--fast);
+}
+
+:root[data-theme="dark"] .figure .light,
+:root:not([data-theme="dark"]) .figure .dark {
+    display: none;
+}
+
 .form pre {
     margin: 0;
     padding: 11px 14px 12px;
@@ -752,7 +792,10 @@ footer .lead {
         gap: 4px;
     }
 
-    .rule.bare .text {
+    .rule.bare .text,
+    .rule:has(> .figure) .text,
+    .figure,
+    .figures {
         grid-column: auto;
     }
 
@@ -991,7 +1034,7 @@ footer .lead {
         </div>
     </div>
     <h1>The Glossaries</h1>
-    <p class="stats"><b>56</b> terms<i>·</i><b>3</b> glossaries<i>·</i><b>9</b> groups</p>
+    <p class="stats"><b>68</b> terms<i>·</i><b>4</b> glossaries<i>·</i><b>9</b> groups</p>
 </div>
 </header>
 
@@ -1000,7 +1043,7 @@ footer .lead {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter terms, e.g. tool, flaky, agents.md" aria-label="Filter terms">
         </label>
-        <span class="count" id="count">56 terms</span>
+        <span class="count" id="count">68 terms</span>
         <div class="theme theme-docked">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons --><!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. --><svg class="theme-icon theme-light" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg class="theme-icon theme-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><!-- /theme-icons --></button>
         </div>
@@ -1019,8 +1062,9 @@ footer .lead {
 <a class="sub" href="#FAIL" data-group="FAIL"><span class="tag">FAIL</span><span class="name">Failure</span><span class="n">2</span></a>
 <a class="sub" href="#RECOV" data-group="RECOV"><span class="tag">RECOV</span><span class="name">Recovery</span><span class="n">3</span></a>
 <a class="sub" href="#KIND" data-group="KIND"><span class="tag">KIND</span><span class="name">Kinds</span><span class="n">3</span></a>
-<a href="#TEST" data-group="TEST"><span class="tag">TEST</span><span class="name">Testing</span><span class="n">9</span></a>
+<a href="#TEST" data-group="TEST"><span class="tag">TEST</span><span class="name">Testing</span><span class="n">10</span></a>
 <a href="#WORD" data-group="WORD"><span class="tag">WORD</span><span class="name">Documents</span><span class="n">2</span></a>
+<a href="#MAP" data-group="MAP"><span class="tag">MAP</span><span class="name">Maps and ways</span><span class="n">11</span></a>
 </nav>
 <main>
 <section class="group" id="AGENT">
@@ -1102,7 +1146,7 @@ footer .lead {
 </article>
 <article class="rule bare" id="MSG-03">
 <a class="code" href="#MSG-03">MSG-03</a>
-<div class="text"><p><dfn>context</dfn></p><p>What one call sends: system, tool_definitions, the transcript or its compacted form, grounding.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<div class="text"><p><dfn>context</dfn></p><p>What surrounds a thing and gives it its meaning: the sentence around a word, the conversation around a message, the project around a file. The same words mean different things in different contexts, so the context is read first and the thing after.</p><p>For an AI model, the context is the context window: everything it reads before it answers, counted in tokens. One call sends it whole: the system message, the tool definitions, the transcript or its compacted form, the grounding. The model has nothing else: what is not in the context does not exist for it, and what falls out of it (compacted away, or left behind when a session ends) is gone unless it was written down somewhere it will be read again, a note, a file, a database.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 </article>
 <article class="rule bare" id="MSG-04">
 <a class="code" href="#MSG-04">MSG-04</a>
@@ -1294,6 +1338,17 @@ EOF
 
 test -e build/front.d    # what the build was to produce</pre><button class="copy" type="button">Copy</button></div>
 </article>
+<article class="rule" id="TEST-10">
+<a class="code" href="#TEST-10">TEST-10</a>
+<div class="text"><p><dfn>Safety net</dfn></p><p>The net under the trapeze: the act is done without it, and nobody falls on purpose, but when someone does, the net is what holds. In software, a second mechanism, independent of the first, that catches what the first lets through and limits the damage: a timeout behind a request that should return, a cap on a loop that should end, a job that puts back what a step should have put back. It is not the way things are meant to work; it is what holds when they do not.</p><p>An example: an agent is switched to the strongest model for one message, and the reply is meant to switch it back. The safety net: if the agent is still on the strongest model ten minutes after that message's reply, the app switches it back itself and says so in the log. The switch-back after the reply is the plan; the ten-minute check is the net.</p><p>Beside its neighbours: a self-check asks before the work whether the application is fit; an integrity check asks after it whether the data is still whole; a safety net sits under the work itself and acts when the first mechanism did not. A fallback is a second way to the same result; a safety net does not finish the job, it stops a miss from spreading. A good net is simple and independent, so it cannot fail for the same reason as what it guards, and it says when it caught something: every catch is a sign that the first way failed, and worth a look.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
+<div class="form"><pre><span class="cmt">// the plan: the reply switches the model back</span>
+<span class="cmt">// the net: ten minutes on, the app does it itself</span>
+const late = now - reply.at &gt; 10 * MINUTE;
+if (late &amp;&amp; (agent.model === strongest)) {
+    agent.model = agent.default_model;
+    log.warn('safety net: switched the model back');
+}</pre><button class="copy" type="button">Copy</button></div>
+</article>
 </section>
 <section class="group" id="WORD">
 <h2><span class="tag">WORD</span><span class="name">Documents</span><span class="note">Words about words.</span></h2>
@@ -1306,12 +1361,67 @@ test -e build/front.d    # what the build was to produce</pre><button class="cop
 <div class="text"><p><dfn>glossary</dfn></p><p>The words of a vocabulary, with their description and meaning.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md" title="glossaries/doc.md">doc.md</a></div>
 </article>
 </section>
+<section class="group" id="MAP">
+<h2><span class="tag">MAP</span><span class="name">Maps and ways</span><span class="note">Words for the shapes knowledge takes, and for the way a piece of work goes: where we are, where we came from, where we are going.</span></h2>
+<article class="rule" id="MAP-01">
+<a class="code" href="#MAP-01">MAP-01</a>
+<div class="text"><p><dfn>tree</dfn></p><p>One root, and every other node has exactly one parent, so there are no circles and exactly one path from the root to any node. Folders, an outline, an org chart, a family line.</p><p>In the agent notes: the folders of a note (agentdir, commondir, messages, roadmaps). A thread is a tree as long as each message answers one message.</p><p>A tree is a graph with rules; a taxonomy is a tree of kinds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/tree.svg"><img class="light" src="../img/maps/tree.svg" alt="Tree: the folders of a note" width="1200" height="730" loading="lazy"><img class="dark" src="../img/maps/tree-dark.svg" alt="Tree: the folders of a note" width="1200" height="730" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-02">
+<a class="code" href="#MAP-02">MAP-02</a>
+<div class="text"><p><dfn>graph</dfn></p><p>Things (nodes) and the links between them (edges), directed or not, with no rule on how they link: a node may have several parents, and links may run in circles.</p><p>In the agent notes: a conversation, an arrow for each <code>Re:</code> line. One reply answered two messages at once, so the conversation is a graph, not a tree.</p><p>Trees, taxonomies and ontologies are all graphs.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/graph.svg"><img class="light" src="../img/maps/graph.svg" alt="Graph: a conversation drawn by its Re: lines" width="1200" height="730" loading="lazy"><img class="dark" src="../img/maps/graph-dark.svg" alt="Graph: a conversation drawn by its Re: lines" width="1200" height="730" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-03">
+<a class="code" href="#MAP-03">MAP-03</a>
+<div class="text"><p><dfn>map</dfn></p><p>A smaller picture that keeps what matters of something bigger: where things are and how they connect. "The map is not the territory": a map leaves things out on purpose. In code, a map (a dictionary) goes from keys to values, one value per key. Also a mind map, a concept map, a site map.</p><p>In the agent notes: a roadmap is a map of the way; "the terms and how they relate" below is a concept map; a glossary maps each term to its meaning.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/map.svg"><img class="light" src="../img/maps/map.svg" alt="Map" width="1200" height="730" loading="lazy"><img class="dark" src="../img/maps/map-dark.svg" alt="Map" width="1200" height="730" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-04">
+<a class="code" href="#MAP-04">MAP-04</a>
+<div class="text"><p><dfn>taxonomy</dfn></p><p>Sorting into kinds and kinds of kinds, each one "is a" the one above it: animal › bird › owl. Linnaeus for living things, the shelves of a library.</p><p>In the agent notes: a message is the author's or the agent's; a page is a subject file, a cover or a plan; a marker is <code>.working</code> or <code>.cancelled</code>.</p><p>A taxonomy is a tree, and the backbone of an ontology, which adds the other links.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/taxonomy.svg"><img class="light" src="../img/maps/taxonomy.svg" alt="Taxonomy: the kinds of things in a note" width="1300" height="730" loading="lazy"><img class="dark" src="../img/maps/taxonomy-dark.svg" alt="Taxonomy: the kinds of things in a note" width="1300" height="730" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-05">
+<a class="code" href="#MAP-05">MAP-05</a>
+<div class="text"><p><dfn>ontology</dfn></p><p>In philosophy, the study of what exists. In computing, an explicit map of what a field talks about: concepts (Message), instances (20261010_055019-me is a Message), relations (a Conversation is made of Messages) and rules (every Conversation has exactly one Subject file). It is written down so people and programs use the words the same way: RDF and OWL are the standards, Schema.org the best known on the web.</p><p>A glossary defines words one by one; an ontology also says how they connect. Written down once, a rename (workdir → subjectdir) happens in one place, and an agent can check a word against it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<div class="figures"><a class="figure" href="../img/maps/ontology.svg"><img class="light" src="../img/maps/ontology.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780" loading="lazy"><img class="dark" src="../img/maps/ontology-dark.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780" loading="lazy"></a><a class="figure" href="../img/maps/terms-map.svg"><img class="light" src="../img/maps/terms-map.svg" alt="The terms of this glossary and how they relate" width="1200" height="730" loading="lazy"><img class="dark" src="../img/maps/terms-map-dark.svg" alt="The terms of this glossary and how they relate" width="1200" height="730" loading="lazy"></a></div>
+</article>
+<article class="rule bare" id="MAP-06">
+<a class="code" href="#MAP-06">MAP-06</a>
+<div class="text"><p><dfn>knowledge graph</dfn></p><p>An ontology filled with real things: not "a message answers a message" but "062624-agent answers 055019-me". What search engines and AI retrieval use.</p><p>In the agent notes: every message, subject file and plan of a note with their links; the app could build it, and it would feed an agent's context.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+</article>
+<article class="rule" id="MAP-07">
+<a class="code" href="#MAP-07">MAP-07</a>
+<div class="text"><p><dfn>roadmap</dfn></p><p>The whole way ahead: where we are going and in what order, not exactly when. A product roadmap is often three columns, Now / Next / Later. It changes as we learn, and it is meant to be shown, so it stays coarse: themes and stages, not tasks.</p><p>In the agent notes: an agent's plan for one conversation, <code>roadmaps/&lt;time&gt;-agent-plan.md</code>, its parts <code>- [ ] **P1** …</code> ticked as each is done, new ones added at the end; and the author's roadmaps in the app, lists of work across projects.</p><p>A roadmap is laid on a timeline, marked by milestones and fed by a backlog.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/roadmap.svg"><img class="light" src="../img/maps/roadmap.svg" alt="Roadmap" width="1200" height="700" loading="lazy"><img class="dark" src="../img/maps/roadmap-dark.svg" alt="Roadmap" width="1200" height="700" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-08">
+<a class="code" href="#MAP-08">MAP-08</a>
+<div class="text"><p><dfn>milestone</dfn></p><p>The Roman stone by the road that said how far it was to Rome. In a project, a point that is reached or not ("Released", "Signed"); it takes no time, unlike a task. A diamond on a Gantt chart; on GitHub, a group of issues with a due date.</p><p>In the agent notes: the goal's steps in a subject file, drawn under the cover: done, now or next. The step that is now waits on the agent while it works and on the author after its reply; a step is named as it stands ("Testing" while now, "Tested" once done); the last is always "Done: nothing left, to the archive".</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/milestone.svg"><img class="light" src="../img/maps/milestone.svg" alt="Milestone" width="1200" height="700" loading="lazy"><img class="dark" src="../img/maps/milestone-dark.svg" alt="Milestone" width="1200" height="700" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-09">
+<a class="code" href="#MAP-09">MAP-09</a>
+<div class="text"><p><dfn>breadcrumbs</dfn></p><p>The trail that shows where you are and how you got there, as in Hansel and Gretel; on a web page, Home › Docs › Page, each crumb a link back up.</p><p>Against roadmap and milestone: breadcrumbs look back (the way behind, from the root to here), a roadmap looks ahead (the whole way, in order), and a milestone is one stone on that way. A milestone passed is, in effect, a breadcrumb.</p><p>In the agent notes: the path <code>agentdir › commondir › Terms</code>, and the chain of <code>Re:</code> lines back to a conversation's first message.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/breadcrumbs-roadmap-milestone.svg"><img class="light" src="../img/maps/breadcrumbs-roadmap-milestone.svg" alt="Breadcrumbs, roadmap and milestone side by side" width="1200" height="860" loading="lazy"><img class="dark" src="../img/maps/breadcrumbs-roadmap-milestone-dark.svg" alt="Breadcrumbs, roadmap and milestone side by side" width="1200" height="860" loading="lazy"></a>
+</article>
+<article class="rule bare" id="MAP-10">
+<a class="code" href="#MAP-10">MAP-10</a>
+<div class="text"><p><dfn>timeline</dfn></p><p>Events placed along time. In the agent notes: the change log at the end of each subject file, and the times in message names. A roadmap is laid on one.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+</article>
+<article class="rule bare" id="MAP-11">
+<a class="code" href="#MAP-11">MAP-11</a>
+<div class="text"><p><dfn>backlog</dfn></p><p>The work known but not yet planned, in no fixed order. In the agent notes: the "what is next" list of a subject file, the parts not yet on a roadmap. It feeds a roadmap.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+</article>
+</section>
 <p class="nothing" id="nothing" hidden>No term matches that.</p>
 </main>
 </div>
 
 <footer class="wrap">
-    <span>The same glossaries as plain text: <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md">agents.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md">testing.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md">doc.md</a></span>
+    <span>The same glossaries as plain text: <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md">agents.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md">testing.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md">doc.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md">maps.md</a></span>
     <span>The rules: <a href="rules.html">The Rule Index</a></span>
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
@@ -1366,6 +1476,9 @@ function haystack_from_rule(rule_el)
     const parts = [rule_el.id];
     for (const el of rule_el.querySelectorAll('.text p, .src, .form pre, .form.prose')) {
         parts.push(el.textContent);
+    }
+    for (const img of rule_el.querySelectorAll('.figure img')) {
+        parts.push(img.alt);
     }
     return parts.join(' ').toLowerCase();
 }
