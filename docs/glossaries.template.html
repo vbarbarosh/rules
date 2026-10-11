@@ -314,8 +314,8 @@ h1 {
 
 /* The masthead switch, docked: it opens after the count once the masthead
    one has left the screen. Closed, it takes no room and the count sits flush right. */
-/* The pictures control: off, small, large or full width; the choice sits on <html>
-   as data-pictures and is kept like the theme. */
+/* The pictures control: off, small or large; the choice sits on <html>
+   as data-pictures and is kept like the theme. Hidden when no picture is shown. */
 .pictures {
     display: inline-flex;
     align-items: center;
@@ -343,6 +343,17 @@ h1 {
     transition: color var(--fast), background-color var(--fast);
 }
 
+.pictures-icon {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    margin: 0 3px 0 5px;
+    fill: none;
+    stroke: var(--muted);
+    stroke-width: 1.3;
+    stroke-linejoin: round;
+}
+
 .pictures button:hover {
     color: var(--accent);
 }
@@ -352,26 +363,15 @@ h1 {
     background: var(--accent-soft);
 }
 
+/* S is half the column, L the whole of it: a picture alone, or a row of
+   them sharing that width. */
 :root[data-pictures="small"] .figure,
 :root[data-pictures="small"] .figures {
-    max-width: 420px;
+    max-width: 50%;
 }
 
-:root[data-pictures="small"] .figures {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
-}
-
-:root[data-pictures="full"] .figure,
-:root[data-pictures="full"] .figures {
+:root[data-pictures="small"] .figures .figure {
     max-width: none;
-}
-
-:root[data-pictures="full"] .figures {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-:root[data-pictures="full"] .figures:has(> :only-child) {
-    grid-template-columns: minmax(0, 1fr);
 }
 
 /* Off: each picture folds to a mark with its caption; a click opens it. */
@@ -684,17 +684,14 @@ footer code {
 .figures {
     grid-column: 2 / -1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 360px));
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
     gap: 12px;
     margin-top: 4px;
 }
 
 .figures .figure {
     grid-column: auto;
-}
-
-.figures:has(> :only-child) {
-    grid-template-columns: minmax(0, 960px);
 }
 
 .figure img {
@@ -905,6 +902,10 @@ footer .lead {
 }
 
 @media (max-width: 720px) {
+    .figures {
+        grid-auto-flow: row;
+    }
+
     body {
         font-size: 16.5px;
     }
@@ -1163,7 +1164,7 @@ footer .lead {
     }
     catch {
     }
-    document.documentElement.setAttribute('data-pictures', ['off', 'small', 'large', 'full'].includes(pictures) ? pictures : 'large');
+    document.documentElement.setAttribute('data-pictures', ['off', 'small', 'large'].includes(pictures) ? pictures : 'large');
 })();
 </script>
 </head>
@@ -1183,11 +1184,11 @@ footer .lead {
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
         </nav>
-        <div class="pictures" role="group" aria-label="Pictures">
+        <div class="pictures" role="group" aria-label="Pictures" title="Pictures">
+            <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
             <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
             <button type="button" data-pictures="small" aria-pressed="false" title="Small pictures">S</button>
             <button type="button" data-pictures="large" aria-pressed="true" title="Large pictures">L</button>
-            <button type="button" data-pictures="full" aria-pressed="false" title="Pictures as wide as the text">XL</button>
         </div>
         <a class="github" href="https://github.com/vbarbarosh/rules" title="github.com/vbarbarosh/rules" aria-label="GitHub repository"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
         <div class="theme" id="theme">
@@ -1205,11 +1206,11 @@ footer .lead {
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter terms, e.g. tool, flaky, agents.md" aria-label="Filter terms">
         </label>
         <span class="count" id="count">{{terms_count}} terms</span>
-        <div class="pictures pictures-docked" role="group" aria-label="Pictures">
+        <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
+            <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
             <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
             <button type="button" data-pictures="small" aria-pressed="false" title="Small pictures">S</button>
             <button type="button" data-pictures="large" aria-pressed="true" title="Large pictures">L</button>
-            <button type="button" data-pictures="full" aria-pressed="false" title="Pictures as wide as the text">XL</button>
         </div>
         <div class="theme theme-docked">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons -->{{theme_icons}}<!-- /theme-icons --></button>
@@ -1261,6 +1262,7 @@ function main()
 
     refresh_theme_labels();
     refresh_pictures_labels();
+    refresh_pictures_control();
     for (const figure of document.querySelectorAll('a.figure')) {
         figure.dataset.caption = figure.querySelector('img').alt;
     }
@@ -1372,6 +1374,7 @@ function filter_apply()
         a.querySelector('.n').textContent = (visible === group_rule_els.length) ? group_rule_els.length : `${visible}/${group_rule_els.length}`;
     }
     nothing_el.hidden = (total > 0);
+    refresh_pictures_control();
     count_el.textContent = (total === rule_els.length) ? `${total} terms` : `${total} of ${rule_els.length} terms`;
     spy_apply();
 }
@@ -1507,7 +1510,13 @@ function click_pictures(event)
     if (!button) {
         return;
     }
+    // Nothing jumps (UIM-01): the picture being looked at keeps its place on the screen.
+    const anchor = button.closest('.pictures-docked') ? figure_in_view() : null;
+    const anchor_top = anchor?.getBoundingClientRect().top;
     root_el.setAttribute('data-pictures', button.dataset.pictures);
+    if (anchor) {
+        window.scrollBy({top: anchor.getBoundingClientRect().top - anchor_top, behavior: 'instant'});
+    }
     try {
         localStorage.setItem('rules-pictures', button.dataset.pictures);
     }
@@ -1516,11 +1525,42 @@ function click_pictures(event)
     refresh_pictures_labels();
 }
 
+// The picture nearest the middle of what the reader sees under the bar; with
+// none on screen, the first block of text there.
+function figure_in_view()
+{
+    const top = document.querySelector('.bar').getBoundingClientRect().bottom;
+    const middle = (top + innerHeight)/2;
+    let nearest = null;
+    let nearest_distance = Infinity;
+    for (const figure of document.querySelectorAll('a.figure')) {
+        const rect = figure.getBoundingClientRect();
+        if ((rect.height === 0) || (rect.bottom < top) || (rect.top > innerHeight)) {
+            continue;
+        }
+        const distance = Math.abs((rect.top + rect.bottom)/2 - middle);
+        if (distance < nearest_distance) {
+            nearest = figure;
+            nearest_distance = distance;
+        }
+    }
+    return nearest ?? Array.from(document.querySelectorAll('main article, main section')).find(v => v.getBoundingClientRect().bottom > top) ?? null;
+}
+
 function refresh_pictures_labels()
 {
     const current = root_el.getAttribute('data-pictures');
     for (const button of document.querySelectorAll('.pictures button')) {
         button.setAttribute('aria-pressed', String(button.dataset.pictures === current));
+    }
+}
+
+// The control only where it acts: a page, or a filter, that shows no picture hides it.
+function refresh_pictures_control()
+{
+    const shown = Array.from(document.querySelectorAll('a.figure')).some(v => !v.closest('[hidden]'));
+    for (const control of document.querySelectorAll('.pictures')) {
+        control.hidden = !shown;
     }
 }
 

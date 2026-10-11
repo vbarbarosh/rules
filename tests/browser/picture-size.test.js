@@ -19,7 +19,7 @@ test.after(async function () {
 });
 
 for (const page_file of page_files) {
-    test(`${page_file}: the pictures control sets the four states, keeps the choice, and a click opens PhotoSwipe`, async function () {
+    test(`${page_file}: the pictures control sets the three states, keeps the choice, and a click opens PhotoSwipe`, async function () {
         const context = await browser.newContext({viewport: {width: 1280, height: 800}});
         const page = await context.newPage();
         const errors = [];
@@ -33,9 +33,13 @@ for (const page_file of page_files) {
             assert.ok(large > 400, `a large picture is wide: ${large}`);
             await page.locator('.pictures button[data-pictures="small"]').first().click();
             assert.equal(await page.locator('html').getAttribute('data-pictures'), 'small');
-            assert.ok(await width_of(figure) <= 420, 'a small picture is at most 420 wide');
-            await page.locator('.pictures button[data-pictures="full"]').first().click();
-            assert.ok(await width_of(figure) >= large, 'a full picture is at least as wide as a large one');
+            assert.ok(Math.abs(await width_of(figure) - large/2) <= 1, 'a small picture is half a large one');
+            assert.equal(await page.locator('.pictures button[data-pictures="full"]').count(), 0, 'no XL: it looked the same as L');
+            // A filter that leaves no picture hides the control; clearing it brings it back.
+            await page.locator('#q').fill('zzqqxx');
+            assert.equal(await page.locator('.pictures:visible').count(), 0, 'no picture shown, no control');
+            await page.locator('#q').fill('');
+            assert.equal(await page.locator('.pictures').first().isVisible(), true);
             await page.locator('.pictures button[data-pictures="off"]').first().click();
             assert.equal(await figure.locator('img').first().isVisible(), false);
             assert.ok((await figure.getAttribute('data-caption')).length > 5, 'the mark carries the caption');
@@ -99,6 +103,77 @@ test('docs/rules.html: PhotoSwipe shows the dark picture in Dark, and the pictur
 });
 
 // The network is cut, but PhotoSwipe is served from node_modules at its CDN address.
+test('docs/rules.html: an XL kept from before opens as L', async function () {
+    const context = await browser.newContext({viewport: {width: 1280, height: 800}});
+    const page = await context.newPage();
+    try {
+        await page.route('https://**/*', route_offline);
+        await page.addInitScript(() => localStorage.setItem('rules-pictures', 'full'));
+        await page.goto(`file://${path.join(root_dir, 'docs/rules.html')}`);
+        assert.equal(await page.locator('html').getAttribute('data-pictures'), 'large');
+        assert.equal(await page.locator('.pictures button[data-pictures="large"]').first().getAttribute('aria-pressed'), 'true');
+    }
+    finally {
+        await context.close();
+    }
+});
+
+for (const page_file of page_files) {
+    test(`${page_file}: S is half the column and L the whole, a row of pictures sharing it`, async function () {
+        const context = await browser.newContext({viewport: {width: 1280, height: 800}});
+        const page = await context.newPage();
+        try {
+            await page.route('https://**/*', route_offline);
+            await page.goto(`file://${path.join(root_dir, page_file)}`);
+            for (const [state, part] of [['small', 0.5], ['large', 1]]) {
+                await page.locator(`.pictures button[data-pictures="${state}"]`).first().click();
+                const boxes = await page.evaluate(function () {
+                    return Array.from(document.querySelectorAll('a.figure')).map(function (figure) {
+                        const box = figure.parentElement.classList.contains('figures') ? figure.parentElement : figure;
+                        // the column the box may take: the box with its max-width lifted
+                        const max_width = box.style.maxWidth;
+                        box.style.maxWidth = 'none';
+                        const column = box.getBoundingClientRect().width;
+                        box.style.maxWidth = max_width;
+                        return {caption: figure.dataset.caption, width: box.getBoundingClientRect().width, column};
+                    });
+                });
+                for (const v of boxes) {
+                    assert.ok(Math.abs(v.width - Math.min(v.column*part, 960)) <= 1, `${state}: ${v.caption}: ${v.width} of ${v.column}`);
+                }
+            }
+        }
+        finally {
+            await context.close();
+        }
+    });
+
+    test(`${page_file}: S and L in the bar keep the picture being looked at in its place`, async function () {
+        const context = await browser.newContext({viewport: {width: 1280, height: 800}});
+        const page = await context.newPage();
+        try {
+            await page.route('https://**/*', route_offline);
+            await page.goto(`file://${path.join(root_dir, page_file)}`);
+            // a picture in the middle of the page, so the page can scroll both ways
+            const figure = page.locator('a.figure').nth(Math.floor(await page.locator('a.figure').count()/2));
+            await figure.evaluate(v => window.scrollTo({top: v.getBoundingClientRect().top + scrollY - 300, behavior: 'instant'}));
+            await page.locator('.pictures-docked').waitFor({state: 'visible'});
+            for (const state of ['small', 'large', 'off', 'large']) {
+                // the picture nearest the middle of the screen is the one that stays
+                const anchor = await page.evaluateHandle(() => figure_in_view());
+                assert.equal(await anchor.evaluate(v => v.matches('a.figure')), true);
+                const before = await anchor.evaluate(v => v.getBoundingClientRect().top);
+                await page.locator(`.pictures-docked button[data-pictures="${state}"]`).click();
+                const after = await anchor.evaluate(v => v.getBoundingClientRect().top);
+                assert.ok(Math.abs(after - before) <= 1, `${state}: the picture moved from ${before} to ${after}`);
+            }
+        }
+        finally {
+            await context.close();
+        }
+    });
+}
+
 async function route_offline(route)
 {
     const url = route.request().url();
