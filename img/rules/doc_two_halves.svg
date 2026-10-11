@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A document has two halves</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the author writes for himself on top; the AI restates it below for any reader</text>
+<rect x="60" y="170" width="560" height="130" rx="0" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="76" y="198" fill="#686a61" font-size="17" font-weight="700">the author's half</text>
+<text x="76" y="228" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">- cache it: one bolt tightened, 100 left</text>
+<text x="76" y="256" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">- ask first: "what if" before typing</text>
+<rect x="60" y="300" width="560" height="130" rx="0" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="76" y="328" fill="#686a61" font-size="17" font-weight="700">the AI's half</text>
+<text x="76" y="358" fill="#191a17" font-size="18"># Consequences first</text>
+<text x="76" y="386" fill="#191a17" font-size="18">A developer pictures what the change</text>
+<text x="76" y="414" fill="#191a17" font-size="18">leads to before the first edit.</text>
+<rect x="760" y="190" width="380" height="90" rx="12" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="950.0" y="230.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">the author</text>
+<text x="950.0" y="255.0" fill="#686a61" font-size="18" text-anchor="middle">compressed, around what he knows</text>
+<rect x="760" y="320" width="380" height="90" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="950.0" y="360.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">the AI</text>
+<text x="950.0" y="385.0" fill="#686a61" font-size="18" text-anchor="middle">restated for a reader without it</text>
+<line x1="754" y1="235" x2="626" y2="235" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="754" y1="365" x2="626" y2="365" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="500" fill="#686a61" font-size="21">One file, two writers: each half is written by one of them only.</text>
+</svg>

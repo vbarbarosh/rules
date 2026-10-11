@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Regenerate the bottom half, never edit it</text>
+<text x="48" y="108" fill="#92958c" font-size="22">a change on top is carried down by writing the explanation again from both sources</text>
+<rect x="60" y="180" width="300" height="90" rx="12" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="210.0" y="220.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">the top half changed</text>
+<text x="210.0" y="245.0" fill="#92958c" font-size="18" text-anchor="middle">or an approved rule</text>
+<rect x="450" y="180" width="300" height="90" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="600.0" y="220.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">regenerate</text>
+<text x="600.0" y="245.0" fill="#92958c" font-size="18" text-anchor="middle">from both sources</text>
+<rect x="840" y="180" width="300" height="90" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="990.0" y="220.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">a new bottom half</text>
+<text x="990.0" y="245.0" fill="#92958c" font-size="18" text-anchor="middle">approved decisions kept</text>
+<line x1="366" y1="225" x2="444" y2="225" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="756" y1="225" x2="834" y2="225" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="320" width="480" height="80" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="78" y="354" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">patch one line of the bottom</text>
+<text x="78" y="382" fill="#ff937c" font-size="17">✗ drifts from its sources</text>
+<rect x="620" y="320" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="638" y="354" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">write the bottom half again</text>
+<text x="638" y="382" fill="#72d39c" font-size="17">✓ it follows the top, whole</text>
+<line x1="546" y1="360.0" x2="614" y2="360.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="500" fill="#92958c" font-size="21">Edits by hand drift; a regenerated half always matches what it explains.</text>
+</svg>

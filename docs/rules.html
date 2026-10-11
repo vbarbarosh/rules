@@ -3001,54 +3001,65 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 </section>
 <section class="group" id="DOC">
 <h2><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="note">How a document in this repo is built.</span></h2>
-<article class="rule bare" id="DOC-01">
+<article class="rule" id="DOC-01">
 <a class="code" href="#DOC-01">DOC-01</a>
 <div class="text"><p><strong>A document has two halves.</strong> The author writes the top half, compressed around what he already knows; the AI writes the bottom half, restating it for a reader who lacks that context.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/doc_two_halves.svg"><img class="light" src="../img/rules/doc_two_halves.svg" alt="A document as two stacked halves: the author's compressed notes on top, the AI's restated explanation below, each written by one of them" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/doc_two_halves-dark.svg" alt="A document as two stacked halves: the author's compressed notes on top, the AI's restated explanation below, each written by one of them" width="1200" height="560" loading="lazy"></a>
 </article>
-<article class="rule bare" id="DOC-02">
+<article class="rule" id="DOC-02">
 <a class="code" href="#DOC-02">DOC-02</a>
 <div class="text"><p><strong>Author sources govern the explanation.</strong> Read the top half and applicable manually approved rules. An approved entry may explicitly clarify older wording within its scope; if the sources disagree without such a decision, ask before regenerating.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/doc_author_sources_govern.svg"><img class="light" src="../img/rules/doc_author_sources_govern.svg" alt="The author's half and the approved rules feed the AI, which writes the explanation; when they disagree with no approved entry, the AI asks first" width="1200" height="600" loading="lazy"><img class="dark" src="../img/rules/doc_author_sources_govern-dark.svg" alt="The author's half and the approved rules feed the AI, which writes the explanation; when they disagree with no approved entry, the AI asks first" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="DOC-03">
+<article class="rule" id="DOC-03">
 <a class="code" href="#DOC-03">DOC-03</a>
 <div class="text"><p><strong>No AI patches the top half.</strong> The one exception is an explicit request from the author.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/doc_no_ai_patches_top.svg"><img class="light" src="../img/rules/doc_no_ai_patches_top.svg" alt="An AI rewording of the author's line, wrong, beside the line kept word for word; the one exception is the author asking for it" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/doc_no_ai_patches_top-dark.svg" alt="An AI rewording of the author's line, wrong, beside the line kept word for word; the one exception is the author asking for it" width="1200" height="520" loading="lazy"></a>
 </article>
-<article class="rule bare" id="DOC-04">
+<article class="rule" id="DOC-04">
 <a class="code" href="#DOC-04">DOC-04</a>
 <div class="text"><p><strong>Regenerate the bottom half from both sources, never edit it.</strong> After the top half or an applicable manually approved rule changes, regenerate the explanation from both. Preserve approved decisions and their scope.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/doc_regenerate_bottom.svg"><img class="light" src="../img/rules/doc_regenerate_bottom.svg" alt="A change on top leads to the whole bottom half written again from both sources; patching one line of the bottom is wrong" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/doc_regenerate_bottom-dark.svg" alt="A change on top leads to the whole bottom half written again from both sources; patching one line of the bottom is wrong" width="1200" height="560" loading="lazy"></a>
 </article>
 <article class="rule" id="DOC-05">
 <a class="code" href="#DOC-05">DOC-05</a>
 <div class="text"><p><strong>Usually a heading starts the bottom half.</strong> Most of the time the bottom half starts with a <code>#</code> heading, and that heading is the boundary. A <code>---</code> line or a closing fence before it is decoration. There is no strict marker.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/WRITING.md" title="drafts/WRITING.md">WRITING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>--- ✨ AI-Generated Content Below ✨ ---</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/doc_heading_starts_bottom.svg"><img class="light" src="../img/rules/doc_heading_starts_bottom.svg" alt="The author's notes, a decorative --- line, then the # heading that is the real boundary of the AI's half" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/doc_heading_starts_bottom-dark.svg" alt="The author's notes, a decorative --- line, then the # heading that is the real boundary of the AI's half" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="DOC-06">
 <a class="code" href="#DOC-06">DOC-06</a>
 <div class="text"><p><strong>One audit, one file; its register is the issue list.</strong> The report of a full audit is one file, <code>notes/audit-&lt;YYYY-MM-DD&gt;.md</code>. The projects have no issue tracker: the finding register of the newest audit note is the issue list, and later audits refer to findings by their ids.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>notes/audit-2026-09-02.md</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/doc_one_audit_one_file.svg"><img class="light" src="../img/rules/doc_one_audit_one_file.svg" alt="The notes/ folder of audit files, the newest one's finding register serving as the issue list of ids" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/doc_one_audit_one_file-dark.svg" alt="The notes/ folder of audit files, the newest one's finding register serving as the issue list of ids" width="1200" height="480" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="DOC-07">
+<article class="rule" id="DOC-07">
 <a class="code" href="#DOC-07">DOC-07</a>
 <div class="text"><p><strong>Audit notes keep one section order.</strong> An audit note keeps one order: title, repository line, scope, verdict with a health-at-a-glance table, finding register, findings, what is good, recommended order of work, status of prior findings, file inventory.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/doc_audit_section_order.svg"><img class="light" src="../img/rules/doc_audit_section_order.svg" alt="The ten sections of an audit note in their fixed order, from the title to the file inventory" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/doc_audit_section_order-dark.svg" alt="The ten sections of an audit note in their fixed order, from the title to the file inventory" width="1200" height="560" loading="lazy"></a>
 </article>
-<article class="rule bare" id="DOC-08">
+<article class="rule" id="DOC-08">
 <a class="code" href="#DOC-08">DOC-08</a>
 <div class="text"><p><strong>Scope says what ran and what did not.</strong> The scope lists every check actually run, and what was not exercised. A check which was not run is said so; it is never implied.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/doc_scope_ran_and_not.svg"><img class="light" src="../img/rules/doc_scope_ran_and_not.svg" alt="The checks that ran listed beside the one that did not, with the reason it was not run" width="1200" height="440" loading="lazy"><img class="dark" src="../img/rules/doc_scope_ran_and_not-dark.svg" alt="The checks that ran listed beside the one that did not, with the reason it was not run" width="1200" height="440" loading="lazy"></a>
 </article>
 <article class="rule" id="DOC-09">
 <a class="code" href="#DOC-09">DOC-09</a>
 <div class="text"><p><strong>Findings have permanent ids and evidence.</strong> A finding id is <code>&lt;PROJECT&gt;-NN</code>, never reused and never renumbered. Each finding is one section citing <code>file:line</code> and the evidence — the quoted lines, the command which was run and what it printed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>### DEMO-01 Classes banned in one file, shown in another (high)</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/doc_findings_ids_evidence.svg"><img class="light" src="../img/rules/doc_findings_ids_evidence.svg" alt="A finding with its id, file and line, quoted code and the command with its output; reusing an old id is wrong, the next one is new" width="1200" height="600" loading="lazy"><img class="dark" src="../img/rules/doc_findings_ids_evidence-dark.svg" alt="A finding with its id, file and line, quoted code and the command with its output; reusing an old id is wrong, the next one is new" width="1200" height="600" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="DOC-10">
+<article class="rule" id="DOC-10">
 <a class="code" href="#DOC-10">DOC-10</a>
 <div class="text"><p><strong>Audit notes have no top half and stay untracked.</strong> An audit note is written by the AI as a whole, so it has no top half and no separator. It is left untracked; it is committed only on request.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/doc_audit_note_untracked.svg"><img class="light" src="../img/rules/doc_audit_note_untracked.svg" alt="An audit note written whole by the AI, shown untracked by git status, committed only on request" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/doc_audit_note_untracked-dark.svg" alt="An audit note written whole by the AI, shown untracked by git status, committed only on request" width="1200" height="520" loading="lazy"></a>
 </article>
 <article class="rule" id="DOC-11">
 <a class="code" href="#DOC-11">DOC-11</a>
 <div class="text"><p><strong>Keep manually approved rules outside regenerated text.</strong> Record only explicit author decisions in MANUALLY_APPROVED_RULES.md, with scope, approval date and evidence. Read applicable entries when rewriting explanations. Maintain the approval file; never regenerate it or treat an AI suggestion as approval.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/MANUALLY_APPROVED_RULES.md" title="MANUALLY_APPROVED_RULES.md">MANUALLY_APPROVED_RULES.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>author source + manually approved rules
 → regenerated explanation</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/doc_approved_rules_apart.svg"><img class="light" src="../img/rules/doc_approved_rules_apart.svg" alt="The author's source and the approved rules feed the explanation; an AI suggestion filed as an approval is wrong, an entry with the author's message is right" width="1200" height="580" loading="lazy"><img class="dark" src="../img/rules/doc_approved_rules_apart-dark.svg" alt="The author's source and the approved rules feed the explanation; an AI suggestion filed as an approval is wrong, an entry with the author's message is right" width="1200" height="580" loading="lazy"></a></div>
 </article>
 <article class="rule" id="DOC-12">
 <a class="code" href="#DOC-12">DOC-12</a>
@@ -3058,6 +3069,7 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 explanation         → regenerated
 
 no author notes     → edited on request</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/doc_without_author_section.svg"><img class="light" src="../img/rules/doc_without_author_section.svg" alt="A file with author notes, kept on top while the explanation below is regenerated, beside a file without them, edited on request" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/doc_without_author_section-dark.svg" alt="A file with author notes, kept on top while the explanation below is regenerated, beside a file without them, edited on request" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="DOC-13">
 <a class="code" href="#DOC-13">DOC-13</a>
@@ -3066,6 +3078,7 @@ no author notes     → edited on request</pre><button class="copy" type="button
 - Flaky Test – …           yours
 
 ## Intermittent failures   AI</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/doc_glossary_terms_and_sections.svg"><img class="light" src="../img/rules/doc_glossary_terms_and_sections.svg" alt="A glossary file: the author's title and term list on top, never rewritten, and below one AI section per term" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/doc_glossary_terms_and_sections-dark.svg" alt="A glossary file: the author's title and term list on top, never rewritten, and below one AI section per term" width="1200" height="560" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="LINT">

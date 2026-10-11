@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="500" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="34" font-weight="700">A document without an author section is open to requested edits</text>
+<text x="48" y="108" fill="#686a61" font-size="22">where the author's notes exist they stay on top; where none exist, the file is edited</text>
+<rect x="60" y="170" width="500" height="80" rx="0" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="76" y="198" fill="#686a61" font-size="17" font-weight="700">author's notes</text>
+<text x="76" y="228" fill="#191a17" font-size="18">never overwritten</text>
+<rect x="60" y="250" width="500" height="80" rx="0" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="76" y="278" fill="#686a61" font-size="17" font-weight="700"># Heading and its explanation</text>
+<text x="76" y="308" fill="#191a17" font-size="18">regenerated</text>
+<rect x="640" y="170" width="500" height="160" rx="0" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="656" y="198" fill="#686a61" font-size="17" font-weight="700">no author notes</text>
+<text x="656" y="228" fill="#191a17" font-size="18">an ordinary file:</text>
+<text x="656" y="256" fill="#191a17" font-size="18">edited for the task asked</text>
+<rect x="60" y="360" width="1080" height="60" rx="10" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="84" y="398" fill="#191a17" font-size="19">where the author's section ends is unclear: ask first</text>
+<text x="48" y="465" fill="#686a61" font-size="21">The author section is what is protected; a file without one is ordinary work.</text>
+</svg>
