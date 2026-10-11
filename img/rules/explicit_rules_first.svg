@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Explicit rules first</text>
+<text x="48" y="108" fill="#686a61" font-size="22">new code follows the written rule, even beside older code that does not</text>
+<rect x="60" y="190" width="280" height="110" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="200.0" y="227.1" fill="#191a17" font-size="21" text-anchor="middle" font-weight="700">the written rule</text>
+<text x="200.0" y="253.4" fill="#686a61" font-size="19" text-anchor="middle">a callback names</text>
+<text x="200.0" y="279.6" fill="#686a61" font-size="19" text-anchor="middle">its parameter error</text>
+<rect x="400" y="150" width="480" height="250" rx="12" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="420" y="186" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">handlers.js</text>
+<rect x="420" y="210" width="440" height="60" rx="8" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="438" y="248" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function (err)</text>
+<text x="844" y="248" fill="#686a61" font-size="17" text-anchor="end">older, left as it is</text>
+<rect x="420" y="300" width="440" height="60" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="438" y="338" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function (error)</text>
+<text x="844" y="338" fill="#686a61" font-size="17" text-anchor="end">new, follows the rule</text>
+<line x1="346" y1="270" x2="414" y2="326" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="940" y="200" width="220" height="120" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="1050.0" y="243.9" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">rewriting old code</text>
+<text x="1050.0" y="267.6" fill="#686a61" font-size="17" text-anchor="middle">separate work,</text>
+<text x="1050.0" y="291.4" fill="#686a61" font-size="17" text-anchor="middle">when asked</text>
+<text x="48" y="500" fill="#686a61" font-size="21">A new rule does not require rewriting existing code; that can happen separately.</text>
+</svg>
