@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="700" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Every point of view</text>
+<text x="48" y="108" fill="#92958c" font-size="22">one task, several stories; the screen follows the user's</text>
+<rect x="450" y="330" width="300" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="600.0" y="379.0" fill="#d3d1c9" font-size="24" text-anchor="middle" font-weight="700">the task</text>
+<text x="600.0" y="409.0" fill="#92958c" font-size="22" text-anchor="middle">send a comment</text>
+<text x="60" y="160" fill="#92958c" font-size="19">told by the author</text>
+<text x="1140" y="160" fill="#92958c" font-size="19" text-anchor="end">suggested by the agent</text>
+<rect x="60" y="180" width="320" height="110" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="220.0" y="218.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">user</text>
+<text x="220.0" y="243.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">I click; my answer is</text>
+<text x="220.0" y="268.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">under the last message</text>
+<line x1="386" y1="235" x2="444" y2="355" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="340" width="320" height="110" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="220.0" y="378.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">implementation</text>
+<text x="220.0" y="403.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">it goes to the server,</text>
+<text x="220.0" y="428.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">waits, and comes back</text>
+<line x1="386" y1="395" x2="444" y2="385" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="500" width="320" height="110" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="220.0" y="538.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">attacker</text>
+<text x="220.0" y="563.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">what can I post</text>
+<text x="220.0" y="588.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">that runs as code?</text>
+<line x1="386" y1="555" x2="444" y2="415" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="820" y="180" width="320" height="110" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="980.0" y="218.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">operator</text>
+<text x="980.0" y="243.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">it failed at night: can I</text>
+<text x="980.0" y="268.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">tell what, and restart it?</text>
+<line x1="814" y1="235" x2="756" y2="355" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="820" y="340" width="320" height="110" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="980.0" y="378.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">next developer</text>
+<text x="980.0" y="403.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">a year on: can I find it</text>
+<text x="980.0" y="428.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">and change it safely?</text>
+<line x1="814" y1="395" x2="756" y2="385" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="820" y="500" width="320" height="110" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="980.0" y="538.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">newcomer</text>
+<text x="980.0" y="563.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">the first time: does the</text>
+<text x="980.0" y="588.0" fill="#92958c" font-size="18" text-anchor="middle" font-style="italic">screen say what happened?</text>
+<line x1="814" y1="555" x2="756" y2="415" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="664" fill="#92958c" font-size="21">Each story told before done; the user sees the result where they acted, at once.</text>
+</svg>

@@ -30,6 +30,8 @@ the one instance and stop.
 This page is meant to be handed to an agent as it is: "work like this".
 It is one case of [Consequences first](consequences_first.md).
 
+![The author shows one dropdown that lags: fixing only that one leaves nine lagging; finding every case like it changes all of them, and the one left is named in the reply](../img/guides/one_example_all_cases.svg)
+
 ## Why
 
 The author sees one case because that is the one in front of them. The

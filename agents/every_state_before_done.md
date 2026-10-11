@@ -35,6 +35,8 @@ million. Each of those breaks a layout made for the sample, and each break
 costs the author a screenshot and a message. Trying the states takes the
 agent minutes; finding them one by one takes the author days.
 
+![One alert in six states: the sample, too long, missing, tiny, absurd and error; in each the text wraps inside and the close button stays top right](../img/guides/every_state_before_done.svg)
+
 ## The rule
 
 1. **List the states before calling it done.** For every text and value the

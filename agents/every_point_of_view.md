@@ -45,6 +45,9 @@ author finds each one by living that story, one message each.
 
 ## The points of view
 
+![One task, send a comment, and the stories around it: the user's, the implementation's and the attacker's told by the author; the operator's, the next developer's and the newcomer's suggested by the agent](../img/guides/every_point_of_view.svg)
+
+
 Told by the author:
 
 - **User.** What I do, what I see, what I expect next. The screen answers

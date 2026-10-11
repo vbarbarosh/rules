@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="640" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Consequences first</text>
+<text x="48" y="108" fill="#686a61" font-size="22">before the first edit, picture what the change leads to: what if this, what if that</text>
+<rect x="60" y="270" width="250" height="120" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="185.0" y="311.3" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">the task</text>
+<text x="185.0" y="338.8" fill="#686a61" font-size="20" text-anchor="middle">change the font</text>
+<text x="185.0" y="366.3" fill="#686a61" font-size="20" text-anchor="middle">of these buttons</text>
+<rect x="400" y="160" width="380" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="590.0" y="201.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">what else is built like this?</text>
+<rect x="860" y="160" width="300" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="1010.0" y="201.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">the scope: every case</text>
+<line x1="316" y1="294.0" x2="394" y2="195" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="786" y1="195" x2="854" y2="195" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="400" y="260" width="380" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="590.0" y="301.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">what breaks, slows, goes stale?</text>
+<rect x="860" y="260" width="300" height="70" rx="12" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="1010.0" y="301.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">said before the change</text>
+<line x1="316" y1="318.0" x2="394" y2="295" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="786" y1="295" x2="854" y2="295" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="400" y="360" width="380" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="590.0" y="401.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">what if long, empty, absurd?</text>
+<rect x="860" y="360" width="300" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="1010.0" y="401.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">the states to test</text>
+<line x1="316" y1="342.0" x2="394" y2="395" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="786" y1="395" x2="854" y2="395" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="400" y="460" width="380" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="590.0" y="501.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">what can't the author see?</text>
+<rect x="860" y="460" width="300" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="1010.0" y="501.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">the stories to tell</text>
+<line x1="316" y1="366.0" x2="394" y2="495" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="786" y1="495" x2="854" y2="495" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="600" fill="#686a61" font-size="21">A minute of thinking first; without it, each consequence costs the author a message.</text>
+</svg>

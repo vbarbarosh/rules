@@ -8,6 +8,8 @@ A developer given a task does not start typing. They first picture what the
 change leads to: what if this, what if that. Only then do they start, and the
 work follows from that picture. An agent works the same way.
 
+![The task, the four "what if" questions asked before the first edit, and what each one shapes: the scope, what is said before the change, the states to test, the stories to tell](../img/guides/consequences_first.svg)
+
 ## Why
 
 An agent that starts at once changes exactly what was named and stops there.

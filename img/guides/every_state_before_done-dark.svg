@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Every state before done</text>
+<text x="48" y="108" fill="#92958c" font-size="22">one alert given every text it will meet: it wraps, the close button stays top right</text>
+<text x="60" y="180" fill="#92958c" font-size="20" font-weight="700">the sample</text>
+<text x="400" y="180" fill="#72d39c" font-size="19" text-anchor="end">✓ holds</text>
+<rect x="60" y="196" width="340" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="80" y="230" fill="#d3d1c9" font-size="18">Saved.</text>
+<text x="372" y="232" fill="#92958c" font-size="26" text-anchor="middle">×</text>
+<text x="430" y="180" fill="#92958c" font-size="20" font-weight="700">too long</text>
+<text x="770" y="180" fill="#72d39c" font-size="19" text-anchor="end">✓ holds</text>
+<rect x="430" y="196" width="340" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="450" y="230" fill="#d3d1c9" font-size="18">Export failed: 1 248 files</text>
+<text x="450" y="255" fill="#d3d1c9" font-size="18">to /home/projects/rules/</text>
+<text x="450" y="280" fill="#d3d1c9" font-size="18">docs, at file 913</text>
+<text x="742" y="232" fill="#92958c" font-size="26" text-anchor="middle">×</text>
+<text x="800" y="180" fill="#92958c" font-size="20" font-weight="700">missing</text>
+<text x="1140" y="180" fill="#72d39c" font-size="19" text-anchor="end">✓ holds</text>
+<rect x="800" y="196" width="340" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="820" y="230" fill="#92958c" font-size="18" font-style="italic">No message</text>
+<text x="1112" y="232" fill="#92958c" font-size="26" text-anchor="middle">×</text>
+<text x="60" y="370" fill="#92958c" font-size="20" font-weight="700">tiny</text>
+<text x="400" y="370" fill="#72d39c" font-size="19" text-anchor="end">✓ holds</text>
+<rect x="60" y="386" width="340" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="80" y="420" fill="#d3d1c9" font-size="18">!</text>
+<text x="372" y="422" fill="#92958c" font-size="26" text-anchor="middle">×</text>
+<text x="430" y="370" fill="#92958c" font-size="20" font-weight="700">absurd</text>
+<text x="770" y="370" fill="#72d39c" font-size="19" text-anchor="end">✓ holds</text>
+<rect x="430" y="386" width="340" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="450" y="420" fill="#d3d1c9" font-size="18">1 000 000 files left,</text>
+<text x="450" y="445" fill="#d3d1c9" font-size="18">done in 2041</text>
+<text x="742" y="422" fill="#92958c" font-size="26" text-anchor="middle">×</text>
+<text x="800" y="370" fill="#92958c" font-size="20" font-weight="700">error</text>
+<text x="1140" y="370" fill="#72d39c" font-size="19" text-anchor="end">✓ holds</text>
+<rect x="800" y="386" width="340" height="110" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="820" y="420" fill="#d3d1c9" font-size="18">Could not save.</text>
+<text x="820" y="445" fill="#d3d1c9" font-size="18">Try again</text>
+<text x="1112" y="422" fill="#92958c" font-size="26" text-anchor="middle">×</text>
+<text x="48" y="560" fill="#92958c" font-size="21">Each state rendered and looked at; the crowded one stays in a test.</text>
+</svg>
