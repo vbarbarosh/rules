@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="510" viewBox="0 0 1200 510" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="510" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">A kind shares one look through one mixin</text>
+<text x="48" y="108" fill="#92958c" font-size="22">shape, size and type come from the mixin; each badge sets only its colours</text>
+<rect x="60" y="200" width="340" height="140" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="230.0" y="266.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">@include app-badge</text>
+<text x="230.0" y="292.0" fill="#92958c" font-size="17" text-anchor="middle">shape, size, type</text>
+<rect x="520" y="170" width="300" height="60" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="540" y="207" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">.badge-new</text>
+<rect x="880" y="176" width="200" height="48" rx="24" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="980" y="207" fill="#d3d1c9" font-size="19" text-anchor="middle">New</text>
+<line x1="406" y1="270" x2="514" y2="200" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="520" y="260" width="300" height="60" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="540" y="297" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">.badge-done</text>
+<rect x="880" y="266" width="200" height="48" rx="24" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="980" y="297" fill="#d3d1c9" font-size="19" text-anchor="middle">Done</text>
+<line x1="406" y1="270" x2="514" y2="290" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="520" y="350" width="300" height="60" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="540" y="387" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">.badge-waiting</text>
+<rect x="880" y="356" width="200" height="48" rx="24" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="980" y="387" fill="#d3d1c9" font-size="19" text-anchor="middle">Waiting</text>
+<line x1="406" y1="270" x2="514" y2="380" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="470" fill="#92958c" font-size="21">Each badge sets background and color; the rest is shared.</text>
+</svg>

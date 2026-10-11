@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="480" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Icons use currentColor</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the icon takes the colour of the text around it</text>
+<rect x="60" y="180" width="300" height="70" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="140" y="223" fill="#d3d1c9" font-size="20">Archive</text>
+<text x="60" y="290" fill="#92958c" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">color: var(--text)</text>
+<rect x="430" y="180" width="300" height="70" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="510" y="223" fill="#9db2ff" font-size="20">Archive</text>
+<text x="430" y="290" fill="#92958c" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">color: var(--accent)</text>
+<rect x="800" y="180" width="300" height="70" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="880" y="223" fill="#ff937c" font-size="20">Archive</text>
+<text x="800" y="290" fill="#92958c" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">color: var(--danger)</text>
+<rect x="60" y="320" width="640" height="55" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="80" y="352" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;path fill="currentColor" d="…" /&gt;</text>
+<text x="48" y="440" fill="#92958c" font-size="21">One icon file, any colour: the button decides.</text>
+<rect x="86" y="206" width="26" height="18" rx="2" fill="none" stroke="#d3d1c9" stroke-width="2.5"/><rect x="83" y="200" width="32" height="7" rx="2" fill="none" stroke="#d3d1c9" stroke-width="2.5"/>
+<rect x="456" y="206" width="26" height="18" rx="2" fill="none" stroke="#9db2ff" stroke-width="2.5"/><rect x="453" y="200" width="32" height="7" rx="2" fill="none" stroke="#9db2ff" stroke-width="2.5"/>
+<rect x="826" y="206" width="26" height="18" rx="2" fill="none" stroke="#ff937c" stroke-width="2.5"/><rect x="823" y="200" width="32" height="7" rx="2" fill="none" stroke="#ff937c" stroke-width="2.5"/>
+</svg>

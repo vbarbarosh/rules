@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="480" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Forms submit by button and Enter</text>
+<text x="48" y="108" fill="#92958c" font-size="22">inside a &lt;form&gt;, both reach its one submit</text>
+<rect x="60" y="160" width="540" height="230" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="84" y="222" fill="#d3d1c9" font-size="19">Email:</text>
+<rect x="170" y="190" width="400" height="52" rx="6" fill="#212428" stroke="#2c3035" stroke-width="2"/>
+<text x="190" y="223" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">ann@example.com</text>
+<rect x="420" y="300" width="150" height="56" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="495" y="335" fill="#d3d1c9" font-size="19" text-anchor="middle">Submit</text>
+<rect x="740" y="215" width="400" height="110" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="940.0" y="266.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">submit</text>
+<text x="940.0" y="292.0" fill="#92958c" font-size="17" text-anchor="middle">v-on:submit.prevent</text>
+<line x1="576" y1="216" x2="734" y2="250" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="576" y1="328" x2="734" y2="292" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="440" fill="#92958c" font-size="21">Enter in a field and a click on Submit end in the same handler.</text>
+</svg>

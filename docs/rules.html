@@ -2859,6 +2859,7 @@ DROP COLUMN
 <div class="form"><pre>px(value)        <span class="cmt">// format a pixel value</span>
 uid(&#91;name])      <span class="cmt">// ids unique across components</span>
 emit_input(value) <span class="cmt">// return a value from an input</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_global_methods_mixin.svg"><img class="light" src="../img/rules/vue_global_methods_mixin.svg" alt="One globals mixin hands px, uid and emit_input to every component" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/vue_global_methods_mixin-dark.svg" alt="One globals mixin hands px, uid and emit_input to every component" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-02">
 <a class="code" href="#VUE-02">VUE-02</a>
@@ -2866,16 +2867,19 @@ emit_input(value) <span class="cmt">// return a value from an input</span></pre>
 <div class="form"><pre>uid: function (name) {
     return name ? &#96;c${this.&#95;uid}&#95;${name}&#96; : &#96;c${this.&#95;uid}&#96;;
 },</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_ids_from_uid.svg"><img class="light" src="../img/rules/vue_ids_from_uid.svg" alt="The component's _uid 42 and uid('email') make the id c42_email, used by both the label and the input" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/vue_ids_from_uid-dark.svg" alt="The component's _uid 42 and uid('email') make the id c42_email, used by both the label and the input" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-03">
 <a class="code" href="#VUE-03">VUE-03</a>
 <div class="text"><p><strong>Spell out <code>v-on</code> and <code>v-bind</code>.</strong> The shorthands <code>@</code> and <code>:</code> are not used.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-formatting.md" title="vue2/vue-formatting.md">vue-formatting.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&lt;img v-bind:src=&quot;photo.thumbnail_url&quot; v-bind:alt=&quot;photo.title&quot; /&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_spell_out_v_on_v_bind.svg"><img class="light" src="../img/rules/vue_spell_out_v_on_v_bind.svg" alt="The shorthands :src and @click beside the same element written with v-bind:src and v-on:click" width="1200" height="351" loading="lazy"><img class="dark" src="../img/rules/vue_spell_out_v_on_v_bind-dark.svg" alt="The shorthands :src and @click beside the same element written with v-bind:src and v-on:click" width="1200" height="351" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-04">
 <a class="code" href="#VUE-04">VUE-04</a>
 <div class="text"><p><strong>Attributes keep one order.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-formatting.md" title="vue2/vue-formatting.md">vue-formatting.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>ref v-if v-for v-on v-bind:ref v-bind [...] class type placeholder title</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_attribute_order.svg"><img class="light" src="../img/rules/vue_attribute_order.svg" alt="The ten attributes in their order, ref first and title last, and an input element written in that order" width="1200" height="640" loading="lazy"><img class="dark" src="../img/rules/vue_attribute_order-dark.svg" alt="The ten attributes in their order, ref first and title last, and an input element written in that order" width="1200" height="640" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-05">
 <a class="code" href="#VUE-05">VUE-05</a>
@@ -2885,6 +2889,7 @@ emit_input(value) <span class="cmt">// return a value from an input</span></pre>
         {{ item.title }}
     &lt;/div&gt;
 &lt;/template&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_lift_v_if_off_v_for.svg"><img class="light" src="../img/rules/vue_lift_v_if_off_v_for.svg" alt="A div carrying both v-for and v-if beside the condition lifted to a template around the loop" width="1200" height="404" loading="lazy"><img class="dark" src="../img/rules/vue_lift_v_if_off_v_for-dark.svg" alt="A div carrying both v-for and v-if beside the condition lifted to a template around the loop" width="1200" height="404" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-06">
 <a class="code" href="#VUE-06">VUE-06</a>
@@ -2892,15 +2897,18 @@ emit_input(value) <span class="cmt">// return a value from an input</span></pre>
 <div class="form"><pre>&lt;template v-if="is_ready"&gt;
 &lt;template v-if="(is_loading_fonts &#124;&#124; is_loading_images)"&gt;
 &lt;div v-bind:class="(compact ? 'narrow' : 'wide')" /&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_compound_in_parentheses.svg"><img class="light" src="../img/rules/vue_compound_in_parentheses.svg" alt="An operator and a ternary left bare beside the same values in parentheses, and a simple value wrapped beside it bare" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/vue_compound_in_parentheses-dark.svg" alt="An operator and a ternary left bare beside the same values in parentheses, and a simple value wrapped beside it bare" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-07">
 <a class="code" href="#VUE-07">VUE-07</a>
 <div class="text"><p><strong>An input works like a native input.</strong> Anything which takes data from a user is called an <strong>input</strong> and must work as a normal INPUT element.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-input.md" title="vue2/vue-input.md">vue-input.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form prose"><ol><li>takes data from the <code>value</code> property</li><li>emits an <strong>input</strong> event</li><li>respects the <strong>disabled</strong> state</li><li>respects the <code>readonly</code> attribute</li><li>reacts to clicks on the associated LABEL</li><li>reacts to mouse hover from that LABEL</li><li>injects and uses <code>app_form_input_id</code></li><li>takes focus with the TAB key</li></ol></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_input_like_native.svg"><img class="light" src="../img/rules/vue_input_like_native.svg" alt="app-input-email takes value, disabled and readonly, emits input, and answers a click on its label and the Tab key like an input" width="1200" height="600" loading="lazy"><img class="dark" src="../img/rules/vue_input_like_native-dark.svg" alt="app-input-email takes value, disabled and readonly, emits input, and answers a click on its label and the Tab key like an input" width="1200" height="600" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="VUE-08">
+<article class="rule" id="VUE-08">
 <a class="code" href="#VUE-08">VUE-08</a>
 <div class="text"><p><strong>Avoid generic inputs.</strong> Avoid generic inputs — those with a lot of properties like <code>min</code>, <code>max</code>, <code>step</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-input.md" title="vue2/vue-input.md">vue-input.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/vue_avoid_generic_inputs.svg"><img class="light" src="../img/rules/vue_avoid_generic_inputs.svg" alt="One app-input-number with min, max, step and more beside app-input-percent, app-input-px and app-input-year" width="1200" height="397" loading="lazy"><img class="dark" src="../img/rules/vue_avoid_generic_inputs-dark.svg" alt="One app-input-number with min, max, step and more beside app-input-percent, app-input-px and app-input-year" width="1200" height="397" loading="lazy"></a>
 </article>
 <article class="rule" id="VUE-09">
 <a class="code" href="#VUE-09">VUE-09</a>
@@ -2911,6 +2919,7 @@ emit_input(value) <span class="cmt">// return a value from an input</span></pre>
         &lt;app-input-email v-model="user.email" /&gt;
     &lt;/app-form-div&gt;
 &lt;/form&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_form_submit_button_and_enter.svg"><img class="light" src="../img/rules/vue_form_submit_button_and_enter.svg" alt="A form whose field (Enter) and Submit button both reach its one submit handler" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/vue_form_submit_button_and_enter-dark.svg" alt="A form whose field (Enter) and Submit button both reach its one submit handler" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-10">
 <a class="code" href="#VUE-10">VUE-10</a>
@@ -2921,16 +2930,19 @@ emit_input(value) <span class="cmt">// return a value from an input</span></pre>
 &lt;app-button-green type="submit"&gt;
     Submit
 &lt;/app-button-green&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_cancel_submit_close.svg"><img class="light" src="../img/rules/vue_cancel_submit_close.svg" alt="A Rename file form: Cancel returns false through modal.return and closes; Submit is a type submit button that saves and closes" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/vue_cancel_submit_close-dark.svg" alt="A Rename file form: Cancel returns false through modal.return and closes; Submit is a type submit button that saves and closes" width="1200" height="500" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="VUE-11">
+<article class="rule" id="VUE-11">
 <a class="code" href="#VUE-11">VUE-11</a>
 <div class="text"><p><strong>One button, one class.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-button.md" title="vue2/vue-button.md">vue-button.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/vue_one_button_one_class.svg"><img class="light" src="../img/rules/vue_one_button_one_class.svg" alt="A button assembled from btn btn-green btn-lg beside one class, button-green" width="1200" height="351" loading="lazy"><img class="dark" src="../img/rules/vue_one_button_one_class-dark.svg" alt="A button assembled from btn btn-green btn-lg beside one class, button-green" width="1200" height="351" loading="lazy"></a>
 </article>
 <article class="rule" id="VUE-12">
 <a class="code" href="#VUE-12">VUE-12</a>
 <div class="text"><p><strong>A slider thumb moves from 0 to 100%.</strong> A slider is a container and a thumb. Position the thumb with <code>top</code> or <code>left</code> from <code>0</code> to <code>100%</code> — <code>0</code> means empty, <code>100%</code> means full.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-slider.md" title="vue2/vue-slider.md">vue-slider.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>left: 0      <span class="cmt">// empty</span>
 left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_slider_thumb_percent.svg"><img class="light" src="../img/rules/vue_slider_thumb_percent.svg" alt="Three sliders with the thumb at left 0, 50% and 100%: empty, half and full" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/vue_slider_thumb_percent-dark.svg" alt="Three sliders with the thumb at left 0, 50% and 100%: empty, half and full" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-13">
 <a class="code" href="#VUE-13">VUE-13</a>
@@ -2940,16 +2952,19 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
         &lt;path fill="currentColor" d="..." /&gt;
     &lt;/svg&gt;
 &lt;/template&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_one_icon_per_file.svg"><img class="light" src="../img/rules/vue_one_icon_per_file.svg" alt="A folder of svg-icon-*.vue files and the one file content: a template with an SVG whose path fills currentColor" width="1200" height="490" loading="lazy"><img class="dark" src="../img/rules/vue_one_icon_per_file-dark.svg" alt="A folder of svg-icon-*.vue files and the one file content: a template with an SVG whose path fills currentColor" width="1200" height="490" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-14">
 <a class="code" href="#VUE-14">VUE-14</a>
 <div class="text"><p><strong>Icons use currentColor.</strong> SVG icons respect the <code>currentColor</code> CSS property.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-svg-icon.md" title="vue2/vue-svg-icon.md">vue-svg-icon.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&lt;path fill=&quot;currentColor&quot; d=&quot;...&quot; /&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_icons_current_color.svg"><img class="light" src="../img/rules/vue_icons_current_color.svg" alt="The same archive icon in a plain, an accent and a danger button, taking each button text colour" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/vue_icons_current_color-dark.svg" alt="The same archive icon in a plain, an accent and a danger button, taking each button text colour" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-15">
 <a class="code" href="#VUE-15">VUE-15</a>
 <div class="text"><p><strong>Component options keep one order.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-components.md" title="vue2/vue-components.md">vue-components.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>props inject provide mixins data computed watch methods mounted created beforeDestroy</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_component_options_order.svg"><img class="light" src="../img/rules/vue_component_options_order.svg" alt="The eleven component options in their order, from props to beforeDestroy" width="1200" height="470" loading="lazy"><img class="dark" src="../img/rules/vue_component_options_order-dark.svg" alt="The eleven component options in their order, from props to beforeDestroy" width="1200" height="470" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-16">
 <a class="code" href="#VUE-16">VUE-16</a>
@@ -2957,6 +2972,7 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 <div class="form"><pre>&lt;button v-on:click="click_approve"&gt;
     Approve
 &lt;/button&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_handler_by_event_and_text.svg"><img class="light" src="../img/rules/vue_handler_by_event_and_text.svg" alt="The Approve button handled by click_approve; handle_click beside it, saying nothing of the button" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/vue_handler_by_event_and_text-dark.svg" alt="The Approve button handled by click_approve; handle_click beside it, saying nothing of the button" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-17">
 <a class="code" href="#VUE-17">VUE-17</a>
@@ -2964,11 +2980,13 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 <div class="form"><pre>&lt;button v-on:click="click_icon_archive"&gt;
     &lt;svg-icon-archive /&gt;
 &lt;/button&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_handler_on_icon.svg"><img class="light" src="../img/rules/vue_handler_on_icon.svg" alt="An archive icon button handled by click_icon_archive; click_button beside it, naming no button" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/vue_handler_on_icon-dark.svg" alt="An archive icon button handled by click_icon_archive; click_button beside it, naming no button" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-18">
 <a class="code" href="#VUE-18">VUE-18</a>
 <div class="text"><p><strong>Rename the handler with its label.</strong> After the text or icon is changed, rename the corresponding event handler.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-components.md" title="vue2/vue-components.md">vue-components.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Approve → Accept     <span class="cmt">// click_approve → click_accept</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_rename_handler_with_label.svg"><img class="light" src="../img/rules/vue_rename_handler_with_label.svg" alt="Approve with click_approve; after the label becomes Accept, click_approve left stale beside click_accept" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/vue_rename_handler_with_label-dark.svg" alt="Approve with click_approve; after the label becomes Accept, click_approve left stale beside click_accept" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-19">
 <a class="code" href="#VUE-19">VUE-19</a>
@@ -2977,6 +2995,7 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 &lt;th /&gt;       <span class="yes">✓ yes</span>
 
 &lt;app-input-email v-model="user.email" /&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_empty_elements_self_close.svg"><img class="light" src="../img/rules/vue_empty_elements_self_close.svg" alt="An empty th, an empty component and a bare br left open, each beside its self-closing form" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/vue_empty_elements_self_close-dark.svg" alt="An empty th, an empty component and a bare br left open, each beside its self-closing form" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-20">
 <a class="code" href="#VUE-20">VUE-20</a>
@@ -2986,6 +3005,7 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 &lt;/span&gt;
 
 &lt;badge-in-progress v-bind:detail="detail" /&gt;   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_piece_in_two_places_is_component.svg"><img class="light" src="../img/rules/vue_piece_in_two_places_is_component.svg" alt="One badge-in-progress component used in the list and in the detail, beside markup copied into each place" width="1200" height="620" loading="lazy"><img class="dark" src="../img/rules/vue_piece_in_two_places_is_component-dark.svg" alt="One badge-in-progress component used in the list and in the detail, beside markup copied into each place" width="1200" height="620" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-21">
 <a class="code" href="#VUE-21">VUE-21</a>
@@ -2993,17 +3013,20 @@ left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="bu
 <div class="form"><pre>badge-filing
 badge-in-progress
 badge-no-reply</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_named_kind_first.svg"><img class="light" src="../img/rules/vue_named_kind_first.svg" alt="Components named what-kind scatter when sorted; named kind-what, each kind sorts together" width="1200" height="435" loading="lazy"><img class="dark" src="../img/rules/vue_named_kind_first-dark.svg" alt="Components named what-kind scatter when sorted; named kind-what, each kind sorts together" width="1200" height="435" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-22">
 <a class="code" href="#VUE-22">VUE-22</a>
 <div class="text"><p><strong>What changes is a prop.</strong> What differs from place to place goes in as a prop: a count, a time, a plan's progress. The component holds the rest.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-components.md" title="vue2/vue-components.md">vue-components.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&lt;badge-new v-bind:count="3" /&gt;              <span class="cmt">// 3 new</span>
 &lt;badge-in-progress detail="for 4 h" /&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_what_changes_is_prop.svg"><img class="light" src="../img/rules/vue_what_changes_is_prop.svg" alt="badge-new with count 3 and 12 and badge-in-progress with a detail, each rendering its own badge" width="1200" height="490" loading="lazy"><img class="dark" src="../img/rules/vue_what_changes_is_prop-dark.svg" alt="badge-new with count 3 and 12 and badge-in-progress with a detail, each rendering its own badge" width="1200" height="490" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-23">
 <a class="code" href="#VUE-23">VUE-23</a>
 <div class="text"><p><strong>A variant is a suffix.</strong> A smaller or otherwise different form is a component of its own, named with a suffix; never a second copy written by hand where it is needed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-components.md" title="vue2/vue-components.md">vue-components.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>badge-in-progress → badge-in-progress-sm</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_variant_is_suffix.svg"><img class="light" src="../img/rules/vue_variant_is_suffix.svg" alt="badge-in-progress and its smaller badge-in-progress-sm; a badge shrunk by a class at one place beside the variant" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/vue_variant_is_suffix-dark.svg" alt="badge-in-progress and its smaller badge-in-progress-sm; a badge shrunk by a class at one place beside the variant" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VUE-24">
 <a class="code" href="#VUE-24">VUE-24</a>
@@ -3012,6 +3035,7 @@ badge-no-reply</pre><button class="copy" type="button">Copy</button></div>
     @include app-badge
     background: var(--accent-soft)
     color: var(--accent)</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/vue_kind_shares_mixin.svg"><img class="light" src="../img/rules/vue_kind_shares_mixin.svg" alt="The app-badge mixin gives shape, size and type to badge-new, badge-done and badge-waiting, each with its own colours" width="1200" height="510" loading="lazy"><img class="dark" src="../img/rules/vue_kind_shares_mixin-dark.svg" alt="The app-badge mixin gives shape, size and type to badge-new, badge-done and badge-waiting, each with its own colours" width="1200" height="510" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="UI">
