@@ -577,5 +577,5 @@ body aims for 72 too").
 
 A title stays within 72 characters, scope included: the 70 to aim for and
 the 75 of a rare case in MP-39 are gone. Every line of the body is held to
-72 as well, broken between words. MP-49 is left to the proposal waiting for
-the author's go in its own conversation.
+72 as well, broken between words. MP-49 was held for a proposal the author
+set aside on 2026-10-11; the number stays unused.
