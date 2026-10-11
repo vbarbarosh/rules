@@ -22,7 +22,7 @@ test.before(async function () {
             response.writeHead(404).end();
             return;
         }
-        const type_by_extension = {'.html': 'text/html', '.png': 'image/png', '.gif': 'image/gif'};
+        const type_by_extension = {'.html': 'text/html', '.png': 'image/png', '.gif': 'image/gif', '.svg': 'image/svg+xml'};
         response.setHeader('Content-Type', type_by_extension[path.extname(file)] || 'application/octet-stream');
         fs.createReadStream(file).pipe(response);
     });
