@@ -5,10 +5,14 @@
 <text x="48" y="108" fill="#686a61" font-size="22">a smaller picture that keeps what matters of something bigger: where things are and how they connect</text>
 <!-- territory to map -->
 <text x="48" y="164" fill="#191a17" font-size="24" font-weight="700">A map of a place</text>
-<rect x="48" y="190" width="330" height="250" rx="12" fill="#e8e5d9"/>
-<path d="M60 400 C 120 330, 160 380, 220 300 S 320 230, 370 210" fill="none" stroke="#e2e7fb" stroke-width="26"/>
-<g fill="#dcefe3"><circle cx="110" cy="250" r="34"/><circle cx="300" cy="380" r="40"/><circle cx="160" cy="240" r="22"/></g>
-<rect x="250" y="250" width="40" height="30" fill="#a19f93"/><path d="M244 252 l26 -22 26 22z" fill="#686a61"/>
+<rect x="48" y="190" width="330" height="250" rx="12" fill="#e8e5d9" stroke="#a19f93" stroke-width="2"/>
+<g fill="#fbeedb" stroke="#b8650a" stroke-width="1.5"><rect x="70" y="298" width="84" height="40" rx="3"/><path d="M70 308 H154 M70 318 H154 M70 328 H154" fill="none"/></g>
+<ellipse cx="196" cy="406" rx="28" ry="15" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<path d="M60 400 C 120 330, 160 380, 220 300 S 320 230, 370 210" fill="none" stroke="#a19f93" stroke-width="26"/>
+<path d="M60 400 C 120 330, 160 380, 220 300 S 320 230, 370 210" fill="none" stroke="#fffefb" stroke-width="20"/>
+<path d="M60 400 C 120 330, 160 380, 220 300 S 320 230, 370 210" fill="none" stroke="#a19f93" stroke-width="2" stroke-dasharray="10 8"/>
+<g fill="#dcefe3" stroke="#1a7443" stroke-width="2"><circle cx="96" cy="244" r="18"/><circle cx="124" cy="256" r="17"/><circle cx="112" cy="226" r="15"/><circle cx="152" cy="236" r="14"/><circle cx="168" cy="252" r="11"/><circle cx="290" cy="372" r="19"/><circle cx="316" cy="386" r="18"/><circle cx="304" cy="352" r="15"/><circle cx="328" cy="360" r="13"/><circle cx="282" cy="398" r="13"/><circle cx="214" cy="226" r="9"/><circle cx="338" cy="290" r="9"/></g>
+<g stroke="#191a17" stroke-width="2"><rect x="252" y="214" width="36" height="26" fill="#fffefb"/><path d="M246 216 L270 196 L294 216 Z" fill="#b2341f"/><rect x="265" y="226" width="10" height="14" fill="#686a61" stroke="none"/></g>
 <text x="213" y="470" fill="#686a61" font-size="20" text-anchor="middle">the place: everything</text>
 <line x1="384" y1="315" x2="454" y2="315" stroke="#686a61" stroke-width="3" marker-end="url(#a)"/>
 <rect x="460" y="230" width="170" height="170" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
