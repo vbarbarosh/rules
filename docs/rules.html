@@ -378,6 +378,15 @@ h1 {
     max-width: none;
 }
 
+/* A row of one picture, under its code: as wide as a lone picture. */
+:root[data-pictures="small"] .figures:has(> .figure:only-child) {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+:root[data-pictures="small"] .figures > .figure:only-child {
+    max-width: 50%;
+}
+
 /* Off: each picture folds to a mark with its caption; a click opens it. */
 :root[data-pictures="off"] .figure img {
     display: none;
@@ -1212,15 +1221,18 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
 <a class="code" href="#CORE-01">CORE-01</a>
 <div class="text"><p><strong>Explicit rules take priority for new code.</strong> Follow the surrounding code only where no explicit rule applies. A new rule does not require rewriting existing code; that refactoring can happen separately.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form prose"><p>An explicit rule requires <code>error</code>: use <code>function (error)</code> in new code even beside older <code>function (err)</code> handlers.</p></div>
+<div class="figures"><a class="figure" href="../img/rules/explicit_rules_first.svg"><img class="light" src="../img/rules/explicit_rules_first.svg" alt="A written rule beside older code: the old handler keeps function (err), the new one is written function (error); rewriting the old is separate work" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/explicit_rules_first-dark.svg" alt="A written rule beside older code: the old handler keeps function (err), the new one is written function (error); rewriting the old is separate work" width="1200" height="560" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="CORE-02">
+<article class="rule" id="CORE-02">
 <a class="code" href="#CORE-02">CORE-02</a>
 <div class="text"><p><strong>Unwritten conventions bind too.</strong> An unwritten convention is still a convention. File names, CSS classes, formatting and even attribute order follow the same systematic approach — silence is not permission.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/unwritten_conventions.svg"><img class="light" src="../img/rules/unwritten_conventions.svg" alt="No rule names it, yet every file in components/ is kebab-case: user-menu.vue follows them, UserMenu.vue does not; the same for classes, formatting and attribute order" width="1200" height="580" loading="lazy"><img class="dark" src="../img/rules/unwritten_conventions-dark.svg" alt="No rule names it, yet every file in components/ is kebab-case: user-menu.vue follows them, UserMenu.vue does not; the same for classes, formatting and attribute order" width="1200" height="580" loading="lazy"></a>
 </article>
 <article class="rule" id="CORE-03">
 <a class="code" href="#CORE-03">CORE-03</a>
 <div class="text"><p><strong>An option is "value" and "label".</strong> A selectable option is always <code>{value, label}</code> — value is internal, label is displayed. Select, dropdown, radio, tabs alike.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/value_label.md" title="drafts/value_label.md">value_label.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>{value: &lt;internal&gt;, label: &lt;display&gt;}</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/value_label.svg"><img class="light" src="../img/rules/value_label.svg" alt="One list of {value, label} options shown as a select, radio buttons and tabs; the user reads Netherlands, the code sends country=nl" width="1200" height="580" loading="lazy"><img class="dark" src="../img/rules/value_label-dark.svg" alt="One list of {value, label} options shown as a select, radio buttons and tabs; the user reads Netherlands, the code sends country=nl" width="1200" height="580" loading="lazy"></a></div>
 </article>
 <article class="rule" id="CORE-04">
 <a class="code" href="#CORE-04">CORE-04</a>
@@ -1234,6 +1246,7 @@ res/rej (Promise)   resolve/reject
 req/res (Express)   request/response
 setup/teardown      push/pull
 enabled/disabled    import/export</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/established_pairs.svg"><img class="light" src="../img/rules/established_pairs.svg" alt="Made-up pairs and the established ones they should be: begin/finish to begin/end, create/remove to create/destroy, open/shut to open/close; and the narrow pairs with where each holds" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/established_pairs-dark.svg" alt="Made-up pairs and the established ones they should be: begin/finish to begin/end, create/remove to create/destroy, open/shut to open/close; and the narrow pairs with where each holds" width="1200" height="560" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="NAME">

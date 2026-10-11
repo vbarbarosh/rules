@@ -378,6 +378,15 @@ h1 {
     max-width: none;
 }
 
+/* A row of one picture, under its code: as wide as a lone picture. */
+:root[data-pictures="small"] .figures:has(> .figure:only-child) {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+:root[data-pictures="small"] .figures > .figure:only-child {
+    max-width: 50%;
+}
+
 /* Off: each picture folds to a mark with its caption; a click opens it. */
 :root[data-pictures="off"] .figure img {
     display: none;
