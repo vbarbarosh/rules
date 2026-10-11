@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="640" fill="#16181b"/>
-<defs><marker id="a56DB3A" viewBox="0 0 12 12" refX="7" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#72d39c" stroke-linejoin="round"/></marker><marker id="a5E5C4E" viewBox="0 0 12 12" refX="7" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#4a4f57" stroke-linejoin="round"/></marker></defs>
+<defs><marker id="a56DB3A" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#72d39c" stroke-linejoin="round"/></marker><marker id="a5E5C4E" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#4a4f57" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Happy path</text>
 <text x="48" y="108" fill="#92958c" font-size="22">the ideal scenario: every step as meant, no error on the way</text>
 <rect x="70" y="280" width="180" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
