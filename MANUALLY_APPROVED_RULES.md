@@ -579,3 +579,16 @@ A title stays within 72 characters, scope included: the 70 to aim for and
 the 75 of a rare case in MP-39 are gone. Every line of the body is held to
 72 as well, broken between words. MP-49 was held for a proposal the author
 set aside on 2026-10-11; the number stays unused.
+
+## MP-51 — A doc GIF shows its time and its progress, at 30 fps
+
+**Scope:** DOC-14, [GIFs in the docs](drafts/gifs.md).
+**Approved:** 2026-10-11, voice comment `20261011_214702-me` ("in a GIF
+there must be the time, as it goes, 0, 1, … 30 frames a second; and at the
+top a small bar that shows the progress; these two are a must"), and
+author message `20261011_220943-me` ("This is it, require 30 fps,
+re-record scroll-anchoring") over the four GIFs stamped with both.
+
+Every GIF in the docs is recorded at 30 frames a second. It shows its time
+from 0 at its first frame in a corner, and a thin bar along its top edge
+that fills as it plays; both start again when it loops.
