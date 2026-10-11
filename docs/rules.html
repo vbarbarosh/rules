@@ -2796,12 +2796,14 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
         user_identities
     ...
 &#96;);</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/sql_query_opens_own_line.svg"><img class="light" src="../img/rules/sql_query_opens_own_line.svg" alt="A query glued to its knex.raw call beside the query opening and closing on its own lines, indented one level" width="1200" height="444" loading="lazy"><img class="dark" src="../img/rules/sql_query_opens_own_line-dark.svg" alt="A query glued to its knex.raw call beside the query opening and closing on its own lines, indented one level" width="1200" height="444" loading="lazy"></a></div>
 </article>
 <article class="rule" id="SQL-02">
 <a class="code" href="#SQL-02">SQL-02</a>
 <div class="text"><p><strong>Keywords upper case, names lower case.</strong> Every keyword, type and function is upper case; tables, columns, indexes and aliases stay lower case, spelled as the schema spells them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/sql.md" title="drafts/sql.md">sql.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>SELECT MIN(id) AS id FROM user_identities   <span class="yes">✓ yes</span>
 select min(id) as id from user_identities   <span class="no">✗ no</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/sql_keywords_upper_names_lower.svg"><img class="light" src="../img/rules/sql_keywords_upper_names_lower.svg" alt="A query's tokens as keywords and names; an all-lower-case query beside keywords upper case and names lower case" width="1200" height="476" loading="lazy"><img class="dark" src="../img/rules/sql_keywords_upper_names_lower-dark.svg" alt="A query's tokens as keywords and names; an all-lower-case query beside keywords upper case and names lower case" width="1200" height="476" loading="lazy"></a></div>
 </article>
 <article class="rule" id="SQL-03">
 <a class="code" href="#SQL-03">SQL-03</a>
@@ -2815,6 +2817,7 @@ DROP INDEX
     user_identities_primary_user_id_unique
 ON
     user_identities</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/sql_each_clause_own_line.svg"><img class="light" src="../img/rules/sql_each_clause_own_line.svg" alt="A CREATE UNIQUE INDEX whose clauses run on beside each clause on its line with its operand indented under it" width="1200" height="418" loading="lazy"><img class="dark" src="../img/rules/sql_each_clause_own_line-dark.svg" alt="A CREATE UNIQUE INDEX whose clauses run on beside each clause on its line with its operand indented under it" width="1200" height="418" loading="lazy"></a></div>
 </article>
 <article class="rule" id="SQL-04">
 <a class="code" href="#SQL-04">SQL-04</a>
@@ -2825,6 +2828,7 @@ ON
         ...
     ) AS oldest
 )</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/sql_subquery_indented.svg"><img class="light" src="../img/rules/sql_subquery_indented.svg" alt="A flat nested subquery beside the same subquery indented a level per pair of parentheses" width="1200" height="444" loading="lazy"><img class="dark" src="../img/rules/sql_subquery_indented-dark.svg" alt="A flat nested subquery beside the same subquery indented a level per pair of parentheses" width="1200" height="444" loading="lazy"></a></div>
 </article>
 <article class="rule" id="SQL-05">
 <a class="code" href="#SQL-05">SQL-05</a>
@@ -2833,6 +2837,7 @@ ON
     SELECT id FROM (
         SELECT MIN(id) AS id
         FROM user_identities</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/sql_short_expressions_one_line.svg"><img class="light" src="../img/rules/sql_short_expressions_one_line.svg" alt="A WHERE split to the word beside short expressions kept on one line inside the subquery" width="1200" height="470" loading="lazy"><img class="dark" src="../img/rules/sql_short_expressions_one_line-dark.svg" alt="A WHERE split to the word beside short expressions kept on one line inside the subquery" width="1200" height="470" loading="lazy"></a></div>
 </article>
 <article class="rule" id="SQL-06">
 <a class="code" href="#SQL-06">SQL-06</a>
@@ -2843,6 +2848,7 @@ DROP INDEX
     user_identities_primary_user_id_unique,
 DROP COLUMN
     primary_user_id</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/sql_alter_table_one_action.svg"><img class="light" src="../img/rules/sql_alter_table_one_action.svg" alt="An ALTER TABLE with its actions run together beside one action per clause, each operand indented" width="1200" height="470" loading="lazy"><img class="dark" src="../img/rules/sql_alter_table_one_action-dark.svg" alt="An ALTER TABLE with its actions run together beside one action per clause, each operand indented" width="1200" height="470" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="VUE">

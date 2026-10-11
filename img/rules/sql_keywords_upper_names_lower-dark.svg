@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="476" viewBox="0 0 1200 476" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="476" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Keywords upper case, names lower case</text>
+<text x="48" y="108" fill="#92958c" font-size="22">what SQL says shouts; what the schema names stays as spelled</text>
+<rect x="60" y="160" width="95" height="46" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="107.5" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">SELECT</text>
+<text x="107.5" y="232" fill="#92958c" font-size="17" text-anchor="middle">keyword</text>
+<rect x="165" y="160" width="106" height="46" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="218.0" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">MIN(id)</text>
+<text x="218.0" y="232" fill="#92958c" font-size="17" text-anchor="middle">function</text>
+<rect x="281" y="160" width="52" height="46" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="307.0" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">AS</text>
+<rect x="343" y="160" width="52" height="46" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="369.0" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">id</text>
+<text x="369.0" y="232" fill="#92958c" font-size="17" text-anchor="middle">name</text>
+<rect x="405" y="160" width="73" height="46" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="441.5" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">FROM</text>
+<rect x="488" y="160" width="192" height="46" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="584.0" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_identities</text>
+<text x="584.0" y="232" fill="#92958c" font-size="17" text-anchor="middle">table</text>
+<rect x="60" y="270" width="470" height="110" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="78.0" y="299.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">select min(id) as id</text>
+<text x="78.0" y="325.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">from user_identities</text>
+<text x="78" y="366" fill="#ff937c" font-size="17">✗ all lower case</text>
+<rect x="670" y="270" width="470" height="110" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="688.0" y="299.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">SELECT MIN(id) AS id</text>
+<text x="688.0" y="325.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">FROM user_identities</text>
+<text x="688" y="366" fill="#72d39c" font-size="17">✓ keywords upper</text>
+<line x1="536" y1="325.0" x2="664" y2="325.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="436" fill="#92958c" font-size="21">Tables, columns, indexes and aliases are spelled as the schema spells them.</text>
+</svg>
