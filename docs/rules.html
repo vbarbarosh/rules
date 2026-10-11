@@ -1555,6 +1555,7 @@ return (unique_tags.length === tags.length) ? tags : unique_tags;   <span class=
 <div class="form"><pre>format_bytes(1457664)    <span class="cmt">// "1.4 MB"</span>
 format_duration(155000)  <span class="cmt">// "2m 35s"</span>
 format_usd(1299)         <span class="cmt">// "$12.99"</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_format_human_text.svg"><img class="light" src="../img/rules/fn_format_human_text.svg" alt="format_bytes, format_duration and format_usd turn values into the strings a person reads" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/fn_format_human_text-dark.svg" alt="format_bytes, format_duration and format_usd turn values into the strings a person reads" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-05">
 <a class="code" href="#FN-05">FN-05</a>
@@ -1563,29 +1564,34 @@ format_usd(1299)         <span class="cmt">// "$12.99"</span></pre><button class
 {
     return "body { color: {$this-&gt;text_color}; }";
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_render_constructs_assets.svg"><img class="light" src="../img/rules/fn_render_constructs_assets.svg" alt="render_css and render_svg turn state into CSS and SVG assets" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/fn_render_constructs_assets-dark.svg" alt="render_css and render_svg turn state into CSS and SVG assets" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-02">
 <a class="code" href="#FN-02">FN-02</a>
 <div class="text"><p><strong>Never hand-roll a display conversion.</strong> A display conversion is never hand-rolled at a call site — an inline one is a missed <code>format_*</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>${Math.round(bytes / 1024)}kB   <span class="no">✗ missed call</span>
 format_bytes(bytes)             <span class="yes">✓ right</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_no_hand_rolled_display.svg"><img class="light" src="../img/rules/fn_no_hand_rolled_display.svg" alt="Three hand-rolled byte conversions giving three answers, each rewritten as format_bytes(b) giving 1.4 MB" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/fn_no_hand_rolled_display-dark.svg" alt="Three hand-rolled byte conversions giving three answers, each rewritten as format_bytes(b) giving 1.4 MB" width="1200" height="540" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-03">
 <a class="code" href="#FN-03">FN-03</a>
 <div class="text"><p><strong><code>format_*</code> returns — it never prints.</strong> Output is the caller’s job.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>console.log(format_tree(tree));</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_format_returns.svg"><img class="light" src="../img/rules/fn_format_returns.svg" alt="format_tree returns the text and the caller prints it; a format_tree that prints rewritten as console.log(format_tree(tree))" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/fn_format_returns-dark.svg" alt="format_tree returns the text and the caller prints it; a format_tree that prints rewritten as console.log(format_tree(tree))" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-04">
 <a class="code" href="#FN-04">FN-04</a>
 <div class="text"><p><strong>"format" is not serialization.</strong> <code>format_*</code> is not for machine formats. Serialization is conversion, not display.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>format_user(user)     <span class="cmt">// "Alex K. (admin)" — humans</span>
 json_from_user(user)  <span class="cmt">// machines</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_format_not_serialization.svg"><img class="light" src="../img/rules/fn_format_not_serialization.svg" alt="format_user gives the text a person reads; json_from_user gives the JSON a machine reads" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/fn_format_not_serialization-dark.svg" alt="format_user gives the text a person reads; json_from_user gives the JSON a machine reads" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-06">
 <a class="code" href="#FN-06">FN-06</a>
 <div class="text"><p><strong>"render" is recomputed, never stored.</strong> The prefix separates constructed content from stored attributes. <code>render_*</code> is recomputed per call — never cached, never stored.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/render_xxx.md" title="drafts/render_xxx.md">render_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>$this-&gt;text_color     <span class="cmt">// stored attribute</span>
 $this-&gt;render_css()   <span class="cmt">// constructed content</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_render_recomputed.svg"><img class="light" src="../img/rules/fn_render_recomputed.svg" alt="A stored attribute is read; render_css is made on each call; storing its result rewritten as calling it where needed" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/fn_render_recomputed-dark.svg" alt="A stored attribute is read; render_css is made on each call; storing its result rewritten as calling it where needed" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-07">
 <a class="code" href="#FN-07">FN-07</a>
@@ -1593,6 +1599,7 @@ $this-&gt;render_css()   <span class="cmt">// constructed content</span></pre><b
 <div class="form"><pre>if (!$this-&gt;theme) {
     return null;
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_render_null_or_throw.svg"><img class="light" src="../img/rules/fn_render_null_or_throw.svg" alt="render_css returns CSS for a theme, null with no theme, and throws for a broken one" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/fn_render_null_or_throw-dark.svg" alt="render_css returns CSS for a theme, null with no theme, and throws for a broken one" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-08">
 <a class="code" href="#FN-08">FN-08</a>
@@ -1600,12 +1607,14 @@ $this-&gt;render_css()   <span class="cmt">// constructed content</span></pre><b
 <div class="form"><pre>$theme-&gt;render_css()    <span class="cmt">// construct CSS content</span>
 refresh_theme_labels()  <span class="cmt">// bring a part of the page up to date</span>
 export_zip()            <span class="cmt">// produce a downloadable artifact</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_render_refresh_export.svg"><img class="light" src="../img/rules/fn_render_refresh_export.svg" alt="render_css returns CSS, refresh_theme_labels updates the page, export_zip makes a download; theme_labels_render rewritten as refresh_theme_labels" width="1200" height="600" loading="lazy"><img class="dark" src="../img/rules/fn_render_refresh_export-dark.svg" alt="render_css returns CSS, refresh_theme_labels updates the page, export_zip makes a download; theme_labels_render rewritten as refresh_theme_labels" width="1200" height="600" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-09">
 <a class="code" href="#FN-09">FN-09</a>
 <div class="text"><p><strong>Format and render differ by output purpose.</strong> <code>format_*</code> returns a string a person reads; <code>render_*</code> constructs asset content. Both may return strings; reading object state does not turn display text into render output.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/format_xxx.md" title="drafts/format_xxx.md">format_xxx.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>format_bytes(1457664)   <span class="cmt">// "1.4 MB", human-facing text</span>
 $theme-&gt;render_css()   <span class="cmt">// CSS asset content</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_format_vs_render.svg"><img class="light" src="../img/rules/fn_format_vs_render.svg" alt="format_bytes returns text a person reads; render_css returns CSS a browser uses" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/fn_format_vs_render-dark.svg" alt="format_bytes returns text a person reads; render_css returns CSS a browser uses" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-10">
 <a class="code" href="#FN-10">FN-10</a>
@@ -1616,10 +1625,12 @@ $theme-&gt;render_css()   <span class="cmt">// CSS asset content</span></pre><bu
         this.refresh_photos(),
     ]);
 },</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_refresh_local_copy.svg"><img class="light" src="../img/rules/fn_refresh_local_copy.svg" alt="refresh pulls the remote data into the local copy, this.user and this.photos" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/fn_refresh_local_copy-dark.svg" alt="refresh pulls the remote data into the local copy, this.user and this.photos" width="1200" height="500" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FN-11">
+<article class="rule" id="FN-11">
 <a class="code" href="#FN-11">FN-11</a>
 <div class="text"><p><strong>Refresh is safe to call anytime.</strong> <code>refresh()</code> is idempotent — safe to call at any moment, any number of times.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/refresh.md" title="drafts/refresh.md">refresh.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fn_refresh_idempotent.svg"><img class="light" src="../img/rules/fn_refresh_idempotent.svg" alt="refresh called on load, after a save and twice in a row reaches the same up-to-date state" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/fn_refresh_idempotent-dark.svg" alt="refresh called on load, after a save and twice in a row reaches the same up-to-date state" width="1200" height="520" loading="lazy"></a>
 </article>
 <article class="rule" id="FN-12">
 <a class="code" href="#FN-12">FN-12</a>
@@ -1627,6 +1638,7 @@ $theme-&gt;render_css()   <span class="cmt">// CSS asset content</span></pre><bu
 <div class="form"><pre>refresh_user: async function () {
     this.user = await fetch_user();
 },</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_refresh_composes_parts.svg"><img class="light" src="../img/rules/fn_refresh_composes_parts.svg" alt="refresh runs refresh_user and refresh_photos, each filling its own part" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/fn_refresh_composes_parts-dark.svg" alt="refresh runs refresh_user and refresh_photos, each filling its own part" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-13">
 <a class="code" href="#FN-13">FN-13</a>
@@ -1635,6 +1647,7 @@ $theme-&gt;render_css()   <span class="cmt">// CSS asset content</span></pre><bu
     await this.refresh();
     this.ready = true;
 },</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_init_is_first_refresh.svg"><img class="light" src="../img/rules/fn_init_is_first_refresh.svg" alt="mounted awaits this.refresh(), then sets this.ready = true" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/fn_init_is_first_refresh-dark.svg" alt="mounted awaits this.refresh(), then sets this.ready = true" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FN-14">
 <a class="code" href="#FN-14">FN-14</a>
@@ -1644,14 +1657,17 @@ $theme-&gt;render_css()   <span class="cmt">// CSS asset content</span></pre><bu
 if (await modal_upload().promise()) {
     await blocking(this.refresh());
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fn_modal_returns_a_flag.svg"><img class="light" src="../img/rules/fn_modal_returns_a_flag.svg" alt="The caller awaits modal_upload; the modal does its own work and returns true, committed, or false, nothing to do" width="1200" height="420" loading="lazy"><img class="dark" src="../img/rules/fn_modal_returns_a_flag-dark.svg" alt="The caller awaits modal_upload; the modal does its own work and returns true, committed, or false, nothing to do" width="1200" height="420" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FN-15">
+<article class="rule" id="FN-15">
 <a class="code" href="#FN-15">FN-15</a>
 <div class="text"><p><strong>Guards return early.</strong> Validate inputs immediately and return <code>null</code> or empty values explicitly.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fn_guards_return_early.svg"><img class="light" src="../img/rules/fn_guards_return_early.svg" alt="The work buried in nested ifs rewritten as guards that return null and () first" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/fn_guards_return_early-dark.svg" alt="The work buried in nested ifs rewritten as guards that return null and () first" width="1200" height="500" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FN-16">
+<article class="rule" id="FN-16">
 <a class="code" href="#FN-16">FN-16</a>
 <div class="text"><p><strong>One public value per library module.</strong> A reusable module exports one function, class, configuration or data value. Executable scripts export nothing; tool-shaped files follow the tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fn_one_value_per_module.svg"><img class="light" src="../img/rules/fn_one_value_per_module.svg" alt="format_bytes.js, Theme.js and config.js export one value each, bin/build exports nothing; a helpers.js exporting three values split into three modules" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/fn_one_value_per_module-dark.svg" alt="format_bytes.js, Theme.js and config.js export one value each, bin/build exports nothing; a helpers.js exporting three values split into three modules" width="1200" height="520" loading="lazy"></a>
 </article>
 </section>
 <section class="group" id="FMT">

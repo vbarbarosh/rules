@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="500" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Guards return early</text>
+<text x="48" y="108" fill="#92958c" font-size="22">check the inputs first and leave; the work stays unindented</text>
+<rect x="60" y="160" width="500" height="202" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="80.0" y="194" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">if (user) {</text>
+<text x="100.4" y="222" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">if (items.length) {</text>
+<text x="120.8" y="250" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// the work</text>
+<text x="100.4" y="278" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="80.0" y="306" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="80" y="346" fill="#ff937c" font-size="17">✗ the work buried in ifs</text>
+<rect x="640" y="160" width="500" height="202" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="660.0" y="194" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">if (!user) {</text>
+<text x="680.4" y="222" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return null;</text>
+<text x="660.0" y="250" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="660.0" y="278" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">if (!items.length) { return []; }</text>
+<text x="660.0" y="306" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// the work</text>
+<text x="660" y="346" fill="#72d39c" font-size="17">✓ guards first, then the work</text>
+<line x1="566" y1="261.0" x2="634" y2="261.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="460" fill="#92958c" font-size="21">An empty result is returned explicitly: null, [] or {}.</text>
+</svg>

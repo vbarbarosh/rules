@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="500" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">"render" constructs asset content</text>
+<text x="48" y="108" fill="#686a61" font-size="22">state goes in; CSS, HTML or SVG comes out</text>
+<rect x="60" y="160" width="300" height="84" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="210.0" y="198.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">$this-&gt;text_color</text>
+<text x="210.0" y="224.0" fill="#686a61" font-size="17" text-anchor="middle">state</text>
+<rect x="440" y="160" width="260" height="84" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="570.0" y="208.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">render_css()</text>
+<rect x="780" y="160" width="360" height="84" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="960.0" y="198.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">body { color: #333; }</text>
+<text x="960.0" y="224.0" fill="#686a61" font-size="17" text-anchor="middle">a CSS asset</text>
+<line x1="366" y1="202" x2="434" y2="202" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="706" y1="202" x2="774" y2="202" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="280" width="300" height="84" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="210.0" y="318.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">$this-&gt;items</text>
+<text x="210.0" y="344.0" fill="#686a61" font-size="17" text-anchor="middle">state</text>
+<rect x="440" y="280" width="260" height="84" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="570.0" y="328.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">render_svg()</text>
+<rect x="780" y="280" width="360" height="84" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="960.0" y="318.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">&lt;svg&gt;…&lt;/svg&gt;</text>
+<text x="960.0" y="344.0" fill="#686a61" font-size="17" text-anchor="middle">an SVG asset</text>
+<line x1="366" y1="322" x2="434" y2="322" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="706" y1="322" x2="774" y2="322" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="460" fill="#686a61" font-size="21">The result may be a string, but it is an asset, not text for a person.</text>
+</svg>

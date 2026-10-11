@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="500" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Refresh composes per-part refreshes</text>
+<text x="48" y="108" fill="#686a61" font-size="22">each refresh_&lt;part&gt;() syncs one part; refresh() runs them all</text>
+<rect x="60" y="230" width="220" height="80" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="170.0" y="277.35" fill="#191a17" font-size="21" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">refresh()</text>
+<rect x="380" y="160" width="300" height="70" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="530.0" y="201.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">refresh_user()</text>
+<rect x="780" y="160" width="360" height="70" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="960.0" y="201.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">this.user</text>
+<line x1="686" y1="195" x2="774" y2="195" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="380" y="300" width="300" height="70" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="530.0" y="341.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">refresh_photos()</text>
+<rect x="780" y="300" width="360" height="70" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="960.0" y="341.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">this.photos</text>
+<line x1="686" y1="335" x2="774" y2="335" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="286" y1="255" x2="374" y2="200" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="286" y1="285" x2="374" y2="330" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="460" fill="#686a61" font-size="21">A part refreshes alone when only it changed; refresh() awaits them all.</text>
+</svg>

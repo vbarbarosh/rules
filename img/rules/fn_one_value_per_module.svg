@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">One public value per library module</text>
+<text x="48" y="108" fill="#686a61" font-size="22">a reusable module exports one function, class, configuration or data value</text>
+<rect x="60" y="160" width="340" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="230.0" y="196.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">format_bytes.js</text>
+<text x="230.0" y="222.0" fill="#686a61" font-size="17" text-anchor="middle">one function</text>
+<rect x="430" y="160" width="340" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="600.0" y="196.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">Theme.js</text>
+<text x="600.0" y="222.0" fill="#686a61" font-size="17" text-anchor="middle">one class</text>
+<rect x="800" y="160" width="340" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="970.0" y="196.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">config.js</text>
+<text x="970.0" y="222.0" fill="#686a61" font-size="17" text-anchor="middle">one value</text>
+<rect x="60" y="270" width="340" height="60" rx="10" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="230.0" y="306.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">bin/build</text>
+<text x="420" y="307" fill="#686a61" font-size="18">a script exports nothing</text>
+<rect x="60" y="360" width="500" height="118" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="80.0" y="394" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">module.exports = {a, b, c};</text>
+<text x="80" y="462" fill="#b2341f" font-size="17">✗ helpers.js: three values</text>
+<rect x="640" y="360" width="500" height="118" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="660.0" y="394" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">a.js, b.js, c.js:</text>
+<text x="660.0" y="422" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">module.exports = a;</text>
+<text x="660" y="462" fill="#1a7443" font-size="17">✓ one module each</text>
+<line x1="566" y1="419.0" x2="634" y2="419.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+</svg>
