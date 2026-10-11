@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="470" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">time0 for measurement; paired names for other roles</text>
+<text x="48" y="108" fill="#686a61" font-size="22">a measurement starts at time0; a range has its two ends</text>
+<rect x="60" y="160" width="500" height="90" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="80.0" y="194" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const start = Date.now();</text>
+<text x="80" y="234" fill="#b2341f" font-size="17">✗ begin, start, t0: not a measurement</text>
+<rect x="640" y="160" width="500" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="660.0" y="194" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const time0 = Date.now();</text>
+<text x="660" y="234" fill="#1a7443" font-size="17">✓ time0 measures</text>
+<line x1="566" y1="205.0" x2="634" y2="205.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="60" y="300" fill="#686a61" font-size="18">a range with two ends, both used</text>
+<rect x="60" y="316" width="540" height="88" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="80" y="350" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const start = range.start;</text>
+<text x="80" y="380" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const finish = range.finish;</text>
+<rect x="660" y="316" width="220" height="88" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="770.0" y="366.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">start / finish</text>
+<rect x="920" y="316" width="220" height="88" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="1030.0" y="366.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">begin / end</text>
+</svg>

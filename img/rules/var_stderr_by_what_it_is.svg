@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="500" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Name stderr text by what it is</text>
+<text x="48" y="108" fill="#686a61" font-size="22">text a process wrote is not a caught error</text>
+<rect x="60" y="160" width="300" height="80" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="210.0" y="196.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">spawn('git', …)</text>
+<text x="210.0" y="222.0" fill="#686a61" font-size="17" text-anchor="middle">a child process</text>
+<line x1="366" y1="200" x2="474" y2="200" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="480" y="160" width="340" height="80" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="650.0" y="196.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">stderr += chunk</text>
+<text x="650.0" y="222.0" fill="#686a61" font-size="17" text-anchor="middle">the text it wrote</text>
+<rect x="60" y="290" width="500" height="90" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="80.0" y="324" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">let err = '';</text>
+<text x="80" y="364" fill="#b2341f" font-size="17">✗ reads as a caught error</text>
+<rect x="640" y="290" width="500" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="660.0" y="324" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">let stderr = '';</text>
+<text x="660" y="364" fill="#1a7443" font-size="17">✓ what it is</text>
+<line x1="566" y1="335.0" x2="634" y2="335.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="460" fill="#686a61" font-size="21">An error variable holds an Error; collected stderr is text.</text>
+</svg>

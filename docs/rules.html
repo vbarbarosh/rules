@@ -1387,6 +1387,7 @@ process() handle() util()   <span class="no">✗ avoid</span></pre><button class
 user_by_id             <span class="cmt">// Record&lt;id, User&gt;</span>
 users_by_role          <span class="cmt">// Record&lt;role, User&#91;]&gt;</span>
 items_sorted_by_time   <span class="cmt">// Item&#91;], reordered</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_shape_in_the_name.svg"><img class="light" src="../img/rules/var_shape_in_the_name.svg" alt="Four names and the shapes they state: users a list, user_by_id one User per id, users_by_role a list per role, items_sorted_by_time the same list reordered" width="1200" height="600" loading="lazy"><img class="dark" src="../img/rules/var_shape_in_the_name-dark.svg" alt="Four names and the shapes they state: users a list, user_by_id one User per id, users_by_role a list per role, items_sorted_by_time the same list reordered" width="1200" height="600" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-02">
 <a class="code" href="#VAR-02">VAR-02</a>
@@ -1401,12 +1402,14 @@ items_sorted_by_time   <span class="cmt">// Item&#91;], reordered</span></pre><b
     }
     return out;
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_out_is_the_built_result.svg"><img class="light" src="../img/rules/var_out_is_the_built_result.svg" alt="emails_from_users builds out, pushes into it and returns out; returning a parameter unchanged as out is wrong, return user; is right" width="1200" height="600" loading="lazy"><img class="dark" src="../img/rules/var_out_is_the_built_result-dark.svg" alt="emails_from_users builds out, pushes into it and returns out; returning a parameter unchanged as out is wrong, return user; is right" width="1200" height="600" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-03">
 <a class="code" href="#VAR-03">VAR-03</a>
 <div class="text"><p><strong><code>out</code> never leaves the function.</strong> The caller names the result by what it means.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/return_out.md" title="drafts/return_out.md">return_out.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const emails = emails_from_users(users);
 const users_by_role = users_group_by_role(users);</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_out_stays_inside.svg"><img class="light" src="../img/rules/var_out_stays_inside.svg" alt="Inside emails_from_users the result is out; the caller names it emails" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/var_out_stays_inside-dark.svg" alt="Inside emails_from_users the result is out; the caller names it emails" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-04">
 <a class="code" href="#VAR-04">VAR-04</a>
@@ -1415,6 +1418,7 @@ const users_by_role = users_group_by_role(users);</pre><button class="copy" type
 return out;          <span class="no">✗ rewrite this</span>
 
 return {a, b};       <span class="yes">✓ as this</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_return_a_literal.svg"><img class="light" src="../img/rules/var_return_a_literal.svg" alt="const out = {a, b}; return out; rewritten as return {a, b};, and the guard returns null, false, () and {}" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/var_return_a_literal-dark.svg" alt="const out = {a, b}; return out; rewritten as return {a, b};, and the guard returns null, false, () and {}" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-05">
 <a class="code" href="#VAR-05">VAR-05</a>
@@ -1428,6 +1432,7 @@ server.on('error', function (error) {
 catch (error) {
     console.log(error.message);
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_errors_e_and_error.svg"><img class="light" src="../img/rules/var_errors_e_and_error.svg" alt="An error is e in an arrow, error in a regular function and in a catch binding" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/var_errors_e_and_error-dark.svg" alt="An error is e in an arrow, error in a regular function and in a catch binding" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-06">
 <a class="code" href="#VAR-06">VAR-06</a>
@@ -1437,16 +1442,19 @@ catch (err)   <span class="no">✗ no</span>
 catch (error) <span class="yes">✓ yes</span>
 
 promise.catch(e =&gt; report(e));   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_no_err_or_ex.svg"><img class="light" src="../img/rules/var_no_err_or_ex.svg" alt="catch (err), catch (ex) and catch (e) each rewritten as catch (error); e only in an error arrow" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/var_no_err_or_ex-dark.svg" alt="catch (err), catch (ex) and catch (e) each rewritten as catch (error); e only in an error arrow" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-07">
 <a class="code" href="#VAR-07">VAR-07</a>
 <div class="text"><p><strong>Name stderr text by what it is.</strong> Accumulated stderr text is not an error variable. Name it by what it is.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/var_names_error.md" title="drafts/var_names_error.md">var_names_error.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>stderr   <span class="yes">✓ right</span>
 err      <span class="no">✗ wrong</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_stderr_by_what_it_is.svg"><img class="light" src="../img/rules/var_stderr_by_what_it_is.svg" alt="A child process writes stderr text, collected as stderr, not as err" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/var_stderr_by_what_it_is-dark.svg" alt="A child process writes stderr text, collected as stderr, not as err" width="1200" height="500" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="VAR-08">
+<article class="rule" id="VAR-08">
 <a class="code" href="#VAR-08">VAR-08</a>
 <div class="text"><p><strong>Prefer explicit temporaries.</strong> Use intermediate variables instead of nested expressions; favor clarity over terseness.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/var_explicit_temporaries.svg"><img class="light" src="../img/rules/var_explicit_temporaries.svg" alt="A nested send(format_report(rows_filter(...))) rewritten as three named steps" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/var_explicit_temporaries-dark.svg" alt="A nested send(format_report(rows_filter(...))) rewritten as three named steps" width="1200" height="480" loading="lazy"></a>
 </article>
 <article class="rule" id="VAR-09">
 <a class="code" href="#VAR-09">VAR-09</a>
@@ -1454,18 +1462,21 @@ err      <span class="no">✗ wrong</span></pre><button class="copy" type="butto
 <div class="form"><pre>items.map(v =&gt; v.uid)
 items.some(v =&gt; v.sizes.some(vv =&gt; vv.width &gt; 100))
 promise.catch(e =&gt; report(e))</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_arrows_v_and_e.svg"><img class="light" src="../img/rules/var_arrows_v_and_e.svg" alt="Nested arrows name their value v, vv, vvv by depth; an error arrow keeps e" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/var_arrows_v_and_e-dark.svg" alt="Nested arrows name their value v, vv, vvv by depth; an error arrow keeps e" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-10">
 <a class="code" href="#VAR-10">VAR-10</a>
 <div class="text"><p><strong>The <code>for...of</code> loop variable is the singular of the collection.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/for_of.md" title="drafts/for_of.md">for_of.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>for (const user of users) { }
 for (const child of node.children) { }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_for_of_singular.svg"><img class="light" src="../img/rules/var_for_of_singular.svg" alt="users gives user and node.children gives child; for (const x of users) rewritten as for (const user of users)" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/var_for_of_singular-dark.svg" alt="users gives user and node.children gives child; for (const x of users) rewritten as for (const user of users)" width="1200" height="540" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-11">
 <a class="code" href="#VAR-11">VAR-11</a>
 <div class="text"><p><strong>A cached length is "end".</strong> A cached array length in a single loop is named <code>end</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/for_i_end_ii_jj_kk.md" title="drafts/for_i_end_ii_jj_kk.md">for_i_end_ii_jj_kk.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>for (let i = 0, end = items.length; i &lt; end; ++i) {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_cached_length_end.svg"><img class="light" src="../img/rules/var_cached_length_end.svg" alt="Six items, the index i and the cached bound end = 6, in for (let i = 0, end = items.length; i &lt; end; ++i)" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/var_cached_length_end-dark.svg" alt="Six items, the index i and the cached bound end = 6, in for (let i = 0, end = items.length; i &lt; end; ++i)" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-12">
 <a class="code" href="#VAR-12">VAR-12</a>
@@ -1476,6 +1487,7 @@ for (const child of node.children) { }</pre><button class="copy" type="button">C
         }
     }
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_nested_bounds_doubled.svg"><img class="light" src="../img/rules/var_nested_bounds_doubled.svg" alt="Three nested loops: i with ii, j with jj, k with kk, each bound its index doubled" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/var_nested_bounds_doubled-dark.svg" alt="Three nested loops: i with ii, j with jj, k with kk, each bound its index doubled" width="1200" height="540" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-13">
 <a class="code" href="#VAR-13">VAR-13</a>
@@ -1490,6 +1502,7 @@ echo format_duration(microtime(true) - $time0);
 
 const time0 = Date.now();
 console.log(format_duration(Date.now() - time0));</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_time0_start.svg"><img class="light" src="../img/rules/var_time0_start.svg" alt="time0, the work, Date.now() - time0, then format_duration gives 2m 35s; a hand-rolled ms string rewritten as format_duration" width="1200" height="580" loading="lazy"><img class="dark" src="../img/rules/var_time0_start-dark.svg" alt="time0, the work, Date.now() - time0, then format_duration gives 2m 35s; a hand-rolled ms string rewritten as format_duration" width="1200" height="580" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-15">
 <a class="code" href="#VAR-15">VAR-15</a>
@@ -1498,6 +1511,7 @@ console.log(format_duration(Date.now() - time0));</pre><button class="copy" type
 
 const start = range.start;
 const finish = range.finish;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_time0_vs_pairs.svg"><img class="light" src="../img/rules/var_time0_vs_pairs.svg" alt="A measurement start named start rewritten as time0; a range keeps start and finish or begin and end" width="1200" height="470" loading="lazy"><img class="dark" src="../img/rules/var_time0_vs_pairs-dark.svg" alt="A measurement start named start rewritten as time0; a range keeps start and finish or begin and end" width="1200" height="470" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-16">
 <a class="code" href="#VAR-16">VAR-16</a>
@@ -1508,6 +1522,7 @@ el.addEventListener('error', v =&gt; report(v));
 el.addEventListener('error', function (event) {
     report(event);
 });</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_events_v_and_event.svg"><img class="light" src="../img/rules/var_events_v_and_event.svg" alt="A click or error event is v in an arrow and event in a regular function" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/var_events_v_and_event-dark.svg" alt="A click or error event is v in an arrow and event in a regular function" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-17">
 <a class="code" href="#VAR-17">VAR-17</a>
@@ -1519,6 +1534,7 @@ el.addEventListener('error', function (event) {
     catch (error2) {
     }
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_nested_catch_numbered.svg"><img class="light" src="../img/rules/var_nested_catch_numbered.svg" alt="A catch inside a catch binds error2, the next error3; callbacks stay e or error" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/var_nested_catch_numbered-dark.svg" alt="A catch inside a catch binds error2, the next error3; callbacks stay e or error" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-18">
 <a class="code" href="#VAR-18">VAR-18</a>
@@ -1528,6 +1544,7 @@ return (out.length === tags.length) ? tags : out;   <span class="no">✗ no</spa
 
 const unique_tags = &#91;...new Set(tags)];
 return (unique_tags.length === tags.length) ? tags : unique_tags;   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_generic_name_one_meaning.svg"><img class="light" src="../img/rules/var_generic_name_one_meaning.svg" alt="The generic names and their one meaning each; out returned on a condition rewritten as unique_tags" width="1200" height="640" loading="lazy"><img class="dark" src="../img/rules/var_generic_name_one_meaning-dark.svg" alt="The generic names and their one meaning each; out returned on a condition rewritten as unique_tags" width="1200" height="640" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="FN">

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Nested catch bindings use error2, error3</text>
+<text x="48" y="108" fill="#686a61" font-size="22">each catch inside a catch takes the next number</text>
+<rect x="60" y="150" width="640" height="320" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="84" y="186" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch (error) {</text>
+<rect x="100" y="204" width="560" height="60" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="124" y="242" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">try { await save_backup(scene); }</text>
+<rect x="100" y="284" width="560" height="160" rx="8" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="124" y="320" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch (error2) {</text>
+<rect x="140" y="344" width="480" height="70" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="164" y="386" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch (error3) { … }</text>
+<rect x="760" y="160" width="380" height="56" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="950.0" y="194.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">level 1: error</text>
+<rect x="760" y="236" width="380" height="56" rx="10" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="950.0" y="270.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">level 2: error2</text>
+<rect x="760" y="312" width="380" height="56" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="950.0" y="346.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">level 3: error3</text>
+<rect x="760" y="390" width="380" height="80" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="950.0" y="425.5" fill="#191a17" font-size="18" text-anchor="middle" font-weight="700">callbacks stay e / error</text>
+<text x="950.0" y="448.0" fill="#686a61" font-size="16" text-anchor="middle">even inside a catch</text>
+<text x="48" y="520" fill="#686a61" font-size="21">Only catch bindings are numbered; an arrow inside keeps e.</text>
+</svg>

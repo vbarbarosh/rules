@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="540" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Nested bounds double the index: ii, jj, kk</text>
+<text x="48" y="108" fill="#686a61" font-size="22">each loop caches its own bound under its index, doubled</text>
+<rect x="60" y="160" width="70" height="60" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="95.0" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">i</text>
+<rect x="140" y="160" width="90" height="60" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="185.0" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">ii</text>
+<text x="250" y="198" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">= foo.length</text>
+<rect x="130" y="250" width="70" height="60" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="165.0" y="287.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">j</text>
+<rect x="210" y="250" width="90" height="60" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="255.0" y="287.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">jj</text>
+<text x="320" y="288" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">= bar.length</text>
+<rect x="200" y="340" width="70" height="60" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="235.0" y="377.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">k</text>
+<rect x="280" y="340" width="90" height="60" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="325.0" y="377.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">kk</text>
+<text x="390" y="378" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">= baz.length</text>
+<rect x="780" y="180" width="360" height="140" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="960.0" y="245.2" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">the bound doubles its index</text>
+<text x="960.0" y="269.0" fill="#686a61" font-size="17" text-anchor="middle">i → ii, j → jj, k → kk</text>
+<text x="48" y="490" fill="#686a61" font-size="21">One loop alone caches end (VAR-11); nested, each bound is its index doubled.</text>
+</svg>
