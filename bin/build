@@ -11,7 +11,7 @@ const docs_dir = path.join(__dirname, '..', 'docs');
 const glossary_files = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md', 'glossaries/maps.md'];
 const marker_regex = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
 const root_dir = path.join(__dirname, '..');
-const static_pages = ['formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html'];
+const static_pages = ['formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html', 'drafts/animations.html'];
 const version = `v${package_json.version}`;
 
 cli(main);

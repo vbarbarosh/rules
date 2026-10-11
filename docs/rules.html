@@ -1150,7 +1150,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>279</b> rules<i>·</i><b>18</b> groups<i>·</i><b>55</b> sources</p>
+    <p class="stats"><b>287</b> rules<i>·</i><b>19</b> groups<i>·</i><b>56</b> sources</p>
 </div>
 </header>
 
@@ -1159,7 +1159,7 @@ footer .lead {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">279 rules</span>
+        <span class="count" id="count">287 rules</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
@@ -1192,6 +1192,7 @@ footer .lead {
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">24</span></a>
 <a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">UI appearance</span><span class="n">8</span></a>
 <a href="#UIM" data-group="UIM"><span class="tag">UIM</span><span class="name">UI mechanics</span><span class="n">15</span></a>
+<a href="#ANIM" data-group="ANIM"><span class="tag">ANIM</span><span class="name">Animations</span><span class="n">8</span></a>
 <a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">14</span></a>
 <a href="#LINT" data-group="LINT"><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="n">11</span></a>
 </nav>
@@ -3190,6 +3191,49 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 <div class="text"><p><strong>No means hidden, or disabled with the reason on it.</strong> Hide what nobody would look for there; disable what the user expects in its place, with the reason written on it or beside it. Never a control whose only answer comes after the click.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/dead_controls.md" title="drafts/dead_controls.md">dead_controls.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Expired yesterday at 10:51</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/uim_hidden_or_disabled_with_reason.svg"><img class="light" src="../img/rules/uim_hidden_or_disabled_with_reason.svg" alt="A control hidden where nobody looks for it, or disabled with Expired yesterday at 10:51 beside it; a Sorry after the click beside that" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/uim_hidden_or_disabled_with_reason-dark.svg" alt="A control hidden where nobody looks for it, or disabled with Expired yesterday at 10:51 beside it; a Sorry after the click beside that" width="1200" height="520" loading="lazy"></a></div>
+</article>
+</section>
+<section class="group" id="ANIM">
+<h2><span class="tag">ANIM</span><span class="name">Animations</span><span class="note">How a screen moves.</span></h2>
+<article class="rule" id="ANIM-01">
+<a class="code" href="#ANIM-01">ANIM-01</a>
+<div class="text"><p><strong>Sections slide the way the list goes.</strong> Picking another section in the sidebar slides the content vertically, like switching workspaces: down the list, the old page leaves upward and the new one rises from below; up the list, the reverse.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-sections.gif"><img class="light" src="../drafts/animations-sections.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367" loading="lazy"></a>
+</article>
+<article class="rule" id="ANIM-02">
+<a class="code" href="#ANIM-02">ANIM-02</a>
+<div class="text"><p><strong>A far jump is one slide.</strong> From section 2 to 10 the content does not pass through 3 to 9: the two pages slide, and only the highlight crosses the items between them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-sections.gif"><img class="light" src="../drafts/animations-sections.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367" loading="lazy"></a>
+</article>
+<article class="rule" id="ANIM-03">
+<a class="code" href="#ANIM-03">ANIM-03</a>
+<div class="text"><p><strong>The highlight and the content move together.</strong> The selection in the sidebar slides from the old item to the new one at the same time as the content, with the same duration and easing.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-sections.gif"><img class="light" src="../drafts/animations-sections.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367" loading="lazy"></a>
+</article>
+<article class="rule" id="ANIM-04">
+<a class="code" href="#ANIM-04">ANIM-04</a>
+<div class="text"><p><strong>Depth is left and right.</strong> Opening a row moves the list out to the left as its page comes in from the right; Back does the reverse. Sections still slide up and down, from a list or from a row's page.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-rows.gif"><img class="light" src="../drafts/animations-rows.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367" loading="lazy"></a>
+</article>
+<article class="rule" id="ANIM-05">
+<a class="code" href="#ANIM-05">ANIM-05</a>
+<div class="text"><p><strong>On a row's page, its own section is Back.</strong> Clicking the section the open row belongs to steps back out to its list, the way Back does.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-rows.gif"><img class="light" src="../drafts/animations-rows.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367" loading="lazy"></a>
+</article>
+<article class="rule" id="ANIM-06">
+<a class="code" href="#ANIM-06">ANIM-06</a>
+<div class="text"><p><strong>A list shows each change as movement.</strong> An added row opens a gap and fades into it; a removed row fades out and the gap closes; a moved row travels to its new place while the others make room.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-list.gif"><img class="light" src="../drafts/animations-list.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407" loading="lazy"><img class="dark" src="../drafts/animations-list-dark.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407" loading="lazy"></a>
+</article>
+<article class="rule" id="ANIM-07">
+<a class="code" href="#ANIM-07">ANIM-07</a>
+<div class="text"><p><strong>A list change never moves the working row.</strong> Rows added or removed above the selected row leave it where it is on the screen, from the first frame to the last; the scroll position takes up the difference (UIM-01).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-nothing-jumps.gif"><img class="light" src="../drafts/animations-nothing-jumps.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407" loading="lazy"><img class="dark" src="../drafts/animations-nothing-jumps-dark.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407" loading="lazy"></a>
+</article>
+<article class="rule" id="ANIM-08">
+<a class="code" href="#ANIM-08">ANIM-08</a>
+<div class="text"><p><strong>A click mid-way changes course.</strong> A click during an animation neither waits for it nor jumps back: everything moves on from where it stands on the screen at that moment.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-mid-way.gif"><img class="light" src="../drafts/animations-mid-way.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-mid-way-dark.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367" loading="lazy"></a>
 </article>
 </section>
 <section class="group" id="DOC">
