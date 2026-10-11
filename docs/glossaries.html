@@ -1871,22 +1871,26 @@ function spy_apply()
     refresh_trails();
 }
 
-// The term whose entry runs under the sticky group row while its name is
-// above it, out of sight: its group row names it, after its sub-group.
+// The term being read, named in its group row: the last one whose entry
+// has reached the row, or, once all but its bottom padding has gone under
+// the row, the one after it. The row never drops back to its note between two
+// terms; before the group's first term reaches it, the row shows its note.
 function refresh_trails()
 {
     for (const h2 of document.querySelectorAll('.group > h2')) {
         const line = h2.getBoundingClientRect().bottom;
-        const rule_el = Array.from(h2.parentElement.querySelectorAll('article.rule:not([hidden])')).find(function (v) {
-            const rect = v.getBoundingClientRect();
-            return (rect.top < line) && (rect.bottom > line + 40);
-        });
-        const dfn = rule_el?.querySelector('dfn');
+        const rule_els = Array.from(h2.parentElement.querySelectorAll('article.rule:not([hidden])'));
+        let i = rule_els.findLastIndex(v => v.getBoundingClientRect().top < line);
+        if ((i !== -1) && (i < rule_els.length - 1) && (rule_els[i].getBoundingClientRect().bottom - parseFloat(getComputedStyle(rule_els[i]).paddingBottom) <= line)) {
+            i += 1;
+        }
+        const rule_el = rule_els[i];
         const trail = h2.querySelector('.trail');
-        if (!dfn || (dfn.getBoundingClientRect().bottom > line)) {
+        if (!rule_el || !rule_el.querySelector('dfn') || (h2.parentElement.getBoundingClientRect().bottom <= line)) {
             trail.replaceChildren();
             continue;
         }
+        const dfn = rule_el.querySelector('dfn');
         const sub_name = rule_el.closest('section.sub')?.querySelector('h3 .name')?.textContent;
         const names = [sub_name, dfn.textContent].filter(v => v);
         if (trail.textContent === names.map(v => `›${v}`).join('')) {

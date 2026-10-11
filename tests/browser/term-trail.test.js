@@ -55,6 +55,39 @@ for (const width of [1280, 390]) {
     });
 }
 
+for (const width of [1280, 390]) {
+    test(`${width}px: scrolled through a group, the row names a term from its first name on, never dropping back between two`, async function () {
+        const context = await browser.newContext({viewport: {width, height: 800}});
+        const page = await context.newPage();
+        try {
+            await page.route('https://**/*', v => v.abort());
+            await page.goto(page_url);
+            const steps = await page.evaluate(async function () {
+                const group_el = document.querySelector('.group');
+                const h2 = group_el.querySelector('h2');
+                const header_bottom = parseFloat(getComputedStyle(h2).top) + h2.getBoundingClientRect().height;
+                const first = group_el.querySelector('article.rule dfn');
+                const from = first.getBoundingClientRect().bottom + scrollY - header_bottom + 2;
+                const to = group_el.getBoundingClientRect().bottom + scrollY - header_bottom - 60;
+                const out = [];
+                for (let top = from; top < to; top += 40) {
+                    window.scrollTo({top, behavior: 'instant'});
+                    await new Promise(v => requestAnimationFrame(() => requestAnimationFrame(v)));
+                    out.push({top: Math.round(top), term: h2.querySelector('.trail b')?.textContent ?? ''});
+                }
+                return out;
+            });
+            assert.ok(steps.length > 50, `${steps.length} steps`);
+            assert.deepEqual(steps.filter(v => !v.term), []);
+            const names = steps.map(v => v.term).filter((v, i, all) => v !== all[i - 1]);
+            assert.equal(new Set(names).size, names.length, `each term named once, in order: ${names.join(', ')}`);
+        }
+        finally {
+            await context.close();
+        }
+    });
+}
+
 test('a filter that hides the term under the row leaves no trail of it', async function () {
     const context = await browser.newContext({viewport: {width: 1280, height: 800}});
     const page = await context.newPage();
