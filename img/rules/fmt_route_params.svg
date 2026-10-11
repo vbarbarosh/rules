@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="442" viewBox="0 0 1200 442" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="442" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Parentheses only when the route takes input</text>
+<text x="48" y="108" fill="#686a61" font-size="22">body, headers, query, comma-separated, in that order</text>
+<text x="60" y="168" fill="#b2341f" font-size="18" font-weight="700">✗ empty parentheses</text>
+<text x="640" y="168" fill="#1a7443" font-size="18" font-weight="700">✓ no input, no parentheses</text>
+<rect x="60" y="180" width="500" height="56" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="70" y="195" width="480" height="32" rx="6" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="80.0" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// GET /health ()</text>
+<rect x="640" y="180" width="500" height="56" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<rect x="650" y="195" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="660.0" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// GET /health</text>
+<line x1="566" y1="208.0" x2="634" y2="208.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="60" y="292" fill="#b2341f" font-size="18" font-weight="700">✗ the header before the body</text>
+<text x="640" y="292" fill="#1a7443" font-size="18" font-weight="700">✓ body first, then headers</text>
+<rect x="60" y="304" width="500" height="56" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="70" y="319" width="480" height="32" rx="6" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="80.0" y="340" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// POST /upload (header:x-filename, body)</text>
+<rect x="640" y="304" width="500" height="56" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<rect x="650" y="319" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="660.0" y="340" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// POST /upload (body, header:x-filename)</text>
+<line x1="566" y1="332.0" x2="634" y2="332.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="410" fill="#686a61" font-size="21">The parentheses list what the route reads, always in the same order.</text>
+</svg>

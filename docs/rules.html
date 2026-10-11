@@ -1639,9 +1639,10 @@ if (await modal_upload().promise()) {
 </section>
 <section class="group" id="FMT">
 <h2><span class="tag">FMT</span><span class="name">Formatting</span><span class="note">Braces, breaks, blank lines, comments.</span></h2>
-<article class="rule bare" id="FMT-01">
+<article class="rule" id="FMT-01">
 <a class="code" href="#FMT-01">FMT-01</a>
 <div class="text"><p><strong>Four spaces, no tabs.</strong> Indentation is exactly 4 spaces. No tabs.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fmt_four_spaces.svg"><img class="light" src="../img/rules/fmt_four_spaces.svg" alt="A tab before const user turned into four spaces, shown as dots" width="1200" height="420" loading="lazy"><img class="dark" src="../img/rules/fmt_four_spaces-dark.svg" alt="A tab before const user turned into four spaces, shown as dots" width="1200" height="420" loading="lazy"></a>
 </article>
 <article class="rule" id="FMT-02">
 <a class="code" href="#FMT-02">FMT-02</a>
@@ -1649,6 +1650,7 @@ if (await modal_upload().promise()) {
 <div class="form"><pre>function main()
 {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_top_level_brace_below.svg"><img class="light" src="../img/rules/fmt_top_level_brace_below.svg" alt="function main() { with the brace on its line, turned into the brace on the next line" width="1200" height="420" loading="lazy"><img class="dark" src="../img/rules/fmt_top_level_brace_below-dark.svg" alt="function main() { with the brace on its line, turned into the brace on the next line" width="1200" height="420" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-03">
 <a class="code" href="#FMT-03">FMT-03</a>
@@ -1658,6 +1660,7 @@ if (await modal_upload().promise()) {
     function limit_print(limit) {
     }
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_nested_brace_inline.svg"><img class="light" src="../img/rules/fmt_nested_brace_inline.svg" alt="limit_print nested in main: its brace moves from a line of its own to the declaration line" width="1200" height="488" loading="lazy"><img class="dark" src="../img/rules/fmt_nested_brace_inline-dark.svg" alt="limit_print nested in main: its brace moves from a line of its own to the declaration line" width="1200" height="488" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-04">
 <a class="code" href="#FMT-04">FMT-04</a>
@@ -1669,6 +1672,7 @@ if (await modal_upload().promise()) {
 return new Promise(function (resolve, reject) {
     <span class="cmt">// ...</span>
 });</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_callback_brace_inline.svg"><img class="light" src="../img/rules/fmt_callback_brace_inline.svg" alt="A callback and a Promise executor with the brace below, turned into the brace on the declaration line" width="1200" height="646" loading="lazy"><img class="dark" src="../img/rules/fmt_callback_brace_inline-dark.svg" alt="A callback and a Promise executor with the brace below, turned into the brace on the declaration line" width="1200" height="646" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-05">
 <a class="code" href="#FMT-05">FMT-05</a>
@@ -1681,6 +1685,7 @@ return new Promise(function (resolve, reject) {
     write(format, ...values) {
     }
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_class_brace_below.svg"><img class="light" src="../img/rules/fmt_class_brace_below.svg" alt="class Logger with its brace inline and a method brace below, turned into the class brace below and the method brace inline" width="1200" height="454" loading="lazy"><img class="dark" src="../img/rules/fmt_class_brace_below-dark.svg" alt="class Logger with its brace inline and a method brace below, turned into the class brace below and the method brace inline" width="1200" height="454" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-07">
 <a class="code" href="#FMT-07">FMT-07</a>
@@ -1690,6 +1695,7 @@ return new Promise(function (resolve, reject) {
 if (!user) {              <span class="yes">✓ yes</span>
     return null;
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_always_braces.svg"><img class="light" src="../img/rules/fmt_always_braces.svg" alt="if (!user) return null; on one line, turned into the same body in braces" width="1200" height="386" loading="lazy"><img class="dark" src="../img/rules/fmt_always_braces-dark.svg" alt="if (!user) return null; on one line, turned into the same body in braces" width="1200" height="386" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-08">
 <a class="code" href="#FMT-08">FMT-08</a>
@@ -1700,6 +1706,7 @@ else if (b) {
 }
 else {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_else_new_line.svg"><img class="light" src="../img/rules/fmt_else_new_line.svg" alt="else glued to the closing brace, turned into else if and else each starting a line" width="1200" height="488" loading="lazy"><img class="dark" src="../img/rules/fmt_else_new_line-dark.svg" alt="else glued to the closing brace, turned into else if and else each starting a line" width="1200" height="488" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-09">
 <a class="code" href="#FMT-09">FMT-09</a>
@@ -1710,6 +1717,7 @@ catch (error) {
 }
 finally {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_catch_new_line.svg"><img class="light" src="../img/rules/fmt_catch_new_line.svg" alt="catch and finally glued to the closing braces, turned into each starting a line" width="1200" height="488" loading="lazy"><img class="dark" src="../img/rules/fmt_catch_new_line-dark.svg" alt="catch and finally glued to the closing braces, turned into each starting a line" width="1200" height="488" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-10">
 <a class="code" href="#FMT-10">FMT-10</a>
@@ -1721,11 +1729,13 @@ case 'text':
     break;
 default:
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_switch_case_aligned.svg"><img class="light" src="../img/rules/fmt_switch_case_aligned.svg" alt="case and default indented one level under switch, turned into aligned with switch" width="1200" height="454" loading="lazy"><img class="dark" src="../img/rules/fmt_switch_case_aligned-dark.svg" alt="case and default indented one level under switch, turned into aligned with switch" width="1200" height="454" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-11">
 <a class="code" href="#FMT-11">FMT-11</a>
 <div class="text"><p><strong>Keep short objects on one line; expand only when needed.</strong> Multiple fields alone do not require line breaks. When size or nested structure requires a multi-line object literal, use one field per line and a trailing comma.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/formatting_blocks.md" title="drafts/formatting_blocks.md">formatting_blocks.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const next = {uid: item.uid, parent_uid: item.parent_uid, index};</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_short_objects_one_line.svg"><img class="light" src="../img/rules/fmt_short_objects_one_line.svg" alt="A short object broken over lines turned into one line, and an expanded object given its trailing comma" width="1200" height="646" loading="lazy"><img class="dark" src="../img/rules/fmt_short_objects_one_line-dark.svg" alt="A short object broken over lines turned into one line, and an expanded object given its trailing comma" width="1200" height="646" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-12">
 <a class="code" href="#FMT-12">FMT-12</a>
@@ -1737,10 +1747,12 @@ default:
         return value ? `${value}px` : '0';
     },
 };</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_options_methods_function.svg"><img class="light" src="../img/rules/fmt_options_methods_function.svg" alt="An options object with arrow methods, turned into the same methods written as function expressions" width="1200" height="522" loading="lazy"><img class="dark" src="../img/rules/fmt_options_methods_function-dark.svg" alt="An options object with arrow methods, turned into the same methods written as function expressions" width="1200" height="522" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FMT-13">
+<article class="rule" id="FMT-13">
 <a class="code" href="#FMT-13">FMT-13</a>
 <div class="text"><p><strong>Keep an expression on one line when it fits on one line.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fmt_expression_one_line.svg"><img class="light" src="../img/rules/fmt_expression_one_line.svg" alt="const total broken over two lines, turned into one line" width="1200" height="352" loading="lazy"><img class="dark" src="../img/rules/fmt_expression_one_line-dark.svg" alt="const total broken over two lines, turned into one line" width="1200" height="352" loading="lazy"></a>
 </article>
 <article class="rule" id="FMT-14">
 <a class="code" href="#FMT-14">FMT-14</a>
@@ -1749,32 +1761,39 @@ default:
     users_group_by_role(users);   <span class="no">✗ no</span>
 
 const users_by_role = users_group_by_role(users);   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_no_break_after_equals.svg"><img class="light" src="../img/rules/fmt_no_break_after_equals.svg" alt="const user = with the call on the next line, turned into one line" width="1200" height="352" loading="lazy"><img class="dark" src="../img/rules/fmt_no_break_after_equals-dark.svg" alt="const user = with the call on the next line, turned into one line" width="1200" height="352" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FMT-15">
+<article class="rule" id="FMT-15">
 <a class="code" href="#FMT-15">FMT-15</a>
 <div class="text"><p><strong>Break lines only to show structure.</strong> Break a statement only when its size or nested structure makes the break necessary. Line breaks must expose structure.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fmt_breaks_show_structure.svg"><img class="light" src="../img/rules/fmt_breaks_show_structure.svg" alt="A short condition broken for nothing turned into one line; a list of rows broken one row a line" width="1200" height="578" loading="lazy"><img class="dark" src="../img/rules/fmt_breaks_show_structure-dark.svg" alt="A short condition broken for nothing turned into one line; a list of rows broken one row a line" width="1200" height="578" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FMT-16">
+<article class="rule" id="FMT-16">
 <a class="code" href="#FMT-16">FMT-16</a>
 <div class="text"><p><strong>A blank line marks a phase change — nothing else.</strong> Add one only when the following statement begins an independent conceptual step.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fmt_blank_line_phase.svg"><img class="light" src="../img/rules/fmt_blank_line_phase.svg" alt="Blank lines after every statement, turned into one blank line before the printing step" width="1200" height="454" loading="lazy"><img class="dark" src="../img/rules/fmt_blank_line_phase-dark.svg" alt="Blank lines after every statement, turned into one blank line before the printing step" width="1200" height="454" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FMT-17">
+<article class="rule" id="FMT-17">
 <a class="code" href="#FMT-17">FMT-17</a>
 <div class="text"><p><strong>Keep setup next to its use.</strong> Keep setup adjacent to the loop, condition or call that immediately uses it. Tightly coupled setup and use are not separated merely because the statement type changes.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fmt_setup_next_to_use.svg"><img class="light" src="../img/rules/fmt_setup_next_to_use.svg" alt="const lines = () separated from its loop by a blank line, turned into right above it" width="1200" height="454" loading="lazy"><img class="dark" src="../img/rules/fmt_setup_next_to_use-dark.svg" alt="const lines = () separated from its loop by a blank line, turned into right above it" width="1200" height="454" loading="lazy"></a>
 </article>
 <article class="rule" id="FMT-18">
 <a class="code" href="#FMT-18">FMT-18</a>
 <div class="text"><p><strong>Build objects from needed fields only.</strong> Construct an object from the required fields only. Do not spread a full object when a subset is needed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>{...item, index}                              <span class="no">✗ bad</span>
 {uid: item.uid, parent_uid: item.parent_uid, index}   <span class="yes">✓ good</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_object_needed_fields.svg"><img class="light" src="../img/rules/fmt_object_needed_fields.svg" alt="An object built by spreading the whole item, turned into one that names uid and index" width="1200" height="318" loading="lazy"><img class="dark" src="../img/rules/fmt_object_needed_fields-dark.svg" alt="An object built by spreading the whole item, turned into one that names uid and index" width="1200" height="318" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FMT-19">
+<article class="rule" id="FMT-19">
 <a class="code" href="#FMT-19">FMT-19</a>
 <div class="text"><p><strong>Comment intent, not mechanics.</strong> Comments explain intent or policy only. No comments for obvious mechanics.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fmt_comment_intent.svg"><img class="light" src="../img/rules/fmt_comment_intent.svg" alt="A comment repeating the call, turned into one giving the reason for the retry" width="1200" height="386" loading="lazy"><img class="dark" src="../img/rules/fmt_comment_intent-dark.svg" alt="A comment repeating the call, turned into one giving the reason for the retry" width="1200" height="386" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FMT-20">
+<article class="rule" id="FMT-20">
 <a class="code" href="#FMT-20">FMT-20</a>
 <div class="text"><p><strong>Multi-line comments carry rules or guarantees.</strong> A multi-line comment carries a rule, an invariant or a guarantee.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/fmt_multiline_comment_rule.svg"><img class="light" src="../img/rules/fmt_multiline_comment_rule.svg" alt="A three-line comment retelling the steps, turned into a two-line limit the function keeps" width="1200" height="420" loading="lazy"><img class="dark" src="../img/rules/fmt_multiline_comment_rule-dark.svg" alt="A three-line comment retelling the steps, turned into a two-line limit the function keeps" width="1200" height="420" loading="lazy"></a>
 </article>
 <article class="rule" id="FMT-21">
 <a class="code" href="#FMT-21">FMT-21</a>
@@ -1784,6 +1803,7 @@ const users_by_role = users_group_by_role(users);   <span class="yes">✓ yes</s
 async function file_get(req, res)
 {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_route_comment.svg"><img class="light" src="../img/rules/fmt_route_comment.svg" alt="A route function with no comment, turned into one with its route comment, GET /file/&lt;name&gt;" width="1200" height="454" loading="lazy"><img class="dark" src="../img/rules/fmt_route_comment-dark.svg" alt="A route function with no comment, turned into one with its route comment, GET /file/&lt;name&gt;" width="1200" height="454" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-22">
 <a class="code" href="#FMT-22">FMT-22</a>
@@ -1793,18 +1813,21 @@ async function file_get(req, res)
 function upload_post(req, res)
 {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_route_params.svg"><img class="light" src="../img/rules/fmt_route_params.svg" alt="GET /health () losing its empty parentheses, and the upload route listing body before its header" width="1200" height="442" loading="lazy"><img class="dark" src="../img/rules/fmt_route_params-dark.svg" alt="GET /health () losing its empty parentheses, and the upload route listing body before its header" width="1200" height="442" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-23">
 <a class="code" href="#FMT-23">FMT-23</a>
 <div class="text"><p><strong>Headers prefixed; path params in the path.</strong> A header is prefixed with <code>header:</code>; a path parameter is spelled in the path itself.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/endpoint_comment.md" title="drafts/endpoint_comment.md">endpoint_comment.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>header:x-filename
 /file/&lt;name&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_route_header_prefix.svg"><img class="light" src="../img/rules/fmt_route_header_prefix.svg" alt="GET /file (name, x-token) turned into GET /file/&lt;name&gt; (header:x-token)" width="1200" height="318" loading="lazy"><img class="dark" src="../img/rules/fmt_route_header_prefix-dark.svg" alt="GET /file (name, x-token) turned into GET /file/&lt;name&gt; (header:x-token)" width="1200" height="318" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-24">
 <a class="code" href="#FMT-24">FMT-24</a>
 <div class="text"><p><strong>An intent comment continues the same block on the next line.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/endpoint_comment.md" title="drafts/endpoint_comment.md">endpoint_comment.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre><span class="cmt">// POST /upload (body, header:x-filename)</span>
 <span class="cmt">// Streams to data/ before the body is fully read.</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_intent_comment_continues.svg"><img class="light" src="../img/rules/fmt_intent_comment_continues.svg" alt="An intent comment split from the route comment by a blank line, turned into the next line of the same block" width="1200" height="420" loading="lazy"><img class="dark" src="../img/rules/fmt_intent_comment_continues-dark.svg" alt="An intent comment split from the route comment by a blank line, turned into the next line of the same block" width="1200" height="420" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-25">
 <a class="code" href="#FMT-25">FMT-25</a>
@@ -1812,6 +1835,7 @@ function upload_post(req, res)
 <div class="form"><pre>function report_print()
 {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_named_function_declaration.svg"><img class="light" src="../img/rules/fmt_named_function_declaration.svg" alt="A function expression and an arrow held in const report_print, each turned into a function declaration" width="1200" height="578" loading="lazy"><img class="dark" src="../img/rules/fmt_named_function_declaration-dark.svg" alt="A function expression and an arrow held in const report_print, each turned into a function declaration" width="1200" height="578" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-26">
 <a class="code" href="#FMT-26">FMT-26</a>
@@ -1821,6 +1845,7 @@ function upload_post(req, res)
 
 &#91; 'remote', 'host', 'service' ]     <span class="no">✗ no</span>
 &#91;'remote', 'host', 'service']       <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_no_spaces_in_braces.svg"><img class="light" src="../img/rules/fmt_no_spaces_in_braces.svg" alt="An object and an array with spaces inside their braces, turned into the same with none" width="1200" height="442" loading="lazy"><img class="dark" src="../img/rules/fmt_no_spaces_in_braces-dark.svg" alt="An object and an array with spaces inside their braces, turned into the same with none" width="1200" height="442" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-27">
 <a class="code" href="#FMT-27">FMT-27</a>
@@ -1829,6 +1854,7 @@ function upload_post(req, res)
 return is_dev &#124;&#124; (i === end - 1);   <span class="yes">✓ yes</span>
 
 (state === 'done') ? 'ok' : 'wait'</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_parenthesize_compound.svg"><img class="light" src="../img/rules/fmt_parenthesize_compound.svg" alt="A comparison beside // and a ternary condition, each wrapped in parentheses" width="1200" height="442" loading="lazy"><img class="dark" src="../img/rules/fmt_parenthesize_compound-dark.svg" alt="A comparison beside // and a ternary condition, each wrapped in parentheses" width="1200" height="442" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-28">
 <a class="code" href="#FMT-28">FMT-28</a>
@@ -1838,6 +1864,7 @@ return is_dev &#124;&#124; (i === end - 1);   <span class="yes">✓ yes</span>
 
 const osc = c.createOscillator();
 const gain = c.createGain();        <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_one_variable_per_declaration.svg"><img class="light" src="../img/rules/fmt_one_variable_per_declaration.svg" alt="One const declaring osc and gain, turned into a const for each" width="1200" height="352" loading="lazy"><img class="dark" src="../img/rules/fmt_one_variable_per_declaration-dark.svg" alt="One const declaring osc and gain, turned into a const for each" width="1200" height="352" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-29">
 <a class="code" href="#FMT-29">FMT-29</a>
@@ -1848,6 +1875,7 @@ function toggle_sound()   <span class="no">✗ no blank line</span>
 }
 
 function toggle_sound()   <span class="yes">✓ one blank line</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_blank_line_between_functions.svg"><img class="light" src="../img/rules/fmt_blank_line_between_functions.svg" alt="Two top-level functions with no blank line between them, turned into one blank line apart" width="1200" height="522" loading="lazy"><img class="dark" src="../img/rules/fmt_blank_line_between_functions-dark.svg" alt="Two top-level functions with no blank line between them, turned into one blank line apart" width="1200" height="522" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-30">
 <a class="code" href="#FMT-30">FMT-30</a>
@@ -1861,12 +1889,14 @@ page.evaluate(find_families, text);   <span class="yes">✓ yes</span>
 items.filter(function (item) {
     <span class="cmt">// ...</span>
 }).map(v =&gt; v.uid);               <span class="no">✗ dangling</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_last_argument_spans.svg"><img class="light" src="../img/rules/fmt_last_argument_spans.svg" alt="A call with an argument after its multi-line function, and a call chained after one, each rewritten so nothing dangles" width="1200" height="612" loading="lazy"><img class="dark" src="../img/rules/fmt_last_argument_spans-dark.svg" alt="A call with an argument after its multi-line function, and a call chained after one, each rewritten so nothing dangles" width="1200" height="612" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-31">
 <a class="code" href="#FMT-31">FMT-31</a>
 <div class="text"><p><strong>Build strings with template literals.</strong> A string built from parts is a template literal; <code>+</code> never joins a string to a value. Plain quotes stay for a string with nothing to interpolate.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>'weapons/turret-' + weapon.id    <span class="no">✗ no</span>
 &#96;weapons/turret-${weapon.id}&#96;    <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_template_literals.svg"><img class="light" src="../img/rules/fmt_template_literals.svg" alt="'weapons/turret-' + weapon.id turned into a template literal" width="1200" height="318" loading="lazy"><img class="dark" src="../img/rules/fmt_template_literals-dark.svg" alt="'weapons/turret-' + weapon.id turned into a template literal" width="1200" height="318" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-32">
 <a class="code" href="#FMT-32">FMT-32</a>
@@ -1876,6 +1906,7 @@ items.filter(function (item) {
 
 params.update = params.update || function () {};   <span class="yes">✓ yes</span>
 promise.catch(() =&gt; {});                          <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_empty_function_one_line.svg"><img class="light" src="../img/rules/fmt_empty_function_one_line.svg" alt="An empty function expression split over two lines, turned into {} on one line" width="1200" height="352" loading="lazy"><img class="dark" src="../img/rules/fmt_empty_function_one_line-dark.svg" alt="An empty function expression split over two lines, turned into {} on one line" width="1200" height="352" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="FLOW">

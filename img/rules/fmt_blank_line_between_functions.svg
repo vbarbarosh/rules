@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="522" viewBox="0 0 1200 522" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="522" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">One blank line between top-level functions</text>
+<text x="48" y="108" fill="#686a61" font-size="22">each function is followed by one blank line</text>
+<text x="60" y="168" fill="#b2341f" font-size="18" font-weight="700">✗ no blank line</text>
+<text x="640" y="168" fill="#1a7443" font-size="18" font-weight="700">✓ one blank line</text>
+<rect x="60" y="180" width="500" height="260" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="80.0" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function sound_play()</text>
+<text x="80.0" y="250" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
+<text x="80.0" y="284" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<rect x="70" y="297" width="480" height="32" rx="6" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="80.0" y="318" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function toggle_sound()</text>
+<text x="80.0" y="352" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
+<text x="80.0" y="386" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<rect x="640" y="180" width="500" height="260" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="660.0" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function sound_play()</text>
+<text x="660.0" y="250" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
+<text x="660.0" y="284" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<rect x="650" y="297" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="660.0" y="352" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function toggle_sound()</text>
+<text x="660.0" y="386" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
+<text x="660.0" y="420" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<line x1="566" y1="310.0" x2="634" y2="310.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="490" fill="#686a61" font-size="21">Top-level functions stand apart by exactly one blank line.</text>
+</svg>
