@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Documentation opens with the full docs link</text>
+<text x="48" y="108" fill="#686a61" font-size="22">then the further pages, each with what it covers</text>
+<rect x="60" y="160" width="1080" height="240" rx="12" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="84" y="200" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-weight="700">## Documentation</text>
+<rect x="84" y="222" width="1032" height="54" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="104" y="256" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">Full documentation: docs/rules.html</text>
+<text x="104" y="318" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">* Formatting — the JavaScript spec</text>
+<text x="104" y="360" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">* Linting — the eslint preset</text>
+<text x="48" y="460" fill="#686a61" font-size="21">The full documentation first; the list after it says what each page covers.</text>
+</svg>

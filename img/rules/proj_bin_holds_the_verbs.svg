@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">One project shape; bin/ holds the verbs</text>
+<text x="48" y="108" fill="#686a61" font-size="22">a directory is a program; each file in bin/ is one of its verbs</text>
+<rect x="60" y="160" width="380" height="320" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="84" y="198" fill="#191a17" font-size="21" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-weight="700">bin/</text>
+<text x="104" y="236" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">build</text>
+<text x="410" y="236" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="end">bb</text>
+<text x="104" y="270" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">configure</text>
+<text x="104" y="304" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">release</text>
+<text x="104" y="338" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">run</text>
+<text x="410" y="338" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="end">rr</text>
+<text x="104" y="372" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">self-check</text>
+<text x="104" y="406" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">test</text>
+<text x="410" y="406" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="end">tt</text>
+<text x="104" y="440" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">watch</text>
+<text x="410" y="440" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="end">ww</text>
+<rect x="640" y="170" width="500" height="84" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="890.0" y="208.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">a node.js app</text>
+<text x="890.0" y="234.0" fill="#686a61" font-size="17" text-anchor="middle">bin/build wraps npm</text>
+<line x1="446" y1="320" x2="634" y2="212" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="640" y="274" width="500" height="84" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="890.0" y="312.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">a python tool</text>
+<text x="890.0" y="338.0" fill="#686a61" font-size="17" text-anchor="middle">bin/build packs a wheel</text>
+<line x1="446" y1="320" x2="634" y2="316" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="640" y="378" width="500" height="84" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="890.0" y="416.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">a php site</text>
+<text x="890.0" y="442.0" fill="#686a61" font-size="17" text-anchor="middle">bin/build fetches assets</text>
+<line x1="446" y1="320" x2="634" y2="420" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="530" fill="#686a61" font-size="21">The same verbs in every project and every language: bin/build builds, bin/test tests.</text>
+</svg>

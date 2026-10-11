@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="540" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Everything kept lives in data/</text>
+<text x="48" y="108" fill="#92958c" font-size="22">a restart, a redeploy or a migration does not delete it</text>
+<rect x="60" y="160" width="260" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="190.0" y="197.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">uploads</text>
+<line x1="326" y1="190" x2="434" y2="270" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="240" width="260" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="190.0" y="277.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">the database</text>
+<line x1="326" y1="270" x2="434" y2="270" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="320" width="260" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="190.0" y="357.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">logs</text>
+<line x1="326" y1="350" x2="434" y2="270" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="440" y="220" width="300" height="100" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="590.0" y="266.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">data/</text>
+<text x="590.0" y="292.0" fill="#92958c" font-size="17" text-anchor="middle">everything kept</text>
+<rect x="840" y="220" width="300" height="100" rx="10" fill="#212428" stroke="#2c3035" stroke-width="2"/>
+<text x="990.0" y="266.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">survives</text>
+<text x="990.0" y="292.0" fill="#92958c" font-size="17" text-anchor="middle">restart, redeploy, migration</text>
+<line x1="746" y1="270" x2="834" y2="270" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="60" y="450" fill="#92958c" font-size="19">Configuration is not there: it comes from config/ and the environment.</text>
+<text x="48" y="500" fill="#92958c" font-size="21">If the program must keep it, it lives under data/, and nowhere else.</text>
+</svg>

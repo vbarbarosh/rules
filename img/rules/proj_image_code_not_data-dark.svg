@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Docker images carry code, not data</text>
+<text x="48" y="108" fill="#92958c" font-size="22">one mount of data/ keeps it; moving the project is moving data/</text>
+<rect x="60" y="170" width="300" height="90" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="210.0" y="211.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">image</text>
+<text x="210.0" y="237.0" fill="#92958c" font-size="17" text-anchor="middle">the code only</text>
+<rect x="60" y="290" width="300" height="90" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="210.0" y="331.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">app-data</text>
+<text x="210.0" y="357.0" fill="#92958c" font-size="17" text-anchor="middle">a volume: data/</text>
+<rect x="460" y="230" width="300" height="90" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="610.0" y="271.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">container</text>
+<text x="610.0" y="297.0" fill="#92958c" font-size="17" text-anchor="middle">/app/data mounted</text>
+<line x1="366" y1="215" x2="454" y2="260" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="366" y1="335" x2="454" y2="290" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="820" y="200" width="320" height="111.2" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="840.0" y="234.6" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">docker run</text>
+<text x="861.6" y="264.6" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">-v app-data:/app/data</text>
+<text x="861.6" y="294.6" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">app</text>
+<text x="48" y="470" fill="#92958c" font-size="21">A new image replaces the code; the volume keeps the data.</text>
+</svg>

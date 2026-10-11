@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Shared helpers go to src/helpers/</text>
+<text x="48" y="108" fill="#92958c" font-size="22">small shared functions, one function per file, the file named after it</text>
+<rect x="60" y="160" width="1080" height="250" rx="12" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="84" y="198" fill="#d3d1c9" font-size="21" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-weight="700">src/helpers/</text>
+<text x="104" y="246" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">array_group.js</text>
+<rect x="470" y="220" width="640" height="44" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="490" y="249" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function array_group()</text>
+<text x="104" y="306" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">array_index_by.js</text>
+<rect x="470" y="280" width="640" height="44" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="490" y="309" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function array_index_by()</text>
+<text x="104" y="366" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">string_slug.js</text>
+<rect x="470" y="340" width="640" height="44" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="490" y="369" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function string_slug()</text>
+<text x="48" y="470" fill="#92958c" font-size="21">One function per file: the file name is the function name.</text>
+</svg>

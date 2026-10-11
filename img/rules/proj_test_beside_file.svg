@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="500" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A unit test sits next to the file it tests</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the test is found where the code is</text>
+<rect x="60" y="170" width="500" height="84" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="310.0" y="208.0" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">tests/unit/array_group.test.js</text>
+<text x="310.0" y="234.0" fill="#686a61" font-size="17" text-anchor="middle">✗ far from its code</text>
+<rect x="640" y="170" width="500" height="84" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="890.0" y="208.0" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">src/helpers/array_group.test.js</text>
+<text x="890.0" y="234.0" fill="#686a61" font-size="17" text-anchor="middle">✓ next to array_group.js</text>
+<line x1="566" y1="212.0" x2="634" y2="212.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="300" width="1080" height="110" rx="12" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="84" y="340" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">src/helpers/array_group.js</text>
+<text x="84" y="382" fill="#1a7443" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">src/helpers/array_group.test.js</text>
+<text x="48" y="460" fill="#686a61" font-size="21">Open the folder of a file, and its test is there.</text>
+</svg>

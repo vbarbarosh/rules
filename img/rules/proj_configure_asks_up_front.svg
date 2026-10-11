@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">bin/configure asks everything up front</text>
+<text x="48" y="108" fill="#686a61" font-size="22">every question at the very start; then the work runs to the end</text>
+<text x="60" y="168" fill="#1a7443" font-size="19" font-weight="700">up front</text>
+<rect x="60" y="184" width="260" height="64" rx="8" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="190" y="223" fill="#191a17" font-size="18" text-anchor="middle">sudo, a choice, a key</text>
+<rect x="320" y="184" width="820" height="64" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="730" y="223" fill="#191a17" font-size="18" text-anchor="middle">the work, start to finish, no stops</text>
+<text x="60" y="298" fill="#b2341f" font-size="19" font-weight="700">halfway</text>
+<rect x="60" y="314" width="440" height="64" rx="8" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="280" y="353" fill="#191a17" font-size="18" text-anchor="middle">the work</text>
+<rect x="500" y="314" width="260" height="64" rx="8" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="630" y="353" fill="#191a17" font-size="18" text-anchor="middle">waits for a password</text>
+<rect x="760" y="314" width="380" height="64" rx="8" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="950" y="353" fill="#191a17" font-size="18" text-anchor="middle">the rest, after you came back</text>
+<text x="48" y="460" fill="#686a61" font-size="21">Answer once at the start, then leave: the run never stops halfway.</text>
+</svg>

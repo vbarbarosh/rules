@@ -2166,10 +2166,12 @@ bin/run        rr
 bin/self-check
 bin/test       tt
 bin/watch      ww</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_bin_holds_the_verbs.svg"><img class="light" src="../img/rules/proj_bin_holds_the_verbs.svg" alt="The bin/ folder with build, configure, release, run, self-check, test and watch, and the same verbs in a node.js, a python and a php project" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/proj_bin_holds_the_verbs-dark.svg" alt="The bin/ folder with build, configure, release, run, self-check, test and watch, and the same verbs in a node.js, a python and a php project" width="1200" height="560" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="PROJ-02">
+<article class="rule" id="PROJ-02">
 <a class="code" href="#PROJ-02">PROJ-02</a>
 <div class="text"><p><strong>After git pull, run bin/configure.</strong> <code>bin/configure</code> is the only command to run after <code>git pull</code> to make a checkout ready for development.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/proj_configure_after_pull.svg"><img class="light" src="../img/rules/proj_configure_after_pull.svg" alt="git pull, then bin/configure, then a checkout ready to work in; a list of remembered steps is replaced by that one command" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/proj_configure_after_pull-dark.svg" alt="git pull, then bin/configure, then a checkout ready to work in; a list of remembered steps is replaced by that one command" width="1200" height="500" loading="lazy"></a>
 </article>
 <article class="rule" id="PROJ-03">
 <a class="code" href="#PROJ-03">PROJ-03</a>
@@ -2178,21 +2180,25 @@ bin/watch      ww</pre><button class="copy" type="button">Copy</button></div>
 alias tt='bin/test'
 alias bb='bin/build'
 alias ww='bin/watch'</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_wrappers_over_npm.svg"><img class="light" src="../img/rules/proj_wrappers_over_npm.svg" alt="rr, tt, bb and ww call bin/run, bin/test, bin/build and bin/watch, which in a node.js project call npm start, npm test, npm run build and npm run watch" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/proj_wrappers_over_npm-dark.svg" alt="rr, tt, bb and ww call bin/run, bin/test, bin/build and bin/watch, which in a node.js project call npm start, npm test, npm run build and npm run watch" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-04">
 <a class="code" href="#PROJ-04">PROJ-04</a>
 <div class="text"><p><strong>build/ is never committed; dist/ is the release.</strong> <code>build/</code> holds what <code>bin/build</code> produced. Never committed, always reproducible. <code>dist/</code> holds the released build, committed by <code>bin/release</code> at release time only. There is one build: <code>bin/release</code> runs it and copies <code>build/</code> into <code>dist/</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>build/   bin/build output, never committed
 dist/    released build, committed by bin/release</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_build_and_dist.svg"><img class="light" src="../img/rules/proj_build_and_dist.svg" alt="bin/build writes build/, never committed; bin/release runs the build and copies build/ into dist/, committed at release time only" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/proj_build_and_dist-dark.svg" alt="bin/build writes build/, never committed; bin/release runs the build and copies build/ into dist/, committed at release time only" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-05">
 <a class="code" href="#PROJ-05">PROJ-05</a>
 <div class="text"><p><strong>Runtime state in data/, never committed.</strong> <code>data/</code> holds runtime state. Never committed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>data/logs/2026-08-24.txt</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_data_never_committed.svg"><img class="light" src="../img/rules/proj_data_never_committed.svg" alt="The running app writes data/logs/2026-08-24.txt; .gitignore lists data/, so git never sees it" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_data_never_committed-dark.svg" alt="The running app writes data/logs/2026-08-24.txt; .gitignore lists data/, so git never sees it" width="1200" height="520" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="PROJ-06">
+<article class="rule" id="PROJ-06">
 <a class="code" href="#PROJ-06">PROJ-06</a>
 <div class="text"><p><strong>.env belongs to whoever runs the app.</strong> <code>.env</code> is not the application's: docker loads it, or the Dockerfile sets the variables. The rules set nothing for it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/proj_env_belongs_to_runner.svg"><img class="light" src="../img/rules/proj_env_belongs_to_runner.svg" alt="docker loads .env, or the Dockerfile sets the variables, into the environment; the app only reads process.env" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_env_belongs_to_runner-dark.svg" alt="docker loads .env, or the Dockerfile sets the variables, into the environment; the app only reads process.env" width="1200" height="520" loading="lazy"></a>
 </article>
 <article class="rule" id="PROJ-07">
 <a class="code" href="#PROJ-07">PROJ-07</a>
@@ -2201,6 +2207,7 @@ dist/    released build, committed by bin/release</pre><button class="copy" type
 module.exports = make_config(process.env);
 
 const config = require('../config');</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_config_from_environment.svg"><img class="light" src="../img/rules/proj_config_from_environment.svg" alt="process.env and files go into config/index.js, which gives the code one configuration object, read everywhere through require of config" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/proj_config_from_environment-dark.svg" alt="process.env and files go into config/index.js, which gives the code one configuration object, read everywhere through require of config" width="1200" height="540" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-08">
 <a class="code" href="#PROJ-08">PROJ-08</a>
@@ -2208,35 +2215,42 @@ const config = require('../config');</pre><button class="copy" type="button">Cop
 <div class="form"><pre>src/agent/    src/http/
 src/android/  src/parser/
 src/desktop-electron/</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_src_folder_per_part.svg"><img class="light" src="../img/rules/proj_src_folder_per_part.svg" alt="src/ holding one folder per part: agent, http, android, parser and desktop-electron" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/proj_src_folder_per_part-dark.svg" alt="src/ holding one folder per part: agent, http, android, parser and desktop-electron" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-09">
 <a class="code" href="#PROJ-09">PROJ-09</a>
 <div class="text"><p><strong>Shared helpers go to src/helpers/.</strong> Small shared functions go to <code>src/helpers/</code>, one function per file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>src/helpers/array_group.js</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_helpers_one_per_file.svg"><img class="light" src="../img/rules/proj_helpers_one_per_file.svg" alt="src/helpers/ with array_group.js, array_index_by.js and string_slug.js, each holding the one function it is named after" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_helpers_one_per_file-dark.svg" alt="src/helpers/ with array_group.js, array_index_by.js and string_slug.js, each holding the one function it is named after" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-10">
 <a class="code" href="#PROJ-10">PROJ-10</a>
 <div class="text"><p><strong>A unit test sits next to the file it tests.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>src/helpers/array_group.js
 src/helpers/array_group.test.js</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_test_beside_file.svg"><img class="light" src="../img/rules/proj_test_beside_file.svg" alt="array_group.test.js beside array_group.js in src/helpers/, instead of far away in tests/unit/" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/proj_test_beside_file-dark.svg" alt="array_group.test.js beside array_group.js in src/helpers/, instead of far away in tests/unit/" width="1200" height="500" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="PROJ-11">
+<article class="rule" id="PROJ-11">
 <a class="code" href="#PROJ-11">PROJ-11</a>
 <div class="text"><p><strong>tests/ drives the whole program.</strong> <code>tests/</code> holds suites that drive the whole program, such as playwright.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/proj_tests_drive_program.svg"><img class="light" src="../img/rules/proj_tests_drive_program.svg" alt="A playwright suite in tests/ drives a browser, which drives the whole running app" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/proj_tests_drive_program-dark.svg" alt="A playwright suite in tests/ drives a browser, which drives the whole running app" width="1200" height="480" loading="lazy"></a>
 </article>
-<article class="rule bare" id="PROJ-12">
+<article class="rule" id="PROJ-12">
 <a class="code" href="#PROJ-12">PROJ-12</a>
 <div class="text"><p><strong>Keep the README short.</strong> <code>README.md</code> stays short: what the project is and how to start it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/proj_readme_short.svg"><img class="light" src="../img/rules/proj_readme_short.svg" alt="A short README with what the project is and how to start it; a long README of every detail is replaced by it and links to docs" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_readme_short-dark.svg" alt="A short README with what the project is and how to start it; a long README of every detail is replaced by it and links to docs" width="1200" height="520" loading="lazy"></a>
 </article>
-<article class="rule bare" id="PROJ-13">
+<article class="rule" id="PROJ-13">
 <a class="code" href="#PROJ-13">PROJ-13</a>
 <div class="text"><p><strong>Docs in docs/, notes in notes/, images in img/.</strong> <code>docs/</code> holds the official documentation, <code>notes/</code> holds working notes — hints and findings made during development — and <code>img/</code> holds static images, mostly for the README.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/proj_docs_notes_img.svg"><img class="light" src="../img/rules/proj_docs_notes_img.svg" alt="docs/ holds the official documentation, notes/ the working notes made during development, img/ the static images, mostly for the README" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/proj_docs_notes_img-dark.svg" alt="docs/ holds the official documentation, notes/ the working notes made during development, img/ the static images, mostly for the README" width="1200" height="480" loading="lazy"></a>
 </article>
 <article class="rule" id="PROJ-14">
 <a class="code" href="#PROJ-14">PROJ-14</a>
 <div class="text"><p><strong>The project root carries the same standard files.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>.env  .env.example  .gitignore  Dockerfile
 LICENSE  README.md  package.json</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_root_standard_files.svg"><img class="light" src="../img/rules/proj_root_standard_files.svg" alt="The project root with .env, .env.example, .gitignore, Dockerfile, LICENSE, README.md and package.json" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/proj_root_standard_files-dark.svg" alt="The project root with .env, .env.example, .gitignore, Dockerfile, LICENSE, README.md and package.json" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-15">
 <a class="code" href="#PROJ-15">PROJ-15</a>
@@ -2250,10 +2264,12 @@ trap 'rm -rf $tempdir; echo -e "$EXIT_MESSAGE"' EXIT
 cd $tempdir
 
 EXIT_MESSAGE="${GREEN}bin/templ succeeded${RESET}"</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_script_follows_templ.svg"><img class="light" src="../img/rules/proj_script_follows_templ.svg" alt="A bash script in the order of bin/templ: strict mode, an exit message set to failed, a temporary directory removed by an EXIT trap, the work, and the message switched to succeeded on the last line" width="1200" height="640" loading="lazy"><img class="dark" src="../img/rules/proj_script_follows_templ-dark.svg" alt="A bash script in the order of bin/templ: strict mode, an exit message set to failed, a temporary directory removed by an EXIT trap, the work, and the message switched to succeeded on the last line" width="1200" height="640" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="PROJ-16">
+<article class="rule" id="PROJ-16">
 <a class="code" href="#PROJ-16">PROJ-16</a>
 <div class="text"><p><strong>bin/configure asks everything up front.</strong> <code>bin/configure</code> asks every question it may have — the <code>sudo</code> password, a choice, a key — at the very start, before any work. Once the work has started there are no more questions; it never stops halfway, waiting for a password.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/configure.md" title="drafts/configure.md">configure.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/proj_configure_asks_up_front.svg"><img class="light" src="../img/rules/proj_configure_asks_up_front.svg" alt="Questions for a password, a choice and a key come first and the work runs to the end; a run that stops halfway to ask for a password is the wrong way" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_configure_asks_up_front-dark.svg" alt="Questions for a password, a choice and a key come first and the work runs to the end; a run that stops halfway to ask for a password is the wrong way" width="1200" height="520" loading="lazy"></a>
 </article>
 <article class="rule" id="PROJ-17">
 <a class="code" href="#PROJ-17">PROJ-17</a>
@@ -2267,25 +2283,29 @@ if &#91; "$wanted" != "$installed" ] || &#91; "$state" != "root:4755" ]; then
 fi
 
 sudo -n chown root:root $sandbox   # later: never a prompt</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_configure_sudo_once.svg"><img class="light" src="../img/rules/proj_configure_sudo_once.svg" alt="bin/configure predicts the state after the install, takes sudo -v once if a step will need it, and later calls sudo -n, which never prompts" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_configure_sudo_once-dark.svg" alt="bin/configure predicts the state after the install, takes sudo -v once if a step will need it, and later calls sudo -n, which never prompts" width="1200" height="520" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="PROJ-18">
+<article class="rule" id="PROJ-18">
 <a class="code" href="#PROJ-18">PROJ-18</a>
 <div class="text"><p><strong>Everything kept lives in data/.</strong> <code>data/</code> is the project's permanent data: a restart, a redeploy or a migration does not delete it. Everything the program writes and has to keep lives under <code>data/</code>, and nowhere else. Configuration is not there: it comes from <code>config/</code> and the environment.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/data.md" title="drafts/data.md">data.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/proj_data_keeps_everything.svg"><img class="light" src="../img/rules/proj_data_keeps_everything.svg" alt="Uploads, the database and logs written by the program all live under data/, which survives restarts, redeploys and migrations; configuration comes from config/ and the environment" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/proj_data_keeps_everything-dark.svg" alt="Uploads, the database and logs written by the program all live under data/, which survives restarts, redeploys and migrations; configuration comes from config/ and the environment" width="1200" height="540" loading="lazy"></a>
 </article>
 <article class="rule" id="PROJ-19">
 <a class="code" href="#PROJ-19">PROJ-19</a>
 <div class="text"><p><strong>Docker images carry code, not data.</strong> A docker image carries the code, never the data. One mount of <code>data/</code> — a named volume or a host directory — is all it takes to keep it; moving the project is moving its <code>data/</code> and running it with the same environment.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/data.md" title="drafts/data.md">data.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>docker run -v app-data:/app/data app
 docker run -v /srv/app/data:/app/data app</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_image_code_not_data.svg"><img class="light" src="../img/rules/proj_image_code_not_data.svg" alt="An image with the code and a data/ volume mounted into the container; docker run -v app-data:/app/data app" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_image_code_not_data-dark.svg" alt="An image with the code and a data/ volume mounted into the container; docker run -v app-data:/app/data app" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-20">
 <a class="code" href="#PROJ-20">PROJ-20</a>
 <div class="text"><p><strong>The README runs in a fixed order.</strong> A GitHub <code>README.md</code> runs in one order: badges, cover image, name, short description, website, quick start, documentation, license. Badges, the website link and the further documentation pages may be absent; the rest are always there.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/readme-structure.png"><img class="light" src="../drafts/readme-structure.png" alt="the parts of a README, top to bottom" width="2560" height="2854" loading="lazy"><img class="dark" src="../drafts/readme-structure-dark.png" alt="the parts of a README, top to bottom" width="2560" height="2854" loading="lazy"></a>
 </article>
-<article class="rule bare" id="PROJ-21">
+<article class="rule" id="PROJ-21">
 <a class="code" href="#PROJ-21">PROJ-21</a>
 <div class="text"><p><strong>Badges at the top, a row per kind.</strong> Badges sit at the very top, above the cover, a row per kind: the package and its numbers on one row, the CI workflows on the next. As many as the project has.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/proj_badges_row_per_kind.svg"><img class="light" src="../img/rules/proj_badges_row_per_kind.svg" alt="The top of a README: a row of package badges, a row of CI badges, then the cover image" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/proj_badges_row_per_kind-dark.svg" alt="The top of a README: a row of package badges, a row of CI badges, then the cover image" width="1200" height="500" loading="lazy"></a>
 </article>
 <article class="rule" id="PROJ-22">
 <a class="code" href="#PROJ-22">PROJ-22</a>
@@ -2294,25 +2314,30 @@ docker run -v /srv/app/data:/app/data app</pre><button class="copy" type="button
   &lt;source media="(prefers-color-scheme: dark)" srcset="img/cover-dark.png"&gt;
   &lt;img alt="rules" src="img/cover.png"&gt;
 &lt;/picture&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_cover_in_img.svg"><img class="light" src="../img/rules/proj_cover_in_img.svg" alt="The README shows the cover through &lt;picture&gt;: img/cover.png in light, img/cover-dark.png in dark" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_cover_in_img-dark.svg" alt="The README shows the cover through &lt;picture&gt;: img/cover.png in light, img/cover-dark.png in dark" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-23">
 <a class="code" href="#PROJ-23">PROJ-23</a>
 <div class="text"><p><strong>The repository name is the one heading.</strong> The name is the one <code>#</code> heading, right under the cover: the name of the repository.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre># rules</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_name_one_heading.svg"><img class="light" src="../img/rules/proj_name_one_heading.svg" alt="A README with the cover, then # rules as its one level-one heading, then ## sections" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_name_one_heading-dark.svg" alt="A README with the cover, then # rules as its one level-one heading, then ## sections" width="1200" height="520" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="PROJ-24">
+<article class="rule" id="PROJ-24">
 <a class="code" href="#PROJ-24">PROJ-24</a>
 <div class="text"><p><strong>One description sentence everywhere.</strong> The short description is one sentence on its own line, and the same sentence is the repository's About text and the <code>description</code> of <code>package.json</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/proj_one_description.svg"><img class="light" src="../img/rules/proj_one_description.svg" alt="One sentence, written once, appears as the README description, the GitHub About text and the description of package.json" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_one_description-dark.svg" alt="One sentence, written once, appears as the README description, the GitHub About text and the description of package.json" width="1200" height="520" loading="lazy"></a>
 </article>
 <article class="rule" id="PROJ-25">
 <a class="code" href="#PROJ-25">PROJ-25</a>
 <div class="text"><p><strong>A link with the text <code>Website</code> follows the description.</strong> Its address is the repository's About → Website and the <code>homepage</code> of <code>package.json</code>. It is left out when the website is the documentation.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>**[Website](https://vbarbarosh.github.io/rules/)**</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_website_link.svg"><img class="light" src="../img/rules/proj_website_link.svg" alt="A Website link under the description, with the same address as the GitHub About website and the homepage field of package.json" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_website_link-dark.svg" alt="A Website link under the description, with the same address as the GitHub About website and the homepage field of package.json" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-26">
 <a class="code" href="#PROJ-26">PROJ-26</a>
 <div class="text"><p><strong>A quick start in a few lines.</strong> A quick start shows how to install and run the project, in a few lines.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>npx vbarbarosh/rules src</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_quick_start.svg"><img class="light" src="../img/rules/proj_quick_start.svg" alt="A quick start of one line, npx vbarbarosh/rules src, that installs and runs the project" width="1200" height="460" loading="lazy"><img class="dark" src="../img/rules/proj_quick_start-dark.svg" alt="A quick start of one line, npx vbarbarosh/rules src, that installs and runs the project" width="1200" height="460" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-27">
 <a class="code" href="#PROJ-27">PROJ-27</a>
@@ -2322,6 +2347,7 @@ docker run -v /srv/app/data:/app/data app</pre><button class="copy" type="button
 Full documentation: &#42;&#42;&#91;docs/rules.html](docs/rules.html)&#42;&#42;
 
 &#42; &#91;Formatting](FORMATTING.md) — the JavaScript spec</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_docs_section.svg"><img class="light" src="../img/rules/proj_docs_section.svg" alt="A Documentation section: the full documentation link first, then a short list of further pages with what each covers" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_docs_section-dark.svg" alt="A Documentation section: the full documentation link first, then a short list of further pages with what each covers" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-28">
 <a class="code" href="#PROJ-28">PROJ-28</a>
@@ -2329,12 +2355,14 @@ Full documentation: &#42;&#42;&#91;docs/rules.html](docs/rules.html)&#42;&#42;
 <div class="form"><pre>## License
 
 &#91;MIT](LICENSE)</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_license_last.svg"><img class="light" src="../img/rules/proj_license_last.svg" alt="The README sections in order with ## License last, linking to the LICENSE file" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/proj_license_last-dark.svg" alt="The README sections in order with ## License last, linking to the LICENSE file" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-29">
 <a class="code" href="#PROJ-29">PROJ-29</a>
 <div class="text"><p><strong>Demos live in demos/.</strong> Small demos — a short runnable file that shows how something is used — live in <code>demos/</code>, never in <code>examples/</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>demos/items_by.js      <span class="yes">✓ right</span>
 examples/items_by.js   <span class="no">✗ wrong</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_demos_folder.svg"><img class="light" src="../img/rules/proj_demos_folder.svg" alt="examples/items_by.js is wrong; the same demo lives in demos/items_by.js" width="1200" height="420" loading="lazy"><img class="dark" src="../img/rules/proj_demos_folder-dark.svg" alt="examples/items_by.js is wrong; the same demo lives in demos/items_by.js" width="1200" height="420" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-30">
 <a class="code" href="#PROJ-30">PROJ-30</a>
@@ -2345,6 +2373,7 @@ bin/self-check
 [ffmpeg] ffmpeg version 6.1.1
 [pyftsubset] zopfli: 4120 &lt; 5312 bytes
 build/front.d: missing      <span class="no">✗ ships nothing</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_build_ends_self_check.svg"><img class="light" src="../img/rules/proj_build_ends_self_check.svg" alt="bin/build ends with bin/self-check, whose probes find ffmpeg and pyftsubset but a missing build/front.d, so the build ships nothing" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/proj_build_ends_self_check-dark.svg" alt="bin/build ends with bin/self-check, whose probes find ffmpeg and pyftsubset but a missing build/front.d, so the build ships nothing" width="1200" height="560" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="REL">

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="480" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Docs in docs/, notes in notes/, images in img/</text>
+<text x="48" y="108" fill="#686a61" font-size="22">each kind of document has its folder</text>
+<rect x="60" y="170" width="340" height="100" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="230.0" y="216.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">docs/</text>
+<text x="230.0" y="242.0" fill="#686a61" font-size="17" text-anchor="middle">official documentation</text>
+<rect x="430" y="170" width="340" height="100" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="600.0" y="216.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">notes/</text>
+<text x="600.0" y="242.0" fill="#686a61" font-size="17" text-anchor="middle">hints, findings, working notes</text>
+<rect x="800" y="170" width="340" height="100" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="970.0" y="216.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">img/</text>
+<text x="970.0" y="242.0" fill="#686a61" font-size="17" text-anchor="middle">static images, for the README</text>
+<text x="48" y="360" fill="#686a61" font-size="21">Official, working, pictures: three folders, never mixed.</text>
+</svg>
