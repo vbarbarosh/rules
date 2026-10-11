@@ -553,7 +553,7 @@ Each generic name has one meaning, listed on one page.
 
 **Scope:** VUE-20 to VUE-24, [Vue components](vue2/vue-components.md).
 **Approved:** 2026-10-10, author message `20261010_230651-me` (a rule from
-visual-agency: "Badges: one component each, named badge-*") and voice
+the notes app: "Badges: one component each, named badge-*") and voice
 comment `20261010_230718-me` ("this note is about components: how to split
 an app into components, how to represent it as components").
 

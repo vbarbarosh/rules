@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="640" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Tool definition</text>
+<text x="48" y="108" fill="#92958c" font-size="22">name + description + input_schema: what the model sees; the description is what makes it pick the tool</text>
+<rect x="60" y="160" width="560" height="330" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="90" y="202" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
+<text x="90" y="234" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  "name": "read_file",</text>
+<text x="90" y="266" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  "description": "Reads one file of the</text>
+<text x="90" y="298" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">    workspace by its path. Use it before</text>
+<text x="90" y="330" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">    editing a file you have not seen.",</text>
+<text x="90" y="362" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  "input_schema": {"path": "string"}</text>
+<text x="90" y="394" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<rect x="680" y="160" width="460" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="910.0" y="199.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">name</text>
+<text x="910.0" y="225.9" fill="#92958c" font-size="19" text-anchor="middle">how the model calls it</text>
+<rect x="680" y="270" width="460" height="100" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="910.0" y="314.5" fill="#9db2ff" font-size="22" text-anchor="middle" font-weight="700">description</text>
+<text x="910.0" y="340.9" fill="#92958c" font-size="19" text-anchor="middle">why and when: the model chooses by this</text>
+<rect x="680" y="390" width="460" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="910.0" y="429.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">input_schema</text>
+<text x="910.0" y="455.9" fill="#92958c" font-size="19" text-anchor="middle">the shape of the arguments</text>
+<text x="48" y="540" fill="#92958c" font-size="21" text-anchor="start">A vague description gets a tool used wrongly or not at all; the schema only shapes the</text>
+<text x="48" y="571" fill="#92958c" font-size="21" text-anchor="start">arguments once it is chosen.</text>
+</svg>

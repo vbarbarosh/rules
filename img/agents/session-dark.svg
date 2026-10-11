@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="640" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Session</text>
+<text x="48" y="108" fill="#92958c" font-size="22">ordered turns sharing one transcript</text>
+<rect x="50" y="150" width="1100" height="440" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="70" y="184" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">run · one launch of the harness</text>
+<rect x="80" y="200" width="1040" height="370" rx="16" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="100" y="234" fill="#9db2ff" font-size="22" text-anchor="start" font-weight="700">session · one transcript</text>
+<rect x="110" y="250" width="480" height="300" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="130" y="284" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">turn 1 · a message, then the final</text>
+<rect x="130" y="300" width="440" height="108" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="150" y="334" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">round 1</text>
+<rect x="150" y="344" width="190" height="50" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="245.0" y="376.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">call</text>
+<rect x="360" y="344" width="190" height="50" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="455.0" y="375.48" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">tool_calls run</text>
+<rect x="130" y="420" width="440" height="108" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="150" y="454" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">round 2</text>
+<rect x="150" y="464" width="190" height="50" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="245.0" y="496.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">call</text>
+<rect x="360" y="464" width="190" height="50" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="455.0" y="495.48" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">final: no tool_call</text>
+<rect x="620" y="250" width="480" height="300" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="640" y="284" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">turn 2 · a message, then the final</text>
+<rect x="640" y="300" width="440" height="108" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="660" y="334" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">round 1</text>
+<rect x="660" y="344" width="190" height="50" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="755.0" y="376.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">call</text>
+<rect x="870" y="344" width="190" height="50" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="965.0" y="375.48" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">tool_calls run</text>
+<rect x="640" y="420" width="440" height="108" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="660" y="454" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">round 2</text>
+<rect x="660" y="464" width="190" height="50" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="755.0" y="496.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">call</text>
+<rect x="870" y="464" width="190" height="50" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="965.0" y="495.48" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">final: no tool_call</text>
+</svg>

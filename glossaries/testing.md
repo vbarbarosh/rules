@@ -53,6 +53,8 @@ test("API returns data", async function () {
 });
 ```
 
+![Intermittent failure: six runs of the same test, two of them red, nothing changed](../img/testing/intermittent-failure.svg)
+
 ## Self-check
 
 The application checks, by itself, that it is fit to work, as a car checks
@@ -108,6 +110,8 @@ EOF
 test -e build/front.d    # what the build was to produce
 ```
 
+![Self-check: a dashboard of lamps, one lit, naming the port to fix](../img/testing/self-check.svg)
+
 ## Safety net
 
 The net under the trapeze: the act is done without it, and nobody falls on
@@ -142,3 +146,33 @@ if (late && (agent.model === strongest)) {
     log.warn('safety net: switched the model back');
 }
 ```
+
+![Safety net: the plan as a rope across, the miss falling into the net below](../img/testing/safety-net.svg)
+
+## Happy path
+
+![Happy path: the green road of steps, the grey error branches never taken](../img/testing/happy-path.svg)
+
+## Smoke tests
+
+![Smoke tests: power on, does it run at all; the deep tests wait behind](../img/testing/smoke-tests.svg)
+
+## Edge case
+
+![Edge case: the usual range in green, the empty, first, last and maximum in red](../img/testing/edge-case.svg)
+
+## Transient error
+
+![Transient error: two failed tries, a wait, the third answered](../img/testing/transient-error.svg)
+
+## Error flood
+
+![Error flood: forty requests, thirty of them failed](../img/testing/error-flood.svg)
+
+## Flaky test
+
+![Flaky test: one unchanged test, red and green by turns through the week](../img/testing/flaky-test.svg)
+
+## Showstopper bug
+
+![Showstopper bug: the road from development to customers blocked by a barrier](../img/testing/showstopper-bug.svg)

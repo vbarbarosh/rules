@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="620" fill="#16181b"/>
+<defs><marker id="a1299DA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Compact</text>
+<text x="48" y="108" fill="#92958c" font-size="22">replace the older part of the transcript in the context with a summary; the messages themselves stay</text>
+<rect x="60" y="150" width="500" height="420" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="80" y="184" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">the transcript · unchanged</text>
+<rect x="90" y="200" width="440" height="48" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="310.0" y="230.48" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">user: fix the footer</text>
+<rect x="90" y="258" width="440" height="48" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="310.0" y="288.48" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">assistant: tool_call grep</text>
+<rect x="90" y="316" width="440" height="48" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="310.0" y="346.48" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">tool: 3 files</text>
+<rect x="90" y="374" width="440" height="48" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="310.0" y="404.48" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">assistant: tool_call edit</text>
+<rect x="90" y="432" width="440" height="48" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="310.0" y="462.48" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">tool: ok</text>
+<rect x="90" y="490" width="440" height="48" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="310.0" y="520.48" fill="#9db2ff" font-size="18" text-anchor="middle" font-weight="700">user: now the header</text>
+<line x1="566" y1="360" x2="634" y2="360" stroke="#9db2ff" stroke-width="4" marker-end="url(#a1299DA)"/>
+<rect x="640" y="150" width="500" height="420" rx="16" fill="#1b2346" stroke="#9db2ff" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="660" y="184" fill="#9db2ff" font-size="22" text-anchor="start" font-weight="700">the context · smaller</text>
+<rect x="670" y="200" width="440" height="110" rx="12" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="890" y="240" fill="#92958c" font-size="19" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">summary of messages 1 to 5:</text>
+<text x="890" y="272" fill="#d3d1c9" font-size="19" text-anchor="middle">the footer was fixed in footer.vue</text>
+<rect x="670" y="330" width="440" height="48" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="890.0" y="360.48" fill="#9db2ff" font-size="18" text-anchor="middle" font-weight="700">user: now the header</text>
+<text x="890" y="440" fill="#92958c" font-size="19" text-anchor="middle">the five replaced messages are still</text>
+<text x="890" y="468" fill="#92958c" font-size="19" text-anchor="middle">in the transcript and the sidecar</text>
+</svg>

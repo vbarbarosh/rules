@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#fffefb"/>
+<defs><marker id="a1299DA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a19f93"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Gate</text>
+<text x="48" y="108" fill="#686a61" font-size="22">user approval required before a tool runs: the default for destructive tools</text>
+<rect x="60" y="190" width="260" height="90" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="190.0" y="229.5" fill="#2743b8" font-size="22" text-anchor="middle" font-weight="700">tool_call</text>
+<text x="190.0" y="255.9" fill="#686a61" font-size="19" text-anchor="middle">shell: git push --force</text>
+<line x1="320" y1="235" x2="400" y2="235" stroke="#2743b8" stroke-width="4" marker-end="url(#a1299DA)"/>
+<rect x="400" y="160" width="420" height="150" rx="12" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="610" y="205" fill="#b8650a" font-size="22" text-anchor="middle" font-weight="700">Run git push --force?</text>
+<rect x="440" y="240" width="135" height="40" rx="20.0" fill="#dcefe3"/>
+<text x="507.59000000000003" y="266.84" fill="#1a7443" font-size="19" text-anchor="middle" font-weight="700">Yes, once</text>
+<rect x="600" y="240" width="58" height="40" rx="20.0" fill="#fbe3df"/>
+<text x="629.02" y="266.84" fill="#b2341f" font-size="19" text-anchor="middle" font-weight="700">No</text>
+<text x="610" y="335" fill="#686a61" font-size="19" text-anchor="middle">the harness waits for the user</text>
+<line x1="820" y1="235" x2="900" y2="235" stroke="#a19f93" stroke-width="4" marker-end="url(#a5E5C4E)"/>
+<rect x="900" y="190" width="240" height="90" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="1020.0" y="242.92" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">runs, or not</text>
+<text x="48" y="440" fill="#686a61" font-size="21" text-anchor="start">A gate is a question to the user, put by the harness before a destructive tool runs; a</text>
+<text x="48" y="471" fill="#686a61" font-size="21" text-anchor="start">permission is a rule that needs no one.</text>
+</svg>

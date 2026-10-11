@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Final</text>
+<text x="48" y="108" fill="#92958c" font-size="22">an assistant message with no tool_call: it ends the turn, and says nothing about whether the task succeeded</text>
+<rect x="60" y="150" width="480" height="54" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="76" y="184" fill="#92958c" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">user</text>
+<text x="210" y="184" fill="#d3d1c9" font-size="19" text-anchor="start">fix the footer</text>
+<rect x="60" y="212" width="480" height="54" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="76" y="246" fill="#9db2ff" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">assistant</text>
+<text x="210" y="246" fill="#d3d1c9" font-size="19" text-anchor="start">tool_call: grep "footer"</text>
+<rect x="60" y="274" width="480" height="54" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="76" y="308" fill="#92958c" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tool</text>
+<text x="210" y="308" fill="#d3d1c9" font-size="19" text-anchor="start">tool_result: 3 files</text>
+<rect x="60" y="336" width="480" height="54" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="76" y="370" fill="#9db2ff" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">assistant</text>
+<text x="210" y="370" fill="#d3d1c9" font-size="19" text-anchor="start">tool_call: edit footer.vue</text>
+<rect x="60" y="398" width="480" height="54" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="76" y="432" fill="#92958c" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tool</text>
+<text x="210" y="432" fill="#d3d1c9" font-size="19" text-anchor="start">tool_result: ok</text>
+<rect x="60" y="460" width="480" height="54" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="76" y="494" fill="#9db2ff" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">assistant</text>
+<text x="210" y="494" fill="#d3d1c9" font-size="19" text-anchor="start">final: the footer is fixed</text>
+<text x="600" y="200" fill="#d3d1c9" font-size="24" text-anchor="start" font-weight="700">the final</text>
+<text x="600" y="240" fill="#92958c" font-size="21" text-anchor="start">no tool_call in it, so the</text>
+<text x="600" y="272" fill="#92958c" font-size="21" text-anchor="start">harness has nothing to run:</text>
+<text x="600" y="304" fill="#92958c" font-size="21" text-anchor="start">the turn ends here.</text>
+<rect x="600" y="360" width="540" height="110" rx="12" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="870" y="400" fill="#ffb257" font-size="21" text-anchor="middle" font-weight="700">"the footer is fixed" is a claim</text>
+<text x="870" y="436" fill="#d3d1c9" font-size="19" text-anchor="middle">whether it is true, a check or a review tells</text>
+</svg>

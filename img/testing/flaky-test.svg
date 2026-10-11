@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#fffefb"/>
+<defs><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a19f93"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Flaky test</text>
+<text x="48" y="108" fill="#686a61" font-size="22">a test that passes and fails by turns, with no change to the code or the test</text>
+<rect x="80" y="190" width="400" height="90" rx="12" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="280.0" y="242.2" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">test("API returns data")</text>
+<text x="280" y="310" fill="#686a61" font-size="20" text-anchor="middle">unchanged since Monday</text>
+<rect x="560" y="200" width="100" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<path d="M600.0 235 l8.0 8.0 l16.0 -18.0" fill="none" stroke="#1a7443" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="610" y="300" fill="#686a61" font-size="20" text-anchor="middle">Mon</text>
+<rect x="680" y="200" width="100" height="70" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<path d="M721.0 226.0 l18.0 18.0 M739.0 226.0 l-18.0 18.0" stroke="#b2341f" stroke-width="5.0" stroke-linecap="round"/>
+<text x="730" y="300" fill="#686a61" font-size="20" text-anchor="middle">Tue</text>
+<rect x="800" y="200" width="100" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<path d="M840.0 235 l8.0 8.0 l16.0 -18.0" fill="none" stroke="#1a7443" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="850" y="300" fill="#686a61" font-size="20" text-anchor="middle">Wed</text>
+<rect x="920" y="200" width="100" height="70" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<path d="M961.0 226.0 l18.0 18.0 M979.0 226.0 l-18.0 18.0" stroke="#b2341f" stroke-width="5.0" stroke-linecap="round"/>
+<text x="970" y="300" fill="#686a61" font-size="20" text-anchor="middle">Thu</text>
+<rect x="1040" y="200" width="100" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<path d="M1080.0 235 l8.0 8.0 l16.0 -18.0" fill="none" stroke="#1a7443" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1090" y="300" fill="#686a61" font-size="20" text-anchor="middle">Fri</text>
+<line x1="480" y1="235" x2="540" y2="235" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
+<text x="48" y="400" fill="#686a61" font-size="21" text-anchor="start">A flaky test is an intermittent failure in the test suite. Its usual cause is a wait that is</text>
+<text x="48" y="431" fill="#686a61" font-size="21" text-anchor="start">sometimes too short:</text>
+<text x="48" y="462" fill="#686a61" font-size="21" text-anchor="start">a timeout, a race with a server, an order the test assumed. Nobody trusts a red suite with</text>
+<text x="48" y="493" fill="#686a61" font-size="21" text-anchor="start">one flaky test in it.</text>
+</svg>

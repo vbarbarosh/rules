@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="640" fill="#fffefb"/>
+<defs><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a19f93"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Timeline</text>
+<text x="48" y="108" fill="#686a61" font-size="22">events placed along time, in the order they happened</text>
+<line x1="80" y1="330" x2="1120" y2="330" stroke="#a19f93" stroke-width="4"/>
+<circle cx="130" cy="330" r="12" fill="#a19f93"/>
+<text x="130" y="250" fill="#191a17" font-size="24" text-anchor="middle" font-weight="700">09:17</text>
+<text x="130" y="280" fill="#686a61" font-size="20" text-anchor="middle">your message</text>
+<circle cx="330" cy="330" r="12" fill="#a19f93"/>
+<text x="330" y="420" fill="#191a17" font-size="24" text-anchor="middle" font-weight="700">09:18</text>
+<text x="330" y="450" fill="#686a61" font-size="20" text-anchor="middle">filed</text>
+<circle cx="530" cy="330" r="12" fill="#1a7443"/>
+<text x="530" y="250" fill="#191a17" font-size="24" text-anchor="middle" font-weight="700">09:25</text>
+<text x="530" y="280" fill="#686a61" font-size="20" text-anchor="middle">built, 290 tests</text>
+<circle cx="730" cy="330" r="12" fill="#1a7443"/>
+<text x="730" y="420" fill="#191a17" font-size="24" text-anchor="middle" font-weight="700">09:29</text>
+<text x="730" y="450" fill="#686a61" font-size="20" text-anchor="middle">page checked</text>
+<circle cx="930" cy="330" r="12" fill="#2743b8"/>
+<text x="930" y="250" fill="#191a17" font-size="24" text-anchor="middle" font-weight="700">09:30</text>
+<text x="930" y="280" fill="#686a61" font-size="20" text-anchor="middle">my reply</text>
+<circle cx="1100" cy="330" r="12" fill="#d9d5c7"/>
+<text x="1100" y="420" fill="#191a17" font-size="24" text-anchor="middle" font-weight="700">…</text>
+<text x="1100" y="450" fill="#686a61" font-size="20" text-anchor="middle">your commit</text>
+<line x1="1120" y1="330" x2="1150" y2="330" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
+<text x="48" y="520" fill="#686a61" font-size="21" text-anchor="start">In the agent notes: the change log at the end of a subject file, newest first, and the time</text>
+<text x="48" y="551" fill="#686a61" font-size="21" text-anchor="start">in every message name.</text>
+<text x="48" y="582" fill="#686a61" font-size="21" text-anchor="start">A roadmap is laid on a timeline; a timeline only says when.</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#fffefb"/>
+<defs><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a19f93"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Runaway</text>
+<text x="48" y="108" fill="#686a61" font-size="22">a turn stopped by max_rounds or by a budget</text>
+<rect x="70" y="200" width="120" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="130.0" y="241.84" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">round 1</text>
+<line x1="190" y1="235" x2="210" y2="235" stroke="#a19f93" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="210" y="200" width="120" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="270.0" y="241.84" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">round 2</text>
+<line x1="330" y1="235" x2="350" y2="235" stroke="#a19f93" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="350" y="200" width="120" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="410.0" y="241.84" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">round 3</text>
+<line x1="470" y1="235" x2="490" y2="235" stroke="#a19f93" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="490" y="200" width="120" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="550.0" y="241.84" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">round 4</text>
+<line x1="610" y1="235" x2="630" y2="235" stroke="#a19f93" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="630" y="200" width="120" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="690.0" y="241.84" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">round 5</text>
+<line x1="750" y1="235" x2="770" y2="235" stroke="#a19f93" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="770" y="200" width="120" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="830.0" y="241.84" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">round 6</text>
+<line x1="890" y1="235" x2="910" y2="235" stroke="#a19f93" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="910" y="200" width="120" height="70" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="970.0" y="241.84" fill="#b2341f" font-size="19" text-anchor="middle" font-weight="700">round 7</text>
+<line x1="1060" y1="170" x2="1060" y2="300" stroke="#b2341f" stroke-width="5" stroke-dasharray="12 8"/>
+<text x="1060" y="330" fill="#b2341f" font-size="20" text-anchor="middle" font-weight="700">the cap</text>
+<text x="48" y="420" fill="#686a61" font-size="21" text-anchor="start">The turn did not end with a final; the harness ended it. What was done so far stays in the</text>
+<text x="48" y="451" fill="#686a61" font-size="21" text-anchor="start">transcript, and the user is told why it stopped.</text>
+</svg>

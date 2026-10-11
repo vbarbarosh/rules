@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="660" fill="#16181b"/>
+<defs><marker id="aFF6B6B" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#ff937c"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Sandbox</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the boundary that contains a tool's effects: files, network, processes</text>
+<rect x="60" y="150" width="700" height="400" rx="16" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="80" y="184" fill="#9db2ff" font-size="22" text-anchor="start" font-weight="700">the sandbox</text>
+<rect x="100" y="210" width="280" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="240.0" y="249.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">files</text>
+<text x="240.0" y="275.9" fill="#92958c" font-size="19" text-anchor="middle">/app and /tmp only</text>
+<rect x="420" y="210" width="300" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="570.0" y="249.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">network</text>
+<text x="570.0" y="275.9" fill="#92958c" font-size="19" text-anchor="middle">the registry, nothing else</text>
+<rect x="100" y="330" width="280" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="240.0" y="369.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">processes</text>
+<text x="240.0" y="395.9" fill="#92958c" font-size="19" text-anchor="middle">its own, killed on exit</text>
+<rect x="420" y="330" width="300" height="90" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="570.0" y="382.92" fill="#9db2ff" font-size="22" text-anchor="middle" font-weight="700">the tool runs here</text>
+<rect x="820" y="210" width="320" height="90" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="980.0" y="250.0" fill="#ff937c" font-size="20" text-anchor="middle" font-weight="700">/home/user/.ssh</text>
+<text x="980.0" y="274.0" fill="#92958c" font-size="17" text-anchor="middle">unreachable</text>
+<rect x="820" y="330" width="320" height="90" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="980.0" y="370.0" fill="#ff937c" font-size="20" text-anchor="middle" font-weight="700">the production server</text>
+<text x="980.0" y="394.0" fill="#92958c" font-size="17" text-anchor="middle">unreachable</text>
+<line x1="760" y1="300" x2="820" y2="280" stroke="#ff937c" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#aFF6B6B)"/>
+<line x1="760" y1="380" x2="820" y2="370" stroke="#ff937c" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#aFF6B6B)"/>
+<text x="48" y="580" fill="#92958c" font-size="21" text-anchor="start">Whatever the tool does, it does inside the boundary; a wrong command costs the sandbox, not</text>
+<text x="48" y="611" fill="#92958c" font-size="21" text-anchor="start">the machine.</text>
+</svg>

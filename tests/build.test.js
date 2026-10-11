@@ -80,7 +80,7 @@ test('a "## Term" section finds its term under a group too', function () {
         const result = build();
         assert.equal(result.status, 0, result.stderr);
         const html = fs.readFileSync(path.join(fixture_dir, 'docs/glossaries.html'), 'utf8');
-        const compact = html.match(/<article class="rule bare" id="LIM-04">[\s\S]*?<\/article>/)[0];
+        const compact = html.match(/<article class="rule(?: bare)?" id="LIM-04">[\s\S]*?<\/article>/)[0];
         assert.match(compact, /<dfn>compact<\/dfn><\/p><p>The older part of the transcript, summarized.<\/p>/);
     }
     finally {

@@ -314,6 +314,137 @@ h1 {
 
 /* The masthead switch, docked: it opens after the count once the masthead
    one has left the screen. Closed, it takes no room and the count sits flush right. */
+/* The pictures control: off, small, large or full width; the choice sits on <html>
+   as data-pictures and is kept like the theme. */
+.pictures {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 10px;
+    padding: 2px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transition: border-color var(--fast);
+}
+
+.pictures button {
+    min-width: 30px;
+    height: 26px;
+    padding: 0 7px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color var(--fast), background-color var(--fast);
+}
+
+.pictures button:hover {
+    color: var(--accent);
+}
+
+.pictures button[aria-pressed="true"] {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+:root[data-pictures="small"] .figure,
+:root[data-pictures="small"] .figures {
+    max-width: 420px;
+}
+
+:root[data-pictures="small"] .figures {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
+}
+
+:root[data-pictures="full"] .figure,
+:root[data-pictures="full"] .figures {
+    max-width: none;
+}
+
+:root[data-pictures="full"] .figures {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+:root[data-pictures="full"] .figures:has(> :only-child) {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* Off: each picture folds to a mark with its caption; a click opens it. */
+:root[data-pictures="off"] .figure img {
+    display: none;
+}
+
+:root[data-pictures="off"] .figure {
+    display: inline-block;
+    max-width: none;
+    justify-self: start;
+    padding: 3px 10px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px dashed var(--line-heavy);
+    border-radius: 6px;
+    transition: color var(--fast), border-color var(--fast);
+}
+
+:root[data-pictures="off"] .figure:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+:root[data-pictures="off"] .figure::before {
+    content: "picture · " attr(data-caption);
+}
+
+:root[data-pictures="off"] .figures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* The viewer: one picture full size over the page; a click or Escape closes it. */
+.viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    background: color-mix(in srgb, var(--bg) 94%, transparent);
+    cursor: zoom-out;
+    outline: 0;
+}
+
+.viewer[hidden] {
+    display: none;
+}
+
+.viewer img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 90px);
+    border: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.viewer p {
+    max-width: 90ch;
+    margin: 0;
+    font-size: 15px;
+    color: var(--muted);
+    text-align: center;
+}
+
 .theme-docked {
     flex: none;
     max-width: 0;
@@ -326,6 +457,24 @@ h1 {
 
 .bar.docked .theme-docked {
     max-width: 140px;
+    margin-left: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--fast), max-width var(--fast), margin-left var(--fast), visibility 0s;
+}
+
+.pictures-docked {
+    flex: none;
+    max-width: 0;
+    margin-left: calc(-1 * var(--bar-gap));
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--fast), max-width var(--fast), margin-left var(--fast), visibility 0s linear var(--fast);
+}
+
+.bar.docked .pictures-docked {
+    max-width: 260px;
     margin-left: 0;
     visibility: visible;
     opacity: 1;
@@ -782,6 +931,13 @@ footer {
         font-size: 16.5px;
     }
 
+    /* On a phone the control takes a row of its own under the links; the switch stays last on the first. */
+    .mast-top .pictures {
+        order: 4;
+        align-self: flex-start;
+        margin: 10px 0 0;
+    }
+
     .mast-top {
         flex-wrap: wrap;
         margin-bottom: 30px;
@@ -876,6 +1032,13 @@ footer {
         theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     document.documentElement.setAttribute('data-theme', theme);
+    let pictures = null;
+    try {
+        pictures = localStorage.getItem('rules-pictures');
+    }
+    catch {
+    }
+    document.documentElement.setAttribute('data-pictures', ['off', 'small', 'large', 'full'].includes(pictures) ? pictures : 'large');
 })();
 </script>
 </head>
@@ -895,6 +1058,12 @@ footer {
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
         </nav>
+        <div class="pictures" role="group" aria-label="Pictures">
+            <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
+            <button type="button" data-pictures="small" aria-pressed="false" title="Small pictures">S</button>
+            <button type="button" data-pictures="large" aria-pressed="true" title="Large pictures">L</button>
+            <button type="button" data-pictures="full" aria-pressed="false" title="Pictures as wide as the text">XL</button>
+        </div>
         <a class="github" href="https://github.com/vbarbarosh/rules" title="github.com/vbarbarosh/rules" aria-label="GitHub repository"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
         <div class="theme" id="theme">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons --><!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. --><svg class="theme-icon theme-light" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg class="theme-icon theme-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><!-- /theme-icons --></button>
@@ -913,6 +1082,12 @@ footer {
         </label>
         <span class="count" id="count">4 guides</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the guides shown, as Markdown">Copy</button>
+        <div class="pictures pictures-docked" role="group" aria-label="Pictures">
+            <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
+            <button type="button" data-pictures="small" aria-pressed="false" title="Small pictures">S</button>
+            <button type="button" data-pictures="large" aria-pressed="true" title="Large pictures">L</button>
+            <button type="button" data-pictures="full" aria-pressed="false" title="Pictures as wide as the text">XL</button>
+        </div>
         <div class="theme theme-docked">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons --><!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. --><svg class="theme-icon theme-light" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg class="theme-icon theme-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><!-- /theme-icons --></button>
         </div>
@@ -1212,8 +1387,13 @@ Suggested by the agent, for the author to confirm:
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
 
+<div class="viewer" id="viewer" hidden tabindex="-1" aria-label="Picture">
+    <p></p>
+</div>
+
 <script>
 const root_el = document.documentElement;
+const viewer_el = document.getElementById('viewer');
 const q_el = document.getElementById('q');
 const count_el = document.getElementById('count');
 const nothing_el = document.getElementById('nothing');
@@ -1240,7 +1420,14 @@ function main()
     }
 
     refresh_theme_labels();
+    refresh_pictures_labels();
+    for (const figure of document.querySelectorAll('a.figure')) {
+        figure.dataset.caption = figure.querySelector('img').alt;
+    }
     document.addEventListener('click', click_theme);
+    document.addEventListener('click', click_pictures);
+    document.addEventListener('click', click_figure);
+    viewer_el.addEventListener('click', close_viewer);
     theme_dock_watch();
 
     q_el.value = new URLSearchParams(location.search).get('q') || '';
@@ -1418,6 +1605,57 @@ function text_from_copy_button(button)
     return guide_els.filter(v => !v.hidden).map(v => v.querySelector('[data-md]').textContent).join('\n');
 }
 
+function click_pictures(event)
+{
+    const button = event.target.closest('.pictures button');
+    if (!button) {
+        return;
+    }
+    root_el.setAttribute('data-pictures', button.dataset.pictures);
+    try {
+        localStorage.setItem('rules-pictures', button.dataset.pictures);
+    }
+    catch {
+    }
+    refresh_pictures_labels();
+}
+
+function refresh_pictures_labels()
+{
+    const current = root_el.getAttribute('data-pictures');
+    for (const button of document.querySelectorAll('.pictures button')) {
+        button.setAttribute('aria-pressed', String(button.dataset.pictures === current));
+    }
+}
+
+// A click on a picture, or on its mark when pictures are off, shows it full size over the page.
+function click_figure(event)
+{
+    const figure = event.target.closest('a.figure');
+    if (!figure || event.ctrlKey || event.metaKey || event.shiftKey || (event.button !== 0)) {
+        return;
+    }
+    event.preventDefault();
+    const dark = root_el.getAttribute('data-theme') === 'dark';
+    const img = figure.querySelector(dark ? 'img.dark' : 'img.light') || figure.querySelector('img');
+    // The viewer's image is made on the first opening: an image with no source is one the page's tests cannot decode.
+    const shown = viewer_el.querySelector('img') || viewer_el.insertBefore(document.createElement('img'), viewer_el.firstChild);
+    shown.src = img.src;
+    shown.alt = img.alt;
+    viewer_el.querySelector('p').textContent = img.alt;
+    viewer_el.hidden = false;
+    viewer_el.setAttribute('role', 'dialog');
+    viewer_el.setAttribute('aria-modal', 'true');
+    viewer_el.focus();
+}
+
+function close_viewer()
+{
+    viewer_el.hidden = true;
+    viewer_el.removeAttribute('role');
+    viewer_el.removeAttribute('aria-modal');
+}
+
 function click_theme(event)
 {
     const button = event.target.closest('.theme button');
@@ -1455,6 +1693,10 @@ async function click_copy(event)
 function keydown_document(event)
 {
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
+        return;
+    }
+    if ((event.key === 'Escape') && !viewer_el.hidden) {
+        close_viewer();
         return;
     }
     if ((event.key === 'Escape') && (document.activeElement === q_el)) {

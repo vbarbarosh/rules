@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="640" fill="#16181b"/>
+<defs><marker id="a1299DA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Skill</text>
+<text x="48" y="108" fill="#92958c" font-size="22">instructions loaded into the context on demand, not resident in every call</text>
+<rect x="60" y="150" width="500" height="380" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="80" y="184" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">every call</text>
+<rect x="90" y="200" width="440" height="60" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="310.0" y="237.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">system message · policy</text>
+<rect x="90" y="275" width="440" height="60" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="310.0" y="312.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">tool definitions</text>
+<rect x="90" y="350" width="440" height="60" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="310.0" y="387.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">the transcript</text>
+<text x="310" y="470" fill="#92958c" font-size="20" text-anchor="middle">3,000 tokens, always</text>
+<rect x="640" y="150" width="500" height="380" rx="16" fill="#1b2346" stroke="#9db2ff" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="660" y="184" fill="#9db2ff" font-size="22" text-anchor="start" font-weight="700">the skills, on the shelf</text>
+<rect x="670" y="200" width="440" height="64" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="890.0" y="227.0" fill="#9db2ff" font-size="20" text-anchor="middle" font-weight="700">deploy to the server</text>
+<text x="890.0" y="251.0" fill="#92958c" font-size="17" text-anchor="middle">2,400 tokens</text>
+<rect x="670" y="280" width="440" height="64" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="890.0" y="307.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">write a release note</text>
+<text x="890.0" y="331.0" fill="#92958c" font-size="17" text-anchor="middle">900 tokens</text>
+<rect x="670" y="360" width="440" height="64" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="890.0" y="387.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">run the e2e suite</text>
+<text x="890.0" y="411.0" fill="#92958c" font-size="17" text-anchor="middle">1,800 tokens</text>
+<path d="M670 232 Q600 300 540 232" fill="none" stroke="#9db2ff" stroke-width="4" marker-end="url(#a1299DA)"/>
+<text x="600" y="300" fill="#9db2ff" font-size="20" text-anchor="middle" font-style="italic">loaded when asked for</text>
+<text x="48" y="560" fill="#92958c" font-size="21" text-anchor="start">A skill is read only in the turn that needs it, so the context stays small; a policy is read</text>
+<text x="48" y="591" fill="#92958c" font-size="21" text-anchor="start">in every call.</text>
+</svg>

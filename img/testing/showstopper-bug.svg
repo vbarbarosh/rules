@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#fffefb"/>
+<defs><marker id="a1299DA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Showstopper bug</text>
+<text x="48" y="108" fill="#686a61" font-size="22">a defect so severe that nothing can go on until it is fixed</text>
+<rect x="0" y="260" width="1200" height="80" fill="#e8e5d9"/><line x1="0" y1="300" x2="1200" y2="300" stroke="#a19f93" stroke-width="3" stroke-dasharray="20 16"/>
+<text x="150" y="240" fill="#686a61" font-size="22" text-anchor="middle">development</text>
+<text x="400" y="240" fill="#686a61" font-size="22" text-anchor="middle">testing</text>
+<text x="650" y="240" fill="#686a61" font-size="22" text-anchor="middle">release</text>
+<g transform="translate(820 230)"><rect x="0" y="0" width="60" height="140" fill="#fbe3df" stroke="#b2341f" stroke-width="4"/><path d="M0 0 L60 35 M0 35 L60 70 M0 70 L60 105 M0 105 L60 140" stroke="#b2341f" stroke-width="8"/></g>
+<text x="850" y="410" fill="#b2341f" font-size="24" text-anchor="middle" font-weight="700">the show stops here</text>
+<text x="1000" y="240" fill="#686a61" font-size="22" text-anchor="middle">customers</text>
+<line x1="60" y1="300" x2="800" y2="300" stroke="#2743b8" stroke-width="5" marker-end="url(#a1299DA)"/>
+<text x="48" y="480" fill="#686a61" font-size="21" text-anchor="start">The app crashes on start; the sign-in fails for everyone; the build cannot be made. Every</text>
+<text x="48" y="511" fill="#686a61" font-size="21" text-anchor="start">other task waits:</text>
+<text x="48" y="542" fill="#686a61" font-size="21" text-anchor="start">a showstopper is fixed first, and the release that has it is not shipped.</text>
+</svg>

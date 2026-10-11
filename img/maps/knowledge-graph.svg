@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="680" fill="#fffefb"/>
+<defs><marker id="a1299DA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a19f93"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Knowledge graph</text>
+<text x="48" y="108" fill="#686a61" font-size="22">an ontology filled with real things: not "a message answers a message" but "this reply answers that message"</text>
+<rect x="48" y="150" width="500" height="400" rx="16" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="68" y="184" fill="#686a61" font-size="22" text-anchor="start" font-weight="700">the ontology: kinds and relations</text>
+<rect x="90" y="220" width="200" height="70" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="190.0" y="262.92" fill="#686a61" font-size="22" text-anchor="middle" font-weight="700">Message</text>
+<rect x="330" y="220" width="180" height="70" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="420.0" y="262.92" fill="#686a61" font-size="22" text-anchor="middle" font-weight="700">Subject</text>
+<line x1="290" y1="255" x2="330" y2="255" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
+<text x="310.0" y="243.0" fill="#686a61" font-size="20" text-anchor="middle" font-style="italic">belongs to</text>
+<path d="M190 220 Q290 150 190 160" fill="none" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
+<text x="290" y="150" fill="#686a61" font-size="20" text-anchor="middle" font-style="italic">answers</text>
+<rect x="90" y="400" width="200" height="70" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="190.0" y="442.92" fill="#686a61" font-size="22" text-anchor="middle" font-weight="700">Conversation</text>
+<line x1="190" y1="400" x2="190" y2="290" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
+<text x="190.0" y="333.0" fill="#686a61" font-size="20" text-anchor="middle" font-style="italic">made of</text>
+<rect x="600" y="150" width="552" height="400" rx="16" fill="#e2e7fb" stroke="#2743b8" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="620" y="184" fill="#2743b8" font-size="22" text-anchor="start" font-weight="700">the knowledge graph: this note, these messages</text>
+<rect x="630" y="220" width="250" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="755.0" y="262.2" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">your message, 09:17</text>
+<rect x="630" y="400" width="250" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="755.0" y="442.2" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">my reply, 09:30</text>
+<line x1="755" y1="400" x2="755" y2="290" stroke="#2743b8" stroke-width="3" marker-end="url(#a1299DA)"/>
+<text x="755.0" y="333.0" fill="#2743b8" font-size="20" text-anchor="middle" font-style="italic">answers</text>
+<rect x="910" y="220" width="220" height="70" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="1020.0" y="250.0" fill="#2743b8" font-size="20" text-anchor="middle" font-weight="700">the maps glossary</text>
+<text x="1020.0" y="274.0" fill="#686a61" font-size="17" text-anchor="middle">the subject</text>
+<line x1="880" y1="255" x2="910" y2="255" stroke="#2743b8" stroke-width="3" marker-end="url(#a1299DA)"/>
+<rect x="910" y="400" width="220" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="1020.0" y="430.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">this conversation</text>
+<text x="1020.0" y="454.0" fill="#686a61" font-size="17" text-anchor="middle">five messages</text>
+<line x1="880" y1="435" x2="910" y2="435" stroke="#2743b8" stroke-width="3" marker-end="url(#a1299DA)"/>
+<text x="48" y="590" fill="#686a61" font-size="21" text-anchor="start">The ontology names the kinds; the knowledge graph names each thing and every link it has.</text>
+<text x="48" y="621" fill="#686a61" font-size="21" text-anchor="start">Search engines and AI retrieval read the second.</text>
+</svg>

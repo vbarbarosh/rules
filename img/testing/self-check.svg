@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="640" fill="#fffefb"/>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Self-check</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the application reads its own dashboard: one lamp per thing it needs, lit when it is not there</text>
+<rect x="60" y="160" width="520" height="330" rx="16" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="90" y="200" fill="#686a61" font-size="22" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">bin/self-check</text>
+<circle cx="100" cy="250" r="14" fill="#e8e5d9" stroke="#a19f93" stroke-width="3"/>
+<text x="134" y="258" fill="#686a61" font-size="22" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">ffmpeg -version</text>
+<circle cx="100" cy="296" r="14" fill="#e8e5d9" stroke="#a19f93" stroke-width="3"/>
+<text x="134" y="304" fill="#686a61" font-size="22" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">pyftsubset … --with-zopfli</text>
+<circle cx="100" cy="342" r="14" fill="#e8e5d9" stroke="#a19f93" stroke-width="3"/>
+<text x="134" y="350" fill="#686a61" font-size="22" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">DATA_DIR writable</text>
+<circle cx="100" cy="388" r="22" fill="#b2341f" opacity="0.25"/><circle cx="100" cy="388" r="14" fill="#b2341f"/>
+<text x="134" y="396" fill="#191a17" font-size="22" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">PORT 8080 free</text>
+<circle cx="100" cy="434" r="14" fill="#e8e5d9" stroke="#a19f93" stroke-width="3"/>
+<text x="134" y="442" fill="#686a61" font-size="22" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">build/front.d made</text>
+<rect x="640" y="160" width="500" height="150" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="890" y="212" fill="#b2341f" font-size="24" text-anchor="middle" font-weight="700">one lamp lit: PORT</text>
+<text x="890" y="246" fill="#191a17" font-size="19" text-anchor="middle">the application is not fit; the lamp names what to fix</text>
+<text x="890" y="276" fill="#686a61" font-size="19" text-anchor="middle">it stops here, before any work is half done</text>
+<rect x="640" y="340" width="500" height="150" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="890" y="392" fill="#1a7443" font-size="24" text-anchor="middle" font-weight="700">every lamp dark</text>
+<text x="890" y="426" fill="#191a17" font-size="19" text-anchor="middle">one line, or nothing: fit to work</text>
+<text x="890" y="456" fill="#686a61" font-size="19" text-anchor="middle">the last step of the build, the first of the run</text>
+<text x="48" y="560" fill="#686a61" font-size="21" text-anchor="start">Reads and reports, changes nothing. A probe exercises the tool the way the app will use it:</text>
+<text x="48" y="591" fill="#686a61" font-size="21" text-anchor="start">present is not enough.</text>
+</svg>

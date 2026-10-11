@@ -8,7 +8,7 @@
 <!-- stations -->
 <g font-size="22" text-anchor="middle">
 <circle cx="130" cy="466" r="26" fill="#16301f" stroke="#72d39c" stroke-width="4"/><path d="M118 466 l9 9 16 -18" fill="none" stroke="#72d39c" stroke-width="5"/>
-<text x="130" y="530" fill="#d3d1c9" font-weight="700">P1</text><text x="130" y="558" fill="#92958c">Banner found</text>
+<text x="130" y="530" fill="#d3d1c9" font-weight="700">P1</text><text x="130" y="558" fill="#92958c">Photo found</text>
 <circle cx="330" cy="342" r="26" fill="#16301f" stroke="#72d39c" stroke-width="4"/><path d="M318 342 l9 9 16 -18" fill="none" stroke="#72d39c" stroke-width="5"/>
 <text x="330" y="276" fill="#d3d1c9" font-weight="700">P2</text><text x="330" y="248" fill="#92958c">Library built</text>
 <circle cx="560" cy="398" r="30" fill="#1b2346" stroke="#9db2ff" stroke-width="5"/><circle cx="560" cy="398" r="10" fill="#9db2ff"/>

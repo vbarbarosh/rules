@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#fffefb"/>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Readonly</text>
+<text x="48" y="108" fill="#686a61" font-size="22">observes only: view, grep, query</text>
+<rect x="60" y="160" width="260" height="80" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="4"/>
+<text x="190.0" y="207.92" fill="#1a7443" font-size="22" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">readonly</text>
+<rect x="340" y="160" width="320" height="80" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="500.0" y="207.2" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">view · grep · query</text>
+<text x="690" y="208" fill="#191a17" font-size="21" text-anchor="start">reads, changes nothing</text>
+<rect x="60" y="270" width="260" height="80" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="190.0" y="317.92" fill="#686a61" font-size="22" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">mutating</text>
+<rect x="340" y="270" width="320" height="80" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="500.0" y="317.2" fill="#686a61" font-size="20" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">edit · insert · shell</text>
+<text x="690" y="318" fill="#686a61" font-size="21" text-anchor="start">changes the workspace; undo by hand</text>
+<rect x="60" y="380" width="260" height="80" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="190.0" y="427.92" fill="#686a61" font-size="22" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">destructive</text>
+<rect x="340" y="380" width="320" height="80" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="500.0" y="427.2" fill="#686a61" font-size="20" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">rm · drop · deploy</text>
+<text x="690" y="428" fill="#686a61" font-size="21" text-anchor="start">mutating and hard to undo: gated by default</text>
+<text x="48" y="520" fill="#686a61" font-size="21" text-anchor="start">Declared at registration, and a tool is classed by the worst its arguments allow: a shell</text>
+<text x="48" y="551" fill="#686a61" font-size="21" text-anchor="start">that can run rm is destructive, whatever it ran last time.</text>
+</svg>

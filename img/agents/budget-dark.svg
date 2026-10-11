@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Budget</text>
+<text x="48" y="108" fill="#92958c" font-size="22">a token, time or cost cap, scoped to a turn, a run or a session</text>
+<text x="60" y="206" fill="#d3d1c9" font-size="22" text-anchor="start" font-weight="700">tokens</text>
+<rect x="200" y="170" width="700" height="50" rx="10" fill="#212428"/>
+<rect x="200" y="170" width="504" height="50" rx="10" fill="#72d39c" opacity="0.8"/>
+<text x="930" y="206" fill="#92958c" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">180k of 250k</text>
+<text x="60" y="306" fill="#d3d1c9" font-size="22" text-anchor="start" font-weight="700">time</text>
+<rect x="200" y="270" width="700" height="50" rx="10" fill="#212428"/>
+<rect x="200" y="270" width="292" height="50" rx="10" fill="#72d39c" opacity="0.8"/>
+<text x="930" y="306" fill="#92958c" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">50 s of 120 s</text>
+<text x="60" y="406" fill="#d3d1c9" font-size="22" text-anchor="start" font-weight="700">cost</text>
+<rect x="200" y="370" width="700" height="50" rx="10" fill="#212428"/>
+<rect x="200" y="370" width="525" height="50" rx="10" fill="#ffb257" opacity="0.8"/>
+<text x="930" y="406" fill="#92958c" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$3 of $4</text>
+<text x="48" y="500" fill="#92958c" font-size="21" text-anchor="start">When a budget runs out the turn stops as a runaway, whatever the model was about to do. The</text>
+<text x="48" y="531" fill="#92958c" font-size="21" text-anchor="start">scope says what it counts: this turn, this run, or the whole session.</text>
+</svg>

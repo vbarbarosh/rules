@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Edge case</text>
+<text x="48" y="108" fill="#92958c" font-size="22">a situation at an extreme of the input, where code written for the usual case breaks</text>
+<rect x="100" y="280" width="1000" height="26" rx="13" fill="#212428"/>
+<rect x="300" y="280" width="600" height="26" rx="13" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="600" y="260" fill="#72d39c" font-size="22" text-anchor="middle" font-weight="700">the usual case: tested, works</text>
+<circle cx="100" cy="293" r="14" fill="#ff937c"/>
+<text x="100" y="360" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">empty list</text>
+<text x="100" y="388" fill="#92958c" font-size="20" text-anchor="middle">0 items</text>
+<circle cx="300" cy="293" r="14" fill="#ff937c"/>
+<text x="300" y="360" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">the first</text>
+<text x="300" y="388" fill="#92958c" font-size="20" text-anchor="middle">index 0</text>
+<circle cx="900" cy="293" r="14" fill="#ff937c"/>
+<text x="900" y="360" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">the last</text>
+<text x="900" y="388" fill="#92958c" font-size="20" text-anchor="middle">n − 1</text>
+<circle cx="1100" cy="293" r="14" fill="#ff937c"/>
+<text x="1100" y="360" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">maximum</text>
+<text x="1100" y="388" fill="#92958c" font-size="20" text-anchor="middle">10,000 items</text>
+<text x="48" y="470" fill="#92958c" font-size="21" text-anchor="start">The edges: an empty list, the first or the last item, the largest size, a date of years</text>
+<text x="48" y="501" fill="#92958c" font-size="21" text-anchor="start">away. Code for the middle</text>
+<text x="48" y="532" fill="#92958c" font-size="21" text-anchor="start">breaks at an edge, so every edge gets its own test (see "Every state before done" in the</text>
+<text x="48" y="563" fill="#92958c" font-size="21" text-anchor="start">agent guides).</text>
+</svg>

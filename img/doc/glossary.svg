@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="680" fill="#fffefb"/>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Glossary</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the words of a vocabulary, each with its description and meaning</text>
+<rect x="48" y="150" width="1104" height="400" rx="16" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="80" y="200" fill="#686a61" font-size="20" text-anchor="start" font-weight="700">Term</text>
+<text x="380" y="200" fill="#686a61" font-size="20" text-anchor="start" font-weight="700">Definition</text>
+<line x1="80" y1="214" x2="1120" y2="214" stroke="#d9d5c7" stroke-width="2"/>
+<text x="80" y="262" fill="#2743b8" font-size="26" text-anchor="start" font-weight="700">round</text>
+<text x="380" y="262" fill="#191a17" font-size="22" text-anchor="start">One call plus execution of the tool_calls it returned.</text>
+<line x1="80" y1="288" x2="1120" y2="288" stroke="#d9d5c7" stroke-width="2"/>
+<text x="80" y="332" fill="#2743b8" font-size="26" text-anchor="start" font-weight="700">turn</text>
+<text x="380" y="332" fill="#191a17" font-size="22" text-anchor="start">One user message through to the final. One or many rounds.</text>
+<line x1="80" y1="358" x2="1120" y2="358" stroke="#d9d5c7" stroke-width="2"/>
+<text x="80" y="402" fill="#2743b8" font-size="26" text-anchor="start" font-weight="700">session</text>
+<text x="380" y="402" fill="#191a17" font-size="22" text-anchor="start">Ordered turns sharing one transcript.</text>
+<line x1="80" y1="428" x2="1120" y2="428" stroke="#d9d5c7" stroke-width="2"/>
+<text x="80" y="472" fill="#2743b8" font-size="26" text-anchor="start" font-weight="700">final</text>
+<text x="380" y="472" fill="#191a17" font-size="22" text-anchor="start">An assistant message with no tool_call. Ends the turn.</text>
+<line x1="80" y1="498" x2="1120" y2="498" stroke="#d9d5c7" stroke-width="2"/>
+<text x="48" y="590" fill="#686a61" font-size="21" text-anchor="start">A vocabulary says which words; a glossary gives each its meaning, so two readers read one</text>
+<text x="48" y="621" fill="#686a61" font-size="21" text-anchor="start">thing.</text>
+</svg>

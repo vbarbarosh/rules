@@ -125,3 +125,181 @@ grounding. The model has nothing else: what is not in the context does not
 exist for it, and what falls out of it (compacted away, or left behind when
 a session ends) is gone unless it was written down somewhere it will be
 read again, a note, a file, a database.
+
+![Context: system message, tool definitions, the transcript or its summary, grounding, sent whole to the model](../img/agents/context.svg)
+
+## agent
+
+![Agent: harness, model, tools and policy in one box, the workspace beside it](../img/agents/agent.svg)
+
+## model
+
+![Model: a context in, one message out, nothing remembered between calls](../img/agents/model.svg)
+
+## harness
+
+![Harness: the loop of building the context, calling the model, running the tools, appending, stopping](../img/agents/harness.svg)
+
+## tool
+
+![Tool: the definition the model sees, the implementation the harness owns](../img/agents/tool.svg)
+
+## policy
+
+![Policy: text the model reads; what must not happen is stopped by permission, gate and sandbox](../img/agents/policy.svg)
+
+## skill
+
+![Skill: instructions on a shelf, loaded into the context only when asked for](../img/agents/skill.svg)
+
+## workspace
+
+![Workspace: a repository, a canvas or an app database, what the tools act on](../img/agents/workspace.svg)
+
+## user
+
+![User: a person or an application starts a turn](../img/agents/user.svg)
+
+## operator
+
+![Operator: writes the policy, picks the model and tools, sets limits, deploys](../img/agents/operator.svg)
+
+## call
+
+![Call: one request to the model, inside a round, a turn, a session, a run](../img/agents/call.svg)
+
+## round
+
+![Round: one call plus the tool_calls it returned](../img/agents/round.svg)
+
+## turn
+
+![Turn: one user message through to the final, one or many rounds](../img/agents/turn.svg)
+
+## session
+
+![Session: ordered turns sharing one transcript](../img/agents/session.svg)
+
+## run
+
+![Run: one launch of the harness, holding the session](../img/agents/run.svg)
+
+## message
+
+![Message: one unit of the transcript with its role](../img/agents/message.svg)
+
+## transcript
+
+![Transcript: every message so far, append-only](../img/agents/transcript.svg)
+
+## sidecar
+
+![Sidecar: the small message over the wire, the large payload kept by the harness](../img/agents/sidecar.svg)
+
+## memory
+
+![Memory: the transcript, notes, files and databases that outlive one context](../img/agents/memory.svg)
+
+## system
+
+![System: the message holding the policy, the tool definitions beside it](../img/agents/system.svg)
+
+## tool_call
+
+![Tool call: name, arguments and id, from the model to the harness](../img/agents/tool_call.svg)
+
+## tool_result
+
+![Tool result: output or error back to the model, paired by id, data not instructions](../img/agents/tool_result.svg)
+
+## final
+
+![Final: an assistant message with no tool_call ends the turn; its claim still needs a check](../img/agents/final.svg)
+
+## stop_reason
+
+![Stop reason: final, tool_call, max_tokens or refusal](../img/agents/stop_reason.svg)
+
+## tool_definition
+
+![Tool definition: name, description and input schema](../img/agents/tool_definition.svg)
+
+## input_schema
+
+![Input schema: arguments that fit run, arguments that do not are refused](../img/agents/input_schema.svg)
+
+## readonly
+
+![Readonly: the three classes of tools, readonly highlighted](../img/agents/readonly.svg)
+
+## mutating
+
+![Mutating: the three classes of tools, mutating highlighted](../img/agents/mutating.svg)
+
+## destructive
+
+![Destructive: the three classes of tools, destructive highlighted](../img/agents/destructive.svg)
+
+## permission
+
+![Permission: a tool_call outside the allowed paths is refused before it runs](../img/agents/permission.svg)
+
+## gate
+
+![Gate: the harness asks the user before a destructive tool runs](../img/agents/gate.svg)
+
+## sandbox
+
+![Sandbox: files, network and processes inside the boundary, the machine outside it](../img/agents/sandbox.svg)
+
+## grounding
+
+![Grounding: the state of the workspace, injected into the context each turn](../img/agents/grounding.svg)
+
+## max_rounds
+
+![Max rounds: the seventh round never runs](../img/agents/max_rounds.svg)
+
+## budget
+
+![Budget: token, time and cost bars, scoped to a turn, run or session](../img/agents/budget.svg)
+
+## truncate
+
+![Truncate: one result cut to fit, the whole of it in the sidecar](../img/agents/truncate.svg)
+
+## compact
+
+![Compact: older messages replaced by a summary in the context, kept in the transcript](../img/agents/compact.svg)
+
+## stall
+
+![Stall: the same call five times, nothing moves](../img/agents/stall.svg)
+
+## runaway
+
+![Runaway: a turn stopped by the cap, not by a final](../img/agents/runaway.svg)
+
+## check
+
+![Check: tests run after the final; a failure goes back as another round](../img/agents/check.svg)
+
+## review
+
+![Review: one extra call reads the task and the result and gives a verdict](../img/agents/review.svg)
+
+## handoff
+
+![Handoff: the task and its context passed whole to the user or another agent](../img/agents/handoff.svg)
+
+## coding agent
+
+![Coding agent: workspace a repository, tools view, grep, edit, shell](../img/agents/coding_agent.svg)
+
+## design agent
+
+![Design agent: workspace a canvas, tools inspect, render, place, style](../img/agents/design_agent.svg)
+
+## embedded agent
+
+![Embedded agent: workspace app data through its API](../img/agents/embedded_agent.svg)

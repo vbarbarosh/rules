@@ -314,6 +314,137 @@ h1 {
 
 /* The masthead switch, docked: it opens after the count once the masthead
    one has left the screen. Closed, it takes no room and the count sits flush right. */
+/* The pictures control: off, small, large or full width; the choice sits on <html>
+   as data-pictures and is kept like the theme. */
+.pictures {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 10px;
+    padding: 2px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transition: border-color var(--fast);
+}
+
+.pictures button {
+    min-width: 30px;
+    height: 26px;
+    padding: 0 7px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color var(--fast), background-color var(--fast);
+}
+
+.pictures button:hover {
+    color: var(--accent);
+}
+
+.pictures button[aria-pressed="true"] {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+:root[data-pictures="small"] .figure,
+:root[data-pictures="small"] .figures {
+    max-width: 420px;
+}
+
+:root[data-pictures="small"] .figures {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
+}
+
+:root[data-pictures="full"] .figure,
+:root[data-pictures="full"] .figures {
+    max-width: none;
+}
+
+:root[data-pictures="full"] .figures {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+:root[data-pictures="full"] .figures:has(> :only-child) {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* Off: each picture folds to a mark with its caption; a click opens it. */
+:root[data-pictures="off"] .figure img {
+    display: none;
+}
+
+:root[data-pictures="off"] .figure {
+    display: inline-block;
+    max-width: none;
+    justify-self: start;
+    padding: 3px 10px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px dashed var(--line-heavy);
+    border-radius: 6px;
+    transition: color var(--fast), border-color var(--fast);
+}
+
+:root[data-pictures="off"] .figure:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+:root[data-pictures="off"] .figure::before {
+    content: "picture · " attr(data-caption);
+}
+
+:root[data-pictures="off"] .figures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* The viewer: one picture full size over the page; a click or Escape closes it. */
+.viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    background: color-mix(in srgb, var(--bg) 94%, transparent);
+    cursor: zoom-out;
+    outline: 0;
+}
+
+.viewer[hidden] {
+    display: none;
+}
+
+.viewer img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 90px);
+    border: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.viewer p {
+    max-width: 90ch;
+    margin: 0;
+    font-size: 15px;
+    color: var(--muted);
+    text-align: center;
+}
+
 .theme-docked {
     flex: none;
     max-width: 0;
@@ -326,6 +457,24 @@ h1 {
 
 .bar.docked .theme-docked {
     max-width: 140px;
+    margin-left: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--fast), max-width var(--fast), margin-left var(--fast), visibility 0s;
+}
+
+.pictures-docked {
+    flex: none;
+    max-width: 0;
+    margin-left: calc(-1 * var(--bar-gap));
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--fast), max-width var(--fast), margin-left var(--fast), visibility 0s linear var(--fast);
+}
+
+.bar.docked .pictures-docked {
+    max-width: 260px;
     margin-left: 0;
     visibility: visible;
     opacity: 1;
@@ -768,6 +917,13 @@ footer .lead {
         font-size: 16.5px;
     }
 
+    /* On a phone the control takes a row of its own under the links; the switch stays last on the first. */
+    .mast-top .pictures {
+        order: 4;
+        align-self: flex-start;
+        margin: 10px 0 0;
+    }
+
     .mast-top {
         flex-wrap: wrap;
         margin-bottom: 30px;
@@ -1009,6 +1165,13 @@ footer .lead {
         theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     document.documentElement.setAttribute('data-theme', theme);
+    let pictures = null;
+    try {
+        pictures = localStorage.getItem('rules-pictures');
+    }
+    catch {
+    }
+    document.documentElement.setAttribute('data-pictures', ['off', 'small', 'large', 'full'].includes(pictures) ? pictures : 'large');
 })();
 </script>
 </head>
@@ -1028,6 +1191,12 @@ footer .lead {
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
         </nav>
+        <div class="pictures" role="group" aria-label="Pictures">
+            <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
+            <button type="button" data-pictures="small" aria-pressed="false" title="Small pictures">S</button>
+            <button type="button" data-pictures="large" aria-pressed="true" title="Large pictures">L</button>
+            <button type="button" data-pictures="full" aria-pressed="false" title="Pictures as wide as the text">XL</button>
+        </div>
         <a class="github" href="https://github.com/vbarbarosh/rules" title="github.com/vbarbarosh/rules" aria-label="GitHub repository"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
         <div class="theme" id="theme">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons --><!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. --><svg class="theme-icon theme-light" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg class="theme-icon theme-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><!-- /theme-icons --></button>
@@ -1044,6 +1213,12 @@ footer .lead {
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter terms, e.g. tool, flaky, agents.md" aria-label="Filter terms">
         </label>
         <span class="count" id="count">68 terms</span>
+        <div class="pictures pictures-docked" role="group" aria-label="Pictures">
+            <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
+            <button type="button" data-pictures="small" aria-pressed="false" title="Small pictures">S</button>
+            <button type="button" data-pictures="large" aria-pressed="true" title="Large pictures">L</button>
+            <button type="button" data-pictures="full" aria-pressed="false" title="Pictures as wide as the text">XL</button>
+        </div>
         <div class="theme theme-docked">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons --><!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. --><svg class="theme-icon theme-light" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg class="theme-icon theme-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><!-- /theme-icons --></button>
         </div>
@@ -1071,229 +1246,278 @@ footer .lead {
 <h2><span class="tag">AGENT</span><span class="name">Agents</span><span class="note">Vocabulary to use when developing agents (coding agents, design agents, embedded agents, etc.).</span></h2>
 <section class="sub" id="PART">
 <h3><span class="tag">PART</span><span class="name">Parts</span><span class="note">What an agent is made of.</span></h3>
-<article class="rule bare" id="PART-01">
+<article class="rule" id="PART-01">
 <a class="code" href="#PART-01">PART-01</a>
 <div class="text"><p><dfn>agent</dfn></p><p>harness + model + tools + policy. Never the model alone.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/agent.svg"><img class="light" src="../img/agents/agent.svg" alt="Agent: harness, model, tools and policy in one box, the workspace beside it" width="1200" height="620" loading="lazy"><img class="dark" src="../img/agents/agent-dark.svg" alt="Agent: harness, model, tools and policy in one box, the workspace beside it" width="1200" height="620" loading="lazy"></a>
 </article>
-<article class="rule bare" id="PART-02">
+<article class="rule" id="PART-02">
 <a class="code" href="#PART-02">PART-02</a>
 <div class="text"><p><dfn>model</dfn></p><p>The LLM, identified by a string (<code>claude-opus-5</code>). Stateless: one context in, one message out.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/model.svg"><img class="light" src="../img/agents/model.svg" alt="Model: a context in, one message out, nothing remembered between calls" width="1200" height="560" loading="lazy"><img class="dark" src="../img/agents/model-dark.svg" alt="Model: a context in, one message out, nothing remembered between calls" width="1200" height="560" loading="lazy"></a>
 </article>
-<article class="rule bare" id="PART-03">
+<article class="rule" id="PART-03">
 <a class="code" href="#PART-03">PART-03</a>
 <div class="text"><p><dfn>harness</dfn></p><p>The code that runs the loop: builds context, calls the model, executes tools, appends results, stops.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/harness.svg"><img class="light" src="../img/agents/harness.svg" alt="Harness: the loop of building the context, calling the model, running the tools, appending, stopping" width="1200" height="560" loading="lazy"><img class="dark" src="../img/agents/harness-dark.svg" alt="Harness: the loop of building the context, calling the model, running the tools, appending, stopping" width="1200" height="560" loading="lazy"></a>
 </article>
-<article class="rule bare" id="PART-04">
+<article class="rule" id="PART-04">
 <a class="code" href="#PART-04">PART-04</a>
 <div class="text"><p><dfn>tool</dfn></p><p>A named operation the model may request. The model sees its definition; the harness owns its implementation.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/tool.svg"><img class="light" src="../img/agents/tool.svg" alt="Tool: the definition the model sees, the implementation the harness owns" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/tool-dark.svg" alt="Tool: the definition the model sees, the implementation the harness owns" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="PART-05">
+<article class="rule" id="PART-05">
 <a class="code" href="#PART-05">PART-05</a>
 <div class="text"><p><dfn>policy</dfn></p><p>Text in the system message that constrains behavior. Read, not enforced. Enforcement is permission, gate and sandbox.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/policy.svg"><img class="light" src="../img/agents/policy.svg" alt="Policy: text the model reads; what must not happen is stopped by permission, gate and sandbox" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/policy-dark.svg" alt="Policy: text the model reads; what must not happen is stopped by permission, gate and sandbox" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="PART-06">
+<article class="rule" id="PART-06">
 <a class="code" href="#PART-06">PART-06</a>
 <div class="text"><p><dfn>skill</dfn></p><p>Instructions loaded into context on demand, not resident in every call.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/skill.svg"><img class="light" src="../img/agents/skill.svg" alt="Skill: instructions on a shelf, loaded into the context only when asked for" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/skill-dark.svg" alt="Skill: instructions on a shelf, loaded into the context only when asked for" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="PART-07">
+<article class="rule" id="PART-07">
 <a class="code" href="#PART-07">PART-07</a>
 <div class="text"><p><dfn>workspace</dfn></p><p>What tools act on: a repo, a canvas, an app database.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/workspace.svg"><img class="light" src="../img/agents/workspace.svg" alt="Workspace: a repository, a canvas or an app database, what the tools act on" width="1200" height="560" loading="lazy"><img class="dark" src="../img/agents/workspace-dark.svg" alt="Workspace: a repository, a canvas or an app database, what the tools act on" width="1200" height="560" loading="lazy"></a>
 </article>
 </section>
 <section class="sub" id="ROLE">
 <h3><span class="tag">ROLE</span><span class="name">Roles</span><span class="note">Who stands outside the loop.</span></h3>
-<article class="rule bare" id="ROLE-01">
+<article class="rule" id="ROLE-01">
 <a class="code" href="#ROLE-01">ROLE-01</a>
 <div class="text"><p><dfn>user</dfn></p><p>Who starts a turn: a person or a calling application.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/user.svg"><img class="light" src="../img/agents/user.svg" alt="User: a person or an application starts a turn" width="1200" height="540" loading="lazy"><img class="dark" src="../img/agents/user-dark.svg" alt="User: a person or an application starts a turn" width="1200" height="540" loading="lazy"></a>
 </article>
-<article class="rule bare" id="ROLE-02">
+<article class="rule" id="ROLE-02">
 <a class="code" href="#ROLE-02">ROLE-02</a>
 <div class="text"><p><dfn>operator</dfn></p><p>Who configures and deploys the agent.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/operator.svg"><img class="light" src="../img/agents/operator.svg" alt="Operator: writes the policy, picks the model and tools, sets limits, deploys" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/operator-dark.svg" alt="Operator: writes the policy, picks the model and tools, sets limits, deploys" width="1200" height="600" loading="lazy"></a>
 </article>
 </section>
 <section class="sub" id="TIME">
 <h3><span class="tag">TIME</span><span class="name">Time</span><span class="note">From one call to a whole session.</span></h3>
-<article class="rule bare" id="TIME-01">
+<article class="rule" id="TIME-01">
 <a class="code" href="#TIME-01">TIME-01</a>
 <div class="text"><p><dfn>call</dfn></p><p>One request to the model.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/call.svg"><img class="light" src="../img/agents/call.svg" alt="Call: one request to the model, inside a round, a turn, a session, a run" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/call-dark.svg" alt="Call: one request to the model, inside a round, a turn, a session, a run" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TIME-02">
+<article class="rule" id="TIME-02">
 <a class="code" href="#TIME-02">TIME-02</a>
 <div class="text"><p><dfn>round</dfn></p><p>One call plus execution of the tool_calls it returned. Zero tool_calls for a final.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/round.svg"><img class="light" src="../img/agents/round.svg" alt="Round: one call plus the tool_calls it returned" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/round-dark.svg" alt="Round: one call plus the tool_calls it returned" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TIME-03">
+<article class="rule" id="TIME-03">
 <a class="code" href="#TIME-03">TIME-03</a>
 <div class="text"><p><dfn>turn</dfn></p><p>One user message (or one scheduled task) through to the final. One or many rounds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/turn.svg"><img class="light" src="../img/agents/turn.svg" alt="Turn: one user message through to the final, one or many rounds" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/turn-dark.svg" alt="Turn: one user message through to the final, one or many rounds" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TIME-04">
+<article class="rule" id="TIME-04">
 <a class="code" href="#TIME-04">TIME-04</a>
 <div class="text"><p><dfn>session</dfn></p><p>Ordered turns sharing one transcript.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/session.svg"><img class="light" src="../img/agents/session.svg" alt="Session: ordered turns sharing one transcript" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/session-dark.svg" alt="Session: ordered turns sharing one transcript" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TIME-05">
+<article class="rule" id="TIME-05">
 <a class="code" href="#TIME-05">TIME-05</a>
 <div class="text"><p><dfn>run</dfn></p><p>One launch of the harness process (CLI invocation, cron job).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/run.svg"><img class="light" src="../img/agents/run.svg" alt="Run: one launch of the harness, holding the session" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/run-dark.svg" alt="Run: one launch of the harness, holding the session" width="1200" height="640" loading="lazy"></a>
 </article>
 </section>
 <section class="sub" id="MSG">
 <h3><span class="tag">MSG</span><span class="name">Messages</span><span class="note">What the transcript holds and a call sends.</span></h3>
-<article class="rule bare" id="MSG-01">
+<article class="rule" id="MSG-01">
 <a class="code" href="#MSG-01">MSG-01</a>
 <div class="text"><p><dfn>message</dfn></p><p>One unit of the transcript. Has a role: system, user, assistant, tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/message.svg"><img class="light" src="../img/agents/message.svg" alt="Message: one unit of the transcript with its role" width="1200" height="660" loading="lazy"><img class="dark" src="../img/agents/message-dark.svg" alt="Message: one unit of the transcript with its role" width="1200" height="660" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MSG-02">
+<article class="rule" id="MSG-02">
 <a class="code" href="#MSG-02">MSG-02</a>
 <div class="text"><p><dfn>transcript</dfn></p><p>Every message of the session so far, append-only. Includes tool_calls and tool_results.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/transcript.svg"><img class="light" src="../img/agents/transcript.svg" alt="Transcript: every message so far, append-only" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/transcript-dark.svg" alt="Transcript: every message so far, append-only" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MSG-03">
+<article class="rule" id="MSG-03">
 <a class="code" href="#MSG-03">MSG-03</a>
 <div class="text"><p><dfn>context</dfn></p><p>What surrounds a thing and gives it its meaning: the sentence around a word, the conversation around a message, the project around a file. The same words mean different things in different contexts, so the context is read first and the thing after.</p><p>For an AI model, the context is the context window: everything it reads before it answers, counted in tokens. One call sends it whole: the system message, the tool definitions, the transcript or its compacted form, the grounding. The model has nothing else: what is not in the context does not exist for it, and what falls out of it (compacted away, or left behind when a session ends) is gone unless it was written down somewhere it will be read again, a note, a file, a database.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/context.svg"><img class="light" src="../img/agents/context.svg" alt="Context: system message, tool definitions, the transcript or its summary, grounding, sent whole to the model" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/context-dark.svg" alt="Context: system message, tool definitions, the transcript or its summary, grounding, sent whole to the model" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MSG-04">
+<article class="rule" id="MSG-04">
 <a class="code" href="#MSG-04">MSG-04</a>
 <div class="text"><p><dfn>sidecar</dfn></p><p>A second payload carried beside a message, never merged into it: the untruncated tool output, file handles, timings. The request goes over the wire; the sidecar stays with the harness.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/sidecar.svg"><img class="light" src="../img/agents/sidecar.svg" alt="Sidecar: the small message over the wire, the large payload kept by the harness" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/sidecar-dark.svg" alt="Sidecar: the small message over the wire, the large payload kept by the harness" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MSG-05">
+<article class="rule" id="MSG-05">
 <a class="code" href="#MSG-05">MSG-05</a>
 <div class="text"><p><dfn>memory</dfn></p><p>What outlives one context: the transcript, plus external stores (notes, a database).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/memory.svg"><img class="light" src="../img/agents/memory.svg" alt="Memory: the transcript, notes, files and databases that outlive one context" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/memory-dark.svg" alt="Memory: the transcript, notes, files and databases that outlive one context" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MSG-06">
+<article class="rule" id="MSG-06">
 <a class="code" href="#MSG-06">MSG-06</a>
 <div class="text"><p><dfn>system</dfn></p><p>The message that holds the policy. Tool_definitions travel beside it, not in it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/system.svg"><img class="light" src="../img/agents/system.svg" alt="System: the message holding the policy, the tool definitions beside it" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/system-dark.svg" alt="System: the message holding the policy, the tool definitions beside it" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MSG-07">
+<article class="rule" id="MSG-07">
 <a class="code" href="#MSG-07">MSG-07</a>
 <div class="text"><p><dfn>tool_call</dfn></p><p>Model → harness: tool name, arguments, id.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/tool_call.svg"><img class="light" src="../img/agents/tool_call.svg" alt="Tool call: name, arguments and id, from the model to the harness" width="1200" height="560" loading="lazy"><img class="dark" src="../img/agents/tool_call-dark.svg" alt="Tool call: name, arguments and id, from the model to the harness" width="1200" height="560" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MSG-08">
+<article class="rule" id="MSG-08">
 <a class="code" href="#MSG-08">MSG-08</a>
 <div class="text"><p><dfn>tool_result</dfn></p><p>Harness → model: output or error of one tool_call, paired by id. Data, never instructions.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/tool_result.svg"><img class="light" src="../img/agents/tool_result.svg" alt="Tool result: output or error back to the model, paired by id, data not instructions" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/tool_result-dark.svg" alt="Tool result: output or error back to the model, paired by id, data not instructions" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MSG-09">
+<article class="rule" id="MSG-09">
 <a class="code" href="#MSG-09">MSG-09</a>
 <div class="text"><p><dfn>final</dfn></p><p>An assistant message with no tool_call. Ends the turn. Says nothing about whether the task succeeded.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/final.svg"><img class="light" src="../img/agents/final.svg" alt="Final: an assistant message with no tool_call ends the turn; its claim still needs a check" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/final-dark.svg" alt="Final: an assistant message with no tool_call ends the turn; its claim still needs a check" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MSG-10">
+<article class="rule" id="MSG-10">
 <a class="code" href="#MSG-10">MSG-10</a>
 <div class="text"><p><dfn>stop_reason</dfn></p><p>Why a call ended: final, tool_call, max_tokens, refusal. The names are the API's.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/stop_reason.svg"><img class="light" src="../img/agents/stop_reason.svg" alt="Stop reason: final, tool_call, max_tokens or refusal" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/stop_reason-dark.svg" alt="Stop reason: final, tool_call, max_tokens or refusal" width="1200" height="600" loading="lazy"></a>
 </article>
 </section>
 <section class="sub" id="TOOL">
 <h3><span class="tag">TOOL</span><span class="name">Tools</span><span class="note">What the model may request, and what contains it.</span></h3>
-<article class="rule bare" id="TOOL-01">
+<article class="rule" id="TOOL-01">
 <a class="code" href="#TOOL-01">TOOL-01</a>
 <div class="text"><p><dfn>tool_definition</dfn></p><p>name + description + input_schema. What the model sees. The description is what makes the model pick it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/tool_definition.svg"><img class="light" src="../img/agents/tool_definition.svg" alt="Tool definition: name, description and input schema" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/tool_definition-dark.svg" alt="Tool definition: name, description and input schema" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TOOL-02">
+<article class="rule" id="TOOL-02">
 <a class="code" href="#TOOL-02">TOOL-02</a>
 <div class="text"><p><dfn>input_schema</dfn></p><p>The shape of a tool's arguments, as JSON Schema.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/input_schema.svg"><img class="light" src="../img/agents/input_schema.svg" alt="Input schema: arguments that fit run, arguments that do not are refused" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/input_schema-dark.svg" alt="Input schema: arguments that fit run, arguments that do not are refused" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TOOL-03">
+<article class="rule" id="TOOL-03">
 <a class="code" href="#TOOL-03">TOOL-03</a>
 <div class="text"><p><dfn>readonly</dfn></p><p>Observes only: view, grep, query. Declared at registration; a tool is classed by the worst its arguments allow.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/readonly.svg"><img class="light" src="../img/agents/readonly.svg" alt="Readonly: the three classes of tools, readonly highlighted" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/readonly-dark.svg" alt="Readonly: the three classes of tools, readonly highlighted" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TOOL-04">
+<article class="rule" id="TOOL-04">
 <a class="code" href="#TOOL-04">TOOL-04</a>
 <div class="text"><p><dfn>mutating</dfn></p><p>Changes the workspace: edit, insert, shell.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/mutating.svg"><img class="light" src="../img/agents/mutating.svg" alt="Mutating: the three classes of tools, mutating highlighted" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/mutating-dark.svg" alt="Mutating: the three classes of tools, mutating highlighted" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TOOL-05">
+<article class="rule" id="TOOL-05">
 <a class="code" href="#TOOL-05">TOOL-05</a>
 <div class="text"><p><dfn>destructive</dfn></p><p>Mutating and hard to undo: rm, drop, deploy.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/destructive.svg"><img class="light" src="../img/agents/destructive.svg" alt="Destructive: the three classes of tools, destructive highlighted" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/destructive-dark.svg" alt="Destructive: the three classes of tools, destructive highlighted" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TOOL-06">
+<article class="rule" id="TOOL-06">
 <a class="code" href="#TOOL-06">TOOL-06</a>
 <div class="text"><p><dfn>permission</dfn></p><p>What the harness lets a tool touch: paths, hosts, commands. Enforced before the tool runs.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/permission.svg"><img class="light" src="../img/agents/permission.svg" alt="Permission: a tool_call outside the allowed paths is refused before it runs" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/permission-dark.svg" alt="Permission: a tool_call outside the allowed paths is refused before it runs" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TOOL-07">
+<article class="rule" id="TOOL-07">
 <a class="code" href="#TOOL-07">TOOL-07</a>
 <div class="text"><p><dfn>gate</dfn></p><p>User approval required before a tool runs. Default for destructive.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/gate.svg"><img class="light" src="../img/agents/gate.svg" alt="Gate: the harness asks the user before a destructive tool runs" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/gate-dark.svg" alt="Gate: the harness asks the user before a destructive tool runs" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TOOL-08">
+<article class="rule" id="TOOL-08">
 <a class="code" href="#TOOL-08">TOOL-08</a>
 <div class="text"><p><dfn>sandbox</dfn></p><p>The boundary that contains a tool's effects: files, network, processes.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/sandbox.svg"><img class="light" src="../img/agents/sandbox.svg" alt="Sandbox: files, network and processes inside the boundary, the machine outside it" width="1200" height="660" loading="lazy"><img class="dark" src="../img/agents/sandbox-dark.svg" alt="Sandbox: files, network and processes inside the boundary, the machine outside it" width="1200" height="660" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TOOL-09">
+<article class="rule" id="TOOL-09">
 <a class="code" href="#TOOL-09">TOOL-09</a>
 <div class="text"><p><dfn>grounding</dfn></p><p>Workspace state the harness injects into context each turn.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/grounding.svg"><img class="light" src="../img/agents/grounding.svg" alt="Grounding: the state of the workspace, injected into the context each turn" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/grounding-dark.svg" alt="Grounding: the state of the workspace, injected into the context each turn" width="1200" height="600" loading="lazy"></a>
 </article>
 </section>
 <section class="sub" id="LIM">
 <h3><span class="tag">LIM</span><span class="name">Limits</span><span class="note">Caps, and what is cut to fit them.</span></h3>
-<article class="rule bare" id="LIM-01">
+<article class="rule" id="LIM-01">
 <a class="code" href="#LIM-01">LIM-01</a>
 <div class="text"><p><dfn>max_rounds</dfn></p><p>Hard cap on rounds per turn.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/max_rounds.svg"><img class="light" src="../img/agents/max_rounds.svg" alt="Max rounds: the seventh round never runs" width="1200" height="560" loading="lazy"><img class="dark" src="../img/agents/max_rounds-dark.svg" alt="Max rounds: the seventh round never runs" width="1200" height="560" loading="lazy"></a>
 </article>
-<article class="rule bare" id="LIM-02">
+<article class="rule" id="LIM-02">
 <a class="code" href="#LIM-02">LIM-02</a>
 <div class="text"><p><dfn>budget</dfn></p><p>Token, time or cost cap, scoped to a turn, run or session.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/budget.svg"><img class="light" src="../img/agents/budget.svg" alt="Budget: token, time and cost bars, scoped to a turn, run or session" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/budget-dark.svg" alt="Budget: token, time and cost bars, scoped to a turn, run or session" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="LIM-03">
+<article class="rule" id="LIM-03">
 <a class="code" href="#LIM-03">LIM-03</a>
 <div class="text"><p><dfn>truncate</dfn></p><p>Cut one tool_result to fit. The full output stays in the sidecar.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/truncate.svg"><img class="light" src="../img/agents/truncate.svg" alt="Truncate: one result cut to fit, the whole of it in the sidecar" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/truncate-dark.svg" alt="Truncate: one result cut to fit, the whole of it in the sidecar" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="LIM-04">
+<article class="rule" id="LIM-04">
 <a class="code" href="#LIM-04">LIM-04</a>
 <div class="text"><p><dfn>compact</dfn></p><p>Replace the older part of the transcript in context with a summary. The replaced messages stay in the transcript and in the sidecar.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/compact.svg"><img class="light" src="../img/agents/compact.svg" alt="Compact: older messages replaced by a summary in the context, kept in the transcript" width="1200" height="620" loading="lazy"><img class="dark" src="../img/agents/compact-dark.svg" alt="Compact: older messages replaced by a summary in the context, kept in the transcript" width="1200" height="620" loading="lazy"></a>
 </article>
 </section>
 <section class="sub" id="FAIL">
 <h3><span class="tag">FAIL</span><span class="name">Failure</span><span class="note">How a turn goes wrong.</span></h3>
-<article class="rule bare" id="FAIL-01">
+<article class="rule" id="FAIL-01">
 <a class="code" href="#FAIL-01">FAIL-01</a>
 <div class="text"><p><dfn>stall</dfn></p><p>Rounds continue without progress. Reading counts as progress; repeating the same call does not.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/stall.svg"><img class="light" src="../img/agents/stall.svg" alt="Stall: the same call five times, nothing moves" width="1200" height="580" loading="lazy"><img class="dark" src="../img/agents/stall-dark.svg" alt="Stall: the same call five times, nothing moves" width="1200" height="580" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FAIL-02">
+<article class="rule" id="FAIL-02">
 <a class="code" href="#FAIL-02">FAIL-02</a>
 <div class="text"><p><dfn>runaway</dfn></p><p>A turn stopped by max_rounds or budget.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/runaway.svg"><img class="light" src="../img/agents/runaway.svg" alt="Runaway: a turn stopped by the cap, not by a final" width="1200" height="560" loading="lazy"><img class="dark" src="../img/agents/runaway-dark.svg" alt="Runaway: a turn stopped by the cap, not by a final" width="1200" height="560" loading="lazy"></a>
 </article>
 </section>
 <section class="sub" id="RECOV">
 <h3><span class="tag">RECOV</span><span class="name">Recovery</span><span class="note">What follows a final.</span></h3>
-<article class="rule bare" id="RECOV-01">
+<article class="rule" id="RECOV-01">
 <a class="code" href="#RECOV-01">RECOV-01</a>
 <div class="text"><p><dfn>check</dfn></p><p>Harness runs tests or lint after final and re-prompts on failure. Extends the turn.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/check.svg"><img class="light" src="../img/agents/check.svg" alt="Check: tests run after the final; a failure goes back as another round" width="1200" height="580" loading="lazy"><img class="dark" src="../img/agents/check-dark.svg" alt="Check: tests run after the final; a failure goes back as another round" width="1200" height="580" loading="lazy"></a>
 </article>
-<article class="rule bare" id="RECOV-02">
+<article class="rule" id="RECOV-02">
 <a class="code" href="#RECOV-02">RECOV-02</a>
 <div class="text"><p><dfn>review</dfn></p><p>One extra call asking a model to inspect the result against the task. Same model, another agent, or a human.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/review.svg"><img class="light" src="../img/agents/review.svg" alt="Review: one extra call reads the task and the result and gives a verdict" width="1200" height="580" loading="lazy"><img class="dark" src="../img/agents/review-dark.svg" alt="Review: one extra call reads the task and the result and gives a verdict" width="1200" height="580" loading="lazy"></a>
 </article>
-<article class="rule bare" id="RECOV-03">
+<article class="rule" id="RECOV-03">
 <a class="code" href="#RECOV-03">RECOV-03</a>
 <div class="text"><p><dfn>handoff</dfn></p><p>Agent stops and passes the task and its context to the user or to another agent.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/handoff.svg"><img class="light" src="../img/agents/handoff.svg" alt="Handoff: the task and its context passed whole to the user or another agent" width="1200" height="580" loading="lazy"><img class="dark" src="../img/agents/handoff-dark.svg" alt="Handoff: the task and its context passed whole to the user or another agent" width="1200" height="580" loading="lazy"></a>
 </article>
 </section>
 <section class="sub" id="KIND">
 <h3><span class="tag">KIND</span><span class="name">Kinds</span><span class="note">An agent is named by its workspace.</span></h3>
-<article class="rule bare" id="KIND-01">
+<article class="rule" id="KIND-01">
 <a class="code" href="#KIND-01">KIND-01</a>
 <div class="text"><p><dfn>coding agent</dfn></p><p>workspace = repo; tools = view, grep, edit, shell.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/coding_agent.svg"><img class="light" src="../img/agents/coding_agent.svg" alt="Coding agent: workspace a repository, tools view, grep, edit, shell" width="1200" height="560" loading="lazy"><img class="dark" src="../img/agents/coding_agent-dark.svg" alt="Coding agent: workspace a repository, tools view, grep, edit, shell" width="1200" height="560" loading="lazy"></a>
 </article>
-<article class="rule bare" id="KIND-02">
+<article class="rule" id="KIND-02">
 <a class="code" href="#KIND-02">KIND-02</a>
 <div class="text"><p><dfn>design agent</dfn></p><p>workspace = canvas or artifact; tools = inspect, render, place, style.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/design_agent.svg"><img class="light" src="../img/agents/design_agent.svg" alt="Design agent: workspace a canvas, tools inspect, render, place, style" width="1200" height="560" loading="lazy"><img class="dark" src="../img/agents/design_agent-dark.svg" alt="Design agent: workspace a canvas, tools inspect, render, place, style" width="1200" height="560" loading="lazy"></a>
 </article>
-<article class="rule bare" id="KIND-03">
+<article class="rule" id="KIND-03">
 <a class="code" href="#KIND-03">KIND-03</a>
 <div class="text"><p><dfn>embedded agent</dfn></p><p>workspace = app data via the app's API; scope enforced by the app's access controls.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<a class="form figure" href="../img/agents/embedded_agent.svg"><img class="light" src="../img/agents/embedded_agent.svg" alt="Embedded agent: workspace app data through its API" width="1200" height="560" loading="lazy"><img class="dark" src="../img/agents/embedded_agent-dark.svg" alt="Embedded agent: workspace app data through its API" width="1200" height="560" loading="lazy"></a>
 </article>
 </section>
 </section>
 <section class="group" id="TEST">
 <h2><span class="tag">TEST</span><span class="name">Testing</span><span class="note">Words for failures, and for the tests that find them.</span></h2>
-<article class="rule bare" id="TEST-01">
+<article class="rule" id="TEST-01">
 <a class="code" href="#TEST-01">TEST-01</a>
 <div class="text"><p><dfn>Happy Path</dfn></p><p>The ideal scenario without errors.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a><a class="src" href="https://en.wikipedia.org/wiki/Happy_path" title="en.wikipedia.org/wiki/Happy_path">wikipedia</a></div>
+<a class="form figure" href="../img/testing/happy-path.svg"><img class="light" src="../img/testing/happy-path.svg" alt="Happy path: the green road of steps, the grey error branches never taken" width="1200" height="640" loading="lazy"><img class="dark" src="../img/testing/happy-path-dark.svg" alt="Happy path: the green road of steps, the grey error branches never taken" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TEST-02">
+<article class="rule" id="TEST-02">
 <a class="code" href="#TEST-02">TEST-02</a>
 <div class="text"><p><dfn>Smoke Tests</dfn></p><p>A small set of basic tests that verify whether the most critical parts of a system work at all.  They answer one question: Does the application run without immediately breaking? If smoke tests fail, deeper testing is usually pointless. (Why "smoke"? From hardware: Power it on – if smoke comes out, something is seriously broken.)</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a><a class="src" href="https://en.wikipedia.org/wiki/Smoke_testing_(software)" title="en.wikipedia.org/wiki/Smoke_testing_(software)">wikipedia</a></div>
+<a class="form figure" href="../img/testing/smoke-tests.svg"><img class="light" src="../img/testing/smoke-tests.svg" alt="Smoke tests: power on, does it run at all; the deep tests wait behind" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/smoke-tests-dark.svg" alt="Smoke tests: power on, does it run at all; the deep tests wait behind" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TEST-03">
+<article class="rule" id="TEST-03">
 <a class="code" href="#TEST-03">TEST-03</a>
 <div class="text"><p><dfn>Edge Case</dfn></p><p>A situation at an extreme of the input – an empty list, the first or the last item, the maximum size – where code written for the usual case breaks.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a><a class="src" href="https://en.wikipedia.org/wiki/Edge_case" title="en.wikipedia.org/wiki/Edge_case">wikipedia</a></div>
+<a class="form figure" href="../img/testing/edge-case.svg"><img class="light" src="../img/testing/edge-case.svg" alt="Edge case: the usual range in green, the empty, first, last and maximum in red" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/edge-case-dark.svg" alt="Edge case: the usual range in green, the empty, first, last and maximum in red" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TEST-04">
+<article class="rule" id="TEST-04">
 <a class="code" href="#TEST-04">TEST-04</a>
 <div class="text"><p><dfn>Transient Error</dfn></p><p>Temporary issues that resolve quickly.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
+<a class="form figure" href="../img/testing/transient-error.svg"><img class="light" src="../img/testing/transient-error.svg" alt="Transient error: two failed tries, a wait, the third answered" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/transient-error-dark.svg" alt="Transient error: two failed tries, a wait, the third answered" width="1200" height="600" loading="lazy"></a>
 </article>
 <article class="rule" id="TEST-05">
 <a class="code" href="#TEST-05">TEST-05</a>
@@ -1304,18 +1528,22 @@ test(&quot;API returns data&quot;, async function () {
     const response = await fetch(&quot;/api/data&quot;);
     expect(response.ok).toBe(true);
 });</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/testing/intermittent-failure.svg"><img class="light" src="../img/testing/intermittent-failure.svg" alt="Intermittent failure: six runs of the same test, two of them red, nothing changed" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/intermittent-failure-dark.svg" alt="Intermittent failure: six runs of the same test, two of them red, nothing changed" width="1200" height="600" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="TEST-06">
+<article class="rule" id="TEST-06">
 <a class="code" href="#TEST-06">TEST-06</a>
 <div class="text"><p><dfn>Error Flood</dfn></p><p>Scenario with 75% errors (?)</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
+<a class="form figure" href="../img/testing/error-flood.svg"><img class="light" src="../img/testing/error-flood.svg" alt="Error flood: forty requests, thirty of them failed" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/error-flood-dark.svg" alt="Error flood: forty requests, thirty of them failed" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TEST-07">
+<article class="rule" id="TEST-07">
 <a class="code" href="#TEST-07">TEST-07</a>
 <div class="text"><p><dfn>Flaky Test</dfn></p><p>Tests that produce inconsistent results, sometimes passing and sometimes failing, without any changes to the code or test being tested.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
+<a class="form figure" href="../img/testing/flaky-test.svg"><img class="light" src="../img/testing/flaky-test.svg" alt="Flaky test: one unchanged test, red and green by turns through the week" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/flaky-test-dark.svg" alt="Flaky test: one unchanged test, red and green by turns through the week" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="TEST-08">
+<article class="rule" id="TEST-08">
 <a class="code" href="#TEST-08">TEST-08</a>
 <div class="text"><p><dfn>Showstopper Bug</dfn></p><p>A defect so severe that it prevents the system from functioning or blocks further progress (development, testing, or release). Work cannot reasonably continue until it is fixed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
+<a class="form figure" href="../img/testing/showstopper-bug.svg"><img class="light" src="../img/testing/showstopper-bug.svg" alt="Showstopper bug: the road from development to customers blocked by a barrier" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/showstopper-bug-dark.svg" alt="Showstopper bug: the road from development to customers blocked by a barrier" width="1200" height="600" loading="lazy"></a>
 </article>
 <article class="rule" id="TEST-09">
 <a class="code" href="#TEST-09">TEST-09</a>
@@ -1337,6 +1565,7 @@ bash -ue -o pipefail &lt;&lt; 'EOF' 2&gt;&amp;1 | ts -s '[pyftsubset]'
 EOF
 
 test -e build/front.d    # what the build was to produce</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/testing/self-check.svg"><img class="light" src="../img/testing/self-check.svg" alt="Self-check: a dashboard of lamps, one lit, naming the port to fix" width="1200" height="640" loading="lazy"><img class="dark" src="../img/testing/self-check-dark.svg" alt="Self-check: a dashboard of lamps, one lit, naming the port to fix" width="1200" height="640" loading="lazy"></a></div>
 </article>
 <article class="rule" id="TEST-10">
 <a class="code" href="#TEST-10">TEST-10</a>
@@ -1348,17 +1577,20 @@ if (late &amp;&amp; (agent.model === strongest)) {
     agent.model = agent.default_model;
     log.warn('safety net: switched the model back');
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/testing/safety-net.svg"><img class="light" src="../img/testing/safety-net.svg" alt="Safety net: the plan as a rope across, the miss falling into the net below" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/safety-net-dark.svg" alt="Safety net: the plan as a rope across, the miss falling into the net below" width="1200" height="600" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="WORD">
 <h2><span class="tag">WORD</span><span class="name">Documents</span><span class="note">Words about words.</span></h2>
-<article class="rule bare" id="WORD-01">
+<article class="rule" id="WORD-01">
 <a class="code" href="#WORD-01">WORD-01</a>
 <div class="text"><p><dfn>vocabulary</dfn></p><p>Which words we have/use.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md" title="glossaries/doc.md">doc.md</a></div>
+<a class="form figure" href="../img/doc/vocabulary.svg"><img class="light" src="../img/doc/vocabulary.svg" alt="Vocabulary: our words as pills, the words we do not use struck through" width="1200" height="640" loading="lazy"><img class="dark" src="../img/doc/vocabulary-dark.svg" alt="Vocabulary: our words as pills, the words we do not use struck through" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="WORD-02">
+<article class="rule" id="WORD-02">
 <a class="code" href="#WORD-02">WORD-02</a>
 <div class="text"><p><dfn>glossary</dfn></p><p>The words of a vocabulary, with their description and meaning.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md" title="glossaries/doc.md">doc.md</a></div>
+<a class="form figure" href="../img/doc/glossary.svg"><img class="light" src="../img/doc/glossary.svg" alt="Glossary: a table of terms, each with its meaning" width="1200" height="680" loading="lazy"><img class="dark" src="../img/doc/glossary-dark.svg" alt="Glossary: a table of terms, each with its meaning" width="1200" height="680" loading="lazy"></a>
 </article>
 </section>
 <section class="group" id="MAP">
@@ -1370,8 +1602,8 @@ if (late &amp;&amp; (agent.model === strongest)) {
 </article>
 <article class="rule" id="MAP-02">
 <a class="code" href="#MAP-02">MAP-02</a>
-<div class="text"><p><dfn>graph</dfn></p><p>Things (nodes) and the links between them (edges), directed or not, with no rule on how they link: a node may have several parents, and links may run in circles.</p><p>In the agent notes: a conversation, an arrow for each <code>Re:</code> line. One reply answered two messages at once, so the conversation is a graph, not a tree.</p><p>Trees, taxonomies and ontologies are all graphs.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
-<a class="form figure" href="../img/maps/graph.svg"><img class="light" src="../img/maps/graph.svg" alt="Graph: a conversation drawn by its Re: lines" width="1200" height="730" loading="lazy"><img class="dark" src="../img/maps/graph-dark.svg" alt="Graph: a conversation drawn by its Re: lines" width="1200" height="730" loading="lazy"></a>
+<div class="text"><p><dfn>graph</dfn></p><p>Things (nodes) and the links between them (edges), directed or not, with no rule on how they link: a node may have several parents, and links may run in circles.</p><p>The pages of this site are a graph: the README links to Rules and to Glossaries, Rules links to Glossaries, Glossaries to Agents, and Agents back to Rules. Glossaries has two parents, and three pages link in a circle; a tree allows neither.</p><p>Trees, taxonomies and ontologies are all graphs with rules added.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/graph.svg"><img class="light" src="../img/maps/graph.svg" alt="Graph: the pages of this site and the links between them, one page with two parents and three pages in a circle" width="1200" height="730" loading="lazy"><img class="dark" src="../img/maps/graph-dark.svg" alt="Graph: the pages of this site and the links between them, one page with two parents and three pages in a circle" width="1200" height="730" loading="lazy"></a>
 </article>
 <article class="rule" id="MAP-03">
 <a class="code" href="#MAP-03">MAP-03</a>
@@ -1385,12 +1617,13 @@ if (late &amp;&amp; (agent.model === strongest)) {
 </article>
 <article class="rule" id="MAP-05">
 <a class="code" href="#MAP-05">MAP-05</a>
-<div class="text"><p><dfn>ontology</dfn></p><p>In philosophy, the study of what exists. In computing, an explicit map of what a field talks about: concepts (Message), instances (20261010_055019-me is a Message), relations (a Conversation is made of Messages) and rules (every Conversation has exactly one Subject file). It is written down so people and programs use the words the same way: RDF and OWL are the standards, Schema.org the best known on the web.</p><p>A glossary defines words one by one; an ontology also says how they connect. Written down once, a rename (workdir → subjectdir) happens in one place, and an agent can check a word against it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<div class="text"><p><dfn>ontology</dfn></p><p>In philosophy, the study of what exists. In computing, a written map of what a field talks about, in four parts: the kinds of things (a message, a conversation, a subject file), the things themselves (your message of this morning asking for a glossary is a message), the relations between them (a conversation is made of messages; a reply answers a message) and the rules (every conversation has exactly one subject file). It is written down so that people and programs use the words the same way: RDF and OWL are the standards, Schema.org the best known on the web.</p><p>A glossary defines words one by one; an ontology also says how they connect. Written down once, a rename (workdir became subjectdir) happens in one place, and an agent can check a word against it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
 <div class="figures"><a class="figure" href="../img/maps/ontology.svg"><img class="light" src="../img/maps/ontology.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780" loading="lazy"><img class="dark" src="../img/maps/ontology-dark.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780" loading="lazy"></a><a class="figure" href="../img/maps/terms-map.svg"><img class="light" src="../img/maps/terms-map.svg" alt="The terms of this glossary and how they relate" width="1200" height="730" loading="lazy"><img class="dark" src="../img/maps/terms-map-dark.svg" alt="The terms of this glossary and how they relate" width="1200" height="730" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="MAP-06">
+<article class="rule" id="MAP-06">
 <a class="code" href="#MAP-06">MAP-06</a>
-<div class="text"><p><dfn>knowledge graph</dfn></p><p>An ontology filled with real things: not "a message answers a message" but "062624-agent answers 055019-me". What search engines and AI retrieval use.</p><p>In the agent notes: every message, subject file and plan of a note with their links; the app could build it, and it would feed an agent's context.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<div class="text"><p><dfn>knowledge graph</dfn></p><p>An ontology filled with real things: not "a reply answers a message" in general, but "my reply of 09:30 answers your message of 09:17", one link for each pair that has it. What search engines and AI retrieval use.</p><p>In the agent notes: every message, subject file and plan of a note with their links; the app could build it, and it would feed an agent's context.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/knowledge-graph.svg"><img class="light" src="../img/maps/knowledge-graph.svg" alt="Knowledge graph: the ontology on the left, this note's real messages and links on the right" width="1200" height="680" loading="lazy"><img class="dark" src="../img/maps/knowledge-graph-dark.svg" alt="Knowledge graph: the ontology on the left, this note's real messages and links on the right" width="1200" height="680" loading="lazy"></a>
 </article>
 <article class="rule" id="MAP-07">
 <a class="code" href="#MAP-07">MAP-07</a>
@@ -1407,13 +1640,15 @@ if (late &amp;&amp; (agent.model === strongest)) {
 <div class="text"><p><dfn>breadcrumbs</dfn></p><p>The trail that shows where you are and how you got there, as in Hansel and Gretel; on a web page, Home › Docs › Page, each crumb a link back up.</p><p>Against roadmap and milestone: breadcrumbs look back (the way behind, from the root to here), a roadmap looks ahead (the whole way, in order), and a milestone is one stone on that way. A milestone passed is, in effect, a breadcrumb.</p><p>In the agent notes: the path <code>agentdir › commondir › Terms</code>, and the chain of <code>Re:</code> lines back to a conversation's first message.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
 <a class="form figure" href="../img/maps/breadcrumbs-roadmap-milestone.svg"><img class="light" src="../img/maps/breadcrumbs-roadmap-milestone.svg" alt="Breadcrumbs, roadmap and milestone side by side" width="1200" height="860" loading="lazy"><img class="dark" src="../img/maps/breadcrumbs-roadmap-milestone-dark.svg" alt="Breadcrumbs, roadmap and milestone side by side" width="1200" height="860" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MAP-10">
+<article class="rule" id="MAP-10">
 <a class="code" href="#MAP-10">MAP-10</a>
 <div class="text"><p><dfn>timeline</dfn></p><p>Events placed along time. In the agent notes: the change log at the end of each subject file, and the times in message names. A roadmap is laid on one.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/timeline.svg"><img class="light" src="../img/maps/timeline.svg" alt="Timeline: the events of this morning along one line" width="1200" height="640" loading="lazy"><img class="dark" src="../img/maps/timeline-dark.svg" alt="Timeline: the events of this morning along one line" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="MAP-11">
+<article class="rule" id="MAP-11">
 <a class="code" href="#MAP-11">MAP-11</a>
 <div class="text"><p><dfn>backlog</dfn></p><p>The work known but not yet planned, in no fixed order. In the agent notes: the "what is next" list of a subject file, the parts not yet on a roadmap. It feeds a roadmap.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/backlog.svg"><img class="light" src="../img/maps/backlog.svg" alt="Backlog: a pile of cards in no order, and the three columns of the roadmap they feed" width="1200" height="680" loading="lazy"><img class="dark" src="../img/maps/backlog-dark.svg" alt="Backlog: a pile of cards in no order, and the three columns of the roadmap they feed" width="1200" height="680" loading="lazy"></a>
 </article>
 </section>
 <p class="nothing" id="nothing" hidden>No term matches that.</p>
@@ -1426,8 +1661,13 @@ if (late &amp;&amp; (agent.model === strongest)) {
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
 
+<div class="viewer" id="viewer" hidden tabindex="-1" aria-label="Picture">
+    <p></p>
+</div>
+
 <script>
 const root_el = document.documentElement;
+const viewer_el = document.getElementById('viewer');
 const q_el = document.getElementById('q');
 const count_el = document.getElementById('count');
 const nothing_el = document.getElementById('nothing');
@@ -1454,7 +1694,14 @@ function main()
     }
 
     refresh_theme_labels();
+    refresh_pictures_labels();
+    for (const figure of document.querySelectorAll('a.figure')) {
+        figure.dataset.caption = figure.querySelector('img').alt;
+    }
     document.addEventListener('click', click_theme);
+    document.addEventListener('click', click_pictures);
+    document.addEventListener('click', click_figure);
+    viewer_el.addEventListener('click', close_viewer);
     theme_dock_watch();
 
     q_el.value = new URLSearchParams(location.search).get('q') || '';
@@ -1689,6 +1936,57 @@ function copy_state_show(button, label, state)
     }
 }
 
+function click_pictures(event)
+{
+    const button = event.target.closest('.pictures button');
+    if (!button) {
+        return;
+    }
+    root_el.setAttribute('data-pictures', button.dataset.pictures);
+    try {
+        localStorage.setItem('rules-pictures', button.dataset.pictures);
+    }
+    catch {
+    }
+    refresh_pictures_labels();
+}
+
+function refresh_pictures_labels()
+{
+    const current = root_el.getAttribute('data-pictures');
+    for (const button of document.querySelectorAll('.pictures button')) {
+        button.setAttribute('aria-pressed', String(button.dataset.pictures === current));
+    }
+}
+
+// A click on a picture, or on its mark when pictures are off, shows it full size over the page.
+function click_figure(event)
+{
+    const figure = event.target.closest('a.figure');
+    if (!figure || event.ctrlKey || event.metaKey || event.shiftKey || (event.button !== 0)) {
+        return;
+    }
+    event.preventDefault();
+    const dark = root_el.getAttribute('data-theme') === 'dark';
+    const img = figure.querySelector(dark ? 'img.dark' : 'img.light') || figure.querySelector('img');
+    // The viewer's image is made on the first opening: an image with no source is one the page's tests cannot decode.
+    const shown = viewer_el.querySelector('img') || viewer_el.insertBefore(document.createElement('img'), viewer_el.firstChild);
+    shown.src = img.src;
+    shown.alt = img.alt;
+    viewer_el.querySelector('p').textContent = img.alt;
+    viewer_el.hidden = false;
+    viewer_el.setAttribute('role', 'dialog');
+    viewer_el.setAttribute('aria-modal', 'true');
+    viewer_el.focus();
+}
+
+function close_viewer()
+{
+    viewer_el.hidden = true;
+    viewer_el.removeAttribute('role');
+    viewer_el.removeAttribute('aria-modal');
+}
+
 function click_theme(event)
 {
     const button = event.target.closest('.theme button');
@@ -1725,6 +2023,10 @@ async function click_copy(event)
 function keydown_document(event)
 {
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
+        return;
+    }
+    if ((event.key === 'Escape') && !viewer_el.hidden) {
+        close_viewer();
         return;
     }
     if ((event.key === 'Escape') && (document.activeElement === q_el)) {

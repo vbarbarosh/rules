@@ -25,18 +25,18 @@
 <rect x="925" y="525" width="50" height="30" rx="15" fill="#16181b"/>
 <text x="950" y="547" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">Re:</text>
 <rect x="50.0" y="171.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
-<text x="170" y="208" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">055019-me</text>
+<text x="170" y="208" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">you, 05:50</text>
 <rect x="50.0" y="331.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
-<text x="170" y="368" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">061948-agent</text>
+<text x="170" y="368" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">me, 06:19</text>
 <rect x="50.0" y="491.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
-<text x="170" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">062244-me</text>
+<text x="170" y="528" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">you, 06:22</text>
 <rect x="50.0" y="651.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
-<text x="170" y="688" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">062325-agent</text>
+<text x="170" y="688" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">me, 06:23</text>
 <rect x="440.0" y="411.0" width="240" height="58" rx="12" fill="#3a2a12" stroke="#ffb257" stroke-width="2.5"/>
-<text x="560" y="448" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">062624-agent</text>
+<text x="560" y="448" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">me, 06:26</text>
 <rect x="830.0" y="411.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
-<text x="950" y="448" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">062844-me</text>
+<text x="950" y="448" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">you, 06:28</text>
 <rect x="830.0" y="611.0" width="240" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
-<text x="950" y="648" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">062913-agent</text>
+<text x="950" y="648" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">me, 06:29</text>
 <g font-size="21"><text x="430" y="530" fill="#ffb257">two parents: no longer a tree</text><text x="700" y="210" fill="#92958c">nodes and edges, any links at all:</text><text x="700" y="240" fill="#92958c">several parents, even circles</text><text x="700" y="290" fill="#92958c">here: this conversation, an arrow</text><text x="700" y="320" fill="#92958c">for each Re: line</text></g>
 </svg>

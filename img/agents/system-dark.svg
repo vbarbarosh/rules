@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">System</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the message that holds the policy; the tool definitions travel beside it, not in it</text>
+<rect x="60" y="160" width="520" height="300" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="90" y="200" fill="#9db2ff" font-size="20" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">system</text>
+<text x="90" y="240" fill="#d3d1c9" font-size="20" text-anchor="start">You are the coding agent of this repo.</text>
+<text x="90" y="272" fill="#d3d1c9" font-size="20" text-anchor="start">Never delete a file the user did not</text>
+<text x="90" y="304" fill="#d3d1c9" font-size="20" text-anchor="start">name. Ask before any deploy.</text>
+<text x="90" y="336" fill="#d3d1c9" font-size="20" text-anchor="start">Answer in English.</text>
+<rect x="640" y="160" width="500" height="300" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="10 8"/>
+<text x="670" y="200" fill="#92958c" font-size="20" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tool definitions</text>
+<text x="670" y="240" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">read_file(path)</text>
+<text x="670" y="272" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">grep(query)</text>
+<text x="670" y="304" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">edit(path, change)</text>
+<text x="670" y="336" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">shell(command)</text>
+<text x="600" y="520" fill="#92958c" font-size="20" text-anchor="middle">both go first in every context; the policy is the text, the tools are a list beside it</text>
+</svg>

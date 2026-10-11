@@ -56,7 +56,7 @@ and all three let the read element move in three cases:
 - **At the very top** (`scrollTop` 0) the browser does not anchor at all.
 - **A growing element at the top of the view** becomes the browser's anchor
   itself. It keeps its own top in place and grows downward, over what is
-  being read. This is the jump in Visual Notes, where the conversation's
+  being read. This is the jump in the notes app, where the conversation's
   summary finishes while the reader is below it.
 - **A re-render** replaces the elements, so the browser's anchor is gone.
 

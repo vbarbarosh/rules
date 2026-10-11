@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="640" fill="#fffefb"/>
+<defs><marker id="a1299DA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Context</text>
+<text x="48" y="108" fill="#686a61" font-size="22">what one call sends: the system message, the tool definitions, the transcript or its compacted form, the grounding</text>
+<rect x="60" y="150" width="560" height="440" rx="16" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="80" y="184" fill="#2743b8" font-size="22" text-anchor="start" font-weight="700">the context of call 7 · 41,000 tokens</text>
+<rect x="90" y="200" width="500" height="60" rx="12" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="340.0" y="237.2" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">system message · policy</text>
+<rect x="90" y="275" width="500" height="60" rx="12" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="340.0" y="312.2" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">tool definitions</text>
+<rect x="90" y="350" width="500" height="120" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="340" y="396" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">the transcript, messages 1 to 6</text>
+<text x="340" y="430" fill="#686a61" font-size="19" text-anchor="middle">or its compacted form</text>
+<rect x="90" y="485" width="500" height="60" rx="12" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="340.0" y="522.2" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">grounding · the workspace now</text>
+<line x1="620" y1="370" x2="700" y2="370" stroke="#2743b8" stroke-width="4" marker-end="url(#a1299DA)"/>
+<rect x="700" y="320" width="300" height="100" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="850.0" y="364.0" fill="#2743b8" font-size="24" text-anchor="middle" font-weight="700">the model</text>
+<text x="850.0" y="392.8" fill="#686a61" font-size="20" text-anchor="middle">reads all of it, nothing else</text>
+<text x="1000" y="200" fill="#191a17" font-size="22" text-anchor="start" font-weight="700">not in it:</text>
+<text x="1000" y="236" fill="#686a61" font-size="20" text-anchor="start">does not exist</text>
+<text x="1000" y="266" fill="#686a61" font-size="20" text-anchor="start">for the model:</text>
+<text x="1000" y="296" fill="#686a61" font-size="20" text-anchor="start">compacted away,</text>
+<text x="1000" y="326" fill="#686a61" font-size="20" text-anchor="start">or never written.</text>
+</svg>

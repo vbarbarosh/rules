@@ -36,12 +36,14 @@ Things (nodes) and the links between them (edges), directed or not, with no
 rule on how they link: a node may have several parents, and links may run in
 circles.
 
-In the agent notes: a conversation, an arrow for each `Re:` line. One reply
-answered two messages at once, so the conversation is a graph, not a tree.
+The pages of this site are a graph: the README links to Rules and to
+Glossaries, Rules links to Glossaries, Glossaries to Agents, and Agents back
+to Rules. Glossaries has two parents, and three pages link in a circle; a
+tree allows neither.
 
-Trees, taxonomies and ontologies are all graphs.
+Trees, taxonomies and ontologies are all graphs with rules added.
 
-![Graph: a conversation drawn by its Re: lines](../img/maps/graph.svg)
+![Graph: the pages of this site and the links between them, one page with two parents and three pages in a circle](../img/maps/graph.svg)
 
 ## Map
 
@@ -70,15 +72,17 @@ links.
 
 ## Ontology
 
-In philosophy, the study of what exists. In computing, an explicit map of
-what a field talks about: concepts (Message), instances (20261010_055019-me
-is a Message), relations (a Conversation is made of Messages) and rules
-(every Conversation has exactly one Subject file). It is written down so
-people and programs use the words the same way: RDF and OWL are the
+In philosophy, the study of what exists. In computing, a written map of
+what a field talks about, in four parts: the kinds of things (a message, a
+conversation, a subject file), the things themselves (your message of this
+morning asking for a glossary is a message), the relations between them (a
+conversation is made of messages; a reply answers a message) and the rules
+(every conversation has exactly one subject file). It is written down so
+that people and programs use the words the same way: RDF and OWL are the
 standards, Schema.org the best known on the web.
 
 A glossary defines words one by one; an ontology also says how they connect.
-Written down once, a rename (workdir → subjectdir) happens in one place,
+Written down once, a rename (workdir became subjectdir) happens in one place,
 and an agent can check a word against it.
 
 ![Ontology: the words of a note and how they connect](../img/maps/ontology.svg)
@@ -87,11 +91,14 @@ and an agent can check a word against it.
 
 ## Knowledge graph
 
-An ontology filled with real things: not "a message answers a message" but
-"062624-agent answers 055019-me". What search engines and AI retrieval use.
+An ontology filled with real things: not "a reply answers a message" in
+general, but "my reply of 09:30 answers your message of 09:17", one link
+for each pair that has it. What search engines and AI retrieval use.
 
 In the agent notes: every message, subject file and plan of a note with
 their links; the app could build it, and it would feed an agent's context.
+
+![Knowledge graph: the ontology on the left, this note's real messages and links on the right](../img/maps/knowledge-graph.svg)
 
 ## Roadmap
 
@@ -144,8 +151,12 @@ In the agent notes: the path `agentdir › commondir › Terms`, and the chain o
 Events placed along time. In the agent notes: the change log at the end of
 each subject file, and the times in message names. A roadmap is laid on one.
 
+![Timeline: the events of this morning along one line](../img/maps/timeline.svg)
+
 ## Backlog
 
 The work known but not yet planned, in no fixed order. In the agent notes:
 the "what is next" list of a subject file, the parts not yet on a roadmap. It
 feeds a roadmap.
+
+![Backlog: a pile of cards in no order, and the three columns of the roadmap they feed](../img/maps/backlog.svg)

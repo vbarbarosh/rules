@@ -19,14 +19,14 @@ Mental model: the browser refresh button.
 refresh: async function () {
     await Promise.all([
         this.refresh_user(),
-        this.refresh_banners(),
+        this.refresh_photos(),
     ]);
 },
 refresh_user: async function () {
     this.user = await fetch_user();
 },
-refresh_banners: async function () {
-    this.banners = await fetch_banners();
+refresh_photos: async function () {
+    this.photos = await fetch_photos();
 },
 ```
 

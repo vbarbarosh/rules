@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="660" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Message</text>
+<text x="48" y="108" fill="#92958c" font-size="22">one unit of the transcript, with a role: system, user, assistant or tool</text>
+<rect x="60" y="150" width="520" height="54" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="76" y="184" fill="#9db2ff" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">system</text>
+<text x="210" y="184" fill="#d3d1c9" font-size="19" text-anchor="start">policy: never delete…</text>
+<rect x="60" y="212" width="520" height="54" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="76" y="246" fill="#92958c" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">user</text>
+<text x="210" y="246" fill="#d3d1c9" font-size="19" text-anchor="start">fix the footer</text>
+<rect x="60" y="274" width="520" height="54" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="76" y="308" fill="#9db2ff" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">assistant</text>
+<text x="210" y="308" fill="#d3d1c9" font-size="19" text-anchor="start">tool_call: grep "footer"</text>
+<rect x="60" y="336" width="520" height="54" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="76" y="370" fill="#92958c" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tool</text>
+<text x="210" y="370" fill="#d3d1c9" font-size="19" text-anchor="start">tool_result: 3 files</text>
+<rect x="60" y="398" width="520" height="54" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="76" y="432" fill="#9db2ff" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">assistant</text>
+<text x="210" y="432" fill="#d3d1c9" font-size="19" text-anchor="start">tool_call: edit footer.vue</text>
+<rect x="60" y="460" width="520" height="54" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="76" y="494" fill="#92958c" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tool</text>
+<text x="210" y="494" fill="#d3d1c9" font-size="19" text-anchor="start">tool_result: ok</text>
+<rect x="60" y="522" width="520" height="54" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="76" y="556" fill="#9db2ff" font-size="18" text-anchor="start" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">assistant</text>
+<text x="210" y="556" fill="#d3d1c9" font-size="19" text-anchor="start">final: the footer is fixed</text>
+<text x="640" y="200" fill="#d3d1c9" font-size="24" text-anchor="start" font-weight="700">one message</text>
+<text x="640" y="240" fill="#92958c" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">role: assistant</text>
+<text x="640" y="270" fill="#92958c" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">content: a tool_call</text>
+<text x="640" y="300" fill="#92958c" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  name: grep</text>
+<text x="640" y="330" fill="#92958c" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  arguments: {"q": "footer"}</text>
+<text x="640" y="360" fill="#92958c" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  id: call_7</text>
+<text x="48" y="610" fill="#92958c" font-size="21" text-anchor="start"></text>
+</svg>

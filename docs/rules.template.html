@@ -315,6 +315,137 @@ h1 {
 
 /* The masthead switch, docked: it opens after the count once the masthead
    one has left the screen. Closed, it takes no room and the count sits flush right. */
+/* The pictures control: off, small, large or full width; the choice sits on <html>
+   as data-pictures and is kept like the theme. */
+.pictures {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 10px;
+    padding: 2px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transition: border-color var(--fast);
+}
+
+.pictures button {
+    min-width: 30px;
+    height: 26px;
+    padding: 0 7px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color var(--fast), background-color var(--fast);
+}
+
+.pictures button:hover {
+    color: var(--accent);
+}
+
+.pictures button[aria-pressed="true"] {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+:root[data-pictures="small"] .figure,
+:root[data-pictures="small"] .figures {
+    max-width: 420px;
+}
+
+:root[data-pictures="small"] .figures {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
+}
+
+:root[data-pictures="full"] .figure,
+:root[data-pictures="full"] .figures {
+    max-width: none;
+}
+
+:root[data-pictures="full"] .figures {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+:root[data-pictures="full"] .figures:has(> :only-child) {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* Off: each picture folds to a mark with its caption; a click opens it. */
+:root[data-pictures="off"] .figure img {
+    display: none;
+}
+
+:root[data-pictures="off"] .figure {
+    display: inline-block;
+    max-width: none;
+    justify-self: start;
+    padding: 3px 10px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px dashed var(--line-heavy);
+    border-radius: 6px;
+    transition: color var(--fast), border-color var(--fast);
+}
+
+:root[data-pictures="off"] .figure:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+:root[data-pictures="off"] .figure::before {
+    content: "picture · " attr(data-caption);
+}
+
+:root[data-pictures="off"] .figures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* The viewer: one picture full size over the page; a click or Escape closes it. */
+.viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    background: color-mix(in srgb, var(--bg) 94%, transparent);
+    cursor: zoom-out;
+    outline: 0;
+}
+
+.viewer[hidden] {
+    display: none;
+}
+
+.viewer img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 90px);
+    border: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.viewer p {
+    max-width: 90ch;
+    margin: 0;
+    font-size: 15px;
+    color: var(--muted);
+    text-align: center;
+}
+
 .theme-docked {
     flex: none;
     max-width: 0;
@@ -327,6 +458,24 @@ h1 {
 
 .bar.docked .theme-docked {
     max-width: 140px;
+    margin-left: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--fast), max-width var(--fast), margin-left var(--fast), visibility 0s;
+}
+
+.pictures-docked {
+    flex: none;
+    max-width: 0;
+    margin-left: calc(-1 * var(--bar-gap));
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--fast), max-width var(--fast), margin-left var(--fast), visibility 0s linear var(--fast);
+}
+
+.bar.docked .pictures-docked {
+    max-width: 260px;
     margin-left: 0;
     visibility: visible;
     opacity: 1;
@@ -840,6 +989,13 @@ footer .lead {
         font-size: 16.5px;
     }
 
+    /* On a phone the control takes a row of its own under the links; the switch stays last on the first. */
+    .mast-top .pictures {
+        order: 4;
+        align-self: flex-start;
+        margin: 10px 0 0;
+    }
+
     .mast-top {
         flex-wrap: wrap;
         margin-bottom: 30px;
@@ -953,6 +1109,13 @@ footer .lead {
         theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     document.documentElement.setAttribute('data-theme', theme);
+    let pictures = null;
+    try {
+        pictures = localStorage.getItem('rules-pictures');
+    }
+    catch {
+    }
+    document.documentElement.setAttribute('data-pictures', ['off', 'small', 'large', 'full'].includes(pictures) ? pictures : 'large');
 })();
 </script>
 </head>
@@ -972,6 +1135,12 @@ footer .lead {
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
         </nav>
+        <div class="pictures" role="group" aria-label="Pictures">
+            <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
+            <button type="button" data-pictures="small" aria-pressed="false" title="Small pictures">S</button>
+            <button type="button" data-pictures="large" aria-pressed="true" title="Large pictures">L</button>
+            <button type="button" data-pictures="full" aria-pressed="false" title="Pictures as wide as the text">XL</button>
+        </div>
         <a class="github" href="https://github.com/vbarbarosh/rules" title="github.com/vbarbarosh/rules" aria-label="GitHub repository"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
         <div class="theme" id="theme">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons -->{{theme_icons}}<!-- /theme-icons --></button>
@@ -990,6 +1159,12 @@ footer .lead {
         </label>
         <span class="count" id="count">{{rules_count}} rules</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
+        <div class="pictures pictures-docked" role="group" aria-label="Pictures">
+            <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
+            <button type="button" data-pictures="small" aria-pressed="false" title="Small pictures">S</button>
+            <button type="button" data-pictures="large" aria-pressed="true" title="Large pictures">L</button>
+            <button type="button" data-pictures="full" aria-pressed="false" title="Pictures as wide as the text">XL</button>
+        </div>
         <div class="theme theme-docked">
             <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons -->{{theme_icons}}<!-- /theme-icons --></button>
         </div>
@@ -1031,8 +1206,13 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
 
+<div class="viewer" id="viewer" hidden tabindex="-1" aria-label="Picture">
+    <p></p>
+</div>
+
 <script>
 const root_el = document.documentElement;
+const viewer_el = document.getElementById('viewer');
 const RENAMED = {'UI-09': 'UIM-01', 'UI-10': 'UIM-02', 'UI-11': 'UIM-03', 'UI-12': 'UIM-04', 'UI-13': 'UIM-05', 'UI-14': 'UIM-06', 'UI-15': 'UIM-07', 'UI-16': 'UIM-08', 'UI-17': 'UIM-09', 'UI-18': 'UIM-10', 'UI-19': 'UIM-11', 'UI-20': 'UIM-12'};   // old codes still open the rule
 const q_el = document.getElementById('q');
 const count_el = document.getElementById('count');
@@ -1063,7 +1243,14 @@ function main()
     }
 
     refresh_theme_labels();
+    refresh_pictures_labels();
+    for (const figure of document.querySelectorAll('a.figure')) {
+        figure.dataset.caption = figure.querySelector('img').alt;
+    }
     document.addEventListener('click', click_theme);
+    document.addEventListener('click', click_pictures);
+    document.addEventListener('click', click_figure);
+    viewer_el.addEventListener('click', close_viewer);
     theme_dock_watch();
 
     if (RENAMED[location.hash.slice(1)]) {
@@ -1302,6 +1489,57 @@ function copy_state_show(button, label, state)
     }
 }
 
+function click_pictures(event)
+{
+    const button = event.target.closest('.pictures button');
+    if (!button) {
+        return;
+    }
+    root_el.setAttribute('data-pictures', button.dataset.pictures);
+    try {
+        localStorage.setItem('rules-pictures', button.dataset.pictures);
+    }
+    catch {
+    }
+    refresh_pictures_labels();
+}
+
+function refresh_pictures_labels()
+{
+    const current = root_el.getAttribute('data-pictures');
+    for (const button of document.querySelectorAll('.pictures button')) {
+        button.setAttribute('aria-pressed', String(button.dataset.pictures === current));
+    }
+}
+
+// A click on a picture, or on its mark when pictures are off, shows it full size over the page.
+function click_figure(event)
+{
+    const figure = event.target.closest('a.figure');
+    if (!figure || event.ctrlKey || event.metaKey || event.shiftKey || (event.button !== 0)) {
+        return;
+    }
+    event.preventDefault();
+    const dark = root_el.getAttribute('data-theme') === 'dark';
+    const img = figure.querySelector(dark ? 'img.dark' : 'img.light') || figure.querySelector('img');
+    // The viewer's image is made on the first opening: an image with no source is one the page's tests cannot decode.
+    const shown = viewer_el.querySelector('img') || viewer_el.insertBefore(document.createElement('img'), viewer_el.firstChild);
+    shown.src = img.src;
+    shown.alt = img.alt;
+    viewer_el.querySelector('p').textContent = img.alt;
+    viewer_el.hidden = false;
+    viewer_el.setAttribute('role', 'dialog');
+    viewer_el.setAttribute('aria-modal', 'true');
+    viewer_el.focus();
+}
+
+function close_viewer()
+{
+    viewer_el.hidden = true;
+    viewer_el.removeAttribute('role');
+    viewer_el.removeAttribute('aria-modal');
+}
+
 function click_theme(event)
 {
     const button = event.target.closest('.theme button');
@@ -1428,6 +1666,10 @@ function md_from_inline(el)
 function keydown_document(event)
 {
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
+        return;
+    }
+    if ((event.key === 'Escape') && !viewer_el.hidden) {
+        close_viewer();
         return;
     }
     if ((event.key === 'Escape') && (document.activeElement === q_el)) {

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Intermittent failure</text>
+<text x="48" y="108" fill="#92958c" font-size="22">a failure that happens sometimes, unpredictably, with nothing changed</text>
+<rect x="80" y="220" width="150" height="100" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="155" y="256" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">run #1</text>
+<path d="M144.0 292 l8.8 8.8 l17.6 -19.8" fill="none" stroke="#72d39c" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="260" y="220" width="150" height="100" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="335" y="256" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">run #2</text>
+<path d="M325.1 282.1 l19.8 19.8 M344.9 282.1 l-19.8 19.8" stroke="#ff937c" stroke-width="5.5" stroke-linecap="round"/>
+<rect x="440" y="220" width="150" height="100" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="515" y="256" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">run #3</text>
+<path d="M504.0 292 l8.8 8.8 l17.6 -19.8" fill="none" stroke="#72d39c" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="620" y="220" width="150" height="100" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="695" y="256" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">run #4</text>
+<path d="M684.0 292 l8.8 8.8 l17.6 -19.8" fill="none" stroke="#72d39c" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="800" y="220" width="150" height="100" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="875" y="256" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">run #5</text>
+<path d="M865.1 282.1 l19.8 19.8 M884.9 282.1 l-19.8 19.8" stroke="#ff937c" stroke-width="5.5" stroke-linecap="round"/>
+<rect x="980" y="220" width="150" height="100" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="1055" y="256" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">run #6</text>
+<path d="M1044.0 292 l8.8 8.8 l17.6 -19.8" fill="none" stroke="#72d39c" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="600" y="380" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">same code · same test · same machine</text>
+<text x="48" y="460" fill="#92958c" font-size="21" text-anchor="start">Causes: timing and races, a flaky network, threads in each other's way, a value left</text>
+<text x="48" y="491" fill="#92958c" font-size="21" text-anchor="start">uninitialised, a limit hit now and then.</text>
+<text x="48" y="522" fill="#92958c" font-size="21" text-anchor="start">Painful because the log rarely shows why, and "works on my machine" is true. Run #2 and #5</text>
+<text x="48" y="553" fill="#92958c" font-size="21" text-anchor="start">are the evidence.</text>
+</svg>

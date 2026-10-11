@@ -2,7 +2,7 @@
 
 Use `v-on` and `v-bind` instead of shorthands `@` and `:`
 
-    <img v-bind:src="banner.thumbnail_url" v-bind:alt="banner.title" />
+    <img v-bind:src="photo.thumbnail_url" v-bind:alt="photo.title" />
 
 Stick to the following order of props
 
@@ -13,7 +13,7 @@ void element alike.
 
     <th />                                    not  <th></th>
     <app-input-email v-model="user.email" />  not  <app-input-email v-model="user.email"></app-input-email>
-    <img v-bind:src="banner.thumbnail_url" />
+    <img v-bind:src="photo.thumbnail_url" />
 
 This holds in `.vue` files and string templates. An in-DOM template is parsed
 by the browser first, and the browser does not close `<th />`.

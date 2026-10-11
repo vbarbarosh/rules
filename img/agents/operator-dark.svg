@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#16181b"/>
+<defs><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4a4f57"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Operator</text>
+<text x="48" y="108" fill="#92958c" font-size="22">who configures and deploys the agent</text>
+<rect x="70" y="200" width="300" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="220.0" y="249.0" fill="#9db2ff" font-size="24" text-anchor="middle" font-weight="700">the operator</text>
+<text x="220.0" y="277.8" fill="#92958c" font-size="20" text-anchor="middle">before any turn</text>
+<rect x="450" y="160" width="400" height="64" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="650.0" y="199.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">writes the policy</text>
+<line x1="370" y1="255" x2="450" y2="192" stroke="#4a4f57" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="450" y="240" width="400" height="64" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="650.0" y="279.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">picks the model and the tools</text>
+<line x1="370" y1="255" x2="450" y2="272" stroke="#4a4f57" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="450" y="320" width="400" height="64" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="650.0" y="359.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">sets permissions and budgets</text>
+<line x1="370" y1="255" x2="450" y2="352" stroke="#4a4f57" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="450" y="400" width="400" height="64" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="650.0" y="439.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">deploys the harness</text>
+<line x1="370" y1="255" x2="450" y2="432" stroke="#4a4f57" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<rect x="900" y="240" width="240" height="120" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
+<text x="1020.0" y="294.0" fill="#92958c" font-size="24" text-anchor="middle" font-weight="700">the agent</text>
+<text x="1020.0" y="322.8" fill="#92958c" font-size="20" text-anchor="middle">ready for its users</text>
+<line x1="850" y1="300" x2="900" y2="300" stroke="#4a4f57" stroke-width="3" marker-end="url(#a5E5C4E)"/>
+<text x="48" y="500" fill="#92958c" font-size="21" text-anchor="start">The user starts turns; the operator makes the agent that answers them. Often the same</text>
+<text x="48" y="531" fill="#92958c" font-size="21" text-anchor="start">person, never the same role.</text>
+</svg>

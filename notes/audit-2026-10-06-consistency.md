@@ -2,7 +2,7 @@
 
 Repository: `vbarbarosh/rules` (branch `main`, HEAD `a3364ed`, clean tree,
 equal to `origin/main`). 126 tracked files, 37,119 lines, 147 commits, first
-commit 2025-04-09, last 2026-10-06 13:30 (Europe/Chisinau). 258 rules in 17
+commit 2025-04-09, last 2026-10-06 13:30 (local time). 258 rules in 17
 groups, from 47 source documents.
 
 This file restores the report first written to `notes/audit-2026-10-06.md` at
