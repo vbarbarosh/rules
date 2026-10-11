@@ -107,6 +107,37 @@ test('all built theme icons follow the shared SVG assets, including handwritten 
     }
 });
 
+test('a Try it link after a rule form and its pictures becomes a button under them', function () {
+    const file = path.join(fixture_dir, 'docs/rules.md');
+    const original = fs.readFileSync(file, 'utf8');
+    try {
+        fs.writeFileSync(file, try_it_add(original, 'UIM-10', '../drafts/scroll-anchoring.html#demo'));
+        const result = build();
+        assert.equal(result.status, 0, result.stderr);
+        const html = fs.readFileSync(path.join(fixture_dir, 'docs/rules.html'), 'utf8');
+        const rule = html.match(/<article class="rule" id="UIM-10">[\s\S]*?<\/article>/)[0];
+        assert.match(rule, /<div class="figures"><a class="figure" href="..\/drafts\/optimistic-updates.gif">.*?<\/a><\/div>\n<button class="try-it" type="button" data-demo="..\/drafts\/scroll-anchoring.html#demo">▶ Try it<\/button>\n<\/article>/);
+        assert.ok(!rule.includes('[▶ Try it]'), 'the link is not shown as text');
+    }
+    finally {
+        fs.writeFileSync(file, original);
+    }
+});
+
+test('the build rejects a Try it link to a demo that is not there', function () {
+    const file = path.join(fixture_dir, 'docs/rules.md');
+    const original = fs.readFileSync(file, 'utf8');
+    try {
+        fs.writeFileSync(file, try_it_add(original, 'UIM-10', '../drafts/nothing-here.html#demo'));
+        const result = build();
+        assert.notEqual(result.status, 0);
+        assert.match(result.stderr, /no demo at ..\/drafts\/nothing-here.html#demo/);
+    }
+    finally {
+        fs.writeFileSync(file, original);
+    }
+});
+
 for (const item of [
     {file: 'drafts/readme-structure.png', what: 'truncated PNG', data: Buffer.from('89504e470d0a1a0a', 'hex')},
     {file: 'drafts/scroll-anchoring.gif', what: 'truncated GIF', data: Buffer.from('GIF89a')},
@@ -129,6 +160,19 @@ for (const item of [
             fs.writeFileSync(file, original);
         }
     });
+}
+
+// rules.md with a Try it link added at the end of one rule's form cell.
+function try_it_add(markdown, code, url)
+{
+    return markdown.split('\n').map(function (line) {
+        if (!line.startsWith(`| ${code} |`)) {
+            return line;
+        }
+        const cells = line.split(' | ');
+        cells[2] = `${cells[2]} [▶ Try it](${url})`;
+        return cells.join(' | ');
+    }).join('\n');
 }
 
 function build()

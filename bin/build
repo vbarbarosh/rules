@@ -391,6 +391,16 @@ function format_term_definition(term)
 // byte for byte: <pre> keeps the entities rules.md already wrote.
 function html_from_form(form)
 {
+    // A demo link at the very end, after the form and its pictures: a button
+    // that opens the demo in the page's panel.
+    const demo = form.match(/^(?:(.+?) )?\[▶ Try it\]\(([^)]+)\)$/);
+    if (demo) {
+        if (!fs.existsSync(path.join(docs_dir, demo[2].replace(/#.*$/, '')))) {
+            throw new Error(`rules.md: no demo at ${demo[2]}`);
+        }
+        const button = `<button class="try-it" type="button" data-demo="${html_escape(demo[2])}">▶ Try it</button>`;
+        return demo[1] ? `${html_from_form(demo[1])}\n${button}` : button;
+    }
     // Pictures after a form, one space apart, share a row under the text and the form.
     const tail = form.match(/^(.+?)((?: !\[[^\]]*\]\([^)]+\))+)$/);
     if (tail) {

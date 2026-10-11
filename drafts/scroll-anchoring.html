@@ -48,6 +48,15 @@ body {
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
+/* embedded: the demo alone, its own theme switch left to the page */
+.embed body {
+    padding: 12px;
+}
+
+.embed .theme {
+    display: none;
+}
+
 .head {
     display: flex;
     align-items: center;
@@ -133,9 +142,16 @@ button {
 </style>
 <script>
 document.documentElement.dataset.theme = theme_read();
+// ?embed: shown in the rules page's demo panel, without the page around it
+document.documentElement.classList.toggle('embed', new URLSearchParams(location.search).has('embed'));
 
+// The theme the embedding page asks for, else the one picked here, else the OS setting.
 function theme_read()
 {
+    const asked = new URLSearchParams(location.search).get('theme');
+    if ((asked === 'light') || (asked === 'dark')) {
+        return asked;
+    }
     try {
         const theme = localStorage.getItem('theme');
         if ((theme === 'light') || (theme === 'dark')) {

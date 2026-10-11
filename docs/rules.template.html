@@ -1098,6 +1098,121 @@ footer .lead {
         white-space: pre-wrap;
     }
 }
+
+/* ---------- a rule's live demo ---------- */
+
+/* Try it opens the rule's demo in a panel that slides in from the right, with
+   the motion the ANIM rules use: 400 ms, fast at the start, settling at the end. */
+.try-it {
+    grid-column: 2 / -1;
+    justify-self: start;
+    margin-top: 4px;
+    padding: 5px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--accent);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.try-it:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.demo-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    width: min(760px, 100vw);
+    background: var(--surface);
+    border-left: 1px solid var(--line);
+    box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 400ms cubic-bezier(.2, .8, .2, 1), visibility 0s linear 400ms;
+}
+
+.demo-panel.open {
+    transform: none;
+    visibility: visible;
+    transition: transform 400ms cubic-bezier(.2, .8, .2, 1), visibility 0s;
+}
+
+.demo-panel-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: var(--bar-h);
+    padding: 8px 12px 8px 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.demo-panel-code {
+    flex: none;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+}
+
+.demo-panel-title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.demo-panel-close {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* the panel covers the header's switch: a copy rides in its head (UI-05) */
+.theme-panel {
+    flex: none;
+}
+
+.demo-panel-close:hover {
+    background: var(--surface-2);
+}
+
+.demo-panel iframe {
+    flex: 1;
+    width: 100%;
+    border: 0;
+    background: var(--bg);
+}
+
+@media (max-width: 720px) {
+    .try-it {
+        grid-column: auto;
+    }
+}
+
+@media print {
+    .try-it,
+    .demo-panel {
+        display: none;
+    }
+}
 </style>
 <script>
 (function () {
@@ -1208,6 +1323,18 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
 
+<aside class="demo-panel" id="demo_panel" aria-label="Demo" aria-hidden="true">
+    <div class="demo-panel-head">
+        <span class="demo-panel-code" id="demo_code"></span>
+        <span class="demo-panel-title" id="demo_title"></span>
+        <div class="theme theme-panel">
+            <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons -->{{theme_icons}}<!-- /theme-icons --></button>
+        </div>
+        <button class="demo-panel-close" id="demo_close" type="button" aria-label="Close the demo" title="Close the demo (Esc)">✕</button>
+    </div>
+    <iframe id="demo_frame" title="Demo"></iframe>
+</aside>
+
 <script>
 const root_el = document.documentElement;
 const PHOTOSWIPE_URL = 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/';
@@ -1219,12 +1346,15 @@ const theme_el = document.getElementById('theme');
 const bar_el = document.querySelector('.bar');
 const use_el = document.getElementById('use');
 const copy_shown_el = document.getElementById('copy_shown');
+const demo_panel_el = document.getElementById('demo_panel');
+const demo_frame_el = document.getElementById('demo_frame');
 const group_els = Array.from(document.querySelectorAll('section.group:not(.use)'));
 const section_els = Array.from(document.querySelectorAll('section.group'));
 const rule_els = Array.from(document.querySelectorAll('article.rule'));
 const nav_by_group = {};
 const haystack_by_id = {};
 
+let demo_button_el = null;
 let spy_pending = false;
 let nav_target = null;
 let nav_timer = null;
@@ -1260,6 +1390,9 @@ function main()
 
     document.addEventListener('click', click_copy);
     document.addEventListener('click', click_copy_rule);
+    document.addEventListener('click', click_try_it);
+    document.getElementById('demo_close').addEventListener('click', demo_close);
+    demo_frame_el.addEventListener('load', load_demo_frame);
     copy_shown_el.addEventListener('click', click_copy_shown);
     document.addEventListener('keydown', keydown_document);
     // Chrome on Wayland can hold a drag started by a quick double click.
@@ -1652,6 +1785,64 @@ function click_theme(event)
     catch {
     }
     refresh_theme_labels();
+    // an open demo is loaded again in the page's new theme
+    if (demo_panel_el.classList.contains('open')) {
+        demo_frame_el.src = url_from_demo(demo_button_el.dataset.demo);
+    }
+}
+
+// Try it: the rule's demo slides in from the right; another Try it while the
+// panel is open swaps the demo and leaves the panel where it is.
+function click_try_it(event)
+{
+    const button = event.target.closest('.try-it');
+    if (!button) {
+        return;
+    }
+    const rule_el = button.closest('article.rule');
+    demo_button_el = button;
+    document.getElementById('demo_code').textContent = rule_el.id;
+    document.getElementById('demo_title').textContent = rule_el.querySelector('.text strong')?.textContent ?? '';
+    demo_frame_el.src = url_from_demo(button.dataset.demo);
+    demo_panel_el.classList.add('open');
+    demo_panel_el.removeAttribute('aria-hidden');
+    document.getElementById('demo_close').focus({preventScroll: true});
+}
+
+function demo_close()
+{
+    if (!demo_panel_el.classList.contains('open')) {
+        return;
+    }
+    demo_panel_el.classList.remove('open');
+    demo_panel_el.setAttribute('aria-hidden', 'true');
+    demo_button_el?.focus({preventScroll: true});
+}
+
+// The demo in its embed mode and the page's theme; the hash names its section.
+function url_from_demo(url)
+{
+    const [base, hash] = url.split('#');
+    const theme = root_el.getAttribute('data-theme');
+    return `${base}?embed&theme=${theme}${hash ? `#${hash}` : ''}`;
+}
+
+// Esc in the demo closes the panel too, where the browser lets the page listen
+// to it (served pages; a file:// frame is closed to its parent).
+function load_demo_frame()
+{
+    try {
+        demo_frame_el.contentWindow.addEventListener('keydown', keydown_demo_frame);
+    }
+    catch {
+    }
+}
+
+function keydown_demo_frame(event)
+{
+    if (event.key === 'Escape') {
+        demo_close();
+    }
 }
 
 async function click_copy(event)
@@ -1766,6 +1957,10 @@ function keydown_document(event)
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
         return;
     }
+    if ((event.key === 'Escape') && demo_panel_el.classList.contains('open')) {
+        demo_close();
+        return;
+    }
     if ((event.key === 'Escape') && (document.activeElement === q_el)) {
         q_el.value = '';
         input_q();
@@ -1778,7 +1973,7 @@ function keydown_document(event)
     if ((event.key === ' ') && document.activeElement.matches('button, input, summary, [role="button"]')) {
         return;
     }
-    if (document.querySelector('dialog[open], [aria-modal="true"]')) {
+    if (document.querySelector('dialog[open], [aria-modal="true"], .demo-panel.open')) {
         return;
     }
     event.preventDefault();

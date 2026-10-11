@@ -1098,6 +1098,121 @@ footer .lead {
         white-space: pre-wrap;
     }
 }
+
+/* ---------- a rule's live demo ---------- */
+
+/* Try it opens the rule's demo in a panel that slides in from the right, with
+   the motion the ANIM rules use: 400 ms, fast at the start, settling at the end. */
+.try-it {
+    grid-column: 2 / -1;
+    justify-self: start;
+    margin-top: 4px;
+    padding: 5px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--accent);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.try-it:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.demo-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    width: min(760px, 100vw);
+    background: var(--surface);
+    border-left: 1px solid var(--line);
+    box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 400ms cubic-bezier(.2, .8, .2, 1), visibility 0s linear 400ms;
+}
+
+.demo-panel.open {
+    transform: none;
+    visibility: visible;
+    transition: transform 400ms cubic-bezier(.2, .8, .2, 1), visibility 0s;
+}
+
+.demo-panel-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: var(--bar-h);
+    padding: 8px 12px 8px 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.demo-panel-code {
+    flex: none;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+}
+
+.demo-panel-title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.demo-panel-close {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* the panel covers the header's switch: a copy rides in its head (UI-05) */
+.theme-panel {
+    flex: none;
+}
+
+.demo-panel-close:hover {
+    background: var(--surface-2);
+}
+
+.demo-panel iframe {
+    flex: 1;
+    width: 100%;
+    border: 0;
+    background: var(--bg);
+}
+
+@media (max-width: 720px) {
+    .try-it {
+        grid-column: auto;
+    }
+}
+
+@media print {
+    .try-it,
+    .demo-panel {
+        display: none;
+    }
+}
 </style>
 <script>
 (function () {
@@ -3100,6 +3215,7 @@ badge-no-reply</pre><button class="copy" type="button">Copy</button></div>
 <a class="code" href="#UIM-01">UIM-01</a>
 <div class="text"><p><strong>Nothing jumps.</strong> When the app adds or grows content on its own — a new message, a summary that finishes loading — what the reader is looking at stays exactly where it is on the screen; the scroll position adjusts instead. Only the reader's own clicks may move things.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/scroll-anchoring.gif"><img class="light" src="../drafts/scroll-anchoring.gif" alt="a summary grows above; on the left the message being read drops, on the right it stays" width="960" height="450" loading="lazy"><img class="dark" src="../drafts/scroll-anchoring-dark.gif" alt="a summary grows above; on the left the message being read drops, on the right it stays" width="960" height="450" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/scroll-anchoring.html">▶ Try it</button>
 </article>
 <article class="rule" id="UIM-02">
 <a class="code" href="#UIM-02">UIM-02</a>
@@ -3110,6 +3226,7 @@ await keep(async function () {
     await vm.$nextTick();
 });</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/uim_keep_the_place.svg"><img class="light" src="../img/rules/uim_keep_the_place.svg" alt="A block above grows: alone the browser lets the line being read move 120 px; scroll_keep holds it at 0 px" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/uim_keep_the_place-dark.svg" alt="A block above grows: alone the browser lets the line being read move 120 px; scroll_keep holds it at 0 px" width="1200" height="560" loading="lazy"></a></div>
+<button class="try-it" type="button" data-demo="../drafts/scroll-anchoring.html">▶ Try it</button>
 </article>
 <article class="rule" id="UIM-03">
 <a class="code" href="#UIM-03">UIM-03</a>
@@ -3199,41 +3316,49 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 <a class="code" href="#ANIM-01">ANIM-01</a>
 <div class="text"><p><strong>Sections slide the way the list goes.</strong> Picking another section in the sidebar slides the content vertically, like switching workspaces: down the list, the old page leaves upward and the new one rises from below; up the list, the reverse.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-sections.gif"><img class="light" src="../drafts/animations-sections.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#slide-workspaces">▶ Try it</button>
 </article>
 <article class="rule" id="ANIM-02">
 <a class="code" href="#ANIM-02">ANIM-02</a>
 <div class="text"><p><strong>A far jump is one slide.</strong> From section 2 to 10 the content does not pass through 3 to 9: the two pages slide, and only the highlight crosses the items between them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-sections.gif"><img class="light" src="../drafts/animations-sections.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#slide-workspaces">▶ Try it</button>
 </article>
 <article class="rule" id="ANIM-03">
 <a class="code" href="#ANIM-03">ANIM-03</a>
 <div class="text"><p><strong>The highlight and the content move together.</strong> The selection in the sidebar slides from the old item to the new one at the same time as the content, with the same duration and easing.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-sections.gif"><img class="light" src="../drafts/animations-sections.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#slide-workspaces">▶ Try it</button>
 </article>
 <article class="rule" id="ANIM-04">
 <a class="code" href="#ANIM-04">ANIM-04</a>
 <div class="text"><p><strong>Depth is left and right.</strong> Opening a row moves the list out to the left as its page comes in from the right; Back does the reverse. Sections still slide up and down, from a list or from a row's page.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-rows.gif"><img class="light" src="../drafts/animations-rows.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#slide-into-row">▶ Try it</button>
 </article>
 <article class="rule" id="ANIM-05">
 <a class="code" href="#ANIM-05">ANIM-05</a>
 <div class="text"><p><strong>On a row's page, its own section is Back.</strong> Clicking the section the open row belongs to steps back out to its list, the way Back does.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-rows.gif"><img class="light" src="../drafts/animations-rows.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#slide-into-row">▶ Try it</button>
 </article>
 <article class="rule" id="ANIM-06">
 <a class="code" href="#ANIM-06">ANIM-06</a>
 <div class="text"><p><strong>A list shows each change as movement.</strong> An added row opens a gap and fades into it; a removed row fades out and the gap closes; a moved row travels to its new place while the others make room.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-list.gif"><img class="light" src="../drafts/animations-list.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407" loading="lazy"><img class="dark" src="../drafts/animations-list-dark.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#list-changes">▶ Try it</button>
 </article>
 <article class="rule" id="ANIM-07">
 <a class="code" href="#ANIM-07">ANIM-07</a>
 <div class="text"><p><strong>A list change never moves the working row.</strong> Rows added or removed above the selected row leave it where it is on the screen, from the first frame to the last; the scroll position takes up the difference (UIM-01).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-nothing-jumps.gif"><img class="light" src="../drafts/animations-nothing-jumps.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407" loading="lazy"><img class="dark" src="../drafts/animations-nothing-jumps-dark.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#list-changes">▶ Try it</button>
 </article>
 <article class="rule" id="ANIM-08">
 <a class="code" href="#ANIM-08">ANIM-08</a>
 <div class="text"><p><strong>A click mid-way changes course.</strong> A click during an animation neither waits for it nor jumps back: everything moves on from where it stands on the screen at that moment.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-mid-way.gif"><img class="light" src="../drafts/animations-mid-way.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-mid-way-dark.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#slide-into-row">▶ Try it</button>
 </article>
 </section>
 <section class="group" id="DOC">
@@ -3405,6 +3530,18 @@ for (const item of items) {       <span class="yes">✓ yes</span>
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
 
+<aside class="demo-panel" id="demo_panel" aria-label="Demo" aria-hidden="true">
+    <div class="demo-panel-head">
+        <span class="demo-panel-code" id="demo_code"></span>
+        <span class="demo-panel-title" id="demo_title"></span>
+        <div class="theme theme-panel">
+            <button type="button" aria-label="Light theme. Switch to dark theme." title="Light theme. Switch to dark theme."><!-- theme-icons --><!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. --><svg class="theme-icon theme-light" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg class="theme-icon theme-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><!-- /theme-icons --></button>
+        </div>
+        <button class="demo-panel-close" id="demo_close" type="button" aria-label="Close the demo" title="Close the demo (Esc)">✕</button>
+    </div>
+    <iframe id="demo_frame" title="Demo"></iframe>
+</aside>
+
 <script>
 const root_el = document.documentElement;
 const PHOTOSWIPE_URL = 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/';
@@ -3416,12 +3553,15 @@ const theme_el = document.getElementById('theme');
 const bar_el = document.querySelector('.bar');
 const use_el = document.getElementById('use');
 const copy_shown_el = document.getElementById('copy_shown');
+const demo_panel_el = document.getElementById('demo_panel');
+const demo_frame_el = document.getElementById('demo_frame');
 const group_els = Array.from(document.querySelectorAll('section.group:not(.use)'));
 const section_els = Array.from(document.querySelectorAll('section.group'));
 const rule_els = Array.from(document.querySelectorAll('article.rule'));
 const nav_by_group = {};
 const haystack_by_id = {};
 
+let demo_button_el = null;
 let spy_pending = false;
 let nav_target = null;
 let nav_timer = null;
@@ -3457,6 +3597,9 @@ function main()
 
     document.addEventListener('click', click_copy);
     document.addEventListener('click', click_copy_rule);
+    document.addEventListener('click', click_try_it);
+    document.getElementById('demo_close').addEventListener('click', demo_close);
+    demo_frame_el.addEventListener('load', load_demo_frame);
     copy_shown_el.addEventListener('click', click_copy_shown);
     document.addEventListener('keydown', keydown_document);
     // Chrome on Wayland can hold a drag started by a quick double click.
@@ -3849,6 +3992,64 @@ function click_theme(event)
     catch {
     }
     refresh_theme_labels();
+    // an open demo is loaded again in the page's new theme
+    if (demo_panel_el.classList.contains('open')) {
+        demo_frame_el.src = url_from_demo(demo_button_el.dataset.demo);
+    }
+}
+
+// Try it: the rule's demo slides in from the right; another Try it while the
+// panel is open swaps the demo and leaves the panel where it is.
+function click_try_it(event)
+{
+    const button = event.target.closest('.try-it');
+    if (!button) {
+        return;
+    }
+    const rule_el = button.closest('article.rule');
+    demo_button_el = button;
+    document.getElementById('demo_code').textContent = rule_el.id;
+    document.getElementById('demo_title').textContent = rule_el.querySelector('.text strong')?.textContent ?? '';
+    demo_frame_el.src = url_from_demo(button.dataset.demo);
+    demo_panel_el.classList.add('open');
+    demo_panel_el.removeAttribute('aria-hidden');
+    document.getElementById('demo_close').focus({preventScroll: true});
+}
+
+function demo_close()
+{
+    if (!demo_panel_el.classList.contains('open')) {
+        return;
+    }
+    demo_panel_el.classList.remove('open');
+    demo_panel_el.setAttribute('aria-hidden', 'true');
+    demo_button_el?.focus({preventScroll: true});
+}
+
+// The demo in its embed mode and the page's theme; the hash names its section.
+function url_from_demo(url)
+{
+    const [base, hash] = url.split('#');
+    const theme = root_el.getAttribute('data-theme');
+    return `${base}?embed&theme=${theme}${hash ? `#${hash}` : ''}`;
+}
+
+// Esc in the demo closes the panel too, where the browser lets the page listen
+// to it (served pages; a file:// frame is closed to its parent).
+function load_demo_frame()
+{
+    try {
+        demo_frame_el.contentWindow.addEventListener('keydown', keydown_demo_frame);
+    }
+    catch {
+    }
+}
+
+function keydown_demo_frame(event)
+{
+    if (event.key === 'Escape') {
+        demo_close();
+    }
 }
 
 async function click_copy(event)
@@ -3963,6 +4164,10 @@ function keydown_document(event)
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
         return;
     }
+    if ((event.key === 'Escape') && demo_panel_el.classList.contains('open')) {
+        demo_close();
+        return;
+    }
     if ((event.key === 'Escape') && (document.activeElement === q_el)) {
         q_el.value = '';
         input_q();
@@ -3975,7 +4180,7 @@ function keydown_document(event)
     if ((event.key === ' ') && document.activeElement.matches('button, input, summary, [role="button"]')) {
         return;
     }
-    if (document.querySelector('dialog[open], [aria-modal="true"]')) {
+    if (document.querySelector('dialog[open], [aria-modal="true"], .demo-panel.open')) {
         return;
     }
     event.preventDefault();

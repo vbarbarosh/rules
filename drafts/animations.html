@@ -79,6 +79,21 @@ header {
 
 h1 { margin: 0; font-size: 26px; }
 
+/* embedded: the one animation the hash names, nothing around it */
+.embed header,
+.embed .lead {
+    display: none;
+}
+
+.embed main {
+    max-width: none;
+    padding: 12px;
+}
+
+.embed .animation {
+    margin-bottom: 0;
+}
+
 .lead {
     color: var(--text-2);
     margin: 6px 0 24px;
@@ -717,9 +732,16 @@ code {
 </style>
 <script>
 document.documentElement.dataset.theme = theme_read();
+// ?embed: shown in the rules page's demo panel, without the page around it
+document.documentElement.classList.toggle('embed', new URLSearchParams(location.search).has('embed'));
 
+// The theme the embedding page asks for, else the one picked here, else the OS setting.
 function theme_read()
 {
+    const asked = new URLSearchParams(location.search).get('theme');
+    if ((asked === 'light') || (asked === 'dark')) {
+        return asked;
+    }
     try {
         const theme = localStorage.getItem('theme');
         if ((theme === 'light') || (theme === 'dark')) {
@@ -841,6 +863,21 @@ function main()
         mockup_render(root, root.dataset.kind);
     }
     list_main();
+    embed_refresh();
+    addEventListener('hashchange', embed_refresh);
+}
+
+// Embedded, only the animation the hash names shows; a new hash swaps it.
+function embed_refresh()
+{
+    const section = document.getElementById(location.hash.slice(1));
+    if (!document.documentElement.classList.contains('embed') || !section?.matches('section.animation')) {
+        return;
+    }
+    for (const el of document.querySelectorAll('section.animation')) {
+        el.hidden = (el !== section);
+    }
+    scrollTo(0, 0);
 }
 
 // One button showing the theme now: the sun in Light, the crescent in Dark; a click goes to the other.
