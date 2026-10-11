@@ -175,6 +175,26 @@ for (const page_file of page_files) {
     });
 }
 
+for (const page_file of ['docs/rules.html', 'docs/glossaries.html']) {
+    test(`${page_file}: the text over pictures with no code beside it is as wide for a row of pictures as for one`, async function () {
+        const context = await browser.newContext({viewport: {width: 1280, height: 800}});
+        const page = await context.newPage();
+        try {
+            await page.route('https://**/*', route_offline);
+            await page.goto(`file://${path.join(root_dir, page_file)}`);
+            const widths = await page.evaluate(function () {
+                const rules = Array.from(document.querySelectorAll('article.rule:has(> .figure, > .figures)')).filter(v => !v.querySelector(':scope > .form:not(.figure)'));
+                return rules.map(v => `${v.id} ${Math.round(v.querySelector('.text').getBoundingClientRect().width)}`);
+            });
+            const first = widths[0].split(' ')[1];
+            assert.deepEqual(widths.filter(v => !v.endsWith(` ${first}`)), []);
+        }
+        finally {
+            await context.close();
+        }
+    });
+}
+
 async function route_offline(route)
 {
     const url = route.request().url();

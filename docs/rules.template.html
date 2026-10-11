@@ -748,7 +748,9 @@ footer code {
     max-width: 960px;
 }
 
-.rule:has(> .figure) .text {
+/* Text over its pictures, with no code beside it, takes the whole row. */
+.rule:has(> .figure) .text,
+.rule:has(> .figures):not(:has(> .form:not(.figure))) .text {
     grid-column: 2 / -1;
     max-width: 75ch;
 }
@@ -1012,6 +1014,7 @@ footer .lead {
 
     .rule.bare .text,
     .rule:has(> .figure) .text,
+    .rule:has(> .figures):not(:has(> .form:not(.figure))) .text,
     .figure,
     .figures {
         grid-column: auto;

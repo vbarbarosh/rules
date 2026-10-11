@@ -596,6 +596,33 @@ h1 {
     color: var(--muted);
 }
 
+/* The term being read, once its name has scrolled under this row: the row
+   reads "Agents › Messages › context" in place of the note. */
+.group h2 .trail {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 19px;
+    letter-spacing: 0;
+    color: var(--ink);
+}
+
+.group h2 .trail i {
+    padding: 0 6px;
+    font-style: normal;
+    color: var(--muted);
+}
+
+.group h2 .trail b {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.group h2 .trail:empty,
+.group h2:has(> .trail:not(:empty)) .note {
+    display: none;
+}
+
 .rule {
     display: grid;
     grid-template-columns: 80px minmax(0, 1fr) minmax(0, 1.15fr);
@@ -679,7 +706,9 @@ footer code {
     max-width: 960px;
 }
 
-.rule:has(> .figure) .text {
+/* Text over its pictures, with no code beside it, takes the whole row. */
+.rule:has(> .figure) .text,
+.rule:has(> .figures):not(:has(> .form:not(.figure))) .text {
     grid-column: 2 / -1;
     max-width: 75ch;
 }
@@ -941,6 +970,7 @@ footer .lead {
 
     .rule.bare .text,
     .rule:has(> .figure) .text,
+    .rule:has(> .figures):not(:has(> .form:not(.figure))) .text,
     .figure,
     .figures {
         grid-column: auto;
@@ -1680,6 +1710,9 @@ function main()
         haystack_by_id[rule_el.id] = haystack_from_rule(rule_el);
     }
 
+    for (const h2 of document.querySelectorAll('.group > h2')) {
+        h2.insertAdjacentHTML('beforeend', '<span class="trail"></span>');
+    }
     refresh_theme_labels();
     refresh_pictures_labels();
     refresh_pictures_control();
@@ -1834,6 +1867,36 @@ function spy_apply()
         if (!was_current && (group_el === current)) {
             nav_reveal(a);
         }
+    }
+    refresh_trails();
+}
+
+// The term whose entry runs under the sticky group row while its name is
+// above it, out of sight: its group row names it, after its sub-group.
+function refresh_trails()
+{
+    for (const h2 of document.querySelectorAll('.group > h2')) {
+        const line = h2.getBoundingClientRect().bottom;
+        const rule_el = Array.from(h2.parentElement.querySelectorAll('article.rule:not([hidden])')).find(function (v) {
+            const rect = v.getBoundingClientRect();
+            return (rect.top < line) && (rect.bottom > line + 40);
+        });
+        const dfn = rule_el?.querySelector('dfn');
+        const trail = h2.querySelector('.trail');
+        if (!dfn || (dfn.getBoundingClientRect().bottom > line)) {
+            trail.replaceChildren();
+            continue;
+        }
+        const sub_name = rule_el.closest('section.sub')?.querySelector('h3 .name')?.textContent;
+        const names = [sub_name, dfn.textContent].filter(v => v);
+        if (trail.textContent === names.map(v => `›${v}`).join('')) {
+            continue;
+        }
+        trail.replaceChildren(...names.flatMap(function (name, i) {
+            const el = document.createElement((i === names.length - 1) ? 'b' : 'span');
+            el.textContent = name;
+            return [Object.assign(document.createElement('i'), {textContent: '›'}), el];
+        }));
     }
 }
 
