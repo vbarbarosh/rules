@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-277 rules · 18 groups · 54 sources · filterable version: [rules.html](rules.html)
+278 rules · 18 groups · 54 sources · filterable version: [rules.html](rules.html)
 
 Codes match [rules.html](rules.html): a rule that page does not carry is
 appended to the end of its group, and `LINT` is a group of its own.
@@ -23,7 +23,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FILE | File and module structure | 25 | One entry function, one fixed order. |
 | PROJ | Project layout | 30 | A directory is a program; bin/ holds its verbs. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
-| GIT | Commits | 4 | A lowercase title, scope first; details below. |
+| GIT | Commits | 5 | A lowercase title, scope first; details below; 72 characters a line. |
 | LOG | Logs | 23 | One line, one event, four fields. |
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | MySQL: upper-case keywords; the query laid out like code. |
@@ -204,11 +204,12 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | REL-04 | **One command does the whole release.** `bin/release major\|minor\|patch` performs the whole release. | `bin/release patch` | [packaging.md](../packaging/packaging.md) |
 | REL-05 | **A release script runs under bash strict mode.** | `set -o nounset -o errexit -o pipefail` | [packaging.md](../packaging/packaging.md) |
 | REL-06 | **A bad argument prints usage to stderr and exits 1.** | <pre>echo usage: release 'major&#124;minor&#124;patch' &gt;&amp;2<br>exit 1</pre> | [packaging.md](../packaging/packaging.md) |
-| **GIT** | **Commits** — A lowercase title, scope first; details below. | | |
+| **GIT** | **Commits** — A lowercase title, scope first; details below; 72 characters a line. | | |
 | GIT-01 | **A commit title is a scope, a colon and a short description.** The scope is one or two words: the part of the project the commit changes, its category. | `maps: placement rules for gates and portals, and map-check` | [commits.md](../drafts/commits.md) |
 | GIT-02 | **Commit titles are lowercase.** The title is all lowercase, names included. | <pre>readme: elites and arcade saves as the code has them   ✓ yes<br>README: Elites and arcade saves                        ✗ no</pre> | [commits.md](../drafts/commits.md) |
-| GIT-03 | **Commit titles aim for 70 characters, 72 as the rule.** The whole title, scope included, aims for 70 characters and stays within 72; in a rare case, when nothing shorter says it, 75 is allowed. Short is the rule; the numbers are guidance, not a floor. | <pre>maps: one name for the gate jump reach     38<br>docs: build-docs and a github pages workflow     44<br>70 to aim for · 72 the rule · 75 in a rare case</pre> | [commits.md](../drafts/commits.md) |
+| GIT-03 | **A commit title is 72 characters at most.** The whole title, scope included, stays within 72 characters. Short is the rule; 72 is the ceiling, not a target. | <pre>maps: one name for the gate jump reach     38<br>docs: build-docs and a github pages workflow     44<br>72 at most</pre> | [commits.md](../drafts/commits.md) |
 | GIT-04 | **A short body, only when needed.** Details go in a body after one blank line, only when they are really needed. A body is short, in ordinary sentences. | <pre>docs: link the placement rules, gates and portals as they stand<br><br>docs/README.md lists placement.md; objects.md describes gates and<br>portals as the placement rules now put them.</pre> | [commits.md](../drafts/commits.md) |
+| GIT-05 | **A body wraps at 72 characters.** Every line of the body stays within 72 characters, as the title does, and breaks between words. A path, a URL or a command longer than that keeps a line of its own, whole. | <pre>docs: the agents page has a picture for each guide<br><br>Consequences first: the task, its four what-if questions and what each<br>shapes. One example, all cases: only the shown dropdown fixed against<br>every case found.</pre> | [commits.md](../drafts/commits.md) |
 | **LOG** | **Logs** — One line, one event, four fields. | | |
 | LOG-01 | **One line, one event, four fields.** A log is one infinite file. One physical line records one event, in four fields and nothing else. | `[time][group_uid][sender] details` | [logs.md](../drafts/logs.md) |
 | LOG-02 | **Measurements go in details.** Elapsed time, status and every other measurement belong in `details`, not in a field of their own. | `[cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT` | [logs.md](../drafts/logs.md) |

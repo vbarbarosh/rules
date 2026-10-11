@@ -447,6 +447,8 @@ a little more is allowed, up to 75. It is not a hard rule: titles are short,
 and the numbers are guidance, not a floor. The author's "70-72 in all" is a
 target, not a minimum.
 
+**Superseded:** 2026-10-11 by MP-50, the title 72 at most, the body too.
+
 ## MP-40 — is_ names a boolean, predicate or data; check_ reads as a call
 
 **Scope:** NAME-02, NAME-15, [naming markers](drafts/naming_markers.md).
@@ -563,3 +565,17 @@ in as a parameter, a variant is a suffix, one Sass mixin gives all of them
 one look and each sets only its own colours. The badge is the example of the
 wider rule: an app is split into components, one per piece it shows in more
 than one place.
+
+## MP-50 — A commit title is 72 characters at most, its body too
+
+**Scope:** GIT-03, GIT-05, [commits](drafts/commits.md).
+**Approved:** 2026-10-11, author message and voice comment
+`20261011_143005-me` ("about 72 characters in all; the description below
+should aim for 72 too"), over a title and a body of that width, and voice
+comment `20261011_143613-me` ("set it to 72; the subject 72 in all, and the
+body aims for 72 too").
+
+A title stays within 72 characters, scope included: the 70 to aim for and
+the 75 of a rare case in MP-39 are gone. Every line of the body is held to
+72 as well, broken between words. MP-49 is left to the proposal waiting for
+the author's go in its own conversation.
