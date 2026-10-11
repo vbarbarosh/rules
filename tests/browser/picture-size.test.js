@@ -119,7 +119,7 @@ test('docs/rules.html: an XL kept from before opens as L', async function () {
 });
 
 for (const page_file of page_files) {
-    test(`${page_file}: S is half the column and L the whole, a row of pictures sharing it`, async function () {
+    test(`${page_file}: every picture, alone or in a row, is half the column in S and the whole in L`, async function () {
         const context = await browser.newContext({viewport: {width: 1280, height: 800}});
         const page = await context.newPage();
         try {
@@ -127,19 +127,20 @@ for (const page_file of page_files) {
             await page.goto(`file://${path.join(root_dir, page_file)}`);
             for (const [state, part] of [['small', 0.5], ['large', 1]]) {
                 await page.locator(`.pictures button[data-pictures="${state}"]`).first().click();
-                const boxes = await page.evaluate(function () {
+                const figures = await page.evaluate(function () {
                     return Array.from(document.querySelectorAll('a.figure')).map(function (figure) {
-                        const box = figure.parentElement.classList.contains('figures') ? figure.parentElement : figure;
-                        // the column the box may take: the box with its max-width lifted
+                        const box = figure.closest('.figures') ?? figure;
+                        // the column a picture may take: its box with the max-width lifted
                         const max_width = box.style.maxWidth;
                         box.style.maxWidth = 'none';
-                        const column = box.getBoundingClientRect().width;
+                        const column = Math.min(box.getBoundingClientRect().width, 960);
                         box.style.maxWidth = max_width;
-                        return {caption: figure.dataset.caption, width: box.getBoundingClientRect().width, column};
+                        return {caption: figure.dataset.caption, width: figure.getBoundingClientRect().width, column};
                     });
                 });
-                for (const v of boxes) {
-                    assert.ok(Math.abs(v.width - Math.min(v.column*part, 960)) <= 1, `${state}: ${v.caption}: ${v.width} of ${v.column}`);
+                for (const v of figures) {
+                    // two in a row in S share the 12 px gap between them
+                    assert.ok(Math.abs(v.width - v.column*part) <= 7, `${state}: ${v.caption}: ${v.width} of ${v.column}`);
                 }
             }
         }

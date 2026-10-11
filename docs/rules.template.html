@@ -364,11 +364,14 @@ h1 {
     background: var(--accent-soft);
 }
 
-/* S is half the column, L the whole of it: a picture alone, or a row of
-   them sharing that width. */
-:root[data-pictures="small"] .figure,
-:root[data-pictures="small"] .figures {
+/* Every picture, alone or in a row, is half the column in S and the whole of
+   it in L: a row of them sits two a line in S and one under another in L. */
+:root[data-pictures="small"] .figure {
     max-width: 50%;
+}
+
+:root[data-pictures="small"] .figures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 :root[data-pictures="small"] .figures .figure {
@@ -755,8 +758,7 @@ footer code {
 .figures {
     grid-column: 2 / -1;
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
     margin-top: 4px;
 }
@@ -973,10 +975,6 @@ footer .lead {
 }
 
 @media (max-width: 720px) {
-    .figures {
-        grid-auto-flow: row;
-    }
-
     body {
         font-size: 16.5px;
     }
