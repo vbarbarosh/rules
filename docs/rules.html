@@ -3040,14 +3040,16 @@ badge-no-reply</pre><button class="copy" type="button">Copy</button></div>
 </section>
 <section class="group" id="UI">
 <h2><span class="tag">UI</span><span class="name">UI appearance</span><span class="note">How a screen looks.</span></h2>
-<article class="rule bare" id="UI-01">
+<article class="rule" id="UI-01">
 <a class="code" href="#UI-01">UI-01</a>
 <div class="text"><p><strong>Every screen has a light/dark switch.</strong> An app screen, a report, a standalone page: each shows a switch the reader can click. Following the OS setting alone does not count.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/ui_every_screen_has_switch.svg"><img class="light" src="../img/rules/ui_every_screen_has_switch.svg" alt="An app screen, a report and a standalone page, each with a theme switch; following the OS setting alone beside a switch on every screen" width="1200" height="640" loading="lazy"><img class="dark" src="../img/rules/ui_every_screen_has_switch-dark.svg" alt="An app screen, a report and a standalone page, each with a theme switch; following the OS setting alone beside a switch on every screen" width="1200" height="640" loading="lazy"></a>
 </article>
 <article class="rule" id="UI-02">
 <a class="code" href="#UI-02">UI-02</a>
 <div class="text"><p><strong>Two states, one shared icon button.</strong> Show the current theme: sun for Light, crescent for Dark. Use <code>img/theme-sun.svg</code> and <code>img/theme-moon.svg</code>; size and border may vary. Click toggles directly, with no menu, System or Auto option.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Sun: Light → Crescent: Dark → Sun: Light</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/ui_two_states_one_button.svg"><img class="light" src="../img/rules/ui_two_states_one_button.svg" alt="One button cycling sun, crescent, sun with each click; a Light, Dark, System menu beside it" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/ui_two_states_one_button-dark.svg" alt="One button cycling sun, crescent, sun with each click; a Light, Dark, System menu beside it" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UI-03">
 <a class="code" href="#UI-03">UI-03</a>
@@ -3060,15 +3062,18 @@ badge-no-reply</pre><button class="copy" type="button">Copy</button></div>
     --color-bg: #15181C;
     --color-text: #E6E8EB;
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/ui_dark_redefines_light.svg"><img class="light" src="../img/rules/ui_dark_redefines_light.svg" alt=":root sets --color-bg and --color-text; :root(data-theme=&quot;dark&quot;) sets the same names to other values" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/ui_dark_redefines_light-dark.svg" alt=":root sets --color-bg and --color-text; :root(data-theme=&quot;dark&quot;) sets the same names to other values" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UI-04">
 <a class="code" href="#UI-04">UI-04</a>
 <div class="text"><p><strong>The theme is set before the page shows.</strong> The page reads the saved choice from <code>localStorage</code> (the OS setting once, when nothing is saved), puts it on <code>&lt;html&gt;</code> as <code>data-theme</code>, and saves each new choice; storage access sits in <code>try</code>/<code>catch</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>document.documentElement.dataset.theme = theme;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/ui_theme_set_before_show.svg"><img class="light" src="../img/rules/ui_theme_set_before_show.svg" alt="The page reads localStorage and sets data-theme on html before the first paint; painting light then switching flashes" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/ui_theme_set_before_show-dark.svg" alt="The page reads localStorage and sets data-theme on html before the first paint; painting light then switching flashes" width="1200" height="520" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="UI-05">
+<article class="rule" id="UI-05">
 <a class="code" href="#UI-05">UI-05</a>
 <div class="text"><p><strong>The switch stays in reach on a long page.</strong> When the header scrolls away, a copy of the switch appears at the right end of the sticky bar.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/theme_switch.md" title="drafts/theme_switch.md">theme_switch.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/ui_switch_stays_in_reach.svg"><img class="light" src="../img/rules/ui_switch_stays_in_reach.svg" alt="At the top the switch is in the header; scrolled, a copy rides at the right end of the sticky bar" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/ui_switch_stays_in_reach-dark.svg" alt="At the top the switch is in the header; scrolled, a copy rides at the right end of the sticky bar" width="1200" height="500" loading="lazy"></a>
 </article>
 <article class="rule" id="UI-06">
 <a class="code" href="#UI-06">UI-06</a>
@@ -3079,11 +3084,13 @@ badge-no-reply</pre><button class="copy" type="button">Copy</button></div>
 <a class="code" href="#UI-07">UI-07</a>
 <div class="text"><p><strong>Left: icon, name, version.</strong> The project's icon when it has one, its name, and its released version.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&#91;icon]  Authwall Docs  v1.16.0</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/ui_header_left_icon_name_version.svg"><img class="light" src="../img/rules/ui_header_left_icon_name_version.svg" alt="A header with the icon, the name Authwall Docs and the released version v1.16.0; an unreleased version beside it" width="1200" height="470" loading="lazy"><img class="dark" src="../img/rules/ui_header_left_icon_name_version-dark.svg" alt="A header with the icon, the name Authwall Docs and the released version v1.16.0; an unreleased version beside it" width="1200" height="470" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UI-08">
 <a class="code" href="#UI-08">UI-08</a>
 <div class="text"><p><strong>Right: the links, then the theme switch, always last.</strong> The GitHub icon links to the repository; other links, such as Twitter or Facebook, sit beside it. However many links a project has, the switch stays at the right edge, the same on every page. The icons look alike: one size, no frame on any of them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&#91;GitHub]  &#91;Twitter]  &#91;Current theme icon]</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/ui_header_right_links_then_switch.svg"><img class="light" src="../img/rules/ui_header_right_links_then_switch.svg" alt="Headers with two links and with one, the theme switch last at the right edge in both" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/ui_header_right_links_then_switch-dark.svg" alt="Headers with two links and with one, the theme switch last at the right edge in both" width="1200" height="560" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="UIM">
