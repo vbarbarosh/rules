@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="600" fill="#16181b"/>
-<defs><marker id="a56DB3A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#72d39c"/></marker><marker id="aFF6B6B" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#ff937c"/></marker></defs>
+<defs><marker id="a56DB3A" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#72d39c" stroke-linejoin="round"/></marker><marker id="aFF6B6B" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#ff937c" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Safety net</text>
 <text x="48" y="108" fill="#92958c" font-size="22">a second, independent catch under the first way: when the plan misses, the net holds</text>
 <line x1="150" y1="150" x2="150" y2="250" stroke="#4a4f57" stroke-width="6"/><line x1="110" y1="250" x2="190" y2="250" stroke="#4a4f57" stroke-width="6"/>
 <line x1="1050" y1="150" x2="1050" y2="250" stroke="#4a4f57" stroke-width="6"/><line x1="1010" y1="250" x2="1090" y2="250" stroke="#4a4f57" stroke-width="6"/>
-<path d="M190 250 Q600 160 1010 250" fill="none" stroke="#72d39c" stroke-width="4" marker-end="url(#a56db3a)"/>
+<path d="M190 250 Q600 160 1010 250" fill="none" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a56db3a)"/>
 <text x="600" y="160" fill="#72d39c" font-size="20" text-anchor="middle" font-style="italic">the plan: the reply switches the model back</text>
-<path d="M190 250 Q420 240 600 456" fill="none" stroke="#ff937c" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#aff6b6b)"/>
+<path d="M190 250 Q420 240 600 456" fill="none" stroke="#ff937c" stroke-width="1.75" stroke-dasharray="10 8" stroke-linecap="round" marker-end="url(#aff6b6b)"/>
 <text x="640" y="400" fill="#ff937c" font-size="20" text-anchor="start">the reply never came: still on the strongest model</text>
 <path d="M80 470 Q600 560 1120 470" fill="none" stroke="#9db2ff" stroke-width="4"/><path d="M110 470 Q600 540 1090 470" fill="none" stroke="#9db2ff" stroke-width="3"/>
 <line x1="180" y1="478" x2="180" y2="483" stroke="#9db2ff" stroke-width="3"/>

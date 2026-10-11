@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="640" fill="#fffefb"/>
-<defs><marker id="a1299DA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="a1299DA" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Skill</text>
 <text x="48" y="108" fill="#686a61" font-size="22">instructions loaded into the context on demand, not resident in every call</text>
 <rect x="60" y="150" width="460" height="380" rx="16" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="12 8"/>
@@ -26,7 +26,7 @@
 <rect x="690" y="360" width="432" height="64" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="906" y="387" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">run the e2e suite</text>
 <text x="906" y="411" fill="#686a61" font-size="17" text-anchor="middle">1,800 tokens</text>
-<path d="M684 232 C590 232 600 436 494 436" fill="none" stroke="#2743b8" stroke-width="4" marker-end="url(#a1299DA)"/>
+<path d="M684 232 C590 232 600 436 494 436" fill="none" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <text x="48" y="572" fill="#686a61" font-size="21" text-anchor="start">A skill is read only in the turn that needs it, so the context stays small; a policy is read</text>
 <text x="48" y="603" fill="#686a61" font-size="21" text-anchor="start">in every call.</text>
 </svg>

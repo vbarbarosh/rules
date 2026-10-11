@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="580" fill="#16181b"/>
-<defs><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4a4f57"/></marker></defs>
+<defs><marker id="a5E5C4E" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#4a4f57" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Stall</text>
 <text x="48" y="108" fill="#92958c" font-size="22">rounds go on without progress: reading counts as progress, repeating the same call does not</text>
 <rect x="70" y="200" width="200" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="170" y="236" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">round 3</text>
 <text x="170" y="268" fill="#92958c" font-size="19" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">grep "footer"</text>
-<line x1="270" y1="245" x2="290" y2="245" stroke="#4a4f57" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<line x1="270" y1="245" x2="290" y2="245" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="290" y="200" width="200" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="390" y="236" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">round 4</text>
 <text x="390" y="268" fill="#92958c" font-size="19" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">grep "footer"</text>
-<line x1="490" y1="245" x2="510" y2="245" stroke="#4a4f57" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<line x1="490" y1="245" x2="510" y2="245" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="510" y="200" width="200" height="90" rx="12" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
 <text x="610" y="236" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">round 5</text>
 <text x="610" y="268" fill="#ffb257" font-size="19" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">grep "footer"</text>
-<line x1="710" y1="245" x2="730" y2="245" stroke="#4a4f57" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<line x1="710" y1="245" x2="730" y2="245" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="730" y="200" width="200" height="90" rx="12" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
 <text x="830" y="236" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">round 6</text>
 <text x="830" y="268" fill="#ffb257" font-size="19" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">grep "footer"</text>
-<line x1="930" y1="245" x2="950" y2="245" stroke="#4a4f57" stroke-width="2" marker-end="url(#a5E5C4E)"/>
+<line x1="930" y1="245" x2="950" y2="245" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="950" y="200" width="200" height="90" rx="12" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
 <text x="1050" y="236" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">round 7</text>
 <text x="1050" y="268" fill="#ffb257" font-size="19" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">grep "footer"</text>

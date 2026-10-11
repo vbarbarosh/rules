@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="520" fill="#16181b"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Three global methods through a mixin</text>
 <text x="48" y="108" fill="#92958c" font-size="22">every component can call px, uid and emit_input, with no import</text>
 <rect x="60" y="170" width="420" height="220" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
@@ -11,14 +11,14 @@
 <rect x="640" y="160" width="500" height="72" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="890.0" y="192.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">app-input-email</text>
 <text x="890.0" y="218.0" fill="#92958c" font-size="17" text-anchor="middle">this.px(), this.uid(), this.emit_input()</text>
-<line x1="486" y1="280" x2="634" y2="196" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="486" y1="280" x2="634" y2="196" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="640" y="250" width="500" height="72" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="890.0" y="282.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">app-slider</text>
 <text x="890.0" y="308.0" fill="#92958c" font-size="17" text-anchor="middle">this.px(), this.uid(), this.emit_input()</text>
-<line x1="486" y1="280" x2="634" y2="286" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="486" y1="280" x2="634" y2="286" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="640" y="340" width="500" height="72" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="890.0" y="372.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">badge-new</text>
 <text x="890.0" y="398.0" fill="#92958c" font-size="17" text-anchor="middle">this.px(), this.uid(), this.emit_input()</text>
-<line x1="486" y1="280" x2="634" y2="376" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="486" y1="280" x2="634" y2="376" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="470" fill="#92958c" font-size="21">One mixin hands the three methods to every component of the app.</text>
 </svg>

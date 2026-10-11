@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="560" fill="#16181b"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">A document has two halves</text>
 <text x="48" y="108" fill="#92958c" font-size="22">the author writes for himself on top; the AI restates it below for any reader</text>
 <rect x="60" y="170" width="560" height="130" rx="0" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
@@ -18,7 +18,7 @@
 <rect x="760" y="320" width="380" height="90" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="950.0" y="360.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">the AI</text>
 <text x="950.0" y="385.0" fill="#92958c" font-size="18" text-anchor="middle">restated for a reader without it</text>
-<line x1="754" y1="235" x2="626" y2="235" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="754" y1="365" x2="626" y2="365" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="754" y1="235" x2="626" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="754" y1="365" x2="626" y2="365" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="500" fill="#92958c" font-size="21">One file, two writers: each half is written by one of them only.</text>
 </svg>

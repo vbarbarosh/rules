@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="598" viewBox="0 0 1200 598" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="598" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">The caller's uid becomes the parent</text>
 <text x="48" y="108" fill="#686a61" font-size="22">a message carries the caller's uid; the receiver spawns under it</text>
 <rect x="60" y="170" width="300" height="110" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
@@ -12,8 +12,8 @@
 <rect x="840" y="170" width="300" height="110" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="990.0" y="220.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">worker: group bbb</text>
 <text x="990.0" y="245.0" fill="#686a61" font-size="18" text-anchor="middle">takes the job</text>
-<line x1="366" y1="225" x2="444" y2="225" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="756" y1="225" x2="834" y2="225" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="366" y1="225" x2="444" y2="225" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="756" y1="225" x2="834" y2="225" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="840" y="300" width="300" height="78" rx="8" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="858.0" y="330.4" fill="#1a7443" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[bbb][group_spawn]</text>
 <text x="879.6" y="358.4" fill="#1a7443" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">parent=aaa</text>
@@ -23,6 +23,6 @@
 <rect x="670" y="418" width="470" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="688.0" y="447.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[bbb][group_spawn] parent=aaa</text>
 <text x="688" y="488" fill="#1a7443" font-size="17">✓ web to worker, one trail</text>
-<line x1="536" y1="460.0" x2="664" y2="460.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="536" y1="460.0" x2="664" y2="460.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="558" fill="#686a61" font-size="21">Following parent= from the worker leads back to the request that caused it.</text>
 </svg>

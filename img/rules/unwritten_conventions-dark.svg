@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="580" viewBox="0 0 1200 580" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="580" fill="#16181b"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Unwritten conventions bind too</text>
 <text x="48" y="108" fill="#92958c" font-size="22">no rule names it, yet every file follows it: silence is not permission</text>
 <rect x="60" y="160" width="380" height="250" rx="12" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
@@ -15,8 +15,8 @@
 <rect x="560" y="320" width="300" height="90" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="710" y="358" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">UserMenu.vue</text>
 <text x="710" y="388" fill="#92958c" font-size="17" text-anchor="middle">✗ a style of its own</text>
-<line x1="446" y1="250" x2="554" y2="225" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="446" y1="330" x2="554" y2="365" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="446" y1="250" x2="554" y2="225" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="446" y1="330" x2="554" y2="365" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="920" y="215" width="240" height="140" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="1040.0" y="257.4" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">the same for</text>
 <text x="1040.0" y="281.2" fill="#92958c" font-size="17" text-anchor="middle">CSS classes,</text>

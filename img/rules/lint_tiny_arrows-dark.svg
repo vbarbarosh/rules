@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="640" fill="#16181b"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Tiny arrows fit one line</text>
 <text x="48" y="108" fill="#92958c" font-size="22">a one-line callback or value factory; v for a value, e for an error, taken whole</text>
 <rect x="60" y="170" width="480" height="80" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
@@ -9,27 +9,27 @@
 <rect x="620" y="170" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="204" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">items.map(v =&gt; v.uid)</text>
 <text x="638" y="232" fill="#72d39c" font-size="17">✓ v, taken whole</text>
-<line x1="546" y1="210.0" x2="614" y2="210.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="546" y1="210.0" x2="614" y2="210.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="270" width="480" height="80" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="78" y="304" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">.catch(err =&gt; log(err))</text>
 <text x="78" y="332" fill="#ff937c" font-size="17">✗ an error is not err</text>
 <rect x="620" y="270" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="304" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">.catch(e =&gt; log(e))</text>
 <text x="638" y="332" fill="#72d39c" font-size="17">✓ e at every depth</text>
-<line x1="546" y1="310.0" x2="614" y2="310.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="546" y1="310.0" x2="614" y2="310.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="370" width="480" height="80" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="78" y="404" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const label_of = v =&gt; v.name;</text>
 <text x="78" y="432" fill="#ff937c" font-size="17">✗ a named helper as an arrow</text>
 <rect x="620" y="370" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="404" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function label_of(item) {…}</text>
 <text x="638" y="432" fill="#72d39c" font-size="17">✓ a function declaration</text>
-<line x1="546" y1="410.0" x2="614" y2="410.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="546" y1="410.0" x2="614" y2="410.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="470" width="480" height="80" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="78" y="504" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">methods: {open: () =&gt; {…}}</text>
 <text x="78" y="532" fill="#ff937c" font-size="17">✗ an arrow in methods</text>
 <rect x="620" y="470" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="504" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">methods: {open: function () {…}}</text>
 <text x="638" y="532" fill="#72d39c" font-size="17">✓ a function expression</text>
-<line x1="546" y1="510.0" x2="614" y2="510.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="546" y1="510.0" x2="614" y2="510.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="600" fill="#92958c" font-size="21">An empty () =&gt; {} is a tiny arrow too; the number of parameters does not matter.</text>
 </svg>

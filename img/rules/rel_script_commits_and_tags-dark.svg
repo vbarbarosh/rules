@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="500" fill="#16181b"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">The script commits and tags, not the bump</text>
 <text x="48" y="108" fill="#92958c" font-size="22">npm only changes the version; the script owns the commit and the tag</text>
 <rect x="60" y="170" width="510" height="84" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
@@ -9,13 +9,13 @@
 <rect x="630" y="170" width="510" height="84" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="885.0" y="208.0" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">git commit, git tag</text>
 <text x="885.0" y="234.0" fill="#92958c" font-size="17" text-anchor="middle">in the script</text>
-<line x1="576" y1="212.0" x2="624" y2="212.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="576" y1="212.0" x2="624" y2="212.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="300" width="500" height="84" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="310.0" y="338.0" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">npm version patch</text>
 <text x="310.0" y="364.0" fill="#92958c" font-size="17" text-anchor="middle">✗ commits and tags on its own</text>
 <rect x="640" y="300" width="500" height="84" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="890.0" y="338.0" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">bin/release</text>
 <text x="890.0" y="364.0" fill="#92958c" font-size="17" text-anchor="middle">✓ commits after dist/ is built</text>
-<line x1="566" y1="342.0" x2="634" y2="342.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="566" y1="342.0" x2="634" y2="342.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="450" fill="#92958c" font-size="21">The commit has to include the new dist/, so the script makes it.</text>
 </svg>

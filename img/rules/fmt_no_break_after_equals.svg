@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="352" viewBox="0 0 1200 352" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="352" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Never break after = before a call</text>
 <text x="48" y="108" fill="#686a61" font-size="22">the name and the call it holds stay on one line</text>
 <text x="60" y="168" fill="#b2341f" font-size="18" font-weight="700">✗ broken after =</text>
@@ -12,6 +12,6 @@
 <rect x="640" y="180" width="500" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <rect x="650" y="195" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="660.0" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const user = user_from_token(token);</text>
-<line x1="566" y1="225.0" x2="634" y2="225.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="566" y1="225.0" x2="634" y2="225.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="320" fill="#686a61" font-size="21">A single call on the right of = is never moved to a line of its own.</text>
 </svg>

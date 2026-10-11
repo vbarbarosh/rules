@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="620" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A piece shown in two places is a component</text>
 <text x="48" y="108" fill="#686a61" font-size="22">one component, used in each place, so a change reaches all of them</text>
 <rect x="60" y="240" width="300" height="84" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
@@ -10,18 +10,18 @@
 <text x="544" y="194" fill="#686a61" font-size="18">the list</text>
 <rect x="544" y="210" width="220" height="44" rx="22" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="654" y="239" fill="#191a17" font-size="18" text-anchor="middle">In progress</text>
-<line x1="366" y1="282" x2="538" y2="232" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="366" y1="282" x2="538" y2="232" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="520" y="300" width="620" height="110" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="544" y="334" fill="#686a61" font-size="18">the detail</text>
 <rect x="544" y="350" width="220" height="44" rx="22" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="654" y="379" fill="#191a17" font-size="18" text-anchor="middle">In progress</text>
-<line x1="366" y1="282" x2="538" y2="372" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="366" y1="282" x2="538" y2="372" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="440" width="440" height="81" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="80.0" y="477" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;span class="br999 #-reply"&gt;</text>
 <text x="80" y="507" fill="#b2341f" font-size="17">✗ markup copied: a change misses a copy</text>
 <rect x="580" y="440" width="560" height="81" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="600.0" y="477" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;badge-in-progress /&gt;</text>
 <text x="600" y="507" fill="#1a7443" font-size="17">✓ the same component in each place</text>
-<line x1="506" y1="480.5" x2="574" y2="480.5" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="506" y1="480.5" x2="574" y2="480.5" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="590" fill="#686a61" font-size="21">A badge, most often: whatever the screen shows twice.</text>
 </svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="568" viewBox="0 0 1200 568" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="568" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Prefer imperative control flow</text>
 <text x="48" y="108" fill="#686a61" font-size="22">one step a statement, in the order it runs</text>
 <rect x="60" y="160" width="520" height="215.3" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
@@ -15,12 +15,12 @@
 <text x="920" y="197" fill="#191a17" font-size="19" text-anchor="middle">take the next item</text>
 <rect x="700" y="246" width="440" height="60" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="920" y="283" fill="#191a17" font-size="19" text-anchor="middle">is it active?</text>
-<line x1="920" y1="226" x2="920" y2="240" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="920" y1="226" x2="920" y2="240" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="700" y="332" width="440" height="60" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="920" y="369" fill="#191a17" font-size="19" text-anchor="middle">keep its uid</text>
-<line x1="920" y1="312" x2="920" y2="326" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="920" y1="312" x2="920" y2="326" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="700" y="418" width="440" height="60" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="920" y="455" fill="#191a17" font-size="19" text-anchor="middle">return what was kept</text>
-<line x1="920" y1="398" x2="920" y2="412" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="920" y1="398" x2="920" y2="412" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="532" fill="#686a61" font-size="21">Each step is a statement: you read it, step through it, put a breakpoint on it.</text>
 </svg>

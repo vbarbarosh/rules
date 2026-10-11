@@ -1,42 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="730" fill="#16181b"/>
-<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#92958c"/></marker></defs>
+<defs><marker id="a" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#92958c" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">The terms and how they relate</text>
 <text x="48" y="108" fill="#92958c" font-size="22">the page of terms as its own small ontology</text>
-<line x1="204" y1="331" x2="396" y2="229" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="204" y1="331" x2="396" y2="229" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="270" y="265" width="60" height="30" rx="15" fill="#16181b"/>
 <text x="300" y="287" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
-<line x1="450" y1="331" x2="450" y2="229" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="450" y1="331" x2="450" y2="229" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="420" y="265" width="60" height="30" rx="15" fill="#16181b"/>
 <text x="450" y="287" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
-<line x1="150" y1="491" x2="150" y2="389" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="150" y1="491" x2="150" y2="389" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="120" y="425" width="60" height="30" rx="15" fill="#16181b"/>
 <text x="150" y="447" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
-<line x1="204" y1="491" x2="396" y2="389" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="204" y1="491" x2="396" y2="389" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="235" y="425" width="130" height="30" rx="15" fill="#16181b"/>
 <text x="300" y="447" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">backbone of</text>
-<line x1="450" y1="491" x2="450" y2="389" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="450" y1="491" x2="450" y2="389" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="390" y="425" width="120" height="30" rx="15" fill="#16181b"/>
 <text x="450" y="447" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">grows into</text>
-<line x1="650" y1="360" x2="550" y2="360" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="650" y1="360" x2="550" y2="360" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="570" y="345" width="60" height="30" rx="15" fill="#16181b"/>
 <text x="600" y="367" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">uses</text>
-<line x1="804" y1="331" x2="996" y2="229" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="804" y1="331" x2="996" y2="229" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="865" y="265" width="70" height="30" rx="15" fill="#16181b"/>
 <text x="900" y="287" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">feeds</text>
-<line x1="804" y1="491" x2="996" y2="389" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="804" y1="491" x2="996" y2="389" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="855" y="425" width="90" height="30" rx="15" fill="#16181b"/>
 <text x="900" y="447" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">laid on</text>
-<line x1="950" y1="520" x2="850" y2="520" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="950" y1="520" x2="850" y2="520" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="865" y="505" width="70" height="30" rx="15" fill="#16181b"/>
 <text x="900" y="527" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">marks</text>
-<line x1="750" y1="651" x2="750" y2="549" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="750" y1="651" x2="750" y2="549" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="715" y="585" width="70" height="30" rx="15" fill="#16181b"/>
 <text x="750" y="607" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">feeds</text>
-<line x1="804" y1="549" x2="996" y2="651" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="804" y1="549" x2="996" y2="651" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="870" y="585" width="60" height="30" rx="15" fill="#16181b"/>
 <text x="900" y="607" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
-<line x1="463" y1="651" x2="687" y2="549" stroke="#92958c" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="463" y1="651" x2="687" y2="549" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="510" y="585" width="130" height="30" rx="15" fill="#16181b"/>
 <text x="575" y="607" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">opposite of</text>
 <rect x="350.0" y="171.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>

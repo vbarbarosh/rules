@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="600" fill="#16181b"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">An input works like a native input</text>
 <text x="48" y="108" fill="#92958c" font-size="22">whatever takes data from the user behaves as an &lt;input&gt; does</text>
 <rect x="60" y="160" width="240" height="72" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="180.0" y="192.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">value</text>
 <text x="180.0" y="218.0" fill="#92958c" font-size="17" text-anchor="middle">its data, a prop</text>
-<line x1="306" y1="196" x2="454" y2="250" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="306" y1="196" x2="454" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="246" width="240" height="72" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="180.0" y="278.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">disabled</text>
 <text x="180.0" y="304.0" fill="#92958c" font-size="17" text-anchor="middle">respected</text>
-<line x1="306" y1="282" x2="454" y2="290" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="306" y1="282" x2="454" y2="290" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="332" width="240" height="72" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="180.0" y="364.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">readonly</text>
 <text x="180.0" y="390.0" fill="#92958c" font-size="17" text-anchor="middle">respected</text>
-<line x1="306" y1="368" x2="454" y2="330" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="306" y1="368" x2="454" y2="330" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="460" y="220" width="280" height="140" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="600.0" y="286.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">app-input-email</text>
 <text x="600.0" y="312.0" fill="#92958c" font-size="17" text-anchor="middle">like &lt;input&gt;</text>
 <rect x="900" y="255" width="240" height="72" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="1020.0" y="287.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">input</text>
 <text x="1020.0" y="313.0" fill="#92958c" font-size="17" text-anchor="middle">an event, on change</text>
-<line x1="746" y1="290" x2="894" y2="291" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="746" y1="290" x2="894" y2="291" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="300" y="440" width="300" height="64" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="450.0" y="478.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">a click on its LABEL</text>
 <rect x="660" y="440" width="240" height="64" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="780.0" y="478.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">the TAB key</text>
-<line x1="450" y1="434" x2="550" y2="366" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="780" y1="434" x2="660" y2="366" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="450" y1="434" x2="550" y2="366" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="780" y1="434" x2="660" y2="366" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="560" fill="#92958c" font-size="21">Label clicks and hover, Tab focus, disabled, readonly: all as the browser does.</text>
 </svg>

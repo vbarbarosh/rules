@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="578" viewBox="0 0 1200 578" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="578" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Break lines only to show structure</text>
 <text x="48" y="108" fill="#686a61" font-size="22">a break must show a part of the statement</text>
 <text x="60" y="168" fill="#b2341f" font-size="18" font-weight="700">✗ a break that shows nothing</text>
@@ -12,7 +12,7 @@
 <rect x="640" y="180" width="500" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <rect x="650" y="195" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="660.0" y="216" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const ok = user &amp;&amp; user.active;</text>
-<line x1="566" y1="225.0" x2="634" y2="225.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="566" y1="225.0" x2="634" y2="225.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="326" fill="#b2341f" font-size="18" font-weight="700">✗ a list crammed into a line</text>
 <text x="640" y="326" fill="#1a7443" font-size="18" font-weight="700">✓ a break per row shows the list</text>
 <rect x="60" y="338" width="500" height="158" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
@@ -25,6 +25,6 @@
 <rect x="650" y="421" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="700.8" y="442" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{value: 'md'},</text>
 <text x="660.0" y="476" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">];</text>
-<line x1="566" y1="417.0" x2="634" y2="417.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="566" y1="417.0" x2="634" y2="417.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="546" fill="#686a61" font-size="21">Where the statement has parts, a break per part; where it has none, no break.</text>
 </svg>

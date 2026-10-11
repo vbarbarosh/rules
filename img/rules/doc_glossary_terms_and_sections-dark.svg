@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="560" fill="#16181b"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="34" font-weight="700">A glossary keeps the author's terms; the AI explains below them</text>
 <text x="48" y="108" fill="#92958c" font-size="22">everything before the first ## section is the author's</text>
 <rect x="60" y="170" width="620" height="150" rx="0" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
@@ -18,7 +18,7 @@
 <rect x="800" y="335" width="340" height="90" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="970.0" y="375.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">each ## section</text>
 <text x="970.0" y="400.0" fill="#92958c" font-size="18" text-anchor="middle">explains one term</text>
-<line x1="794" y1="245" x2="686" y2="245" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="794" y1="380" x2="686" y2="380" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="794" y1="245" x2="686" y2="245" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="794" y1="380" x2="686" y2="380" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="510" fill="#92958c" font-size="21">The author's line for a term is the source of its section.</text>
 </svg>

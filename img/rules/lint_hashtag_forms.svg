@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="640" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Write #- only where the loader replaces it</text>
 <text x="48" y="108" fill="#686a61" font-size="22">the loader rewrites #- in a few exact forms; anywhere else it stays as typed</text>
 <rect x="60" y="170" width="480" height="80" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
@@ -9,27 +9,27 @@
 <rect x="620" y="170" width="520" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="638" y="204" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">class="#-title"</text>
 <text x="638" y="232" fill="#1a7443" font-size="17">✓ a double-quoted class</text>
-<line x1="546" y1="210.0" x2="614" y2="210.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="546" y1="210.0" x2="614" y2="210.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="270" width="480" height="80" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="78" y="304" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">title="#-tip"</text>
 <text x="78" y="332" fill="#b2341f" font-size="17">✗ another attribute: not replaced</text>
 <rect x="620" y="270" width="520" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="638" y="304" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">card_class="#-card"</text>
 <text x="638" y="332" fill="#1a7443" font-size="17">✓ class, card_class, *-class, :class</text>
-<line x1="546" y1="310.0" x2="614" y2="310.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="546" y1="310.0" x2="614" y2="310.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="370" width="480" height="80" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="78" y="404" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">el.querySelector(".#-title")</text>
 <text x="78" y="432" fill="#b2341f" font-size="17">✗ double quotes in JavaScript</text>
 <rect x="620" y="370" width="520" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="638" y="404" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">el.querySelector('.#-title')</text>
 <text x="638" y="432" fill="#1a7443" font-size="17">✓ exactly '.#- in JavaScript</text>
-<line x1="546" y1="410.0" x2="614" y2="410.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="546" y1="410.0" x2="614" y2="410.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="470" width="480" height="80" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="78" y="504" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">#-title { … }</text>
 <text x="78" y="532" fill="#b2341f" font-size="17">✗ no dot in the style block</text>
 <rect x="620" y="470" width="520" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="638" y="504" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">.#-title { … }</text>
 <text x="638" y="532" fill="#1a7443" font-size="17">✓ .#- in a style block</text>
-<line x1="546" y1="510.0" x2="614" y2="510.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="546" y1="510.0" x2="614" y2="510.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="600" fill="#686a61" font-size="21">A #- the loader skips reaches the browser unchanged and matches nothing.</text>
 </svg>

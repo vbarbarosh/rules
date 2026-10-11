@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="560" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Select the first actionable item by default</text>
 <text x="48" y="108" fill="#686a61" font-size="22">Enter acts on the first item shown, until the user picks another</text>
 <rect x="60" y="160" width="420" height="200" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
@@ -10,7 +10,7 @@
 <text x="96" y="265" fill="#191a17" font-size="19">LinkedIn</text>
 <rect x="76" y="292" width="388" height="48" rx="6" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
 <text x="96" y="323" fill="#191a17" font-size="19">Postgres</text>
-<line x1="486" y1="200" x2="594" y2="200" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="486" y1="200" x2="594" y2="200" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="600" y="165" width="300" height="70" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="750.0" y="206.65" fill="#191a17" font-size="19" text-anchor="middle">Enter opens SQLite</text>
 <text x="600" y="300" fill="#686a61" font-size="18">filtered to "link": LinkedIn is first</text>
@@ -21,5 +21,5 @@
 <rect x="580" y="400" width="560" height="81" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="600.0" y="437" fill="#191a17" font-size="19">the first item selected</text>
 <text x="600" y="467" fill="#1a7443" font-size="17">✓ Enter opens it</text>
-<line x1="506" y1="440.5" x2="574" y2="440.5" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="506" y1="440.5" x2="574" y2="440.5" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 </svg>

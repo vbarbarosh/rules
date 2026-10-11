@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="500" fill="#16181b"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Format and render differ by output purpose</text>
 <text x="48" y="108" fill="#92958c" font-size="22">both return strings; who uses the string decides the prefix</text>
 <rect x="60" y="170" width="380" height="70" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
@@ -9,15 +9,15 @@
 <text x="650.0" y="211.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">"1.4 MB"</text>
 <rect x="860" y="170" width="280" height="70" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="1000.0" y="211.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">a person reads it</text>
-<line x1="446" y1="205" x2="514" y2="205" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="786" y1="205" x2="854" y2="205" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="446" y1="205" x2="514" y2="205" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="786" y1="205" x2="854" y2="205" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="280" width="380" height="70" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="250.0" y="321.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">$theme-&gt;render_css()</text>
 <rect x="520" y="280" width="260" height="70" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="650.0" y="321.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">'body { … }'</text>
 <rect x="860" y="280" width="280" height="70" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="1000.0" y="321.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">a browser uses it</text>
-<line x1="446" y1="315" x2="514" y2="315" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="786" y1="315" x2="854" y2="315" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="446" y1="315" x2="514" y2="315" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="786" y1="315" x2="854" y2="315" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="450" fill="#92958c" font-size="21">Reading object state does not turn display text into render output.</text>
 </svg>

@@ -1,27 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="730" fill="#fffefb"/>
-<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#686a61"/></marker></defs>
+<defs><marker id="a" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#686a61" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Graph</text>
 <text x="48" y="108" fill="#686a61" font-size="22">things (nodes) and the links between them (edges), with no rules on how they link</text>
-<line x1="170" y1="331" x2="170" y2="229" stroke="#686a61" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="170" y1="331" x2="170" y2="229" stroke="#686a61" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="145" y="265" width="50" height="30" rx="15" fill="#fffefb"/>
 <text x="170" y="287" fill="#686a61" font-size="19" font-style="italic" text-anchor="middle">Re:</text>
-<line x1="170" y1="491" x2="170" y2="389" stroke="#686a61" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="170" y1="491" x2="170" y2="389" stroke="#686a61" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="145" y="425" width="50" height="30" rx="15" fill="#fffefb"/>
 <text x="170" y="447" fill="#686a61" font-size="19" font-style="italic" text-anchor="middle">Re:</text>
-<line x1="170" y1="651" x2="170" y2="549" stroke="#686a61" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="170" y1="651" x2="170" y2="549" stroke="#686a61" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="145" y="585" width="50" height="30" rx="15" fill="#fffefb"/>
 <text x="170" y="607" fill="#686a61" font-size="19" font-style="italic" text-anchor="middle">Re:</text>
-<line x1="513" y1="411" x2="217" y2="229" stroke="#b8650a" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="513" y1="411" x2="217" y2="229" stroke="#b8650a" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="340" y="305" width="50" height="30" rx="15" fill="#fffefb"/>
 <text x="365" y="327" fill="#b8650a" font-size="19" font-style="italic" text-anchor="middle">Re:</text>
-<line x1="440" y1="465" x2="290" y2="495" stroke="#b8650a" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="440" y1="465" x2="290" y2="495" stroke="#b8650a" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="340" y="465" width="50" height="30" rx="15" fill="#fffefb"/>
 <text x="365" y="487" fill="#b8650a" font-size="19" font-style="italic" text-anchor="middle">Re:</text>
-<line x1="830" y1="440" x2="680" y2="440" stroke="#686a61" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="830" y1="440" x2="680" y2="440" stroke="#686a61" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="730" y="425" width="50" height="30" rx="15" fill="#fffefb"/>
 <text x="755" y="447" fill="#686a61" font-size="19" font-style="italic" text-anchor="middle">Re:</text>
-<line x1="950" y1="611" x2="950" y2="469" stroke="#686a61" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="950" y1="611" x2="950" y2="469" stroke="#686a61" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="925" y="525" width="50" height="30" rx="15" fill="#fffefb"/>
 <text x="950" y="547" fill="#686a61" font-size="19" font-style="italic" text-anchor="middle">Re:</text>
 <rect x="50.0" y="171.0" width="240" height="58" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2.5"/>

@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="600" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A variable name states the shape of its data</text>
 <text x="48" y="108" fill="#686a61" font-size="22">read the name, and you know the shape before you look at the value</text>
 <rect x="60" y="160" width="330" height="60" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="225.0" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">users</text>
-<line x1="396" y1="190" x2="474" y2="190" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="396" y1="190" x2="474" y2="190" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="480" y="168" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <rect x="524" y="168" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <rect x="568" y="168" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
@@ -13,7 +13,7 @@
 <text x="680" y="198" fill="#686a61" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">User[]</text>
 <rect x="60" y="250" width="330" height="60" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="225.0" y="287.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_by_id</text>
-<line x1="396" y1="280" x2="474" y2="280" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="396" y1="280" x2="474" y2="280" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="480" y="258" width="46" height="44" rx="5" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
 <text x="503" y="287" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">7</text>
 <rect x="530" y="258" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
@@ -26,7 +26,7 @@
 <text x="800" y="288" fill="#686a61" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">Record&lt;id, User&gt;</text>
 <rect x="60" y="340" width="330" height="60" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="225.0" y="377.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">users_by_role</text>
-<line x1="396" y1="370" x2="474" y2="370" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="396" y1="370" x2="474" y2="370" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="480" y="348" width="80" height="44" rx="5" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
 <text x="520" y="377" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">admin</text>
 <rect x="564" y="348" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
@@ -39,7 +39,7 @@
 <text x="890" y="378" fill="#686a61" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">Record&lt;role, User[]&gt;</text>
 <rect x="60" y="430" width="330" height="60" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="225.0" y="467.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">items_sorted_by_time</text>
-<line x1="396" y1="460" x2="474" y2="460" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="396" y1="460" x2="474" y2="460" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="480" y="438" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="497" y="467" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">1</text>
 <rect x="524" y="438" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>

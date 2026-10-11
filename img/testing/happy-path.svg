@@ -1,31 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="640" fill="#fffefb"/>
-<defs><marker id="a56DB3A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1a7443"/></marker><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a19f93"/></marker></defs>
+<defs><marker id="a56DB3A" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#1a7443" stroke-linejoin="round"/></marker><marker id="a5E5C4E" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#a19f93" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Happy path</text>
 <text x="48" y="108" fill="#686a61" font-size="22">the ideal scenario: every step as meant, no error on the way</text>
 <rect x="70" y="280" width="180" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="160.0" y="322.56" fill="#1a7443" font-size="21" text-anchor="middle" font-weight="700">open the form</text>
-<line x1="250" y1="315" x2="290" y2="315" stroke="#1a7443" stroke-width="4" marker-end="url(#a56DB3A)"/>
+<line x1="250" y1="315" x2="290" y2="315" stroke="#1a7443" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a56DB3A)"/>
 <rect x="290" y="280" width="180" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="380.0" y="322.56" fill="#1a7443" font-size="21" text-anchor="middle" font-weight="700">fill it in</text>
-<line x1="470" y1="315" x2="510" y2="315" stroke="#1a7443" stroke-width="4" marker-end="url(#a56DB3A)"/>
+<line x1="470" y1="315" x2="510" y2="315" stroke="#1a7443" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a56DB3A)"/>
 <rect x="510" y="280" width="180" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="600.0" y="322.56" fill="#1a7443" font-size="21" text-anchor="middle" font-weight="700">send</text>
-<line x1="690" y1="315" x2="730" y2="315" stroke="#1a7443" stroke-width="4" marker-end="url(#a56DB3A)"/>
+<line x1="690" y1="315" x2="730" y2="315" stroke="#1a7443" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a56DB3A)"/>
 <rect x="730" y="280" width="180" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="820.0" y="322.56" fill="#1a7443" font-size="21" text-anchor="middle" font-weight="700">saved</text>
-<line x1="910" y1="315" x2="950" y2="315" stroke="#1a7443" stroke-width="4" marker-end="url(#a56DB3A)"/>
+<line x1="910" y1="315" x2="950" y2="315" stroke="#1a7443" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a56DB3A)"/>
 <rect x="950" y="280" width="180" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="1040.0" y="322.56" fill="#1a7443" font-size="21" text-anchor="middle" font-weight="700">done</text>
 <rect x="280" y="440" width="200" height="60" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="10 8"/>
 <text x="380.0" y="476.84" fill="#686a61" font-size="19" text-anchor="middle" font-weight="700">a field empty</text>
-<line x1="380" y1="356" x2="380" y2="434" stroke="#a19f93" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#a5E5C4E)"/>
+<line x1="380" y1="356" x2="380" y2="434" stroke="#a19f93" stroke-width="1.75" stroke-dasharray="10 8" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="500" y="440" width="200" height="60" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="10 8"/>
 <text x="600.0" y="476.84" fill="#686a61" font-size="19" text-anchor="middle" font-weight="700">the network down</text>
-<line x1="600" y1="356" x2="600" y2="434" stroke="#a19f93" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#a5E5C4E)"/>
+<line x1="600" y1="356" x2="600" y2="434" stroke="#a19f93" stroke-width="1.75" stroke-dasharray="10 8" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="720" y="440" width="200" height="60" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="10 8"/>
 <text x="820.0" y="476.84" fill="#686a61" font-size="19" text-anchor="middle" font-weight="700">the server says no</text>
-<line x1="820" y1="356" x2="820" y2="434" stroke="#a19f93" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#a5E5C4E)"/>
+<line x1="820" y1="356" x2="820" y2="434" stroke="#a19f93" stroke-width="1.75" stroke-dasharray="10 8" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <text x="48" y="545" fill="#686a61" font-size="21" text-anchor="start">The green road is the happy path. The grey branches are the other paths: a test of the</text>
 <text x="48" y="576" fill="#686a61" font-size="21" text-anchor="start">happy path alone never takes them.</text>
 </svg>

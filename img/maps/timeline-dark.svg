@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="640" fill="#16181b"/>
-<defs><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4a4f57"/></marker></defs>
+<defs><marker id="a5E5C4E" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#4a4f57" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Timeline</text>
 <text x="48" y="108" fill="#92958c" font-size="22">events placed along time, in the order they happened</text>
 <line x1="80" y1="330" x2="1120" y2="330" stroke="#4a4f57" stroke-width="4"/>
@@ -22,7 +22,7 @@
 <circle cx="1100" cy="330" r="12" fill="#2c3035"/>
 <text x="1100" y="420" fill="#d3d1c9" font-size="24" text-anchor="middle" font-weight="700">…</text>
 <text x="1100" y="450" fill="#92958c" font-size="20" text-anchor="middle">your commit</text>
-<line data-free="" x1="1120" y1="330" x2="1150" y2="330" stroke="#4a4f57" stroke-width="3" marker-end="url(#a5e5c4e)"/>
+<line data-free="" x1="1120" y1="330" x2="1150" y2="330" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
 <text x="48" y="520" fill="#92958c" font-size="21" text-anchor="start">In the agent notes: the change log at the end of a subject file, newest first, and the time</text>
 <text x="48" y="551" fill="#92958c" font-size="21" text-anchor="start">in every message name.</text>
 <text x="48" y="582" fill="#92958c" font-size="21" text-anchor="start">A roadmap is laid on a timeline; a timeline only says when.</text>

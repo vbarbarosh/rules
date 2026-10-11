@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="600" fill="#16181b"/>
-<defs><marker id="a1299DA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="a1299DA" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Showstopper bug</text>
 <text x="48" y="108" fill="#92958c" font-size="22">a defect so severe that nothing can go on until it is fixed</text>
 <rect x="0" y="260" width="1200" height="80" fill="#212428"/><line x1="0" y1="300" x2="1200" y2="300" stroke="#4a4f57" stroke-width="3" stroke-dasharray="20 16"/>
@@ -10,7 +10,7 @@
 <g transform="translate(820 230)"><rect x="0" y="0" width="60" height="140" fill="#3b1f22" stroke="#ff937c" stroke-width="4"/><path d="M0 0 L60 35 M0 35 L60 70 M0 70 L60 105 M0 105 L60 140" stroke="#ff937c" stroke-width="8"/></g>
 <text x="850" y="410" fill="#ff937c" font-size="24" text-anchor="middle" font-weight="700">the show stops here</text>
 <text x="1000" y="240" fill="#92958c" font-size="22" text-anchor="middle">customers</text>
-<line x1="60" y1="300" x2="814" y2="300" stroke="#9db2ff" stroke-width="4" marker-end="url(#a1299da)"/>
+<line x1="60" y1="300" x2="814" y2="300" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
 <text x="48" y="480" fill="#92958c" font-size="21" text-anchor="start">The app crashes on start; the sign-in fails for everyone; the build cannot be made.</text>
 <text x="48" y="511" fill="#92958c" font-size="21" text-anchor="start">Every other task waits: a showstopper is fixed first, and the release that has it is not</text>
 <text x="48" y="542" fill="#92958c" font-size="21" text-anchor="start">shipped.</text>

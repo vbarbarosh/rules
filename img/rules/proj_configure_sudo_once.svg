@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="520" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">bin/configure takes sudo once, up front</text>
 <text x="48" y="108" fill="#686a61" font-size="22">predict what the install will need; ask for sudo before it starts</text>
 <rect x="60" y="170" width="320" height="84" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
@@ -9,17 +9,17 @@
 <rect x="440" y="170" width="320" height="84" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="600.0" y="208.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">sudo -v</text>
 <text x="600.0" y="234.0" fill="#686a61" font-size="17" text-anchor="middle">once, up front</text>
-<line x1="386" y1="212.0" x2="434" y2="212.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="386" y1="212.0" x2="434" y2="212.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="820" y="170" width="320" height="84" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="980.0" y="208.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">sudo -n chown …</text>
 <text x="980.0" y="234.0" fill="#686a61" font-size="17" text-anchor="middle">later: never a prompt</text>
-<line x1="766" y1="212.0" x2="814" y2="212.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="766" y1="212.0" x2="814" y2="212.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="300" width="500" height="84" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="310.0" y="338.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">sudo chown … (step 7)</text>
 <text x="310.0" y="364.0" fill="#686a61" font-size="17" text-anchor="middle">✗ a prompt in the middle</text>
 <rect x="640" y="300" width="500" height="84" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="890.0" y="338.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">sudo -n chown …</text>
 <text x="890.0" y="364.0" fill="#686a61" font-size="17" text-anchor="middle">✓ fails at once, never waits</text>
-<line x1="566" y1="342.0" x2="634" y2="342.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="566" y1="342.0" x2="634" y2="342.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="470" fill="#686a61" font-size="21">A missing chrome-sandbox or one not root:4755 is known before the install begins.</text>
 </svg>

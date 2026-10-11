@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="540" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">_from_ never means lookup</text>
 <text x="48" y="108" fill="#686a61" font-size="22">finding a user by id computes nothing: it is a "by" lookup</text>
 <text x="200" y="186" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-weight="700">user_by_id</text>
@@ -18,13 +18,13 @@
 <text x="365.0" y="312.0" fill="#191a17" font-size="18" text-anchor="middle">User Cy</text>
 <rect x="30" y="238" width="110" height="50" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="85" y="270" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">id = 12</text>
-<line x1="146" y1="263" x2="194" y2="263" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="146" y1="263" x2="194" y2="263" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="500" y="225" width="280" height="76" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="640.0" y="258" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_from_id(id)</text>
 <text x="640.0" y="285" fill="#686a61" font-size="17" text-anchor="middle">✗ dressed as built</text>
 <rect x="860" y="225" width="280" height="76" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="1000.0" y="258" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_by_id[id]</text>
 <text x="1000.0" y="285" fill="#686a61" font-size="17" text-anchor="middle">✓ looked up</text>
-<line x1="786" y1="263" x2="854" y2="263" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="786" y1="263" x2="854" y2="263" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="500" fill="#686a61" font-size="21">A lookup disguised as construction hides what it costs and where the data lives.</text>
 </svg>

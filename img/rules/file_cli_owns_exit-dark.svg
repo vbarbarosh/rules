@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="458" viewBox="0 0 1200 458" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="458" fill="#16181b"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">An executable hands main to cli</text>
 <text x="48" y="108" fill="#92958c" font-size="22">cli owns the process: it waits, reports and exits</text>
 <rect x="60" y="200" width="220" height="80" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="170.0" y="246.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">main</text>
 <rect x="380" y="200" width="220" height="80" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="490.0" y="246.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">cli(main)</text>
-<line x1="286" y1="240" x2="374" y2="240" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="286" y1="240" x2="374" y2="240" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="680" y="160" width="460" height="60" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="700" y="197" fill="#d3d1c9" font-size="17">keeps the loop alive until main settles</text>
-<line x1="606" y1="240" x2="674" y2="190" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="606" y1="240" x2="674" y2="190" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="680" y="234" width="460" height="60" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="700" y="271" fill="#d3d1c9" font-size="17">reports a failure</text>
-<line x1="606" y1="240" x2="674" y2="264" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="606" y1="240" x2="674" y2="264" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="680" y="308" width="460" height="60" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="700" y="345" fill="#d3d1c9" font-size="17">exits non-zero: ExitCodeError's code, else 1</text>
-<line x1="606" y1="240" x2="674" y2="338" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="606" y1="240" x2="674" y2="338" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="422" fill="#92958c" font-size="21">main does the work; how the process ends is not its business.</text>
 </svg>
