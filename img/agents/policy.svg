@@ -2,7 +2,7 @@
 <rect width="1200" height="600" fill="#fffefb"/>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Policy</text>
 <text x="48" y="108" fill="#686a61" font-size="22">text in the system message that constrains behaviour: read, not enforced</text>
-<rect x="60" y="160" width="520" height="300" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<rect x="60" y="160" width="520" height="320" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="90" y="200" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">system message</text>
 <text x="90" y="240" fill="#191a17" font-size="21" text-anchor="start">Never delete a file the user</text>
 <text x="90" y="272" fill="#191a17" font-size="21" text-anchor="start">did not name.</text>
@@ -10,8 +10,8 @@
 <text x="90" y="336" fill="#191a17" font-size="21" text-anchor="start">Ask before any deploy.</text>
 <text x="90" y="368" fill="#191a17" font-size="21" text-anchor="start"></text>
 <text x="90" y="400" fill="#191a17" font-size="21" text-anchor="start">Answer in English.</text>
-<rect x="90" y="410" width="223" height="40" rx="20.0" fill="#e2e7fb"/>
-<text x="201.67" y="436.84" fill="#2743b8" font-size="19" text-anchor="middle" font-weight="700">read by the model</text>
+<rect x="90" y="422" width="223" height="40" rx="20.0" fill="#e2e7fb"/>
+<text x="201.67" y="448.84" fill="#2743b8" font-size="19" text-anchor="middle" font-weight="700">read by the model</text>
 <text x="620" y="200" fill="#191a17" font-size="22" text-anchor="start" font-weight="700">enforcement is elsewhere:</text>
 <rect x="620" y="230" width="500" height="64" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="870.0" y="269.2" fill="#1a7443" font-size="20" text-anchor="middle" font-weight="700">permission: what a tool may touch</text>
@@ -19,6 +19,6 @@
 <text x="870.0" y="349.2" fill="#1a7443" font-size="20" text-anchor="middle" font-weight="700">gate: the user approves before it runs</text>
 <rect x="620" y="390" width="500" height="64" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="870.0" y="429.2" fill="#1a7443" font-size="20" text-anchor="middle" font-weight="700">sandbox: the boundary of its effects</text>
-<text x="48" y="520" fill="#686a61" font-size="21" text-anchor="start">A policy steers a model that reads it; it stops nothing by itself. What must not happen is</text>
-<text x="48" y="551" fill="#686a61" font-size="21" text-anchor="start">stopped by a permission, a gate or a sandbox.</text>
+<text x="48" y="536" fill="#686a61" font-size="21" text-anchor="start">A policy steers a model that reads it; it stops nothing by itself. What must not happen is</text>
+<text x="48" y="567" fill="#686a61" font-size="21" text-anchor="start">stopped by a permission, a gate or a sandbox.</text>
 </svg>

@@ -19,5 +19,5 @@
 <text x="190.0" y="487.92" fill="#b2341f" font-size="22" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">refusal</text>
 <line x1="320" y1="480" x2="380" y2="480" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
 <text x="390" y="488" fill="#191a17" font-size="21" text-anchor="start">the model declined the request</text>
-<text x="48" y="545" fill="#686a61" font-size="21" text-anchor="start">The harness reads the stop reason, not the text, to decide what happens next.</text>
+<text x="48" y="560" fill="#686a61" font-size="21" text-anchor="start">The harness reads the stop reason, not the text, to decide what happens next.</text>
 </svg>

@@ -83,8 +83,7 @@
 <rect x="1106" y="244" width="44" height="44" rx="6" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <path d="M1121.7 259.7 l12.6 12.6 M1134.3 259.7 l-12.6 12.6" stroke="#b2341f" stroke-width="3.5" stroke-linecap="round"/>
 <text x="80" y="340" fill="#b2341f" font-size="24" text-anchor="start" font-weight="700">30 of 40 requests fail: 75% errors</text>
-<text x="48" y="420" fill="#686a61" font-size="21" text-anchor="start">What the system does under a flood is the question: does it stay up, say so once, and keep</text>
-<text x="48" y="451" fill="#686a61" font-size="21" text-anchor="start">the 25% that work?</text>
-<text x="48" y="482" fill="#686a61" font-size="21" text-anchor="start">A flood is the scenario to test the logging, the alerts and the retries against; one error</text>
-<text x="48" y="513" fill="#686a61" font-size="21" text-anchor="start">at a time never shows it.</text>
+<text x="48" y="420" fill="#686a61" font-size="21" text-anchor="start">What the system does under a flood is the question: does it stay up, say so once, and</text>
+<text x="48" y="451" fill="#686a61" font-size="21" text-anchor="start">keep the 25% that work? A flood is the scenario to test the logging, the alerts and the</text>
+<text x="48" y="482" fill="#686a61" font-size="21" text-anchor="start">retries against; one error at a time never shows it.</text>
 </svg>

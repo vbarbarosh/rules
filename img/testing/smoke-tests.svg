@@ -11,8 +11,9 @@
 <text x="510" y="232" fill="#191a17" font-size="26" text-anchor="middle" font-weight="700">the app</text>
 <text x="510" y="266" fill="#686a61" font-size="20" text-anchor="middle">starts? answers? logs in?</text>
 <text x="510" y="296" fill="#686a61" font-size="20" text-anchor="middle">3 tests, 10 seconds</text>
-<path d="M700 180 q20 -40 0 -80 q-20 -40 0 -80" fill="none" stroke="#b2341f" stroke-width="6" stroke-linecap="round" opacity="0.8"/><path d="M740 190 q20 -40 0 -80 q-20 -40 0 -80" fill="none" stroke="#b2341f" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
-<text x="770" y="110" fill="#b2341f" font-size="20" text-anchor="start">smoke: something is seriously broken</text>
+
+<path d="M480 174 q10 -10 0 -20 q-10 -10 0 -20" fill="none" stroke="#b2341f" stroke-width="5" stroke-linecap="round" opacity="0.8"/><path d="M510 174 q10 -10 0 -20 q-10 -10 0 -20" fill="none" stroke="#b2341f" stroke-width="5" stroke-linecap="round" opacity="0.8"/><path d="M540 174 q10 -10 0 -20 q-10 -10 0 -20" fill="none" stroke="#b2341f" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+<text x="510" y="374" fill="#b2341f" font-size="19" text-anchor="middle">smoke: something is seriously broken</text>
 <line x1="660" y1="260" x2="760" y2="260" stroke="#a19f93" stroke-width="4" marker-end="url(#a5E5C4E)"/>
 <rect x="760" y="180" width="392" height="160" rx="16" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="12 8"/>
 <text x="780" y="214" fill="#686a61" font-size="22" text-anchor="start" font-weight="700">the deep tests: 2,000 of them</text>
@@ -24,6 +25,6 @@
 <text x="1055.0" y="282.2" fill="#686a61" font-size="20" text-anchor="middle" font-weight="700">…</text>
 <text x="956" y="330" fill="#686a61" font-size="18" text-anchor="middle">pointless until the smoke test passes</text>
 <text x="48" y="440" fill="#686a61" font-size="21" text-anchor="start">From hardware: power it on; if smoke comes out, stop there. A smoke test answers one</text>
-<text x="48" y="471" fill="#686a61" font-size="21" text-anchor="start">question, before any other test runs:</text>
-<text x="48" y="502" fill="#686a61" font-size="21" text-anchor="start">does the application run without immediately breaking?</text>
+<text x="48" y="471" fill="#686a61" font-size="21" text-anchor="start">question, before any other test runs: does the application run without immediately</text>
+<text x="48" y="502" fill="#686a61" font-size="21" text-anchor="start">breaking?</text>
 </svg>

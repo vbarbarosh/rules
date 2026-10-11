@@ -22,7 +22,6 @@
 <path d="M1044.0 292 l8.8 8.8 l17.6 -19.8" fill="none" stroke="#1a7443" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="600" y="380" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">same code · same test · same machine</text>
 <text x="48" y="460" fill="#686a61" font-size="21" text-anchor="start">Causes: timing and races, a flaky network, threads in each other's way, a value left</text>
-<text x="48" y="491" fill="#686a61" font-size="21" text-anchor="start">uninitialised, a limit hit now and then.</text>
-<text x="48" y="522" fill="#686a61" font-size="21" text-anchor="start">Painful because the log rarely shows why, and "works on my machine" is true. Run #2 and #5</text>
-<text x="48" y="553" fill="#686a61" font-size="21" text-anchor="start">are the evidence.</text>
+<text x="48" y="491" fill="#686a61" font-size="21" text-anchor="start">uninitialised, a limit hit now and then. Painful because the log rarely shows why, and</text>
+<text x="48" y="522" fill="#686a61" font-size="21" text-anchor="start">"works on my machine" is true. Run #2 and #5 are the evidence.</text>
 </svg>

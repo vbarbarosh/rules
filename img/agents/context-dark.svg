@@ -2,7 +2,7 @@
 <rect width="1200" height="640" fill="#16181b"/>
 <defs><marker id="a1299DA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Context</text>
-<text x="48" y="108" fill="#92958c" font-size="22">what one call sends: the system message, the tool definitions, the transcript or its compacted form, the grounding</text>
+<text x="48" y="108" fill="#92958c" font-size="22">what one call sends: the system message, the tool definitions, the transcript, the grounding</text>
 <rect x="60" y="150" width="560" height="440" rx="16" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="80" y="184" fill="#9db2ff" font-size="22" text-anchor="start" font-weight="700">the context of call 7 · 41,000 tokens</text>
 <rect x="90" y="200" width="500" height="60" rx="12" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
@@ -14,13 +14,12 @@
 <text x="340" y="430" fill="#92958c" font-size="19" text-anchor="middle">or its compacted form</text>
 <rect x="90" y="485" width="500" height="60" rx="12" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="340.0" y="522.2" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">grounding · the workspace now</text>
-<line x1="620" y1="370" x2="700" y2="370" stroke="#9db2ff" stroke-width="4" marker-end="url(#a1299DA)"/>
+<line x1="620" y1="370" x2="700" y2="370" stroke="#9db2ff" stroke-width="4" marker-end="url(#a1299da)"/>
 <rect x="700" y="320" width="300" height="100" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="850.0" y="364.0" fill="#9db2ff" font-size="24" text-anchor="middle" font-weight="700">the model</text>
 <text x="850.0" y="392.8" fill="#92958c" font-size="20" text-anchor="middle">reads all of it, nothing else</text>
-<text x="1000" y="200" fill="#d3d1c9" font-size="22" text-anchor="start" font-weight="700">not in it:</text>
-<text x="1000" y="236" fill="#92958c" font-size="20" text-anchor="start">does not exist</text>
-<text x="1000" y="266" fill="#92958c" font-size="20" text-anchor="start">for the model:</text>
-<text x="1000" y="296" fill="#92958c" font-size="20" text-anchor="start">compacted away,</text>
-<text x="1000" y="326" fill="#92958c" font-size="20" text-anchor="start">or never written.</text>
+<rect x="700" y="450" width="440" height="140" rx="12" fill="#16181b" stroke="#4a4f57" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="720" y="486" fill="#d3d1c9" font-size="22" text-anchor="start" font-weight="700">not in it</text>
+<text x="720" y="520" fill="#92958c" font-size="20" text-anchor="start">compacted away, or never written:</text>
+<text x="720" y="550" fill="#92958c" font-size="20" text-anchor="start">for the model it does not exist</text>
 </svg>

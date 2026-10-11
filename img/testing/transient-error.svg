@@ -3,24 +3,24 @@
 <defs><marker id="a5E5C4E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a19f93"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Transient error</text>
 <text x="48" y="108" fill="#686a61" font-size="22">a temporary failure that resolves by itself: try again a moment later</text>
-<rect x="120" y="200" width="240" height="110" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
-<text x="240" y="236" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">try 1</text>
-<path d="M229.2 261.2 l21.599999999999998 21.599999999999998 M250.8 261.2 l-21.599999999999998 21.599999999999998" stroke="#b2341f" stroke-width="6.0" stroke-linecap="round"/>
-<text x="240" y="350" fill="#686a61" font-size="20" text-anchor="middle">network blip</text>
-<line x1="360" y1="255" x2="460" y2="255" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
-<text x="410.0" y="243.0" fill="#686a61" font-size="20" text-anchor="middle" font-style="italic">wait, retry</text>
-<rect x="460" y="200" width="240" height="110" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
-<text x="580" y="236" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">try 2</text>
-<path d="M569.2 261.2 l21.599999999999998 21.599999999999998 M590.8 261.2 l-21.599999999999998 21.599999999999998" stroke="#b2341f" stroke-width="6.0" stroke-linecap="round"/>
-<text x="580" y="350" fill="#686a61" font-size="20" text-anchor="middle">pool full</text>
-<line x1="700" y1="255" x2="800" y2="255" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
-<text x="750.0" y="243.0" fill="#686a61" font-size="20" text-anchor="middle" font-style="italic">wait, retry</text>
-<rect x="800" y="200" width="240" height="110" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
-<text x="920" y="236" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">try 3</text>
-<path d="M908.0 278 l9.6 9.6 l19.2 -21.599999999999998" fill="none" stroke="#1a7443" stroke-width="6.0" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="920" y="300" fill="#686a61" font-size="1" text-anchor="start"></text>
-<text x="920" y="350" fill="#686a61" font-size="20" text-anchor="middle">answered</text>
-<text x="48" y="460" fill="#686a61" font-size="21" text-anchor="start">A transient error is not a bug of the code: the network blinked, a connection pool was full,</text>
-<text x="48" y="491" fill="#686a61" font-size="21" text-anchor="start">a file was locked for a second.</text>
-<text x="48" y="522" fill="#686a61" font-size="21" text-anchor="start">The answer is a retry with a short wait; one that never resolves is an error of its own.</text>
+<rect x="100" y="200" width="220" height="110" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="210" y="236" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">try 1</text>
+<path d="M199.2 261.2 l21.599999999999998 21.599999999999998 M220.8 261.2 l-21.599999999999998 21.599999999999998" stroke="#b2341f" stroke-width="6.0" stroke-linecap="round"/>
+<text x="210" y="350" fill="#686a61" font-size="20" text-anchor="middle">network blip</text>
+<line x1="326" y1="255" x2="454" y2="255" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
+<text x="390" y="230" fill="#686a61" font-size="20" text-anchor="middle" font-style="italic">wait, retry</text>
+<rect x="460" y="200" width="220" height="110" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="570" y="236" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">try 2</text>
+<path d="M559.2 261.2 l21.599999999999998 21.599999999999998 M580.8 261.2 l-21.599999999999998 21.599999999999998" stroke="#b2341f" stroke-width="6.0" stroke-linecap="round"/>
+<text x="570" y="350" fill="#686a61" font-size="20" text-anchor="middle">pool full</text>
+<line x1="686" y1="255" x2="814" y2="255" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
+<text x="750" y="230" fill="#686a61" font-size="20" text-anchor="middle" font-style="italic">wait, retry</text>
+<rect x="820" y="200" width="220" height="110" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="930" y="236" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">try 3</text>
+<path d="M918.0 278 l9.6 9.6 l19.2 -21.599999999999998" fill="none" stroke="#1a7443" stroke-width="6.0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="930" y="300" fill="#686a61" font-size="1" text-anchor="start"></text>
+<text x="930" y="350" fill="#686a61" font-size="20" text-anchor="middle">answered</text>
+<text x="48" y="460" fill="#686a61" font-size="21" text-anchor="start">A transient error is not a bug of the code: the network blinked, a connection pool was</text>
+<text x="48" y="491" fill="#686a61" font-size="21" text-anchor="start">full, a file was locked for a second. The answer is a retry with a short wait; one that</text>
+<text x="48" y="522" fill="#686a61" font-size="21" text-anchor="start">never resolves is an error of its own.</text>
 </svg>

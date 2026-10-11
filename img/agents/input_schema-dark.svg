@@ -4,12 +4,12 @@
 <text x="48" y="108" fill="#92958c" font-size="22">the shape of a tool's arguments, as JSON Schema</text>
 <rect x="60" y="160" width="520" height="330" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="90" y="202" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">"input_schema": {</text>
-<text x="90" y="234" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  "type": "object",</text>
-<text x="90" y="266" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  "properties": {</text>
-<text x="90" y="298" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">    "path": {"type": "string"},</text>
-<text x="90" y="330" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">    "max_lines": {"type": "integer"}</text>
-<text x="90" y="362" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  },</text>
-<text x="90" y="394" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  "required": ["path"]</text>
+<text x="90" y="234" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  "type": "object",</text>
+<text x="90" y="266" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  "properties": {</text>
+<text x="90" y="298" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">    "path": {"type": "string"},</text>
+<text x="90" y="330" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">    "max_lines": {"type": "integer"}</text>
+<text x="90" y="362" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  },</text>
+<text x="90" y="394" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  "required": ["path"]</text>
 <text x="90" y="426" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
 <rect x="640" y="170" width="500" height="120" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="890" y="212" fill="#72d39c" font-size="19" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{"path": "src/app.js", "max_lines": 40}</text>

@@ -14,9 +14,10 @@
 <rect x="720" y="150" width="300" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="870.0" y="192.2" fill="#1a7443" font-size="20" text-anchor="middle" font-weight="700">passed: the turn ends</text>
 <line x1="620" y1="265" x2="720" y2="310" stroke="#b2341f" stroke-width="4" marker-end="url(#aFF6B6B)"/>
-<rect x="720" y="280" width="420" height="90" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
-<text x="930" y="316" fill="#b2341f" font-size="20" text-anchor="middle" font-weight="700">failed: 1 test</text>
-<text x="930" y="348" fill="#191a17" font-size="18" text-anchor="middle">the output goes back as a message, another round</text>
-<text x="48" y="440" fill="#686a61" font-size="21" text-anchor="start">A check turns the model's claim into a result: the final is not the end of the turn until</text>
-<text x="48" y="471" fill="#686a61" font-size="21" text-anchor="start">the tests say so.</text>
+<rect x="720" y="280" width="420" height="100" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="930" y="314" fill="#b2341f" font-size="20" text-anchor="middle" font-weight="700">failed: 1 test</text>
+<text x="930" y="342" fill="#191a17" font-size="18" text-anchor="middle">the output goes back as a message:</text>
+<text x="930" y="366" fill="#191a17" font-size="18" text-anchor="middle">another round</text>
+<text x="48" y="444" fill="#686a61" font-size="21" text-anchor="start">A check turns the model's claim into a result: the final is not the end of the turn until</text>
+<text x="48" y="475" fill="#686a61" font-size="21" text-anchor="start">the tests say so.</text>
 </svg>

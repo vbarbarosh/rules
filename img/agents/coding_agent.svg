@@ -5,14 +5,14 @@
 <text x="48" y="108" fill="#686a61" font-size="22">workspace = a repository; tools = view, grep, edit, shell</text>
 <rect x="60" y="180" width="300" height="110" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="210.0" y="243.64" fill="#2743b8" font-size="24" text-anchor="middle" font-weight="700">coding agent</text>
-<line x1="360" y1="235" x2="440" y2="235" stroke="#2743b8" stroke-width="4" marker-end="url(#a1299DA)"/>
-<rect x="440" y="160" width="340" height="150" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
-<text x="610.0" y="229.5" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">workspace</text>
-<text x="610.0" y="255.9" fill="#686a61" font-size="19" text-anchor="middle">a repository</text>
-<line x1="780" y1="235" x2="860" y2="235" stroke="#a19f93" stroke-width="4" marker-end="url(#a5E5C4E)"/>
-<rect x="860" y="160" width="280" height="150" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
-<text x="1000.0" y="229.5" fill="#686a61" font-size="22" text-anchor="middle" font-weight="700">tools</text>
-<text x="1000.0" y="255.9" fill="#686a61" font-size="19" text-anchor="middle">view, grep, edit, shell</text>
+<line x1="366" y1="235" x2="434" y2="235" stroke="#2743b8" stroke-width="4" marker-end="url(#a1299DA)"/>
+<rect x="440" y="160" width="280" height="150" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="580" y="229.5" fill="#686a61" font-size="22" text-anchor="middle" font-weight="700">tools</text>
+<text x="580" y="255.9" fill="#686a61" font-size="19" text-anchor="middle">view, grep, edit, shell</text>
+<line x1="726" y1="235" x2="794" y2="235" stroke="#a19f93" stroke-width="4" marker-end="url(#a5E5C4E)"/>
+<rect x="800" y="160" width="340" height="150" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="970" y="229.5" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">workspace</text>
+<text x="970" y="255.9" fill="#686a61" font-size="19" text-anchor="middle">a repository</text>
 <text x="48" y="400" fill="#686a61" font-size="21" text-anchor="start">Named by its workspace: the repository. Its tools read and change files and run commands;</text>
 <text x="48" y="431" fill="#686a61" font-size="21" text-anchor="start">the sandbox is the checkout.</text>
 </svg>

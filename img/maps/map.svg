@@ -4,20 +4,20 @@
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Map</text>
 <text x="48" y="108" fill="#686a61" font-size="22">a smaller picture that keeps what matters of something bigger: where things are and how they connect</text>
 <!-- territory to map -->
-<text x="48" y="170" fill="#191a17" font-size="24" font-weight="700">A map of a place</text>
+<text x="48" y="164" fill="#191a17" font-size="24" font-weight="700">A map of a place</text>
 <rect x="48" y="190" width="330" height="250" rx="12" fill="#e8e5d9"/>
 <path d="M60 400 C 120 330, 160 380, 220 300 S 320 230, 370 210" fill="none" stroke="#e2e7fb" stroke-width="26"/>
 <g fill="#dcefe3"><circle cx="110" cy="250" r="34"/><circle cx="300" cy="380" r="40"/><circle cx="160" cy="240" r="22"/></g>
 <rect x="250" y="250" width="40" height="30" fill="#a19f93"/><path d="M244 252 l26 -22 26 22z" fill="#686a61"/>
 <text x="213" y="470" fill="#686a61" font-size="20" text-anchor="middle">the place: everything</text>
-<line x1="390" y1="315" x2="450" y2="315" stroke="#686a61" stroke-width="3" marker-end="url(#a)"/>
+<line x1="384" y1="315" x2="454" y2="315" stroke="#686a61" stroke-width="3" marker-end="url(#a)"/>
 <rect x="460" y="230" width="170" height="170" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <path d="M468 380 C 500 340, 520 360, 545 320 S 600 270, 622 255" fill="none" stroke="#2743b8" stroke-width="5"/>
 <path d="M556 290 l12 -10 12 10z" fill="#191a17"/>
 <circle cx="500" cy="270" r="8" fill="#1a7443"/><circle cx="596" cy="360" r="9" fill="#1a7443"/>
 <text x="545" y="470" fill="#686a61" font-size="20" text-anchor="middle">the map: what matters</text>
 <!-- key value -->
-<text x="700" y="170" fill="#191a17" font-size="24" font-weight="700">A map in code: key → value</text>
+<text x="700" y="164" fill="#191a17" font-size="24" font-weight="700">A map in code: key → value</text>
 <g font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-size="20">
 <rect x="700" y="190" width="452" height="250" rx="12" fill="#f2efe5"/>
 <text x="724" y="236" fill="#2743b8">'roadmap'</text><text x="884" y="236" fill="#686a61">→</text><text x="920" y="236" fill="#191a17">the way ahead</text>

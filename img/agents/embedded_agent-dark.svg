@@ -5,14 +5,14 @@
 <text x="48" y="108" fill="#92958c" font-size="22">workspace = app data, through the app's API; tools = what the app exposes</text>
 <rect x="60" y="180" width="300" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="210.0" y="243.64" fill="#9db2ff" font-size="24" text-anchor="middle" font-weight="700">embedded agent</text>
-<line x1="360" y1="235" x2="440" y2="235" stroke="#9db2ff" stroke-width="4" marker-end="url(#a1299DA)"/>
-<rect x="440" y="160" width="340" height="150" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
-<text x="610.0" y="229.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">workspace</text>
-<text x="610.0" y="255.9" fill="#92958c" font-size="19" text-anchor="middle">app data, through the app's API</text>
-<line x1="780" y1="235" x2="860" y2="235" stroke="#4a4f57" stroke-width="4" marker-end="url(#a5E5C4E)"/>
-<rect x="860" y="160" width="280" height="150" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
-<text x="1000.0" y="229.5" fill="#92958c" font-size="22" text-anchor="middle" font-weight="700">tools</text>
-<text x="1000.0" y="255.9" fill="#92958c" font-size="19" text-anchor="middle">what the app exposes</text>
+<line x1="366" y1="235" x2="434" y2="235" stroke="#9db2ff" stroke-width="4" marker-end="url(#a1299da)"/>
+<rect x="440" y="160" width="280" height="150" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
+<text x="580" y="229.5" fill="#92958c" font-size="22" text-anchor="middle" font-weight="700">tools</text>
+<text x="580" y="255.9" fill="#92958c" font-size="19" text-anchor="middle">what the app exposes</text>
+<line x1="726" y1="235" x2="794" y2="235" stroke="#4a4f57" stroke-width="4" marker-end="url(#a5e5c4e)"/>
+<rect x="800" y="160" width="340" height="150" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="970" y="229.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">workspace</text>
+<text x="970" y="255.9" fill="#92958c" font-size="19" text-anchor="middle">app data, through the app's API</text>
 <text x="48" y="400" fill="#92958c" font-size="21" text-anchor="start">Named by its workspace: the app's data. Its scope is enforced by the app's own access</text>
 <text x="48" y="431" fill="#92958c" font-size="21" text-anchor="start">controls, so it can do only what that user could.</text>
 </svg>

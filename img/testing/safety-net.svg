@@ -7,7 +7,7 @@
 <line x1="1050" y1="150" x2="1050" y2="250" stroke="#a19f93" stroke-width="6"/><line x1="1010" y1="250" x2="1090" y2="250" stroke="#a19f93" stroke-width="6"/>
 <path d="M190 250 Q600 160 1010 250" fill="none" stroke="#1a7443" stroke-width="4" marker-end="url(#a56DB3A)"/>
 <text x="600" y="160" fill="#1a7443" font-size="20" text-anchor="middle" font-style="italic">the plan: the reply switches the model back</text>
-<path d="M190 250 Q420 240 600 440" fill="none" stroke="#b2341f" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#aFF6B6B)"/>
+<path d="M190 250 Q420 240 600 456" fill="none" stroke="#b2341f" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#aFF6B6B)"/>
 <text x="640" y="400" fill="#b2341f" font-size="20" text-anchor="start">the reply never came: still on the strongest model</text>
 <path d="M80 470 Q600 560 1120 470" fill="none" stroke="#2743b8" stroke-width="4"/><path d="M110 470 Q600 540 1090 470" fill="none" stroke="#2743b8" stroke-width="3"/>
 <line x1="180" y1="478" x2="180" y2="483" stroke="#2743b8" stroke-width="3"/>

@@ -21,9 +21,8 @@
 <rect x="1040" y="200" width="100" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <path d="M1080.0 235 l8.0 8.0 l16.0 -18.0" fill="none" stroke="#72d39c" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="1090" y="300" fill="#92958c" font-size="20" text-anchor="middle">Fri</text>
-<line x1="480" y1="235" x2="540" y2="235" stroke="#4a4f57" stroke-width="3" marker-end="url(#a5E5C4E)"/>
-<text x="48" y="400" fill="#92958c" font-size="21" text-anchor="start">A flaky test is an intermittent failure in the test suite. Its usual cause is a wait that is</text>
-<text x="48" y="431" fill="#92958c" font-size="21" text-anchor="start">sometimes too short:</text>
-<text x="48" y="462" fill="#92958c" font-size="21" text-anchor="start">a timeout, a race with a server, an order the test assumed. Nobody trusts a red suite with</text>
-<text x="48" y="493" fill="#92958c" font-size="21" text-anchor="start">one flaky test in it.</text>
+<line x1="486" y1="235" x2="554" y2="235" stroke="#4a4f57" stroke-width="3" marker-end="url(#a5e5c4e)"/>
+<text x="48" y="400" fill="#92958c" font-size="21" text-anchor="start">A flaky test is an intermittent failure in the test suite. Its usual cause is a wait</text>
+<text x="48" y="431" fill="#92958c" font-size="21" text-anchor="start">that is sometimes too short: a timeout, a race with a server, an order the test assumed.</text>
+<text x="48" y="462" fill="#92958c" font-size="21" text-anchor="start">Nobody trusts a red suite with one flaky test in it.</text>
 </svg>

@@ -22,7 +22,7 @@
 <circle cx="1100" cy="330" r="12" fill="#d9d5c7"/>
 <text x="1100" y="420" fill="#191a17" font-size="24" text-anchor="middle" font-weight="700">…</text>
 <text x="1100" y="450" fill="#686a61" font-size="20" text-anchor="middle">your commit</text>
-<line x1="1120" y1="330" x2="1150" y2="330" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
+<line data-free="" x1="1120" y1="330" x2="1150" y2="330" stroke="#a19f93" stroke-width="3" marker-end="url(#a5E5C4E)"/>
 <text x="48" y="520" fill="#686a61" font-size="21" text-anchor="start">In the agent notes: the change log at the end of a subject file, newest first, and the time</text>
 <text x="48" y="551" fill="#686a61" font-size="21" text-anchor="start">in every message name.</text>
 <text x="48" y="582" fill="#686a61" font-size="21" text-anchor="start">A roadmap is laid on a timeline; a timeline only says when.</text>

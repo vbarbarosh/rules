@@ -47,8 +47,8 @@
 <text x="150" y="368" fill="#191a17" font-size="22" font-weight="700" text-anchor="middle">Tree</text>
 <rect x="350.0" y="331.0" width="200" height="58" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2.5"/>
 <text x="450" y="368" fill="#191a17" font-size="22" font-weight="700" text-anchor="middle">Ontology</text>
-<rect x="650.0" y="331.0" width="200" height="58" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2.5"/>
-<text x="750" y="368" fill="#191a17" font-size="22" font-weight="700" text-anchor="middle">Knowledge graph</text>
+<rect x="642.0" y="331.0" width="216" height="58" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2.5"/>
+<text x="750" y="367" fill="#191a17" font-size="21" font-weight="700" text-anchor="middle">Knowledge graph</text>
 <rect x="950.0" y="331.0" width="200" height="58" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2.5"/>
 <text x="1050" y="368" fill="#191a17" font-size="22" font-weight="700" text-anchor="middle">Timeline</text>
 <rect x="50.0" y="491.0" width="200" height="58" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2.5"/>

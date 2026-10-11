@@ -26,8 +26,8 @@
 <text x="640" y="200" fill="#191a17" font-size="24" text-anchor="start" font-weight="700">one message</text>
 <text x="640" y="240" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">role: assistant</text>
 <text x="640" y="270" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">content: a tool_call</text>
-<text x="640" y="300" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  name: grep</text>
-<text x="640" y="330" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  arguments: {"q": "footer"}</text>
-<text x="640" y="360" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  id: call_7</text>
+<text x="640" y="300" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  name: grep</text>
+<text x="640" y="330" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  arguments: {"q": "footer"}</text>
+<text x="640" y="360" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  id: call_7</text>
 <text x="48" y="610" fill="#686a61" font-size="21" text-anchor="start"></text>
 </svg>
