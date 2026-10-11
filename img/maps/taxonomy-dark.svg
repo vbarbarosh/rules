@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1300" height="730" fill="#16181b"/>
-<defs><marker id="a" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#92958c" stroke-linejoin="round"/></marker></defs>
+<defs><marker id="a" viewBox="0 0 12 12" refX="7" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#92958c" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Taxonomy</text>
 <text x="48" y="108" fill="#92958c" font-size="22">sorting into kinds and kinds of kinds, like animal › bird › owl; here, the kinds of things in this note</text>
 <line x1="192" y1="321" x2="571" y2="219" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>

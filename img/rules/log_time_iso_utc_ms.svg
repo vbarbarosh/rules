@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="568" viewBox="0 0 1200 568" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="568" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="7" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">time is ISO-8601 UTC with milliseconds</text>
 <text x="48" y="108" fill="#686a61" font-size="22">one fixed form: it sorts as text and reads the same everywhere</text>
 <rect x="60" y="160" width="190" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>

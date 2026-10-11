@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="351" viewBox="0 0 1200 351" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1200" height="351" fill="#fffefb"/>
-<defs><marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="7" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">One button, one class</text>
 <text x="48" y="108" fill="#686a61" font-size="22">a kind of button is one class, not a set assembled at each use</text>
 <rect x="60" y="170" width="440" height="81" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
