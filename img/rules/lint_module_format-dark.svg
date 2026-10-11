@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">The project picks its module format</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the sorting rule supports both import forms; this repository's own rule is CommonJS</text>
+<rect x="60" y="170" width="520" height="86" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="78" y="204" fill="#9db2ff" font-size="18" font-weight="700">.js: ES modules by default</text>
+<text x="78.0" y="234" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">import fs from 'fs';</text>
+<rect x="620" y="170" width="520" height="86" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="638" y="204" fill="#d3d1c9" font-size="18" font-weight="700">.cjs: CommonJS</text>
+<text x="638.0" y="234" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const fs = require('fs');</text>
+<rect x="60" y="320" width="1080" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="600.0" y="362.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">this repository: CommonJS only</text>
+<text x="48" y="460" fill="#92958c" font-size="21">The preset checks the order of imports in whichever form the project uses.</text>
+</svg>

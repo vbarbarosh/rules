@@ -3088,6 +3088,7 @@ no author notes     → edited on request</pre><button class="copy" type="button
 <div class="text"><p><strong>Spaces around operators, except multiplicative ones.</strong> Multiplicative operators are tight — <code>*</code>, <code>/</code>, <code>**</code>. Every other binary, logical and assignment operator has a space on each side.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const x = a&#42;b + c/d - e&#42;&#42;2;
 const x = a % 2;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/lint_operator_spacing.svg"><img class="light" src="../img/rules/lint_operator_spacing.svg" alt="Spaced multiplication and tight addition, wrong, beside tight * / ** and spaced + - %, right" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/lint_operator_spacing-dark.svg" alt="Spaced multiplication and tight addition, wrong, beside tight * / ** and spaced + - %, right" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="LINT-02">
 <a class="code" href="#LINT-02">LINT-02</a>
@@ -3098,10 +3099,12 @@ const x = a % 2;</pre><button class="copy" type="button">Copy</button></div>
 function main()
 {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/lint_anonymous_function_space.svg"><img class="light" src="../img/rules/lint_anonymous_function_space.svg" alt="function(error) without a space and function main () with one, wrong, beside function (error) and function main(), right" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/lint_anonymous_function_space-dark.svg" alt="function(error) without a space and function main () with one, wrong, beside function (error) and function main(), right" width="1200" height="520" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="LINT-03">
+<article class="rule" id="LINT-03">
 <a class="code" href="#LINT-03">LINT-03</a>
 <div class="text"><p><strong>Tiny arrows fit one line.</strong> A tiny arrow is a single-line expression callback or value factory, passed as a call argument or as an object property value; an empty <code>() =&gt; {}</code> is one too (FMT-32). Options-style methods retain function expressions (FMT-12); literal <code>methods: {...}</code> tables reject arrows. It fits one line; the number of parameters does not matter. A lone value/event parameter is <code>v</code>, nested <code>vv</code> by total arrow depth; an error parameter stays <code>e</code> at every depth (VAR-05), including <code>.catch</code>, <code>.then</code> rejection callbacks and EventEmitter error listeners. It is taken whole — <code>v =&gt; v.uid</code>, not <code>({uid}) =&gt; uid</code>. A named helper is a function declaration.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/lint_tiny_arrows.svg"><img class="light" src="../img/rules/lint_tiny_arrows.svg" alt="Four wrong arrows beside their right forms: a destructured parameter, err for an error, a named helper as an arrow, an arrow in methods" width="1200" height="640" loading="lazy"><img class="dark" src="../img/rules/lint_tiny_arrows-dark.svg" alt="Four wrong arrows beside their right forms: a destructured parameter, err for an error, a named helper as an arrow, an arrow in methods" width="1200" height="640" loading="lazy"></a>
 </article>
 <article class="rule" id="LINT-04">
 <a class="code" href="#LINT-04">LINT-04</a>
@@ -3111,34 +3114,42 @@ function main()
 
 for (const item of items) {       <span class="yes">✓ yes</span>
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/lint_for_of.svg"><img class="light" src="../img/rules/lint_for_of.svg" alt="items.forEach(...), wrong, beside for (const item of items), right" width="1200" height="380" loading="lazy"><img class="dark" src="../img/rules/lint_for_of-dark.svg" alt="items.forEach(...), wrong, beside for (const item of items), right" width="1200" height="380" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="LINT-06">
+<article class="rule" id="LINT-06">
 <a class="code" href="#LINT-06">LINT-06</a>
 <div class="text"><p><strong>Imports first: side effects, defaults, named.</strong> Imports are the first statements of a file, one statement per line, in up to three blocks: side-effect imports — <code>import './x'</code>, a bare <code>require('x')</code> — first, in the order they run; then the sorted default imports; then, if set apart, the sorted named imports (<code>{foo, bar}</code>). One blank line may separate the blocks.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/lint_imports_first.svg"><img class="light" src="../img/rules/lint_imports_first.svg" alt="The three import blocks in order: side effects as they run, sorted defaults, sorted named imports" width="1200" height="600" loading="lazy"><img class="dark" src="../img/rules/lint_imports_first-dark.svg" alt="The three import blocks in order: side effects as they run, sorted defaults, sorted named imports" width="1200" height="600" loading="lazy"></a>
 </article>
-<article class="rule bare" id="LINT-07">
+<article class="rule" id="LINT-07">
 <a class="code" href="#LINT-07">LINT-07</a>
 <div class="text"><p><strong>The project picks its module format.</strong> Module format is the consuming project’s choice: JavaScript defaults to ES modules, <code>.cjs</code> is CommonJS, and the sorting rule supports both import forms. CommonJS-only is this repository’s own rule.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/lint_module_format.svg"><img class="light" src="../img/rules/lint_module_format.svg" alt="ES modules for .js, CommonJS for .cjs, and CommonJS only in this repository" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/lint_module_format-dark.svg" alt="ES modules for .js, CommonJS for .cjs, and CommonJS only in this repository" width="1200" height="520" loading="lazy"></a>
 </article>
-<article class="rule bare" id="LINT-08">
+<article class="rule" id="LINT-08">
 <a class="code" href="#LINT-08">LINT-08</a>
 <div class="text"><p><strong>A layout and its gap share a class value.</strong> <code>gap*</code> closes the layout group: the flex/grid/split container, then its <code>flex-*</code> modifiers, then the gap. Put a layout and its gap in the same class value.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/lint_layout_gap_together.svg"><img class="light" src="../img/rules/lint_layout_gap_together.svg" alt="A layout and its gap in separate class values, wrong, beside them in one value, right" width="1200" height="380" loading="lazy"><img class="dark" src="../img/rules/lint_layout_gap_together-dark.svg" alt="A layout and its gap in separate class values, wrong, beside them in one value, right" width="1200" height="380" loading="lazy"></a>
 </article>
-<article class="rule bare" id="LINT-09">
+<article class="rule" id="LINT-09">
 <a class="code" href="#LINT-09">LINT-09</a>
 <div class="text"><p><strong>Font size and weight before line height.</strong> Within typography, <code>fs*</code> and <code>fw*</code> come before <code>lh*</code>. Several local <code>#-*</code> classes together form the final group.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/lint_font_before_line_height.svg"><img class="light" src="../img/rules/lint_font_before_line_height.svg" alt="Line height before font size and a local class before a utility, wrong, beside fs, fw, lh and local classes last, right" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/lint_font_before_line_height-dark.svg" alt="Line height before font size and a local class before a utility, wrong, beside fs, fw, lh and local classes last, right" width="1200" height="520" loading="lazy"></a>
 </article>
-<article class="rule bare" id="LINT-10">
+<article class="rule" id="LINT-10">
 <a class="code" href="#LINT-10">LINT-10</a>
 <div class="text"><p><strong>Write #- only where the loader replaces it.</strong> <code>#-</code> is written only in the forms the hashtag loader replaces: a double-quoted <code>class</code>, <code>card_class</code> or attribute ending in <code>-class</code> / <code>:class</code>; <code>.#-</code> in a style block; and the exact single-quoted <code>'.#-</code> form in JavaScript.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/lint_hashtag_forms.svg"><img class="light" src="../img/rules/lint_hashtag_forms.svg" alt="Four #- forms the loader skips beside the forms it replaces: double-quoted class attributes, '.#- in JavaScript, .#- in a style block" width="1200" height="640" loading="lazy"><img class="dark" src="../img/rules/lint_hashtag_forms-dark.svg" alt="Four #- forms the loader skips beside the forms it replaces: double-quoted class attributes, '.#- in JavaScript, .#- in a style block" width="1200" height="640" loading="lazy"></a>
 </article>
-<article class="rule bare" id="LINT-11">
+<article class="rule" id="LINT-11">
 <a class="code" href="#LINT-11">LINT-11</a>
 <div class="text"><p><strong>Every #- class has a real style.</strong> Each statically known <code>#-*</code> class has a nonempty style selector in the same component. Declarations, includes and extends count as styles; an empty rule, a variable-only rule, or a mention inside <code>:not(...)</code> does not.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/lint_hashtag_has_style.svg"><img class="light" src="../img/rules/lint_hashtag_has_style.svg" alt="An empty #- rule and a #- class only inside :not(), wrong, beside rules with declarations, right" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/lint_hashtag_has_style-dark.svg" alt="An empty #- rule and a #- class only inside :not(), wrong, beside rules with declarations, right" width="1200" height="520" loading="lazy"></a>
 </article>
-<article class="rule bare" id="LINT-12">
+<article class="rule" id="LINT-12">
 <a class="code" href="#LINT-12">LINT-12</a>
 <div class="text"><p><strong>A Vue script indents four spaces.</strong> A Vue <code>&lt;script&gt;</code> is indented four spaces with one base indent.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/LINTING.md" title="LINTING.md">LINTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/lint_vue_script_indent.svg"><img class="light" src="../img/rules/lint_vue_script_indent.svg" alt="A Vue script with no base indent and two spaces, wrong, beside one base indent and four spaces, right" width="1200" height="460" loading="lazy"><img class="dark" src="../img/rules/lint_vue_script_indent-dark.svg" alt="A Vue script with no base indent and two spaces, wrong, beside one base indent and four spaces, right" width="1200" height="460" loading="lazy"></a>
 </article>
 </section>
 <p class="nothing" id="nothing" hidden>No rule matches that.</p>

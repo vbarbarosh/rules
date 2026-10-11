@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="460" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A Vue script indents four spaces</text>
+<text x="48" y="108" fill="#686a61" font-size="22">one base indent under &lt;script&gt;, then four spaces a level</text>
+<rect x="60" y="170" width="480" height="160" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="78" y="206" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;script&gt;</text>
+<text x="78" y="240" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">export default {</text>
+<text x="101" y="274" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">data: function () {</text>
+<text x="78" y="312" fill="#b2341f" font-size="17">✗ no base indent, two spaces</text>
+<rect x="620" y="170" width="520" height="160" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="638" y="206" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;script&gt;</text>
+<text x="684" y="240" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">export default {</text>
+<text x="730" y="274" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">data: function () {</text>
+<text x="638" y="312" fill="#1a7443" font-size="17">✓ one base indent, four spaces</text>
+<line x1="546" y1="250" x2="614" y2="250" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="400" fill="#686a61" font-size="21">The script reads like any JavaScript file, one level in.</text>
+</svg>
