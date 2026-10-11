@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="568" viewBox="0 0 1200 568" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="568" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Prefer imperative control flow</text>
+<text x="48" y="108" fill="#92958c" font-size="22">one step a statement, in the order it runs</text>
+<rect x="60" y="160" width="520" height="215.3" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="78.0" y="193.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const out = [];</text>
+<text x="78.0" y="220.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">for (const item of items) {</text>
+<text x="121.2" y="247.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">if (item.active) {</text>
+<text x="164.4" y="274.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">out.push(item.uid);</text>
+<text x="121.2" y="301.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="78.0" y="328.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="78.0" y="355.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return out;</text>
+<rect x="700" y="160" width="440" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="920" y="197" fill="#d3d1c9" font-size="19" text-anchor="middle">take the next item</text>
+<rect x="700" y="246" width="440" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="920" y="283" fill="#d3d1c9" font-size="19" text-anchor="middle">is it active?</text>
+<line x1="920" y1="226" x2="920" y2="240" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="700" y="332" width="440" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="920" y="369" fill="#d3d1c9" font-size="19" text-anchor="middle">keep its uid</text>
+<line x1="920" y1="312" x2="920" y2="326" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="700" y="418" width="440" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="920" y="455" fill="#d3d1c9" font-size="19" text-anchor="middle">return what was kept</text>
+<line x1="920" y1="398" x2="920" y2="412" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="532" fill="#92958c" font-size="21">Each step is a statement: you read it, step through it, put a breakpoint on it.</text>
+</svg>

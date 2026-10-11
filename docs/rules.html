@@ -1944,35 +1944,41 @@ promise.catch(() =&gt; {});                          <span class="yes">✓ yes</
 </section>
 <section class="group" id="FLOW">
 <h2><span class="tag">FLOW</span><span class="name">Control flow</span><span class="note">Imperative, explicit, no magic.</span></h2>
-<article class="rule bare" id="FLOW-01">
+<article class="rule" id="FLOW-01">
 <a class="code" href="#FLOW-01">FLOW-01</a>
 <div class="text"><p><strong>Prefer imperative control flow.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/flow_imperative.svg"><img class="light" src="../img/rules/flow_imperative.svg" alt="A loop that keeps the uids of active items, beside its four steps in the order they run" width="1200" height="568" loading="lazy"><img class="dark" src="../img/rules/flow_imperative-dark.svg" alt="A loop that keeps the uids of active items, beside its four steps in the order they run" width="1200" height="568" loading="lazy"></a>
 </article>
 <article class="rule" id="FLOW-02">
 <a class="code" href="#FLOW-02">FLOW-02</a>
 <div class="text"><p><strong>No index needed: use for...of.</strong> Prefer <code>for...of</code> when the index is not needed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/for_of.md" title="drafts/for_of.md">for_of.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>for (const item of items) {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/flow_for_of.svg"><img class="light" src="../img/rules/flow_for_of.svg" alt="An indexed loop that only fetches items(i), turned into for (const item of items)" width="1200" height="508" loading="lazy"><img class="dark" src="../img/rules/flow_for_of-dark.svg" alt="An indexed loop that only fetches items(i), turned into for (const item of items)" width="1200" height="508" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FLOW-03">
 <a class="code" href="#FLOW-03">FLOW-03</a>
 <div class="text"><p><strong>Use an indexed loop when the index is needed.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/for_of.md" title="drafts/for_of.md">for_of.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>for (let i = 0, end = items.length; i &lt; end; ++i) {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/flow_indexed_loop.svg"><img class="light" src="../img/rules/flow_indexed_loop.svg" alt="Five items with their indexes: items(i) and items(i + 1) read together, so the loop counts" width="1200" height="497" loading="lazy"><img class="dark" src="../img/rules/flow_indexed_loop-dark.svg" alt="Five items with their indexes: items(i) and items(i + 1) read together, so the loop counts" width="1200" height="497" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FLOW-04">
+<article class="rule" id="FLOW-04">
 <a class="code" href="#FLOW-04">FLOW-04</a>
 <div class="text"><p><strong>No do...while.</strong> <code>do { ... } while (...)</code> does not exist. Use <code>while</code> or <code>for</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/flow_no_do_while.svg"><img class="light" src="../img/rules/flow_no_do_while.svg" alt="do...while with its condition at the bottom, turned into while with the condition first" width="1200" height="481" loading="lazy"><img class="dark" src="../img/rules/flow_no_do_while-dark.svg" alt="do...while with its condition at the bottom, turned into while with the condition first" width="1200" height="481" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FLOW-05">
+<article class="rule" id="FLOW-05">
 <a class="code" href="#FLOW-05">FLOW-05</a>
 <div class="text"><p><strong>Reduce and chains only on one line.</strong> <code>reduce</code>, deep chaining and functional pipelines are allowed only if the entire expression fits on a single line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/flow_chains_one_line.svg"><img class="light" src="../img/rules/flow_chains_one_line.svg" alt="A one-line reduce kept; a four-line filter, map and reduce chain turned into a loop" width="1200" height="522" loading="lazy"><img class="dark" src="../img/rules/flow_chains_one_line-dark.svg" alt="A one-line reduce kept; a four-line filter, map and reduce chain turned into a loop" width="1200" height="522" loading="lazy"></a>
 </article>
 <article class="rule" id="FLOW-06">
 <a class="code" href="#FLOW-06">FLOW-06</a>
 <div class="text"><p><strong>Arrows only for tiny callbacks.</strong> Do not use arrow functions for non-trivial logic. Arrows are allowed only for tiny callbacks.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const uids = items.map(v =&gt; v.uid);
 fresh.catch(ignore);</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/flow_arrows_tiny.svg"><img class="light" src="../img/rules/flow_arrows_tiny.svg" alt="An arrow holding a conditional computation, turned into a named function; tiny arrows kept" width="1200" height="385" loading="lazy"><img class="dark" src="../img/rules/flow_arrows_tiny-dark.svg" alt="An arrow holding a conditional computation, turned into a named function; tiny arrows kept" width="1200" height="385" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FLOW-07">
 <a class="code" href="#FLOW-07">FLOW-07</a>
@@ -1982,6 +1988,7 @@ fresh.catch(ignore);</pre><button class="copy" type="button">Copy</button></div>
 
 request.on('end', async function () {     <span class="yes">✓ this</span>
 });</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/flow_block_arrow_function.svg"><img class="light" src="../img/rules/flow_block_arrow_function.svg" alt="An async arrow with a block body, turned into async function; the empty () =&gt; {} is the exception" width="1200" height="485" loading="lazy"><img class="dark" src="../img/rules/flow_block_arrow_function-dark.svg" alt="An async arrow with a block body, turned into async function; the empty () =&gt; {} is the exception" width="1200" height="485" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FLOW-08">
 <a class="code" href="#FLOW-08">FLOW-08</a>
@@ -1990,6 +1997,7 @@ request.on('end', async function () {     <span class="yes">✓ this</span>
 }
 catch {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/flow_catch_binds_nothing.svg"><img class="light" src="../img/rules/flow_catch_binds_nothing.svg" alt="catch (error) with error never read, turned into catch {}" width="1200" height="439" loading="lazy"><img class="dark" src="../img/rules/flow_catch_binds_nothing-dark.svg" alt="catch (error) with error never read, turned into catch {}" width="1200" height="439" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FLOW-09">
 <a class="code" href="#FLOW-09">FLOW-09</a>
@@ -2000,6 +2008,7 @@ function modal_show()
 {
     modal = modal_make();
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/flow_plain_data.svg"><img class="light" src="../img/rules/flow_plain_data.svg" alt="Set, Map and {} for lookups; another module writing modal state, turned into a module writing only its own" width="1200" height="585" loading="lazy"><img class="dark" src="../img/rules/flow_plain_data-dark.svg" alt="Set, Map and {} for lookups; another module writing modal state, turned into a module writing only its own" width="1200" height="585" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FLOW-10">
 <a class="code" href="#FLOW-10">FLOW-10</a>
@@ -2008,6 +2017,7 @@ function modal_show()
 import './main-pre';
 
 import Vue from 'vue';</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/flow_no_hidden_effects.svg"><img class="light" src="../img/rules/flow_no_hidden_effects.svg" alt="A side-effect import hidden mid-list, moved to the top block in run order" width="1200" height="412" loading="lazy"><img class="dark" src="../img/rules/flow_no_hidden_effects-dark.svg" alt="A side-effect import hidden mid-list, moved to the top block in run order" width="1200" height="412" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FLOW-11">
 <a class="code" href="#FLOW-11">FLOW-11</a>
@@ -2017,6 +2027,7 @@ import Vue from 'vue';</pre><button class="copy" type="button">Copy</button></di
 });                                       <span class="no">✗ no</span>
 
 items.filter(v =&gt; item_text(v) === text);   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/flow_return_only_arrow.svg"><img class="light" src="../img/rules/flow_return_only_arrow.svg" alt="A filter callback that only returns, turned from a function into an arrow" width="1200" height="385" loading="lazy"><img class="dark" src="../img/rules/flow_return_only_arrow-dark.svg" alt="A filter callback that only returns, turned from a function into an arrow" width="1200" height="385" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FLOW-12">
 <a class="code" href="#FLOW-12">FLOW-12</a>
@@ -2027,6 +2038,7 @@ match ($status) {                                          <span class="yes">✓
     'paid' =&gt; Invoice::STATUS_PAID,
     'void' =&gt; Invoice::STATUS_VOID,
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/flow_names_whole.svg"><img class="light" src="../img/rules/flow_names_whole.svg" alt="A search for STATUS_PAID misses a name glued at run time and finds it in a match that lists it whole" width="1200" height="521" loading="lazy"><img class="dark" src="../img/rules/flow_names_whole-dark.svg" alt="A search for STATUS_PAID misses a name glued at run time and finds it in a match that lists it whole" width="1200" height="521" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="FILE">

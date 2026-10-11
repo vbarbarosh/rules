@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="439" viewBox="0 0 1200 439" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="439" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A catch that ignores the error binds nothing</text>
+<text x="48" y="108" fill="#686a61" font-size="22">no name for what is never read</text>
+<rect x="60" y="160" width="500" height="189.3" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="640" y="160" width="500" height="189.3" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="78.0" y="193.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">try {</text>
+<text x="121.2" y="220.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">cache_remove(path);</text>
+<text x="78.0" y="247.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="78.0" y="274.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch (error) {</text>
+<text x="78.0" y="301.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="78" y="333.3" fill="#b2341f" font-size="17">✗ error bound, never read</text>
+<text x="658.0" y="193.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">try {</text>
+<text x="701.2" y="220.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">cache_remove(path);</text>
+<text x="658.0" y="247.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="658.0" y="274.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch {</text>
+<text x="658.0" y="301.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="658" y="333.3" fill="#1a7443" font-size="17">✓ nothing bound</text>
+<line x1="566" y1="254.65" x2="634" y2="254.65" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="403" fill="#686a61" font-size="21">An unused binding looks like a forgotten log; catch {} says it is ignored on purpose.</text>
+</svg>

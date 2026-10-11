@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="485" viewBox="0 0 1200 485" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="485" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">A block-body arrow becomes a function</text>
+<text x="48" y="108" fill="#92958c" font-size="22">braces after =&gt; mean a function; write function</text>
+<rect x="60" y="160" width="500" height="135.3" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="640" y="160" width="500" height="135.3" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="78.0" y="193.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">request.on('end', async () =&gt; {</text>
+<text x="121.2" y="220.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">await done();</text>
+<text x="78.0" y="247.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">});</text>
+<text x="78" y="279.3" fill="#ff937c" font-size="17">✗ does not exist</text>
+<text x="658.0" y="193.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">request.on('end', async function () {</text>
+<text x="701.2" y="220.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">await done();</text>
+<text x="658.0" y="247.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">});</text>
+<text x="658" y="279.3" fill="#72d39c" font-size="17">✓ a function, with _this if needed</text>
+<line x1="566" y1="227.65" x2="634" y2="227.65" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="335.3" width="1080" height="60" rx="10" fill="#212428" stroke="#2c3035" stroke-width="2"/>
+<text x="80" y="373.3" fill="#92958c" font-size="18">the one exception: the empty () =&gt; {}, a no-op (FMT-32)</text>
+<text x="48" y="449" fill="#92958c" font-size="21">The mirror of FLOW-11: a return-only callback is an arrow.</text>
+</svg>
