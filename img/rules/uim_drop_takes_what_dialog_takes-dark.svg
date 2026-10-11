@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="540" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">The drop takes what the dialog takes</text>
+<text x="48" y="108" fill="#92958c" font-size="22">a dropped file goes down the same path as a picked one</text>
+<rect x="60" y="170" width="300" height="70" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="210.0" y="211.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">picked in the dialog</text>
+<rect x="60" y="270" width="300" height="70" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="210.0" y="311.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">dropped on the element</text>
+<rect x="460" y="210" width="380" height="90" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="650.0" y="251.0" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">files_as_dialog_takes()</text>
+<text x="650.0" y="277.0" fill="#92958c" font-size="17" text-anchor="middle">same types, one or many</text>
+<rect x="920" y="210" width="220" height="90" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="1030.0" y="262.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">take(files)</text>
+<line x1="366" y1="205" x2="454" y2="240" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="366" y1="305" x2="454" y2="270" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="846" y1="255" x2="914" y2="255" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="380" width="440" height="81" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="80.0" y="417" fill="#d3d1c9" font-size="19">drop: any file, any count</text>
+<text x="80" y="447" fill="#ff937c" font-size="17">✗ it takes what the dialog refuses</text>
+<rect x="580" y="380" width="560" height="81" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="600.0" y="417" fill="#d3d1c9" font-size="19">drop: what the dialog takes</text>
+<text x="600" y="447" fill="#72d39c" font-size="17">✓ folders read file by file</text>
+<line x1="506" y1="420.5" x2="574" y2="420.5" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">No: hidden, or disabled with the reason</text>
+<text x="48" y="108" fill="#92958c" font-size="22">hide what nobody looks for there; disable what is expected, and say why</text>
+<rect x="60" y="170" width="500" height="90" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="310.0" y="210.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">hidden</text>
+<text x="310.0" y="235.0" fill="#92958c" font-size="18" text-anchor="middle">where nobody would look for it</text>
+<rect x="640" y="170" width="500" height="90" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="660" y="192" width="160" height="46" rx="8" fill="#212428" stroke="#2c3035" stroke-width="2"/>
+<text x="740" y="222" fill="#92958c" font-size="18" text-anchor="middle">Use code</text>
+<text x="840" y="222" fill="#92958c" font-size="18">Expired yesterday at 10:51</text>
+<rect x="60" y="310" width="440" height="81" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="80.0" y="347" fill="#d3d1c9" font-size="19">[Use code]  →  "Sorry, expired"</text>
+<text x="80" y="377" fill="#ff937c" font-size="17">✗ the only answer comes after the click</text>
+<rect x="580" y="310" width="560" height="81" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="600.0" y="347" fill="#d3d1c9" font-size="19">[Use code]  Expired yesterday</text>
+<text x="600" y="377" fill="#72d39c" font-size="17">✓ disabled, the reason beside it</text>
+<line x1="506" y1="350.5" x2="574" y2="350.5" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+</svg>

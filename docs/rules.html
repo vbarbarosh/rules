@@ -3108,11 +3108,13 @@ await keep(async function () {
     summary.text = text;
     await vm.$nextTick();
 });</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/uim_keep_the_place.svg"><img class="light" src="../img/rules/uim_keep_the_place.svg" alt="A block above grows: alone the browser lets the line being read move 120 px; scroll_keep holds it at 0 px" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/uim_keep_the_place-dark.svg" alt="A block above grows: alone the browser lets the line being read move 120 px; scroll_keep holds it at 0 px" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UIM-03">
 <a class="code" href="#UIM-03">UIM-03</a>
 <div class="text"><p><strong>Test it.</strong> For each kind of change, a test notes where the middle element is, makes the change, and checks it moved 0 px — at the top of the view and in the middle. One more check runs without the fix and must see the jump.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/scroll_anchoring.md" title="drafts/scroll_anchoring.md">scroll_anchoring.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>assert.equal(shift, 0);</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/uim_test_it.svg"><img class="light" src="../img/rules/uim_test_it.svg" alt="The test notes the middle element, makes the change, measures and asserts 0 px; without the fix it must see the jump" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/uim_test_it-dark.svg" alt="The test notes the middle element, makes the change, measures and asserts 0 px; without the fix it must see the jump" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UIM-04">
 <a class="code" href="#UIM-04">UIM-04</a>
@@ -3127,12 +3129,14 @@ await keep(async function () {
 <span class="cmt">// the input says what the dialog takes</span>
 if (entry.isFile || input.webkitdirectory)
 take(files_as_dialog_takes(files, input));</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/uim_drop_takes_what_dialog_takes.svg"><img class="light" src="../img/rules/uim_drop_takes_what_dialog_takes.svg" alt="A picked and a dropped file both go through files_as_dialog_takes to take(files)" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/uim_drop_takes_what_dialog_takes-dark.svg" alt="A picked and a dropped file both go through files_as_dialog_takes to take(files)" width="1200" height="540" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UIM-06">
 <a class="code" href="#UIM-06">UIM-06</a>
 <div class="text"><p><strong>Show the drop target; never lose the page.</strong> The element lights up while files are dragged over it, and a file dropped beside it does not open in the tab.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/file_drop.md" title="drafts/file_drop.md">file_drop.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>window.addEventListener('dragover', v =&gt; v.preventDefault());
 window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/uim_show_drop_target.svg"><img class="light" src="../img/rules/uim_show_drop_target.svg" alt="A drop zone lit while dragging and a file dropped beside it ignored, beside a tab that opens the file" width="1200" height="580" loading="lazy"><img class="dark" src="../img/rules/uim_show_drop_target-dark.svg" alt="A drop zone lit while dragging and a file dropped beside it ignored, beside a tab that opens the file" width="1200" height="580" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UIM-07">
 <a class="code" href="#UIM-07">UIM-07</a>
@@ -3143,10 +3147,12 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 <a class="code" href="#UIM-08">UIM-08</a>
 <div class="text"><p><strong>Undo instead.</strong> A deleted thing goes to a trash; a rename, an edit or a move can be undone. The way back is right there after the action.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Deleted · Undo</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/uim_undo_instead.svg"><img class="light" src="../img/rules/uim_undo_instead.svg" alt="A delete confirmation and a rename with no way back, beside Deleted · Undo and Renamed · Undo" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/uim_undo_instead-dark.svg" alt="A delete confirmation and a rename with no way back, beside Deleted · Undo and Renamed · Undo" width="1200" height="500" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="UIM-09">
+<article class="rule" id="UIM-09">
 <a class="code" href="#UIM-09">UIM-09</a>
 <div class="text"><p><strong>Confirm only what cannot be undone and costs a lot.</strong> Closing an account, erasing data for good. Even then, not an OK/Cancel box but a deliberate step: typing the name, or a link sent by email.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/no_confirmations.md" title="drafts/no_confirmations.md">no_confirmations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/uim_confirm_only_costly.svg"><img class="light" src="../img/rules/uim_confirm_only_costly.svg" alt="An OK/Cancel box for closing an account beside typing the account name to close it" width="1200" height="379" loading="lazy"><img class="dark" src="../img/rules/uim_confirm_only_costly-dark.svg" alt="An OK/Cancel box for closing an account beside typing the account name to close it" width="1200" height="379" loading="lazy"></a>
 </article>
 <article class="rule" id="UIM-10">
 <a class="code" href="#UIM-10">UIM-10</a>
@@ -3159,11 +3165,13 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 <a class="code" href="#UIM-11">UIM-11</a>
 <div class="text"><p><strong>Typing focuses the main search, first character included.</strong> On a page with one primary search/filter, typing outside editable fields focuses it immediately and enters the first character too. Local inputs retain their typing; respect shortcuts and native keyboard behavior.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/main_search.md" title="drafts/main_search.md">main_search.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Click background → type sm → main filter contains sm</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/uim_typing_focuses_search.svg"><img class="light" src="../img/rules/uim_typing_focuses_search.svg" alt="Typing s then m outside a field puts sm in the main filter; a local field keeps its own typing" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/uim_typing_focuses_search-dark.svg" alt="Typing s then m outside a field puts sm in the main filter; a local field keeps its own typing" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UIM-12">
 <a class="code" href="#UIM-12">UIM-12</a>
 <div class="text"><p><strong>Select the first actionable item by default.</strong> In a list of action targets, the first visible actionable item in displayed order is selected by default; Enter acts on it. An explicit user selection wins. A new filtered list defaults to its first actionable item; an empty list has no action.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/default_list_item.md" title="drafts/default_list_item.md">default_list_item.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>SQLite, LinkedIn → Enter opens SQLite</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/uim_first_actionable_selected.svg"><img class="light" src="../img/rules/uim_first_actionable_selected.svg" alt="SQLite, first in the list, is selected, so Enter opens it; nothing selected beside it" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/uim_first_actionable_selected-dark.svg" alt="SQLite, first in the list, is selected, so Enter opens it; nothing selected beside it" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UIM-13">
 <a class="code" href="#UIM-13">UIM-13</a>
@@ -3175,11 +3183,13 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 <div class="text"><p><strong>Ask the action first: a dry run.</strong> Every action can answer "would it work now?" without doing anything. The screen asks before drawing the control, and again whenever the answer can change; a button that expires on screen changes at that moment, not on the next click.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/dead_controls.md" title="drafts/dead_controls.md">dead_controls.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>can_end_chat(chat) → false
 → no End chat button</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/uim_dry_run.svg"><img class="light" src="../img/rules/uim_dry_run.svg" alt="can_end_chat(chat) is asked before drawing: true shows End chat, false draws none; a button that says Sorry after the click beside it" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/uim_dry_run-dark.svg" alt="can_end_chat(chat) is asked before drawing: true shows End chat, false draws none; a button that says Sorry after the click beside it" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UIM-15">
 <a class="code" href="#UIM-15">UIM-15</a>
 <div class="text"><p><strong>No means hidden, or disabled with the reason on it.</strong> Hide what nobody would look for there; disable what the user expects in its place, with the reason written on it or beside it. Never a control whose only answer comes after the click.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/dead_controls.md" title="drafts/dead_controls.md">dead_controls.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>Expired yesterday at 10:51</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/uim_hidden_or_disabled_with_reason.svg"><img class="light" src="../img/rules/uim_hidden_or_disabled_with_reason.svg" alt="A control hidden where nobody looks for it, or disabled with Expired yesterday at 10:51 beside it; a Sorry after the click beside that" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/uim_hidden_or_disabled_with_reason-dark.svg" alt="A control hidden where nobody looks for it, or disabled with Expired yesterday at 10:51 beside it; a Sorry after the click beside that" width="1200" height="520" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="DOC">
