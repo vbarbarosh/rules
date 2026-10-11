@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="586" viewBox="0 0 1200 586" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="586" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Rows and columns are a table</text>
+<text x="48" y="108" fill="#92958c" font-size="22">flex rows line up only until one cell is wider</text>
+<text x="60" y="180" fill="#ff937c" font-size="19" font-weight="700">a stack of flex rows</text>
+<rect x="60" y="196" width="120" height="42" rx="4" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="188" y="196" width="160" height="42" rx="4" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="356" y="196" width="140" height="42" rx="4" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="60" y="248" width="210" height="42" rx="4" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="278" y="248" width="120" height="42" rx="4" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="406" y="248" width="140" height="42" rx="4" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="60" y="300" width="120" height="42" rx="4" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="188" y="300" width="160" height="42" rx="4" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="356" y="300" width="140" height="42" rx="4" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="640" y="180" fill="#72d39c" font-size="19" font-weight="700">a table</text>
+<rect x="640" y="196" width="210" height="42" rx="4" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="858" y="196" width="160" height="42" rx="4" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="1026" y="196" width="140" height="42" rx="4" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="640" y="248" width="210" height="42" rx="4" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="858" y="248" width="160" height="42" rx="4" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="1026" y="248" width="140" height="42" rx="4" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="640" y="300" width="210" height="42" rx="4" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="858" y="300" width="160" height="42" rx="4" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="1026" y="300" width="140" height="42" rx="4" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="60" y="380" width="470" height="110" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="78.0" y="409.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;div class="flex-row"&gt;…&lt;/div&gt;</text>
+<text x="78.0" y="435.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;div class="flex-row"&gt;…&lt;/div&gt;</text>
+<text x="78" y="476" fill="#ff937c" font-size="17">✗ columns drift</text>
+<rect x="670" y="380" width="470" height="110" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="688.0" y="409.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;table&gt;</text>
+<text x="708.4" y="435.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;tr&gt;&lt;td&gt;…&lt;/td&gt;&lt;/tr&gt;</text>
+<text x="688" y="476" fill="#72d39c" font-size="17">✓ columns line up</text>
+<line x1="536" y1="435.0" x2="664" y2="435.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="546" fill="#92958c" font-size="21">Flex rows stay for content that is genuinely not tabular.</text>
+</svg>

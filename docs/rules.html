@@ -2695,6 +2695,7 @@ value=""</pre><button class="copy" type="button">Copy</button></div>
 &lt;div class="fluid p30 xpt app-scrollbars-light #-grid" /&gt;
 &lt;div class="db w80 h80 br4 fit-cover cur-pointer app-background #-preset-img" /&gt;
 &lt;div class="flex-row-cl gap10 app-font-b14 #-title-trigger" /&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/css_class_order.svg"><img class="light" src="../img/rules/css_class_order.svg" alt="The class order as chips, from layout to local, and an example class list labelled by family; local first beside utilities, app, local" width="1200" height="566" loading="lazy"><img class="dark" src="../img/rules/css_class_order-dark.svg" alt="The class order as chips, from layout to local, and an example class list labelled by family; local first beside utilities, app, local" width="1200" height="566" loading="lazy"></a></div>
 </article>
 <article class="rule" id="CSS-02">
 <a class="code" href="#CSS-02">CSS-02</a>
@@ -2703,6 +2704,7 @@ value=""</pre><button class="copy" type="button">Copy</button></div>
 flex-row flex-align-center gap10 mt10
 flex-col-c gap15
 grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/css_item_class_leads.svg"><img class="light" src="../img/rules/css_item_class_leads.svg" alt="fluid flex-row gap10 oa and flex-row flex-align-center gap10 mt10 as labelled chips; gap first and flex with grid each beside its right order" width="1200" height="554" loading="lazy"><img class="dark" src="../img/rules/css_item_class_leads-dark.svg" alt="fluid flex-row gap10 oa and flex-row flex-align-center gap10 mt10 as labelled chips; gap first and flex with grid each beside its right order" width="1200" height="554" loading="lazy"></a></div>
 </article>
 <article class="rule" id="CSS-03">
 <a class="code" href="#CSS-03">CSS-03</a>
@@ -2711,24 +2713,29 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 &lt;div&gt;
     &lt;div class="#-funnel-bars"&gt;...&lt;/div&gt;
 &lt;/div&gt;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/css_no_class_without_rule.svg"><img class="light" src="../img/rules/css_no_class_without_rule.svg" alt="A wrapper div without a class around a styled #-funnel-bars and its rule; a #-wrapper with no rule beside the classless wrapper" width="1200" height="512" loading="lazy"><img class="dark" src="../img/rules/css_no_class_without_rule-dark.svg" alt="A wrapper div without a class around a styled #-funnel-bars and its rule; a #-wrapper with no rule beside the classless wrapper" width="1200" height="512" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="CSS-04">
+<article class="rule" id="CSS-04">
 <a class="code" href="#CSS-04">CSS-04</a>
 <div class="text"><p><strong>Gap for flex and grid, mg and mi for blocks.</strong> <code>gap*</code> spaces the children of a grid or flex container; <code>mg*</code> and <code>mi*</code> are the block-container forms. The two do not mix.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/css_gap_or_mg.svg"><img class="light" src="../img/rules/css_gap_or_mg.svg" alt="A flex row spaced by gap10 and a block spaced by mg10; mg10 on a flex row beside gap10" width="1200" height="490" loading="lazy"><img class="dark" src="../img/rules/css_gap_or_mg-dark.svg" alt="A flex row spaced by gap10 and a block spaced by mg10; mg10 on a flex row beside gap10" width="1200" height="490" loading="lazy"></a>
 </article>
-<article class="rule bare" id="CSS-05">
+<article class="rule" id="CSS-05">
 <a class="code" href="#CSS-05">CSS-05</a>
 <div class="text"><p><strong>Fluid in a split, flex-fluid in a flex.</strong> <code>fluid</code> marks the filling child of an <code>hsplit</code>/<code>vsplit</code> (whose children default to <code>flex: none</code>); <code>flex-fluid</code> marks the growing child of a plain <code>flex-row</code>/<code>flex-col</code>. Same CSS — the choice states which container the element sits in.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/css_fluid_or_flex_fluid.svg"><img class="light" src="../img/rules/css_fluid_or_flex_fluid.svg" alt="A fluid child filling an hsplit and a flex-fluid child growing in a flex-row; flex-fluid in a split beside fluid" width="1200" height="516" loading="lazy"><img class="dark" src="../img/rules/css_fluid_or_flex_fluid-dark.svg" alt="A fluid child filling an hsplit and a flex-fluid child growing in a flex-row; flex-fluid in a split beside fluid" width="1200" height="516" loading="lazy"></a>
 </article>
 <article class="rule" id="CSS-06">
 <a class="code" href="#CSS-06">CSS-06</a>
 <div class="text"><p><strong>The x class comes before its setter.</strong> An <code>x*</code> class usually comes before the setter it clears the way for — the broad class leads and the narrow one corrects it, whichever of the two is the reset.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&lt;div class="xm ml5" /&gt;   <span class="cmt">&lt;!-- margin: 0; margin-left: 5px; --&gt;</span>
 &lt;div class="m5 xml" /&gt;   <span class="cmt">&lt;!-- margin: 5px; margin-left: 0;  --&gt;</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/css_x_before_setter.svg"><img class="light" src="../img/rules/css_x_before_setter.svg" alt="xm ml5 and m5 xml with the margins each produces; the reset after the setter beside the reset first" width="1200" height="510" loading="lazy"><img class="dark" src="../img/rules/css_x_before_setter-dark.svg" alt="xm ml5 and m5 xml with the margins each produces; the reset after the setter beside the reset first" width="1200" height="510" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="CSS-07">
+<article class="rule" id="CSS-07">
 <a class="code" href="#CSS-07">CSS-07</a>
 <div class="text"><p><strong>Rows and columns are a table.</strong> Rows and columns are a <code>&lt;table&gt;</code>, not a stack of flex rows — the columns line up only until one cell is wider. Flex rows stay for content that is genuinely not tabular.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/css_rows_columns_table.svg"><img class="light" src="../img/rules/css_rows_columns_table.svg" alt="A stack of flex rows whose columns drift beside a table whose columns line up, and their code" width="1200" height="586" loading="lazy"><img class="dark" src="../img/rules/css_rows_columns_table-dark.svg" alt="A stack of flex rows whose columns drift beside a table whose columns line up, and their code" width="1200" height="586" loading="lazy"></a>
 </article>
 <article class="rule" id="CSS-08">
 <a class="code" href="#CSS-08">CSS-08</a>
@@ -2736,19 +2743,23 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 <div class="form"><pre>.#-card
     @include app-transition(box-shadow, border-color)
     box-sizing: border-box</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/css_imports_includes_first.svg"><img class="light" src="../img/rules/css_imports_includes_first.svg" alt="A rule with the include after a declaration beside the same rule with the include first" width="1200" height="392" loading="lazy"><img class="dark" src="../img/rules/css_imports_includes_first-dark.svg" alt="A rule with the include after a declaration beside the same rule with the include first" width="1200" height="392" loading="lazy"></a></div>
 </article>
 <article class="rule" id="CSS-09">
 <a class="code" href="#CSS-09">CSS-09</a>
 <div class="text"><p><strong>Transitions come from the mixin.</strong> A <code>transition:</code> property is not written by hand — <code>@include app-transition(props…)</code> fills it, expanding each property into <code>&lt;prop&gt; &lt;speed&gt;</code> against the one shared speed. <code>app-transition-fast</code> and <code>app-transition-debug</code> are the same mixin at the fast and debug speeds. List the exact properties that change, never <code>all</code>, and put the include on the base rule rather than the state variant, so the animation covers both directions.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>@include app-transition(box-shadow, border-color)</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/css_transitions_from_mixin.svg"><img class="light" src="../img/rules/css_transitions_from_mixin.svg" alt="The transition mixin expanding into each property at the shared speed; transition: all by hand beside the mixin with exact properties" width="1200" height="476" loading="lazy"><img class="dark" src="../img/rules/css_transitions_from_mixin-dark.svg" alt="The transition mixin expanding into each property at the shared speed; transition: all by hand beside the mixin with exact properties" width="1200" height="476" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="CSS-10">
+<article class="rule" id="CSS-10">
 <a class="code" href="#CSS-10">CSS-10</a>
 <div class="text"><p><strong>Five families: layout, spacing, sizing, decoration, typography.</strong> What each family holds: layout is the flex/grid/split container and its <code>flex-*</code> modifiers; spacing is <code>p*</code> / <code>m*</code>; sizing is <code>w*</code> / <code>h*</code> / <code>max-w*</code> / <code>min-h*</code>; decoration is <code>br*</code>, <code>fit-cover</code>, <code>cur-pointer</code> and the other shape and surface utilities; typography is <code>fs*</code> <code>fw*</code> <code>lh*</code>, then alignment and <code>nowrap</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/css_five_families.svg"><img class="light" src="../img/rules/css_five_families.svg" alt="The five families, layout, spacing, sizing, decoration and typography, with examples; a mixed-up class list beside the family order" width="1200" height="580" loading="lazy"><img class="dark" src="../img/rules/css_five_families-dark.svg" alt="The five families, layout, spacing, sizing, decoration and typography, with examples; a mixed-up class list beside the family order" width="1200" height="580" loading="lazy"></a>
 </article>
-<article class="rule bare" id="CSS-11">
+<article class="rule" id="CSS-11">
 <a class="code" href="#CSS-11">CSS-11</a>
 <div class="text"><p><strong>A header aligns like its column.</strong> A table header is aligned the way its column's data is: centered data, centered header; right-aligned data, right-aligned header.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/css_header_aligns_like_column.svg"><img class="light" src="../img/rules/css_header_aligns_like_column.svg" alt="A table with a centered header over right-aligned numbers beside one whose header aligns as its column" width="1200" height="496" loading="lazy"><img class="dark" src="../img/rules/css_header_aligns_like_column-dark.svg" alt="A table with a centered header over right-aligned numbers beside one whose header aligns as its column" width="1200" height="496" loading="lazy"></a>
 </article>
 <article class="rule" id="CSS-12">
 <a class="code" href="#CSS-12">CSS-12</a>
@@ -2757,6 +2768,7 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 
 .docs th,
 .docs td {             <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/css_one_selector_per_line.svg"><img class="light" src="../img/rules/css_one_selector_per_line.svg" alt="Two selectors on one line beside one selector a line, the comma closing each" width="1200" height="366" loading="lazy"><img class="dark" src="../img/rules/css_one_selector_per_line-dark.svg" alt="Two selectors on one line beside one selector a line, the comma closing each" width="1200" height="366" loading="lazy"></a></div>
 </article>
 <article class="rule" id="CSS-13">
 <a class="code" href="#CSS-13">CSS-13</a>
@@ -2771,6 +2783,7 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 }
 
 .intro {          <span class="yes">✓ one blank line</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/css_one_blank_line.svg"><img class="light" src="../img/rules/css_one_blank_line.svg" alt="Two rules with no blank line between them beside the same rules one blank line apart" width="1200" height="444" loading="lazy"><img class="dark" src="../img/rules/css_one_blank_line-dark.svg" alt="Two rules with no blank line between them beside the same rules one blank line apart" width="1200" height="444" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="SQL">

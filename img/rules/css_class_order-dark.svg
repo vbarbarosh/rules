@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="566" viewBox="0 0 1200 566" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="566" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="33" font-weight="700">Utilities first, app classes next, local classes last</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the classes of one attribute keep a fixed order</text>
+<rect x="60" y="160" width="95" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="107.5" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">layout</text>
+<rect x="165" y="160" width="106" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="218.0" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">spacing</text>
+<rect x="281" y="160" width="95" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="328.5" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">sizing</text>
+<rect x="386" y="160" width="138" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="455.0" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">decoration</text>
+<rect x="534" y="160" width="138" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="603.0" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">typography</text>
+<rect x="682" y="160" width="84" height="46" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="724.0" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">app-*</text>
+<rect x="776" y="160" width="62" height="46" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="807.0" y="189.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">#-*</text>
+<rect x="60" y="250" width="52" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="86.0" y="279.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">db</text>
+<text x="86.0" y="322" fill="#92958c" font-size="17" text-anchor="middle">layout</text>
+<rect x="122" y="250" width="62" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="153.0" y="279.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">w80</text>
+<text x="153.0" y="322" fill="#92958c" font-size="17" text-anchor="middle">sizing</text>
+<rect x="194" y="250" width="62" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="225.0" y="279.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">h80</text>
+<rect x="266" y="250" width="62" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="297.0" y="279.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">br4</text>
+<text x="297.0" y="322" fill="#92958c" font-size="17" text-anchor="middle">decoration</text>
+<rect x="338" y="250" width="127" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="401.5" y="279.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">fit-cover</text>
+<rect x="475" y="250" width="149" height="46" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="549.5" y="279.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">cur-pointer</text>
+<rect x="634" y="250" width="181" height="46" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="724.5" y="279.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">app-background</text>
+<text x="724.5" y="322" fill="#92958c" font-size="17" text-anchor="middle">app</text>
+<rect x="825" y="250" width="160" height="46" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="905.0" y="279.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">#-preset-img</text>
+<text x="905.0" y="322" fill="#92958c" font-size="17" text-anchor="middle">local</text>
+<rect x="60" y="360" width="470" height="110" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="78.0" y="389.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">class="#-title app-font-b14</text>
+<text x="98.4" y="415.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">flex-row-cl gap10"</text>
+<text x="78" y="456" fill="#ff937c" font-size="17">✗ local first</text>
+<rect x="670" y="360" width="470" height="110" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="688.0" y="389.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">class="flex-row-cl gap10</text>
+<text x="708.4" y="415.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">app-font-b14 #-title"</text>
+<text x="688" y="456" fill="#72d39c" font-size="17">✓ utilities, app, local</text>
+<line x1="536" y1="415.0" x2="664" y2="415.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="526" fill="#92958c" font-size="21">The broad comes first and the most particular last: #- is always the end.</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="476" viewBox="0 0 1200 476" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="476" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Transitions come from the mixin</text>
+<text x="48" y="108" fill="#92958c" font-size="22">one shared speed, the exact properties, on the base rule</text>
+<rect x="60" y="160" width="560" height="64" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="80" y="199" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">@include app-transition(box-shadow, border-color)</text>
+<line x1="626" y1="192" x2="694" y2="192" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="700" y="160" width="440" height="64" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="720" y="190" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">transition: box-shadow 0.2s,</text>
+<text x="720" y="212" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  border-color 0.2s</text>
+<rect x="60" y="270" width="470" height="110" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="78.0" y="299.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">transition: all 0.3s</text>
+<text x="78" y="366" fill="#ff937c" font-size="17">✗ by hand, all</text>
+<rect x="670" y="270" width="470" height="110" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="688.0" y="299.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">@include app-transition(</text>
+<text x="708.4" y="325.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">box-shadow, border-color)</text>
+<text x="688" y="366" fill="#72d39c" font-size="17">✓ the mixin, exact</text>
+<line x1="536" y1="325.0" x2="664" y2="325.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="436" fill="#92958c" font-size="21">On the base rule, not the state variant, so it animates both ways.</text>
+</svg>

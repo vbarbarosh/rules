@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="490" viewBox="0 0 1200 490" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="490" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Gap for flex and grid, mg and mi for blocks</text>
+<text x="48" y="108" fill="#92958c" font-size="22">each container kind spaces its children its own way</text>
+<rect x="60" y="160" width="500" height="110" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="80" y="190" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">flex-row gap10</text>
+<rect x="80" y="206" width="100" height="46" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<rect x="195" y="206" width="100" height="46" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<rect x="310" y="206" width="100" height="46" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<rect x="425" y="206" width="100" height="46" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<rect x="640" y="160" width="500" height="110" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="660" y="190" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">mg10</text>
+<rect x="660" y="200" width="460" height="26" rx="4" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<rect x="660" y="236" width="460" height="26" rx="4" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<rect x="60" y="310" width="470" height="84" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="78.0" y="339.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;div class="flex-row mg10"&gt;</text>
+<text x="78" y="380" fill="#ff937c" font-size="17">✗ a block form on flex</text>
+<rect x="670" y="310" width="470" height="84" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="688.0" y="339.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;div class="flex-row gap10"&gt;</text>
+<text x="688" y="380" fill="#72d39c" font-size="17">✓ gap on flex</text>
+<line x1="536" y1="352.0" x2="664" y2="352.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="450" fill="#92958c" font-size="21">gap* for flex and grid, mg* and mi* for blocks: the two never mix.</text>
+</svg>

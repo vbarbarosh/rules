@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="554" viewBox="0 0 1200 554" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="554" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Item class leads; gap closes the layout</text>
+<text x="48" y="108" fill="#686a61" font-size="22">within the utilities: the item class first, the gap after the layout</text>
+<rect x="60" y="160" width="84" height="46" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="102.0" y="189.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">fluid</text>
+<text x="102.0" y="232" fill="#686a61" font-size="17" text-anchor="middle">item</text>
+<rect x="154" y="160" width="116" height="46" rx="8" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="212.0" y="189.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">flex-row</text>
+<text x="212.0" y="232" fill="#686a61" font-size="17" text-anchor="middle">layout</text>
+<rect x="280" y="160" width="84" height="46" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="322.0" y="189.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">gap10</text>
+<text x="322.0" y="232" fill="#686a61" font-size="17" text-anchor="middle">closes it</text>
+<rect x="374" y="160" width="52" height="46" rx="8" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="400.0" y="189.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">oa</text>
+<rect x="620" y="160" width="116" height="46" rx="8" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="678.0" y="189.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">flex-row</text>
+<text x="678.0" y="232" fill="#686a61" font-size="17" text-anchor="middle">layout</text>
+<rect x="746" y="160" width="214" height="46" rx="8" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="853.0" y="189.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">flex-align-center</text>
+<rect x="970" y="160" width="84" height="46" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="1012.0" y="189.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">gap10</text>
+<text x="1012.0" y="232" fill="#686a61" font-size="17" text-anchor="middle">closes it</text>
+<rect x="1064" y="160" width="73" height="46" rx="8" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="1100.5" y="189.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">mt10</text>
+<rect x="60" y="270" width="470" height="84" rx="8" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="78.0" y="299.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">gap10 flex-row fluid</text>
+<text x="78" y="340" fill="#b2341f" font-size="17">✗ gap first, item last</text>
+<rect x="670" y="270" width="470" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="688.0" y="299.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">fluid flex-row gap10</text>
+<text x="688" y="340" fill="#1a7443" font-size="17">✓ item, layout, gap</text>
+<line x1="536" y1="312.0" x2="664" y2="312.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="374" width="470" height="84" rx="8" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="78.0" y="403.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">flex-row grid-foo gap5</text>
+<text x="78" y="444" fill="#b2341f" font-size="17">✗ flex and grid together</text>
+<rect x="670" y="374" width="470" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="688.0" y="403.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">grid-foo gap5</text>
+<text x="688" y="444" fill="#1a7443" font-size="17">✓ one of them</text>
+<line x1="536" y1="416.0" x2="664" y2="416.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="514" fill="#686a61" font-size="21">ph* before pv*, and spacing before typography.</text>
+</svg>
