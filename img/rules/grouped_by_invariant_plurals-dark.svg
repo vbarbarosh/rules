@@ -15,9 +15,12 @@
 <rect x="702" y="270" width="34" height="44" rx="5" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <rect x="744" y="270" width="34" height="44" rx="5" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="800" y="300" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">Fish[]</text>
-<text x="60" y="400" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">rows_by_source</text>
-<text x="252.0" y="400" fill="#72d39c" font-size="18">✓ a countable noun, preferred</text>
-<text x="60" y="450" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">data_by_source</text>
-<text x="252.0" y="450" fill="#ff937c" font-size="18">✗ cannot say one or many</text>
+<rect x="60" y="370" width="480" height="76" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="300.0" y="403" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">data_by_source</text>
+<text x="300.0" y="430" fill="#92958c" font-size="17" text-anchor="middle">✗ cannot say one or many</text>
+<rect x="660" y="370" width="480" height="76" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="900.0" y="403" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">rows_by_source</text>
+<text x="900.0" y="430" fill="#92958c" font-size="17" text-anchor="middle">✓ a countable noun says it</text>
+<line x1="546" y1="408" x2="654" y2="408" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
 <text x="48" y="530" fill="#92958c" font-size="21">Where a countable noun exists, its plural says it and grouped is not needed.</text>
 </svg>

@@ -19,9 +19,12 @@
 <rect x="30" y="238" width="110" height="50" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="85" y="270" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">id = 12</text>
 <line x1="146" y1="263" x2="194" y2="263" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
-<text x="500" y="260" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">user_by_id[id]</text>
-<text x="692.0" y="260" fill="#72d39c" font-size="18">✓ right: looked up</text>
-<text x="500" y="330" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">user_from_id(id)</text>
-<text x="716.0" y="330" fill="#ff937c" font-size="18">✗ wrong: dressed as built</text>
+<rect x="500" y="225" width="280" height="76" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="640.0" y="258" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_from_id(id)</text>
+<text x="640.0" y="285" fill="#92958c" font-size="17" text-anchor="middle">✗ dressed as built</text>
+<rect x="860" y="225" width="280" height="76" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="1000.0" y="258" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_by_id[id]</text>
+<text x="1000.0" y="285" fill="#92958c" font-size="17" text-anchor="middle">✓ looked up</text>
+<line x1="786" y1="263" x2="854" y2="263" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
 <text x="48" y="500" fill="#92958c" font-size="21">A lookup disguised as construction hides what it costs and where the data lives.</text>
 </svg>

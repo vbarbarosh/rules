@@ -20,7 +20,12 @@
 <text x="612.0" y="220" fill="#1a7443" font-size="18">✓ right</text>
 <text x="420" y="280" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">user_by_id.get(id)</text>
 <text x="660.0" y="280" fill="#1a7443" font-size="18">✓ right, a Map</text>
-<text x="420" y="340" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">user_by_id(id)</text>
-<text x="612.0" y="340" fill="#b2341f" font-size="18">✗ wrong: it is not a function</text>
+<rect x="420" y="318" width="300" height="76" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="570.0" y="351" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_by_id(id)</text>
+<text x="570.0" y="378" fill="#686a61" font-size="17" text-anchor="middle">✗ not a function</text>
+<rect x="820" y="318" width="300" height="76" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="970.0" y="351" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_by_id[id]</text>
+<text x="970.0" y="378" fill="#686a61" font-size="17" text-anchor="middle">✓ read with brackets</text>
+<line x1="726" y1="356" x2="814" y2="356" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
 <text x="48" y="480" fill="#686a61" font-size="21">Brackets, or .get() on a Map: a "by" name is looked into, never called.</text>
 </svg>

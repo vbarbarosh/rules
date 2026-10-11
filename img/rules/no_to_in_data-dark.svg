@@ -16,9 +16,12 @@
 <text x="105.0" y="302.0" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">31</text>
 <rect x="150" y="274" width="150" height="42" rx="0" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="225.0" y="302.0" fill="#d3d1c9" font-size="18" text-anchor="middle">'Cy'</text>
-<text x="440" y="240" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">name_by_id</text>
-<text x="584.0" y="240" fill="#72d39c" font-size="18">✓ right: by, as every lookup</text>
-<text x="440" y="310" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">id_to_name</text>
-<text x="584.0" y="310" fill="#ff937c" font-size="18">✗ banned: the same map, a second name</text>
+<rect x="420" y="210" width="300" height="76" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="570.0" y="243" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">id_to_name</text>
+<text x="570.0" y="270" fill="#92958c" font-size="17" text-anchor="middle">✗ a second name</text>
+<rect x="820" y="210" width="300" height="76" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="970.0" y="243" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">name_by_id</text>
+<text x="970.0" y="270" fill="#92958c" font-size="17" text-anchor="middle">✓ by, as every lookup</text>
+<line x1="726" y1="248" x2="814" y2="248" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
 <text x="48" y="450" fill="#92958c" font-size="21">One shape, one name: a map from ids to names is name_by_id.</text>
 </svg>
