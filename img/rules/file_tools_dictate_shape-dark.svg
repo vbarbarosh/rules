@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="460" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Libraries and tools dictate their own shape</text>
+<text x="48" y="108" fill="#92958c" font-size="22">a named import from a library, a hooks file for mocha</text>
+<rect x="60" y="150" width="500" height="79.30000000000001" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="78.0" y="183.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">import {mapState} from 'vuex';</text>
+<text x="78" y="215.3" fill="#72d39c" font-size="17">✓ vuex's shape</text>
+<rect x="640" y="150" width="500" height="79.30000000000001" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="658.0" y="183.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">module.exports.mochaHooks = {};</text>
+<text x="658" y="215.3" fill="#72d39c" font-size="17">✓ mocha's shape</text>
+<rect x="60" y="290" width="500" height="80.45" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="640" y="290" width="500" height="80.45" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="78.0" y="322.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">import {engine_run} from './engine';</text>
+<text x="78" y="354.45" fill="#ff937c" font-size="17">✗ a local module</text>
+<text x="658.0" y="322.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">import engine_run from './engine_run';</text>
+<text x="658" y="354.45" fill="#72d39c" font-size="17">✓ one value</text>
+<line x1="566" y1="330.225" x2="634" y2="330.225" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="424" fill="#92958c" font-size="21">Our own modules follow our rule; the shape of theirs is theirs.</text>
+</svg>

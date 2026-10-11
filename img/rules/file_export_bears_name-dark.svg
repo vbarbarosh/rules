@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="617" viewBox="0 0 1200 617" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="617" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">One library export, last, and the file bears its name</text>
+<text x="48" y="108" fill="#92958c" font-size="22">helper.js exports helper, declared above, by name</text>
+<rect x="60" y="150" width="500" height="188.45" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="640" y="150" width="500" height="188.45" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="78.0" y="182.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// helper.js</text>
+<text x="78.0" y="209.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">export default function helper()</text>
+<text x="78.0" y="236.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
+<text x="78.0" y="263.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="78" y="322.45" fill="#ff937c" font-size="17">✗ declaration and export in one</text>
+<text x="658.0" y="182.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// helper.js</text>
+<text x="658.0" y="209.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function helper()</text>
+<text x="658.0" y="236.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
+<text x="658.0" y="263.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="658.0" y="290.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">export default helper;</text>
+<text x="658" y="322.45" fill="#72d39c" font-size="17">✓ declared, then exported by name</text>
+<line x1="566" y1="244.225" x2="634" y2="244.225" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="420" width="500" height="107.45" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="640" y="420" width="500" height="107.45" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="78.0" y="452.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// helper.js</text>
+<text x="78.0" y="479.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">export default () =&gt; null;</text>
+<text x="78" y="511.45000000000005" fill="#ff937c" font-size="17">✗ an inline expression</text>
+<text x="658.0" y="452.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// helper.js</text>
+<text x="658.0" y="479.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">export default helper;</text>
+<text x="658" y="511.45000000000005" fill="#72d39c" font-size="17">✓ its name, last</text>
+<line x1="566" y1="473.725" x2="634" y2="473.725" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="581" fill="#92958c" font-size="21">The file name, the declaration and the last line say the same word.</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="522" viewBox="0 0 1200 522" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="522" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Helpers follow the entry function</text>
+<text x="48" y="108" fill="#92958c" font-size="22">and come before a library's final export</text>
+<rect x="60" y="150" width="640" height="282" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="78" y="182" fill="#92958c" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">items_index_by_uid.js</text>
+<rect x="74" y="200" width="612" height="46" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="90" y="229.0" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function items_index_by_uid(items)</text>
+<text x="670" y="229.0" fill="#92958c" font-size="17" text-anchor="end">entry</text>
+<rect x="74" y="256" width="612" height="46" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="90" y="285.0" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function uid_check(uid)</text>
+<text x="670" y="285.0" fill="#92958c" font-size="17" text-anchor="end">helper</text>
+<rect x="74" y="312" width="612" height="46" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="90" y="341.0" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function uid_normalize(uid)</text>
+<text x="670" y="341.0" fill="#92958c" font-size="17" text-anchor="end">helper</text>
+<rect x="74" y="368" width="612" height="46" rx="6" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="90" y="397.0" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">module.exports = items_index_by_uid;</text>
+<text x="670" y="397.0" fill="#92958c" font-size="17" text-anchor="end">export</text>
+<rect x="760" y="230" width="380" height="140" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
+<text x="950.0" y="283.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">the order</text>
+<text x="950.0" y="308.0" fill="#92958c" font-size="18" text-anchor="middle">entry, its helpers,</text>
+<text x="950.0" y="333.0" fill="#92958c" font-size="18" text-anchor="middle">then the export</text>
+<text x="48" y="486" fill="#92958c" font-size="21">A helper is read after the code that calls it.</text>
+</svg>

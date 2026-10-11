@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="412" viewBox="0 0 1200 412" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="412" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">No hand-rolled catch and exit</text>
+<text x="48" y="108" fill="#92958c" font-size="22">cli already catches, reports and exits</text>
+<rect x="60" y="160" width="500" height="162.3" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="640" y="160" width="500" height="162.3" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="78.0" y="193.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">main().catch(function (error) {</text>
+<text x="121.2" y="220.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">console.error(error);</text>
+<text x="121.2" y="247.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">process.exit(1);</text>
+<text x="78.0" y="274.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">});</text>
+<text x="78" y="306.3" fill="#ff937c" font-size="17">✗ does not exist</text>
+<text x="658.0" y="193.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">cli(main);</text>
+<text x="658" y="306.3" fill="#72d39c" font-size="17">✓ cli owns the exit</text>
+<line x1="566" y1="241.15" x2="634" y2="241.15" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="376" fill="#92958c" font-size="21">A copy of what cli does, by hand, in every script, is a copy that drifts.</text>
+</svg>

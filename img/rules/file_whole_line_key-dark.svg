@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="385" viewBox="0 0 1200 385" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="385" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">The whole line is the sort key</text>
+<text x="48" y="108" fill="#92958c" font-size="22">const or import included; not the path, not the name</text>
+<rect x="60" y="160" width="500" height="135.3" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="640" y="160" width="500" height="135.3" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="78.0" y="193.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const axios = require('axios');</text>
+<text x="78.0" y="220.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const fs = require('fs');</text>
+<text x="78.0" y="247.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const Vue = require('vue');</text>
+<text x="78" y="279.3" fill="#ff937c" font-size="17">✗ sorted by the name, ignoring case</text>
+<text x="658.0" y="193.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const Vue = require('vue');</text>
+<text x="658.0" y="220.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const axios = require('axios');</text>
+<text x="658.0" y="247.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const fs = require('fs');</text>
+<text x="658" y="279.3" fill="#72d39c" font-size="17">✓ sorted by the whole line</text>
+<line x1="566" y1="227.65" x2="634" y2="227.65" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="349" fill="#92958c" font-size="21">Sort the lines as text: no part of a line is picked out as the key.</text>
+</svg>

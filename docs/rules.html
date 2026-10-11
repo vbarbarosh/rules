@@ -2047,14 +2047,17 @@ match ($status) {                                          <span class="yes">✓
 <a class="code" href="#FILE-01">FILE-01</a>
 <div class="text"><p><strong>A library module exports one public value last.</strong> The value may be a function, class, configuration or data. Declare it above and export its name at file end; tool-shaped files follow their tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>module.exports = items_index_by_uid;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_one_export_last.svg"><img class="light" src="../img/rules/file_one_export_last.svg" alt="A library file: requires, the value, helpers, and module.exports of that one value last" width="1200" height="522" loading="lazy"><img class="dark" src="../img/rules/file_one_export_last-dark.svg" alt="A library file: requires, the value, helpers, and module.exports of that one value last" width="1200" height="522" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FILE-02">
+<article class="rule" id="FILE-02">
 <a class="code" href="#FILE-02">FILE-02</a>
 <div class="text"><p><strong>A script runs main and exports nothing.</strong> An executable script uses <code>main</code> as its entry function and does not export.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_script_runs_main.svg"><img class="light" src="../img/rules/file_script_runs_main.svg" alt="A script that exports, turned into one that only runs: shebang, requires, cli(main), main" width="1200" height="633" loading="lazy"><img class="dark" src="../img/rules/file_script_runs_main-dark.svg" alt="A script that exports, turned into one that only runs: shebang, requires, cli(main), main" width="1200" height="633" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FILE-03">
+<article class="rule" id="FILE-03">
 <a class="code" href="#FILE-03">FILE-03</a>
 <div class="text"><p><strong>Library or executable, never both.</strong> Do not combine a library export and an executable invocation in the same file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_library_or_executable.svg"><img class="light" src="../img/rules/file_library_or_executable.svg" alt="A file that both exports and runs, split into a library and an executable" width="1200" height="485" loading="lazy"><img class="dark" src="../img/rules/file_library_or_executable-dark.svg" alt="A file that both exports and runs, split into a library and an executable" width="1200" height="485" loading="lazy"></a>
 </article>
 <article class="rule" id="FILE-04">
 <a class="code" href="#FILE-04">FILE-04</a>
@@ -2066,12 +2069,14 @@ cli(main);
 async function main()
 {
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_cli_owns_exit.svg"><img class="light" src="../img/rules/file_cli_owns_exit.svg" alt="main handed to cli, which keeps the loop alive, reports a failure and exits non-zero" width="1200" height="458" loading="lazy"><img class="dark" src="../img/rules/file_cli_owns_exit-dark.svg" alt="main handed to cli, which keeps the loop alive, reports a failure and exits non-zero" width="1200" height="458" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-05">
 <a class="code" href="#FILE-05">FILE-05</a>
 <div class="text"><p><strong><code>cli(main)</code>, never <code>cli(main())</code>.</strong> <code>cli</code> runs the function through <code>Promise.try</code>, so a synchronous throw is reported like a rejection; an already-invoked <code>main()</code> is a promise, and <code>Promise.try</code> rejects it with “expecting a function” — the app dies at startup.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/cli_main.md" title="drafts/cli_main.md">cli_main.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>cli(main);     <span class="yes">✓ right</span>
 cli(main());   <span class="no">✗ dies at startup</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_cli_main_not_called.svg"><img class="light" src="../img/rules/file_cli_main_not_called.svg" alt="cli(main()) hands cli a promise and dies at startup; cli(main) lets cli call main and report a throw" width="1200" height="476" loading="lazy"><img class="dark" src="../img/rules/file_cli_main_not_called-dark.svg" alt="cli(main()) hands cli a promise and dies at startup; cli(main) lets cli call main and report a throw" width="1200" height="476" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-06">
 <a class="code" href="#FILE-06">FILE-06</a>
@@ -2080,11 +2085,13 @@ cli(main());   <span class="no">✗ dies at startup</span></pre><button class="c
     console.error(error);
     process.exit(1);
 });                              <span class="no">✗ does not exist</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_no_hand_rolled_exit.svg"><img class="light" src="../img/rules/file_no_hand_rolled_exit.svg" alt="A hand-written main().catch with process.exit(1), replaced by cli(main)" width="1200" height="412" loading="lazy"><img class="dark" src="../img/rules/file_no_hand_rolled_exit-dark.svg" alt="A hand-written main().catch with process.exit(1), replaced by cli(main)" width="1200" height="412" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-07">
 <a class="code" href="#FILE-07">FILE-07</a>
 <div class="text"><p><strong>Nothing precedes the shebang.</strong> An executable script may start with a shebang; nothing may precede it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>#!/usr/bin/env node</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_shebang_first.svg"><img class="light" src="../img/rules/file_shebang_first.svg" alt="A comment above the shebang, moved below it so #! is line 1" width="1200" height="358" loading="lazy"><img class="dark" src="../img/rules/file_shebang_first-dark.svg" alt="A comment above the shebang, moved below it so #! is line 1" width="1200" height="358" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-08">
 <a class="code" href="#FILE-08">FILE-08</a>
@@ -2095,10 +2102,12 @@ const axios = require('axios');
 const cli = require('@vbarbarosh/node-helpers/src/cli');
 const fs = require('fs');
 const {promisify} = require('util');</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_imports_byte_order.svg"><img class="light" src="../img/rules/file_imports_byte_order.svg" alt="Six requires in the order they were added, sorted in byte order as LC_ALL=C sort does" width="1200" height="465" loading="lazy"><img class="dark" src="../img/rules/file_imports_byte_order-dark.svg" alt="Six requires in the order they were added, sorted in byte order as LC_ALL=C sort does" width="1200" height="465" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FILE-09">
+<article class="rule" id="FILE-09">
 <a class="code" href="#FILE-09">FILE-09</a>
 <div class="text"><p><strong>The whole line is the sort key.</strong> The whole line is the sort key — <code>const</code> or <code>import</code> included, not the module path and not the variable name.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/imports_sorted.md" title="drafts/imports_sorted.md">imports_sorted.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_whole_line_key.svg"><img class="light" src="../img/rules/file_whole_line_key.svg" alt="Requires sorted by name ignoring case, re-sorted by the whole line" width="1200" height="385" loading="lazy"><img class="dark" src="../img/rules/file_whole_line_key-dark.svg" alt="Requires sorted by name ignoring case, re-sorted by the whole line" width="1200" height="385" loading="lazy"></a>
 </article>
 <article class="rule" id="FILE-10">
 <a class="code" href="#FILE-10">FILE-10</a>
@@ -2106,6 +2115,7 @@ const {promisify} = require('util');</pre><button class="copy" type="button">Cop
 <div class="form"><pre>const Vue = require('vue');       <span class="aside">← V before a</span>
 const axios = require('axios');
 const {promisify} = require('util'); <span class="aside">← { after z</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_byte_not_locale.svg"><img class="light" src="../img/rules/file_byte_not_locale.svg" alt="Byte order: $ and @, then A to Z, a to z, then {; a locale-sorted list re-sorted that way" width="1200" height="494" loading="lazy"><img class="dark" src="../img/rules/file_byte_not_locale-dark.svg" alt="Byte order: $ and @, then A to Z, a to z, then {; a locale-sorted list re-sorted that way" width="1200" height="494" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-11">
 <a class="code" href="#FILE-11">FILE-11</a>
@@ -2118,41 +2128,50 @@ import axios from 'axios';
 
 import {mapState} from 'vuex';
 import {promisify} from 'util';</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_imports_one_list.svg"><img class="light" src="../img/rules/file_imports_one_list.svg" alt="Imports split by comments into groups, turned into one list with side-effect and named blocks" width="1200" height="455" loading="lazy"><img class="dark" src="../img/rules/file_imports_one_list-dark.svg" alt="Imports split by comments into groups, turned into one list with side-effect and named blocks" width="1200" height="455" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-12">
 <a class="code" href="#FILE-12">FILE-12</a>
 <div class="text"><p><strong>Constants follow the requires.</strong> File-level constants and variables follow the <code>require</code> statements.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const report_limit = 31;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_constants_after_requires.svg"><img class="light" src="../img/rules/file_constants_after_requires.svg" alt="A constant above the requires, moved below them" width="1200" height="385" loading="lazy"><img class="dark" src="../img/rules/file_constants_after_requires-dark.svg" alt="A constant above the requires, moved below them" width="1200" height="385" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FILE-13">
+<article class="rule" id="FILE-13">
 <a class="code" href="#FILE-13">FILE-13</a>
 <div class="text"><p><strong>cli(main) right after initialization.</strong> <code>cli(main);</code> comes immediately after all global initialization, and no executable code other than that call may appear before the public entry function.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_cli_main_after_init.svg"><img class="light" src="../img/rules/file_cli_main_after_init.svg" alt="Code run between cli(main) and main, turned into globals followed by cli(main)" width="1200" height="412" loading="lazy"><img class="dark" src="../img/rules/file_cli_main_after_init-dark.svg" alt="Code run between cli(main) and main, turned into globals followed by cli(main)" width="1200" height="412" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FILE-14">
+<article class="rule" id="FILE-14">
 <a class="code" href="#FILE-14">FILE-14</a>
 <div class="text"><p><strong>The public entry function is the first function in the file.</strong> In an executable, the first function declaration is <code>function main()</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_entry_function_first.svg"><img class="light" src="../img/rules/file_entry_function_first.svg" alt="A helper above main, moved below so main is the first function" width="1200" height="385" loading="lazy"><img class="dark" src="../img/rules/file_entry_function_first-dark.svg" alt="A helper above main, moved below so main is the first function" width="1200" height="385" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FILE-15">
+<article class="rule" id="FILE-15">
 <a class="code" href="#FILE-15">FILE-15</a>
 <div class="text"><p><strong>Helpers follow the entry function.</strong> Helpers are defined after the public entry function, and before a library’s final export.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_helpers_after_entry.svg"><img class="light" src="../img/rules/file_helpers_after_entry.svg" alt="A library file: the entry function, its helpers, then the export" width="1200" height="522" loading="lazy"><img class="dark" src="../img/rules/file_helpers_after_entry-dark.svg" alt="A library file: the entry function, its helpers, then the export" width="1200" height="522" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FILE-16">
+<article class="rule" id="FILE-16">
 <a class="code" href="#FILE-16">FILE-16</a>
 <div class="text"><p><strong>Helpers must be named functions, not inline lambdas.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_helpers_named.svg"><img class="light" src="../img/rules/file_helpers_named.svg" alt="A helper written as an arrow in a constant, turned into a named function" width="1200" height="412" loading="lazy"><img class="dark" src="../img/rules/file_helpers_named-dark.svg" alt="A helper written as an arrow in a constant, turned into a named function" width="1200" height="412" loading="lazy"></a>
 </article>
-<article class="rule bare" id="FILE-17">
+<article class="rule" id="FILE-17">
 <a class="code" href="#FILE-17">FILE-17</a>
 <div class="text"><p><strong>This repository is CommonJS.</strong> This repository's own code and node scripts are CommonJS: <code>const &lt;name&gt; = require('&lt;module&gt;');</code>, never <code>import</code> or <code>export</code>. Elsewhere the rules cover both module systems.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_commonjs.svg"><img class="light" src="../img/rules/file_commonjs.svg" alt="import and export default, turned into require and module.exports in this repository" width="1200" height="358" loading="lazy"><img class="dark" src="../img/rules/file_commonjs-dark.svg" alt="import and export default, turned into require and module.exports in this repository" width="1200" height="358" loading="lazy"></a>
 </article>
 <article class="rule" id="FILE-18">
 <a class="code" href="#FILE-18">FILE-18</a>
 <div class="text"><p><strong>Libraries follow a fixed order.</strong> Library order is fixed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>requires → constants → public entry → helpers → module.exports</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_library_order.svg"><img class="light" src="../img/rules/file_library_order.svg" alt="The five parts of a library in order: requires, constants, entry, helpers, exports" width="1200" height="396" loading="lazy"><img class="dark" src="../img/rules/file_library_order-dark.svg" alt="The five parts of a library in order: requires, constants, entry, helpers, exports" width="1200" height="396" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-19">
 <a class="code" href="#FILE-19">FILE-19</a>
 <div class="text"><p><strong>Executables follow a fixed order.</strong> Executable order is fixed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>shebang → requires → globals → cli(main); → main() → helpers</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_executable_order.svg"><img class="light" src="../img/rules/file_executable_order.svg" alt="The six parts of a script in order: shebang, requires, globals, cli(main), main, helpers" width="1200" height="396" loading="lazy"><img class="dark" src="../img/rules/file_executable_order-dark.svg" alt="The six parts of a script in order: shebang, requires, globals, cli(main), main, helpers" width="1200" height="396" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-20">
 <a class="code" href="#FILE-20">FILE-20</a>
@@ -2164,6 +2183,7 @@ function helper()
 }
 
 export default helper;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_export_bears_name.svg"><img class="light" src="../img/rules/file_export_bears_name.svg" alt="helper.js exporting a combined declaration or an inline expression, turned into helper declared, then exported by name" width="1200" height="617" loading="lazy"><img class="dark" src="../img/rules/file_export_bears_name-dark.svg" alt="helper.js exporting a combined declaration or an inline expression, turned into helper declared, then exported by name" width="1200" height="617" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-21">
 <a class="code" href="#FILE-21">FILE-21</a>
@@ -2173,19 +2193,23 @@ import {engine_run, engine_transport} from './engine';   <span class="no">✗ no
 
 import engine_run from './engine_run';                   <span class="yes">✓ yes</span>
 import engine_transport from './engine_transport';</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_no_named_exports.svg"><img class="light" src="../img/rules/file_no_named_exports.svg" alt="engine.js with two named exports, split into engine_run.js exporting one value" width="1200" height="411" loading="lazy"><img class="dark" src="../img/rules/file_no_named_exports-dark.svg" alt="engine.js with two named exports, split into engine_run.js exporting one value" width="1200" height="411" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FILE-23">
+<article class="rule" id="FILE-23">
 <a class="code" href="#FILE-23">FILE-23</a>
 <div class="text"><p><strong>Reusable scratch and test modules export one value too.</strong> Research, scratch and test-support modules are not exempt. Executable scripts export nothing; tool-shaped files follow the tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_scratch_one_export.svg"><img class="light" src="../img/rules/file_scratch_one_export.svg" alt="A test fixtures module exporting two values, turned into users_fixture.js exporting one" width="1200" height="358" loading="lazy"><img class="dark" src="../img/rules/file_scratch_one_export-dark.svg" alt="A test fixtures module exporting two values, turned into users_fixture.js exporting one" width="1200" height="358" loading="lazy"></a>
 </article>
 <article class="rule" id="FILE-24">
 <a class="code" href="#FILE-24">FILE-24</a>
 <div class="text"><p><strong>Libraries and tools dictate their own shape.</strong> A named import from a library is the library’s shape, and a file whose shape is dictated by a tool follows the tool — <code>module.exports.mochaHooks</code> in a mocha hooks file.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>import {mapState} from 'vuex';</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_tools_dictate_shape.svg"><img class="light" src="../img/rules/file_tools_dictate_shape.svg" alt="vuex's named import and mocha's hooks file keep their tools' shape; a named import from a local module becomes one value" width="1200" height="460" loading="lazy"><img class="dark" src="../img/rules/file_tools_dictate_shape-dark.svg" alt="vuex's named import and mocha's hooks file keep their tools' shape; a named import from a local module becomes one value" width="1200" height="460" loading="lazy"></a></div>
 </article>
-<article class="rule bare" id="FILE-25">
+<article class="rule" id="FILE-25">
 <a class="code" href="#FILE-25">FILE-25</a>
 <div class="text"><p><strong>New code takes its place from its surroundings where no explicit rule applies.</strong> Read the code around the insertion point — what stands together, in what order — and continue it within that scope. Explicit rules take priority (CORE-01); this does not require reorganizing existing code.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/new_code_placement.md" title="drafts/new_code_placement.md">new_code_placement.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/file_place_from_surroundings.svg"><img class="light" src="../img/rules/file_place_from_surroundings.svg" alt="format_time appended after render_page, moved beside the other format_ functions" width="1200" height="412" loading="lazy"><img class="dark" src="../img/rules/file_place_from_surroundings-dark.svg" alt="format_time appended after render_page, moved beside the other format_ functions" width="1200" height="412" loading="lazy"></a>
 </article>
 <article class="rule" id="FILE-26">
 <a class="code" href="#FILE-26">FILE-26</a>
@@ -2197,6 +2221,7 @@ render_html()
 render_css()
 render_html()
 describe()            <span class="yes">✓ after the run</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/file_family_unbroken.svg"><img class="light" src="../img/rules/file_family_unbroken.svg" alt="describe() between render_css and render_html, moved after the render run" width="1200" height="385" loading="lazy"><img class="dark" src="../img/rules/file_family_unbroken-dark.svg" alt="describe() between render_css and render_html, moved after the render run" width="1200" height="385" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="PROJ">

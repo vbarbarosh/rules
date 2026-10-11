@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="494" viewBox="0 0 1200 494" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="494" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Byte order, not locale order</text>
+<text x="48" y="108" fill="#686a61" font-size="22">$ and @ before letters, uppercase before lowercase, { after z</text>
+<rect x="60.0" y="160" width="237.0" height="60" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="178.5" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">$  @</text>
+<rect x="341.0" y="160" width="237.0" height="60" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="459.5" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">A … Z</text>
+<line x1="303.0" y1="190.0" x2="335.0" y2="190.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="622.0" y="160" width="237.0" height="60" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="740.5" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">a … z</text>
+<line x1="584.0" y1="190.0" x2="616.0" y2="190.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="903.0" y="160" width="237.0" height="60" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="1021.5" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">{</text>
+<line x1="865.0" y1="190.0" x2="897.0" y2="190.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="270" width="500" height="134.45" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="640" y="270" width="500" height="134.45" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="78.0" y="302.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const axios = require('axios');</text>
+<text x="78.0" y="329.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const {promisify} = require('util');</text>
+<text x="78.0" y="356.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const Vue = require('vue');</text>
+<text x="78" y="388.45" fill="#b2341f" font-size="17">✗ locale order: { and V mixed in</text>
+<text x="658.0" y="302.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const Vue = require('vue');</text>
+<text x="658.0" y="329.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const axios = require('axios');</text>
+<text x="658.0" y="356.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const {promisify} = require('util');</text>
+<text x="658" y="388.45" fill="#1a7443" font-size="17">✓ byte order: V first, { last</text>
+<line x1="566" y1="337.225" x2="634" y2="337.225" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="458" fill="#686a61" font-size="21">Destructured imports land last on their own: { sorts after z.</text>
+</svg>
