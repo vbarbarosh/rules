@@ -408,41 +408,33 @@ h1 {
     gap: 8px;
 }
 
-/* The viewer: one picture full size over the page; a click or Escape closes it. */
-.viewer {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 24px;
-    background: color-mix(in srgb, var(--bg) 94%, transparent);
-    cursor: zoom-out;
-    outline: 0;
+/* PhotoSwipe, loaded on the first click on a picture, in the page's colours. */
+:root .pswp {
+    --pswp-bg: var(--bg);
+    --pswp-placeholder-bg: var(--surface);
+    --pswp-icon-color: var(--ink);
+    --pswp-icon-color-secondary: var(--bg);
+    --pswp-icon-stroke-color: var(--bg);
+    --pswp-preloader-color: var(--line);
+    --pswp-preloader-color-secondary: var(--ink);
+    --pswp-error-text-color: var(--ink);
 }
 
-.viewer[hidden] {
-    display: none;
-}
-
-.viewer img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: calc(100vh - 90px);
-    border: 1px solid var(--line);
-    background: var(--surface);
-}
-
-.viewer p {
-    max-width: 90ch;
-    margin: 0;
+.pswp__caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 12px 24px 16px;
     font-size: 15px;
     color: var(--muted);
     text-align: center;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    pointer-events: none;
+}
+
+.pswp__caption:empty {
+    display: none;
 }
 
 .theme-docked {
@@ -1239,13 +1231,9 @@ footer .lead {
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
 
-<div class="viewer" id="viewer" hidden tabindex="-1" aria-label="Picture">
-    <p></p>
-</div>
-
 <script>
 const root_el = document.documentElement;
-const viewer_el = document.getElementById('viewer');
+const PHOTOSWIPE_URL = 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/';
 const q_el = document.getElementById('q');
 const count_el = document.getElementById('count');
 const nothing_el = document.getElementById('nothing');
@@ -1279,7 +1267,6 @@ function main()
     document.addEventListener('click', click_theme);
     document.addEventListener('click', click_pictures);
     document.addEventListener('click', click_figure);
-    viewer_el.addEventListener('click', close_viewer);
     theme_dock_watch();
 
     q_el.value = new URLSearchParams(location.search).get('q') || '';
@@ -1537,32 +1524,94 @@ function refresh_pictures_labels()
     }
 }
 
-// A click on a picture, or on its mark when pictures are off, shows it full size over the page.
-function click_figure(event)
+// A click on a picture, or on its mark when pictures are off, opens the
+// page's shown pictures in PhotoSwipe at that one: zoom, swipe, caption.
+async function click_figure(event)
 {
     const figure = event.target.closest('a.figure');
     if (!figure || event.ctrlKey || event.metaKey || event.shiftKey || (event.button !== 0)) {
         return;
     }
     event.preventDefault();
-    const dark = root_el.getAttribute('data-theme') === 'dark';
-    const img = figure.querySelector(dark ? 'img.dark' : 'img.light') || figure.querySelector('img');
-    // The viewer's image is made on the first opening: an image with no source is one the page's tests cannot decode.
-    const shown = viewer_el.querySelector('img') || viewer_el.insertBefore(document.createElement('img'), viewer_el.firstChild);
-    shown.src = img.src;
-    shown.alt = img.alt;
-    viewer_el.querySelector('p').textContent = img.alt;
-    viewer_el.hidden = false;
-    viewer_el.setAttribute('role', 'dialog');
-    viewer_el.setAttribute('aria-modal', 'true');
-    viewer_el.focus();
+    if (root_el.classList.contains('photoswipe-loading')) {
+        return;
+    }
+    root_el.classList.add('photoswipe-loading');
+    try {
+        open_photoswipe(await load_photoswipe(), figure);
+    }
+    catch (error) {
+        // PhotoSwipe out of reach (offline, the CDN down): the picture opens on its own.
+        console.warn(error);
+        location.assign(figure.href);
+    }
+    finally {
+        root_el.classList.remove('photoswipe-loading');
+    }
 }
 
-function close_viewer()
+// PhotoSwipe's module and stylesheet, fetched once, on the first click.
+function load_photoswipe()
 {
-    viewer_el.hidden = true;
-    viewer_el.removeAttribute('role');
-    viewer_el.removeAttribute('aria-modal');
+    load_photoswipe.promise ??= Promise.all([
+        import(`${PHOTOSWIPE_URL}photoswipe.esm.min.js`),
+        new Promise(function (resolve, reject) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = `${PHOTOSWIPE_URL}photoswipe.css`;
+            link.addEventListener('load', resolve);
+            link.addEventListener('error', () => reject(new Error(`Failed to load ${link.href}`)));
+            document.head.append(link);
+        }),
+    ]).then(v => v[0].default).catch(function (error) {
+        load_photoswipe.promise = null;
+        throw error;
+    });
+    return load_photoswipe.promise;
+}
+
+function open_photoswipe(PhotoSwipe, figure)
+{
+    const dark = root_el.getAttribute('data-theme') === 'dark';
+    const shown = Array.from(document.querySelectorAll('a.figure')).filter(v => v.getClientRects().length > 0);
+    const items = shown.map(function (element) {
+        const img = element.querySelector(dark ? 'img.dark' : 'img.light') || element.querySelector('img');
+        return {element, src: img.src, msrc: img.src, alt: img.alt, width: Number(img.getAttribute('width')), height: Number(img.getAttribute('height'))};
+    });
+    const still = (root_el.getAttribute('data-pictures') === 'off') || matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const pswp = new PhotoSwipe({
+        dataSource: items,
+        index: Math.max(0, shown.indexOf(figure)),
+        bgOpacity: 0.94,
+        showHideAnimationType: still ? 'fade' : 'zoom',
+        thumbSelector: dark ? 'img.dark, img:only-child' : 'img.light, img:only-child',
+    });
+    pswp.on('uiRegister', function () {
+        pswp.ui.registerElement({
+            name: 'caption',
+            order: 9,
+            isButton: false,
+            appendTo: 'root',
+            onInit: function (el) {
+                pswp.on('change', function () {
+                    el.textContent = pswp.currSlide.data.alt;
+                });
+            },
+        });
+    });
+    // PhotoSwipe hears no keys while it opens: Escape and the arrows then act once it is open.
+    document.addEventListener('keydown', keydown_opening);
+    pswp.on('openingAnimationEnd', () => document.removeEventListener('keydown', keydown_opening));
+    pswp.init();
+    // The page's typing-to-search stands aside while a dialog is modal.
+    pswp.element.setAttribute('aria-modal', 'true');
+
+    function keydown_opening(event) {
+        const action = {Escape: 'close', ArrowLeft: 'prev', ArrowRight: 'next'}[event.key];
+        if (action) {
+            pswp.on('openingAnimationEnd', () => pswp[action]());
+        }
+    }
 }
 
 function click_theme(event)
@@ -1601,10 +1650,6 @@ async function click_copy(event)
 function keydown_document(event)
 {
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) {
-        return;
-    }
-    if ((event.key === 'Escape') && !viewer_el.hidden) {
-        close_viewer();
         return;
     }
     if ((event.key === 'Escape') && (document.activeElement === q_el)) {
