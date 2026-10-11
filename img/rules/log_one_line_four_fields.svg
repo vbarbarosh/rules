@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="486" viewBox="0 0 1200 486" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="486" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">One line, one event, four fields</text>
+<text x="48" y="108" fill="#686a61" font-size="22">a log is one infinite file; each physical line is one event</text>
+<rect x="60" y="160" width="290" height="84" rx="8" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="205.0" y="194" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">2026-08-17T16:09:20.185Z</text>
+<text x="205.0" y="224" fill="#686a61" font-size="17" text-anchor="middle">time</text>
+<rect x="364" y="160" width="160" height="84" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="444.0" y="194" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">cd8e5vqp</text>
+<text x="444.0" y="224" fill="#686a61" font-size="17" text-anchor="middle">group_uid</text>
+<rect x="538" y="160" width="250" height="84" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="663.0" y="194" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">db_query_end_error</text>
+<text x="663.0" y="224" fill="#686a61" font-size="17" text-anchor="middle">sender</text>
+<rect x="802" y="160" width="250" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="927.0" y="194" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">30.001s ETIMEDOUT</text>
+<text x="927.0" y="224" fill="#686a61" font-size="17" text-anchor="middle">details</text>
+<rect x="60" y="284" width="1080" height="106" rx="8" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="78.0" y="314.4" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[2026-08-17T16:09:20.183Z][cd8e5vqp][db_query_begin] name=select_users</text>
+<text x="78.0" y="342.4" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[2026-08-17T16:09:20.185Z][cd8e5vqp][db_query_end_error] 30.001s ETIMEDOUT</text>
+<text x="78.0" y="370.4" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[2026-08-17T16:09:20.190Z][cd8e5vqp][http_request_end] 504 30.020s</text>
+<text x="48" y="446" fill="#686a61" font-size="21">Four fields and nothing else: [time][group_uid][sender] details.</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="568" viewBox="0 0 1200 568" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="568" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">time is ISO-8601 UTC with milliseconds</text>
+<text x="48" y="108" fill="#686a61" font-size="22">one fixed form: it sorts as text and reads the same everywhere</text>
+<rect x="60" y="160" width="190" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="155.0" y="194" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">2026-08-17</text>
+<text x="155.0" y="224" fill="#686a61" font-size="17" text-anchor="middle">the date</text>
+<rect x="264" y="160" width="80" height="84" rx="8" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="304.0" y="194" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">T</text>
+<text x="304.0" y="224" fill="#686a61" font-size="17" text-anchor="middle">then</text>
+<rect x="358" y="160" width="170" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="443.0" y="194" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">16:09:20</text>
+<text x="443.0" y="224" fill="#686a61" font-size="17" text-anchor="middle">the time</text>
+<rect x="542" y="160" width="160" height="84" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="622.0" y="194" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">.185</text>
+<text x="622.0" y="224" fill="#686a61" font-size="17" text-anchor="middle">milliseconds</text>
+<rect x="716" y="160" width="100" height="84" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="766.0" y="194" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">Z</text>
+<text x="766.0" y="224" fill="#686a61" font-size="17" text-anchor="middle">UTC</text>
+<rect x="60" y="284" width="470" height="84" rx="8" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="78.0" y="313.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">17/08/2026 19:09</text>
+<text x="78" y="354" fill="#b2341f" font-size="17">✗ local, no milliseconds</text>
+<rect x="670" y="284" width="470" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="688.0" y="313.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">2026-08-17T16:09:20.185Z</text>
+<text x="688" y="354" fill="#1a7443" font-size="17">✓ UTC, to the millisecond</text>
+<line x1="536" y1="326.0" x2="664" y2="326.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="388" width="470" height="84" rx="8" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="78.0" y="417.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">1755446960</text>
+<text x="78" y="458" fill="#b2341f" font-size="17">✗ an epoch, unreadable</text>
+<rect x="670" y="388" width="470" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="688.0" y="417.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">2026-08-17T16:09:20.185Z</text>
+<text x="688" y="458" fill="#1a7443" font-size="17">✓ read at a glance</text>
+<line x1="536" y1="430.0" x2="664" y2="430.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="528" fill="#686a61" font-size="21">Lines from many machines line up when every time is UTC to the millisecond.</text>
+</svg>

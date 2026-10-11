@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="566" viewBox="0 0 1200 566" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="566" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">After means emission order, not timestamps</text>
+<text x="48" y="108" fill="#92958c" font-size="22">buffering may deliver an older event later</text>
+<text x="60" y="180" fill="#92958c" font-size="19" font-weight="700">emitted by the producer</text>
+<text x="640" y="180" fill="#92958c" font-size="19" font-weight="700">received by the collector</text>
+<rect x="60" y="196" width="440" height="54" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="80" y="230" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][job_end_ok]</text>
+<rect x="60" y="266" width="440" height="54" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="80" y="300" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][group_exit]</text>
+<rect x="640" y="196" width="440" height="54" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="660" y="230" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][group_exit]</text>
+<rect x="640" y="266" width="440" height="54" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="660" y="300" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][job_end_ok]</text>
+<line x1="506" y1="223" x2="634" y2="293" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="506" y1="293" x2="634" y2="223" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="360" width="470" height="110" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="78.0" y="389.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">job_end_ok arrived after</text>
+<text x="78.0" y="415.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">group_exit: an error</text>
+<text x="78" y="456" fill="#ff937c" font-size="17">✗ judged by arrival</text>
+<rect x="670" y="360" width="470" height="110" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="688.0" y="389.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">emitted before group_exit:</text>
+<text x="688.0" y="415.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">not an error</text>
+<text x="688" y="456" fill="#72d39c" font-size="17">✓ judged by emission</text>
+<line x1="536" y1="415.0" x2="664" y2="415.0" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="526" fill="#92958c" font-size="21">Across processes, with no causal order kept, a late event is only a hint.</text>
+</svg>

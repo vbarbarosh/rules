@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="440" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Truncate on UTF-8, count what is cut</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the cut falls between characters and says how much is gone</text>
+<rect x="60" y="160" width="700" height="60" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="80" y="197" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">body="Привет, это длинный ответ</text>
+<rect x="770" y="160" width="370" height="60" rx="8" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="955" y="197" fill="#686a61" font-size="18" text-anchor="middle">4 821 bytes cut</text>
+<rect x="60" y="260" width="470" height="84" rx="8" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="78.0" y="289.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">…длинный от\xd0</text>
+<text x="78" y="330" fill="#b2341f" font-size="17">✗ half a character</text>
+<rect x="670" y="260" width="470" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="688.0" y="289.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">…длинный от...+4821</text>
+<text x="688" y="330" fill="#1a7443" font-size="17">✓ whole, and counted</text>
+<line x1="536" y1="302.0" x2="664" y2="302.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="400" fill="#686a61" font-size="21">A truncated value stays valid UTF-8 and ends with ...+ and the bytes omitted.</text>
+</svg>

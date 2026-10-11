@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="638" viewBox="0 0 1200 638" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="638" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Omit time when the runtime stamps it</text>
+<text x="48" y="108" fill="#686a61" font-size="22">docker already writes a timestamp in front of every line</text>
+<text x="60" y="180" fill="#686a61" font-size="19" font-weight="700">written straight to a file: the line carries its time</text>
+<rect x="60" y="196" width="1080" height="50" rx="8" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="78.0" y="226.4" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[2026-08-17T16:09:20.185Z][cd8e5vqp][db_query_begin] name=select_users</text>
+<text x="60" y="296" fill="#686a61" font-size="19" font-weight="700">written to stdout under docker: docker adds the time</text>
+<rect x="60" y="312" width="330" height="60" rx="8" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
+<text x="80" y="349" fill="#686a61" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">2026-08-17T16:09:20.185Z</text>
+<rect x="400" y="312" width="740" height="60" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="420" y="349" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[cd8e5vqp][db_query_begin] name=select_users</text>
+<text x="225" y="400" fill="#686a61" font-size="17" text-anchor="middle">stamped by docker</text>
+<text x="770" y="400" fill="#686a61" font-size="17" text-anchor="middle">written by the app</text>
+<rect x="60" y="432" width="470" height="110" rx="8" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="78.0" y="461.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">2026-08-17T16:09:20.185Z</text>
+<text x="78.0" y="487.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[2026-08-17T16:09:20.185Z][cd8e5vqp]…</text>
+<text x="78" y="528" fill="#b2341f" font-size="17">✗ the time twice</text>
+<rect x="670" y="432" width="470" height="110" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="688.0" y="461.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">2026-08-17T16:09:20.185Z</text>
+<text x="688.0" y="487.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[cd8e5vqp][db_query_begin] …</text>
+<text x="688" y="528" fill="#1a7443" font-size="17">✓ once, from docker</text>
+<line x1="536" y1="487.0" x2="664" y2="487.0" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="48" y="598" fill="#686a61" font-size="21">One timestamp a line: the app writes it only when nothing else does.</text>
+</svg>
