@@ -5,11 +5,11 @@
 <text x="48" y="108" fill="#92958c" font-size="22">workspace = a canvas or an artifact; tools = inspect, render, place, style</text>
 <rect x="60" y="180" width="300" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="210.0" y="243.64" fill="#9db2ff" font-size="24" text-anchor="middle" font-weight="700">design agent</text>
-<line x1="366" y1="235" x2="434" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
+<line x1="366" y1="235" x2="432" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
 <rect x="440" y="160" width="280" height="150" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="580" y="229.5" fill="#92958c" font-size="22" text-anchor="middle" font-weight="700">tools</text>
 <text x="580" y="255.9" fill="#92958c" font-size="19" text-anchor="middle">inspect, render, place, style</text>
-<line x1="726" y1="235" x2="794" y2="235" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
+<line x1="726" y1="235" x2="792" y2="235" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
 <rect x="800" y="160" width="340" height="150" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="970" y="229.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">workspace</text>
 <text x="970" y="255.9" fill="#92958c" font-size="19" text-anchor="middle">a canvas or an artifact</text>

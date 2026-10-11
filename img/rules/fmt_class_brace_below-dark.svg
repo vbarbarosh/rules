@@ -21,6 +21,6 @@
 <text x="703.2" y="284" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">write(format, ...values) {</text>
 <text x="703.2" y="318" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
 <text x="660.0" y="352" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
-<line x1="566" y1="276.0" x2="634" y2="276.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="276.0" x2="632" y2="276" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="422" fill="#92958c" font-size="21">The class opens like a top-level function; each method opens like a callback.</text>
 </svg>

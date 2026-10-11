@@ -9,7 +9,7 @@
 <text x="78" y="215.3" fill="#ff937c" font-size="17">✗ a script that exports</text>
 <text x="658.0" y="183.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// nothing exported</text>
 <text x="658" y="215.3" fill="#72d39c" font-size="17">✓ it only runs</text>
-<line x1="566" y1="190.65" x2="634" y2="190.65" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="190.65" x2="632" y2="190.65" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="261.3" width="1080" height="282" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="78" y="293.3" fill="#92958c" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">bin/build</text>
 <rect x="74" y="311.3" width="1052" height="46" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>

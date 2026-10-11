@@ -15,12 +15,12 @@
 <text x="920" y="197" fill="#d3d1c9" font-size="19" text-anchor="middle">take the next item</text>
 <rect x="700" y="246" width="440" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="920" y="283" fill="#d3d1c9" font-size="19" text-anchor="middle">is it active?</text>
-<line x1="920" y1="226" x2="920" y2="240" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="920" y1="226" x2="920" y2="238" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="700" y="332" width="440" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="920" y="369" fill="#d3d1c9" font-size="19" text-anchor="middle">keep its uid</text>
-<line x1="920" y1="312" x2="920" y2="326" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="920" y1="312" x2="920" y2="324" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="700" y="418" width="440" height="60" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="920" y="455" fill="#d3d1c9" font-size="19" text-anchor="middle">return what was kept</text>
-<line x1="920" y1="398" x2="920" y2="412" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="920" y1="398" x2="920" y2="410" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="532" fill="#92958c" font-size="21">Each step is a statement: you read it, step through it, put a breakpoint on it.</text>
 </svg>

@@ -10,7 +10,7 @@
 <g transform="translate(820 230)"><rect x="0" y="0" width="60" height="140" fill="#3b1f22" stroke="#ff937c" stroke-width="4"/><path d="M0 0 L60 35 M0 35 L60 70 M0 70 L60 105 M0 105 L60 140" stroke="#ff937c" stroke-width="8"/></g>
 <text x="850" y="410" fill="#ff937c" font-size="24" text-anchor="middle" font-weight="700">the show stops here</text>
 <text x="1000" y="240" fill="#92958c" font-size="22" text-anchor="middle">customers</text>
-<line x1="60" y1="300" x2="814" y2="300" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
+<line x1="60" y1="300" x2="812" y2="300" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
 <text x="48" y="480" fill="#92958c" font-size="21" text-anchor="start">The app crashes on start; the sign-in fails for everyone; the build cannot be made.</text>
 <text x="48" y="511" fill="#92958c" font-size="21" text-anchor="start">Every other task waits: a showstopper is fixed first, and the release that has it is not</text>
 <text x="48" y="542" fill="#92958c" font-size="21" text-anchor="start">shipped.</text>

@@ -15,6 +15,6 @@
 <rect x="650" y="229" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="660.0" y="250" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// Streams to data/ as the body arrives.</text>
 <text x="660.0" y="284" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function upload_post(req, res)</text>
-<line x1="566" y1="259.0" x2="634" y2="259.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="259.0" x2="632" y2="259" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="388" fill="#92958c" font-size="21">The route and why it is so are one comment, right above the function.</text>
 </svg>

@@ -46,6 +46,6 @@
 <text x="688.0" y="389.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">class="flex-row-cl gap10</text>
 <text x="708.4" y="415.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">app-font-b14 #-title"</text>
 <text x="688" y="456" fill="#72d39c" font-size="17">✓ utilities, app, local</text>
-<line x1="536" y1="415.0" x2="664" y2="415.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="415.0" x2="662" y2="415" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="526" fill="#92958c" font-size="21">The broad comes first and the most particular last: #- is always the end.</text>
 </svg>

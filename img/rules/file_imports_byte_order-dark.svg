@@ -19,6 +19,6 @@
 <text x="658.0" y="300.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const fs = require('fs');</text>
 <text x="658.0" y="327.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const {promisify} = require('util');</text>
 <text x="658" y="359.45" fill="#72d39c" font-size="17">✓ byte order: LC_ALL=C sort</text>
-<line x1="566" y1="267.725" x2="634" y2="267.725" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="267.725" x2="632" y2="267.73" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="429" fill="#92958c" font-size="21">No judgement in the order: the tool decides, and a diff shows only what changed.</text>
 </svg>

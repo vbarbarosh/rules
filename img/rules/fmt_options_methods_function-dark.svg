@@ -23,6 +23,6 @@
 <text x="746.4" y="352" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return value ? `${value}px` : '0';</text>
 <text x="703.2" y="386" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">},</text>
 <text x="660.0" y="420" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">};</text>
-<line x1="566" y1="310.0" x2="634" y2="310.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="310.0" x2="632" y2="310" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="490" fill="#92958c" font-size="21">Tiny arrows are for callbacks and value factories, not for the methods of an options object.</text>
 </svg>

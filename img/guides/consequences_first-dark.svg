@@ -11,25 +11,25 @@
 <text x="590.0" y="201.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">what else is built like this?</text>
 <rect x="860" y="160" width="300" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="1010.0" y="201.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">the scope: every case</text>
-<line x1="316" y1="294.0" x2="394" y2="195" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="786" y1="195" x2="854" y2="195" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="316" y1="294.0" x2="392.76" y2="196.57" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="786" y1="195" x2="852" y2="195" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="400" y="260" width="380" height="70" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="590.0" y="301.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">what breaks, slows, goes stale?</text>
 <rect x="860" y="260" width="300" height="70" rx="12" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
 <text x="1010.0" y="301.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">said before the change</text>
-<line x1="316" y1="318.0" x2="394" y2="295" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="786" y1="295" x2="854" y2="295" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="316" y1="318.0" x2="392.08" y2="295.57" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="786" y1="295" x2="852" y2="295" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="400" y="360" width="380" height="70" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="590.0" y="401.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">what if long, empty, absurd?</text>
 <rect x="860" y="360" width="300" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="1010.0" y="401.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">the states to test</text>
-<line x1="316" y1="342.0" x2="394" y2="395" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="786" y1="395" x2="854" y2="395" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="316" y1="342.0" x2="392.35" y2="393.88" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="786" y1="395" x2="852" y2="395" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="400" y="460" width="380" height="70" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="590.0" y="501.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">what can't the author see?</text>
 <rect x="860" y="460" width="300" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="1010.0" y="501.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">the stories to tell</text>
-<line x1="316" y1="366.0" x2="394" y2="495" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="786" y1="495" x2="854" y2="495" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="316" y1="366.0" x2="392.97" y2="493.29" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="786" y1="495" x2="852" y2="495" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="600" fill="#92958c" font-size="21">A minute of thinking first; without it, each consequence costs the author a message.</text>
 </svg>

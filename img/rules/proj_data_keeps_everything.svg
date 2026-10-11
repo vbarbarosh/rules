@@ -5,20 +5,20 @@
 <text x="48" y="108" fill="#686a61" font-size="22">a restart, a redeploy or a migration does not delete it</text>
 <rect x="60" y="160" width="260" height="60" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="190.0" y="197.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">uploads</text>
-<line x1="326" y1="190" x2="434" y2="270" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="326" y1="190" x2="432.39" y2="268.81" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="240" width="260" height="60" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="190.0" y="277.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">the database</text>
-<line x1="326" y1="270" x2="434" y2="270" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="326" y1="270" x2="432" y2="270" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="320" width="260" height="60" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="190.0" y="357.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">logs</text>
-<line x1="326" y1="350" x2="434" y2="270" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="326" y1="350" x2="432.39" y2="271.19" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="440" y="220" width="300" height="100" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="590.0" y="266.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">data/</text>
 <text x="590.0" y="292.0" fill="#686a61" font-size="17" text-anchor="middle">everything kept</text>
 <rect x="840" y="220" width="300" height="100" rx="10" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
 <text x="990.0" y="266.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">survives</text>
 <text x="990.0" y="292.0" fill="#686a61" font-size="17" text-anchor="middle">restart, redeploy, migration</text>
-<line x1="746" y1="270" x2="834" y2="270" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="746" y1="270" x2="832" y2="270" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="450" fill="#686a61" font-size="19">Configuration is not there: it comes from config/ and the environment.</text>
 <text x="48" y="500" fill="#686a61" font-size="21">If the program must keep it, it lives under data/, and nowhere else.</text>
 </svg>

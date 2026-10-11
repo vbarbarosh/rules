@@ -5,12 +5,12 @@
 <text x="48" y="108" fill="#686a61" font-size="22">fish, data, series cannot show one or many, so grouped says it</text>
 <rect x="60" y="170" width="520" height="64" rx="8" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="80" y="210" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">fish_by_tank[tank]</text>
-<line x1="586" y1="202" x2="654" y2="202" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="586" y1="202" x2="652" y2="202" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="660" y="180" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="716" y="210" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">Fish</text>
 <rect x="60" y="260" width="520" height="64" rx="8" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="80" y="300" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">fish_grouped_by_tank[tank]</text>
-<line x1="586" y1="292" x2="654" y2="292" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="586" y1="292" x2="652" y2="292" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="660" y="270" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <rect x="702" y="270" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <rect x="744" y="270" width="34" height="44" rx="5" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
@@ -21,6 +21,6 @@
 <rect x="660" y="370" width="480" height="76" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="900.0" y="403" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">rows_by_source</text>
 <text x="900.0" y="430" fill="#686a61" font-size="17" text-anchor="middle">✓ a countable noun says it</text>
-<line x1="546" y1="408" x2="654" y2="408" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="408" x2="652" y2="408" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="530" fill="#686a61" font-size="21">Where a countable noun exists, its plural says it and grouped is not needed.</text>
 </svg>

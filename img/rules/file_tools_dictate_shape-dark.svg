@@ -15,6 +15,6 @@
 <text x="78" y="354.45" fill="#ff937c" font-size="17">✗ a local module</text>
 <text x="658.0" y="322.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">import engine_run from './engine_run';</text>
 <text x="658" y="354.45" fill="#72d39c" font-size="17">✓ one value</text>
-<line x1="566" y1="330.225" x2="634" y2="330.225" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="330.225" x2="632" y2="330.23" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="424" fill="#92958c" font-size="21">Our own modules follow our rule; the shape of theirs is theirs.</text>
 </svg>

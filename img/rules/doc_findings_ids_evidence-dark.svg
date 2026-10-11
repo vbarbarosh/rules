@@ -15,6 +15,6 @@
 <rect x="620" y="400" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="434" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">DEMO-04 for the next finding</text>
 <text x="638" y="462" fill="#72d39c" font-size="17">✓ ids only grow</text>
-<line x1="546" y1="440.0" x2="614" y2="440.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="440.0" x2="612" y2="440" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="550" fill="#92958c" font-size="21">The quoted lines and the command with its output are the evidence.</text>
 </svg>

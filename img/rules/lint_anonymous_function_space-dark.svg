@@ -9,13 +9,13 @@
 <rect x="620" y="170" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="204" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">on('error', function (error) {</text>
 <text x="638" y="232" fill="#72d39c" font-size="17">✓ anonymous: a space</text>
-<line x1="546" y1="210.0" x2="614" y2="210.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="210.0" x2="612" y2="210" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="280" width="480" height="80" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="78" y="314" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function main ()</text>
 <text x="78" y="342" fill="#ff937c" font-size="17">✗ named, with a space</text>
 <rect x="620" y="280" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="314" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function main()</text>
 <text x="638" y="342" fill="#72d39c" font-size="17">✓ named: none</text>
-<line x1="546" y1="320.0" x2="614" y2="320.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="320.0" x2="612" y2="320" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="450" fill="#92958c" font-size="21">The space marks the function that has no name.</text>
 </svg>

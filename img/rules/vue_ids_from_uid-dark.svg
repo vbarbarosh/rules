@@ -12,8 +12,8 @@
 <rect x="760" y="170" width="380" height="90" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="950.0" y="211.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">'c42_email'</text>
 <text x="950.0" y="237.0" fill="#92958c" font-size="17" text-anchor="middle">its id</text>
-<line x1="346" y1="215" x2="394" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="706" y1="215" x2="754" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="346" y1="215" x2="392" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="706" y1="215" x2="752" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="300" width="1080" height="84" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="80" y="332" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;app-label v-bind:for="uid('email')"&gt;Email:&lt;/app-label&gt;</text>
 <text x="80" y="361" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;input v-bind:id="uid('email')" type="email" /&gt;</text>

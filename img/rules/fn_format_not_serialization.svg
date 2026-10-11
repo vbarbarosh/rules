@@ -15,9 +15,9 @@
 <rect x="720" y="300" width="420" height="70" rx="10" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
 <text x="930.0" y="331.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">{"name":"Alex",…}</text>
 <text x="930.0" y="357.0" fill="#686a61" font-size="17" text-anchor="middle">a machine reads it</text>
-<line x1="246" y1="255" x2="314" y2="200" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="246" y1="285" x2="314" y2="330" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="646" y1="195" x2="714" y2="195" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="646" y1="335" x2="714" y2="335" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="246" y1="255" x2="312.44" y2="201.26" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="246" y1="285" x2="312.33" y2="328.9" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="646" y1="195" x2="712" y2="195" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="646" y1="335" x2="712" y2="335" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="450" fill="#686a61" font-size="21">Serialization is a conversion: it is named with from, not format.</text>
 </svg>

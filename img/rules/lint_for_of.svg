@@ -9,6 +9,6 @@
 <rect x="620" y="170" width="520" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="638" y="204" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">for (const item of items) {</text>
 <text x="638" y="232" fill="#1a7443" font-size="17">✓ for...of</text>
-<line x1="546" y1="210.0" x2="614" y2="210.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="210.0" x2="612" y2="210" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="320" fill="#686a61" font-size="21">for...of can break, continue, return and await; forEach can do none of these.</text>
 </svg>

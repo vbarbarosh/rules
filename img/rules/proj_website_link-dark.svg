@@ -10,7 +10,7 @@
 <text x="890.0" y="191.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">About → Website</text>
 <rect x="640" y="250" width="500" height="70" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="890.0" y="291.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">"homepage": "…/rules/"</text>
-<line x1="506" y1="200" x2="634" y2="185" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="506" y1="225" x2="634" y2="285" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="506" y1="200" x2="632.01" y2="185.23" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="506" y1="225" x2="632.19" y2="284.15" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="400" fill="#92958c" font-size="21">Left out when the website is the documentation itself.</text>
 </svg>

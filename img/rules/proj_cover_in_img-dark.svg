@@ -15,7 +15,7 @@
 <rect x="820" y="270" width="320" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="980.0" y="306.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">img/cover-dark.png</text>
 <text x="980.0" y="332.0" fill="#92958c" font-size="17" text-anchor="middle">dark</text>
-<line x1="726" y1="220" x2="814" y2="200" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="726" y1="260" x2="814" y2="310" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="726" y1="220" x2="812.05" y2="200.44" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="726" y1="260" x2="812.26" y2="309.01" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="470" fill="#92958c" font-size="21">The cover is a file of the repository, in img/, never a link elsewhere.</text>
 </svg>

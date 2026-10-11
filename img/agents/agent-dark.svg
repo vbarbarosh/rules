@@ -17,7 +17,7 @@
 <rect x="420" y="346" width="300" height="104" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="570" y="392.0" fill="#d3d1c9" font-size="24" text-anchor="middle" font-weight="700">policy</text>
 <text x="570" y="421.0" fill="#92958c" font-size="20" text-anchor="middle" >the text that constrains it</text>
-<line x1="746" y1="398" x2="844" y2="398" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
+<line x1="746" y1="398" x2="842" y2="398" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
 <text x="795" y="373" fill="#92958c" font-size="20" text-anchor="middle" font-style="italic">acts on</text>
 <rect x="850" y="210" width="290" height="240" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="995" y="300" fill="#d3d1c9" font-size="24" text-anchor="middle" font-weight="700">workspace</text>

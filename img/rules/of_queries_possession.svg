@@ -6,15 +6,15 @@
 <rect x="330" y="160" width="140" height="54" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="400" y="194" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">node</text>
 <rect x="160" y="280" width="140" height="54" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
-<line x1="380" y1="220" x2="230" y2="274" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="380" y1="220" x2="231.88" y2="273.32" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="500" y="280" width="140" height="54" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
-<line x1="400" y1="220" x2="570" y2="274" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="400" y1="220" x2="568.09" y2="273.39" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="400" width="140" height="54" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <rect x="260" y="400" width="140" height="54" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <rect x="500" y="400" width="140" height="54" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
-<line x1="230" y1="340" x2="130" y2="394" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="230" y1="340" x2="330" y2="394" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="570" y1="340" x2="570" y2="394" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="230" y1="340" x2="131.76" y2="393.05" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="230" y1="340" x2="328.24" y2="393.05" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="570" y1="340" x2="570" y2="392" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="760" y="230" width="380" height="140" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="950" y="284" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">descendants_of(node)</text>
 <text x="950" y="330" fill="#686a61" font-size="18" text-anchor="middle">5 nodes, in green</text>

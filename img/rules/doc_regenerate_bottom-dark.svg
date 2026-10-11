@@ -12,14 +12,14 @@
 <rect x="840" y="180" width="300" height="90" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="990.0" y="220.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">a new bottom half</text>
 <text x="990.0" y="245.0" fill="#92958c" font-size="18" text-anchor="middle">approved decisions kept</text>
-<line x1="366" y1="225" x2="444" y2="225" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="756" y1="225" x2="834" y2="225" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="366" y1="225" x2="442" y2="225" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="756" y1="225" x2="832" y2="225" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="320" width="480" height="80" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="78" y="354" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">patch one line of the bottom</text>
 <text x="78" y="382" fill="#ff937c" font-size="17">✗ drifts from its sources</text>
 <rect x="620" y="320" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="354" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">write the bottom half again</text>
 <text x="638" y="382" fill="#72d39c" font-size="17">✓ it follows the top, whole</text>
-<line x1="546" y1="360.0" x2="614" y2="360.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="360.0" x2="612" y2="360" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="500" fill="#92958c" font-size="21">Edits by hand drift; a regenerated half always matches what it explains.</text>
 </svg>

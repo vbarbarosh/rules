@@ -12,14 +12,14 @@
 <rect x="760" y="190" width="380" height="90" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="950.0" y="231.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">'{"root": …}'</text>
 <text x="950.0" y="257.0" fill="#92958c" font-size="17" text-anchor="middle">json</text>
-<line x1="286" y1="235" x2="374" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="666" y1="235" x2="754" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="286" y1="235" x2="372" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="666" y1="235" x2="752" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="330" width="480" height="76" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="300.0" y="363" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">tree_to_json(tree)</text>
 <text x="300.0" y="390" fill="#92958c" font-size="17" text-anchor="middle">✗ to outside a method</text>
 <rect x="660" y="330" width="480" height="76" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="900.0" y="363" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">json_from_tree(tree)</text>
 <text x="900.0" y="390" fill="#92958c" font-size="17" text-anchor="middle">✓ standalone: from, result first</text>
-<line x1="546" y1="368" x2="654" y2="368" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="368" x2="652" y2="368" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="480" fill="#92958c" font-size="21">Standalone, a conversion is named with from, the result first.</text>
 </svg>

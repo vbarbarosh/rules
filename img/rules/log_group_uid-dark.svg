@@ -31,6 +31,6 @@
 <text x="688.0" y="495.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[cd8e5vqp][http_request_begin]</text>
 <text x="688.0" y="521.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">GET /users</text>
 <text x="688" y="562" fill="#72d39c" font-size="17">✓ its group named</text>
-<line x1="536" y1="521.0" x2="664" y2="521.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="521.0" x2="662" y2="521" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="632" fill="#92958c" font-size="21">A grep for the uid gives the whole story of one unit of work.</text>
 </svg>

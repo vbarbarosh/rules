@@ -9,12 +9,12 @@
 <rect x="60" y="330" width="260" height="100" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="190.0" y="374.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">the result</text>
 <text x="190.0" y="400.9" fill="#92958c" font-size="19" text-anchor="middle">the diff, the final</text>
-<line x1="320" y1="250" x2="450" y2="300" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
-<line x1="320" y1="380" x2="450" y2="330" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="320" y1="250" x2="448.13" y2="299.28" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="320" y1="380" x2="448.13" y2="330.72" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="450" y="260" width="300" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="600.0" y="309.5" fill="#9db2ff" font-size="22" text-anchor="middle" font-weight="700">the reviewer</text>
 <text x="600.0" y="335.9" fill="#92958c" font-size="19" text-anchor="middle">reads both, once</text>
-<line x1="750" y1="315" x2="840" y2="315" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="750" y1="315" x2="838" y2="315" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="840" y="240" width="300" height="150" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="990" y="290" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">the verdict</text>
 <text x="990" y="324" fill="#92958c" font-size="19" text-anchor="middle">done as asked, or</text>

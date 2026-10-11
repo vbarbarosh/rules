@@ -18,7 +18,7 @@
 <rect x="760" y="320" width="380" height="90" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="950.0" y="360.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">the AI</text>
 <text x="950.0" y="385.0" fill="#92958c" font-size="18" text-anchor="middle">restated for a reader without it</text>
-<line x1="754" y1="235" x2="626" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="754" y1="365" x2="626" y2="365" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="754" y1="235" x2="628" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="754" y1="365" x2="628" y2="365" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="500" fill="#92958c" font-size="21">One file, two writers: each half is written by one of them only.</text>
 </svg>

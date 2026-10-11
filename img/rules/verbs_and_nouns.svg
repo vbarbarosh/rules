@@ -12,8 +12,8 @@
 <rect x="880" y="200" width="260" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="1010.0" y="241.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">users_by_role</text>
 <text x="1010.0" y="267.0" fill="#686a61" font-size="17" text-anchor="middle">data: a noun</text>
-<line x1="286" y1="245" x2="394" y2="245" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="766" y1="245" x2="874" y2="245" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="286" y1="245" x2="392" y2="245" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="766" y1="245" x2="872" y2="245" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="340" width="1080" height="70" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="600" y="383" fill="#191a17" font-size="21" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">const users_by_role = users_group_by_role(users);</text>
 <text x="48" y="480" fill="#686a61" font-size="21">Read left to right: the result, a noun; the operation, a verb; what it takes, a noun.</text>

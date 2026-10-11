@@ -16,13 +16,13 @@
 <rect x="670" y="306" width="470" height="84" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="688.0" y="335.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">reason="db timeout"</text>
 <text x="688" y="376" fill="#72d39c" font-size="17">✓ quoted</text>
-<line x1="536" y1="348.0" x2="664" y2="348.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="348.0" x2="662" y2="348" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="410" width="470" height="84" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="78.0" y="439.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">role=[admin]</text>
 <text x="78" y="480" fill="#ff937c" font-size="17">✗ looks like a field</text>
 <rect x="670" y="410" width="470" height="84" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="688.0" y="439.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">role="[admin]"</text>
 <text x="688" y="480" fill="#72d39c" font-size="17">✓ quoted</text>
-<line x1="536" y1="452.0" x2="664" y2="452.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="452.0" x2="662" y2="452" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="550" fill="#92958c" font-size="21">Bare are exactly the bytes sent; anything else is JSON-quoted.</text>
 </svg>

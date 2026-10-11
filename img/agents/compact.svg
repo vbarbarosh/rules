@@ -17,7 +17,7 @@
 <text x="310.0" y="462.48" fill="#191a17" font-size="18" text-anchor="middle" font-weight="700">tool: ok</text>
 <rect x="90" y="490" width="440" height="48" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="310.0" y="520.48" fill="#2743b8" font-size="18" text-anchor="middle" font-weight="700">user: now the header</text>
-<line x1="566" y1="360" x2="634" y2="360" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="566" y1="360" x2="632" y2="360" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="640" y="150" width="500" height="420" rx="16" fill="#e2e7fb" stroke="#2743b8" stroke-width="2" stroke-dasharray="12 8"/>
 <text x="660" y="184" fill="#2743b8" font-size="22" text-anchor="start" font-weight="700">the context · smaller</text>
 <rect x="670" y="200" width="440" height="110" rx="12" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>

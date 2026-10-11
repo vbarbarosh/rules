@@ -20,6 +20,6 @@
 <text x="701.2" y="411.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
 <text x="658.0" y="438.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
 <text x="658" y="470.3" fill="#72d39c" font-size="17">✓ a loop, step by step</text>
-<line x1="566" y1="378.15" x2="634" y2="378.15" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="378.15" x2="632" y2="378.15" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="540" fill="#92958c" font-size="21">If the expression does not fit one line, write the loop.</text>
 </svg>

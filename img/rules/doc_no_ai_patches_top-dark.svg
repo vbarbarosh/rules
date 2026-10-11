@@ -9,7 +9,7 @@
 <rect x="620" y="180" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="214" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">- cache it: one bolt tightened</text>
 <text x="638" y="242" fill="#72d39c" font-size="17">✓ the author's words, kept</text>
-<line x1="546" y1="220.0" x2="614" y2="220.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="220.0" x2="612" y2="220" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="300" width="1080" height="80" rx="10" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="84" y="336" fill="#d3d1c9" font-size="18" font-weight="700">the one exception</text>
 <text x="84" y="364" fill="#92958c" font-size="18">the author asks, in so many words, for the top half to change</text>

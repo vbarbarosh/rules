@@ -17,6 +17,6 @@
 <text x="769.6" y="241.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">SELECT MIN(id) AS id</text>
 <text x="769.6" y="267.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">FROM user_identities</text>
 <text x="688" y="360" fill="#72d39c" font-size="17">✓ short on one line</text>
-<line x1="536" y1="267.0" x2="664" y2="267.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="267.0" x2="662" y2="267" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="430" fill="#92958c" font-size="21">Inside a subquery, a short clause keeps its operand beside it.</text>
 </svg>

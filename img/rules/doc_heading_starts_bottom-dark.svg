@@ -15,7 +15,7 @@
 <text x="970.0" y="306.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">decoration</text>
 <rect x="800" y="370" width="340" height="60" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="970.0" y="406.7" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">the boundary</text>
-<line x1="794" y1="300" x2="686" y2="300" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="794" y1="400" x2="686" y2="400" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="794" y1="300" x2="688" y2="300" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="794" y1="400" x2="688" y2="400" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="500" fill="#92958c" font-size="21">There is no strict marker: most of the time the heading is the line between them.</text>
 </svg>

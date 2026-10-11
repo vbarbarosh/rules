@@ -19,7 +19,7 @@
 <text x="710" y="208" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">end = 6</text>
 <rect x="200" y="290" width="120" height="50" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="260.0" y="322.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">i</text>
-<line x1="262" y1="284" x2="280" y2="236" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="262" y1="284" x2="279.3" y2="237.87" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="380" width="680" height="64" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="80" y="420" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">for (let i = 0, end = items.length; i &lt; end; ++i)</text>
 <text x="48" y="490" fill="#92958c" font-size="21">end is the bound one past the last item; i runs up to it.</text>

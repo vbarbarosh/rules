@@ -3,22 +3,22 @@
 <defs><marker id="a" viewBox="0 0 12 12" refX="7" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#92958c" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Taxonomy</text>
 <text x="48" y="108" fill="#92958c" font-size="22">sorting into kinds and kinds of kinds, like animal › bird › owl; here, the kinds of things in this note</text>
-<line x1="192" y1="321" x2="571" y2="219" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="192" y1="321" x2="569.07" y2="219.52" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="352" y="255" width="60" height="30" rx="15" fill="#16181b"/>
 <text x="382" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
-<line x1="650" y1="321" x2="654" y2="219" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="650" y1="321" x2="653.92" y2="221" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="622" y="255" width="60" height="30" rx="15" fill="#16181b"/>
 <text x="652" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
-<line x1="1108" y1="321" x2="732" y2="219" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="1108" y1="321" x2="733.93" y2="219.52" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="890" y="255" width="60" height="30" rx="15" fill="#16181b"/>
 <text x="920" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">is a</text>
-<line x1="106" y1="491" x2="170" y2="379" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="278" y1="491" x2="214" y2="379" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="478" y1="491" x2="607" y2="379" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="650" y1="491" x2="650" y2="379" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="822" y1="491" x2="693" y2="379" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="1022" y1="491" x2="1086" y2="379" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="1194" y1="491" x2="1130" y2="379" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="106" y1="491" x2="169.01" y2="380.74" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="278" y1="491" x2="214.99" y2="380.74" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="478" y1="491" x2="605.49" y2="380.31" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="650" y1="491" x2="650" y2="381" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="822" y1="491" x2="694.51" y2="380.31" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="1022" y1="491" x2="1085.01" y2="380.74" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<line x1="1194" y1="491" x2="1130.99" y2="380.74" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
 <rect x="555.0" y="161.0" width="190" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
 <text x="650" y="198" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">A thing</text>
 <rect x="97.0" y="321.0" width="190" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>

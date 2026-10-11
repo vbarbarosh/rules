@@ -5,7 +5,7 @@
 <text x="48" y="108" fill="#686a61" font-size="22">one shared speed, the exact properties, on the base rule</text>
 <rect x="60" y="160" width="560" height="64" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="80" y="199" fill="#191a17" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">@include app-transition(box-shadow, border-color)</text>
-<line x1="626" y1="192" x2="694" y2="192" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="626" y1="192" x2="692" y2="192" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="700" y="160" width="440" height="64" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="720" y="190" fill="#191a17" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">transition: box-shadow 0.2s,</text>
 <text x="720" y="212" fill="#191a17" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">  border-color 0.2s</text>
@@ -16,6 +16,6 @@
 <text x="688.0" y="299.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">@include app-transition(</text>
 <text x="708.4" y="325.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">box-shadow, border-color)</text>
 <text x="688" y="366" fill="#1a7443" font-size="17">✓ the mixin, exact</text>
-<line x1="536" y1="325.0" x2="664" y2="325.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="325.0" x2="662" y2="325" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="436" fill="#686a61" font-size="21">On the base rule, not the state variant, so it animates both ways.</text>
 </svg>

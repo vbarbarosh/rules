@@ -11,7 +11,7 @@
 <text x="658.0" y="193.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// report_build.js</text>
 <text x="658.0" y="220.3" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">module.exports = report_build;</text>
 <text x="658" y="252.3" fill="#1a7443" font-size="17">✓ a library, required</text>
-<line x1="566" y1="214.15" x2="634" y2="214.15" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="214.15" x2="632" y2="214.15" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="640" y="288.3" width="500" height="106.30000000000001" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="658.0" y="321.6" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// bin/report</text>
 <text x="658.0" y="348.6" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">cli(main);</text>

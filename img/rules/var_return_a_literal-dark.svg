@@ -10,7 +10,7 @@
 <rect x="640" y="160" width="500" height="118" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="660.0" y="194" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return {a, b};</text>
 <text x="660" y="262" fill="#72d39c" font-size="17">✓ the literal, directly</text>
-<line x1="566" y1="219.0" x2="634" y2="219.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="219.0" x2="632" y2="219" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="328" fill="#92958c" font-size="18">a guard may return these at once</text>
 <rect x="60" y="344" width="250" height="56" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="185.0" y="378.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">return null;</text>

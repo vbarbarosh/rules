@@ -7,12 +7,12 @@
 <text x="240" y="250" fill="#d3d1c9" font-size="24" text-anchor="middle" font-weight="700">context</text>
 <text x="240" y="282" fill="#92958c" font-size="19" text-anchor="middle">system · tools · transcript</text>
 <text x="240" y="310" fill="#92958c" font-size="19" text-anchor="middle">48,000 tokens</text>
-<line x1="400" y1="270" x2="470" y2="270" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="400" y1="270" x2="468" y2="270" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="470" y="190" width="300" height="160" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="620" y="250" fill="#9db2ff" font-size="24" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">claude-opus-5</text>
 <text x="620" y="286" fill="#d3d1c9" font-size="20" text-anchor="middle">remembers nothing</text>
 <text x="620" y="314" fill="#d3d1c9" font-size="20" text-anchor="middle">between two calls</text>
-<line x1="770" y1="270" x2="840" y2="270" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="770" y1="270" x2="838" y2="270" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="840" y="200" width="280" height="140" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="980" y="250" fill="#d3d1c9" font-size="24" text-anchor="middle" font-weight="700">one message</text>
 <text x="980" y="282" fill="#92958c" font-size="19" text-anchor="middle">text, or a tool_call</text>

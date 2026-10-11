@@ -9,19 +9,19 @@
 <rect x="640" y="150" width="500" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="660.0" y="184" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">format_bytes(b)</text>
 <text x="660" y="224" fill="#1a7443" font-size="17">✓ "1.4 MB", the same everywhere</text>
-<line x1="566" y1="195.0" x2="634" y2="195.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="195.0" x2="632" y2="195" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="256" width="500" height="90" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="80.0" y="290" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">(b / 1e6).toFixed(1) + ' MB'</text>
 <text x="80" y="330" fill="#b2341f" font-size="17">✗ "1.5 MB", its own way</text>
 <rect x="640" y="256" width="500" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="660.0" y="290" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">format_bytes(b)</text>
 <text x="660" y="330" fill="#1a7443" font-size="17">✓ "1.4 MB", the same everywhere</text>
-<line x1="566" y1="301.0" x2="634" y2="301.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="301.0" x2="632" y2="301" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="362" width="500" height="90" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="80.0" y="396" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">b + ' bytes'</text>
 <text x="80" y="436" fill="#b2341f" font-size="17">✗ "1457664 bytes", its own way</text>
 <rect x="640" y="362" width="500" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="660.0" y="396" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">format_bytes(b)</text>
 <text x="660" y="436" fill="#1a7443" font-size="17">✓ "1.4 MB", the same everywhere</text>
-<line x1="566" y1="407.0" x2="634" y2="407.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="407.0" x2="632" y2="407" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 </svg>

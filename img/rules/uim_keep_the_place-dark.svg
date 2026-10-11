@@ -11,13 +11,13 @@
 <text x="300" y="315" fill="#92958c" font-size="18" text-anchor="middle">it was here</text>
 <rect x="80" y="400" width="440" height="56" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="300" y="435" fill="#d3d1c9" font-size="19" text-anchor="middle">the line you read</text>
-<line x1="460" y1="342" x2="460" y2="394" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="460" y1="342" x2="460" y2="392" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="660" y="158" fill="#72d39c" font-size="19">✓ scroll_keep: moved 0 px</text>
 <rect x="660" y="175" width="480" height="300" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <rect x="680" y="192" width="440" height="70" rx="8" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
 <text x="900" y="234" fill="#d3d1c9" font-size="19" text-anchor="middle">the summary grew</text>
 <rect x="680" y="280" width="440" height="56" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="900" y="315" fill="#d3d1c9" font-size="19" text-anchor="middle">the line you read</text>
-<line x1="546" y1="325" x2="654" y2="325" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="325" x2="652" y2="325" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="520" fill="#92958c" font-size="21">Note the middle element before the change; scroll by however far it moved after.</text>
 </svg>

@@ -12,6 +12,6 @@
 <text x="78" y="306.3" fill="#ff937c" font-size="17">✗ does not exist</text>
 <text x="658.0" y="193.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">cli(main);</text>
 <text x="658" y="306.3" fill="#72d39c" font-size="17">✓ cli owns the exit</text>
-<line x1="566" y1="241.15" x2="634" y2="241.15" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="241.15" x2="632" y2="241.15" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="376" fill="#92958c" font-size="21">A copy of what cli does, by hand, in every script, is a copy that drifts.</text>
 </svg>

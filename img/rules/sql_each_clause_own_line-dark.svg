@@ -13,6 +13,6 @@
 <text x="688.0" y="241.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">ON</text>
 <text x="728.8" y="267.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">user_identities (primary_user_id)</text>
 <text x="688" y="308" fill="#72d39c" font-size="17">✓ a clause, then its operand</text>
-<line x1="536" y1="241.0" x2="664" y2="241.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="241.0" x2="662" y2="241" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="378" fill="#92958c" font-size="21">A keyword of several words, CREATE UNIQUE INDEX, stays on one line.</text>
 </svg>

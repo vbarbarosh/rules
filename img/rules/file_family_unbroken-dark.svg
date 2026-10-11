@@ -13,6 +13,6 @@
 <text x="658.0" y="220.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">render_html()</text>
 <text x="658.0" y="247.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">describe()</text>
 <text x="658" y="279.3" fill="#72d39c" font-size="17">✓ after the run</text>
-<line x1="566" y1="227.65" x2="634" y2="227.65" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="227.65" x2="632" y2="227.65" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="349" fill="#92958c" font-size="21">A new member joins its run; a stranger never stands between two members.</text>
 </svg>

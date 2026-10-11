@@ -9,10 +9,10 @@
 <rect x="440" y="170" width="320" height="84" rx="10" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="600.0" y="208.0" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">a browser</text>
 <text x="600.0" y="234.0" fill="#92958c" font-size="17" text-anchor="middle">clicks and types</text>
-<line x1="386" y1="212.0" x2="434" y2="212.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="386" y1="212.0" x2="432" y2="212" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="820" y="170" width="320" height="84" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="980.0" y="208.0" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">the whole app</text>
 <text x="980.0" y="234.0" fill="#92958c" font-size="17" text-anchor="middle">running, end to end</text>
-<line x1="766" y1="212.0" x2="814" y2="212.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="766" y1="212.0" x2="812" y2="212" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="330" fill="#92958c" font-size="21">Unit tests sit beside their files; tests/ is for suites that run the whole program.</text>
 </svg>

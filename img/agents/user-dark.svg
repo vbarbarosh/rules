@@ -9,11 +9,11 @@
 <rect x="70" y="340" width="300" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="220.0" y="389.0" fill="#9db2ff" font-size="24" text-anchor="middle" font-weight="700">an application</text>
 <text x="220.0" y="417.8" fill="#92958c" font-size="20" text-anchor="middle">calls the agent with a task</text>
-<line x1="370" y1="255" x2="480" y2="290" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
-<line x1="370" y1="395" x2="480" y2="360" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="370" y1="255" x2="478.09" y2="289.39" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="370" y1="395" x2="478.09" y2="360.61" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="480" y="280" width="240" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="600.0" y="332.92" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">a turn begins</text>
-<line x1="720" y1="325" x2="800" y2="325" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="720" y1="325" x2="798" y2="325" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="800" y="250" width="330" height="150" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="965" y="310" fill="#d3d1c9" font-size="24" text-anchor="middle" font-weight="700">the agent</text>
 <text x="965" y="345" fill="#92958c" font-size="20" text-anchor="middle">rounds, until the final</text>

@@ -6,7 +6,7 @@
 <rect x="60" y="160" width="300" height="80" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="210.0" y="196.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">spawn('git', …)</text>
 <text x="210.0" y="222.0" fill="#686a61" font-size="17" text-anchor="middle">a child process</text>
-<line x1="366" y1="200" x2="474" y2="200" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="366" y1="200" x2="472" y2="200" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="480" y="160" width="340" height="80" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="650.0" y="196.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">stderr += chunk</text>
 <text x="650.0" y="222.0" fill="#686a61" font-size="17" text-anchor="middle">the text it wrote</text>
@@ -16,6 +16,6 @@
 <rect x="640" y="290" width="500" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="660.0" y="324" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">let stderr = '';</text>
 <text x="660" y="364" fill="#1a7443" font-size="17">✓ what it is</text>
-<line x1="566" y1="335.0" x2="634" y2="335.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="335.0" x2="632" y2="335" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="460" fill="#686a61" font-size="21">An error variable holds an Error; collected stderr is text.</text>
 </svg>

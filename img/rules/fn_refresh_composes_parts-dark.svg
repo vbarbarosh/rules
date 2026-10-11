@@ -9,13 +9,13 @@
 <text x="530.0" y="201.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">refresh_user()</text>
 <rect x="780" y="160" width="360" height="70" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="960.0" y="201.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">this.user</text>
-<line x1="686" y1="195" x2="774" y2="195" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="686" y1="195" x2="772" y2="195" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="380" y="300" width="300" height="70" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="530.0" y="341.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">refresh_photos()</text>
 <rect x="780" y="300" width="360" height="70" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="960.0" y="341.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">this.photos</text>
-<line x1="686" y1="335" x2="774" y2="335" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="286" y1="255" x2="374" y2="200" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="286" y1="285" x2="374" y2="330" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="686" y1="335" x2="772" y2="335" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="286" y1="255" x2="372.3" y2="201.06" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="286" y1="285" x2="372.22" y2="329.09" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="460" fill="#92958c" font-size="21">A part refreshes alone when only it changed; refresh() awaits them all.</text>
 </svg>

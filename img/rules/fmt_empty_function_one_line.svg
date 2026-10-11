@@ -14,6 +14,6 @@
 <text x="660.0" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">opts.done = opts.done || function () {};</text>
 <rect x="650" y="229" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="660.0" y="250" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">promise.catch(() =&gt; {});</text>
-<line x1="566" y1="225.0" x2="634" y2="225.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="225.0" x2="632" y2="225" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="320" fill="#686a61" font-size="21">Declarations and methods keep their braces apart; a body with a comment is not empty.</text>
 </svg>

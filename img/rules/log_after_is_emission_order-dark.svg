@@ -13,8 +13,8 @@
 <text x="660" y="230" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][group_exit]</text>
 <rect x="640" y="266" width="440" height="54" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="660" y="300" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][job_end_ok]</text>
-<line x1="506" y1="223" x2="634" y2="293" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="506" y1="293" x2="634" y2="223" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="506" y1="223" x2="632.25" y2="292.04" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="506" y1="293" x2="632.25" y2="223.96" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="360" width="470" height="110" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="78.0" y="389.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">job_end_ok arrived after</text>
 <text x="78.0" y="415.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">group_exit: an error</text>
@@ -23,6 +23,6 @@
 <text x="688.0" y="389.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">emitted before group_exit:</text>
 <text x="688.0" y="415.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">not an error</text>
 <text x="688" y="456" fill="#72d39c" font-size="17">✓ judged by emission</text>
-<line x1="536" y1="415.0" x2="664" y2="415.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="415.0" x2="662" y2="415" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="526" fill="#92958c" font-size="21">Across processes, with no causal order kept, a late event is only a hint.</text>
 </svg>

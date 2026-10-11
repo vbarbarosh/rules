@@ -25,6 +25,6 @@
 <text x="698.8" y="420.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">modal = modal_make();</text>
 <text x="658.0" y="447.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
 <text x="658" y="479.45" fill="#72d39c" font-size="17">✓ written only by its own functions</text>
-<line x1="566" y1="387.725" x2="634" y2="387.725" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="387.725" x2="632" y2="387.73" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="549" fill="#92958c" font-size="21">No prototypes, no shared state: across modules, state is read through functions.</text>
 </svg>

@@ -12,7 +12,7 @@
 <rect x="780" y="180" width="360" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="960.0" y="216.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">this.ready = true</text>
 <text x="960.0" y="242.0" fill="#686a61" font-size="17" text-anchor="middle">then it shows</text>
-<line x1="286" y1="220" x2="354" y2="220" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="706" y1="220" x2="774" y2="220" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="286" y1="220" x2="352" y2="220" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="706" y1="220" x2="772" y2="220" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="400" fill="#686a61" font-size="21">No separate init: what loads first is what reloads later.</text>
 </svg>

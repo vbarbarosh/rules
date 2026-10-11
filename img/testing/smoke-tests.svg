@@ -6,7 +6,7 @@
 <rect x="60" y="200" width="220" height="120" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="170.0" y="254.0" fill="#2743b8" font-size="24" text-anchor="middle" font-weight="700">power on</text>
 <text x="170.0" y="282.8" fill="#686a61" font-size="20" text-anchor="middle">start the app</text>
-<line x1="280" y1="260" x2="360" y2="260" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="280" y1="260" x2="358" y2="260" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="360" y="180" width="300" height="160" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="510" y="232" fill="#191a17" font-size="26" text-anchor="middle" font-weight="700">the app</text>
 <text x="510" y="266" fill="#686a61" font-size="20" text-anchor="middle">starts? answers? logs in?</text>
@@ -14,7 +14,7 @@
 
 <path d="M480 174 q10 -10 0 -20 q-10 -10 0 -20" fill="none" stroke="#b2341f" stroke-width="5" stroke-linecap="round" opacity="0.8"/><path d="M510 174 q10 -10 0 -20 q-10 -10 0 -20" fill="none" stroke="#b2341f" stroke-width="5" stroke-linecap="round" opacity="0.8"/><path d="M540 174 q10 -10 0 -20 q-10 -10 0 -20" fill="none" stroke="#b2341f" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
 <text x="510" y="374" fill="#b2341f" font-size="19" text-anchor="middle">smoke: something is seriously broken</text>
-<line x1="660" y1="260" x2="760" y2="260" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="660" y1="260" x2="758" y2="260" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="760" y="180" width="392" height="160" rx="16" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="12 8"/>
 <text x="780" y="214" fill="#686a61" font-size="22" text-anchor="start" font-weight="700">the deep tests: 2,000 of them</text>
 <rect x="790" y="250" width="90" height="50" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="10 8"/>

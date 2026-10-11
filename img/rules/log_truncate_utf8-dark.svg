@@ -13,6 +13,6 @@
 <rect x="670" y="260" width="470" height="84" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="688.0" y="289.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">…длинный от...+4821</text>
 <text x="688" y="330" fill="#72d39c" font-size="17">✓ whole, and counted</text>
-<line x1="536" y1="302.0" x2="664" y2="302.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="302.0" x2="662" y2="302" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="400" fill="#92958c" font-size="21">A truncated value stays valid UTF-8 and ends with ...+ and the bytes omitted.</text>
 </svg>

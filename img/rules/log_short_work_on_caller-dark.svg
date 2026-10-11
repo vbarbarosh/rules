@@ -12,7 +12,7 @@
 <text x="688.0" y="189.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][process_begin]</text>
 <text x="688.0" y="215.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][process_end_ok] 0.000s</text>
 <text x="688" y="282" fill="#72d39c" font-size="17">✓ the caller's group</text>
-<line x1="536" y1="228.0" x2="664" y2="228.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="228.0" x2="662" y2="228" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="346" fill="#72d39c" font-size="19" font-weight="700">even better: one event</text>
 <rect x="60" y="362" width="1080" height="50" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="78.0" y="392.4" fill="#72d39c" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][process_handled] 0.000s</text>

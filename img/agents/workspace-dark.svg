@@ -6,15 +6,15 @@
 <rect x="70" y="300" width="330" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="235.0" y="349.0" fill="#9db2ff" font-size="24" text-anchor="middle" font-weight="700">a repository</text>
 <text x="235.0" y="377.8" fill="#92958c" font-size="20" text-anchor="middle">view · grep · edit · shell</text>
-<line x1="235" y1="236" x2="235" y2="294" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
+<line x1="235" y1="236" x2="235" y2="292" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
 <rect x="440" y="300" width="330" height="110" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="605.0" y="349.0" fill="#d3d1c9" font-size="24" text-anchor="middle" font-weight="700">a canvas</text>
 <text x="605.0" y="377.8" fill="#92958c" font-size="20" text-anchor="middle">inspect · render · place · style</text>
-<line x1="605" y1="236" x2="605" y2="294" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
+<line x1="605" y1="236" x2="605" y2="292" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
 <rect x="810" y="300" width="330" height="110" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="975.0" y="349.0" fill="#d3d1c9" font-size="24" text-anchor="middle" font-weight="700">an app database</text>
 <text x="975.0" y="377.8" fill="#92958c" font-size="20" text-anchor="middle">read · write through the app's API</text>
-<line x1="975" y1="236" x2="975" y2="294" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
+<line x1="975" y1="236" x2="975" y2="292" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
 <rect x="70" y="160" width="1070" height="70" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="605" y="203.64" fill="#92958c" font-size="24" text-anchor="middle" font-weight="700">the tools</text>
 <text x="48" y="460" fill="#92958c" font-size="21" text-anchor="start">An agent is named by its workspace: a coding agent works a repository, a design agent a</text>

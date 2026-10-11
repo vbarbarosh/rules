@@ -15,6 +15,6 @@
 <text x="658.0" y="263.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">import util from './util';</text>
 <text x="658.0" y="317.4" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">import {mapState} from 'vuex';</text>
 <text x="658" y="349.45" fill="#72d39c" font-size="17">✓ side effects, defaults, named</text>
-<line x1="566" y1="257.725" x2="634" y2="257.725" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="257.725" x2="632" y2="257.73" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="419" fill="#92958c" font-size="21">Two exceptions, each its own block: side-effect imports first, named imports last.</text>
 </svg>

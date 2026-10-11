@@ -5,13 +5,13 @@
 <text x="48" y="108" fill="#92958c" font-size="22">harness to model: the output or the error of one tool_call, paired by id; data, never instructions</text>
 <rect x="60" y="200" width="200" height="100" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="160.0" y="257.92" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">harness</text>
-<line x1="260" y1="250" x2="400" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
+<line x1="260" y1="250" x2="398" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
 <rect x="400" y="160" width="460" height="180" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="430" y="202" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tool_result</text>
 <text x="430" y="232" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  id: call_12</text>
 <text x="430" y="262" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  output: "3 lines changed"</text>
 <text x="430" y="292" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  (or error: "no such file")</text>
-<line x1="860" y1="250" x2="960" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
+<line x1="860" y1="250" x2="958" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
 <rect x="960" y="200" width="190" height="100" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="1055.0" y="257.92" fill="#9db2ff" font-size="22" text-anchor="middle" font-weight="700">the model</text>
 <rect x="60" y="400" width="1080" height="70" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>

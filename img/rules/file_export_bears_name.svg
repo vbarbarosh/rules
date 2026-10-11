@@ -16,7 +16,7 @@
 <text x="658.0" y="263.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
 <text x="658.0" y="290.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">export default helper;</text>
 <text x="658" y="322.45" fill="#1a7443" font-size="17">✓ declared, then exported by name</text>
-<line x1="566" y1="244.225" x2="634" y2="244.225" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="244.225" x2="632" y2="244.22" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="420" width="500" height="107.45" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <rect x="640" y="420" width="500" height="107.45" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="78.0" y="452.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// helper.js</text>
@@ -25,6 +25,6 @@
 <text x="658.0" y="452.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// helper.js</text>
 <text x="658.0" y="479.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">export default helper;</text>
 <text x="658" y="511.45000000000005" fill="#1a7443" font-size="17">✓ its name, last</text>
-<line x1="566" y1="473.725" x2="634" y2="473.725" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="473.725" x2="632" y2="473.73" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="581" fill="#686a61" font-size="21">The file name, the declaration and the last line say the same word.</text>
 </svg>

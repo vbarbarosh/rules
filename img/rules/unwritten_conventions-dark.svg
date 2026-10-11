@@ -15,8 +15,8 @@
 <rect x="560" y="320" width="300" height="90" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="710" y="358" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">UserMenu.vue</text>
 <text x="710" y="388" fill="#92958c" font-size="17" text-anchor="middle">✗ a style of its own</text>
-<line x1="446" y1="250" x2="554" y2="225" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="446" y1="330" x2="554" y2="365" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="446" y1="250" x2="552.05" y2="225.45" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="446" y1="330" x2="552.1" y2="364.38" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="920" y="215" width="240" height="140" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="1040.0" y="257.4" fill="#d3d1c9" font-size="19" text-anchor="middle" font-weight="700">the same for</text>
 <text x="1040.0" y="281.2" fill="#92958c" font-size="17" text-anchor="middle">CSS classes,</text>

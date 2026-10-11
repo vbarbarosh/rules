@@ -7,7 +7,7 @@
 <text x="88" y="233" fill="#d3d1c9" font-size="22" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">s</text>
 <rect x="130" y="196" width="56" height="56" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="158" y="233" fill="#d3d1c9" font-size="22" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">m</text>
-<line x1="192" y1="224" x2="334" y2="224" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="192" y1="224" x2="332" y2="224" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="340" y="190" width="520" height="68" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="364" y="233" fill="#d3d1c9" font-size="22" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">sm</text>
 <text x="880" y="233" fill="#92958c" font-size="18">the main filter</text>
@@ -20,5 +20,5 @@
 <rect x="580" y="390" width="560" height="81" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="600.0" y="427" fill="#d3d1c9" font-size="19">first key focuses and types</text>
 <text x="600" y="457" fill="#72d39c" font-size="17">✓ the filter shows "sm"</text>
-<line x1="506" y1="430.5" x2="574" y2="430.5" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="506" y1="430.5" x2="572" y2="430.5" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 </svg>

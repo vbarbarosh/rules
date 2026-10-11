@@ -14,6 +14,6 @@
 <text x="688.0" y="307.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][http_request_end]</text>
 <text x="708.4" y="333.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">404 0.012s</text>
 <text x="688" y="374" fill="#72d39c" font-size="17">✓ the status says it</text>
-<line x1="536" y1="333.0" x2="664" y2="333.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="333.0" x2="662" y2="333" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="444" fill="#92958c" font-size="21">When ok or error would mislead, _end leaves the outcome to the status.</text>
 </svg>

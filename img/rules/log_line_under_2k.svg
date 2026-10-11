@@ -15,6 +15,6 @@
 <rect x="670" y="340" width="470" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="688.0" y="369.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">response_items=3:[…] +47210</text>
 <text x="688" y="410" fill="#1a7443" font-size="17">✓ counted, truncated</text>
-<line x1="536" y1="382.0" x2="664" y2="382.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="382.0" x2="662" y2="382" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="480" fill="#686a61" font-size="21">Past 2 KB a line is storing data, not describing an event.</text>
 </svg>

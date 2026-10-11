@@ -9,19 +9,19 @@
 <text x="590.0" y="201.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">the work</text>
 <rect x="800" y="160" width="340" height="70" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="970.0" y="201.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">Date.now() - time0</text>
-<line x1="386" y1="195" x2="454" y2="195" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="726" y1="195" x2="794" y2="195" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="386" y1="195" x2="452" y2="195" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="726" y1="195" x2="792" y2="195" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="800" y="280" width="340" height="70" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="970.0" y="321.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">format_duration(…)</text>
-<line x1="970" y1="236" x2="970" y2="274" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="970" y1="236" x2="970" y2="272" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="460" y="280" width="260" height="70" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="590.0" y="321.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">'2m 35s'</text>
-<line x1="794" y1="315" x2="726" y2="315" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="794" y1="315" x2="728" y2="315" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="400" width="500" height="90" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="80.0" y="434" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">`${Date.now() - time0}ms`</text>
 <text x="80" y="474" fill="#b2341f" font-size="17">✗ hand-rolled at the call site</text>
 <rect x="640" y="400" width="500" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="660.0" y="434" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">format_duration(Date.now() - time0)</text>
 <text x="660" y="474" fill="#1a7443" font-size="17">✓ one place formats it</text>
-<line x1="566" y1="445.0" x2="634" y2="445.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="445.0" x2="632" y2="445" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 </svg>

@@ -11,13 +11,13 @@
 <rect x="670" y="250" width="470" height="84" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="688.0" y="279.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">limits={"soft":10,"hard":25}</text>
 <text x="688" y="320" fill="#72d39c" font-size="17">✓ compact</text>
-<line x1="536" y1="292.0" x2="664" y2="292.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="292.0" x2="662" y2="292" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="354" width="470" height="84" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="78.0" y="383.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">retry=yes</text>
 <text x="78" y="424" fill="#ff937c" font-size="17">✗ a word for a boolean</text>
 <rect x="670" y="354" width="470" height="84" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="688.0" y="383.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">retry=true</text>
 <text x="688" y="424" fill="#72d39c" font-size="17">✓ JSON true</text>
-<line x1="536" y1="396.0" x2="664" y2="396.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="396.0" x2="662" y2="396" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="494" fill="#92958c" font-size="21">A structure is one word of details: compact JSON keeps it so.</text>
 </svg>

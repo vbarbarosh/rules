@@ -12,6 +12,6 @@
 <rect x="640" y="250" width="500" height="84" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="890.0" y="288.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle"># Welcome to rules!</text>
 <text x="890.0" y="314.0" fill="#686a61" font-size="17" text-anchor="middle">✗ not the repository name</text>
-<line x1="634" y1="280" x2="566" y2="280" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="634" y1="280" x2="568" y2="280" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="470" fill="#686a61" font-size="21">One # heading, the repository name as it is; everything else is ## or below.</text>
 </svg>

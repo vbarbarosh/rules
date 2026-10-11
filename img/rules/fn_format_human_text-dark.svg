@@ -10,23 +10,23 @@
 <text x="510.0" y="199.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">format_bytes()</text>
 <rect x="760" y="160" width="240" height="64" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="880.0" y="199.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">"1.4 MB"</text>
-<line x1="266" y1="192" x2="334" y2="192" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="686" y1="192" x2="754" y2="192" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="266" y1="192" x2="332" y2="192" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="686" y1="192" x2="752" y2="192" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="250" width="200" height="64" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="160.0" y="289.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">155000</text>
 <rect x="340" y="250" width="340" height="64" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="510.0" y="289.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">format_duration()</text>
 <rect x="760" y="250" width="240" height="64" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="880.0" y="289.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">"2m 35s"</text>
-<line x1="266" y1="282" x2="334" y2="282" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="686" y1="282" x2="754" y2="282" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="266" y1="282" x2="332" y2="282" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="686" y1="282" x2="752" y2="282" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="340" width="200" height="64" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="160.0" y="379.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">1299</text>
 <rect x="340" y="340" width="340" height="64" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="510.0" y="379.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">format_usd()</text>
 <rect x="760" y="340" width="240" height="64" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="880.0" y="379.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">"$12.99"</text>
-<line x1="266" y1="372" x2="334" y2="372" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="686" y1="372" x2="754" y2="372" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="266" y1="372" x2="332" y2="372" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="686" y1="372" x2="752" y2="372" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="480" fill="#92958c" font-size="21">A format_ function is for display: its result is shown, never parsed back.</text>
 </svg>

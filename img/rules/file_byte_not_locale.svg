@@ -7,13 +7,13 @@
 <text x="178.5" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">$  @</text>
 <rect x="341.0" y="160" width="237.0" height="60" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="459.5" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">A … Z</text>
-<line x1="303.0" y1="190.0" x2="335.0" y2="190.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="303.0" y1="190.0" x2="333" y2="190" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="622.0" y="160" width="237.0" height="60" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="740.5" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">a … z</text>
-<line x1="584.0" y1="190.0" x2="616.0" y2="190.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="584.0" y1="190.0" x2="614" y2="190" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="903.0" y="160" width="237.0" height="60" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="1021.5" y="197.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">{</text>
-<line x1="865.0" y1="190.0" x2="897.0" y2="190.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="865.0" y1="190.0" x2="895" y2="190" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="270" width="500" height="134.45" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <rect x="640" y="270" width="500" height="134.45" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="78.0" y="302.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const axios = require('axios');</text>
@@ -24,6 +24,6 @@
 <text x="658.0" y="329.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const axios = require('axios');</text>
 <text x="658.0" y="356.4" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const {promisify} = require('util');</text>
 <text x="658" y="388.45" fill="#1a7443" font-size="17">✓ byte order: V first, { last</text>
-<line x1="566" y1="337.225" x2="634" y2="337.225" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="337.225" x2="632" y2="337.23" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="458" fill="#686a61" font-size="21">Destructured imports land last on their own: { sorts after z.</text>
 </svg>

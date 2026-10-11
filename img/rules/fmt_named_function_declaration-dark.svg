@@ -14,7 +14,7 @@
 <text x="660.0" y="216" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function report_print()</text>
 <text x="660.0" y="250" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
 <text x="660.0" y="284" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
-<line x1="566" y1="242.0" x2="634" y2="242.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="242.0" x2="632" y2="242" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="360" fill="#ff937c" font-size="18" font-weight="700">✗ an arrow held in a const</text>
 <text x="640" y="360" fill="#72d39c" font-size="18" font-weight="700">✓ the same declaration</text>
 <rect x="60" y="372" width="500" height="124" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
@@ -26,6 +26,6 @@
 <text x="660.0" y="408" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function report_print()</text>
 <text x="660.0" y="442" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
 <text x="660.0" y="476" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
-<line x1="566" y1="434.0" x2="634" y2="434.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="434.0" x2="632" y2="434" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="546" fill="#92958c" font-size="21">A named function is declared; class methods keep their class syntax.</text>
 </svg>

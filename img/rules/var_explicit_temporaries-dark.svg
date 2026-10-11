@@ -13,6 +13,6 @@
 <text x="660.0" y="222" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const report = format_report(due);</text>
 <text x="660.0" y="250" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">send(report);</text>
 <text x="660" y="290" fill="#72d39c" font-size="17">✓ each step named</text>
-<line x1="566" y1="233.0" x2="634" y2="233.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="233.0" x2="632" y2="233" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="430" fill="#92958c" font-size="21">Clarity over terseness: an intermediate variable says what the step made.</text>
 </svg>

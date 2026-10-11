@@ -5,17 +5,17 @@
 <text x="48" y="108" fill="#92958c" font-size="22">the same set always prints the same</text>
 <rect x="60" y="160" width="360" height="56" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="80" y="195" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[846,180,783]</text>
-<line x1="426" y1="188" x2="514" y2="188" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="426" y1="188" x2="512" y2="188" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="520" y="160" width="360" height="56" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="540" y="195" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">3:[180,783,846]</text>
 <rect x="60" y="232" width="360" height="56" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="80" y="267" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">["foo","bar"]</text>
-<line x1="426" y1="260" x2="514" y2="260" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="426" y1="260" x2="512" y2="260" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="520" y="232" width="360" height="56" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="540" y="267" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">2:["bar","foo"]</text>
 <rect x="60" y="304" width="360" height="56" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="80" y="339" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[]</text>
-<line x1="426" y1="332" x2="514" y2="332" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="426" y1="332" x2="512" y2="332" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="520" y="304" width="360" height="56" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="540" y="339" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">0:[]</text>
 <text x="900" y="230" fill="#92958c" font-size="18">count, then the</text>
@@ -26,6 +26,6 @@
 <rect x="670" y="396" width="470" height="84" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="688.0" y="425.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">ids=3:[180,783,846]</text>
 <text x="688" y="466" fill="#72d39c" font-size="17">✓ sorted, counted</text>
-<line x1="536" y1="438.0" x2="664" y2="438.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="438.0" x2="662" y2="438" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="536" fill="#92958c" font-size="21">Ordered values, a path or steps, keep their order and are not sorted.</text>
 </svg>

@@ -11,7 +11,7 @@
 <rect x="640" y="180" width="500" height="56" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <rect x="650" y="195" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="660.0" y="216" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{value: 'today', label: 'Today'}</text>
-<line x1="566" y1="208.0" x2="634" y2="208.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="208.0" x2="632" y2="208" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="292" fill="#ff937c" font-size="18" font-weight="700">✗ spaces inside the brackets</text>
 <text x="640" y="292" fill="#72d39c" font-size="18" font-weight="700">✓ no spaces</text>
 <rect x="60" y="304" width="500" height="56" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
@@ -20,6 +20,6 @@
 <rect x="640" y="304" width="500" height="56" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <rect x="650" y="319" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="660.0" y="340" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">['remote', 'host', 'service']</text>
-<line x1="566" y1="332.0" x2="634" y2="332.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="332.0" x2="632" y2="332" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="410" fill="#92958c" font-size="21">Standalone, nested or one row of a list: the same, no inner spaces.</text>
 </svg>

@@ -5,12 +5,12 @@
 <text x="48" y="108" fill="#92958c" font-size="22">one key, one value or many: the first word says which, not the size of the container</text>
 <rect x="60" y="180" width="520" height="64" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="80" y="220" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">user_by_id[id]</text>
-<line x1="586" y1="212" x2="654" y2="212" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="586" y1="212" x2="652" y2="212" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="660" y="190" width="34" height="44" rx="5" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="716" y="220" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">User</text>
 <rect x="60" y="280" width="520" height="64" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="80" y="320" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">users_by_role[role]</text>
-<line x1="586" y1="312" x2="654" y2="312" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="586" y1="312" x2="652" y2="312" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="660" y="290" width="34" height="44" rx="5" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <rect x="702" y="290" width="34" height="44" rx="5" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <rect x="744" y="290" width="34" height="44" rx="5" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
@@ -18,7 +18,7 @@
 <text x="842" y="320" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">User[]</text>
 <rect x="60" y="380" width="520" height="64" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="80" y="420" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">children_by_parent_id[pid]</text>
-<line x1="586" y1="412" x2="654" y2="412" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="586" y1="412" x2="652" y2="412" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="660" y="390" width="34" height="44" rx="5" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <rect x="702" y="390" width="34" height="44" rx="5" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <rect x="744" y="390" width="34" height="44" rx="5" fill="#16301f" stroke="#72d39c" stroke-width="2"/>

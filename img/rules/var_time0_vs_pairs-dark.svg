@@ -9,7 +9,7 @@
 <rect x="640" y="160" width="500" height="90" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="660.0" y="194" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const time0 = Date.now();</text>
 <text x="660" y="234" fill="#72d39c" font-size="17">✓ time0 measures</text>
-<line x1="566" y1="205.0" x2="634" y2="205.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="205.0" x2="632" y2="205" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="300" fill="#92958c" font-size="18">a range with two ends, both used</text>
 <rect x="60" y="316" width="540" height="88" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="80" y="350" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const start = range.start;</text>

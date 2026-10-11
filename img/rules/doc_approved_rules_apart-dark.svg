@@ -12,14 +12,14 @@
 <rect x="820" y="230" width="320" height="90" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="980.0" y="270.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">the explanation</text>
 <text x="980.0" y="295.0" fill="#92958c" font-size="18" text-anchor="middle">regenerated from both</text>
-<line x1="396" y1="215" x2="814" y2="265" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="396" y1="335" x2="814" y2="285" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="396" y1="215" x2="812.01" y2="264.76" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="396" y1="335" x2="812.01" y2="285.24" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="420" width="480" height="80" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="78" y="454" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">an AI suggestion, filed as MP-51</text>
 <text x="78" y="482" fill="#ff937c" font-size="17">✗ a suggestion is no approval</text>
 <rect x="620" y="420" width="520" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="638" y="454" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">MP-51 with the author's message</text>
 <text x="638" y="482" fill="#72d39c" font-size="17">✓ scope, date, evidence</text>
-<line x1="546" y1="460.0" x2="614" y2="460.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="460.0" x2="612" y2="460" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="540" fill="#92958c" font-size="21">The approval file is kept by hand, never regenerated.</text>
 </svg>

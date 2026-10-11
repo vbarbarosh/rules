@@ -21,7 +21,7 @@
 <text x="908" y="238" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">14:20</text>
 <rect x="970" y="196" width="96" height="70" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="1018" y="238" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">17:45</text>
-<line x1="492" y1="231" x2="634" y2="231" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="492" y1="231" x2="632" y2="231" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="330" fill="#686a61" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">Item[]</text>
 <text x="640" y="330" fill="#686a61" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">Item[], still an array</text>
 <text x="48" y="450" fill="#686a61" font-size="21">The participle stays: the shape alone cannot say the order changed.</text>

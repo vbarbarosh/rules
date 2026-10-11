@@ -15,6 +15,6 @@
 <rect x="650" y="229" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="660.0" y="250" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// after a deploy: retry once.</text>
 <text x="660.0" y="284" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">await fetch_retry(url);</text>
-<line x1="566" y1="242.0" x2="634" y2="242.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="242.0" x2="632" y2="242" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="354" fill="#92958c" font-size="21">The code says what it does; a comment says what the code cannot.</text>
 </svg>

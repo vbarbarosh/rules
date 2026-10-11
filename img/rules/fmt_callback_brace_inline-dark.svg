@@ -16,7 +16,7 @@
 <text x="660.0" y="216" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">server.on('error', function (error) {</text>
 <text x="703.2" y="250" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// ...</text>
 <text x="660.0" y="284" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">});</text>
-<line x1="566" y1="259.0" x2="634" y2="259.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="259.0" x2="632" y2="259" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="394" fill="#ff937c" font-size="18" font-weight="700">✗ executor brace below</text>
 <text x="640" y="394" fill="#72d39c" font-size="18" font-weight="700">✓ the same for an executor</text>
 <rect x="60" y="406" width="500" height="158" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
@@ -30,6 +30,6 @@
 <text x="660.0" y="442" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return new Promise(function (resolve) {</text>
 <text x="703.2" y="476" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// ...</text>
 <text x="660.0" y="510" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">});</text>
-<line x1="566" y1="485.0" x2="634" y2="485.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="485.0" x2="632" y2="485" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="614" fill="#92958c" font-size="21">An expression keeps its brace where the function starts, inside the call.</text>
 </svg>

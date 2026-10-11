@@ -9,21 +9,21 @@
 <rect x="640" y="150" width="500" height="90" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="660.0" y="184" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch (error)</text>
 <text x="660" y="224" fill="#72d39c" font-size="17">✓ error</text>
-<line x1="566" y1="195.0" x2="634" y2="195.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="195.0" x2="632" y2="195" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="260" width="500" height="90" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="80.0" y="294" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch (ex)</text>
 <text x="80" y="334" fill="#ff937c" font-size="17">✗ ex is not a name here</text>
 <rect x="640" y="260" width="500" height="90" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="660.0" y="294" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch (error)</text>
 <text x="660" y="334" fill="#72d39c" font-size="17">✓ error</text>
-<line x1="566" y1="305.0" x2="634" y2="305.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="305.0" x2="632" y2="305" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="370" width="500" height="90" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="80.0" y="404" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch (e)</text>
 <text x="80" y="444" fill="#ff937c" font-size="17">✗ e is for arrows only</text>
 <rect x="640" y="370" width="500" height="90" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="660.0" y="404" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">catch (error)</text>
 <text x="660" y="444" fill="#72d39c" font-size="17">✓ error</text>
-<line x1="566" y1="415.0" x2="634" y2="415.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="415.0" x2="632" y2="415" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="510" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">promise.catch(e =&gt; report(e));</text>
 <text x="460" y="510" fill="#72d39c" font-size="18">✓ e: an error in an arrow</text>
 </svg>

@@ -11,14 +11,14 @@
 <rect x="640" y="160" width="500" height="72" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="890.0" y="192.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">app-input-email</text>
 <text x="890.0" y="218.0" fill="#686a61" font-size="17" text-anchor="middle">this.px(), this.uid(), this.emit_input()</text>
-<line x1="486" y1="280" x2="634" y2="196" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="486" y1="280" x2="632.26" y2="196.99" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="640" y="250" width="500" height="72" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="890.0" y="282.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">app-slider</text>
 <text x="890.0" y="308.0" fill="#686a61" font-size="17" text-anchor="middle">this.px(), this.uid(), this.emit_input()</text>
-<line x1="486" y1="280" x2="634" y2="286" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="486" y1="280" x2="632" y2="285.92" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="640" y="340" width="500" height="72" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="890.0" y="372.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">badge-new</text>
 <text x="890.0" y="398.0" fill="#686a61" font-size="17" text-anchor="middle">this.px(), this.uid(), this.emit_input()</text>
-<line x1="486" y1="280" x2="634" y2="376" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="486" y1="280" x2="632.32" y2="374.91" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="470" fill="#686a61" font-size="21">One mixin hands the three methods to every component of the app.</text>
 </svg>

@@ -11,6 +11,6 @@
 <text x="643.2" y="233" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;div v-for="item in items"&gt;</text>
 <text x="600.0" y="260" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;/template&gt;</text>
 <text x="600" y="290" fill="#72d39c" font-size="17">✓ the condition lifted to a template</text>
-<line x1="506" y1="237.0" x2="574" y2="237.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="506" y1="237.0" x2="572" y2="237" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="364" fill="#92958c" font-size="21">One element, one directive: which runs first is never a question.</text>
 </svg>

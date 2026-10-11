@@ -27,6 +27,6 @@
 <text x="688.0" y="299.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">SELECT MIN(id) AS id</text>
 <text x="688.0" y="325.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">FROM user_identities</text>
 <text x="688" y="366" fill="#72d39c" font-size="17">✓ keywords upper</text>
-<line x1="536" y1="325.0" x2="664" y2="325.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="325.0" x2="662" y2="325" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="436" fill="#92958c" font-size="21">Tables, columns, indexes and aliases are spelled as the schema spells them.</text>
 </svg>

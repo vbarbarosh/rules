@@ -38,5 +38,5 @@
 <text x="660.0" y="454" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const unique_tags = [...new Set(tags)];</text>
 <text x="660.0" y="482" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return … ? tags : unique_tags;</text>
 <text x="660" y="522" fill="#72d39c" font-size="17">✓ named by what it holds</text>
-<line x1="566" y1="479.0" x2="634" y2="479.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="479.0" x2="632" y2="479" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 </svg>

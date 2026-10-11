@@ -26,6 +26,6 @@
 <rect x="820" y="318" width="300" height="76" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="970.0" y="351" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_by_id[id]</text>
 <text x="970.0" y="378" fill="#686a61" font-size="17" text-anchor="middle">✓ read with brackets</text>
-<line x1="726" y1="356" x2="814" y2="356" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="726" y1="356" x2="812" y2="356" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="480" fill="#686a61" font-size="21">Brackets, or .get() on a Map: a "by" name is looked into, never called.</text>
 </svg>

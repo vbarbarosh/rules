@@ -8,7 +8,7 @@
 <text x="80" y="233" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">svg-icon-archive.vue</text>
 <text x="80" y="263" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">svg-icon-close.vue</text>
 <text x="80" y="293" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">svg-icon-search.vue</text>
-<line x1="446" y1="250" x2="534" y2="250" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="446" y1="250" x2="532" y2="250" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="540" y="170" width="600" height="171" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="560" y="202" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;template&gt;</text>
 <text x="584" y="231" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&lt;svg viewBox="0 0 100 100"&gt;</text>

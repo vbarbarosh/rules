@@ -8,7 +8,7 @@
 <rect x="200" y="228" width="180" height="56" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="290.0" y="263.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">out</text>
 <text x="290" y="336" fill="#92958c" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">return out;</text>
-<line x1="526" y1="260" x2="634" y2="260" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="526" y1="260" x2="632" y2="260" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="640" y="210" width="500" height="100" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="890" y="252" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">const emails = emails_from_users(users);</text>
 <text x="890" y="284" fill="#92958c" font-size="17" text-anchor="middle">the caller names it: emails</text>

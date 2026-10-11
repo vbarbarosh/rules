@@ -20,6 +20,6 @@
 <text x="688.0" y="363.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][job_progress] 80%</text>
 <text x="688.0" y="389.6" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][group_exit]</text>
 <text x="688" y="430" fill="#72d39c" font-size="17">✓ exit last</text>
-<line x1="536" y1="389.0" x2="664" y2="389.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="389.0" x2="662" y2="389" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="500" fill="#92958c" font-size="21">A parent may emit group_exit for work it abandons.</text>
 </svg>

@@ -12,8 +12,8 @@
 <rect x="460" y="230" width="300" height="90" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="610.0" y="271.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">container</text>
 <text x="610.0" y="297.0" fill="#686a61" font-size="17" text-anchor="middle">/app/data mounted</text>
-<line x1="366" y1="215" x2="454" y2="260" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="366" y1="335" x2="454" y2="290" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="366" y1="215" x2="452.22" y2="259.09" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="366" y1="335" x2="452.22" y2="290.91" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="820" y="200" width="320" height="111.2" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="840.0" y="234.6" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">docker run</text>
 <text x="861.6" y="264.6" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">-v app-data:/app/data</text>

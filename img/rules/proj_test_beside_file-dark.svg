@@ -9,7 +9,7 @@
 <rect x="640" y="170" width="500" height="84" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="890.0" y="208.0" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">src/helpers/array_group.test.js</text>
 <text x="890.0" y="234.0" fill="#92958c" font-size="17" text-anchor="middle">✓ next to array_group.js</text>
-<line x1="566" y1="212.0" x2="634" y2="212.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="212.0" x2="632" y2="212" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="300" width="1080" height="110" rx="12" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="84" y="340" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">src/helpers/array_group.js</text>
 <text x="84" y="382" fill="#72d39c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">src/helpers/array_group.test.js</text>

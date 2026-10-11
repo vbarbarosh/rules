@@ -21,6 +21,6 @@
 <rect x="650" y="331" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="660.0" y="352" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">finally {</text>
 <text x="660.0" y="386" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
-<line x1="566" y1="293.0" x2="634" y2="293.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="293.0" x2="632" y2="293" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="456" fill="#92958c" font-size="21">try, catch and finally line up the way if and else do.</text>
 </svg>

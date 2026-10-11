@@ -9,8 +9,8 @@
 <rect x="60" y="300" width="280" height="80" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="200.0" y="336.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">400</text>
 <text x="200.0" y="362.0" fill="#92958c" font-size="17" text-anchor="middle">visits</text>
-<line x1="346" y1="230" x2="534" y2="270" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="346" y1="340" x2="534" y2="300" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="346" y1="230" x2="532.04" y2="269.58" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="346" y1="340" x2="532.04" y2="300.42" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="540" y="230" width="340" height="110" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="710.0" y="281.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">3.1</text>
 <text x="710.0" y="307.0" fill="#92958c" font-size="17" text-anchor="middle">clicks_per_visit</text>

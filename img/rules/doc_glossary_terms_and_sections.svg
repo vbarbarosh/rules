@@ -18,7 +18,7 @@
 <rect x="800" y="335" width="340" height="90" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="970.0" y="375.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">each ## section</text>
 <text x="970.0" y="400.0" fill="#686a61" font-size="18" text-anchor="middle">explains one term</text>
-<line x1="794" y1="245" x2="686" y2="245" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="794" y1="380" x2="686" y2="380" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="794" y1="245" x2="688" y2="245" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="794" y1="380" x2="688" y2="380" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="510" fill="#686a61" font-size="21">The author's line for a term is the source of its section.</text>
 </svg>

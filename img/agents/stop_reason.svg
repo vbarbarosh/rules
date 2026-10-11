@@ -5,19 +5,19 @@
 <text x="48" y="108" fill="#686a61" font-size="22">why a call ended: final, tool_call, max_tokens or refusal, the names the API uses</text>
 <rect x="60" y="160" width="260" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="190.0" y="202.92" fill="#1a7443" font-size="22" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">final</text>
-<line x1="320" y1="195" x2="380" y2="195" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="320" y1="195" x2="378" y2="195" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <text x="390" y="203" fill="#191a17" font-size="21" text-anchor="start">the model is done; the turn ends</text>
 <rect x="60" y="255" width="260" height="70" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="190.0" y="297.92" fill="#2743b8" font-size="22" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tool_call</text>
-<line x1="320" y1="290" x2="380" y2="290" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="320" y1="290" x2="378" y2="290" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <text x="390" y="298" fill="#191a17" font-size="21" text-anchor="start">the model wants a tool run; another round</text>
 <rect x="60" y="350" width="260" height="70" rx="12" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
 <text x="190.0" y="392.92" fill="#b8650a" font-size="22" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">max_tokens</text>
-<line x1="320" y1="385" x2="380" y2="385" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="320" y1="385" x2="378" y2="385" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <text x="390" y="393" fill="#191a17" font-size="21" text-anchor="start">the answer was cut by the token cap</text>
 <rect x="60" y="445" width="260" height="70" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="190.0" y="487.92" fill="#b2341f" font-size="22" text-anchor="middle" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">refusal</text>
-<line x1="320" y1="480" x2="380" y2="480" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="320" y1="480" x2="378" y2="480" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <text x="390" y="488" fill="#191a17" font-size="21" text-anchor="start">the model declined the request</text>
 <text x="48" y="560" fill="#686a61" font-size="21" text-anchor="start">The harness reads the stop reason, not the text, to decide what happens next.</text>
 </svg>

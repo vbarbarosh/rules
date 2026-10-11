@@ -14,15 +14,15 @@
 <rect x="900" y="170" width="240" height="90" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="1020.0" y="211.0" fill="#d3d1c9" font-size="20" text-anchor="middle">first paint</text>
 <text x="1020.0" y="237.0" fill="#92958c" font-size="17" text-anchor="middle">already in its theme</text>
-<line x1="286" y1="215" x2="334" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="566" y1="215" x2="614" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="846" y1="215" x2="894" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="286" y1="215" x2="332" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="215" x2="612" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="846" y1="215" x2="892" y2="215" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="320" width="440" height="81" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="80.0" y="357" fill="#d3d1c9" font-size="19">paint light, then switch</text>
 <text x="80" y="387" fill="#ff937c" font-size="17">✗ a white flash on every load</text>
 <rect x="580" y="320" width="560" height="81" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="600.0" y="357" fill="#d3d1c9" font-size="19">set the theme, then paint</text>
 <text x="600" y="387" fill="#72d39c" font-size="17">✓ no flash</text>
-<line x1="506" y1="360.5" x2="574" y2="360.5" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="506" y1="360.5" x2="572" y2="360.5" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="480" fill="#92958c" font-size="21">With nothing saved, the OS setting decides once; each new choice is saved.</text>
 </svg>

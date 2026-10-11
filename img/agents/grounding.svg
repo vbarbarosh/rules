@@ -9,7 +9,7 @@
 <text x="90" y="284" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">open file: src/footer.vue</text>
 <text x="90" y="316" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tests: 12 passed, 1 failed</text>
 <text x="90" y="348" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">time: 2026-10-11 09:50</text>
-<line x1="486" y1="320" x2="604" y2="320" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="486" y1="320" x2="602" y2="320" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <text x="545" y="290" fill="#2743b8" font-size="20" text-anchor="middle" font-style="italic">each turn</text>
 <rect x="610" y="150" width="530" height="340" rx="16" fill="#e2e7fb" stroke="#2743b8" stroke-width="2" stroke-dasharray="12 8"/>
 <text x="630" y="184" fill="#2743b8" font-size="22" text-anchor="start" font-weight="700">the context</text>

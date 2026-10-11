@@ -15,8 +15,8 @@
 <rect x="860" y="210" width="280" height="70" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="1000.0" y="241.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">the app</text>
 <text x="1000.0" y="267.0" fill="#686a61" font-size="17" text-anchor="middle">reads it</text>
-<line x1="366" y1="195" x2="454" y2="235" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="366" y1="295" x2="454" y2="255" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="766" y1="245" x2="854" y2="245" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="366" y1="195" x2="452.18" y2="234.17" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="366" y1="295" x2="452.18" y2="255.83" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="766" y1="245" x2="852" y2="245" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="450" fill="#686a61" font-size="21">The rules set nothing for .env: it is the runner's file, not the application's.</text>
 </svg>

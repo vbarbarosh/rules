@@ -12,6 +12,6 @@
 <text x="688.0" y="189.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][process_begin]</text>
 <text x="688.0" y="215.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">[aaa][process_end_ok] 0.000s</text>
 <text x="688" y="282" fill="#1a7443" font-size="17">✓ the pair together</text>
-<line x1="536" y1="228.0" x2="664" y2="228.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="228.0" x2="662" y2="228" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="352" fill="#686a61" font-size="21">A begin and its end live in one group.</text>
 </svg>

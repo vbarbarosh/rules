@@ -9,15 +9,15 @@
 <text x="650.0" y="211.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">"1.4 MB"</text>
 <rect x="860" y="170" width="280" height="70" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
 <text x="1000.0" y="211.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">a person reads it</text>
-<line x1="446" y1="205" x2="514" y2="205" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="786" y1="205" x2="854" y2="205" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="446" y1="205" x2="512" y2="205" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="786" y1="205" x2="852" y2="205" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="280" width="380" height="70" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="250.0" y="321.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">$theme-&gt;render_css()</text>
 <rect x="520" y="280" width="260" height="70" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="650.0" y="321.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">'body { … }'</text>
 <rect x="860" y="280" width="280" height="70" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
 <text x="1000.0" y="321.7" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">a browser uses it</text>
-<line x1="446" y1="315" x2="514" y2="315" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="786" y1="315" x2="854" y2="315" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="446" y1="315" x2="512" y2="315" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="786" y1="315" x2="852" y2="315" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="450" fill="#686a61" font-size="21">Reading object state does not turn display text into render output.</text>
 </svg>

@@ -11,8 +11,8 @@
 <rect x="780" y="160" width="360" height="84" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="960.0" y="198.0" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">body { color: #333; }</text>
 <text x="960.0" y="224.0" fill="#92958c" font-size="17" text-anchor="middle">a CSS asset</text>
-<line x1="366" y1="202" x2="434" y2="202" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="706" y1="202" x2="774" y2="202" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="366" y1="202" x2="432" y2="202" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="706" y1="202" x2="772" y2="202" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="280" width="300" height="84" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="210.0" y="318.0" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">$this-&gt;items</text>
 <text x="210.0" y="344.0" fill="#92958c" font-size="17" text-anchor="middle">state</text>
@@ -21,7 +21,7 @@
 <rect x="780" y="280" width="360" height="84" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="960.0" y="318.0" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">&lt;svg&gt;…&lt;/svg&gt;</text>
 <text x="960.0" y="344.0" fill="#92958c" font-size="17" text-anchor="middle">an SVG asset</text>
-<line x1="366" y1="322" x2="434" y2="322" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="706" y1="322" x2="774" y2="322" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="366" y1="322" x2="432" y2="322" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="706" y1="322" x2="772" y2="322" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="460" fill="#92958c" font-size="21">The result may be a string, but it is an asset, not text for a person.</text>
 </svg>

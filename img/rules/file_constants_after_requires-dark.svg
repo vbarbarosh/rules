@@ -13,6 +13,6 @@
 <text x="658.0" y="220.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const report_limit = 31;</text>
 <text x="658.0" y="247.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function main()</text>
 <text x="658" y="279.3" fill="#72d39c" font-size="17">✓ requires, then constants</text>
-<line x1="566" y1="227.65" x2="634" y2="227.65" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="227.65" x2="632" y2="227.65" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="349" fill="#92958c" font-size="21">Requires first: a constant may use what they bring.</text>
 </svg>

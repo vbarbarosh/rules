@@ -17,7 +17,7 @@
 <rect x="660" y="300" width="480" height="84" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="900.0" y="338.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">type="submit"</text>
 <text x="900.0" y="364.0" fill="#686a61" font-size="17" text-anchor="middle">saves, then closes</text>
-<line x1="516" y1="242" x2="654" y2="232" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="516" y1="328" x2="654" y2="342" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="516" y1="242" x2="652.01" y2="232.14" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="516" y1="328" x2="652.01" y2="341.8" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="460" fill="#686a61" font-size="21">No button leaves the form open with nothing done.</text>
 </svg>

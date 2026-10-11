@@ -10,8 +10,8 @@
 <text x="300.0" y="304.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">out.push(user.email);</text>
 <rect x="60" y="370" width="480" height="56" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="300.0" y="404.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">return out;</text>
-<line x1="300" y1="232" x2="300" y2="264" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<line x1="300" y1="332" x2="300" y2="364" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="300" y1="232" x2="300" y2="262" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="300" y1="332" x2="300" y2="362" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="620" y="170" width="520" height="120" rx="12" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
 <text x="880.0" y="225.2" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">a parameter returned unchanged</text>
 <text x="880.0" y="249.0" fill="#686a61" font-size="17" text-anchor="middle">keeps its own name: return user;</text>
@@ -22,5 +22,5 @@
 <rect x="640" y="450" width="500" height="118" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="660.0" y="484" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return user;</text>
 <text x="660" y="552" fill="#1a7443" font-size="17">✓ its own name</text>
-<line x1="566" y1="509.0" x2="634" y2="509.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="509.0" x2="632" y2="509" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 </svg>

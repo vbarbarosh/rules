@@ -15,6 +15,6 @@
 <text x="728.8" y="267.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">...</text>
 <text x="688.0" y="293.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">`);</text>
 <text x="688" y="334" fill="#1a7443" font-size="17">✓ its own lines</text>
-<line x1="536" y1="254.0" x2="664" y2="254.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="254.0" x2="662" y2="254" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="404" fill="#686a61" font-size="21">The backtick opens a line and closes one: the query stands as a block.</text>
 </svg>

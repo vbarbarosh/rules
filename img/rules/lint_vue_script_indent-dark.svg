@@ -13,6 +13,6 @@
 <text x="684" y="240" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">export default {</text>
 <text x="730" y="274" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">data: function () {</text>
 <text x="638" y="312" fill="#72d39c" font-size="17">✓ one base indent, four spaces</text>
-<line x1="546" y1="250" x2="614" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="546" y1="250" x2="612" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="400" fill="#92958c" font-size="21">The script reads like any JavaScript file, one level in.</text>
 </svg>

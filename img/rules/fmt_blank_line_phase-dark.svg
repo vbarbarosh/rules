@@ -16,6 +16,6 @@
 <text x="660.0" y="250" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const users = rows.map(user_from_row);</text>
 <rect x="650" y="263" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="660.0" y="318" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">users_print(users);</text>
-<line x1="566" y1="276.0" x2="634" y2="276.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="276.0" x2="632" y2="276" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="422" fill="#92958c" font-size="21">Reading the rows and making the users is one step; printing them is the next.</text>
 </svg>

@@ -15,7 +15,7 @@
 <rect x="640" y="180" width="500" height="158" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <rect x="650" y="195" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="660.0" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const next = {uid: item.uid, index};</text>
-<line x1="566" y1="259.0" x2="634" y2="259.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="259.0" x2="632" y2="259" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="60" y="394" fill="#b2341f" font-size="18" font-weight="700">✗ expanded, no trailing comma</text>
 <text x="640" y="394" fill="#1a7443" font-size="18" font-weight="700">✓ one field a line, a trailing comma</text>
 <rect x="60" y="406" width="500" height="158" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
@@ -30,6 +30,6 @@
 <rect x="650" y="489" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="703.2" y="510" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">pool: {min: 1, max: 9},</text>
 <text x="660.0" y="544" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">};</text>
-<line x1="566" y1="485.0" x2="634" y2="485.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="485.0" x2="632" y2="485" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="614" fill="#686a61" font-size="21">One line while it fits; once it must break, one field per line and a trailing comma.</text>
 </svg>

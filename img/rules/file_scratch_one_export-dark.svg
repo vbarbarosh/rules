@@ -11,6 +11,6 @@
 <text x="658.0" y="193.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">// tests/support/users_fixture.js</text>
 <text x="658.0" y="220.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">module.exports = users_fixture;</text>
 <text x="658" y="252.3" fill="#72d39c" font-size="17">✓ one value, its name</text>
-<line x1="566" y1="214.15" x2="634" y2="214.15" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="214.15" x2="632" y2="214.15" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="322" fill="#92958c" font-size="21">Executable scripts export nothing; tool-shaped files follow the tool.</text>
 </svg>

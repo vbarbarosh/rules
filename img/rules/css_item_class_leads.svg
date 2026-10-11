@@ -30,13 +30,13 @@
 <rect x="670" y="270" width="470" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="688.0" y="299.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">fluid flex-row gap10</text>
 <text x="688" y="340" fill="#1a7443" font-size="17">✓ item, layout, gap</text>
-<line x1="536" y1="312.0" x2="664" y2="312.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="312.0" x2="662" y2="312" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="60" y="374" width="470" height="84" rx="8" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="78.0" y="403.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">flex-row grid-foo gap5</text>
 <text x="78" y="444" fill="#b2341f" font-size="17">✗ flex and grid together</text>
 <rect x="670" y="374" width="470" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="688.0" y="403.6" fill="#191a17" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">grid-foo gap5</text>
 <text x="688" y="444" fill="#1a7443" font-size="17">✓ one of them</text>
-<line x1="536" y1="416.0" x2="664" y2="416.0" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="536" y1="416.0" x2="662" y2="416" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="514" fill="#686a61" font-size="21">ph* before pv*, and spacing before typography.</text>
 </svg>

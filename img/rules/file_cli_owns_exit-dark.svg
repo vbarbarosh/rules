@@ -7,15 +7,15 @@
 <text x="170.0" y="246.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">main</text>
 <rect x="380" y="200" width="220" height="80" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="490.0" y="246.65" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">cli(main)</text>
-<line x1="286" y1="240" x2="374" y2="240" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="286" y1="240" x2="372" y2="240" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="680" y="160" width="460" height="60" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="700" y="197" fill="#d3d1c9" font-size="17">keeps the loop alive until main settles</text>
-<line x1="606" y1="240" x2="674" y2="190" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="606" y1="240" x2="672.39" y2="191.18" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="680" y="234" width="460" height="60" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="700" y="271" fill="#d3d1c9" font-size="17">reports a failure</text>
-<line x1="606" y1="240" x2="674" y2="264" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="606" y1="240" x2="672.11" y2="263.33" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="680" y="308" width="460" height="60" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="700" y="345" fill="#d3d1c9" font-size="17">exits non-zero: ExitCodeError's code, else 1</text>
-<line x1="606" y1="240" x2="674" y2="338" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="606" y1="240" x2="672.86" y2="336.36" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="422" fill="#92958c" font-size="21">main does the work; how the process ends is not its business.</text>
 </svg>

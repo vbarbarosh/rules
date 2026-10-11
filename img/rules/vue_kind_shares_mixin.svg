@@ -10,16 +10,16 @@
 <text x="540" y="207" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">.badge-new</text>
 <rect x="880" y="176" width="200" height="48" rx="24" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="980" y="207" fill="#191a17" font-size="19" text-anchor="middle">New</text>
-<line x1="406" y1="270" x2="514" y2="200" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="406" y1="270" x2="512.32" y2="201.09" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="520" y="260" width="300" height="60" rx="8" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="540" y="297" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">.badge-done</text>
 <rect x="880" y="266" width="200" height="48" rx="24" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="980" y="297" fill="#191a17" font-size="19" text-anchor="middle">Done</text>
-<line x1="406" y1="270" x2="514" y2="290" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="406" y1="270" x2="512.03" y2="289.64" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="520" y="350" width="300" height="60" rx="8" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="540" y="387" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">.badge-waiting</text>
 <rect x="880" y="356" width="200" height="48" rx="24" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
 <text x="980" y="387" fill="#191a17" font-size="19" text-anchor="middle">Waiting</text>
-<line x1="406" y1="270" x2="514" y2="380" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="406" y1="270" x2="512.6" y2="378.57" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="470" fill="#686a61" font-size="21">Each badge sets background and color; the rest is shared.</text>
 </svg>

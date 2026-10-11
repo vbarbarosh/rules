@@ -18,5 +18,5 @@
 <rect x="580" y="420" width="560" height="80" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="600.0" y="456" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">window: preventDefault on drop</text>
 <text x="600" y="486" fill="#72d39c" font-size="17">✓ the page stays</text>
-<line x1="506" y1="460.0" x2="574" y2="460.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="506" y1="460.0" x2="572" y2="460" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 </svg>

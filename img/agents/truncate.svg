@@ -9,13 +9,13 @@
 <text x="90" y="282" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">line 2</text>
 <text x="90" y="312" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">…</text>
 <text x="90" y="342" fill="#686a61" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">line 2,000</text>
-<line x1="446" y1="320" x2="584" y2="320" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="446" y1="320" x2="582" y2="320" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <text x="512" y="288" fill="#2743b8" font-size="20" text-anchor="middle" font-style="italic">truncated</text>
 <rect x="580" y="200" width="300" height="160" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="730" y="246" fill="#2743b8" font-size="20" text-anchor="middle" font-weight="700">into the context</text>
 <text x="730" y="280" fill="#191a17" font-size="19" text-anchor="middle">the first 100 lines</text>
 <text x="730" y="310" fill="#686a61" font-size="19" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">"… 1,900 lines cut"</text>
-<line x1="446" y1="440" x2="584" y2="440" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="446" y1="440" x2="582" y2="440" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="580" y="400" width="300" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="730.0" y="441.84" fill="#191a17" font-size="19" text-anchor="middle" font-weight="700">the sidecar: all 2,000</text>
 <text x="48" y="540" fill="#686a61" font-size="21" text-anchor="start">Truncation keeps the context within its cap one result at a time; compaction (next) works on</text>

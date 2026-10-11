@@ -16,6 +16,6 @@
 <rect x="640" y="410" width="500" height="70" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="890.0" y="441.0" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">lines of 72 at most</text>
 <text x="890.0" y="467.0" fill="#92958c" font-size="17" text-anchor="middle">✓ reads in any terminal</text>
-<line x1="566" y1="445.0" x2="634" y2="445.0" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="445.0" x2="632" y2="445" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="530" fill="#92958c" font-size="21">A path or URL longer than 72 keeps a line of its own, whole.</text>
 </svg>

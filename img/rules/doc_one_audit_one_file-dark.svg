@@ -9,7 +9,7 @@
 <text x="100" y="284" fill="#92958c" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">audit-2026-10-06.md</text>
 <rect x="88" y="306" width="330" height="44" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="100" y="335" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">audit-2026-10-08.md</text>
-<line x1="424" y1="328" x2="534" y2="300" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="424" y1="328" x2="532.06" y2="300.49" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <rect x="540" y="170" width="600" height="200" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="560" y="206" fill="#d3d1c9" font-size="18" font-weight="700">its finding register: the issue list</text>
 <text x="560" y="248" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">DEMO-01</text>
