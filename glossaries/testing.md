@@ -26,6 +26,9 @@ Words for failures, and for the tests that find them.
   programs it calls, the variables, the folders, what its build produced,
   each dark when the thing is there and works, lit when it is not. It reads
   and reports, changes nothing; one lit lamp names what to fix and stops it
+- Safety net – a second, independent catch under the first way: when the
+  usual mechanism fails or is forgotten, the net limits the damage. Not the
+  plan, but what holds when the plan does not
 
 ## Intermittent failures
 
@@ -103,4 +106,39 @@ bash -ue -o pipefail << 'EOF' 2>&1 | ts -s '[pyftsubset]'
 EOF
 
 test -e build/front.d    # what the build was to produce
+```
+
+## Safety net
+
+The net under the trapeze: the act is done without it, and nobody falls on
+purpose, but when someone does, the net is what holds. In software, a second
+mechanism, independent of the first, that catches what the first lets
+through and limits the damage: a timeout behind a request that should
+return, a cap on a loop that should end, a job that puts back what a step
+should have put back. It is not the way things are meant to work; it is what
+holds when they do not.
+
+An example: an agent is switched to the strongest model for one message, and
+the reply is meant to switch it back. The safety net: if the agent is still
+on the strongest model ten minutes after that message's reply, the app
+switches it back itself and says so in the log. The switch-back after the
+reply is the plan; the ten-minute check is the net.
+
+Beside its neighbours: a self-check asks before the work whether the
+application is fit; an integrity check asks after it whether the data is
+still whole; a safety net sits under the work itself and acts when the first
+mechanism did not. A fallback is a second way to the same result; a safety
+net does not finish the job, it stops a miss from spreading. A good net is
+simple and independent, so it cannot fail for the same reason as what it
+guards, and it says when it caught something: every catch is a sign that
+the first way failed, and worth a look.
+
+```js
+// the plan: the reply switches the model back
+// the net: ten minutes on, the app does it itself
+const late = now - reply.at > 10 * MINUTE;
+if (late && (agent.model === strongest)) {
+    agent.model = agent.default_model;
+    log.warn('safety net: switched the model back');
+}
 ```
