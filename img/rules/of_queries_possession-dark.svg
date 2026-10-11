@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">"Of" queries possession</text>
+<text x="48" y="108" fill="#92958c" font-size="22">descendants_of(node): what belongs to the node, asked for</text>
+<rect x="330" y="160" width="140" height="54" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="400" y="194" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">node</text>
+<rect x="160" y="280" width="140" height="54" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<line x1="380" y1="220" x2="230" y2="274" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="500" y="280" width="140" height="54" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<line x1="400" y1="220" x2="570" y2="274" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="400" width="140" height="54" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="260" y="400" width="140" height="54" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="500" y="400" width="140" height="54" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<line x1="230" y1="340" x2="130" y2="394" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="230" y1="340" x2="330" y2="394" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="570" y1="340" x2="570" y2="394" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="760" y="230" width="380" height="140" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="950" y="284" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">descendants_of(node)</text>
+<text x="950" y="330" fill="#92958c" font-size="18" text-anchor="middle">5 nodes, in green</text>
+<text x="48" y="520" fill="#92958c" font-size="21">The question is what the node has: its descendants, its parts, its owner.</text>
+</svg>

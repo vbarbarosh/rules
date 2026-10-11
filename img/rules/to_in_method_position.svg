@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2743b8"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">"To" only in method position</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the source is the receiver, before the dot</text>
+<rect x="60" y="190" width="220" height="90" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="170.0" y="231.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">tree</text>
+<text x="170.0" y="257.0" fill="#686a61" font-size="17" text-anchor="middle">the receiver</text>
+<rect x="380" y="190" width="280" height="90" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="520.0" y="231.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">.to_json()</text>
+<text x="520.0" y="257.0" fill="#686a61" font-size="17" text-anchor="middle">its method</text>
+<rect x="760" y="190" width="380" height="90" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="950.0" y="231.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">'{"root": …}'</text>
+<text x="950.0" y="257.0" fill="#686a61" font-size="17" text-anchor="middle">json</text>
+<line x1="286" y1="235" x2="374" y2="235" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="666" y1="235" x2="754" y2="235" stroke="#2743b8" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="60" y="360" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tree.to_json()</text>
+<text x="252.0" y="360" fill="#1a7443" font-size="18">✓ a method</text>
+<text x="60" y="410" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">json_from_tree(tree)</text>
+<text x="324.0" y="410" fill="#1a7443" font-size="18">✓ standalone: from</text>
+<text x="640" y="360" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tree_to_json(tree)</text>
+<text x="880.0" y="360" fill="#b2341f" font-size="18">✗ to outside a method</text>
+<text x="48" y="480" fill="#686a61" font-size="21">Standalone, a conversion is named with from, the result first.</text>
+</svg>

@@ -1255,12 +1255,14 @@ enabled/disabled    import/export</pre><button class="copy" type="button">Copy</
 <a class="code" href="#NAME-01">NAME-01</a>
 <div class="text"><p><strong>Functions are verbs; data are nouns.</strong> Functions are verb phrases, data are noun phrases. Each assignment reads as a sentence — the verb performs, the noun holds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const users_by_role = users_group_by_role(users);</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/verbs_and_nouns.svg"><img class="light" src="../img/rules/verbs_and_nouns.svg" alt="users flows into users_group_by_role(), a verb, which makes users_by_role, a noun; the line read as a sentence" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/verbs_and_nouns-dark.svg" alt="users flows into users_group_by_role(), a verb, which makes users_by_role, a noun; the line read as a sentence" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-02">
 <a class="code" href="#NAME-02">NAME-02</a>
 <div class="text"><p><strong>The verb form marks function or data.</strong> English verb morphology is the marker. An imperative verb makes a function; a past participle makes data. Where there is no verb, a function marker — <code>_from_</code>, <code>_to_</code>, <code>_of_</code>, <code>check_</code> — makes a function.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>items_sort_by_time(items)   <span class="cmt">// function</span>
 items_sorted_by_time        <span class="cmt">// data</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/verb_form.svg"><img class="light" src="../img/rules/verb_form.svg" alt="items_sort_by_time(items), an imperative, is a function; items_sorted_by_time, a past participle, is data; with no verb, _from_, _to_, _of_ or check_ makes a function" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/verb_form-dark.svg" alt="items_sort_by_time(items), an imperative, is a function; items_sorted_by_time, a past participle, is data; with no verb, _from_, _to_, _of_ or check_ makes a function" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-03">
 <a class="code" href="#NAME-03">NAME-03</a>
@@ -1268,6 +1270,7 @@ items_sorted_by_time        <span class="cmt">// data</span></pre><button class=
 <div class="form"><pre>user_by_id&#91;id]       <span class="yes">✓ right</span>
 user_by_id.get(id)   <span class="yes">✓ right, a Map</span>
 user_by_id(id)       <span class="no">✗ wrong</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/bare_by_is_data.svg"><img class="light" src="../img/rules/bare_by_is_data.svg" alt="user_by_id as a table of ids and users: read with brackets or .get(), never called" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/bare_by_is_data-dark.svg" alt="user_by_id as a table of ids and users: read with brackets or .get(), never called" width="1200" height="540" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-04">
 <a class="code" href="#NAME-04">NAME-04</a>
@@ -1275,16 +1278,19 @@ user_by_id(id)       <span class="no">✗ wrong</span></pre><button class="copy"
 <div class="form"><pre>user_by_id&#91;id]                    <span class="cmt">// User</span>
 users_by_role&#91;role]               <span class="cmt">// User&#91;]</span>
 children_by_parent_id&#91;parent_id]  <span class="cmt">// Node&#91;]</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/plural_states_cardinality.svg"><img class="light" src="../img/rules/plural_states_cardinality.svg" alt="user_by_id returns one User per key; users_by_role and children_by_parent_id return a list per key" width="1200" height="580" loading="lazy"><img class="dark" src="../img/rules/plural_states_cardinality-dark.svg" alt="user_by_id returns one User per key; users_by_role and children_by_parent_id return a list per key" width="1200" height="580" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-05">
 <a class="code" href="#NAME-05">NAME-05</a>
 <div class="text"><p><strong>"Sorted by" is the same data, reordered.</strong> <code>_sorted_by_</code> marks data of the same shape, reordered. The participle survives here because it carries what shape alone cannot.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>items_sorted_by_time   <span class="cmt">// Item[], still an array</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/sorted_by_same_data.svg"><img class="light" src="../img/rules/sorted_by_same_data.svg" alt="four items by time, and the same four reordered as items_sorted_by_time, still an array" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/sorted_by_same_data-dark.svg" alt="four items by time, and the same four reordered as items_sorted_by_time, still an array" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-06">
 <a class="code" href="#NAME-06">NAME-06</a>
 <div class="text"><p><strong><code>_per_</code> marks a ratio or a rate.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>clicks_per_visit</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/per_is_a_rate.svg"><img class="light" src="../img/rules/per_is_a_rate.svg" alt="1 240 clicks over 400 visits make clicks_per_visit, 3.1: a rate, not a list" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/per_is_a_rate-dark.svg" alt="1 240 clicks over 400 visits make clicks_per_visit, 3.1: a rate, not a list" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-07">
 <a class="code" href="#NAME-07">NAME-07</a>
@@ -1292,6 +1298,7 @@ children_by_parent_id&#91;parent_id]  <span class="cmt">// Node&#91;]</span></pr
 <div class="form"><pre>users_index_by_id(users)     <span class="cmt">// user_by_id</span>
 users_group_by_role(users)   <span class="cmt">// users_by_role</span>
 items_sort_by_time(items)    <span class="cmt">// items_sorted_by_time</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/group_sort_index_by.svg"><img class="light" src="../img/rules/group_sort_index_by.svg" alt="users_index_by_id() makes user_by_id, users_group_by_role() makes users_by_role, items_sort_by_time() makes items_sorted_by_time" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/group_sort_index_by-dark.svg" alt="users_index_by_id() makes user_by_id, users_group_by_role() makes users_by_role, items_sort_by_time() makes items_sorted_by_time" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-08">
 <a class="code" href="#NAME-08">NAME-08</a>
@@ -1299,29 +1306,32 @@ items_sort_by_time(items)    <span class="cmt">// items_sorted_by_time</span></p
 <div class="form"><pre>user_from_token(token)
 date_from_timestamp(ts)
 tree_from_array(rows)</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/from_means_computed.svg"><img class="light" src="../img/rules/from_means_computed.svg" alt="a token is parsed into a User: user_from_token, the result first and the source last" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/from_means_computed-dark.svg" alt="a token is parsed into a User: user_from_token, the result first and the source last" width="1200" height="540" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-09">
 <a class="code" href="#NAME-09">NAME-09</a>
 <div class="text"><p><strong><code>_from_</code> never means lookup.</strong> A lookup disguised as construction is wrong.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>user_from_id(id)   <span class="no">✗ wrong</span>
-user_by_id&#91;id]     <span class="yes">✓ right</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="form prose"><p><pre>user_from_id(id)   ✗ wrong<br>user_by_id&#91;id]     ✓ right</pre> ![an id looked up in the user_by_id table: user_by_id[id] is right, user_from_id(id) dresses the lookup as construction](../img/rules/from_is_not_lookup.svg)</p></div>
 </article>
 <article class="rule" id="NAME-10">
 <a class="code" href="#NAME-10">NAME-10</a>
 <div class="text"><p><strong>"To" only in method position.</strong> <code>_to_</code> is for method position only, where the source is the receiver.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>tree.to_json()</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/to_in_method_position.svg"><img class="light" src="../img/rules/to_in_method_position.svg" alt="tree.to_json() with tree as the receiver; standalone it is json_from_tree(tree), never tree_to_json(tree)" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/to_in_method_position-dark.svg" alt="tree.to_json() with tree as the receiver; standalone it is json_from_tree(tree), never tree_to_json(tree)" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-11">
 <a class="code" href="#NAME-11">NAME-11</a>
 <div class="text"><p><strong>No "to" in data names.</strong> <code>_to_</code> is banned in data names — <code>id_to_name</code> is only a second spelling of <code>name_by_id</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>id_to_name    <span class="no">✗ banned</span>
 name_by_id    <span class="yes">✓ right</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/no_to_in_data.svg"><img class="light" src="../img/rules/no_to_in_data.svg" alt="a map from ids to names is name_by_id; id_to_name is a second name for the same map" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/no_to_in_data-dark.svg" alt="a map from ids to names is name_by_id; id_to_name is a second name for the same map" width="1200" height="500" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-12">
 <a class="code" href="#NAME-12">NAME-12</a>
 <div class="text"><p><strong>No "indexed by"; bare "by" says it.</strong> <code>_indexed_by_</code> does not exist. Bare <code>_by_</code> already names that shape.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>users_indexed_by_id   <span class="no">✗ does not exist</span>
 user_by_id            <span class="yes">✓ right</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/no_indexed_by.svg"><img class="light" src="../img/rules/no_indexed_by.svg" alt="users_index_by_id() makes user_by_id; users_indexed_by_id does not exist" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/no_indexed_by-dark.svg" alt="users_index_by_id() makes user_by_id; users_indexed_by_id does not exist" width="1200" height="520" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-13">
 <a class="code" href="#NAME-13">NAME-13</a>
@@ -1329,11 +1339,13 @@ user_by_id            <span class="yes">✓ right</span></pre><button class="cop
 <div class="form"><pre>fish_by_tank           <span class="cmt">// Record&lt;tank, Fish&gt;</span>
 fish_grouped_by_tank   <span class="cmt">// Record&lt;tank, Fish&#91;]&gt;</span>
 rows_by_source         <span class="yes">✓ over data_by_source</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/grouped_by_invariant_plurals.svg"><img class="light" src="../img/rules/grouped_by_invariant_plurals.svg" alt="fish_by_tank returns one Fish, fish_grouped_by_tank a list; rows_by_source is preferred over data_by_source" width="1200" height="580" loading="lazy"><img class="dark" src="../img/rules/grouped_by_invariant_plurals-dark.svg" alt="fish_by_tank returns one Fish, fish_grouped_by_tank a list; rows_by_source is preferred over data_by_source" width="1200" height="580" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-14">
 <a class="code" href="#NAME-14">NAME-14</a>
 <div class="text"><p><strong>"Of" queries possession.</strong> <code>_of_</code> is a possession query.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>descendants_of(node)</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/of_queries_possession.svg"><img class="light" src="../img/rules/of_queries_possession.svg" alt="a node and its five descendants in a tree, asked for as descendants_of(node)" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/of_queries_possession-dark.svg" alt="a node and its five descendants in a tree, asked for as descendants_of(node)" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-15">
 <a class="code" href="#NAME-15">NAME-15</a>
@@ -1341,17 +1353,20 @@ rows_by_source         <span class="yes">✓ over data_by_source</span></pre><bu
 <div class="form"><pre>is_ancestor(a, b)   <span class="cmt">// a predicate, called</span>
 is_open             <span class="cmt">// a boolean, read</span>
 check_status()      <span class="cmt">// a check that reads as a call</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/is_names_a_boolean.svg"><img class="light" src="../img/rules/is_names_a_boolean.svg" alt="is_ancestor(a, b) is called and returns true, is_open is read as false, check_status() is a verb that runs" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/is_names_a_boolean-dark.svg" alt="is_ancestor(a, b) is called and returns true, is_open is read as false, check_status() is a verb that runs" width="1200" height="540" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-16">
 <a class="code" href="#NAME-16">NAME-16</a>
 <div class="text"><p><strong>A conversion and its variable share a first word.</strong> A standalone conversion and the variable it fills share their first word.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const json = json_from_tree(tree);</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/conversion_shares_first_word.svg"><img class="light" src="../img/rules/conversion_shares_first_word.svg" alt="const json = json_from_tree(tree): the variable and the conversion share the word json" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/conversion_shares_first_word-dark.svg" alt="const json = json_from_tree(tree): the variable and the conversion share the word json" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-17">
 <a class="code" href="#NAME-17">NAME-17</a>
 <div class="text"><p><strong>Names start with the domain.</strong> Naming is domain-first. Functions and files follow <code>items_*</code>, <code>item_*</code> or domain nouns; generic names are avoided.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>items_index_by_uid()   <span class="yes">✓ right</span>
 process() handle() util()   <span class="no">✗ avoid</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/domain_first.svg"><img class="light" src="../img/rules/domain_first.svg" alt="domain-first names such as items_sort_by_time() stand together; handle(), process() and util() say nothing" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/domain_first-dark.svg" alt="domain-first names such as items_sort_by_time() stand together; handle(), process() and util() say nothing" width="1200" height="560" loading="lazy"></a></div>
 </article>
 <article class="rule" id="NAME-18">
 <a class="code" href="#NAME-18">NAME-18</a>
@@ -1360,6 +1375,7 @@ process() handle() util()   <span class="no">✗ avoid</span></pre><button class
 {
     report_print();
 }</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/verb_first_families.svg"><img class="light" src="../img/rules/verb_first_families.svg" alt="main, format_*, render_*, export_*, is_*, refresh_*, click_* and emit_* start with their verb; main runs the steps of a script" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/verb_first_families-dark.svg" alt="main, format_*, render_*, export_*, is_*, refresh_*, click_* and emit_* start with their verb; main runs the steps of a script" width="1200" height="560" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="VAR">

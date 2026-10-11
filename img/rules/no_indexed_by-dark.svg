@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db2ff"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">No "indexed by"; bare "by" says it</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the verb indexes; the result is just "by"</text>
+<rect x="60" y="190" width="160" height="70" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="140.0" y="232.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">users</text>
+<rect x="320" y="190" width="340" height="70" rx="10" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="490.0" y="232.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">users_index_by_id()</text>
+<rect x="760" y="190" width="380" height="70" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="950.0" y="232.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">user_by_id</text>
+<line x1="226" y1="225" x2="314" y2="225" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="666" y1="225" x2="754" y2="225" stroke="#9db2ff" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="60" y="340" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">user_by_id</text>
+<text x="204.0" y="340" fill="#72d39c" font-size="18">✓ right</text>
+<text x="60" y="400" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">users_indexed_by_id</text>
+<text x="312.0" y="400" fill="#ff937c" font-size="18">✗ does not exist</text>
+<text x="48" y="470" fill="#92958c" font-size="21">The participle adds nothing here: bare by already names that shape.</text>
+</svg>
