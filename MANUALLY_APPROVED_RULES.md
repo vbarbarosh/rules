@@ -725,3 +725,10 @@ check sends the failure back and the fixing stays in the same turn, so
 and `refusal` are our own names: Anthropic says `end_turn`, `tool_use`,
 `max_tokens`, `refusal`; OpenAI says `stop`, `tool_calls`, `length`,
 `content_filter`.
+
+## MP-61 — The unused logo is deleted
+
+**Scope:** `img/logo-by-chat-gpt.png`.
+**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 10, answer A ("Delete it").
+
+The 1.4 MB logo nothing linked is deleted; git history keeps it.
