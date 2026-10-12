@@ -711,3 +711,17 @@ is and once with `?dark` and saved as two PNGs, keeps no switch. Its dark
 mode is the same `data-theme` the other pages use, no longer an
 `html.dark` class of its own. A page that becomes a demo people open gets
 the switch.
+
+## MP-60 — A failed check extends the turn; final and tool_call are our names
+
+**Scope:** [agents glossary](glossaries/agents.md): turn, final,
+stop_reason, check.
+**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 8, answer A ("A failed check
+extends the turn; our own names").
+
+The turn ends at the last final, once the checks after it pass; a failed
+check sends the failure back and the fixing stays in the same turn, so
+`max_rounds` and the budget cover it. `final`, `tool_call`, `max_tokens`
+and `refusal` are our own names: Anthropic says `end_turn`, `tool_use`,
+`max_tokens`, `refusal`; OpenAI says `stop`, `tool_calls`, `length`,
+`content_filter`.

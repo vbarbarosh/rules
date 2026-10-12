@@ -1342,7 +1342,7 @@ footer .lead {
 </article>
 <article class="rule" id="TIME-03">
 <a class="code" href="#TIME-03">TIME-03</a>
-<div class="text"><p><dfn>turn</dfn></p><p>One user message (or one scheduled task) through to the final. One or many rounds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<div class="text"><p><dfn>turn</dfn></p><p>One user message, or one scheduled task, through to its last final: one round or many. The checks after a final belong to the same turn: when the tests fail, the harness sends the failure back and the fixing goes on in the same turn, so <code>max_rounds</code> and the budget cover it too (MP-60).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 <a class="form figure" href="../img/agents/turn.svg"><img class="light" src="../img/agents/turn.svg" alt="Turn: one user message through to the final, one or many rounds" width="1200" height="640" loading="lazy"><img class="dark" src="../img/agents/turn-dark.svg" alt="Turn: one user message through to the final, one or many rounds" width="1200" height="640" loading="lazy"></a>
 </article>
 <article class="rule" id="TIME-04">
@@ -1400,12 +1400,12 @@ footer .lead {
 </article>
 <article class="rule" id="MSG-09">
 <a class="code" href="#MSG-09">MSG-09</a>
-<div class="text"><p><dfn>final</dfn></p><p>An assistant message with no tool_call. Ends the turn. Says nothing about whether the task succeeded.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<div class="text"><p><dfn>final</dfn></p><p>An assistant message with no tool_call. It ends the turn once the checks after it pass; when a check fails, the failure goes back and another final comes later in the same turn. A final says nothing about whether the task succeeded. <code>final</code> is our name, not an API's (MP-60).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 <a class="form figure" href="../img/agents/final.svg"><img class="light" src="../img/agents/final.svg" alt="Final: an assistant message with no tool_call ends the turn; its claim still needs a check" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/final-dark.svg" alt="Final: an assistant message with no tool_call ends the turn; its claim still needs a check" width="1200" height="600" loading="lazy"></a>
 </article>
 <article class="rule" id="MSG-10">
 <a class="code" href="#MSG-10">MSG-10</a>
-<div class="text"><p><dfn>stop_reason</dfn></p><p>Why a call ended: final, tool_call, max_tokens, refusal. The names are the API's.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<div class="text"><p><dfn>stop_reason</dfn></p><p>Why a call ended: final, tool_call, max_tokens, refusal. These are our own names; each API spells them its way. Anthropic's <code>stop_reason</code> says <code>end_turn</code> for a final, <code>tool_use</code> for a tool_call, <code>max_tokens</code> and <code>refusal</code>; OpenAI's <code>finish_reason</code> says <code>stop</code>, <code>tool_calls</code>, <code>length</code> and <code>content_filter</code> (MP-60).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 <a class="form figure" href="../img/agents/stop_reason.svg"><img class="light" src="../img/agents/stop_reason.svg" alt="Stop reason: final, tool_call, max_tokens or refusal" width="1200" height="600" loading="lazy"><img class="dark" src="../img/agents/stop_reason-dark.svg" alt="Stop reason: final, tool_call, max_tokens or refusal" width="1200" height="600" loading="lazy"></a>
 </article>
 </section>
@@ -1497,7 +1497,7 @@ footer .lead {
 <h3><span class="tag">RECOV</span><span class="name">Recovery</span><span class="note">What follows a final.</span></h3>
 <article class="rule" id="RECOV-01">
 <a class="code" href="#RECOV-01">RECOV-01</a>
-<div class="text"><p><dfn>check</dfn></p><p>Harness runs tests or lint after final and re-prompts on failure. Extends the turn.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
+<div class="text"><p><dfn>check</dfn></p><p>The harness runs the tests or the linter after a final and, on a failure, sends it back to the model. It extends the turn: the turn ends at the last final, once the checks pass (MP-60).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md" title="glossaries/agents.md">agents.md</a></div>
 <a class="form figure" href="../img/agents/check.svg"><img class="light" src="../img/agents/check.svg" alt="Check: tests run after the final; a failure goes back as another round" width="1200" height="580" loading="lazy"><img class="dark" src="../img/agents/check-dark.svg" alt="Check: tests run after the final; a failure goes back as another round" width="1200" height="580" loading="lazy"></a>
 </article>
 <article class="rule" id="RECOV-02">

@@ -174,6 +174,11 @@ read again, a note, a file, a database.
 
 ## turn
 
+One user message, or one scheduled task, through to its last final: one
+round or many. The checks after a final belong to the same turn: when the
+tests fail, the harness sends the failure back and the fixing goes on in
+the same turn, so `max_rounds` and the budget cover it too (MP-60).
+
 ![Turn: one user message through to the final, one or many rounds](../img/agents/turn.svg)
 
 ## session
@@ -214,9 +219,20 @@ read again, a note, a file, a database.
 
 ## final
 
+An assistant message with no tool_call. It ends the turn once the checks
+after it pass; when a check fails, the failure goes back and another final
+comes later in the same turn. A final says nothing about whether the task
+succeeded. `final` is our name, not an API's (MP-60).
+
 ![Final: an assistant message with no tool_call ends the turn; its claim still needs a check](../img/agents/final.svg)
 
 ## stop_reason
+
+Why a call ended: final, tool_call, max_tokens, refusal. These are our own
+names; each API spells them its way. Anthropic's `stop_reason` says
+`end_turn` for a final, `tool_use` for a tool_call, `max_tokens` and
+`refusal`; OpenAI's `finish_reason` says `stop`, `tool_calls`, `length` and
+`content_filter` (MP-60).
 
 ![Stop reason: final, tool_call, max_tokens or refusal](../img/agents/stop_reason.svg)
 
@@ -281,6 +297,10 @@ read again, a note, a file, a database.
 ![Runaway: a turn stopped by the cap, not by a final](../img/agents/runaway.svg)
 
 ## check
+
+The harness runs the tests or the linter after a final and, on a failure,
+sends it back to the model. It extends the turn: the turn ends at the last
+final, once the checks pass (MP-60).
 
 ![Check: tests run after the final; a failure goes back as another round](../img/agents/check.svg)
 
