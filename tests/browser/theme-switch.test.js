@@ -6,7 +6,7 @@ const {chromium} = require('playwright');
 
 // Run with Playwright and Chromium installed: node --test tests/browser/theme-switch.test.js
 const root_dir = path.join(__dirname, '../..');
-const page_files = ['docs/rules.html', 'docs/agents.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html'];
+const page_files = ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html'];
 const paths = ['sun', 'moon'].map(v => fs.readFileSync(path.join(root_dir, 'img', `theme-${v}.svg`), 'utf8').match(/ d="([^"]+)"/)[1]);
 let browser;
 

@@ -18,19 +18,29 @@ cli(main);
 
 function main()
 {
-    build_rules_html();
+    build_index_html('rules');
+    build_index_html('animations');
     build_glossaries_html();
     build_agents_html();
     stamp_static_pages_version();
 }
 
-function build_rules_html()
+// rules.md and animations.md: two indexes, one template; a part only one
+// of them has sits between <!-- only:rules --> and <!-- /only:rules -->.
+function build_index_html(name)
 {
-    const markdown = fs.readFileSync(path.join(docs_dir, 'rules.md'), 'utf8');
+    const markdown = fs.readFileSync(path.join(docs_dir, `${name}.md`), 'utf8');
     const template = fs.readFileSync(path.join(docs_dir, 'rules.template.html'), 'utf8');
-    const index = index_from_markdown(markdown);
+    const index = index_from_markdown(markdown, `${name}.md`);
     index_assert_counts(index);
-    fs.writeFileSync(path.join(docs_dir, 'rules.html'), html_from_index(template, index));
+    fs.writeFileSync(path.join(docs_dir, `${name}.html`), html_from_index(template_only(template, name), index, name));
+}
+
+function template_only(template, name)
+{
+    return template.replace(/<!-- only:(\w+) -->([\s\S]*?)<!-- \/only:\1 -->\n?/g, function (match, key, body) {
+        return (key === name) ? body : '';
+    });
 }
 
 function build_glossaries_html()
@@ -80,12 +90,14 @@ function html_from_theme_icons()
 }
 
 // rules.md: a title, a lede, a stats line, the group table, the rule table.
-function index_from_markdown(markdown)
+function index_from_markdown(markdown, file)
 {
     const lines = markdown.split('\n');
     const lede_end = lines.indexOf('', 2);
-    const stats = lines.find(v => /^\d+ rules · \d+ groups · \d+ sources/.test(v)).match(/^(\d+) rules · (\d+) groups · (\d+) sources/);
+    const stats_regex = /^(\d+) rules? · (\d+) groups? · (\d+) sources?/;
+    const stats = lines.find(v => stats_regex.test(v)).match(stats_regex);
     const out = {
+        file,
         title: lines[0].replace(/^# /, ''),
         lede: lines.slice(2, lede_end).join(' '),
         stated: {rules: Number(stats[1]), groups: Number(stats[2]), sources: Number(stats[3])},
@@ -115,7 +127,7 @@ function index_from_markdown(markdown)
         else if ((table === 'rules') && /^\*\*[A-Z]+\*\*$/.test(cells[0])) {
             group = group_by_tag[cells[0].slice(2, -2)];
             if (cells[1] !== `**${group.name}** — ${group.note}`) {
-                throw new Error(`rules.md: the ${group.tag} header row does not match the group table: ${cells[1]}`);
+                throw new Error(`${file}: the ${group.tag} header row does not match the group table: ${cells[1]}`);
             }
         }
         else if (table === 'rules') {
@@ -134,34 +146,41 @@ function index_assert_counts(index)
     const actual = {rules: rules.length, groups: index.groups.length, sources: sources.size};
     for (const key of Object.keys(actual)) {
         if (actual[key] !== index.stated[key]) {
-            throw new Error(`rules.md states ${index.stated[key]} ${key}; the table holds ${actual[key]}`);
+            throw new Error(`${index.file} states ${index.stated[key]} ${key}; the table holds ${actual[key]}`);
         }
     }
     for (const group of index.groups) {
         if (group.rules.length !== group.stated) {
-            throw new Error(`rules.md states ${group.stated} rules for ${group.tag}; the table holds ${group.rules.length}`);
+            throw new Error(`${index.file} states ${group.stated} rules for ${group.tag}; the table holds ${group.rules.length}`);
         }
     }
     // Codes skip numbers (FMT-06), so a new code counted from the rows can repeat one.
     const codes = new Set();
     for (const rule of rules) {
         if (codes.has(rule.code)) {
-            throw new Error(`rules.md holds ${rule.code} twice`);
+            throw new Error(`${index.file} holds ${rule.code} twice`);
         }
         codes.add(rule.code);
     }
 }
 
-function html_from_index(template, index)
+function html_from_index(template, index, name)
 {
     const rules = index.groups.flatMap(v => v.rules);
+    const sources_count = new Set(rules.map(v => v.source_path)).size;
     const values = {
+        markdown: `${name}.md`,
+        current_rules: (name === 'rules') ? ' aria-current="page"' : '',
+        current_animations: (name === 'animations') ? ' aria-current="page"' : '',
+        search_example: (name === 'rules') ? 'brace, _by_, logs.md' : 'slide, back, list',
         title: html_escape(index.title),
         version,
         lede: html_escape(index.lede),
         rules_count: String(rules.length),
         groups_count: String(index.groups.length),
-        sources_count: String(new Set(rules.map(v => v.source_path)).size),
+        sources_count: String(sources_count),
+        groups_word: (index.groups.length === 1) ? 'group' : 'groups',
+        sources_word: (sources_count === 1) ? 'source' : 'sources',
         groups_nav: index.groups.map(html_from_group_link).join(''),
         groups_main: index.groups.map(html_from_group).join(''),
     };

@@ -73,6 +73,14 @@ and keeping the reader's place. See the [UI mechanics group](rules.html#UIM).
 - [drafts/main_search.md](../drafts/main_search.md) — typing outside editable fields focuses the primary search and keeps the first character
 - [drafts/default_list_item.md](../drafts/default_list_item.md) — select the first actionable list item by default; Enter acts on it unless the user selects another
 
+## Animations
+
+How a screen moves: sections, rows and lists. Each rule has a picture and
+a live demo, on a page of its own: [animations.html](animations.html).
+
+- [drafts/animations.md](../drafts/animations.md) — sections slide the way the list goes, depth is left and right, a list change never moves the working row
+- [drafts/animations.html](../drafts/animations.html) — the live demos, each one alone with `#slide-workspaces`, `#slide-into-row` or `#list-changes`
+
 ## Vue 2
 
 - [vue2/vue-formatting.md](../vue2/vue-formatting.md) — `v-on`/`v-bind` spelled out; attribute order

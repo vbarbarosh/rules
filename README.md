@@ -27,6 +27,7 @@ Full documentation: **[vbarbarosh.github.io/rules/docs/rules.html](https://vbarb
 * [The rulebook](docs/README.md) — every rule document, the Vue 2 rules, the naming grammar and the glossaries
 * [Formatting](FORMATTING.md) — the JavaScript formatting spec · [visual guide](https://vbarbarosh.github.io/rules/formatting.html)
 * [Linting](LINTING.md) — the ESLint preset, its rules, and how to run it
+* [Animations](https://vbarbarosh.github.io/rules/docs/animations.html) — how a screen moves, each rule with its live demo · [as Markdown](docs/animations.md)
 * [Glossaries](https://vbarbarosh.github.io/rules/docs/glossaries.html) — every term, in one filterable page
 * [Instructions for agents](https://vbarbarosh.github.io/rules/docs/agents.html) — what is expected of an agent, ready to paste into CLAUDE.md · [as Markdown](agents/)
 

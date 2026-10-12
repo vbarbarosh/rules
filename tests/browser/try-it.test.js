@@ -142,15 +142,46 @@ test('drafts/scroll-anchoring.html?embed: the demo in the asked theme, its own s
     }
 });
 
-// The rules page, with two Try it buttons: its own, or two added to the first rules when it has fewer.
+test('docs/animations.html: the ANIM rules on a page of their own, each with its Try it; the rules page points there', async function () {
+    const context = await browser.newContext({viewport: {width: 1280, height: 800}});
+    const page = await context.newPage();
+    const errors = [];
+    page.on('pageerror', v => errors.push(v.message));
+    try {
+        await page.route('https://**/*', v => v.abort());
+        await page.goto(`file://${path.join(root_dir, 'docs/animations.html')}`);
+        const codes = await page.evaluate(() => [...document.querySelectorAll('article.rule')].map(vv => vv.id));
+        assert.deepEqual(codes, ['ANIM-01', 'ANIM-02', 'ANIM-03', 'ANIM-04', 'ANIM-05', 'ANIM-06', 'ANIM-07', 'ANIM-08']);
+        assert.equal(await page.locator('article.rule .try-it').count(), 8);
+        assert.equal(await page.locator('#use').count(), 0);
+        assert.equal(await page.locator('.pages a[aria-current="page"]').textContent(), 'Animations');
+        await page.locator('#q').fill('ANIM-07');
+        assert.equal(await page.locator('#count').textContent(), '1 of 8 rules');
+        await page.locator('#q').fill('');
+        await page.locator('#ANIM-06 .try-it').click();
+        await page.waitForTimeout(600);
+        assert.equal(await panel_state(page), 'open');
+        assert.equal(await page.locator('#demo_code').textContent(), 'ANIM-06');
+        assert.deepEqual(errors, []);
+
+        await page.goto(`file://${path.join(root_dir, 'docs/rules.html')}`);
+        assert.equal(await page.locator('article.rule[id^="ANIM-"]').count(), 0);
+        assert.equal(await page.locator('#use a[href="animations.html"]').count(), 1);
+    }
+    finally {
+        await context.close();
+    }
+});
+
+// The rules page, with two Try it buttons of two demos added to its first
+// rules: its own may all open one demo (the animations have a page of their own).
 async function rules_open(page)
 {
     await page.route('https://**/*', v => v.abort());
     await page.goto(`file://${path.join(root_dir, 'docs/rules.html')}`);
     await page.evaluate(function (demos) {
-        const buttons = document.querySelectorAll('.try-it');
         const rules = [...document.querySelectorAll('article.rule')];
-        for (let i = buttons.length; i < 2; i += 1) {
+        for (let i = 0; i < 2; i += 1) {
             const button = document.createElement('button');
             button.className = 'try-it';
             button.type = 'button';
