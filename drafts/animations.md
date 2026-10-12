@@ -31,6 +31,8 @@
   place; not something disappearing and something appearing, the elements
   really morph into their new place; it's more morphing than
   transformations
+- another example of header morphing: the lines join into one, smooth and
+  neat; the elements of one state pass into the other smoothly, beautifully
 
 # Animations
 
@@ -150,14 +152,28 @@ the name, the picture, the words past the first line, fades. Without the
 morph, the reader sees one card swapped for another and has to find the
 avatar, the time and the words again.
 
+The third card is a voice message as the author's own app shows it: open,
+three status lines in a code box, a player, the transcript, a file; folded,
+one line. Its three lines join into that line: each glides to its own place
+in reading order and takes the line's size, so the breaks between them go
+without a jump. The transcript's first words travel to after a 🎙 mark; the
+date beside the time fades as the time moves left; the pill keeps its box
+and the words "In progress", and only "for 1 min" narrows away as the box
+shrinks to fit.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="animations-expand-dark.gif">
-  <img alt="Three cards: the avatar, the time and the text morph between the one-line header and the open message, slowly at 2 s, then at 400 ms; one turned back half way; the clicked header stays on the dashed line" src="animations-expand.gif">
+  <img alt="A voice message folds and opens slowly at 2 s: its three status lines join into the one line, the pill narrows, the time moves; then the cards at 400 ms, one turned back half way; the clicked header stays on the dashed line" src="animations-expand.gif">
 </picture>
 
 - **The parts morph, nothing pops.** The avatar, the time and the text are
   the same in both layouts; each travels from where it is to where it goes
   and takes its new size on the way.
+- **Lines join into the one line.** Several lines each glide to their own
+  place in the folded line, in reading order; none waits for another, and
+  no line break jumps.
+- **A word group narrows.** A pill or a date that is shorter folded keeps
+  its box and shared words; the box resizes and only the extra words go.
 - **What has no place fades.** The name, the picture and the rest of the
   text fade out as the card folds, and in as it opens; the card's height
   goes from the one to the other with them.
@@ -174,9 +190,12 @@ All the movements share one duration, 400 ms by default, and one easing,
 pages move as one strip: a new page joins it next to the current one, on the
 side it comes from, and the strip moves until the new page stands in place.
 A list measures every row before and after a change and plays the difference
-(FLIP), so a change mid-way starts from where the rows are. A message card measures its avatar,
-time and text where they are seen, switches its layout, measures them again
-and morphs each one from the first box to the second; a copy of the text
-travels with it and fades, and a click mid-way starts from where they stand. The GIFs are
+(FLIP), so a change mid-way starts from where the rows are. A message card measures each part
+that both layouts have where it is seen, switches its layout, measures them
+again and morphs each one from the first box to the second; a text that
+changes its look, from a code line to a line of the header, has a copy of
+its old look travel with it and fade. A pill held by its right edge resizes
+while its extra words narrow away, and a click mid-way starts from where
+everything stands. The GIFs are
 recorded from the demo frame by frame at 30 frames a second, with the time
 and a progress bar (DOC-14).
