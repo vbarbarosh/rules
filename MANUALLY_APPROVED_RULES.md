@@ -741,3 +741,12 @@ provisional").
 
 Error Flood keeps the author's working note; the Glossaries page shows it
 as provisional, not defined yet, until the author defines it.
+
+## MP-63 — The SQL examples in the author's half are MySQL
+
+**Scope:** [SQL](drafts/sql.md), SQL-03, MP-42.
+**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 14, answer A ("Correct them").
+
+The partial-index example, a `CREATE UNIQUE INDEX` with a `WHERE`, is
+dropped: the next example reaches the same end the MySQL way, with a
+generated column. `DROP INDEX` names its table with `ON user_identities`.

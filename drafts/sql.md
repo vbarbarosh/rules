@@ -31,15 +31,6 @@ good
 
 ```
     await knex.raw(`
-        CREATE UNIQUE INDEX
-            user_identities_primary_user_id_unique
-        ON
-            user_identities (user_id)
-        WHERE
-            primary_at IS NOT NULL
-    `);
-
-    await knex.raw(`
         ALTER TABLE
             user_identities
         ADD COLUMN
@@ -60,6 +51,8 @@ good
     await knex.raw(`
         DROP INDEX
             user_identities_primary_user_id_unique
+        ON
+            user_identities
     `);
 ```
 
