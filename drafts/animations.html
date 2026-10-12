@@ -1764,16 +1764,40 @@ function list_anchor(own_id)
     return list.rows[index - 1]?.id ?? null;
 }
 
-// the dashed line along the top of the selected row, where it stands on screen now
+// the dashed line along the top of the selected row, where its layout puts
+// it on screen: where the row comes to rest, so the line never jumps after a move
 function list_line_place()
 {
     const li = list.elements.get(list.selected);
     $('list-line').hidden = !li;
     if (li) {
+        const scroller = $('list-body');
         const frame = $('list-line').parentElement.getBoundingClientRect();
-        const box = li.getBoundingClientRect();
-        $('list-line').style.top = `${box.top - frame.top - 3}px`;
+        const top = scroller.getBoundingClientRect().top + scroller.clientTop + $('list').offsetTop + li.offsetTop - scroller.scrollTop;
+        $('list-line').style.top = `${top - frame.top - 3}px`;
     }
+}
+
+// near the end of the list the scroll can only shrink: the browser sets it
+// at once, and the rows take the difference in their own motion; what is not
+// a row (the list's head) moves with them from where it stood, so the view
+// settles within the same move, never after it
+function list_settle(scroller, tops)
+{
+    for (const el of scroller.children) {
+        if (el === $('list')) {
+            continue;
+        }
+        // a click mid-way: from where it stands now (tops), to its new place
+        for (const animation of el.getAnimations()) {
+            animation.cancel();
+        }
+        const dy = tops.get(el) - el.getBoundingClientRect().top;
+        if (dy !== 0) {
+            el.animate([{transform: `translateY(${dy}px)`}, {transform: 'none'}], {duration: list.duration, easing: EASING});
+        }
+    }
+    list_line_place();
 }
 
 // change(rows) changes list.rows; the list on screen follows it in motion,
@@ -1783,6 +1807,7 @@ function list_change(change, moved_id = null, own_id = moved_id)
     const scroller = $('list-body');
     const anchor_id = list_anchor(own_id);
     const anchor_top = (anchor_id === null) ? null : list.elements.get(anchor_id).getBoundingClientRect().top;
+    const tops = new Map([...scroller.children].map(v => [v, v.getBoundingClientRect().top]));
     const first = new Map();
     for (const row of list.rows) {
         const li = list.elements.get(row.id);
@@ -1843,6 +1868,7 @@ function list_change(change, moved_id = null, own_id = moved_id)
             li.classList.remove('moving');
         };
     }
+    list_settle(scroller, tops);
     list_refresh();
     if ($('list-line').hidden && list.selected !== null) {
         setTimeout(list_line_place, list.duration);
@@ -2216,7 +2242,7 @@ function conv_toggle(id)
             // it leaves with the part it stood beside, fading on the way
             const i = morphs.indexOf(leader);
             const moved = `translate(${morph_last[i].rect.left - morph_first[i].rect.left}px, ${morph_last[i].rect.top - morph_first[i].rect.top}px)`;
-            frames.splice(0, 2, {opacity: ghost.style.opacity, transform: ghost.style.transform}, {opacity: 0, offset: 0.35}, {opacity: 0, transform: `${moved} ${ghost.style.transform}`});
+            frames.splice(0, 2, {opacity: ghost.style.opacity, transform: ghost.style.transform}, {opacity: 0, transform: `${moved} ${ghost.style.transform}`});
             ghost.animate(frames, {duration, easing: EASING, fill: 'forwards'}).addEventListener('finish', () => ghost.remove());
             continue;
         }
@@ -2228,10 +2254,10 @@ function conv_toggle(id)
             const sx = (part.dataset.morph === 'stretch') ? last.rect.width/parseFloat(ghost.style.width) : last.size/parseFloat(ghost.style.fontSize);
             frames.splice(0, 2, {opacity: ghost.style.opacity, transform: ghost.style.transform}, {opacity: 0, offset: 0.4}, {opacity: 0, transform: `translate(${left - parseFloat(ghost.style.left)}px, ${top - parseFloat(ghost.style.top)}px) scale(${sx}, ${last.size/parseFloat(ghost.style.fontSize)})`});
         }
-        // what has no place in the other layout is gone before the others pass over it
-        ghost.animate(frames, {duration: part ? duration : duration*0.25, easing: EASING, fill: 'forwards'}).addEventListener('finish', () => ghost.remove());
+        // what has no place in the other layout fades over the whole move
+        ghost.animate(frames, {duration, easing: EASING, fill: 'forwards'}).addEventListener('finish', () => ghost.remove());
     }
-    // ... and what comes in comes once they have passed
+    // ... and what comes in rises over the whole move too
     for (const part of el.querySelectorAll(`${coming}:not(.msg-ghost)`)) {
         const start = ghost_opacity[part.dataset.key] ?? 0;
         const leader = morphs.find(v => v.dataset.key === part.dataset.with);
@@ -2239,10 +2265,10 @@ function conv_toggle(id)
             // it comes with the part it stands beside, rising on the way
             const i = morphs.indexOf(leader);
             const from = `translate(${morph_first[i].rect.left - morph_last[i].rect.left}px, ${morph_first[i].rect.top - morph_last[i].rect.top}px)`;
-            part.animate([{opacity: start, transform: from}, {opacity: start, offset: 0.3}, {opacity: 1, transform: 'none'}], timing);
+            part.animate([{opacity: start, transform: from}, {opacity: 1, transform: 'none'}], timing);
             continue;
         }
-        part.animate([{opacity: start}, {opacity: start, offset: 0.8}, {opacity: 1}], timing);
+        part.animate([{opacity: start}, {opacity: 1}], timing);
     }
     // a layout change could pull the scroll; the header stays where it was
     scroller.scrollTop = scroll_top;
