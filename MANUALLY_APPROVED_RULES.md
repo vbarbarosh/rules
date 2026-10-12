@@ -633,10 +633,13 @@ that load it keep working.
 exception here: build/ and everything inside is never committed; build/ is
 a temporary directory for the build, it does not go into the repository;
 so there is no contradiction, the rule was badly written"), answering the
-audit's question whether the committed `docs/*.html` are an exception.
+audit's question whether the committed `docs/*.html` are an exception, and
+voice comment `20261012_204118-me` ("what bin/build builds it puts into
+build/; build/ is temporary, it does not go into git; nothing more; and if
+we then take something from build/ into git, fine, we decided so").
 
-PROJ-04 says only that `build/`, the build's temporary directory, and
-everything in it are never committed. It does not say that everything
-`bin/build` produces goes into `build/`: a file `bin/build` writes
-elsewhere, such as the pages under `docs/` the site serves, is an ordinary
-file, committed like any other.
+PROJ-04 says two things: `bin/build` puts what it builds into `build/`;
+`build/` is temporary, and it and everything in it are never committed.
+Taking something out of `build/` into the repository is a decision of its
+own, as `bin/release` does with `dist/`; the committed `docs/*.html` are
+such a decision, not an exception.
