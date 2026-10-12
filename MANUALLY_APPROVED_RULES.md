@@ -732,3 +732,12 @@ and `refusal` are our own names: Anthropic says `end_turn`, `tool_use`,
 **Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 10, answer A ("Delete it").
 
 The 1.4 MB logo nothing linked is deleted; git history keeps it.
+
+## MP-62 — Error Flood stays provisional
+
+**Scope:** TEST-06, [testing glossary](glossaries/testing.md).
+**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 11, answer B ("Mark it
+provisional").
+
+Error Flood keeps the author's working note; the Glossaries page shows it
+as provisional, not defined yet, until the author defines it.

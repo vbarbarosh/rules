@@ -167,6 +167,10 @@ if (late && (agent.model === strongest)) {
 
 ## Error flood
 
+Provisional: not defined yet. The author's note reads "a scenario with 75%
+errors", a working name kept until the author settles what it means
+(MP-62).
+
 ![Error flood: forty requests, thirty of them failed](../img/testing/error-flood.svg)
 
 ## Flaky test
