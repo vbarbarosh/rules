@@ -836,3 +836,16 @@ The animations keep one duration, 400 ms, and the easing
 `cubic-bezier(.2, .8, .2, 1)`. No rule asks for reduced motion or for a
 frame-by-frame test of each morph; the forwarded rules 11, 14 and 15 are
 not taken.
+
+## MP-71 — req and res stay
+
+**Scope:** VAR-18, [generic names](drafts/generic_names.md).
+**Approved:** 2026-10-13, voice comment `20261013_000325-me` ("req, res are
+good established two variables that are always used together, and from
+which it is always clear what is what; they should stay"), and
+`20261013_001620-me` ("✅ accepted") on the proposal to add them to the
+list.
+
+`req` and `res`, the request and response of an Express route handler,
+are generic names: kept as they are, never spelled out as `request` and
+`response`.

@@ -1657,13 +1657,13 @@ el.addEventListener('error', function (event) {
 </article>
 <article class="rule" id="VAR-18">
 <a class="code" href="#VAR-18">VAR-18</a>
-<div class="text"><p><strong>A generic name has one meaning.</strong> <code>i</code>, <code>j</code>, <code>k</code>, <code>end</code>, <code>ii</code>, <code>v</code>, <code>e</code>, <code>error</code>, <code>event</code>, <code>out</code> and <code>time0</code> each mean one thing, listed on one page; anywhere else the variable is named by what it holds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/generic_names.md" title="drafts/generic_names.md">generic_names.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>A generic name has one meaning.</strong> <code>i</code>, <code>j</code>, <code>k</code>, <code>end</code>, <code>ii</code>, <code>v</code>, <code>e</code>, <code>error</code>, <code>event</code>, <code>out</code>, <code>time0</code>, <code>req</code> and <code>res</code> each mean one thing, listed on one page; anywhere else the variable is named by what it holds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/generic_names.md" title="drafts/generic_names.md">generic_names.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const out = &#91;...new Set(tags)];
 return (out.length === tags.length) ? tags : out;   <span class="no">✗ no</span>
 
 const unique_tags = &#91;...new Set(tags)];
 return (unique_tags.length === tags.length) ? tags : unique_tags;   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
-<div class="figures"><a class="figure" href="../img/rules/var_generic_name_one_meaning.svg"><img class="light" src="../img/rules/var_generic_name_one_meaning.svg" alt="The generic names and their one meaning each; out returned on a condition rewritten as unique_tags" width="1200" height="640" loading="lazy"><img class="dark" src="../img/rules/var_generic_name_one_meaning-dark.svg" alt="The generic names and their one meaning each; out returned on a condition rewritten as unique_tags" width="1200" height="640" loading="lazy"></a></div>
+<div class="figures"><a class="figure" href="../img/rules/var_generic_name_one_meaning.svg"><img class="light" src="../img/rules/var_generic_name_one_meaning.svg" alt="The generic names and their one meaning each; out returned on a condition rewritten as unique_tags" width="1200" height="724" loading="lazy"><img class="dark" src="../img/rules/var_generic_name_one_meaning-dark.svg" alt="The generic names and their one meaning each; out returned on a condition rewritten as unique_tags" width="1200" height="724" loading="lazy"></a></div>
 </article>
 <article class="rule" id="VAR-19">
 <a class="code" href="#VAR-19">VAR-19</a>

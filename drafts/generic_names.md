@@ -13,6 +13,7 @@ name: the variable is named by what it holds.
 | `event` | the event parameter of a regular DOM handler | VAR-16 |
 | `out` | the value the function builds and returns as `return out;`, exactly | VAR-02, VAR-13 |
 | `time0` | the start time of a measurement | VAR-14 |
+| `req`, `res` | the request and response of an Express route handler | CORE-04 |
 
 ```js
 // ✗ out returned on a condition
