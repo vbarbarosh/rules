@@ -79,7 +79,12 @@ header {
 
 h1 { margin: 0; font-size: 26px; }
 
-/* embedded: the one animation the hash names, nothing around it */
+/* embedded: the one animation the hash names, nothing around it; its
+   scroll stops at its ends and never moves the page around the panel */
+html.embed {
+    overscroll-behavior: contain;
+}
+
 .embed header,
 .embed .lead {
     display: none;

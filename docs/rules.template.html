@@ -1352,8 +1352,8 @@ const theme_el = document.getElementById('theme');
 const bar_el = document.querySelector('.bar');
 const use_el = document.getElementById('use');
 const copy_shown_el = document.getElementById('copy_shown');
-const demo_panel_el = document.getElementById('demo_panel');
-const demo_frame_el = document.getElementById('demo_frame');
+let demo_panel_el = document.getElementById('demo_panel');   // a swap puts a new one in its place
+let demo_frame_el = document.getElementById('demo_frame');
 const group_els = Array.from(document.querySelectorAll('section.group:not(.use)'));
 const section_els = Array.from(document.querySelectorAll('section.group'));
 const rule_els = Array.from(document.querySelectorAll('article.rule'));
@@ -1400,8 +1400,7 @@ function main()
     document.addEventListener('click', click_try_it);
     document.addEventListener('pointerdown', pointerdown_demo_outside);
     document.addEventListener('click', click_demo_outside);
-    document.getElementById('demo_close').addEventListener('click', demo_close);
-    demo_frame_el.addEventListener('load', load_demo_frame);
+    demo_panel_listen(demo_panel_el);
     copy_shown_el.addEventListener('click', click_copy_shown);
     document.addEventListener('keydown', keydown_document);
     // Chrome on Wayland can hold a drag started by a quick double click.
@@ -1812,6 +1811,9 @@ function click_try_it(event)
         return;
     }
     const rule_el = button.closest('article.rule');
+    if (demo_panel_el.classList.contains('open') && (button !== demo_button_el)) {
+        demo_panel_swap();
+    }
     demo_button_el = button;
     document.getElementById('demo_code').textContent = rule_el.id;
     document.getElementById('demo_title').textContent = rule_el.querySelector('.text strong')?.textContent ?? '';
@@ -1826,15 +1828,60 @@ function click_try_it(event)
 // a press that began in the panel (a text selection dragged out) keeps it.
 function pointerdown_demo_outside(event)
 {
-    demo_pressed_inside = demo_panel_el.contains(event.target);
+    demo_pressed_inside = Boolean(event.target.closest('.demo-panel'));
 }
 
 function click_demo_outside(event)
 {
-    if (demo_pressed_inside || demo_panel_el.contains(event.target) || event.target.closest('.try-it')) {
+    if (demo_pressed_inside || event.target.closest('.demo-panel, .try-it')) {
         return;
     }
     demo_close();
+}
+
+// Another Try it: the open demo slides out as the next one slides in over
+// it, both at once. The open panel, its frame as it stands, is the one that
+// leaves; a copy of it, empty, takes its ids and comes in. A click mid-way
+// sends the incoming one back out from where it is (ANIM-08).
+function demo_panel_swap()
+{
+    const leaving_el = demo_panel_el;
+    demo_panel_el = leaving_el.cloneNode(true);
+    demo_panel_el.classList.remove('open');
+    demo_frame_el = demo_panel_el.querySelector('iframe');
+    demo_frame_el.removeAttribute('src');
+    for (const el of [leaving_el, ...leaving_el.querySelectorAll('[id]')]) {
+        el.removeAttribute('id');
+    }
+    leaving_el.after(demo_panel_el);
+    leaving_el.setAttribute('aria-hidden', 'true');
+    leaving_el.classList.remove('open');
+    leaving_el.addEventListener('transitionend', transitionend_demo_leaving);
+    demo_panel_listen(demo_panel_el);
+    // the copy starts out of sight, so adding .open slides it in
+    demo_panel_el.getBoundingClientRect();
+}
+
+function transitionend_demo_leaving(event)
+{
+    if ((event.target === event.currentTarget) && (event.propertyName === 'transform')) {
+        event.currentTarget.remove();
+    }
+}
+
+// A scroll over the panel stays in it: the demo's own stops at its ends (its
+// page sets overscroll-behavior), and the head has nothing to scroll.
+function demo_panel_listen(panel_el)
+{
+    panel_el.querySelector('.demo-panel-close').addEventListener('click', demo_close);
+    panel_el.querySelector('iframe').addEventListener('load', load_demo_frame);
+    panel_el.addEventListener('wheel', wheel_demo_panel, {passive: false});
+    panel_el.addEventListener('touchmove', wheel_demo_panel, {passive: false});
+}
+
+function wheel_demo_panel(event)
+{
+    event.preventDefault();
 }
 
 function demo_close()
@@ -1861,10 +1908,10 @@ function url_from_demo(url)
 
 // Esc in the demo closes the panel too, where the browser lets the page listen
 // to it (served pages; a file:// frame is closed to its parent).
-function load_demo_frame()
+function load_demo_frame(event)
 {
     try {
-        demo_frame_el.contentWindow.addEventListener('keydown', keydown_demo_frame);
+        event.target.contentWindow.addEventListener('keydown', keydown_demo_frame);
     }
     catch {
     }

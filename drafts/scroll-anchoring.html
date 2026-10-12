@@ -48,7 +48,12 @@ body {
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
-/* embedded: the demo alone, its own theme switch left to the page */
+/* embedded: the demo alone, its own theme switch left to the page; its
+   scroll stops at its ends and never moves the page around the panel */
+html.embed {
+    overscroll-behavior: contain;
+}
+
 .embed body {
     padding: 12px;
 }

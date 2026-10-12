@@ -54,13 +54,19 @@ test('docs/rules.html: Try it slides the demo in from the right, Esc and ✕ sli
         await page.waitForTimeout(600);
         assert.equal(await panel_state(page), 'closed');
 
-        // another Try it while open swaps the demo; the panel stays
+        // another Try it while open: the open demo slides out as the new one slides in over it
         await first.click();
         await page.waitForTimeout(600);
         // a button with another demo, so the swap shows
         const second = page.locator(`.try-it:not([data-demo="${demo}"])`).first();
         await second.evaluate(v => v.click());
-        await page.waitForTimeout(100);
+        await page.waitForTimeout(150);
+        const sliding = await page.evaluate(() => [...document.querySelectorAll('.demo-panel')].map(vv => Math.round(vv.getBoundingClientRect().left)));
+        assert.equal(sliding.length, 2);
+        assert.ok(sliding[0] > (1280 - 760), `the old one is on its way out: ${sliding}`);
+        assert.ok(sliding[1] < 1280, `the new one is on its way in: ${sliding}`);
+        await page.waitForTimeout(600);
+        assert.equal(await page.locator('.demo-panel').count(), 1);
         assert.equal(await panel_state(page), 'open');
         const second_demo = await second.getAttribute('data-demo');
         const second_src = await page.locator('#demo_frame').getAttribute('src');
@@ -116,6 +122,35 @@ test('docs/animations.html: a click beside the demo panel slides it out and keep
         assert.equal(await panel_state(page), 'closed');
         assert.equal(await page.evaluate(() => document.activeElement.id), 'q');
         assert.deepEqual(errors, []);
+    }
+    finally {
+        await context.close();
+    }
+});
+
+test('docs/animations.html: a scroll over the demo panel stays in it, at the demo\'s end and over the head', async function () {
+    const context = await browser.newContext({viewport: {width: 1280, height: 800}});
+    const page = await context.newPage();
+    try {
+        await page.route('https://**/*', v => v.abort());
+        await page.goto(`file://${path.join(root_dir, 'docs/animations.html')}`);
+        await page.locator('#ANIM-06 .try-it').click();
+        await page.waitForTimeout(800);
+        const before = await page.evaluate(() => scrollY);
+        const frame = await page.locator('#demo_frame').boundingBox();
+        await page.mouse.move(frame.x + frame.width/2, frame.y + frame.height - 40);
+        for (let i = 0; i < 12; i += 1) {
+            await page.mouse.wheel(0, 400);
+            await page.waitForTimeout(50);
+        }
+        await page.waitForTimeout(400);
+        assert.ok(await page.frameLocator('#demo_frame').locator('html').evaluate(() => scrollY) > 0, 'the demo scrolled');
+        assert.equal(await page.evaluate(() => scrollY), before);
+        const head = await page.locator('.demo-panel-head').boundingBox();
+        await page.mouse.move(head.x + 200, head.y + head.height/2);
+        await page.mouse.wheel(0, 400);
+        await page.waitForTimeout(400);
+        assert.equal(await page.evaluate(() => scrollY), before);
     }
     finally {
         await context.close();
