@@ -686,3 +686,14 @@ The function of a linter rule is named after its rule id, as ESLint does:
 `block_layout(context)` for the rule `block-layout`. It needs no verb and
 no function marker; NAME-02 names the exception. Nothing in `src/rules/`
 is renamed.
+
+## MP-58 — A step of a script is what main() calls once, in order
+
+**Scope:** NAME-17, NAME-18, [formatting](FORMATTING.md).
+**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 3, answer A ("Define a step; the
+examples stay").
+
+A step is a function `main()` calls once, in order, to do one part of the
+work; it may start with its verb, as `build_glossaries_html()` does in
+`bin/build`. A verb-first name that is not a step is renamed to the domain
+first when it is next touched; the examples in the documents stay.

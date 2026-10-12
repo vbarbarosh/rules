@@ -1489,7 +1489,7 @@ process() handle() util()   <span class="no">✗ avoid</span></pre><button class
 </article>
 <article class="rule" id="NAME-18">
 <a class="code" href="#NAME-18">NAME-18</a>
-<div class="text"><p><strong>Verb-first families are the exceptions.</strong> The verb-first families are the exceptions to domain-first naming: <code>main</code> — reserved for the entry function of an executable script — <code>format_*</code>, <code>render_*</code>, <code>export_*</code>, <code>is_*</code>, <code>refresh_*</code>, <code>click_*</code>, <code>emit_*</code>, and the steps of a script (<code>build_rules_html()</code>).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Verb-first families are the exceptions.</strong> The verb-first families are the exceptions to domain-first naming: <code>main</code> — reserved for the entry function of an executable script — <code>format_*</code>, <code>render_*</code>, <code>export_*</code>, <code>is_*</code>, <code>refresh_*</code>, <code>click_*</code>, <code>emit_*</code>, and the steps of a script (<code>build_glossaries_html()</code>). A step is a function <code>main()</code> calls once, in order, to do one part of the work; a verb-first name that is not a step is renamed when next touched.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>function main()
 {
     report_print();

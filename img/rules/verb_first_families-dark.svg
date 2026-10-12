@@ -20,7 +20,7 @@
 <rect x="870" y="250" width="240" height="60" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="990.0" y="287.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">emit_*</text>
 <rect x="60" y="350" width="1080" height="110" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
-<text x="84" y="392" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function main()  { build_rules_html(); build_glossaries_html(); }</text>
-<text x="84" y="432" fill="#92958c" font-size="18">main runs a script; its steps are named by what they do</text>
+<text x="84" y="392" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function main()  { build_glossaries_html(); build_agents_html(); }</text>
+<text x="84" y="432" fill="#92958c" font-size="18">main runs a script; a step is what it calls once, in order</text>
 <text x="48" y="520" fill="#92958c" font-size="21">main is kept for the entry function of an executable script.</text>
 </svg>
