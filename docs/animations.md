@@ -3,14 +3,14 @@
 How a screen moves: sections, rows and lists, and what a click mid-way does.
 Each rule has a picture and a live demo.
 
-8 rules · 1 group · 1 source · filterable version: [animations.html](animations.html)
+11 rules · 1 group · 1 source · filterable version: [animations.html](animations.html)
 
 The rules of the code are in [rules.md](rules.md); these were its ANIM
 group until 2026-10-12, and keep their codes.
 
 | Tag | Group | Rules | |
 |-----|-------|------:|---|
-| ANIM | Animations | 8 | How a screen moves. |
+| ANIM | Animations | 11 | How a screen moves. |
 
 | Code | Rule | Canonical form | Source |
 |------|------|----------------|--------|
@@ -23,3 +23,6 @@ group until 2026-10-12, and keep their codes.
 | ANIM-06 | **A list shows each change as movement.** An added row opens a gap and fades into it; a removed row fades out and the gap closes; a moved row travels to its new place while the others make room. | ![Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others](../drafts/animations-list.gif) [▶ Try it](../drafts/animations.html#list-changes) | [animations.md](../drafts/animations.md) |
 | ANIM-07 | **A list change never moves the working row.** Rows added or removed above the selected row leave it where it is on the screen, from the first frame to the last; the scroll position takes up the difference (UIM-01). | ![Rows come in above and the selected row stays on the dashed line; with the rule off it drops below](../drafts/animations-nothing-jumps.gif) [▶ Try it](../drafts/animations.html#list-changes) | [animations.md](../drafts/animations.md) |
 | ANIM-08 | **A click mid-way changes course.** A click during an animation neither waits for it nor jumps back: everything moves on from where it stands on the screen at that moment. | ![A slide reversed half way, Back pressed half way into a row, a section picked half way into another](../drafts/animations-mid-way.gif) [▶ Try it](../drafts/animations.html#slide-into-row) | [animations.md](../drafts/animations.md) |
+| ANIM-09 | **A header opens its message and folds it back.** Clicking a folded one-line header opens the message: its body unfolds below it and the messages below slide down to make room; clicking the open header folds it back the same way, backwards. | ![Headers open and fold: the body unfolds, the messages below slide, then it folds back](../drafts/animations-expand.gif) [▶ Try it](../drafts/animations.html#expand-collapse) | [animations.md](../drafts/animations.md) |
+| ANIM-10 | **The line becomes the header.** The one-line summary fades out as the full header, the name and the time, fades in, in the same place, while the body unfolds. | ![The one-line summary cross-fades into the full header as the body unfolds](../drafts/animations-expand.gif) [▶ Try it](../drafts/animations.html#expand-collapse) | [animations.md](../drafts/animations.md) |
+| ANIM-11 | **The header clicked never moves.** It stands still from the first frame to the last, opening or folding, mid-way too, at the end of the list too: the list keeps room below its last message, and the room goes as the reader scrolls up (UIM-01). | ![The clicked header stays on the dashed line while its message opens and folds](../drafts/animations-expand.gif) [▶ Try it](../drafts/animations.html#expand-collapse) | [animations.md](../drafts/animations.md) |

@@ -710,6 +710,136 @@ code {
     min-height: 20px;
 }
 
+/* animation 4: message cards whose headers open the message and fold it back */
+.conv-body {
+    position: relative;
+    height: 460px;
+    padding: 18px 22px;
+    overflow-y: auto;
+    background: var(--bg);
+}
+
+.conv {
+    margin: 0;
+    padding: 0;
+}
+
+/* room below the last message, so a fold at the end of the list has somewhere to scroll */
+.conv-room { height: 0; }
+
+.msg {
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: var(--surface);
+}
+
+.msg.open { border-color: var(--line-strong); }
+
+.msg-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.msg-head:hover { background: var(--surface-2); }
+
+.msg-head:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.msg-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    flex: none;
+}
+
+.msg-agent .msg-avatar { background: var(--warn-soft); color: var(--warn); }
+
+/* the one line and the full header stand on one another and cross-fade */
+.msg-titles {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 22px;
+}
+
+.msg-line,
+.msg-full {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 22px;
+}
+
+.msg-full { opacity: 0; }
+
+.msg.open .msg-line { opacity: 0; }
+
+.msg.open .msg-full { opacity: 1; }
+
+.msg-titles time {
+    margin-right: 10px;
+    color: var(--text-2);
+    font-size: 13px;
+}
+
+.msg-line span { color: var(--text-2); }
+
+.msg-full b { margin-right: 10px; }
+
+/* folded: no height and out of reach; the animation shows it on the way */
+.msg-body {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.msg.open .msg-body { height: auto; opacity: 1; visibility: visible; }
+
+.msg-body-in { padding: 0 16px 14px 54px; }
+
+.msg-body p { margin: 0 0 10px; }
+
+.msg-pic {
+    display: grid;
+    gap: 8px;
+    max-width: 320px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface-2);
+}
+
+.msg-pic i {
+    height: 10px;
+    border-radius: 5px;
+    background: var(--line-strong);
+}
+
+.msg-pic i:nth-child(2) { width: 70%; }
+
+.msg-pic i:nth-child(3) { width: 45%; }
+
 @media (max-width: 640px) {
     .window-body { grid-template-columns: 120px minmax(0, 1fr); height: 420px; }
 
@@ -728,6 +858,10 @@ code {
     .lrow-time { display: none; }
 
     .lrow-title { flex: 1 1 auto; width: auto; }
+
+    .conv-body { height: 420px; padding: 14px; }
+
+    .msg-body-in { padding-left: 16px; }
 }
 </style>
 <script>
@@ -836,6 +970,35 @@ function theme_read()
             <li><b>A change mid-way continues from where things stand.</b> Every row starts its next move from where it is on the screen at that moment; five adds in a row all animate, and the rows never overlap at the end.</li>
         </ul>
     </section>
+    <section class="animation" id="expand-collapse">
+        <div class="animation-head">
+            <h2>4 · Open and fold</h2>
+            <span class="animation-name">expand-collapse</span>
+        </div>
+        <p class="animation-about">A conversation of messages, each either folded to one line or open in full. Clicking a folded header opens its message: the line fades into the full header, the body unfolds below it, and the messages below slide down to make room. Clicking the open header folds it back the same way. The header clicked stays where it is.</p>
+        <div class="window">
+            <div class="window-bar"><i></i><i></i><i></i><span>Mockup</span></div>
+            <div class="list-frame">
+                <div class="conv-body" id="conv-body">
+                    <div class="list-head"><h3>Conversation</h3><span id="conv-count"></span></div>
+                    <div class="conv" id="conv"></div>
+                    <div class="conv-room" id="conv-room"></div>
+                </div>
+                <div class="list-line" id="conv-line" hidden><span>the clicked header stays here</span></div>
+            </div>
+        </div>
+        <div class="controls">
+            <span>Duration</span>
+            <span class="segmented" id="conv-durations"></span>
+            <span>Click a header to open or fold it; Enter and Space too.</span>
+        </div>
+        <ul class="rules">
+            <li><b>The header stays put.</b> The header clicked stands still from the first frame to the last; only what is below it moves (UIM-01). The dashed line marks its place.</li>
+            <li><b>The line becomes the header.</b> The one-line summary fades out as the full header, name and time, fades in, in the same place.</li>
+            <li><b>The body unfolds.</b> Its height grows from nothing to its own, and the messages below slide down with its edge; folding is the same, backwards. Duration and easing as everywhere: <code>cubic-bezier(.2, .8, .2, 1)</code>.</li>
+            <li><b>A click mid-way turns it back.</b> The body starts folding from the height it has at that moment, and opens again from there.</li>
+        </ul>
+    </section>
 </main>
 <script>
 const sections = [
@@ -863,6 +1026,7 @@ function main()
         mockup_render(root, root.dataset.kind);
     }
     list_main();
+    conv_main();
     embed_refresh();
     addEventListener('hashchange', embed_refresh);
 }
@@ -1476,6 +1640,150 @@ function list_main()
     });
     list_refresh();
     list_line_place();
+}
+
+// expand-collapse: a header opens its message and folds it back; the body's
+// height and the two header lines start from where they stand this moment
+const conv = {
+    messages: [
+        {id: 1, from: 'you', time: '16:52', line: 'move animations to their own page', body: ['Move animations to their own page.'], open: false},
+        {id: 2, from: 'agent', time: '16:53', line: 'On it: Animations becomes a page of its own', body: ['On it: Animations becomes a page of its own, a tab beside Rules, Agents and Glossaries.'], open: false},
+        {id: 3, from: 'agent', time: '17:10', line: '[image] Done and pushed: dfdedc9', body: ['Done and pushed. The eight animation rules have a page of their own; the rules page points there.'], pic: true, open: false},
+        {id: 4, from: 'you', time: '17:31', line: '[image] sidebar should be hidden by outside click', body: ['The sidebar should be hidden by a click outside it.'], pic: true, open: true},
+        {id: 5, from: 'agent', time: '17:32', line: 'On it: a click outside the demo panel slides it out', body: ['On it: a click outside the demo panel slides it out, like Esc and ✕.', 'A click on another Try it still swaps the demo; the panel stays.'], open: true},
+        {id: 6, from: 'you', time: '17:33', line: '[recording] add new type of animations (see headers)', body: ['Add a new type of animation: see the headers.'], pic: true, open: false},
+        {id: 7, from: 'agent', time: '17:35', line: 'On it: the headers open and fold, a fourth animation', body: ['On it. A folded header opens its message and folds it back, and both jump today.', 'The header clicked stays where it is; the line fades into the full header while the body unfolds.'], open: false},
+        {id: 8, from: 'you', time: '17:40', line: 'and the list of messages, does it scroll?', body: ['And the list of messages, does it scroll?'], open: false},
+        {id: 9, from: 'agent', time: '17:41', line: 'It does: the headers below slide, the one clicked stays', body: ['It does: the messages below slide down or up, the header clicked stays where it is on the screen.'], open: false},
+    ],
+    clicked: null,
+    duration: 400,
+    elements: new Map(),
+};
+
+function conv_card_render(message)
+{
+    const el = document.createElement('article');
+    el.className = `msg msg-${message.from}`;
+    el.dataset.id = message.id;
+    el.innerHTML = '<button class="msg-head" type="button"><span class="msg-avatar"></span><span class="msg-titles"><span class="msg-line"><time></time><span></span></span><span class="msg-full"><b></b><time></time></span></span></button><div class="msg-body"><div class="msg-body-in"></div></div>';
+    el.querySelector('.msg-avatar').textContent = (message.from === 'you') ? 'Y' : 'R';
+    el.querySelector('.msg-line time').textContent = message.time;
+    el.querySelector('.msg-line span').textContent = message.line;
+    el.querySelector('.msg-full b').textContent = (message.from === 'you') ? 'You' : 'rules';
+    el.querySelector('.msg-full time').textContent = message.time;
+    el.querySelector('.msg-body').id = `msg-body-${message.id}`;
+    el.querySelector('.msg-head').setAttribute('aria-controls', `msg-body-${message.id}`);
+    for (const text of message.body) {
+        const p = document.createElement('p');
+        p.textContent = text;
+        el.querySelector('.msg-body-in').append(p);
+    }
+    if (message.pic) {
+        el.querySelector('.msg-body-in').insertAdjacentHTML('beforeend', '<div class="msg-pic" aria-hidden="true"><i></i><i></i><i></i></div>');
+    }
+    conv.elements.set(message.id, el);
+    return el;
+}
+
+function conv_refresh()
+{
+    for (const message of conv.messages) {
+        const el = conv.elements.get(message.id);
+        el.classList.toggle('open', message.open);
+        el.querySelector('.msg-head').setAttribute('aria-expanded', String(message.open));
+    }
+    const open = conv.messages.filter(v => v.open).length;
+    $('conv-count').textContent = `${conv.messages.length} messages, ${open} open`;
+    for (const button of $('conv-durations').querySelectorAll('button')) {
+        button.setAttribute('aria-pressed', String(Number(button.dataset.duration) === conv.duration));
+    }
+}
+
+// the dashed line along the top of the header clicked last, where it stands on screen now
+function conv_line_place()
+{
+    const el = conv.elements.get(conv.clicked);
+    $('conv-line').hidden = !el;
+    if (el) {
+        const frame = $('conv-line').parentElement.getBoundingClientRect();
+        $('conv-line').style.top = `${el.getBoundingClientRect().top - frame.top - 3}px`;
+    }
+}
+
+// the room left below the last message: only what is on screen now; it
+// goes as the reader scrolls up, and nothing moves when it does
+function conv_room_fit()
+{
+    if ($('conv').getAnimations({subtree: true}).length > 0) {
+        return;
+    }
+    const scroller = $('conv-body');
+    const content = scroller.scrollHeight - $('conv-room').offsetHeight;
+    $('conv-room').style.height = `${Math.max(0, scroller.scrollTop + scroller.clientHeight - content)}px`;
+}
+
+function conv_toggle(id)
+{
+    const message = conv.messages.find(v => v.id === id);
+    const el = conv.elements.get(id);
+    const scroller = $('conv-body');
+    const parts = ['.msg-body', '.msg-line', '.msg-full'].map(v => el.querySelector(v));
+    const head_top = el.getBoundingClientRect().top;
+    const scroll_top = scroller.scrollTop;
+    // where each part stands this moment, mid-way too
+    const first = parts.map(v => ({height: v.getBoundingClientRect().height, opacity: Number(getComputedStyle(v).opacity)}));
+    for (const part of parts) {
+        animations_cancel(part);
+    }
+    message.open = !message.open;
+    conv.clicked = id;
+    conv_refresh();
+    const last = parts.map(v => ({height: v.getBoundingClientRect().height, opacity: Number(getComputedStyle(v).opacity)}));
+    // a fold at the end of the list: room below, so the scroll never has to pull back
+    const content = scroller.scrollHeight - $('conv-room').offsetHeight;
+    const room = Math.max($('conv-room').offsetHeight, scroll_top + scroller.clientHeight - content);
+    $('conv-room').style.height = `${room}px`;
+    const [body, line, full] = parts;
+    body.animate([{height: `${first[0].height}px`, opacity: first[0].opacity, visibility: 'visible'}, {height: `${last[0].height}px`, opacity: last[0].opacity, visibility: 'visible'}], {duration: conv.duration, easing}).onfinish = conv_room_fit;
+    line.animate([{opacity: first[1].opacity}, {opacity: last[1].opacity}], {duration: conv.duration, easing});
+    full.animate([{opacity: first[2].opacity}, {opacity: last[2].opacity}], {duration: conv.duration, easing});
+    // measuring the end could pull the scroll back; the header stays where it was
+    scroller.scrollTop = scroll_top;
+    scroller.scrollTop += el.getBoundingClientRect().top - head_top;
+    conv_line_place();
+}
+
+function conv_main()
+{
+    for (const message of conv.messages) {
+        $('conv').append(conv_card_render(message));
+    }
+    for (const v of durations) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.duration = v;
+        button.textContent = (v < 1000) ? `${v} ms` : `${v/1000} s`;
+        $('conv-durations').append(button);
+    }
+    $('conv').addEventListener('click', function (event) {
+        const head = event.target.closest('.msg-head');
+        if (head) {
+            conv_toggle(Number(head.parentElement.dataset.id));
+        }
+    });
+    // the reader's own scroll carries the header, and the line with it
+    $('conv-body').addEventListener('scroll', conv_line_place);
+    $('conv-body').addEventListener('scroll', conv_room_fit);
+    addEventListener('resize', conv_line_place);
+    $('conv-durations').addEventListener('click', function (event) {
+        const button = event.target.closest('button');
+        if (button) {
+            conv.duration = Number(button.dataset.duration);
+            conv_refresh();
+        }
+    });
+    conv_refresh();
 }
 
 main();

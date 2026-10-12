@@ -1268,7 +1268,7 @@ footer .lead {
     </div>
     <h1>Animations</h1>
     <p class="lede">How a screen moves: sections, rows and lists, and what a click mid-way does. Each rule has a picture and a live demo.</p>
-    <p class="stats"><b>8</b> rules<i>·</i><b>1</b> group<i>·</i><b>1</b> source</p>
+    <p class="stats"><b>11</b> rules<i>·</i><b>1</b> group<i>·</i><b>1</b> source</p>
 </div>
 </header>
 
@@ -1277,7 +1277,7 @@ footer .lead {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. slide, back, list" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">8 rules</span>
+        <span class="count" id="count">11 rules</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
@@ -1293,7 +1293,7 @@ footer .lead {
 
 <div class="wrap layout">
 <nav class="groups" aria-label="Groups">
-<a href="#ANIM" data-group="ANIM"><span class="tag">ANIM</span><span class="name">Animations</span><span class="n">8</span></a>
+<a href="#ANIM" data-group="ANIM"><span class="tag">ANIM</span><span class="name">Animations</span><span class="n">11</span></a>
 </nav>
 <main>
 <section class="group" id="ANIM">
@@ -1345,6 +1345,24 @@ footer .lead {
 <div class="text"><p><strong>A click mid-way changes course.</strong> A click during an animation neither waits for it nor jumps back: everything moves on from where it stands on the screen at that moment.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-mid-way.gif"><img class="light" src="../drafts/animations-mid-way.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367" loading="lazy"><img class="dark" src="../drafts/animations-mid-way-dark.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367" loading="lazy"></a>
 <button class="try-it" type="button" data-demo="../drafts/animations.html#slide-into-row">▶ Try it</button>
+</article>
+<article class="rule" id="ANIM-09">
+<a class="code" href="#ANIM-09">ANIM-09</a>
+<div class="text"><p><strong>A header opens its message and folds it back.</strong> Clicking a folded one-line header opens the message: its body unfolds below it and the messages below slide down to make room; clicking the open header folds it back the same way, backwards.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-expand.gif"><img class="light" src="../drafts/animations-expand.gif" alt="Headers open and fold: the body unfolds, the messages below slide, then it folds back" width="760" height="353" loading="lazy"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="Headers open and fold: the body unfolds, the messages below slide, then it folds back" width="760" height="353" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#expand-collapse">▶ Try it</button>
+</article>
+<article class="rule" id="ANIM-10">
+<a class="code" href="#ANIM-10">ANIM-10</a>
+<div class="text"><p><strong>The line becomes the header.</strong> The one-line summary fades out as the full header, the name and the time, fades in, in the same place, while the body unfolds.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-expand.gif"><img class="light" src="../drafts/animations-expand.gif" alt="The one-line summary cross-fades into the full header as the body unfolds" width="760" height="353" loading="lazy"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="The one-line summary cross-fades into the full header as the body unfolds" width="760" height="353" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#expand-collapse">▶ Try it</button>
+</article>
+<article class="rule" id="ANIM-11">
+<a class="code" href="#ANIM-11">ANIM-11</a>
+<div class="text"><p><strong>The header clicked never moves.</strong> It stands still from the first frame to the last, opening or folding, mid-way too, at the end of the list too: the list keeps room below its last message, and the room goes as the reader scrolls up (UIM-01).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/animations-expand.gif"><img class="light" src="../drafts/animations-expand.gif" alt="The clicked header stays on the dashed line while its message opens and folds" width="760" height="353" loading="lazy"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="The clicked header stays on the dashed line while its message opens and folds" width="760" height="353" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#expand-collapse">▶ Try it</button>
 </article>
 </section>
 <p class="nothing" id="nothing" hidden>No rule matches that.</p>

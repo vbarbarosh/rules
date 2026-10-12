@@ -191,12 +191,12 @@ test('docs/animations.html: the ANIM rules on a page of their own, each with its
         await page.route('https://**/*', v => v.abort());
         await page.goto(`file://${path.join(root_dir, 'docs/animations.html')}`);
         const codes = await page.evaluate(() => [...document.querySelectorAll('article.rule')].map(vv => vv.id));
-        assert.deepEqual(codes, ['ANIM-01', 'ANIM-02', 'ANIM-03', 'ANIM-04', 'ANIM-05', 'ANIM-06', 'ANIM-07', 'ANIM-08']);
-        assert.equal(await page.locator('article.rule .try-it').count(), 8);
+        assert.deepEqual(codes, ['ANIM-01', 'ANIM-02', 'ANIM-03', 'ANIM-04', 'ANIM-05', 'ANIM-06', 'ANIM-07', 'ANIM-08', 'ANIM-09', 'ANIM-10', 'ANIM-11']);
+        assert.equal(await page.locator('article.rule .try-it').count(), 11);
         assert.equal(await page.locator('#use').count(), 0);
         assert.equal(await page.locator('.pages a[aria-current="page"]').textContent(), 'Animations');
         await page.locator('#q').fill('ANIM-07');
-        assert.equal(await page.locator('#count').textContent(), '1 of 8 rules');
+        assert.equal(await page.locator('#count').textContent(), '1 of 11 rules');
         await page.locator('#q').fill('');
         await page.locator('#ANIM-06 .try-it').click();
         await page.waitForTimeout(600);

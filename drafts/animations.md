@@ -24,6 +24,7 @@
   the scroll position change so that after all the changes it stays where it
   was; this is very important
 - show this rule, nothing jumps: it matters
+- add a new type of animation: see the headers
 
 # Animations
 
@@ -35,10 +36,10 @@ reader has to work out what happened. With it, the change explains itself,
 and the same kinds of change always move the same way, so the reader learns
 them once.
 
-The demo is [animations.html](animations.html): three mockups, each with the
+The demo is [animations.html](animations.html): four mockups, each with the
 rules it follows and a choice of duration, from 250 ms to 2 s to watch it
 slowly. Each animation has a name to use in a message: `slide-workspaces`,
-`slide-into-row` and `list-changes`.
+`slide-into-row`, `list-changes` and `expand-collapse`.
 
 ## Sections slide the way the list goes
 
@@ -129,6 +130,32 @@ end.
   <img alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" src="animations-mid-way.gif">
 </picture>
 
+## A header opens its message and folds it back
+
+A conversation shows each message folded to one line, its time and a
+summary, or open in full. Clicking a folded header opens the message: the
+one line fades into the full header, the name and the time, in the same
+place; the body unfolds below it, its height growing from nothing to its
+own; and the messages below slide down with its edge. Clicking the open
+header folds it back the same way, backwards. Without the movement, the
+messages below jump by the height of the body, and the reader loses the
+one they were reading.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="animations-expand-dark.gif">
+  <img alt="Headers open and fold: the line fades into the full header, the body unfolds, the messages below slide; one opened and turned back half way; the clicked header stays on the dashed line" src="animations-expand.gif">
+</picture>
+
+- **The header stays put.** The header clicked stands still from the first
+  frame to the last; only what is below it moves (UIM-01). The demo marks
+  its place with a dashed line.
+- **At the end of the list too.** A fold with the list scrolled to its end
+  would pull the scroll back and move the header down; the list keeps room
+  below its last message instead, and the room goes as the reader scrolls
+  up, without moving anything.
+- **A click mid-way turns it back.** The body folds from the height it has
+  at that moment, and opens again from there.
+
 ## How the demo moves
 
 All the movements share one duration, 400 ms by default, and one easing,
@@ -136,6 +163,9 @@ All the movements share one duration, 400 ms by default, and one easing,
 pages move as one strip: a new page joins it next to the current one, on the
 side it comes from, and the strip moves until the new page stands in place.
 A list measures every row before and after a change and plays the difference
-(FLIP), so a change mid-way starts from where the rows are. The GIFs are
+(FLIP), so a change mid-way starts from where the rows are. A message's body
+animates its height from what it measures now to what it measures at the
+end, and its two header lines their opacity, so a click mid-way starts from
+where they stand. The GIFs are
 recorded from the demo frame by frame at 30 frames a second, with the time
 and a progress bar (DOC-14).
