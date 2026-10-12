@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="520" fill="#fffefb"/>
+<text x="48" y="66" fill="#191a17" font-size="36" font-weight="700">A configuration value at the top is UPPER_CASE</text>
+<rect x="60" y="100" width="1080" height="360" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="84" y="134" fill="#686a61" font-size="16" font-weight="700">THE MODULE'S TOP LEVEL</text>
+<rect x="76" y="148" width="560" height="84" rx="8" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="96" y="182" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const PRESS_MS = 400;</text>
+<text x="96" y="214" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const BLOB_URL = 'https://…';</text>
+<text x="670" y="182" fill="#1a7443" font-size="20" font-weight="700">configuration, a global name:</text>
+<text x="670" y="212" fill="#1a7443" font-size="22" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-weight="700">UPPER_CASE</text>
+<rect x="76" y="262" width="1048" height="182" rx="8" fill="#fffefb" stroke="#a19f93" stroke-width="2"/>
+<text x="96" y="296" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function press_start(event)</text>
+<text x="96" y="326" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">{</text>
+<text x="136" y="356" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const started = Date.now();</text>
+<text x="136" y="386" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const target = event.target;</text>
+<text x="96" y="416" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="670" y="356" fill="#2743b8" font-size="20" font-weight="700">inside a function or a block:</text>
+<text x="670" y="386" fill="#2743b8" font-size="22" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-weight="700">lowercase</text>
+<text x="60" y="496" fill="#686a61" font-size="19">Imports are another topic: not this rule.</text>
+</svg>

@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-279 rules · 18 groups · 55 sources · filterable version: [rules.html](rules.html)
+280 rules · 18 groups · 55 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 
@@ -18,7 +18,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 |-----|-------|------:|---|
 | CORE | Uniformity | 4 | The rule behind the rules. |
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
-| VAR | Variables | 18 | A name states the shape of its data. |
+| VAR | Variables | 19 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
 | FMT | Formatting | 31 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 12 | Imperative, explicit, no magic. |
@@ -80,6 +80,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VAR-16 | **Events use v in arrows, event in regular functions.** A DOM event is a value, including an event whose type is `error`. A one-parameter arrow uses `v`; a regular event handler uses `event`. Reserve `e` for error values in arrows. | <pre>el.addEventListener('click', v =&gt; v.stopPropagation());<br>el.addEventListener('error', v =&gt; report(v));<br><br>el.addEventListener('error', function (event) {<br>    report(event);<br>});</pre> ![A click or error event is v in an arrow and event in a regular function](../img/rules/var_events_v_and_event.svg) | [var_names_event.md](../drafts/var_names_event.md) |
 | VAR-17 | **Nested catch bindings use error2, error3.** A catch inside another catch names its binding `error2`, the next level `error3`. This applies only to catch bindings: callback parameters stay `e` in arrows and `error` in regular functions, even inside a catch. | <pre>catch (error) {<br>    try {<br>        await save_backup(scene);<br>    }<br>    catch (error2) {<br>    }<br>}</pre> ![A catch inside a catch binds error2, the next error3; callbacks stay e or error](../img/rules/var_nested_catch_numbered.svg) | [var_names_event.md](../drafts/var_names_event.md) |
 | VAR-18 | **A generic name has one meaning.** `i`, `j`, `k`, `end`, `ii`, `v`, `e`, `error`, `event`, `out` and `time0` each mean one thing, listed on one page; anywhere else the variable is named by what it holds. | <pre>const out = &#91;...new Set(tags)];<br>return (out.length === tags.length) ? tags : out;   ✗ no<br><br>const unique_tags = &#91;...new Set(tags)];<br>return (unique_tags.length === tags.length) ? tags : unique_tags;   ✓ yes</pre> ![The generic names and their one meaning each; out returned on a condition rewritten as unique_tags](../img/rules/var_generic_name_one_meaning.svg) | [generic_names.md](../drafts/generic_names.md) |
+| VAR-19 | **A configuration value at the top is UPPER_CASE.** A constant the module keeps as configuration, a global name for a value set in the code, is written in upper case at the module's top level. A `const` inside a function or a block is lower case. Imports are not this rule. | <pre>const PRESS_MS = 400;           // the module's top<br><br>function press_start(event)<br>{<br>    const started = Date.now();  // inside<br>}</pre> ![PRESS_MS and BLOB_URL at the module's top in upper case; started and target inside a function in lower case](../img/rules/var_config_upper_case.svg) | [MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md) |
 | **FN** | **Function contracts** — What a prefix promises the caller. | | |
 | FN-01 | **"format" strictly returns human-facing text.** `format_*` returns a string to show to a person, including when the value comes from object state. | <pre>format_bytes(1457664)    // "1.4 MB"<br>format_duration(155000)  // "2m 35s"<br>format_usd(1299)         // "$12.99"</pre> ![format_bytes, format_duration and format_usd turn values into the strings a person reads](../img/rules/fn_format_human_text.svg) | [format_xxx.md](../drafts/format_xxx.md) |
 | FN-05 | **"render" constructs asset content.** `render_*` constructs content such as CSS, HTML or SVG from state. The result can be a string; its purpose is an asset rather than a human-facing formatted value. | <pre>public function render_css(): string<br>{<br>    return "body { color: {$this-&gt;text_color}; }";<br>}</pre> ![render_css and render_svg turn state into CSS and SVG assets](../img/rules/fn_render_constructs_assets.svg) | [render_xxx.md](../drafts/render_xxx.md) |

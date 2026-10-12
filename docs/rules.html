@@ -1268,7 +1268,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>279</b> rules<i>·</i><b>18</b> groups<i>·</i><b>55</b> sources</p>
+    <p class="stats"><b>280</b> rules<i>·</i><b>18</b> groups<i>·</i><b>55</b> sources</p>
 </div>
 </header>
 
@@ -1277,7 +1277,7 @@ footer .lead {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">279 rules</span>
+        <span class="count" id="count">280 rules</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
@@ -1296,7 +1296,7 @@ footer .lead {
 <a href="#use" data-group="use"><span class="tag">USE</span><span class="name">Hand them to an agent</span><span class="n"></span></a>
 <a href="#CORE" data-group="CORE"><span class="tag">CORE</span><span class="name">Uniformity</span><span class="n">4</span></a>
 <a href="#NAME" data-group="NAME"><span class="tag">NAME</span><span class="name">Naming grammar</span><span class="n">18</span></a>
-<a href="#VAR" data-group="VAR"><span class="tag">VAR</span><span class="name">Variables</span><span class="n">18</span></a>
+<a href="#VAR" data-group="VAR"><span class="tag">VAR</span><span class="name">Variables</span><span class="n">19</span></a>
 <a href="#FN" data-group="FN"><span class="tag">FN</span><span class="name">Function contracts</span><span class="n">16</span></a>
 <a href="#FMT" data-group="FMT"><span class="tag">FMT</span><span class="name">Formatting</span><span class="n">31</span></a>
 <a href="#FLOW" data-group="FLOW"><span class="tag">FLOW</span><span class="name">Control flow</span><span class="n">12</span></a>
@@ -1664,6 +1664,17 @@ return (out.length === tags.length) ? tags : out;   <span class="no">✗ no</spa
 const unique_tags = &#91;...new Set(tags)];
 return (unique_tags.length === tags.length) ? tags : unique_tags;   <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/var_generic_name_one_meaning.svg"><img class="light" src="../img/rules/var_generic_name_one_meaning.svg" alt="The generic names and their one meaning each; out returned on a condition rewritten as unique_tags" width="1200" height="640" loading="lazy"><img class="dark" src="../img/rules/var_generic_name_one_meaning-dark.svg" alt="The generic names and their one meaning each; out returned on a condition rewritten as unique_tags" width="1200" height="640" loading="lazy"></a></div>
+</article>
+<article class="rule" id="VAR-19">
+<a class="code" href="#VAR-19">VAR-19</a>
+<div class="text"><p><strong>A configuration value at the top is UPPER_CASE.</strong> A constant the module keeps as configuration, a global name for a value set in the code, is written in upper case at the module's top level. A <code>const</code> inside a function or a block is lower case. Imports are not this rule.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/MANUALLY_APPROVED_RULES.md" title="MANUALLY_APPROVED_RULES.md">MANUALLY_APPROVED_RULES.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>const PRESS_MS = 400;           <span class="cmt">// the module's top</span>
+
+function press_start(event)
+{
+    const started = Date.now();  <span class="cmt">// inside</span>
+}</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/var_config_upper_case.svg"><img class="light" src="../img/rules/var_config_upper_case.svg" alt="PRESS_MS and BLOB_URL at the module's top in upper case; started and target inside a function in lower case" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/var_config_upper_case-dark.svg" alt="PRESS_MS and BLOB_URL at the module's top in upper case; started and target inside a function in lower case" width="1200" height="520" loading="lazy"></a></div>
 </article>
 </section>
 <section class="group" id="FN">

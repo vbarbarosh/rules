@@ -660,3 +660,18 @@ one selected or being looked at stays where it is while the app adds,
 removes or grows items around it, as far as the list's ends allow. A
 control that docks, hides or shows as the page scrolls is outside it; the
 docked switches pushing the count are not a breach.
+
+## MP-56 — A configuration value at the top is UPPER_CASE
+
+**Scope:** VAR-19.
+**Approved:** 2026-10-12, voice comment `20261012_205326-me` ("UPPER_CASE
+consts are at the top level, the module's; a lowercase const at the level
+of a function, of a block; such simple rules") and voice comment
+`20261012_205635-me` ("imports are a separate case; the UPPER_CASE const is
+when you need a variable for configuration, some global name; the imports
+don't fall under this rule at all"), answering the audit's question how
+constants are spelled.
+
+A constant a module keeps as configuration, a global name for a value set
+in the code, is written in upper case at the module's top level. A `const`
+inside a function or a block is lower case. Imports are not covered.
