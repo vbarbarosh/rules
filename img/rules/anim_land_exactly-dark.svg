@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="300" viewBox="0 0 720 300" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<style>
+.q06a-go { animation: q06a-go 3.6s linear infinite alternate; }
+@keyframes q06a-go { 0%,15% { transform: translate(0px, 0px); } 60% { transform: translate(190px, 110px); } 70% { transform: translate(190px, 110px); } 72%,100% { transform: translate(196px, 104px); } }
+.q06a-ok { animation: q06a-ok 3.6s ease-in-out infinite alternate; }
+@keyframes q06a-ok { 0%,15% { transform: translate(0px, 0px); } 65%,100% { transform: translate(196px, 104px); } }
+
+</style>
+<rect width="720" height="300" fill="#16181b"/>
+<text x="20" y="32" fill="#ff937c" font-size="19" font-weight="700">✗ A hop at the end</text>
+<rect x="16" y="46" width="336" height="238" rx="10" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<g transform="translate(16 46)"><rect x="210" y="128" width="104" height="40" rx="8" fill="none" stroke="#92958c" stroke-dasharray="6 5" stroke-width="2"/><text x="262" y="186" text-anchor="middle" fill="#92958c" font-size="15">its place</text><g class="q06a-go"><rect x="14" y="24" width="104" height="40" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/><text x="66" y="50" text-anchor="middle" fill="#9db2ff" font-size="16" font-weight="700">19:04</text></g><text x="20" y="226" fill="#92958c" font-size="15">lands, then corrects</text></g>
+<text x="380" y="32" fill="#72d39c" font-size="19" font-weight="700">✓ Lands exactly</text>
+<rect x="368" y="46" width="336" height="238" rx="10" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<g transform="translate(368 46)"><rect x="210" y="128" width="104" height="40" rx="8" fill="none" stroke="#92958c" stroke-dasharray="6 5" stroke-width="2"/><text x="262" y="186" text-anchor="middle" fill="#92958c" font-size="15">its place</text><g class="q06a-ok"><rect x="14" y="24" width="104" height="40" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/><text x="66" y="50" text-anchor="middle" fill="#9db2ff" font-size="16" font-weight="700">19:04</text></g><text x="20" y="226" fill="#92958c" font-size="15">measured where it will be</text></g>
+</svg>

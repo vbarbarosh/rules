@@ -33,6 +33,10 @@
   transformations
 - another example of header morphing: the lines join into one, smooth and
   neat; the elements of one state pass into the other smoothly, beautifully
+- my rules from Visual Agency: fade over the whole move; at a list's end
+  settle in the same frames; land exactly; new things arrive whole; grow
+  through the heights between; the highlight in its final colours; the speed
+  stays 400 ms
 
 # Animations
 
@@ -122,7 +126,8 @@ view follows the row it moved.
 Two cases have nothing to take up the difference: a list that fits without
 scrolling has no scroll position to change, and a list scrolled to its very
 end cannot scroll further. There a row added above, or removed below, still
-moves the selected one.
+moves the selected one; the view then settles in the same frames as the
+move and is still when it ends, never after (MP-65).
 
 ## A click mid-way changes course
 
@@ -176,13 +181,38 @@ shrinks to fit: the box's edge covers it, with no fade (MP-64).
   its box and shared words; the box resizes and only the extra words go,
   covered by its edge as it narrows, never faded.
 - **What has no place fades.** The name, the picture and the rest of the
-  text fade out as the card folds, and in as it opens; the card's height
-  goes from the one to the other with them.
+  text fade out as the card folds, and in as it opens, over the whole
+  movement: never whole on one frame and gone the next (MP-65); the
+  card's height goes from the one to the other with them.
 - **The header stays put.** The header clicked stands still from the first
   frame to the last; only what is below it moves (UIM-01). The demo marks
   its place with a dashed line.
 - **A click mid-way turns it back.** Every part starts back from where it
   stands on the screen at that moment, at the size it has then.
+
+## A moving part lands exactly
+
+Each moving part is measured where it will be, laid out unseen first, so it
+arrives exactly there: its last frame is the still state, to the pixel, with
+no hop at the end (MP-66).
+
+## New things arrive whole
+
+A new row or message comes in its first frame as it will stay: every tag
+and badge it will have is on it, and it is at its final height. Nothing
+fills in, grows or settles after it lands (MP-67).
+
+## Growing goes through the heights between
+
+A section that opens grows from closed to full through every height between,
+its content clipped inside; it is never drawn whole for a frame and then
+grown. Closing is the same movement, backwards (MP-68).
+
+## The chosen highlight glides in its final colours
+
+The selection highlight moves from item to item in the colours it ends in,
+from the first frame to the last: no grey or faded colour on the way
+(MP-69).
 
 ## How the demo moves
 

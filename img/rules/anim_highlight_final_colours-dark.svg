@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="300" viewBox="0 0 720 300" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<style>
+.q13a-mv { animation: q13a-mv 3.6s ease-in-out infinite alternate; }
+@keyframes q13a-mv { 0%,15% { transform: translate(0px, 0px); } 70%,100% { transform: translate(0px, 120px); } }
+.q13a-grey { animation: q13a-grey 3.6s linear infinite alternate; }
+@keyframes q13a-grey { 0%,15% { fill: #253253; stroke: #9db2ff; } 20%,62% { fill: #3a3d42; stroke: #4a4f57; } 70%,100% { fill: #253253; stroke: #9db2ff; } }
+.q13a-blue { animation: q13a-blue 3.6s linear infinite alternate; }
+@keyframes q13a-blue { 0%,100% { fill: #253253; stroke: #9db2ff; } }
+
+</style>
+<rect width="720" height="300" fill="#16181b"/>
+<text x="20" y="32" fill="#ff937c" font-size="19" font-weight="700">✗ Grey on the way</text>
+<rect x="16" y="46" width="336" height="238" rx="10" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<g transform="translate(16 46)"><g class="q13a-mv"><rect class="q13a-grey" x="20" y="16" width="296" height="36" rx="8" stroke-width="2"/></g><text x="40" y="40" fill="#d3d1c9" font-size="16">1  Inbox</text><text x="40" y="80" fill="#d3d1c9" font-size="16">2  Drafts</text><text x="40" y="120" fill="#d3d1c9" font-size="16">3  Projects</text><text x="40" y="160" fill="#d3d1c9" font-size="16">4  Calendar</text><text x="40" y="200" fill="#d3d1c9" font-size="16">5  Notes</text></g>
+<text x="380" y="32" fill="#72d39c" font-size="19" font-weight="700">✓ Its own colours all the way</text>
+<rect x="368" y="46" width="336" height="238" rx="10" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<g transform="translate(368 46)"><g class="q13a-mv"><rect class="q13a-blue" x="20" y="16" width="296" height="36" rx="8" stroke-width="2"/></g><text x="40" y="40" fill="#d3d1c9" font-size="16">1  Inbox</text><text x="40" y="80" fill="#d3d1c9" font-size="16">2  Drafts</text><text x="40" y="120" fill="#d3d1c9" font-size="16">3  Projects</text><text x="40" y="160" fill="#d3d1c9" font-size="16">4  Calendar</text><text x="40" y="200" fill="#d3d1c9" font-size="16">5  Notes</text></g>
+</svg>

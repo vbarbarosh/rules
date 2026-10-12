@@ -1268,7 +1268,7 @@ footer .lead {
     </div>
     <h1>Animations</h1>
     <p class="lede">How a screen moves: sections, rows and lists, and what a click mid-way does. Each rule has a picture and a live demo.</p>
-    <p class="stats"><b>11</b> rules<i>·</i><b>1</b> group<i>·</i><b>1</b> source</p>
+    <p class="stats"><b>15</b> rules<i>·</i><b>1</b> group<i>·</i><b>1</b> source</p>
 </div>
 </header>
 
@@ -1277,7 +1277,7 @@ footer .lead {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. slide, back, list" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">11 rules</span>
+        <span class="count" id="count">15 rules</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
@@ -1293,7 +1293,7 @@ footer .lead {
 
 <div class="wrap layout">
 <nav class="groups" aria-label="Groups">
-<a href="#ANIM" data-group="ANIM"><span class="tag">ANIM</span><span class="name">Animations</span><span class="n">11</span></a>
+<a href="#ANIM" data-group="ANIM"><span class="tag">ANIM</span><span class="name">Animations</span><span class="n">15</span></a>
 </nav>
 <main>
 <section class="group" id="ANIM">
@@ -1336,7 +1336,7 @@ footer .lead {
 </article>
 <article class="rule" id="ANIM-07">
 <a class="code" href="#ANIM-07">ANIM-07</a>
-<div class="text"><p><strong>A list change never moves the working row.</strong> Rows added or removed above the selected row leave it where it is on the screen, from the first frame to the last; the scroll position takes up the difference (UIM-01).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>A list change never moves the working row.</strong> Rows added or removed above the selected row leave it where it is on the screen, from the first frame to the last; the scroll position takes up the difference (UIM-01). Near the list's end, where the place cannot hold, the view settles in the same frames as the move and is still when it ends, never after.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-nothing-jumps.gif"><img class="light" src="../drafts/animations-nothing-jumps.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407" loading="lazy"><img class="dark" src="../drafts/animations-nothing-jumps-dark.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407" loading="lazy"></a>
 <button class="try-it" type="button" data-demo="../drafts/animations.html#list-changes">▶ Try it</button>
 </article>
@@ -1354,7 +1354,7 @@ footer .lead {
 </article>
 <article class="rule" id="ANIM-10">
 <a class="code" href="#ANIM-10">ANIM-10</a>
-<div class="text"><p><strong>The parts morph, nothing pops.</strong> The parts the two layouts share morph into their places in the other one: the avatar shrinks into the line, the time moves beside it, the text glides up at its smaller size, and several lines join into the one line, each to its own place in reading order; a pill keeps its box and words and only its extra words narrow away, covered by its edge, never faded. Opening is the same, backwards. Only what has no place there, the name, the picture, a player, the rest of the text, fades.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>The parts morph, nothing pops.</strong> The parts the two layouts share morph into their places in the other one: the avatar shrinks into the line, the time moves beside it, the text glides up at its smaller size, and several lines join into the one line, each to its own place in reading order; a pill keeps its box and words and only its extra words narrow away, covered by its edge, never faded. Opening is the same, backwards. Only what has no place there, the name, the picture, a player, the rest of the text, fades, over the whole movement: never whole on one frame and gone the next.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-expand.gif"><img class="light" src="../drafts/animations-expand.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375" loading="lazy"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375" loading="lazy"></a>
 <button class="try-it" type="button" data-demo="../drafts/animations.html#expand-collapse">▶ Try it</button>
 </article>
@@ -1363,6 +1363,30 @@ footer .lead {
 <div class="text"><p><strong>The header clicked never moves.</strong> It stands still from the first frame to the last, opening or folding, mid-way too; only what is below it moves (UIM-01).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/animations-expand.gif"><img class="light" src="../drafts/animations-expand.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375" loading="lazy"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375" loading="lazy"></a>
 <button class="try-it" type="button" data-demo="../drafts/animations.html#expand-collapse">▶ Try it</button>
+</article>
+<article class="rule" id="ANIM-12">
+<a class="code" href="#ANIM-12">ANIM-12</a>
+<div class="text"><p><strong>A moving part lands exactly.</strong> Each part is measured where it will be, laid out unseen first, so its last frame is the still state to the pixel: no hop at the end.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/anim_land_exactly.svg"><img class="light" src="../img/rules/anim_land_exactly.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300" loading="lazy"><img class="dark" src="../img/rules/anim_land_exactly-dark.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#expand-collapse">▶ Try it</button>
+</article>
+<article class="rule" id="ANIM-13">
+<a class="code" href="#ANIM-13">ANIM-13</a>
+<div class="text"><p><strong>New things arrive whole.</strong> A new row or message arrives in its first frame as it will stay, with every tag and badge on it and at its final height; nothing fills in or grows after it lands.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/anim_arrive_whole.svg"><img class="light" src="../img/rules/anim_arrive_whole.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300" loading="lazy"><img class="dark" src="../img/rules/anim_arrive_whole-dark.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#list-changes">▶ Try it</button>
+</article>
+<article class="rule" id="ANIM-14">
+<a class="code" href="#ANIM-14">ANIM-14</a>
+<div class="text"><p><strong>Growing goes through the heights between.</strong> A section that opens grows from closed to full through every height between, its content clipped inside, never shown whole for a frame first; closing is the same, backwards.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/anim_grow_through_heights.svg"><img class="light" src="../img/rules/anim_grow_through_heights.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300" loading="lazy"><img class="dark" src="../img/rules/anim_grow_through_heights-dark.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#expand-collapse">▶ Try it</button>
+</article>
+<article class="rule" id="ANIM-15">
+<a class="code" href="#ANIM-15">ANIM-15</a>
+<div class="text"><p><strong>The chosen highlight glides in its final colours.</strong> The selection highlight moves from item to item in the colours it ends in, from the first frame to the last; no grey or faded colour on the way.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/animations.md" title="drafts/animations.md">animations.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../img/rules/anim_highlight_final_colours.svg"><img class="light" src="../img/rules/anim_highlight_final_colours.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300" loading="lazy"><img class="dark" src="../img/rules/anim_highlight_final_colours-dark.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300" loading="lazy"></a>
+<button class="try-it" type="button" data-demo="../drafts/animations.html#slide-workspaces">▶ Try it</button>
 </article>
 </section>
 <p class="nothing" id="nothing" hidden>No rule matches that.</p>

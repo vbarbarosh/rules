@@ -762,3 +762,78 @@ morphing quiz's question 4 against the Visual Agency rule 4.
 
 When a pill or another box with words is shorter in the other layout, it
 narrows and its edge covers the words that go; they are not faded.
+
+## MP-65 — What one state only has fades over the whole move; at a list's end the view settles in the same frames
+
+**Scope:** ANIM-07, ANIM-10, [animations](drafts/animations.md).
+**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
+quiz's answers) on the rules forwarded from Visual Agency in
+`20261012_210127-me`: answers 3A ("what exists in one state only fades, over
+the whole movement; never whole on one frame and gone the next") and 8A
+("near an edge, the view settles in the same frames, never after").
+
+A part that only one layout has fades from the first frame of the movement
+to the last, both ways, instead of early on folding and late on opening.
+Where a list's end keeps the place from holding, the view comes down during
+the move, frame by frame, and is still when the move ends.
+
+## MP-66 — A moving part lands exactly
+
+**Scope:** ANIM-12, [animations](drafts/animations.md).
+**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
+quiz's answers) on the rules forwarded from Visual Agency in
+`20261012_210127-me`: answer 6A ("measure the destination as it will really
+be, lay it out unseen first, so the arrival is exact to the sub-pixel; no
+hop at the end").
+
+Each moving part is measured where it will be before it moves, so its last
+frame is the still state.
+
+## MP-67 — New things arrive whole
+
+**Scope:** ANIM-13, [animations](drafts/animations.md).
+**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
+quiz's answers) on the rules forwarded from Visual Agency in
+`20261012_210127-me`: answer 9A ("content comes in its first frame with every
+tag and badge it will have, at its final height; nothing fills in
+afterwards").
+
+A new row or message arrives as it will stay, its tags and badges on it,
+at its final height; nothing fills in or grows after it lands.
+
+## MP-68 — Growing goes through the heights between
+
+**Scope:** ANIM-14, [animations](drafts/animations.md).
+**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
+quiz's answers) on the rules forwarded from Visual Agency in
+`20261012_210127-me`: answer 10A ("a container is shut before its content goes
+in: never drawn whole for a frame, then grown from nothing").
+
+A section that opens grows through every height between closed and full,
+its content clipped inside; closing is the same, backwards.
+
+## MP-69 — The chosen highlight glides in its final colours
+
+**Scope:** ANIM-15, [animations](drafts/animations.md).
+**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
+quiz's answers) on the rules forwarded from Visual Agency in
+`20261012_210127-me`: answer 13A ("the chosen highlight glides in its final
+colours; no in-between grey on arrival").
+
+The selection highlight keeps the colours it ends in from the first frame
+of its movement to the last.
+
+## MP-70 — The speed stays; reduced motion and frame tests stay out
+
+**Scope:** ANIM, [animations](drafts/animations.md).
+**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
+quiz's answers) on the rules forwarded from Visual Agency in
+`20261012_210127-me`: answers 11B (the speed stays 400 ms, eased out, over
+160–320 ms by distance eased at both ends), 14B (less motion when asked:
+left out) and 15B (checked by frames, not by eye: left out).
+
+The animations keep one duration, 400 ms, and the easing
+`cubic-bezier(.2, .8, .2, 1)`. No rule asks for reduced motion or for a
+frame-by-frame test of each morph; the forwarded rules 11, 14 and 15 are
+not taken.
+

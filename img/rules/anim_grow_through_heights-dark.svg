@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="300" viewBox="0 0 720 300" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<style>
+.q10a-pop { animation: q10a-pop 3.6s linear -3.6s infinite alternate; }
+@keyframes q10a-pop { 0%,15% { height: 0px; } 16%,20% { height: 120px; } 21% { height: 0px; } 70%,100% { height: 120px; } }
+.q10a-grow { animation: q10a-grow 3.6s ease-in-out -3.6s infinite alternate; }
+@keyframes q10a-grow { 0%,15% { height: 0px; } 70%,100% { height: 120px; } }
+.q10a-below { animation: q10a-below 3.6s linear -3.6s infinite alternate; }
+@keyframes q10a-below { 0%,15% { transform: translate(0px, 0px); } 16%,20% { transform: translate(0px, 120px); } 21% { transform: translate(0px, 0px); } 70%,100% { transform: translate(0px, 120px); } }
+.q10a-belowok { animation: q10a-belowok 3.6s ease-in-out -3.6s infinite alternate; }
+@keyframes q10a-belowok { 0%,15% { transform: translate(0px, 0px); } 70%,100% { transform: translate(0px, 120px); } }
+
+</style>
+<rect width="720" height="300" fill="#16181b"/>
+<text x="20" y="32" fill="#ff937c" font-size="19" font-weight="700">✗ Whole for a frame, then grows</text>
+<rect x="16" y="46" width="336" height="238" rx="10" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<g transform="translate(16 46)"><rect x="20" y="16" width="296" height="34" rx="8" fill="#1d2024" stroke="#3a3f46"/><text x="36" y="39" fill="#d3d1c9" font-size="16" font-weight="700">▾ Sending</text><clipPath id="q10ac1"><rect class="q10a-pop" x="20" y="54" width="296" height="120"/></clipPath><g clip-path="url(#q10ac1)"><rect x="20" y="54" width="296" height="120" rx="8" fill="#1b2346" stroke="#9db2ff"/><rect x="36" y="72" width="240" height="8" rx="4" fill="#3a3f46"/><rect x="36" y="92" width="210" height="8" rx="4" fill="#3a3f46"/><rect x="36" y="112" width="240" height="8" rx="4" fill="#3a3f46"/><rect x="36" y="132" width="210" height="8" rx="4" fill="#3a3f46"/><rect x="36" y="152" width="240" height="8" rx="4" fill="#3a3f46"/></g><g class="q10a-below"><rect x="20" y="58" width="296" height="34" rx="8" fill="#1d2024" stroke="#3a3f46"/><text x="36" y="81" fill="#d3d1c9" font-size="16" font-weight="700">▸ Conversations</text></g></g>
+<text x="380" y="32" fill="#72d39c" font-size="19" font-weight="700">✓ Grows through every height</text>
+<rect x="368" y="46" width="336" height="238" rx="10" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<g transform="translate(368 46)"><rect x="20" y="16" width="296" height="34" rx="8" fill="#1d2024" stroke="#3a3f46"/><text x="36" y="39" fill="#d3d1c9" font-size="16" font-weight="700">▾ Sending</text><clipPath id="q10ac2"><rect class="q10a-grow" x="20" y="54" width="296" height="120"/></clipPath><g clip-path="url(#q10ac2)"><rect x="20" y="54" width="296" height="120" rx="8" fill="#1b2346" stroke="#9db2ff"/><rect x="36" y="72" width="240" height="8" rx="4" fill="#3a3f46"/><rect x="36" y="92" width="210" height="8" rx="4" fill="#3a3f46"/><rect x="36" y="112" width="240" height="8" rx="4" fill="#3a3f46"/><rect x="36" y="132" width="210" height="8" rx="4" fill="#3a3f46"/><rect x="36" y="152" width="240" height="8" rx="4" fill="#3a3f46"/></g><g class="q10a-belowok"><rect x="20" y="58" width="296" height="34" rx="8" fill="#1d2024" stroke="#3a3f46"/><text x="36" y="81" fill="#d3d1c9" font-size="16" font-weight="700">▸ Conversations</text></g></g>
+</svg>
