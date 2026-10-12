@@ -836,4 +836,3 @@ The animations keep one duration, 400 ms, and the easing
 `cubic-bezier(.2, .8, .2, 1)`. No rule asks for reduced motion or for a
 frame-by-frame test of each morph; the forwarded rules 11, 14 and 15 are
 not taken.
-
