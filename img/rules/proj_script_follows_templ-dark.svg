@@ -1,28 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
-<rect width="1200" height="680" fill="#16181b"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="760" fill="#16181b"/>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">A script starts from bin/templ</text>
 <text x="48" y="108" fill="#92958c" font-size="22">its header and three lines always stay; the rest goes unless the script needs it</text>
-<rect x="60" y="146" width="760" height="202" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="60" y="146" width="760" height="292" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="84" y="184" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">#!/bin/bash</text>
-<text x="84" y="214" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">set -o nounset -o errexit -o pipefail</text>
-<text x="84" y="244" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace"></text>
-<text x="84" y="274" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">script=`realpath $0`</text>
-<text x="84" y="304" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">scriptdir=`dirname $script`</text>
-<text x="84" y="334" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">scriptname=`basename $script`</text>
-<text x="850" y="243.0" fill="#72d39c" font-size="24" font-weight="700">always stays</text>
-<text x="850" y="273.0" fill="#92958c" font-size="18">the header and</text>
-<text x="850" y="297.0" fill="#92958c" font-size="18">script, scriptdir, scriptname</text>
-<rect x="60" y="378" width="760" height="50" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="84" y="410" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">RED="\e[31m" GREEN="\e[32m" …</text>
-<text x="850" y="410" fill="#92958c" font-size="19">colors</text>
-<rect x="60" y="440" width="760" height="50" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="84" y="472" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">EXIT_MESSAGE="${RED}… failed${RESET}"</text>
-<text x="850" y="472" fill="#92958c" font-size="19">an exit message</text>
-<rect x="60" y="502" width="760" height="50" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="84" y="534" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tempdir=`mktemp -d …`; trap '…' EXIT</text>
-<text x="850" y="534" fill="#92958c" font-size="19">a temporary directory</text>
-<rect x="60" y="564" width="760" height="50" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="84" y="596" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">echo script=$script …  (4 lines)</text>
-<text x="850" y="596" fill="#92958c" font-size="19">the template’s demo</text>
-<text x="850" y="368" fill="#d3d1c9" font-size="20" font-weight="700">only if needed</text>
+<text x="84" y="214" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace"></text>
+<text x="84" y="244" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace"># http://www.gnu.org/software/bash/manual/…</text>
+<text x="84" y="274" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace"># http://redsymbol.net/articles/unofficial-…</text>
+<text x="84" y="304" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">set -o nounset -o errexit -o pipefail</text>
+<text x="84" y="334" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace"></text>
+<text x="84" y="364" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">script=`realpath $0`</text>
+<text x="84" y="394" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">scriptdir=`dirname $script`</text>
+<text x="84" y="424" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">scriptname=`basename $script`</text>
+<text x="850" y="288.0" fill="#72d39c" font-size="24" font-weight="700">always stays</text>
+<text x="850" y="318.0" fill="#92958c" font-size="18">the header and</text>
+<text x="850" y="342.0" fill="#92958c" font-size="18">script, scriptdir, scriptname</text>
+<rect x="60" y="468" width="760" height="50" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="84" y="500" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">RED="\e[31m" GREEN="\e[32m" …</text>
+<text x="850" y="500" fill="#92958c" font-size="19">colors</text>
+<rect x="60" y="530" width="760" height="50" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="84" y="562" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">EXIT_MESSAGE="${RED}… failed${RESET}"</text>
+<text x="850" y="562" fill="#92958c" font-size="19">an exit message</text>
+<rect x="60" y="592" width="760" height="50" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="84" y="624" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">tempdir=`mktemp -d …`; trap '…' EXIT</text>
+<text x="850" y="624" fill="#92958c" font-size="19">a temporary directory</text>
+<rect x="60" y="654" width="760" height="50" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="84" y="686" fill="#92958c" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">echo script=$script …  (4 lines)</text>
+<text x="850" y="686" fill="#92958c" font-size="19">the template’s demo</text>
+<text x="850" y="458" fill="#d3d1c9" font-size="20" font-weight="700">only if needed</text>
 </svg>

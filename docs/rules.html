@@ -2445,12 +2445,15 @@ LICENSE  README.md  package.json</pre><button class="copy" type="button">Copy</b
 <a class="code" href="#PROJ-15">PROJ-15</a>
 <div class="text"><p><strong>A script starts from bin/templ.</strong> A new bash script is a copy of <code>bin/templ</code> with what it does not need thrown away. Its header, strict mode included, and the <code>script</code> / <code>scriptdir</code> / <code>scriptname</code> lines always stay; the colors, the exit message, the temporary directory with its <code>EXIT</code> trap and the four <code>echo</code> lines stay only if the script uses them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/bin/templ" title="bin/templ">templ</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>#!/bin/bash
+
+# http://www.gnu.org/software/bash/manual/bash.html#The-Set-Builtin
+# http://redsymbol.net/articles/unofficial-bash-strict-mode
 set -o nounset -o errexit -o pipefail
 
 script=&#96;realpath $0&#96;
 scriptdir=&#96;dirname $script&#96;
 scriptname=&#96;basename $script&#96;</pre><button class="copy" type="button">Copy</button></div>
-<div class="figures"><a class="figure" href="../img/rules/proj_script_follows_templ.svg"><img class="light" src="../img/rules/proj_script_follows_templ.svg" alt="bin/templ: the header and the script, scriptdir and scriptname lines always stay; the colors, the exit message, the temporary directory and the echo lines only if the script needs them" width="1200" height="680" loading="lazy"><img class="dark" src="../img/rules/proj_script_follows_templ-dark.svg" alt="bin/templ: the header and the script, scriptdir and scriptname lines always stay; the colors, the exit message, the temporary directory and the echo lines only if the script needs them" width="1200" height="680" loading="lazy"></a></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_script_follows_templ.svg"><img class="light" src="../img/rules/proj_script_follows_templ.svg" alt="bin/templ: the header and the script, scriptdir and scriptname lines always stay; the colors, the exit message, the temporary directory and the echo lines only if the script needs them" width="1200" height="760" loading="lazy"><img class="dark" src="../img/rules/proj_script_follows_templ-dark.svg" alt="bin/templ: the header and the script, scriptdir and scriptname lines always stay; the colors, the exit message, the temporary directory and the echo lines only if the script needs them" width="1200" height="760" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-16">
 <a class="code" href="#PROJ-16">PROJ-16</a>
