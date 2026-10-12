@@ -159,7 +159,7 @@ in reading order and takes the line's size, so the breaks between them go
 without a jump. The transcript's first words travel to after a 🎙 mark; the
 date beside the time fades as the time moves left; the pill keeps its box
 and the words "In progress", and only "for 1 min" narrows away as the box
-shrinks to fit.
+shrinks to fit: the box's edge covers it, with no fade (MP-64).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="animations-expand-dark.gif">
@@ -173,7 +173,8 @@ shrinks to fit.
   place in the folded line, in reading order; none waits for another, and
   no line break jumps.
 - **A word group narrows.** A pill or a date that is shorter folded keeps
-  its box and shared words; the box resizes and only the extra words go.
+  its box and shared words; the box resizes and only the extra words go,
+  covered by its edge as it narrows, never faded.
 - **What has no place fades.** The name, the picture and the rest of the
   text fade out as the card folds, and in as it opens; the card's height
   goes from the one to the other with them.

@@ -750,3 +750,15 @@ as provisional, not defined yet, until the author defines it.
 The partial-index example, a `CREATE UNIQUE INDEX` with a `WHERE`, is
 dropped: the next example reaches the same end the MySQL way, with a
 generated column. `DROP INDEX` names its table with `ON user_identities`.
+
+## MP-64 — A narrowing box covers its extra words; no fade
+
+**Scope:** ANIM-10, [animations](drafts/animations.md).
+**Approved:** 2026-10-12, voice comment `20261012_213743-me` ("ours is
+right, narrows and fades at once; one thing: the fade is not needed here,
+it is extra, because when the element shrinks it covers the letter, the
+text that disappears; the fade is extra, for this case"), answering the
+morphing quiz's question 4 against the Visual Agency rule 4.
+
+When a pill or another box with words is shorter in the other layout, it
+narrows and its edge covers the words that go; they are not faded.

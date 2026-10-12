@@ -846,7 +846,8 @@ code {
     white-space: pre;
 }
 
-/* a part of a word group the folded line has no room for: it narrows to nothing */
+/* a part of a word group the folded line has no room for: it narrows to
+   nothing, its box's edge covering it; no fade (MP-64) */
 .msg-collapse {
     display: inline-block;
     overflow: hidden;
@@ -856,7 +857,6 @@ code {
 
 .msg:not(.open) .msg-collapse {
     max-width: 0;
-    opacity: 0;
 }
 
 .msg-text {
@@ -2162,7 +2162,7 @@ function conv_toggle(id)
     const border_first = getComputedStyle(el).borderColor;
     const morph_first = morphs.map(conv_part_seen);
     const cover_first = covers.map(v => getComputedStyle(v).opacity);
-    const collapse_first = collapses.map(v => ({width: v.getBoundingClientRect().width/conv_part_seen(v.parentElement).sx, opacity: Number(getComputedStyle(v).opacity)}));
+    const collapse_first = collapses.map(v => ({width: v.getBoundingClientRect().width/conv_part_seen(v.parentElement).sx}));
     const ghost_opacity = {};
     for (const ghost of el.querySelectorAll('.msg-ghost')) {
         ghost_opacity[ghost.dataset.key] = Number(getComputedStyle(ghost).opacity);
@@ -2186,7 +2186,7 @@ function conv_toggle(id)
     const border_last = getComputedStyle(el).borderColor;
     const morph_last = morphs.map(conv_part_seen);
     const cover_last = covers.map(v => getComputedStyle(v).opacity);
-    const collapse_last = collapses.map(v => ({width: v.getBoundingClientRect().width, opacity: Number(getComputedStyle(v).opacity)}));
+    const collapse_last = collapses.map(v => ({width: v.getBoundingClientRect().width}));
     const card_rect = el.getBoundingClientRect();
     el.animate([{height: `${height_first}px`, borderColor: border_first}, {height: `${height_last}px`, borderColor: border_last}], timing);
     for (const [i, part] of morphs.entries()) {
@@ -2206,7 +2206,7 @@ function conv_toggle(id)
         cover.animate([{opacity: cover_first[i]}, {opacity: cover_last[i], offset: 0.5}, {opacity: cover_last[i]}], timing);
     }
     for (const [i, part] of collapses.entries()) {
-        part.animate([{maxWidth: `${collapse_first[i].width}px`, opacity: collapse_first[i].opacity}, {maxWidth: `${collapse_last[i].width}px`, opacity: collapse_last[i].opacity}], timing);
+        part.animate([{maxWidth: `${collapse_first[i].width}px`}, {maxWidth: `${collapse_last[i].width}px`}], timing);
     }
     for (const ghost of ghosts) {
         const part = morphs.find(v => v.dataset.key === ghost.dataset.key);
