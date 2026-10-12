@@ -592,3 +592,20 @@ re-record scroll-anchoring") over the four GIFs stamped with both.
 Every GIF in the docs is recorded at 30 frames a second. It shows its time
 from 0 at its first frame in a corner, and a thin bar along its top edge
 that fills as it plays; both start again when it loops.
+
+## MP-52 — A script starts from bin/templ; its header always stays
+
+**Scope:** PROJ-15, [templ](bin/templ).
+**Approved:** 2026-10-12, voice comment `20261012_201923-me` ("this
+template is a template: you start from it and throw away everything you
+don't need; one exception: the header always stays, just the header and
+the variables script, scriptdir, scriptname at the very start, where they
+are assigned; everything else is thrown away"), after an agent fitting a
+project to the rules copied the template's four `echo` lines into every
+script.
+
+A bash script begins as a copy of `bin/templ`. Its header and the
+`script`, `scriptdir` and `scriptname` lines are kept in every script;
+everything after them (the colors, the exit message, the temporary
+directory and its trap, the `echo` lines) stays only where the script
+uses it.

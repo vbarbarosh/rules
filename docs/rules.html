@@ -2443,17 +2443,14 @@ LICENSE  README.md  package.json</pre><button class="copy" type="button">Copy</b
 </article>
 <article class="rule" id="PROJ-15">
 <a class="code" href="#PROJ-15">PROJ-15</a>
-<div class="text"><p><strong>Scripts follow bin/templ.</strong> Every bash script follows <code>bin/templ</code>: strict mode, the <code>script</code> / <code>scriptdir</code> / <code>scriptname</code> diagnostics, a temporary directory removed by an <code>EXIT</code> trap, and a colored exit message that starts as failed and is switched to succeeded on the last line.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/bin/templ" title="bin/templ">templ</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>set -o nounset -o errexit -o pipefail
+<div class="text"><p><strong>A script starts from bin/templ.</strong> A new bash script is a copy of <code>bin/templ</code> with what it does not need thrown away. Its header, strict mode included, and the <code>script</code> / <code>scriptdir</code> / <code>scriptname</code> lines always stay; the colors, the exit message, the temporary directory with its <code>EXIT</code> trap and the four <code>echo</code> lines stay only if the script uses them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/bin/templ" title="bin/templ">templ</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>#!/bin/bash
+set -o nounset -o errexit -o pipefail
 
-EXIT_MESSAGE="${RED}bin/templ failed${RESET}"
-
-tempdir=&#96;mktemp -d -t tmp.XXXXXXXXXX&#96;
-trap 'rm -rf $tempdir; echo -e "$EXIT_MESSAGE"' EXIT
-cd $tempdir
-
-EXIT_MESSAGE="${GREEN}bin/templ succeeded${RESET}"</pre><button class="copy" type="button">Copy</button></div>
-<div class="figures"><a class="figure" href="../img/rules/proj_script_follows_templ.svg"><img class="light" src="../img/rules/proj_script_follows_templ.svg" alt="A bash script in the order of bin/templ: strict mode, an exit message set to failed, a temporary directory removed by an EXIT trap, the work, and the message switched to succeeded on the last line" width="1200" height="640" loading="lazy"><img class="dark" src="../img/rules/proj_script_follows_templ-dark.svg" alt="A bash script in the order of bin/templ: strict mode, an exit message set to failed, a temporary directory removed by an EXIT trap, the work, and the message switched to succeeded on the last line" width="1200" height="640" loading="lazy"></a></div>
+script=&#96;realpath $0&#96;
+scriptdir=&#96;dirname $script&#96;
+scriptname=&#96;basename $script&#96;</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_script_follows_templ.svg"><img class="light" src="../img/rules/proj_script_follows_templ.svg" alt="bin/templ: the header and the script, scriptdir and scriptname lines always stay; the colors, the exit message, the temporary directory and the echo lines only if the script needs them" width="1200" height="680" loading="lazy"><img class="dark" src="../img/rules/proj_script_follows_templ-dark.svg" alt="bin/templ: the header and the script, scriptdir and scriptname lines always stay; the colors, the exit message, the temporary directory and the echo lines only if the script needs them" width="1200" height="680" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-16">
 <a class="code" href="#PROJ-16">PROJ-16</a>
