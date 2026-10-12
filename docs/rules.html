@@ -3514,6 +3514,7 @@ const nav_by_group = {};
 const haystack_by_id = {};
 
 let demo_button_el = null;
+let demo_pressed_inside = false;
 let spy_pending = false;
 let nav_target = null;
 let nav_timer = null;
@@ -3550,6 +3551,8 @@ function main()
     document.addEventListener('click', click_copy);
     document.addEventListener('click', click_copy_rule);
     document.addEventListener('click', click_try_it);
+    document.addEventListener('pointerdown', pointerdown_demo_outside);
+    document.addEventListener('click', click_demo_outside);
     document.getElementById('demo_close').addEventListener('click', demo_close);
     demo_frame_el.addEventListener('load', load_demo_frame);
     copy_shown_el.addEventListener('click', click_copy_shown);
@@ -3971,14 +3974,34 @@ function click_try_it(event)
     document.getElementById('demo_close').focus({preventScroll: true});
 }
 
+// A click on the page beside the panel slides it out, as Esc and ✕ do; the
+// click still does what it does there. A Try it swaps the demo instead, and
+// a press that began in the panel (a text selection dragged out) keeps it.
+function pointerdown_demo_outside(event)
+{
+    demo_pressed_inside = demo_panel_el.contains(event.target);
+}
+
+function click_demo_outside(event)
+{
+    if (demo_pressed_inside || demo_panel_el.contains(event.target) || event.target.closest('.try-it')) {
+        return;
+    }
+    demo_close();
+}
+
 function demo_close()
 {
     if (!demo_panel_el.classList.contains('open')) {
         return;
     }
+    // focus goes back to the Try it, unless a click outside already took it
+    const focus_el = document.activeElement;
     demo_panel_el.classList.remove('open');
     demo_panel_el.setAttribute('aria-hidden', 'true');
-    demo_button_el?.focus({preventScroll: true});
+    if ((focus_el === document.body) || demo_panel_el.contains(focus_el)) {
+        demo_button_el?.focus({preventScroll: true});
+    }
 }
 
 // The demo in its embed mode and the page's theme; the hash names its section.

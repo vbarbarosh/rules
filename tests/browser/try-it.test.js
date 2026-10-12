@@ -82,6 +82,46 @@ test('docs/rules.html: Try it slides the demo in from the right, Esc and ✕ sli
     }
 });
 
+test('docs/animations.html: a click beside the demo panel slides it out and keeps its own effect; a press begun in the panel keeps it', async function () {
+    const context = await browser.newContext({viewport: {width: 1280, height: 800}});
+    const page = await context.newPage();
+    const errors = [];
+    page.on('pageerror', v => errors.push(v.message));
+    try {
+        await page.route('https://**/*', v => v.abort());
+        await page.goto(`file://${path.join(root_dir, 'docs/animations.html')}`);
+        await page.locator('#ANIM-01 .try-it').click();
+        await page.waitForTimeout(600);
+        assert.equal(await panel_state(page), 'open');
+
+        // a press in the panel's title dragged out onto the page
+        const title = await page.locator('#demo_title').boundingBox();
+        await page.mouse.move(title.x + 5, title.y + title.height/2);
+        await page.mouse.down();
+        await page.mouse.move(100, 400, {steps: 5});
+        await page.mouse.up();
+        await page.waitForTimeout(600);
+        assert.equal(await panel_state(page), 'open');
+
+        await page.mouse.click(100, 400);
+        await page.waitForTimeout(600);
+        assert.equal(await panel_state(page), 'closed');
+
+        // the filter clicked beside the panel keeps its focus
+        await page.locator('#ANIM-01 .try-it').click();
+        await page.waitForTimeout(600);
+        const q = await page.locator('#q').boundingBox();
+        await page.mouse.click(q.x + 20, q.y + q.height/2);
+        await page.waitForTimeout(600);
+        assert.equal(await panel_state(page), 'closed');
+        assert.equal(await page.evaluate(() => document.activeElement.id), 'q');
+        assert.deepEqual(errors, []);
+    }
+    finally {
+        await context.close();
+    }
+});
+
 test('docs/rules.html: at 400 px the demo panel takes the whole width and the page does not scroll sideways', async function () {
     const context = await browser.newContext({viewport: {width: 400, height: 800}});
     const page = await context.newPage();
