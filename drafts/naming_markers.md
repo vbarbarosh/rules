@@ -44,3 +44,7 @@ Rulings:
   is a predicate, `is_open` a stored boolean, and both read well; a plain
   `open` or `ready` is as good where it is clearer. When a check must read
   as a call, `check_` is the verb: `check_status()`, `check_rating()`.
+- A linter rule's function is named after its rule id, as ESLint does
+  (author, 2026-10-12, MP-57): `block_layout(context)` in
+  `src/rules/block_layout.js` for the rule `block-layout`; it needs no
+  verb.

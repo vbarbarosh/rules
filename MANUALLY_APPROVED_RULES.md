@@ -675,3 +675,14 @@ constants are spelled.
 A constant a module keeps as configuration, a global name for a value set
 in the code, is written in upper case at the module's top level. A `const`
 inside a function or a block is lower case. Imports are not covered.
+
+## MP-57 — A linter rule's function is named after its rule id
+
+**Scope:** NAME-02, [naming markers](drafts/naming_markers.md), `src/rules/`.
+**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 1, answer B ("Keep the names;
+write the exception down").
+
+The function of a linter rule is named after its rule id, as ESLint does:
+`block_layout(context)` for the rule `block-layout`. It needs no verb and
+no function marker; NAME-02 names the exception. Nothing in `src/rules/`
+is renamed.
