@@ -1339,7 +1339,7 @@ function theme_read()
     </section>
 </main>
 <script>
-const sections = [
+const SECTIONS = [
     {label: 'Inbox', note: '12 new messages', tone: 'accent', cards: 6, rows: [['Dana', 'The deadline moved to Friday', '10:02'], ['Build', 'main passed, 214 tests', '09:47'], ['Alex', 'A question on the export', '09:15'], ['Sam', 'Notes from the call', 'Yesterday'], ['Billing', 'The invoice for October', 'Yesterday'], ['Kim', 'Review asked on #418', 'Mon'], ['Lee', 'The new icons, a first try', 'Sun']]},
     {label: 'Drafts', note: '3 started, none sent', tone: 'warn', cards: 3, rows: [['You', 'Re: the deadline', '10:05'], ['You', 'The release notes for 2.4', 'Yesterday'], ['You', 'A reply to the survey', 'Fri']]},
     {label: 'Projects', note: '5 in progress', tone: 'ok', cards: 5, rows: [['Atlas', 'Maps, gates and portals', '82%'], ['Beacon', 'The status page', '40%'], ['Cobalt', 'Payments, second try', '65%'], ['Delta', 'The mobile app', '12%'], ['Ember', 'Docs, every rule pictured', '97%']]},
@@ -1351,8 +1351,8 @@ const sections = [
     {label: 'Settings', note: 'Account, theme, keys', tone: 'warn', cards: 4, rows: [['A', 'Account', 'dana@'], ['T', 'Theme', 'Dark'], ['K', 'API keys', '2 keys'], ['N', 'Notifications', 'on']]},
     {label: 'Archive', note: '1 902 old items', tone: 'ok', cards: 6, rows: [['2025', 'The old website', '412 items'], ['2024', 'Year two', '688 items'], ['2023', 'The first year', '802 items']]},
 ];
-const durations = [250, 400, 800, 2000];
-const easing = 'cubic-bezier(.2, .8, .2, 1)';
+const DURATIONS = [250, 400, 800, 2000];
+const EASING = 'cubic-bezier(.2, .8, .2, 1)';
 
 function main()
 {
@@ -1463,14 +1463,14 @@ function mockup_render(root, kind)
         view_el: null,
         views: new Map(),
     };
-    for (const [i, v] of sections.entries()) {
+    for (const [i, v] of SECTIONS.entries()) {
         const li = document.createElement('li');
         li.dataset.index = i;
         li.innerHTML = `<b>${i + 1}</b><span></span>`;
         li.querySelector('span').textContent = v.label;
         out.items_el.append(li);
     }
-    for (const v of durations) {
+    for (const v of DURATIONS) {
         const button = document.createElement('button');
         button.type = 'button';
         button.dataset.duration = v;
@@ -1492,7 +1492,7 @@ function view_get(mockup, section, row)
     if (mockup.views.has(key)) {
         return mockup.views.get(key);
     }
-    const v = sections[section];
+    const v = SECTIONS[section];
     const el = document.createElement('div');
     el.className = `view tone-${v.tone}`;
     el.hidden = true;
@@ -1560,7 +1560,7 @@ function mark_slide(mockup, i)
     const from = place_now(mockup.mark_el);
     animations_cancel(mockup.mark_el);
     mark_place(mockup, i);
-    mockup.mark_el.animate([{transform: translate(from)}, {transform: translate({x: 0, y: item(mockup, i).offsetTop})}], {duration: mockup.duration, easing});
+    mockup.mark_el.animate([{transform: translate(from)}, {transform: translate({x: 0, y: item(mockup, i).offsetTop})}], {duration: mockup.duration, easing: EASING});
 }
 
 // the slide: the views on screen move as one; the new view joins them next to
@@ -1595,7 +1595,7 @@ function views_slide(mockup, target_el, axis, direction)
     for (const [el, place] of shown) {
         const end = {x: place.x - to.x, y: place.y - to.y};
         el.style.transform = translate(end);
-        const animation = el.animate([{transform: translate(place)}, {transform: translate(end)}], {duration: mockup.duration, easing});
+        const animation = el.animate([{transform: translate(place)}, {transform: translate(end)}], {duration: mockup.duration, easing: EASING});
         animation.onfinish = function () {
             if (el !== mockup.view_el) {
                 el.hidden = true;
@@ -1607,7 +1607,7 @@ function views_slide(mockup, target_el, axis, direction)
 
 function section_go(mockup, section)
 {
-    if (section < 0 || section >= sections.length) {
+    if (section < 0 || section >= SECTIONS.length) {
         return;
     }
     if (section === mockup.section) {
@@ -1695,9 +1695,9 @@ const list = {
     duration: 400,
     elements: new Map(),
 };
-const list_new_titles = ['Write the release notes', 'Check the search index', 'Plan the team lunch', 'Review #418', 'Rename the old reports', 'A test for the drafts list', 'Clean up the archive', 'Answer Dana about Friday'];
-const list_people = ['DA', 'AL', 'SM', 'KI', 'LE', 'RO', 'TJ'];
-const list_days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+const LIST_NEW_TITLES = ['Write the release notes', 'Check the search index', 'Plan the team lunch', 'Review #418', 'Rename the old reports', 'A test for the drafts list', 'Clean up the archive', 'Answer Dana about Friday'];
+const LIST_PEOPLE = ['DA', 'AL', 'SM', 'KI', 'LE', 'RO', 'TJ'];
+const LIST_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
 function list_row_render(row)
 {
@@ -1821,14 +1821,14 @@ function list_change(change, moved_id = null, own_id = moved_id)
         li.classList.add('leaving');
         li.style.top = `${place.top - list_top}px`;
         $('list').append(li);
-        li.animate([{opacity: place.opacity, transform: 'none'}, {opacity: 0, transform: 'translateX(24px) scale(.97)'}], {duration: list.duration, easing, fill: 'forwards'}).onfinish = function () {
+        li.animate([{opacity: place.opacity, transform: 'none'}, {opacity: 0, transform: 'translateX(24px) scale(.97)'}], {duration: list.duration, easing: EASING, fill: 'forwards'}).onfinish = function () {
             li.remove();
         };
     }
     for (const row of list.rows) {
         const li = list.elements.get(row.id);
         if (!first.has(row.id)) {
-            li.animate([{opacity: 0, transform: 'translateY(-10px) scale(.97)'}, {opacity: 1, transform: 'none'}], {duration: list.duration, easing});
+            li.animate([{opacity: 0, transform: 'translateY(-10px) scale(.97)'}, {opacity: 1, transform: 'none'}], {duration: list.duration, easing: EASING});
             continue;
         }
         const dy = first.get(row.id).top - li.getBoundingClientRect().top;
@@ -1839,7 +1839,7 @@ function list_change(change, moved_id = null, own_id = moved_id)
         if (row.id === moved_id) {
             li.classList.add('moving');
         }
-        li.animate([{opacity, transform: `translateY(${dy}px)`}, {opacity: 1, transform: 'none'}], {duration: list.duration, easing}).onfinish = function () {
+        li.animate([{opacity, transform: `translateY(${dy}px)`}, {opacity: 1, transform: 'none'}], {duration: list.duration, easing: EASING}).onfinish = function () {
             li.classList.remove('moving');
         };
     }
@@ -1853,7 +1853,7 @@ function list_add(where)
 {
     const n = list.next_id;
     list.next_id += 1;
-    const row = {id: n, who: list_people[n % list_people.length], title: list_new_titles[n % list_new_titles.length], when: list_days[n % list_days.length]};
+    const row = {id: n, who: LIST_PEOPLE[n % LIST_PEOPLE.length], title: LIST_NEW_TITLES[n % LIST_NEW_TITLES.length], when: LIST_DAYS[n % LIST_DAYS.length]};
     list_change(function (rows) {
         const at = (where === 'start') ? 0 : (where === 'end') ? rows.length : Math.floor(rows.length/2);
         rows.splice(at, 0, row);
@@ -1907,7 +1907,7 @@ function list_main()
     for (const row of list.rows) {
         $('list').append(list_row_render(row));
     }
-    for (const v of durations) {
+    for (const v of DURATIONS) {
         const button = document.createElement('button');
         button.type = 'button';
         button.dataset.duration = v;
@@ -1996,7 +1996,7 @@ const conv = {
     duration: 400,
     elements: new Map(),
 };
-const mic_svg = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5.5" y="1.5" width="5" height="8" rx="2.5"/><path d="M3 7.5a5 5 0 0 0 10 0M8 12.5v2"/></svg>';
+const MIC_SVG = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5.5" y="1.5" width="5" height="8" rx="2.5"/><path d="M3 7.5a5 5 0 0 0 10 0M8 12.5v2"/></svg>';
 
 function conv_card_render(message)
 {
@@ -2045,7 +2045,7 @@ function conv_voice_render(el, message)
         span.textContent = line;
         el.querySelector('.msg-text').before(span);
     }
-    el.querySelector('.msg-text').insertAdjacentHTML('beforebegin', `<span class="msg-mic msg-folded-only" aria-hidden="true" data-key="mic">${mic_svg}</span>`);
+    el.querySelector('.msg-text').insertAdjacentHTML('beforebegin', `<span class="msg-mic msg-folded-only" aria-hidden="true" data-key="mic">${MIC_SVG}</span>`);
     const bars = Array.from({length: 160}, (v, i) => `<i style="height: ${4 + Math.round(18*Math.abs(Math.sin(i*1.7)*Math.sin(i*0.37)))}px"></i>`).join('');
     el.insertAdjacentHTML('beforeend', '<span class="msg-pill" data-morph="edge" data-key="pill"><span class="msg-cover" aria-hidden="true"></span><i></i>In progress<span class="msg-collapse" data-key="pill-more"> for 1 min</span></span>'
         + `<span class="msg-file msg-open-only" data-key="file">${message.file}</span>`
@@ -2150,7 +2150,7 @@ function conv_toggle(id)
     const head_top = el.getBoundingClientRect().top;
     const scroll_top = scroller.scrollTop;
     const duration = conv.duration;
-    const timing = {duration, easing};
+    const timing = {duration, easing: EASING};
     const shown = message.open ? '.msg-open-only' : '.msg-folded-only';
     const coming = message.open ? '.msg-folded-only' : '.msg-open-only';
     const morphs = [...el.querySelectorAll('[data-morph]:not(.msg-ghost)')];
@@ -2217,7 +2217,7 @@ function conv_toggle(id)
             const i = morphs.indexOf(leader);
             const moved = `translate(${morph_last[i].rect.left - morph_first[i].rect.left}px, ${morph_last[i].rect.top - morph_first[i].rect.top}px)`;
             frames.splice(0, 2, {opacity: ghost.style.opacity, transform: ghost.style.transform}, {opacity: 0, offset: 0.35}, {opacity: 0, transform: `${moved} ${ghost.style.transform}`});
-            ghost.animate(frames, {duration, easing, fill: 'forwards'}).addEventListener('finish', () => ghost.remove());
+            ghost.animate(frames, {duration, easing: EASING, fill: 'forwards'}).addEventListener('finish', () => ghost.remove());
             continue;
         }
         if (part) {
@@ -2229,7 +2229,7 @@ function conv_toggle(id)
             frames.splice(0, 2, {opacity: ghost.style.opacity, transform: ghost.style.transform}, {opacity: 0, offset: 0.4}, {opacity: 0, transform: `translate(${left - parseFloat(ghost.style.left)}px, ${top - parseFloat(ghost.style.top)}px) scale(${sx}, ${last.size/parseFloat(ghost.style.fontSize)})`});
         }
         // what has no place in the other layout is gone before the others pass over it
-        ghost.animate(frames, {duration: part ? duration : duration*0.25, easing, fill: 'forwards'}).addEventListener('finish', () => ghost.remove());
+        ghost.animate(frames, {duration: part ? duration : duration*0.25, easing: EASING, fill: 'forwards'}).addEventListener('finish', () => ghost.remove());
     }
     // ... and what comes in comes once they have passed
     for (const part of el.querySelectorAll(`${coming}:not(.msg-ghost)`)) {
@@ -2255,7 +2255,7 @@ function conv_main()
     for (const message of conv.messages) {
         $('conv').append(conv_card_render(message));
     }
-    for (const v of durations) {
+    for (const v of DURATIONS) {
         const button = document.createElement('button');
         button.type = 'button';
         button.dataset.duration = v;

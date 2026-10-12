@@ -5,13 +5,13 @@ const fs = require('node:fs');
 const package_json = require('../package.json');
 const path = require('node:path');
 
-const blob_url = 'https://github.com/vbarbarosh/rules/blob/main/';
-const class_by_marker = {'//': 'cmt', '&lt;!--': 'cmt', '✓': 'yes', '✗': 'no', '←': 'aside'};
+const BLOB_URL = 'https://github.com/vbarbarosh/rules/blob/main/';
+const CLASS_BY_MARKER = {'//': 'cmt', '&lt;!--': 'cmt', '✓': 'yes', '✗': 'no', '←': 'aside'};
 const docs_dir = path.join(__dirname, '..', 'docs');
-const glossary_files = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md', 'glossaries/maps.md'];
-const marker_regex = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
+const GLOSSARY_FILES = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md', 'glossaries/maps.md'];
+const MARKER_REGEX = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
 const root_dir = path.join(__dirname, '..');
-const static_pages = ['formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html', 'drafts/animations.html'];
+const STATIC_PAGES = ['formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html', 'drafts/animations.html'];
 const version = `v${package_json.version}`;
 
 cli(main);
@@ -47,7 +47,7 @@ function build_glossaries_html()
 {
     const template = fs.readFileSync(path.join(docs_dir, 'glossaries.template.html'), 'utf8');
     const glossaries = [];
-    for (const glossary_file of glossary_files) {
+    for (const glossary_file of GLOSSARY_FILES) {
         const markdown = fs.readFileSync(path.join(root_dir, glossary_file), 'utf8');
         glossaries.push(glossary_from_markdown(markdown, glossary_file));
     }
@@ -69,7 +69,7 @@ function build_agents_html()
 
 function stamp_static_pages_version()
 {
-    for (const static_page of static_pages) {
+    for (const static_page of STATIC_PAGES) {
         const file_path = path.join(root_dir, static_page);
         const html = fs.readFileSync(file_path, 'utf8');
         const icons = `<!-- theme-icons -->${html_from_theme_icons()}<!-- /theme-icons -->`;
@@ -214,7 +214,7 @@ function html_from_group(group)
 function html_from_rule(rule)
 {
     const bare = (rule.form === '—');
-    const source = `<a class="src" href="${blob_url}${rule.source_path}" title="${rule.source_path}">${rule.source_label}</a>`;
+    const source = `<a class="src" href="${BLOB_URL}${rule.source_path}" title="${rule.source_path}">${rule.source_label}</a>`;
     const form = bare ? '' : `${html_from_form(rule.form)}\n`;
     return `<article class="rule${bare ? ' bare' : ''}" id="${rule.code}">\n`
         + `<a class="code" href="#${rule.code}">${rule.code}</a>\n`
@@ -321,7 +321,7 @@ function html_from_glossaries(template, glossaries)
 {
     const groups = glossaries.flatMap(v => v.groups);
     const terms = glossaries.flatMap(v => [...v.terms, ...v.groups.flatMap(vv => vv.terms)]);
-    const links = glossaries.map(v => `<a href="${blob_url}${v.file}">${path.basename(v.file)}</a>`);
+    const links = glossaries.map(v => `<a href="${BLOB_URL}${v.file}">${path.basename(v.file)}</a>`);
     const values = {
         version,
         terms_count: String(terms.length),
@@ -368,7 +368,7 @@ function html_from_terms(terms, tag, file)
         const definition = term.paragraphs.length ? null : format_term_definition(term);
         const details = term.paragraphs.map(v => `<p>${html_from_inline(v.join(' '))}</p>`).join('');
         const bare = !term.code && (term.images.length === 0);
-        let sources = `<a class="src" href="${blob_url}${file}" title="${file}">${path.basename(file)}</a>`;
+        let sources = `<a class="src" href="${BLOB_URL}${file}" title="${file}">${path.basename(file)}</a>`;
         if (term.url) {
             const host_labels = new URL(term.url).hostname.split('.');
             sources += `<a class="src" href="${term.url}" title="${term.url.replace(/^https?:\/\//, '')}">${host_labels[host_labels.length - 2]}</a>`;
@@ -497,12 +497,12 @@ function html_from_lines(lines)
 // A comment or a verdict runs to the end of its line.
 function html_from_line(line)
 {
-    const match = line.match(marker_regex);
+    const match = line.match(MARKER_REGEX);
     if (!match) {
         return line;
     }
     const start = match.index + match[1].length;
-    return `${line.slice(0, start)}<span class="${class_by_marker[match[2]]}">${line.slice(start)}</span>`;
+    return `${line.slice(0, start)}<span class="${CLASS_BY_MARKER[match[2]]}">${line.slice(start)}</span>`;
 }
 
 // Code spans first, so a ** inside one is code; a bold run may hold code spans.
@@ -593,7 +593,7 @@ function html_from_guide_link(guide, index)
 function html_from_guide(guide, index)
 {
     const tag = String(index + 1).padStart(2, '0');
-    const source = `<a class="src" href="${blob_url}${guide.file}" title="${guide.file}">${path.basename(guide.file)}</a>`;
+    const source = `<a class="src" href="${BLOB_URL}${guide.file}" title="${guide.file}">${path.basename(guide.file)}</a>`;
     return `<section class="group guide" id="${guide.id}">\n`
         + `<h2><span class="tag">${tag}</span><span class="name">${html_escape(guide.title)}</span></h2>\n`
         + `<article class="prose">\n${html_from_guide_markdown(guide.body)}</article>\n`
