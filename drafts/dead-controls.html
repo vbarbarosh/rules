@@ -16,7 +16,7 @@
     --yes: #2f8a4a;
 }
 
-html.dark {
+html[data-theme="dark"] {
     --bg: #0f1713;
     --paper: #14201a;
     --ink: #f4f6ed;
@@ -88,7 +88,7 @@ body {
 </style>
 <script>
 if (location.search === '?dark') {
-    document.documentElement.classList.add('dark');
+    document.documentElement.dataset.theme = 'dark';
 }
 </script>
 </head>

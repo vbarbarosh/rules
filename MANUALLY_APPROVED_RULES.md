@@ -697,3 +697,17 @@ A step is a function `main()` calls once, in order, to do one part of the
 work; it may start with its verb, as `build_glossaries_html()` does in
 `bin/build`. A verb-first name that is not a step is renamed to the domain
 first when it is next touched; the examples in the documents stay.
+
+## MP-59 — A page made only to be photographed keeps no theme switch
+
+**Scope:** UI-01, [theme switch](drafts/theme_switch.md), the render sources
+`drafts/file-drop.html`, `drafts/no-confirmations.html`,
+`drafts/optimistic-updates.html`, `drafts/readme-structure.html`,
+`drafts/dead-controls.html`, `drafts/return-out.html`.
+**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 7, answer A ("Exempt them").
+
+A page made only to be photographed for a rule's picture, opened once as
+is and once with `?dark` and saved as two PNGs, keeps no switch. Its dark
+mode is the same `data-theme` the other pages use, no longer an
+`html.dark` class of its own. A page that becomes a demo people open gets
+the switch.
