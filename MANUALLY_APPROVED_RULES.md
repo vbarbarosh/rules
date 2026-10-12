@@ -609,3 +609,19 @@ A bash script begins as a copy of `bin/templ`. Its header and the
 everything after them (the colors, the exit message, the temporary
 directory and its trap, the `echo` lines) stays only where the script
 uses it.
+
+## MP-53 — A file and its export carry one name; the preset is made by make_rules_config
+
+**Scope:** FILE-20, FILE-24, [src/make_rules_config.js](src/make_rules_config.js).
+**Approved:** 2026-10-12, voice comment `20261012_202926-me` ("whatever
+the file is called, the export must have the same name; a file called
+config.js exporting rules_config is wrong; 100%") and voice comment
+`20261012_203025-me` ("rules_config is a very bad name; make_rules_config
+or make_config is better; rename the file accordingly").
+
+A file is named after the one value it exports, with no exception for a
+file shaped by a tool: `src/config.js` exporting `rules_config` became
+`src/make_rules_config.js` exporting `make_rules_config`. A function
+that builds a value is named for making it. The package path
+`@vbarbarosh/rules/config` stays, pointing at the new file, so projects
+that load it keep working.

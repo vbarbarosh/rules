@@ -1,9 +1,9 @@
 const assert = require('node:assert/strict');
 const child_process = require('node:child_process');
 const fs = require('node:fs');
+const make_rules_config = require('../src/make_rules_config');
 const path = require('node:path');
 const postcss = require('postcss');
-const rules_config = require('../src/config');
 const test = require('node:test');
 
 const {ESLint} = require('eslint');
@@ -39,7 +39,7 @@ test('every page puts one blank line between rules (CSS-13)', function () {
 });
 
 test('every page script passes the lint', async function () {
-    const eslint = new ESLint({cwd: root_dir, overrideConfigFile: true, overrideConfig: [...rules_config(), {files: ['**/*.js'], languageOptions: {sourceType: 'script'}}]});
+    const eslint = new ESLint({cwd: root_dir, overrideConfigFile: true, overrideConfig: [...make_rules_config(), {files: ['**/*.js'], languageOptions: {sourceType: 'script'}}]});
     const breaks = [];
     for (const script of blocks_from_pages(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)) {
         const [result] = await eslint.lintText(script.text, {filePath: path.join(root_dir, 'page-script.js')});

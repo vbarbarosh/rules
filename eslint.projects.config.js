@@ -1,3 +1,3 @@
-const rules_config = require('./src/config');
+const make_rules_config = require('./src/make_rules_config');
 
-module.exports = rules_config();
+module.exports = make_rules_config();

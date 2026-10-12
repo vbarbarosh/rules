@@ -9,7 +9,7 @@
   },
   "exports": {
     ".": "./src/index.js",
-    "./config": "./src/config.js"
+    "./config": "./src/make_rules_config.js"
   },
   "files": [
     "bin/lint",

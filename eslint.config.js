@@ -1,6 +1,6 @@
-const rules_config = require('./src/config');
+const make_rules_config = require('./src/make_rules_config');
 
 module.exports = [
-    ...rules_config(),
+    ...make_rules_config(),
     {files: ['**/*.js', 'bin/build', 'bin/lint'], languageOptions: {sourceType: 'commonjs'}},
 ];

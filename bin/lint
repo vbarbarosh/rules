@@ -3,8 +3,8 @@
 const ESLint = require('eslint').ESLint;
 const ExitCodeError = require('@vbarbarosh/node-helpers/src/errors/ExitCodeError');
 const cli = require('@vbarbarosh/node-helpers/src/cli');
+const make_rules_config = require('../src/make_rules_config');
 const path = require('node:path');
-const rules_config = require('../src/config');
 
 const usage = [
     'usage: [PREFIXES=vb-,app-] lint <path>...',
@@ -26,7 +26,7 @@ async function main()
     }
     // ESLint ignores every path outside its cwd and reports it only as a
     // warning, so the cwd widens until it contains all targets.
-    const eslint = new ESLint({cwd: cwd_from_targets(targets), overrideConfigFile: true, overrideConfig: rules_config(options)});
+    const eslint = new ESLint({cwd: cwd_from_targets(targets), overrideConfigFile: true, overrideConfig: make_rules_config(options)});
     const results = await targets_lint(eslint, targets);
     const formatter = await eslint.loadFormatter('stylish');
     process.stdout.write(await formatter.format(results));

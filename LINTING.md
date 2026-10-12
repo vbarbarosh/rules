@@ -72,9 +72,9 @@ npm install --save-dev eslint@^10 /path/to/rules
 Create `eslint.config.cjs`:
 
 ```js
-const rules_config = require('@vbarbarosh/rules/config');
+const make_rules_config = require('@vbarbarosh/rules/config');
 
-module.exports = rules_config();
+module.exports = make_rules_config();
 ```
 
 The factory returns a flat configuration array. JavaScript defaults to ES
@@ -82,10 +82,10 @@ modules; `.cjs` uses CommonJS. Both import forms are supported by the sorting
 rule. For CommonJS `.js` files, append a file-specific language override:
 
 ```js
-const rules_config = require('@vbarbarosh/rules/config');
+const make_rules_config = require('@vbarbarosh/rules/config');
 
 module.exports = [
-    ...rules_config(),
+    ...make_rules_config(),
     {files: ['bin/**/*.js'], languageOptions: {sourceType: 'commonjs'}},
 ];
 ```
@@ -149,9 +149,9 @@ mentioned only inside `:not(...)` does not count as styled.
 ## Configuration and limits
 
 ```js
-const rules_config = require('@vbarbarosh/rules/config');
+const make_rules_config = require('@vbarbarosh/rules/config');
 
-module.exports = rules_config({
+module.exports = make_rules_config({
     app_prefixes: ['app-', 'vb-', 'np-'],
     layout_patterns: ['^(flex-(row|col)|[hv]split|grid)($|[-0-9])'],
     check_dynamic: true,

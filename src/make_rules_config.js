@@ -3,7 +3,7 @@ const stylistic = require('@stylistic/eslint-plugin');
 const vue = require('eslint-plugin-vue');
 const vue_parser = require('vue-eslint-parser');
 
-function rules_config(options = {})
+function make_rules_config(options = {})
 {
     const app_prefixes = options.app_prefixes || ['app-', 'vb-', 'np-'];
     return [
@@ -58,4 +58,4 @@ function rules_config(options = {})
     ];
 }
 
-module.exports = rules_config;
+module.exports = make_rules_config;
