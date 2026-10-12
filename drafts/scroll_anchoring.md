@@ -29,13 +29,16 @@ are `scroll-anchoring.png` and `scroll-anchoring-dark.png`.
 
 ## The rule
 
-Content the app adds, removes or resizes on its own never moves what the
-reader is looking at. That is the element on the middle line of the view: it
-stays at the same screen position, to the pixel. This holds whether the change
-is above it, at the top of the view or below it.
+The rule is about a container: a list, a grid, a conversation. The reader
+works with one of its items, the one they selected or the one they are
+looking at, on the middle line of the view. When the app adds, removes or
+resizes items on its own, above that item, below it or beside it, the item
+stays at the same screen position, to the pixel, and the scroll position
+takes up the difference, as far as the list's ends allow (MP-55).
 
 A change the reader makes is not covered: a block they click open may push
-down what is below it.
+down what is below it. Neither is what changes as the reader scrolls, such
+as a control that docks into a bar once the header is out of view.
 
 ## The browser is not enough
 

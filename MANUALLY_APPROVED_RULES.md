@@ -643,3 +643,20 @@ PROJ-04 says two things: `bin/build` puts what it builds into `build/`;
 Taking something out of `build/` into the repository is a decision of its
 own, as `bin/release` does with `dist/`; the committed `docs/*.html` are
 such a decision, not an exception.
+
+## MP-55 — Nothing jumps: the working item of a list stays put
+
+**Scope:** UIM-01, ANIM-07, [scroll anchoring](drafts/scroll_anchoring.md).
+**Approved:** 2026-10-12, voice comment `20261012_204324-me` ("don't
+overdo it; I meant containers first of all, a list or a grid; you work
+with an item, and the system adds items above, below, left or right of
+it; the item the user works with must not jump; something hiding in one
+place and showing in another as I scroll is outside this rule; within
+limits, of course"), answering the audit's question whether the docked
+switches that push the rule count break UIM-01.
+
+UIM-01 holds for the item the reader works with in a list or a grid: the
+one selected or being looked at stays where it is while the app adds,
+removes or grows items around it, as far as the list's ends allow. A
+control that docks, hides or shows as the page scrolls is outside it; the
+docked switches pushing the count are not a breach.
