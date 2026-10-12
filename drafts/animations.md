@@ -25,6 +25,12 @@
   was; this is very important
 - show this rule, nothing jumps: it matters
 - add a new type of animation: see the headers
+- too much is shown here: one, two, three variants of such cards are
+  enough; and the change is wrong: when it folds, the icon morphs into its
+  new size and place, the time and the text too, they move to their new
+  place; not something disappearing and something appearing, the elements
+  really morph into their new place; it's more morphing than
+  transformations
 
 # Animations
 
@@ -132,29 +138,34 @@ end.
 
 ## A header opens its message and folds it back
 
-A conversation shows each message folded to one line, its time and a
-summary, or open in full. Clicking a folded header opens the message: the
-one line fades into the full header, the name and the time, in the same
-place; the body unfolds below it, its height growing from nothing to its
-own; and the messages below slide down with its edge. Clicking the open
-header folds it back the same way, backwards. Without the movement, the
-messages below jump by the height of the body, and the reader loses the
-one they were reading.
+A message is either folded to one line, a small avatar, its time and the
+start of its text, or open in full, a larger avatar, the name, the time,
+the whole text and maybe a picture. Clicking a folded header opens the
+message, clicking the open one folds it back. Nothing disappears to be
+replaced by something else: the parts the two layouts share morph from one
+into the other. Folding, the avatar shrinks into its place in the line, the
+time moves beside it, and the text glides up into the one line at its
+smaller size; opening, they morph back. Only what has no place in the line,
+the name, the picture, the words past the first line, fades. Without the
+morph, the reader sees one card swapped for another and has to find the
+avatar, the time and the words again.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="animations-expand-dark.gif">
-  <img alt="Headers open and fold: the line fades into the full header, the body unfolds, the messages below slide; one opened and turned back half way; the clicked header stays on the dashed line" src="animations-expand.gif">
+  <img alt="Three cards: the avatar, the time and the text morph between the one-line header and the open message, slowly at 2 s, then at 400 ms; one turned back half way; the clicked header stays on the dashed line" src="animations-expand.gif">
 </picture>
 
+- **The parts morph, nothing pops.** The avatar, the time and the text are
+  the same in both layouts; each travels from where it is to where it goes
+  and takes its new size on the way.
+- **What has no place fades.** The name, the picture and the rest of the
+  text fade out as the card folds, and in as it opens; the card's height
+  goes from the one to the other with them.
 - **The header stays put.** The header clicked stands still from the first
   frame to the last; only what is below it moves (UIM-01). The demo marks
   its place with a dashed line.
-- **At the end of the list too.** A fold with the list scrolled to its end
-  would pull the scroll back and move the header down; the list keeps room
-  below its last message instead, and the room goes as the reader scrolls
-  up, without moving anything.
-- **A click mid-way turns it back.** The body folds from the height it has
-  at that moment, and opens again from there.
+- **A click mid-way turns it back.** Every part starts back from where it
+  stands on the screen at that moment, at the size it has then.
 
 ## How the demo moves
 
@@ -163,9 +174,9 @@ All the movements share one duration, 400 ms by default, and one easing,
 pages move as one strip: a new page joins it next to the current one, on the
 side it comes from, and the strip moves until the new page stands in place.
 A list measures every row before and after a change and plays the difference
-(FLIP), so a change mid-way starts from where the rows are. A message's body
-animates its height from what it measures now to what it measures at the
-end, and its two header lines their opacity, so a click mid-way starts from
-where they stand. The GIFs are
+(FLIP), so a change mid-way starts from where the rows are. A message card measures its avatar,
+time and text where they are seen, switches its layout, measures them again
+and morphs each one from the first box to the second; a copy of the text
+travels with it and fades, and a click mid-way starts from where they stand. The GIFs are
 recorded from the demo frame by frame at 30 frames a second, with the time
 and a progress bar (DOC-14).
