@@ -77,8 +77,10 @@ wrappers are still worth having:
 
 ## Committed and not committed
 
-- `build/` holds what `bin/build` produced. Never committed, always
-  reproducible.
+- `build/` is the build's temporary directory: it and everything in it
+  are never committed, and can always be made again. What `bin/build`
+  writes elsewhere, a page the repository serves, is an ordinary file
+  (MP-54).
 - `dist/` holds the released build — what `bin/release` ships. It is
   committed, at release time only (see
   [../packaging/packaging.md](../packaging/packaging.md)).

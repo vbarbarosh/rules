@@ -625,3 +625,18 @@ file shaped by a tool: `src/config.js` exporting `rules_config` became
 that builds a value is named for making it. The package path
 `@vbarbarosh/rules/config` stays, pointing at the new file, so projects
 that load it keep working.
+
+## MP-54 — build/ is never committed; nothing more
+
+**Scope:** PROJ-04, [project layout](drafts/layout.md).
+**Approved:** 2026-10-12, voice comment `20261012_203743-me` ("there is no
+exception here: build/ and everything inside is never committed; build/ is
+a temporary directory for the build, it does not go into the repository;
+so there is no contradiction, the rule was badly written"), answering the
+audit's question whether the committed `docs/*.html` are an exception.
+
+PROJ-04 says only that `build/`, the build's temporary directory, and
+everything in it are never committed. It does not say that everything
+`bin/build` produces goes into `build/`: a file `bin/build` writes
+elsewhere, such as the pages under `docs/` the site serves, is an ordinary
+file, committed like any other.
