@@ -21,9 +21,10 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below, all 277 of them, in one filterable table**
-- JavaScript formatting — [specification](../FORMATTING.md) · [visual representation](../formatting.html)
-- Bash scripts — all scripts follow [bin/templ](../bin/templ), including strict mode, temporary-directory cleanup, diagnostics, and colored exit messages.
+- **[docs/rules.html](rules.html) — every rule below but the animations, all 280 of them, in one filterable table; the 15 animation rules are on [animations.html](animations.html)**
+
+### Naming and variables (NAME, VAR, FN)
+
 - [drafts/var_names.md](../drafts/var_names.md) — a variable name states the shape of its data
 - [drafts/generic_names.md](../drafts/generic_names.md) — `i`, `v`, `e`, `out` and the other generic names, each with its one meaning
 - [drafts/names_written_whole.md](../drafts/names_written_whole.md) — a name is never glued from strings at run time; a known set is a `match` or a `switch`
@@ -37,28 +38,46 @@ It's just not written down.
 - [drafts/var_names_error.md](../drafts/var_names_error.md) — errors use `e` in arrows and `error` in regular handlers
 - [drafts/var_names_time0.md](../drafts/var_names_time0.md) — the start time of a measurement is always named `time0`
 - [drafts/var_names_event.md](../drafts/var_names_event.md) — events use `v` in arrows and `event` in regular functions; nested handler names
+- [drafts/value_label.md](../drafts/value_label.md) — selectable options are `{value, label}`
+
+### Formatting and files (FMT, FLOW, FILE)
+
+- JavaScript formatting — [specification](../FORMATTING.md) · [visual representation](../formatting.html)
 - [drafts/formatting_blocks.md](../drafts/formatting_blocks.md) — brace and layout catalog, construction by construction
 - [drafts/imports_sorted.md](../drafts/imports_sorted.md) — the import block is a plain byte-order line sort
 - [drafts/new_code_placement.md](../drafts/new_code_placement.md) — new code takes its place from its surroundings; a run of `render_*` stays unbroken
-- [drafts/css_classes.md](../drafts/css_classes.md) — class attribute order, smcss utilities, what leads a rule block
 - [drafts/cli_main.md](../drafts/cli_main.md) — an executable hands `main` to `cli(main)`
 - [drafts/endpoint_comment.md](../drafts/endpoint_comment.md) — every route function carries a `METHOD /path (params)` comment
-- [drafts/sql.md](../drafts/sql.md) — a MySQL query is laid out like code: upper-case keywords, top-level clauses on their own lines
 - [drafts/interactions-should-return-only-boolean-flag.md](../drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag; the best practices for [vue-modal](https://github.com/vbarbarosh/vue-modal)
+- [drafts/one_export_per_file.md](../drafts/one_export_per_file.md) — a reusable module exports one public value last; executable scripts export nothing
+
+### Projects, scripts and releases (PROJ, REL, GIT)
+
+- Bash scripts — every script starts as a copy of [bin/templ](../bin/templ). Its header, strict mode included, and the `script` / `scriptdir` / `scriptname` lines stay; the colors, the exit message, the temporary directory and the four `echo` lines stay only where the script uses them.
 - [drafts/layout.md](../drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
 - [drafts/readme.md](../drafts/readme.md) — a README in one order: badges, cover, name, description, website, quick start, docs, license
-- [drafts/page_header.md](../drafts/page_header.md) — every project page opens with one header: name and version on the left, theme switch and GitHub on the right
 - [drafts/configure.md](../drafts/configure.md) — `bin/configure` asks every question up front, `sudo` included
 - [drafts/data.md](../drafts/data.md) — `data/` is the project's permanent data; one mount keeps it in docker
-- [drafts/value_label.md](../drafts/value_label.md) — selectable options are `{value, label}`
-- [drafts/logs.md](../drafts/logs.md) — `[time][group_uid][sender] details`, one event per line · [cheatsheet](../drafts/logs-cheatsheet.html)
-- [drafts/one_export_per_file.md](../drafts/one_export_per_file.md) — a reusable module exports one public value last; executable scripts export nothing
-- [drafts/theme_switch.md](../drafts/theme_switch.md) — every new UI carries a light/dark switch; two states, never System
-- [drafts/audit_note.md](../drafts/audit_note.md) — a full audit goes to `notes/audit-<date>.md`; its register is the issue list
 - [drafts/commits.md](../drafts/commits.md) — a commit title is `scope: description`, lowercase, 72 characters at most
-- [drafts/WRITING.md](../drafts/WRITING.md) — author notes and manually approved rules govern the regenerated explanation
-- [MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md) — durable author-approved decisions, preserved when explanations are rewritten
 - [packaging/packaging.md](../packaging/packaging.md) — releasing a prebuilt `dist/` with `bin/release`
+
+### Logs, CSS and SQL (LOG, CSS, SQL)
+
+- [drafts/css_classes.md](../drafts/css_classes.md) — class attribute order, smcss utilities, what leads a rule block
+- [drafts/sql.md](../drafts/sql.md) — a MySQL query is laid out like code: upper-case keywords, top-level clauses on their own lines
+- [drafts/logs.md](../drafts/logs.md) — `[time][group_uid][sender] details`, one event per line · [cheatsheet](../drafts/logs-cheatsheet.html)
+
+### UI appearance (UI)
+
+- [drafts/page_header.md](../drafts/page_header.md) — every project page opens with one header: name and version on the left, the links and then the theme switch, always last, on the right
+- [drafts/theme_switch.md](../drafts/theme_switch.md) — every new UI carries a light/dark switch; two states, never System
+
+### Writing the rules (DOC)
+
+- [drafts/audit_note.md](../drafts/audit_note.md) — a full audit goes to `notes/audit-<date>.md`; its register is the issue list
+- [drafts/WRITING.md](../drafts/WRITING.md) — author notes and manually approved rules govern the regenerated explanation
+- [drafts/gifs.md](../drafts/gifs.md) — a GIF in the docs shows its time and a progress bar, at 30 frames a second
+- [MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md) — durable author-approved decisions, preserved when explanations are rewritten
 - [demos/](../demos/) — naming demos; `item_to.js` shows a superseded convention
 
 ## UI mechanics
@@ -72,14 +91,15 @@ and keeping the reader's place. See the [UI mechanics group](rules.html#UIM).
 - [drafts/optimistic_updates.md](../drafts/optimistic_updates.md) — show local changes immediately over an immutable backend snapshot; confirm, refresh and reconcile, with safe retries
 - [drafts/main_search.md](../drafts/main_search.md) — typing outside editable fields focuses the primary search and keeps the first character
 - [drafts/default_list_item.md](../drafts/default_list_item.md) — select the first actionable list item by default; Enter acts on it unless the user selects another
+- [drafts/dead_controls.md](../drafts/dead_controls.md) — show only what works: a control known to fail is hidden, or disabled with the reason on it
 
 ## Animations
 
 How a screen moves: sections, rows and lists. Each rule has a picture and
 a live demo, on a page of its own: [animations.html](animations.html).
 
-- [drafts/animations.md](../drafts/animations.md) — sections slide the way the list goes, depth is left and right, a list change never moves the working row
-- [drafts/animations.html](../drafts/animations.html) — the live demos, each one alone with `#slide-workspaces`, `#slide-into-row` or `#list-changes`
+- [drafts/animations.md](../drafts/animations.md) — sections slide the way the list goes, depth is left and right, a list change never moves the working row, a header opens and folds
+- [drafts/animations.html](../drafts/animations.html) — the live demos, each one alone with `#slide-workspaces`, `#slide-into-row`, `#list-changes` or `#expand-collapse`
 
 ## Vue 2
 

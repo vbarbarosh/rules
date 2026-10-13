@@ -162,6 +162,16 @@ for (const item of [
     });
 }
 
+test('docs/README.md counts the rules the indexes count', function () {
+    const rules_markdown = fs.readFileSync(path.join(root_dir, 'docs/rules.md'), 'utf8');
+    const animations_markdown = fs.readFileSync(path.join(root_dir, 'docs/animations.md'), 'utf8');
+    const readme = fs.readFileSync(path.join(root_dir, 'docs/README.md'), 'utf8');
+    const rules_count = rules_markdown.match(/^(\d+) rules · /m)[1];
+    const animations_count = animations_markdown.match(/^(\d+) rules · /m)[1];
+    assert.ok(readme.includes(`all ${rules_count} of them`), `docs/README.md does not say all ${rules_count} of them`);
+    assert.ok(readme.includes(`the ${animations_count} animation rules`), `docs/README.md does not say the ${animations_count} animation rules`);
+});
+
 // rules.md with a Try it link added at the end of one rule's form cell.
 function try_it_add(markdown, code, url)
 {

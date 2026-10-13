@@ -7,11 +7,13 @@ document it came from; that document stays the source of truth.
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 
-Codes match [rules.html](rules.html): a rule that page does not carry is
-appended to the end of its group, and `LINT` is a group of its own.
+Codes match [rules.html](rules.html), which is built from this file, and
+`LINT` is a group of its own.
 Existing codes stay stable when a rule moves to another group; a group of
 its own gets its own codes, and the old ones still open the rule: UI-09 to
 UI-20 are UIM-01 to UIM-12 since 2026-10-08.
+A retired code is never given to another rule: FMT-06, FILE-22 and LINT-05
+are retired.
 In the canonical forms, `✓` and `✗` are verdicts, not code.
 
 | Tag | Group | Rules | |

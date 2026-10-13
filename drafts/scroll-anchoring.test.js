@@ -3,8 +3,7 @@ const path = require('node:path');
 const test = require('node:test');
 const {chromium} = require('playwright');
 
-// Run: npm i --no-save playwright && npx playwright install chromium
-//      node --test drafts/scroll-anchoring.test.js
+// Run: bin/configure, then node --test drafts/scroll-anchoring.test.js
 
 const url = `file://${path.join(__dirname, 'scroll-anchoring.html')}`;
 

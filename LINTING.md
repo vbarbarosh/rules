@@ -2,9 +2,9 @@
 
 This repository is also a reusable ESLint plugin. It checks JavaScript, Vue
 2/3 single-file components, and CSS/SCSS/indented Sass. It follows the
-whole-line import sorting rule in `drafts/imports_sorted.md`, the brace
-catalog in `drafts/formatting_blocks.md`, and the class conventions in
-`drafts/css_classes.md`.
+whole-line import sorting rule in `drafts/imports_sorted.md`, part of the
+brace catalog in `drafts/formatting_blocks.md` (the rest is under Scope),
+and the class conventions in `drafts/css_classes.md`.
 
 ## Run it
 
@@ -23,8 +23,9 @@ works from any working directory.
 `npm run check` lints the implementation and runs the rule and integration
 tests. The old naming demos and documentation examples are not included:
 some intentionally demonstrate invalid or superseded conventions. It also runs
-`bin/build`, which renders `docs/rules.html` from `docs/rules.md` and
-`docs/glossaries.html` from `glossaries/*.md`, each through its
+`bin/build`, which renders `docs/rules.html` and `docs/animations.html` from
+their Markdown, `docs/glossaries.html` from `glossaries/*.md` and
+`docs/agents.html` from `agents/*.md`, each through its
 `docs/*.template.html`, and fails when a page differs from the committed one:
 edit the markdown or the template, never the page, then run `bin/build`.
 
@@ -202,7 +203,8 @@ module.exports = make_rules_config({
   prose in the rulebook. Domain semantics, conceptual phase breaks, API
   contracts, derived-state ownership, full module structure, Vue attribute
   ordering and compound-expression parentheses still need review or further
-  rules. Module-format restrictions remain a consuming project's choice.
+  rules, and so do FMT-05, FMT-11, FMT-14, FMT-26 and FMT-28 to FMT-31.
+  Module-format restrictions remain a consuming project's choice.
 
 The implementation uses CommonJS to match this repository's `FORMATTING.md`.
 ESLint's required plugin/config objects and visitor functions follow its API;
