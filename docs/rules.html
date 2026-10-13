@@ -2308,7 +2308,7 @@ import {promisify} from 'util';</pre><button class="copy" type="button">Copy</bu
 </article>
 <article class="rule" id="FILE-20">
 <a class="code" href="#FILE-20">FILE-20</a>
-<div class="text"><p><strong>One library export, last, and the file bears its name.</strong> A reusable/library module exports one public value; the file is named after that value. Declare it above and export its name last: <code>module.exports = name;</code> or <code>export default name;</code>. Never combine an ES-module declaration with its export or export an inline expression. Executable scripts export nothing; tool-shaped files follow the tool.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>One library export, last, and the file bears its name.</strong> A reusable/library module exports one public value; the file is named after that value. Declare it above and export its name last: <code>module.exports = name;</code> or <code>export default name;</code>. Never combine an ES-module declaration with its export or export an inline expression. Executable scripts export nothing; tool-shaped files follow the tool. The tool decides the export's shape, never the file's name (MP-53).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/one_export_per_file.md" title="drafts/one_export_per_file.md">one_export_per_file.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre><span class="cmt">// helper.js</span>
 function helper()
 {

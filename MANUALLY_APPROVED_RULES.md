@@ -45,7 +45,7 @@ rules about prototypes and shared-state mutation retain their own scope.
 
 ## MP-04 — Module formats belong to the consuming project
 
-**Scope:** FILE-07, LINT-07, [LINTING.md](LINTING.md).
+**Scope:** FILE-17, LINT-07, [LINTING.md](LINTING.md).
 **Approved:** 2026-09-23;
 [recorded author rulings](notes/audit-2026-09-23.md#10-status-at-the-end-of-the-day), RULES-02.
 
@@ -83,6 +83,8 @@ A function name has a verb or a function marker: `_from_`, `_to_`, `_of_`,
 `is_`. The listed verb-first families are exceptions to domain-first naming.
 A bare `_by_` name is data and is never called; a Map is read with `.get()`.
 Unresolved boolean-data and naming-family scope questions remain separate.
+
+**Clarified:** 2026-10-08 by MP-40, `is_` is not a function marker; `check_` is.
 
 ## MP-08 — Layout class order
 
@@ -169,7 +171,7 @@ failed step safely.
 ## MP-16 — Agent guides are separate from code rules
 
 **Scope:** [agent guides](agents/README.md), the code-rule index.
-**Approved:** prior author decision recorded in the
+**Approved:** before 2026-10-06, a prior author decision recorded in the
 [October 6 independent review](notes/review-2026-10-06-independent.md).
 
 The guides describe how an agent works. They stay separate from the code-rule
@@ -178,8 +180,7 @@ index, which describes how the code looks.
 ## MP-17 — One shared current-theme icon pair
 
 **Scope:** [theme switches](drafts/theme_switch.md), UI-02, all matching UI controls.
-**Approved:** 2026-10-07;
-[author recording](../notes/messages/20261007_193221-me/README.md).
+**Approved:** 2026-10-07, author recording `20261007_193221-me`.
 
 Use the same SVG sun/crescent pair everywhere. Show the current theme: sun for
 Light, crescent for Dark. One click toggles directly between those two states,

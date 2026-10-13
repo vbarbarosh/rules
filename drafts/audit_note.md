@@ -30,12 +30,14 @@ In this order:
         | Demo scripts   | 3/3 run without error  |
         | Secrets        | none in tree or history |
 
-5. **Finding register** — one table of all findings:
+5. **Finding register** — one table of all findings, with a Status column:
+   open, fixed or withdrawn. A finding fixed the same day keeps its row; its
+   Status says fixed, with the commit.
 
-        | Id       | Severity | Area    | Title                              |
-        |----------|----------|---------|------------------------------------|
-        | DEMO-01  | high     | docs    | Classes banned in one file, shown in another |
-        | DEMO-02  | low      | hygiene | No `.gitignore`                    |
+        | Id       | Severity | Area    | Title                                        | Status |
+        |----------|----------|---------|----------------------------------------------|--------|
+        | DEMO-01  | high     | docs    | Classes banned in one file, shown in another | open   |
+        | DEMO-02  | low      | hygiene | No `.gitignore`                              | fixed  |
 
 6. **Findings** — numbered sections by area, one `### <id> <title> (<severity>)`
    per finding.

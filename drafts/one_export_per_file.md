@@ -102,4 +102,5 @@ rule.
 - A named import from a library is the library's shape:
   `import {mapState} from 'vuex';`, `const {promisify} = require('util');`.
 - A file whose shape is dictated by a tool follows the tool:
-  `module.exports.mochaHooks` in a mocha hooks file.
+  `module.exports.mochaHooks` in a mocha hooks file. The tool decides the
+  export's shape, never the file's name (MP-53).
