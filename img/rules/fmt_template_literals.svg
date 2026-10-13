@@ -12,5 +12,5 @@
 <rect x="650" y="195" width="480" height="32" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="660.0" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">`weapons/turret-${weapon.id}`</text>
 <line x1="566" y1="208.0" x2="632" y2="208" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<text x="48" y="286" fill="#686a61" font-size="21">Plain quotes stay for a string with nothing to put in it.</text>
+<text x="48" y="286" fill="#686a61" font-size="21">Plain quotes stay for a one-line string with nothing to put in it.</text>
 </svg>

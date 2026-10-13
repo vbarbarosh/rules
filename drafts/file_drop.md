@@ -90,11 +90,11 @@ async function entry_files_read(entry, files)
 
 function files_as_dialog_takes(files, input)
 {
-    const accepted = files.filter(v => file_accepted(v, input.accept));
+    const accepted = files.filter(v => is_file_accepted(v, input.accept));
     return input.multiple ? accepted : accepted.slice(0, 1);
 }
 
-function file_accepted(file, accept)
+function is_file_accepted(file, accept)
 {
     if (!accept) {
         return true;

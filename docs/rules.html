@@ -2059,7 +2059,7 @@ items.filter(function (item) {
 </article>
 <article class="rule" id="FMT-31">
 <a class="code" href="#FMT-31">FMT-31</a>
-<div class="text"><p><strong>Build strings with template literals.</strong> A string built from parts is a template literal; <code>+</code> never joins a string to a value. Plain quotes stay for a string with nothing to interpolate.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Build strings with template literals.</strong> A string built from parts is a template literal; <code>+</code> never joins a string to a value. Plain quotes stay for a one-line string with nothing to interpolate; a string that spans lines is a template literal (SQL-01).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>'weapons/turret-' + weapon.id    <span class="no">✗ no</span>
 &#96;weapons/turret-${weapon.id}&#96;    <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/fmt_template_literals.svg"><img class="light" src="../img/rules/fmt_template_literals.svg" alt="'weapons/turret-' + weapon.id turned into a template literal" width="1200" height="318" loading="lazy"><img class="dark" src="../img/rules/fmt_template_literals-dark.svg" alt="'weapons/turret-' + weapon.id turned into a template literal" width="1200" height="318" loading="lazy"></a></div>
@@ -2266,7 +2266,7 @@ import {promisify} from 'util';</pre><button class="copy" type="button">Copy</bu
 <article class="rule" id="FILE-12">
 <a class="code" href="#FILE-12">FILE-12</a>
 <div class="text"><p><strong>Constants follow the requires.</strong> File-level constants and variables follow the <code>require</code> statements.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>const report_limit = 31;</pre><button class="copy" type="button">Copy</button></div>
+<div class="form"><pre>const REPORT_LIMIT = 31;</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/file_constants_after_requires.svg"><img class="light" src="../img/rules/file_constants_after_requires.svg" alt="A constant above the requires, moved below them" width="1200" height="385" loading="lazy"><img class="dark" src="../img/rules/file_constants_after_requires-dark.svg" alt="A constant above the requires, moved below them" width="1200" height="385" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FILE-13">
@@ -2938,9 +2938,16 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 <article class="rule" id="SQL-02">
 <a class="code" href="#SQL-02">SQL-02</a>
 <div class="text"><p><strong>Keywords upper case, names lower case.</strong> Every keyword, type and function is upper case; tables, columns, indexes and aliases stay lower case, spelled as the schema spells them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/sql.md" title="drafts/sql.md">sql.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>SELECT MIN(id) AS id FROM user_identities   <span class="yes">✓ yes</span>
-select min(id) as id from user_identities   <span class="no">✗ no</span></pre><button class="copy" type="button">Copy</button></div>
-<div class="figures"><a class="figure" href="../img/rules/sql_keywords_upper_names_lower.svg"><img class="light" src="../img/rules/sql_keywords_upper_names_lower.svg" alt="A query's tokens as keywords and names; an all-lower-case query beside keywords upper case and names lower case" width="1200" height="476" loading="lazy"><img class="dark" src="../img/rules/sql_keywords_upper_names_lower-dark.svg" alt="A query's tokens as keywords and names; an all-lower-case query beside keywords upper case and names lower case" width="1200" height="476" loading="lazy"></a></div>
+<div class="form"><pre>SELECT
+    MIN(id) AS id
+FROM
+    user_identities   <span class="yes">✓ yes</span>
+
+select
+    min(id) as id
+from
+    user_identities   <span class="no">✗ no</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/sql_keywords_upper_names_lower.svg"><img class="light" src="../img/rules/sql_keywords_upper_names_lower.svg" alt="A query's tokens as keywords and names; an all-lower-case query beside keywords upper case and names lower case" width="1200" height="528" loading="lazy"><img class="dark" src="../img/rules/sql_keywords_upper_names_lower-dark.svg" alt="A query's tokens as keywords and names; an all-lower-case query beside keywords upper case and names lower case" width="1200" height="528" loading="lazy"></a></div>
 </article>
 <article class="rule" id="SQL-03">
 <a class="code" href="#SQL-03">SQL-03</a>
@@ -3266,8 +3273,12 @@ await keep(async function () {
 <div class="form"><pre>file_drop_bind(element, input, take);
 
 <span class="cmt">// the input says what the dialog takes</span>
-if (entry.isFile || input.webkitdirectory)
-take(files_as_dialog_takes(files, input));</pre><button class="copy" type="button">Copy</button></div>
+for (const entry of entries) {
+    if (entry.isFile || input.webkitdirectory) {
+        await entry_files_read(entry, files);
+    }
+}
+take(files_as_dialog_takes(files.length ? files : &#91;...event.dataTransfer.files], input));</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/uim_drop_takes_what_dialog_takes.svg"><img class="light" src="../img/rules/uim_drop_takes_what_dialog_takes.svg" alt="A picked and a dropped file both go through files_as_dialog_takes to take(files)" width="1200" height="540" loading="lazy"><img class="dark" src="../img/rules/uim_drop_takes_what_dialog_takes-dark.svg" alt="A picked and a dropped file both go through files_as_dialog_takes to take(files)" width="1200" height="540" loading="lazy"></a></div>
 </article>
 <article class="rule" id="UIM-06">

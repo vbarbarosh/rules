@@ -49,7 +49,7 @@ Nor is a value returned only on a condition, through `?:` or an `if`: the
 function returns one value or another, and each is named by what it is:
 
 ```js
-function tags_unique(tags)
+function tags_dedupe(tags)
 {
     const unique_tags = [...new Set(tags)];
     return (unique_tags.length === tags.length) ? tags : unique_tags;

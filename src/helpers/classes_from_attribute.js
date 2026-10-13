@@ -59,11 +59,13 @@ function classes_from_expression(node)
             else {
                 value = classes_from_expression(child);
             }
+            const prefixes = out.variants;
+            const suffixes = value.variants;
             const variants = [];
-            for (const before of out.variants) {
-                for (const after of value.variants) {
+            for (const prefix of prefixes) {
+                for (const suffix of suffixes) {
                     if (variants.length < 64) {
-                        variants.push([...before, ...after]);
+                        variants.push([...prefix, ...suffix]);
                     }
                     else {
                         out.unknown = true;

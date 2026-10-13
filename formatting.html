@@ -1090,7 +1090,7 @@ const fs = require('node:fs');</code></pre>
             </div>
             <div class="file-row">
                 <div class="step">03 / POLICY</div>
-                <pre><code>const report_limit = 31;</code></pre>
+                <pre><code>const REPORT_LIMIT = 31;</code></pre>
             </div>
             <div class="file-row run">
                 <div class="step">04 / RUN</div>
@@ -1177,10 +1177,10 @@ const fs = require('node:fs');</code></pre>
             <div class="grammar-line"><code>items_sorted_by_time</code><span class="shape">Item[]</span></div>
         </article>
     </div>
-    <pre class="assignment"><code><span class="kw">const</span> <span class="fn">users_by_role</span> = users_group_by_role(users);</code></pre>
+    <pre class="assignment"><code><span class="kw">const</span> users_by_role = <span class="fn">users_group_by_role</span>(users);</code></pre>
     <div class="annotations">
         <div class="annotation"><b><code>users</code></b>Plural: one key can return many users.</div>
-        <div class="annotation"><b><code>_by_role</code></b>Data lookup: bracket access, not a function call.</div>
+        <div class="annotation"><b><code>_by_role</code></b>Data lookup: bracket access, or <code>.get()</code> on a Map; never a function call.</div>
         <div class="annotation"><b><code>_group_by_</code></b>Verb marker: this side performs the grouping.</div>
     </div>
 </section>

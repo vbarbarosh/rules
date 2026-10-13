@@ -29,14 +29,14 @@ return (unique_tags.length === tags.length) ? tags : unique_tags;
 
 ```js
 // ✗ v outside a tiny arrow
-items.forEach(function (v) {
+for (const v of items) {
     render(v);
-});
+}
 
-// ✓ a regular function names its parameter
-items.forEach(function (item) {
+// ✓ a loop names its variable by what it holds
+for (const item of items) {
     render(item);
-});
+}
 ```
 
 ```js
