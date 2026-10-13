@@ -190,16 +190,19 @@ project, so all JavaScript code follows the same conventions.
     * In a logical expression (`&&`, `||`, `??`) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses
     * A simple operand stays bare: an identifier, member access, call, template literal or unary negation — the line VUE-06 draws for directive values
     * A chain of one logical operator is one expression: `a && b && c` stays bare
+    * A ternary given whole — a value, an argument, a return — stays bare: it is wrapped only as an operand of another operator, where precedence needs it
     * Example:
 
       ```
       // BAD
       return this.dev.is_ai_chat_dev || i === this.messages.length - 1;
       const pressed = button.dataset.set === theme ? 'true' : 'false';
+      api_showcases_create: (location.search.includes('showcase=api') ? '/api/v1/showcases/insupdel' : null),
 
       // GOOD
       return this.dev.is_ai_chat_dev || (i === this.messages.length - 1);
       const pressed = (button.dataset.set === theme) ? 'true' : 'false';
+      api_showcases_create: location.search.includes('showcase=api') ? '/api/v1/showcases/insupdel' : null,
       ```
 
 * **One variable per declaration**

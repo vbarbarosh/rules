@@ -2012,12 +2012,15 @@ function upload_post(req, res)
 </article>
 <article class="rule" id="FMT-27">
 <a class="code" href="#FMT-27">FMT-27</a>
-<div class="text"><p><strong>Parenthesize compound operands in logic.</strong> In a logical expression (<code>&amp;&amp;</code>, <code>||</code>, <code>??</code>) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses. A simple operand — identifier, member access, call, template literal, unary negation — stays bare, and a chain of one logical operator is one expression.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Parenthesize compound operands in logic.</strong> In a logical expression (<code>&amp;&amp;</code>, <code>||</code>, <code>??</code>) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses. A simple operand — identifier, member access, call, template literal, unary negation — stays bare, and a chain of one logical operator is one expression. A ternary given whole — a value, an argument, a return — stays bare too: it is wrapped only as an operand of another operator.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>return is_dev &#124;&#124; i === end - 1;     <span class="no">✗ no</span>
 return is_dev &#124;&#124; (i === end - 1);   <span class="yes">✓ yes</span>
 
-(state === 'done') ? 'ok' : 'wait'</pre><button class="copy" type="button">Copy</button></div>
-<div class="figures"><a class="figure" href="../img/rules/fmt_parenthesize_compound.svg"><img class="light" src="../img/rules/fmt_parenthesize_compound.svg" alt="A comparison beside // and a ternary condition, each wrapped in parentheses" width="1200" height="442" loading="lazy"><img class="dark" src="../img/rules/fmt_parenthesize_compound-dark.svg" alt="A comparison beside // and a ternary condition, each wrapped in parentheses" width="1200" height="442" loading="lazy"></a></div>
+(state === 'done') ? 'ok' : 'wait'
+
+url: (is_api ? '/api/v1' : null),   <span class="no">✗ no</span>
+url: is_api ? '/api/v1' : null,     <span class="yes">✓ yes</span></pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/fmt_parenthesize_compound.svg"><img class="light" src="../img/rules/fmt_parenthesize_compound.svg" alt="A comparison beside // and a ternary condition, each wrapped in parentheses, and a ternary given whole as a value, bare" width="1200" height="566" loading="lazy"><img class="dark" src="../img/rules/fmt_parenthesize_compound-dark.svg" alt="A comparison beside // and a ternary condition, each wrapped in parentheses, and a ternary given whole as a value, bare" width="1200" height="566" loading="lazy"></a></div>
 </article>
 <article class="rule" id="FMT-28">
 <a class="code" href="#FMT-28">FMT-28</a>

@@ -849,3 +849,14 @@ list.
 `req` and `res`, the request and response of an Express route handler,
 are generic names: kept as they are, never spelled out as `request` and
 `response`.
+
+## MP-72 — A ternary given whole stays bare
+
+**Scope:** FMT-27, [FORMATTING.md](FORMATTING.md).
+**Approved:** 2026-10-13, voice comment `20261013_104716-me` on an object
+property given `(cond ? a : b)` and `cond ? a : b`: "in such cases the
+parentheses are redundant; better without them, the second one".
+
+A ternary given whole as a value, an argument or a return is written
+without parentheses around it. They go around a ternary only where it is
+an operand of another operator and precedence needs them.
