@@ -31,7 +31,7 @@ every case found.
 ## Build and checks
 
 - `bin/build` writes `docs/rules.html`, `docs/animations.html`,
-  `docs/glossaries.html` and `docs/agents.html` from their Markdown; run
-  it after changing them.
+  `docs/glossaries.html`, `docs/agents.html` and `docs/diagrams.html` from
+  their Markdown; run it after changing them.
 - `npm run check`: lint, the unit tests, and the built pages unchanged.
 - The browser tests: `node --test tests/browser/*.test.js`.

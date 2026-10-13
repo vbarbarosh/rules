@@ -7,7 +7,7 @@ const {chromium} = require('playwright');
 // Run with Playwright and Chromium installed: node --test tests/browser/picture-size.test.js
 const root_dir = path.join(__dirname, '../..');
 const photoswipe_url = `https://cdn.jsdelivr.net/npm/photoswipe@${JSON.parse(fs.readFileSync(path.join(__dirname, '../../node_modules/photoswipe/package.json'), 'utf8')).version}/dist/`;
-const PAGE_FILES = ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/glossaries.html'];
+const PAGE_FILES = ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/glossaries.html'];
 let browser;
 
 test.before(async function () {
@@ -166,7 +166,9 @@ for (const page_file of PAGE_FILES) {
                 const before = await anchor.evaluate(v => v.getBoundingClientRect().top);
                 await page.locator(`.pictures-docked button[data-pictures="${state}"]`).click();
                 const after = await anchor.evaluate(v => v.getBoundingClientRect().top);
-                assert.ok(Math.abs(after - before) <= 1, `${state}: the picture moved from ${before} to ${after}`);
+                // where the page ends before the place can hold, it stands at its end (ANIM-07)
+                const at_end = await page.evaluate(() => scrollY >= document.documentElement.scrollHeight - innerHeight - 1);
+                assert.ok((Math.abs(after - before) <= 1) || (at_end && (after > before)), `${state}: the picture moved from ${before} to ${after}`);
             }
         }
         finally {

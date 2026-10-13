@@ -11,6 +11,11 @@ const RAW_URL = 'https://raw.githubusercontent.com/vbarbarosh/rules/main/';
 const CLASS_BY_MARKER = {'//': 'cmt', '&lt;!--': 'cmt', '✓': 'yes', '✗': 'no', '←': 'aside'};
 const docs_dir = path.join(__dirname, '..', 'docs');
 const GLOSSARY_FILES = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md', 'glossaries/maps.md'];
+// The words that differ between the two pages of guides
+const GUIDE_PAGES = {
+    agents: {noun_one: 'guide', noun_many: 'guides', noun_title: 'Guides', filter_example: 'states, scope, ask'},
+    diagrams: {noun_one: 'diagram', noun_many: 'diagrams', noun_title: 'Diagrams', filter_example: 'retry, icons, events'},
+};
 const MARKER_REGEX = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
 const root_dir = path.join(__dirname, '..');
 const STATIC_PAGES = ['formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html', 'drafts/animations.html'];
@@ -57,16 +62,27 @@ function build_glossaries_html()
     fs.writeFileSync(path.join(docs_dir, 'glossaries.html'), html_from_glossaries(template, glossaries));
 }
 
+// agents/ and diagrams/: two sets of guides, one template; the agents'
+// handing over names the diagrams too.
 function build_agents_html()
 {
     const template = fs.readFileSync(path.join(docs_dir, 'agents.template.html'), 'utf8');
-    const readme = fs.readFileSync(path.join(root_dir, 'agents', 'README.md'), 'utf8');
+    const agents = guides_read('agents');
+    const diagrams = guides_read('diagrams');
+    const handover = `${format_guides_handover(agents.guides)}\n${format_diagrams_handover(diagrams.guides)}`;
+    fs.writeFileSync(path.join(docs_dir, 'agents.html'), html_from_guides(template_keep_only(template, 'agents'), agents, handover));
+    fs.writeFileSync(path.join(docs_dir, 'diagrams.html'), html_from_guides(template_keep_only(template, 'diagrams'), diagrams, format_diagrams_handover(diagrams.guides)));
+}
+
+function guides_read(dir)
+{
+    const readme = fs.readFileSync(path.join(root_dir, dir, 'README.md'), 'utf8');
     const guides = [];
     for (const guide_file of guide_files_from_readme(readme)) {
-        const markdown = fs.readFileSync(path.join(root_dir, 'agents', guide_file), 'utf8');
-        guides.push(guide_from_markdown(markdown, guide_file));
+        const markdown = fs.readFileSync(path.join(root_dir, dir, guide_file), 'utf8');
+        guides.push(guide_from_markdown(markdown, guide_file, dir));
     }
-    fs.writeFileSync(path.join(docs_dir, 'agents.html'), html_from_guides(template, readme, guides));
+    return {dir, readme, guides};
 }
 
 // The pages written by hand: the version where the header shows one, the theme icons on all.
@@ -420,7 +436,16 @@ function format_guides_handover(guides)
 {
     const lines = ['Work the way these guides say; read them before the first edit:'];
     for (const guide of guides) {
-        lines.push(`- ${guide.title}: https://raw.githubusercontent.com/vbarbarosh/rules/main/${guide.file}`);
+        lines.push(`- ${guide.title}: ${RAW_URL}${guide.file}`);
+    }
+    return lines.join('\n');
+}
+
+function format_diagrams_handover(diagrams)
+{
+    const lines = ['Draw the pictures in your replies the way these diagrams say:'];
+    for (const diagram of diagrams) {
+        lines.push(`- ${diagram.title}: ${RAW_URL}${diagram.file}`);
     }
     return lines.join('\n');
 }
@@ -547,7 +572,8 @@ function html_from_inline(text)
     return out;
 }
 
-// agents/README.md: a title, a lede, then one "- [file](file) — note" line per guide, in reading order.
+// agents/README.md or diagrams/README.md: a title, a lede, then one
+// "- [file](file) — note" line per guide, in reading order.
 function guide_files_from_readme(readme)
 {
     const out = [];
@@ -562,33 +588,41 @@ function guide_files_from_readme(readme)
 
 // A guide is a two-half document: the author's words on top, then the
 // guide itself from its "# Title" line down.
-function guide_from_markdown(markdown, file)
+function guide_from_markdown(markdown, file, dir)
 {
     const lines = markdown.replace(/\n+$/, '').split('\n');
     const title_index = lines.findIndex(v => v.startsWith('# '));
     if (title_index === -1) {
-        throw new Error(`agents/${file}: no "# Title" line starts the guide`);
+        throw new Error(`${dir}/${file}: no "# Title" line starts the guide`);
     }
     return {
         id: path.basename(file, '.md'),
-        file: `agents/${file}`,
+        dir,
+        file: `${dir}/${file}`,
         title: lines[title_index].slice(2),
         words: lines.slice(0, title_index).join('\n').trim(),
         body: lines.slice(title_index + 1).join('\n').trim(),
     };
 }
 
-function html_from_guides(template, readme, guides)
+function html_from_guides(template, set, handover)
 {
+    const {dir, readme, guides} = set;
     const lines = readme.split('\n');
+    const words = GUIDE_PAGES[dir];
     const values = {
+        ...words,
         title: html_escape(lines[0].replace(/^# /, '')),
         version,
+        dir,
+        current_agents: (dir === 'agents') ? ' aria-current="page"' : '',
+        current_diagrams: (dir === 'diagrams') ? ' aria-current="page"' : '',
         lede: html_from_guide_inline(lines.slice(2, lines.indexOf('', 2)).join(' ')),
         guides_count: String(guides.length),
+        guides_noun: (guides.length === 1) ? words.noun_one : words.noun_many,
         guides_nav: guides.map(html_from_guide_link).join(''),
         guides_main: guides.map(html_from_guide).join(''),
-        handover: html_escape(format_guides_handover(guides)),
+        handover: html_escape(handover),
     };
     return template_fill(template, values);
 }
@@ -605,9 +639,9 @@ function html_from_guide(guide, index)
     const source = `<a class="src" href="${BLOB_URL}${guide.file}" title="${guide.file}">${path.basename(guide.file)}</a>`;
     return `<section class="group guide" id="${guide.id}">\n`
         + `<h2><span class="tag">${tag}</span><span class="name">${html_escape(guide.title)}</span></h2>\n`
-        + `<article class="prose">\n${html_from_guide_markdown(guide.body)}</article>\n`
+        + `<article class="prose">\n${html_from_guide_markdown(guide.body, guide.dir)}</article>\n`
         + '<div class="guide-foot">\n'
-        + `<details class="words"><summary>In the author's words</summary>\n${html_from_guide_markdown(guide.words)}</details>\n`
+        + `<details class="words"><summary>In the author's words</summary>\n${html_from_guide_markdown(guide.words, guide.dir)}</details>\n`
         + `<div class="guide-actions">${source}<button class="copy-guide" type="button">Copy for an agent</button></div>\n`
         + '</div>\n'
         + `<pre data-md hidden>${html_escape(md_from_guide(guide))}</pre>\n`
@@ -627,11 +661,11 @@ function md_from_guide(guide)
 
 // A picture of a guide, with its -dark twin when there is one; pictures on
 // consecutive lines share one row.
-function html_from_guide_image(image)
+function html_from_guide_image(image, dir)
 {
-    const url = path.posix.join('../agents', image[2]);
+    const url = path.posix.join(`../${dir}`, image[2]);
     if (!fs.existsSync(path.join(docs_dir, url))) {
-        throw new Error(`agents: no picture at ${image[2]}`);
+        throw new Error(`${dir}: no picture at ${image[2]}`);
     }
     return html_from_image(image[1], url, 'figure');
 }
@@ -639,7 +673,7 @@ function html_from_guide_image(image)
 // Enough Markdown for a guide: "## " headings, paragraphs, pictures (in one
 // row when several stand on consecutive lines), and "1." or "-" lists whose
 // items continue on indented lines and may hold a nested "-" list.
-function html_from_guide_markdown(markdown)
+function html_from_guide_markdown(markdown, dir)
 {
     let out = '';
     for (const block of markdown.split(/\n{2,}/)) {
@@ -650,7 +684,7 @@ function html_from_guide_markdown(markdown)
         }
         const images = lines.map(v => v.match(/^!\[([^\]]*)\]\(([^)]+)\)$/));
         if (images.every(Boolean)) {
-            const figures = images.map(html_from_guide_image).join('');
+            const figures = images.map(v => html_from_guide_image(v, dir)).join('');
             out += (images.length === 1) ? `${figures}\n` : `<div class="figures">${figures}</div>\n`;
             continue;
         }

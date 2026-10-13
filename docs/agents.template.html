@@ -1023,6 +1023,19 @@ footer {
         white-space: pre-wrap;
     }
 }
+
+/* A diagram is drawn for the whole column, so its words read at the text's
+   size; the text beside it keeps its line length. */
+main[data-page="diagrams"] .prose {
+    max-width: 964px;
+}
+
+main[data-page="diagrams"] .prose > p,
+main[data-page="diagrams"] .prose > ul,
+main[data-page="diagrams"] .prose > ol,
+main[data-page="diagrams"] .prose > h3 {
+    max-width: 72ch;
+}
 </style>
 <script>
 (function () {
@@ -1058,7 +1071,8 @@ footer {
         <nav class="pages" aria-label="Pages">
             <a href="rules.html">Rules</a>
             <a href="animations.html">Animations</a>
-            <a href="agents.html" aria-current="page">Agents</a>
+            <a href="agents.html"{{current_agents}}>Agents</a>
+            <a href="diagrams.html"{{current_diagrams}}>Diagrams</a>
             <a href="glossaries.html">Glossaries</a>
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
@@ -1076,17 +1090,17 @@ footer {
     </div>
     <h1>{{title}}</h1>
     <p class="lede">{{lede}}</p>
-    <p class="stats"><b>{{guides_count}}</b> guides</p>
+    <p class="stats"><b>{{guides_count}}</b> {{guides_noun}}</p>
 </div>
 </header>
 
 <div class="bar">
     <div class="wrap bar-in">
         <label class="search">
-            <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter guides, e.g. states, scope, ask" aria-label="Filter guides">
+            <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter {{noun_many}}, e.g. {{filter_example}}" aria-label="Filter {{noun_many}}">
         </label>
-        <span class="count" id="count">{{guides_count}} guides</span>
-        <button class="copy-shown" id="copy_shown" type="button" title="Copy the guides shown, as Markdown">Copy</button>
+        <span class="count" id="count">{{guides_count}} {{guides_noun}}</span>
+        <button class="copy-shown" id="copy_shown" type="button" title="Copy the {{noun_many}} shown, as Markdown">Copy</button>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
             <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
@@ -1100,23 +1114,28 @@ footer {
 </div>
 
 <div class="wrap layout">
-<nav class="groups" aria-label="Guides">
+<nav class="groups" aria-label="{{noun_title}}">
 <a href="#use" data-group="use"><span class="tag">USE</span><span class="name">Hand them to an agent</span></a>
 {{guides_nav}}</nav>
-<main>
+<main data-page="{{dir}}">
 <section class="group use" id="use">
 <h2><span class="tag">USE</span><span class="name">Hand them to an agent</span></h2>
 <div class="prose">
-<p>Paste this into a project's <code>CLAUDE.md</code> or <code>AGENTS.md</code>: it is read at every start, so the agent works this way without being told. To give one guide in a conversation, copy it with its <b>Copy for an agent</b> button.</p>
+<!-- only:agents -->
+<p>Paste this into a project's <code>CLAUDE.md</code> or <code>AGENTS.md</code>: it is read at every start, so the agent works this way without being told, and draws its pictures the way the <a href="diagrams.html">diagrams</a> say. To give one guide in a conversation, copy it with its <b>Copy for an agent</b> button.</p>
+<!-- /only:agents -->
+<!-- only:diagrams -->
+<p>Paste this into a project's <code>CLAUDE.md</code> or <code>AGENTS.md</code>: it is read at every start, so the agent draws its pictures this way without being told. The <a href="agents.html#use">agents' guides</a> hand these over too. To give one kind in a conversation, copy it with its <b>Copy for an agent</b> button.</p>
+<!-- /only:diagrams -->
 </div>
 <div class="form"><pre>{{handover}}</pre><button class="copy" type="button">Copy</button></div>
 </section>
-{{guides_main}}<p class="nothing" id="nothing" hidden>No guide matches that.</p>
+{{guides_main}}<p class="nothing" id="nothing" hidden>No {{noun_one}} matches that.</p>
 </main>
 </div>
 
 <footer class="wrap">
-    <span>The same guides as plain text: <a href="https://github.com/vbarbarosh/rules/tree/main/agents">agents/</a></span>
+    <span>The same {{noun_many}} as plain text: <a href="https://github.com/vbarbarosh/rules/tree/main/{{dir}}">{{dir}}/</a></span>
     <span>The rules: <a href="rules.html">The Rule Index</a></span>
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
@@ -1262,7 +1281,8 @@ function filter_apply()
     nothing_el.hidden = (total > 0);
     refresh_pictures_control();
     copy_shown_el.hidden = (total === 0);
-    count_el.textContent = (total === guide_els.length) ? `${total} guides` : `${total} of ${guide_els.length} guides`;
+    const noun = (guide_els.length === 1) ? '{{noun_one}}' : '{{noun_many}}';
+    count_el.textContent = (total === guide_els.length) ? `${total} ${noun}` : `${total} of ${guide_els.length} ${noun}`;
     spy_apply();
 }
 

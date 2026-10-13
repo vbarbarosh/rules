@@ -1023,6 +1023,19 @@ footer {
         white-space: pre-wrap;
     }
 }
+
+/* A diagram is drawn for the whole column, so its words read at the text's
+   size; the text beside it keeps its line length. */
+main[data-page="diagrams"] .prose {
+    max-width: 964px;
+}
+
+main[data-page="diagrams"] .prose > p,
+main[data-page="diagrams"] .prose > ul,
+main[data-page="diagrams"] .prose > ol,
+main[data-page="diagrams"] .prose > h3 {
+    max-width: 72ch;
+}
 </style>
 <script>
 (function () {
@@ -1059,6 +1072,7 @@ footer {
             <a href="rules.html">Rules</a>
             <a href="animations.html">Animations</a>
             <a href="agents.html" aria-current="page">Agents</a>
+            <a href="diagrams.html">Diagrams</a>
             <a href="glossaries.html">Glossaries</a>
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
@@ -1107,17 +1121,20 @@ footer {
 <a href="#every_state_before_done" data-group="every_state_before_done"><span class="tag">03</span><span class="name">Every state before done</span></a>
 <a href="#every_point_of_view" data-group="every_point_of_view"><span class="tag">04</span><span class="name">Every point of view</span></a>
 </nav>
-<main>
+<main data-page="agents">
 <section class="group use" id="use">
 <h2><span class="tag">USE</span><span class="name">Hand them to an agent</span></h2>
 <div class="prose">
-<p>Paste this into a project's <code>CLAUDE.md</code> or <code>AGENTS.md</code>: it is read at every start, so the agent works this way without being told. To give one guide in a conversation, copy it with its <b>Copy for an agent</b> button.</p>
+
+<p>Paste this into a project's <code>CLAUDE.md</code> or <code>AGENTS.md</code>: it is read at every start, so the agent works this way without being told, and draws its pictures the way the <a href="diagrams.html">diagrams</a> say. To give one guide in a conversation, copy it with its <b>Copy for an agent</b> button.</p>
 </div>
 <div class="form"><pre>Work the way these guides say; read them before the first edit:
 - Consequences first: https://raw.githubusercontent.com/vbarbarosh/rules/main/agents/consequences_first.md
 - One example, all cases: https://raw.githubusercontent.com/vbarbarosh/rules/main/agents/one_example_all_cases.md
 - Every state before done: https://raw.githubusercontent.com/vbarbarosh/rules/main/agents/every_state_before_done.md
-- Every point of view: https://raw.githubusercontent.com/vbarbarosh/rules/main/agents/every_point_of_view.md</pre><button class="copy" type="button">Copy</button></div>
+- Every point of view: https://raw.githubusercontent.com/vbarbarosh/rules/main/agents/every_point_of_view.md
+Draw the pictures in your replies the way these diagrams say:
+- Sequence diagram: who talks to whom: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/sequence.md</pre><button class="copy" type="button">Copy</button></div>
 </section>
 <section class="group guide" id="consequences_first">
 <h2><span class="tag">01</span><span class="name">Consequences first</span></h2>
@@ -1548,7 +1565,8 @@ function filter_apply()
     nothing_el.hidden = (total > 0);
     refresh_pictures_control();
     copy_shown_el.hidden = (total === 0);
-    count_el.textContent = (total === guide_els.length) ? `${total} guides` : `${total} of ${guide_els.length} guides`;
+    const noun = (guide_els.length === 1) ? 'guide' : 'guides';
+    count_el.textContent = (total === guide_els.length) ? `${total} ${noun}` : `${total} of ${guide_els.length} ${noun}`;
     spy_apply();
 }
 

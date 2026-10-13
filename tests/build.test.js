@@ -10,7 +10,7 @@ let fixture_dir;
 
 test.before(function () {
     fixture_dir = fs.mkdtempSync(path.join(os.tmpdir(), 'rules-build-'));
-    for (const file of ['bin/build', 'bin/self-check', 'package.json', 'docs', 'drafts', 'agents', 'glossaries', 'img', 'formatting.html']) {
+    for (const file of ['bin/build', 'bin/self-check', 'package.json', 'docs', 'drafts', 'agents', 'diagrams', 'glossaries', 'img', 'formatting.html']) {
         fs.cpSync(path.join(root_dir, file), path.join(fixture_dir, file), {recursive: true});
     }
     fs.symlinkSync(path.join(root_dir, 'node_modules'), path.join(fixture_dir, 'node_modules'), 'dir');
@@ -24,7 +24,7 @@ test('generated rule and guide images all reserve positive dimensions, including
     const result = build();
     assert.equal(result.status, 0, result.stderr);
     let count = 0;
-    for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/glossaries.html']) {
+    for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/glossaries.html']) {
         const html = fs.readFileSync(path.join(fixture_dir, file), 'utf8');
         for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
             assert.match(tag, /width="[1-9]\d*"/);
@@ -50,6 +50,23 @@ test('guide pictures on consecutive lines share one row, each with its dark twin
     finally {
         fs.writeFileSync(file, original);
     }
+});
+
+test('diagrams/ builds its own page from the agents template, and the agents hand it over', function () {
+    const result = build();
+    assert.equal(result.status, 0, result.stderr);
+    const diagrams = fs.readFileSync(path.join(fixture_dir, 'docs/diagrams.html'), 'utf8');
+    assert.match(diagrams, /<h1>Diagrams<\/h1>/);
+    assert.match(diagrams, /<a href="diagrams.html" aria-current="page">Diagrams<\/a>/);
+    assert.match(diagrams, /<section class="group guide" id="sequence">/);
+    assert.match(diagrams, /<p class="stats"><b>1<\/b> diagram<\/p>/);
+    assert.match(diagrams, /<img class="dark" src="..\/img\/diagrams\/sequence_parts-dark.svg"/);
+    assert.match(diagrams, /tree\/main\/diagrams">diagrams\/<\/a>/);
+    assert.ok(!diagrams.includes('{{'), 'no placeholder left');
+    const agents = fs.readFileSync(path.join(fixture_dir, 'docs/agents.html'), 'utf8');
+    assert.match(agents, /<a href="agents.html" aria-current="page">Agents<\/a>\n\s*<a href="diagrams.html">Diagrams<\/a>/);
+    assert.match(agents, /Draw the pictures in your replies the way these diagrams say:\n- Sequence diagram: who talks to whom: https:\/\/raw.githubusercontent.com\/vbarbarosh\/rules\/main\/diagrams\/sequence.md<\/pre>/);
+    assert.match(agents, /<p class="stats"><b>4<\/b> guides<\/p>/);
 });
 
 test('a picture after a rule form goes under the text and the form', function () {
@@ -95,7 +112,7 @@ test('all built theme icons follow the shared SVG assets, including handwritten 
         fs.writeFileSync(file, original.replace('M12,9', 'M12,8.5'));
         const result = build();
         assert.equal(result.status, 0, result.stderr);
-        for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html']) {
+        for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html']) {
             const html = fs.readFileSync(path.join(fixture_dir, file), 'utf8');
             assert.ok(html.includes('d="M12,8.5'), file);
             assert.ok(!html.includes('d="M12,9'), file);

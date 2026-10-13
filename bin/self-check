@@ -39,7 +39,7 @@ cd $scriptdir/..
 
 (
     set -o nounset -o errexit -o pipefail
-    for page in docs/rules.html docs/animations.html docs/glossaries.html docs/agents.html; do
+    for page in docs/rules.html docs/animations.html docs/glossaries.html docs/agents.html docs/diagrams.html; do
         if [ ! -s $page ]; then
             echo "$page: missing, run bin/build"
             exit 1
