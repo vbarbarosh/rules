@@ -191,6 +191,7 @@ project, so all JavaScript code follows the same conventions.
     * A simple operand stays bare: an identifier, member access, call, template literal or unary negation — the line VUE-06 draws for directive values
     * A chain of one logical operator is one expression: `a && b && c` stays bare
     * A ternary given whole — a value, an argument, a return — stays bare: it is wrapped only as an operand of another operator, where precedence needs it
+    * A Vue directive keeps its parentheses: VUE-06 wraps a compound directive value, a ternary included
     * Example:
 
       ```

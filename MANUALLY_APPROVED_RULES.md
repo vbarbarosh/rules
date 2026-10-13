@@ -860,3 +860,7 @@ parentheses are redundant; better without them, the second one".
 A ternary given whole as a value, an argument or a return is written
 without parentheses around it. They go around a ternary only where it is
 an operand of another operator and precedence needs them.
+
+**Clarified:** 2026-10-13, author message `20261013_110437-me` ("B: a
+directive keeps them"): a Vue directive keeps its parentheses around a
+ternary, by VUE-06; this rule is for JavaScript.
