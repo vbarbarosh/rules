@@ -16,7 +16,7 @@ test.after(async function () {
     await browser?.close();
 });
 
-test('docs/rules.html: Try it slides the demo in from the right, Esc and ✕ slide it out, another swaps it', async function () {
+test('docs/rules.html: Try it slides the demo in from the right, Esc and ✕ slide it out, another slides in beside it', async function () {
     const context = await browser.newContext({viewport: {width: 1280, height: 800}});
     const page = await context.newPage();
     const errors = [];
@@ -54,17 +54,19 @@ test('docs/rules.html: Try it slides the demo in from the right, Esc and ✕ sli
         await page.waitForTimeout(600);
         assert.equal(await panel_state_of(page), 'closed');
 
-        // another Try it while open: the open demo slides out as the new one slides in over it
+        // another Try it further down while open: the open demo goes up as the
+        // new one comes from below, edge to edge
         await first.click();
         await page.waitForTimeout(600);
         // a button with another demo, so the swap shows
         const second = page.locator(`.try-it:not([data-demo="${demo}"])`).first();
         await second.evaluate(v => v.click());
         await page.waitForTimeout(150);
-        const sliding = await page.evaluate(() => [...document.querySelectorAll('.demo-panel')].map(vv => Math.round(vv.getBoundingClientRect().left)));
+        const sliding = await page.evaluate(() => [...document.querySelectorAll('.demo-panel')].map(vv => vv.getBoundingClientRect()).map(vv => ({left: Math.round(vv.left), top: vv.top})));
         assert.equal(sliding.length, 2);
-        assert.ok(sliding[0] > (1280 - 760), `the old one is on its way out: ${sliding}`);
-        assert.ok(sliding[1] < 1280, `the new one is on its way in: ${sliding}`);
+        assert.deepEqual(sliding.map(v => v.left), [1280 - 760, 1280 - 760], 'both stay where the panel stands across');
+        assert.ok((sliding[0].top < 0) && (sliding[1].top > 0), `the old one goes up, the new one comes from below: ${JSON.stringify(sliding)}`);
+        assert.ok(Math.abs(sliding[1].top - sliding[0].top - 800) < 1, `edge to edge: ${JSON.stringify(sliding)}`);
         await page.waitForTimeout(600);
         assert.equal(await page.locator('.demo-panel').count(), 1);
         assert.equal(await panel_state_of(page), 'open');
@@ -248,6 +250,67 @@ test('docs/animations.html: the ANIM rules on a page of their own, each with its
     }
 });
 
+test('docs/animations.html: another Try it slides the two demos edge to edge, the way the list goes, and a click mid-way moves on from there', async function () {
+    const context = await browser.newContext({viewport: {width: 1280, height: 800}});
+    const page = await context.newPage();
+    const errors = [];
+    page.on('pageerror', v => errors.push(v.message));
+    try {
+        await page.route('https://**/*', v => v.abort());
+        await page.goto(`file://${path.join(root_dir, 'docs/animations.html')}`);
+        await page.locator('#ANIM-01 .try-it').click();
+        await page.waitForTimeout(600);
+        // every frame from here on: where each panel stands
+        await page.evaluate(function () {
+            window.panel_frames = [];
+            requestAnimationFrame(function frame() {
+                window.panel_frames.push([...document.querySelectorAll('.demo-panel')].map(v => v.getBoundingClientRect()).map(v => ({left: v.left, top: v.top})));
+                requestAnimationFrame(frame);
+            });
+        });
+
+        // down the list: the open one goes up, the next comes from below
+        await click(page, 'ANIM-06');
+        await sliding_wait(page);
+        let now = await tops(page);
+        assert.ok((now[0].top < 0) && (now[0].id === '') && (now[1].id === 'demo_panel'), JSON.stringify(now));
+        await page.waitForTimeout(600);
+        // up the list: the reverse
+        await click(page, 'ANIM-03');
+        await sliding_wait(page);
+        now = await tops(page);
+        assert.ok((now[0].top > 0) && (now[1].top < 0) && (now[1].id === 'demo_panel'), JSON.stringify(now));
+        await page.waitForTimeout(600);
+
+        // mid-way back to the one still on screen: it comes back from where it
+        // stands, its demo not loaded again
+        await click(page, 'ANIM-09');
+        await page.waitForTimeout(150);
+        await page.evaluate(() => document.querySelector('.demo-panel:not(#demo_panel) iframe').dataset.kept = 'yes');
+        await click(page, 'ANIM-03');
+        await page.waitForTimeout(600);
+        assert.equal(await page.locator('.demo-panel').count(), 1);
+        assert.equal(await page.locator('#demo_code').textContent(), 'ANIM-03');
+        assert.equal(await page.locator('#demo_frame').getAttribute('data-kept'), 'yes');
+        assert.equal(await panel_state_of(page), 'open');
+
+        const frames = await page.evaluate(() => window.panel_frames);
+        assert.ok(frames.filter(v => v.length === 2).length > 10, 'frames with both panels');
+        for (const panels of frames) {
+            const ys = panels.map(v => v.top).sort((a, b) => a - b);
+            assert.ok(panels.every(v => Math.round(v.left) === (1280 - 760)), `none moves across: ${JSON.stringify(panels)}`);
+            assert.ok((ys[0] <= 0.5) && ((ys[ys.length - 1] + 800) >= 799.5), `nothing blank: ${ys}`);
+            for (let i = 1; i < ys.length; i += 1) {
+                assert.ok(Math.abs(ys[i] - ys[i - 1] - 800) < 0.5, `one height apart: ${ys}`);
+            }
+        }
+        assert.deepEqual(errors, []);
+    }
+    finally {
+        await context.close();
+    }
+});
+
 // The rules page, with two Try it buttons of two demos added to its first
 // rules: its own may all open one demo (the animations have a page of their own).
 async function rules_open(page)
@@ -283,4 +346,21 @@ async function panel_state_of(page)
         }
         return `between: ${style.transform} ${style.visibility} ${box.left}`;
     });
+}
+
+function click(page, code)
+{
+    return page.evaluate(v => document.querySelector(`#${v} .try-it`).click(), code);
+}
+
+// the panels top to bottom in the page's order: the open one has the ids
+function tops(page)
+{
+    return page.evaluate(() => [...document.querySelectorAll('.demo-panel')].map(vv => ({id: vv.id, top: vv.getBoundingClientRect().top})));
+}
+
+// until the two panels have left their first places
+function sliding_wait(page)
+{
+    return page.waitForFunction(() => [...document.querySelectorAll('.demo-panel')].some(vv => Math.abs(vv.getBoundingClientRect().top % 800) > 1));
 }

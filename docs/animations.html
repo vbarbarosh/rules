@@ -1432,6 +1432,7 @@ const nav_by_group = {};
 const haystack_by_id = {};
 
 let demo_button_el = null;
+const demo_button_by_panel = new WeakMap();
 let demo_pressed_inside = false;
 let spy_pending = false;
 let nav_target = null;
@@ -1788,7 +1789,7 @@ function click_theme(event)
 }
 
 // Try it: the rule's demo slides in from the right; another Try it while the
-// panel is open swaps the demo and leaves the panel where it is.
+// panel is open slides the next demo in beside it, up or down.
 function click_try_it(event)
 {
     const button = event.target.closest('.try-it');
@@ -1797,12 +1798,17 @@ function click_try_it(event)
     }
     const rule_el = button.closest('article.rule');
     if (demo_panel_el.classList.contains('open') && (button !== demo_button_el)) {
-        demo_panel_swap();
+        demo_panel_swap(button);
     }
     demo_button_el = button;
+    demo_button_by_panel.set(demo_panel_el, button);
     document.getElementById('demo_code').textContent = rule_el.id;
     document.getElementById('demo_title').textContent = rule_el.querySelector('.text strong')?.textContent ?? '';
-    demo_frame_el.src = url_from_demo(button.dataset.demo);
+    // a demo taken back mid-way is still loaded
+    const src = url_from_demo(button.dataset.demo);
+    if (demo_frame_el.getAttribute('src') !== src) {
+        demo_frame_el.src = src;
+    }
     demo_panel_el.classList.add('open');
     demo_panel_el.removeAttribute('aria-hidden');
     document.getElementById('demo_close').focus({preventScroll: true});
@@ -1963,33 +1969,82 @@ function pointerdown_demo_outside(event)
     demo_pressed_inside = Boolean(event.target.closest('.demo-panel'));
 }
 
-// Another Try it: the open demo slides out as the next one slides in over
-// it, both at once. The open panel, its frame as it stands, is the one that
-// leaves; a copy of it, empty, takes its ids and comes in. A click mid-way
-// sends the incoming one back out from where it is (ANIM-08).
-function demo_panel_swap()
+// Another Try it: the open demo and the next one slide together, edge to
+// edge, the way the list goes (ANIM-01): a rule further down sends the open
+// one up and brings the next in from below; up the list, the reverse. The
+// panels on screen move as one, the next joins them beside the open one, and
+// one still leaving on that side gives it its place. A click mid-way moves
+// them on from where they stand (ANIM-08): the demo still on screen is taken
+// back, not loaded again. The open panel keeps the ids.
+function demo_panel_swap(button)
 {
-    const leaving_el = demo_panel_el;
-    demo_panel_el = leaving_el.cloneNode(true);
-    demo_panel_el.classList.remove('open');
-    demo_frame_el = demo_panel_el.querySelector('iframe');
-    demo_frame_el.removeAttribute('src');
-    for (const el of [leaving_el, ...leaving_el.querySelectorAll('[id]')]) {
-        el.removeAttribute('id');
+    const direction = (demo_button_el.compareDocumentPosition(button) & Node.DOCUMENT_POSITION_FOLLOWING) ? 1 : -1;
+    const height = demo_panel_el.offsetHeight;
+    const shown = new Map();
+    for (const el of document.querySelectorAll('.demo-panel')) {
+        shown.set(el, demo_panel_y(el));
+        for (const animation of el.getAnimations()) {
+            if (!(animation instanceof CSSTransition)) {
+                animation.cancel();
+            }
+        }
     }
-    leaving_el.after(demo_panel_el);
-    leaving_el.setAttribute('aria-hidden', 'true');
-    leaving_el.classList.remove('open');
-    leaving_el.addEventListener('transitionend', transitionend_demo_leaving);
-    demo_panel_listen(demo_panel_el);
-    // the copy starts out of sight, so adding .open slides it in
-    demo_panel_el.getBoundingClientRect();
+    const from = shown.get(demo_panel_el);
+    let target_el = Array.from(shown.keys()).find(v => demo_button_by_panel.get(v) === button);
+    if (!target_el) {
+        for (const [el, y] of shown) {
+            if ((el !== demo_panel_el) && (Math.sign(Math.round(y - from)) === direction)) {
+                el.remove();
+                shown.delete(el);
+            }
+        }
+        target_el = demo_panel_el.cloneNode(true);
+        target_el.querySelector('iframe').removeAttribute('src');
+        demo_panel_el.after(target_el);
+        demo_panel_listen(target_el);
+        shown.set(target_el, from + direction*height);
+        // it stands where the open one stands across: no slide in from the right
+        target_el.style.transition = 'none';
+        target_el.getBoundingClientRect();
+        target_el.style.transition = '';
+    }
+    demo_ids_move(demo_panel_el, target_el);
+    demo_panel_el.setAttribute('aria-hidden', 'true');
+    demo_panel_el.inert = true;
+    target_el.inert = false;
+    demo_panel_el = target_el;
+    demo_frame_el = target_el.querySelector('iframe');
+    const to = shown.get(target_el);
+    const duration = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 400;
+    for (const [el, y] of shown) {
+        const end = y - to;
+        el.style.translate = end ? `0 ${end}px` : '';
+        const animation = el.animate([{translate: `0 ${y}px`}, {translate: `0 ${end}px`}], {duration, easing: 'cubic-bezier(.2, .8, .2, 1)'});
+        animation.onfinish = function () {
+            if (el !== demo_panel_el) {
+                el.remove();
+            }
+        };
+    }
 }
 
-function transitionend_demo_leaving(event)
+// where a panel stands up or down this moment, mid-slide too
+function demo_panel_y(panel_el)
 {
-    if ((event.target === event.currentTarget) && (event.propertyName === 'transform')) {
-        event.currentTarget.remove();
+    const translate = getComputedStyle(panel_el).translate;
+    return (translate === 'none') ? 0 : (parseFloat(translate.split(' ')[1]) || 0);
+}
+
+function demo_ids_move(from_el, to_el)
+{
+    if (from_el === to_el) {
+        return;
+    }
+    for (const selector of [null, '.demo-panel-code', '.demo-panel-title', '.demo-panel-close', 'iframe']) {
+        const a = selector ? from_el.querySelector(selector) : from_el;
+        const b = selector ? to_el.querySelector(selector) : to_el;
+        b.id = a.id;
+        a.removeAttribute('id');
     }
 }
 
@@ -2015,7 +2070,10 @@ function demo_close()
     }
     // focus goes back to the Try it, unless a click outside already took it
     const focus_el = document.activeElement;
-    demo_panel_el.classList.remove('open');
+    // a panel still sliding up or down goes out with it
+    for (const el of document.querySelectorAll('.demo-panel')) {
+        el.classList.remove('open');
+    }
     demo_panel_el.setAttribute('aria-hidden', 'true');
     if ((focus_el === document.body) || demo_panel_el.contains(focus_el)) {
         demo_button_el?.focus({preventScroll: true});
