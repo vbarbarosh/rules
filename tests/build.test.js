@@ -69,6 +69,18 @@ test('diagrams/ builds its own page from the agents template, and the agents han
     assert.match(agents, /<p class="stats"><b>4<\/b> guides<\/p>/);
 });
 
+test('the standard names show on the glossaries page with their two groups', function () {
+    const result = build();
+    assert.equal(result.status, 0, result.stderr);
+    const html = fs.readFileSync(path.join(fixture_dir, 'docs/glossaries.html'), 'utf8');
+    assert.match(html, /<section class="group" id="NAME"/);
+    for (const tag of ['MACH', 'PLACE']) {
+        assert.match(html, new RegExp(`id="${tag}"`));
+    }
+    assert.ok(html.includes('vps1, vps2'));
+    assert.ok(html.includes('192.0.2.x'));
+});
+
 test('a picture after a rule form goes under the text and the form', function () {
     const result = build();
     assert.equal(result.status, 0, result.stderr);
