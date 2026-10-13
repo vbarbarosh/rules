@@ -45,7 +45,7 @@ connection pool exhausted).
 Painful because it does not fail every time, logs often do not show a clear
 cause, and "works on my machine" happens a lot.
 
-![Intermittent failure: six runs of the same test, two of them red, nothing changed](../img/testing/intermittent-failure.svg)
+![Intermittent failure: six requests to the same code, two of them failing, nothing changed](../img/testing/intermittent-failure.svg)
 
 ## Self-check
 

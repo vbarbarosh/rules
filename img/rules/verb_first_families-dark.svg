@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
-<rect width="1200" height="560" fill="#16181b"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="640" fill="#16181b"/>
 <defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Verb-first families are the exceptions</text>
 <text x="48" y="108" fill="#92958c" font-size="22">these start with their verb; everything else starts with its domain</text>
@@ -19,8 +19,12 @@
 <text x="720.0" y="287.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">click_*</text>
 <rect x="870" y="250" width="240" height="60" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="990.0" y="287.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">emit_*</text>
-<rect x="60" y="350" width="1080" height="110" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
-<text x="84" y="392" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function main()  { build_glossaries_html(); build_agents_html(); }</text>
-<text x="84" y="432" fill="#92958c" font-size="18">main runs a script; a step is what it calls once per part of the work, in order</text>
-<text x="48" y="520" fill="#92958c" font-size="21">main is kept for the entry function of an executable script.</text>
+<rect x="60" y="330" width="240" height="60" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="180.0" y="367.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">check_*</text>
+<rect x="330" y="330" width="240" height="60" rx="10" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="450.0" y="367.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">make_*</text>
+<rect x="60" y="430" width="1080" height="110" rx="10" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="84" y="472" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function main()  { build_glossaries_html(); build_agents_html(); }</text>
+<text x="84" y="512" fill="#92958c" font-size="18">main runs a script; a step is what it calls once per part of the work, in order</text>
+<text x="48" y="600" fill="#92958c" font-size="21">main is kept for the entry function of an executable script.</text>
 </svg>

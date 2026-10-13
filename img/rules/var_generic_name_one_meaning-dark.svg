@@ -33,6 +33,9 @@
 <rect x="60" y="402" width="340" height="70" rx="10" fill="#212428" stroke="#2c3035" stroke-width="2"/>
 <text x="230.0" y="433.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">req, res</text>
 <text x="230.0" y="459.0" fill="#92958c" font-size="17" text-anchor="middle">Express request, response</text>
+<rect x="430" y="402" width="340" height="70" rx="10" fill="#212428" stroke="#2c3035" stroke-width="2"/>
+<text x="600.0" y="433.0" fill="#d3d1c9" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">res, rej</text>
+<text x="600.0" y="459.0" fill="#92958c" font-size="17" text-anchor="middle">Promise resolve, reject</text>
 <rect x="60" y="504" width="500" height="118" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="80.0" y="538" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">const out = [...new Set(tags)];</text>
 <text x="80.0" y="566" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return … ? tags : out;</text>

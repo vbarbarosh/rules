@@ -1,7 +1,8 @@
 # The rulebook
 
 The rules of [vbarbarosh/rules](../README.md), document by document. Every rule
-is also in [the rule index](rules.html), one row each.
+is also in [the rule index](rules.html), one row each; the animation rules
+are in [their own](animations.html).
 
 ## Everything should look uniform
 
@@ -26,7 +27,7 @@ It's just not written down.
 ### Naming and variables (NAME, VAR, FN)
 
 - [drafts/var_names.md](../drafts/var_names.md) — a variable name states the shape of its data
-- [drafts/generic_names.md](../drafts/generic_names.md) — `i`, `v`, `e`, `out` and the other generic names, each with its one meaning
+- [drafts/generic_names.md](../drafts/generic_names.md) — `i`, `v`, `e`, `out` and the other generic names, each with the meaning it is listed with
 - [drafts/names_written_whole.md](../drafts/names_written_whole.md) — a name is never glued from strings at run time; a known set is a `match` or a `switch`
 - [drafts/naming_markers.md](../drafts/naming_markers.md) — memo: all name markers, collected
 - [drafts/for_of.md](../drafts/for_of.md) — prefer `for...of`; loop variable is the singular

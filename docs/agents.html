@@ -1323,7 +1323,7 @@ agent minutes; finding them one by one takes the author days.
 <p>Suggested by the agent, for the author to confirm:</p>
 <ul><li><strong>Operator.</strong> It failed at night and I have the logs and the data folder: can I tell what happened, and restart it without losing anything?</li><li><strong>Next developer.</strong> I open the code a year from now: can I find where this lives, read why it is so, and change it without breaking the rest?</li><li><strong>Newcomer.</strong> I see it the first time, with no context: does the screen say what it is, what to do, and what just happened?</li></ul>
 <h3>The rule</h3>
-<ol><li><strong>Tell each story before the first edit.</strong> One or two lines each, in the person's words: &quot;I click, my answer is under the last message&quot;. A view that does not apply is skipped, not forgotten.</li><li><strong>The screen follows the user's story.</strong> When the implementation takes a longer way (a queue, an inbox, a second agent), the user still sees the result where they acted, at once, marked as pending until the way ends. The route stays inside.</li><li><strong>Each story gets its test.</strong> The user's story is an e2e test of what the screen shows and when; the attacker's is a test of what is refused.</li><li><strong>Report by story.</strong> The reply says what each view found, and what was changed for it, so the author need not read the work through each pair of eyes again.</li></ol>
+<ol><li><strong>Tell each story before the first edit.</strong> One or two lines each, in the person's words: &quot;I click, my answer is under the last message&quot;. A view that does not apply is skipped, not forgotten.</li><li><strong>The screen follows the user's story.</strong> When the implementation takes a longer way (a queue, an inbox, a second agent), the user still sees the result where they acted, at once, marked as pending until the way ends. The route stays inside.</li><li><strong>Each story gets its test.</strong> The user's story is an e2e test (end to end: a browser opens the real page and acts as the user does) of what the screen shows and when; the attacker's is a test of what is refused.</li><li><strong>Report by story.</strong> The reply says what each view found, and what was changed for it, so the author need not read the work through each pair of eyes again.</li></ol>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -1389,7 +1389,8 @@ Suggested by the agent, for the author to confirm:
    longer way (a queue, an inbox, a second agent), the user still sees the
    result where they acted, at once, marked as pending until the way ends.
    The route stays inside.
-3. **Each story gets its test.** The user's story is an e2e test of what
+3. **Each story gets its test.** The user's story is an e2e test (end to
+   end: a browser opens the real page and acts as the user does) of what
    the screen shows and when; the attacker's is a test of what is refused.
 4. **Report by story.** The reply says what each view found, and what was
    changed for it, so the author need not read the work through each pair

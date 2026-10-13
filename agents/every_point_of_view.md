@@ -75,7 +75,8 @@ Suggested by the agent, for the author to confirm:
    longer way (a queue, an inbox, a second agent), the user still sees the
    result where they acted, at once, marked as pending until the way ends.
    The route stays inside.
-3. **Each story gets its test.** The user's story is an e2e test of what
+3. **Each story gets its test.** The user's story is an e2e test (end to
+   end: a browser opens the real page and acts as the user does) of what
    the screen shows and when; the attacker's is a test of what is refused.
 4. **Report by story.** The reply says what each view found, and what was
    changed for it, so the author need not read the work through each pair
