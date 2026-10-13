@@ -45,7 +45,7 @@ for (const page_file of PAGE_FILES) {
                     assert.deepEqual(await button.locator('path').evaluateAll(v => v.map(vv => vv.getAttribute('d'))), paths);
                     const other = (initial === 'dark') ? 'light' : 'dark';
                     // A path click must reach the enclosing button and toggle exactly once.
-                    await button.locator(`.theme-${initial} path`).click();
+                    await button.locator(`.${theme_class_of(initial)} path`).click();
                     await state_assert(page, other);
                     await page.reload();
                     await state_assert(page, blocked ? initial : other);
@@ -122,4 +122,15 @@ async function state_assert(page, theme)
         assert.equal(state.light, (theme === 'light') ? 'block' : 'none');
         assert.equal(state.dark, (theme === 'dark') ? 'block' : 'none');
     }
+}
+
+function theme_class_of(theme)
+{
+    switch (theme) {
+    case 'light':
+        return 'theme-light';
+    case 'dark':
+        return 'theme-dark';
+    }
+    throw new Error(`Unknown theme: ${theme}`);
 }

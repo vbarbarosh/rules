@@ -1,4 +1,4 @@
-const plugin = require('./index');
+const plugin = require('./plugin');
 const stylistic = require('@stylistic/eslint-plugin');
 const vue = require('eslint-plugin-vue');
 const vue_parser = require('vue-eslint-parser');

@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "description": "Rules for naming, formatting, project layout and UI, so all code reads the same way",
   "homepage": "https://vbarbarosh.github.io/rules/docs/rules.html",
-  "main": "src/index.js",
+  "main": "src/plugin.js",
   "bin": {
     "lint": "bin/lint"
   },
   "exports": {
-    ".": "./src/index.js",
+    ".": "./src/plugin.js",
     "./config": "./src/make_rules_config.js"
   },
   "files": [

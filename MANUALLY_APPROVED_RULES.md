@@ -640,9 +640,9 @@ that load it keep working.
 the file is called, the export must have the same name"), the audit's
 question 21 settled by it as answer A: a file whose shape a tool sets has
 no exception either. `src/index.js`, which exports `plugin`, becomes
-`src/plugin.js`, and `package.json` points at it. Each rule file in
-`src/rules/` declares its `{meta, create}` object under the file's name and
-exports it last. FILE-20's "tool-shaped files follow the tool" is about the
+`src/plugin.js`, and `package.json` points at it. The rule files in
+`src/rules/` keep their shape: MP-57 names a rule's function after its rule
+id, and nothing there is renamed. FILE-20's "tool-shaped files follow the tool" is about the
 export's shape, or a file whose name the tool fixes, as `eslint.config.js`.
 
 ## MP-54 — build/ is never committed; nothing more

@@ -1543,7 +1543,7 @@ function view_get(mockup, section, row)
     }
     section_entry = SECTIONS[section];
     const el = document.createElement('div');
-    el.className = `view tone-${section_entry.tone}`;
+    el.className = `view ${tone_class_of(section_entry.tone)}`;
     el.hidden = true;
     if (row !== null) {
         const [who, title, when] = section_entry.rows[row];
@@ -1575,6 +1575,21 @@ function view_get(mockup, section, row)
     mockup.viewport_el.append(el);
     mockup.views.set(key, el);
     return el;
+}
+
+function tone_class_of(tone)
+{
+    switch (tone) {
+    case 'accent':
+        return 'tone-accent';
+    case 'ok':
+        return 'tone-ok';
+    case 'warn':
+        return 'tone-warn';
+    case 'danger':
+        return 'tone-danger';
+    }
+    throw new Error(`Unknown tone: ${tone}`);
 }
 
 function mockup_refresh(mockup)
@@ -2039,7 +2054,7 @@ function conv_card_make(message)
 {
     const el = document.createElement('article');
     const name = (message.from === 'you') ? 'You' : 'rules';
-    el.className = `msg msg-${message.from}${message.voice ? ' msg-voice' : ''}`;
+    el.className = `msg ${msg_from_class_of(message.from)}${message.voice ? ' msg-voice' : ''}`;
     el.dataset.id = message.id;
     el.innerHTML = '<button class="msg-head" type="button"></button>'
         + '<span class="msg-avatar" aria-hidden="true" data-morph="size" data-key="avatar"></span>'
@@ -2075,7 +2090,7 @@ function conv_voice_parts_add(el, message)
     el.querySelector('.msg-text').insertAdjacentHTML('beforebegin', '<div class="msg-code msg-open-only" data-key="code"></div>');
     for (const [index, line] of message.lines.entries()) {
         const span = document.createElement('span');
-        span.className = `msg-l msg-l${index + 1}`;
+        span.className = `msg-l ${msg_line_class_of(index)}`;
         span.dataset.morph = 'stretch';
         span.dataset.key = `l${index + 1}`;
         span.textContent = line;
@@ -2088,6 +2103,30 @@ function conv_voice_parts_add(el, message)
         + '<span class="msg-dots msg-open-only" aria-hidden="true" data-key="dots">⋯</span>'
         + `<div class="msg-player msg-open-only" aria-hidden="true" data-key="player"><span class="msg-play"></span><span>0:00</span><span class="msg-wave">${bars}</span><span>${message.length}</span></div>`
         + '<div class="msg-attach msg-open-only" data-key="attach"><b>ATTACHMENTS · 1</b><span>voice.webm</span><span>532 KB</span></div>');
+}
+
+function msg_from_class_of(from)
+{
+    switch (from) {
+    case 'you':
+        return 'msg-you';
+    case 'agent':
+        return 'msg-agent';
+    }
+    throw new Error(`Unknown sender: ${from}`);
+}
+
+function msg_line_class_of(index)
+{
+    switch (index) {
+    case 0:
+        return 'msg-l1';
+    case 1:
+        return 'msg-l2';
+    case 2:
+        return 'msg-l3';
+    }
+    throw new Error(`Unknown line: ${index}`);
 }
 
 function conv_refresh()

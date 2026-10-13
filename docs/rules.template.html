@@ -1870,9 +1870,16 @@ function open_photoswipe(PhotoSwipe, figure)
     pswp.element.setAttribute('aria-modal', 'true');
 
     function keydown_opening(event) {
-        const action = {Escape: 'close', ArrowLeft: 'prev', ArrowRight: 'next'}[event.key];
-        if (action) {
-            pswp.on('openingAnimationEnd', () => pswp[action]());
+        switch (event.key) {
+        case 'Escape':
+            pswp.on('openingAnimationEnd', () => pswp.close());
+            break;
+        case 'ArrowLeft':
+            pswp.on('openingAnimationEnd', () => pswp.prev());
+            break;
+        case 'ArrowRight':
+            pswp.on('openingAnimationEnd', () => pswp.next());
+            break;
         }
     }
 }

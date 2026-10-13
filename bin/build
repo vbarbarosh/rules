@@ -90,9 +90,9 @@ function run_self_check()
 // Inline the shared assets so currentColor and local file previews both work.
 function html_from_theme_icons()
 {
-    const icons = [['sun', 'light'], ['moon', 'dark']].map(function ([name, theme]) {
+    const icons = [['sun', 'theme-light'], ['moon', 'theme-dark']].map(function ([name, theme_class]) {
         const svg = fs.readFileSync(path.join(root_dir, 'img', `theme-${name}.svg`), 'utf8').trim();
-        return svg.replace('<svg ', `<svg class="theme-icon theme-${theme}" aria-hidden="true" focusable="false" `);
+        return svg.replace('<svg ', `<svg class="theme-icon ${theme_class}" aria-hidden="true" focusable="false" `);
     });
     return `<!-- Docusaurus icons: MIT, Copyright Facebook, Inc. and its affiliates. See img/theme-icons.LICENSE. -->${icons.join('')}`;
 }

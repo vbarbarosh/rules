@@ -1,4 +1,4 @@
-const plugin = require('../src');
+const plugin = require('../src/plugin');
 const test = require('node:test');
 const vue_parser = require('vue-eslint-parser');
 const {RuleTester} = require('eslint');

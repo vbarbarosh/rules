@@ -1,5 +1,5 @@
 const assert = require('node:assert/strict');
-const plugin = require('../src');
+const plugin = require('../src/plugin');
 const test = require('node:test');
 const {Linter, RuleTester} = require('eslint');
 
