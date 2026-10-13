@@ -1554,14 +1554,8 @@ footer .lead {
 </article>
 <article class="rule" id="TEST-05">
 <a class="code" href="#TEST-05">TEST-05</a>
-<div class="text"><p><dfn>Intermittent Failure</dfn></p><p>A failure that happens sometimes, unpredictably, and usually cannot be reproduced consistently. Run #1 works, run #2 fails, run #3 works again — even though nothing was changed.</p><p>Common causes: timing issues and race conditions, network instability, concurrency issues (threads or processes interfering), uninitialized values, hardware flakiness (bad RAM, overheating), resource limits hit sometimes (a connection pool exhausted).</p><p>Painful because it does not fail every time, logs often do not show a clear cause, and "works on my machine" happens a lot.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
-<div class="form"><pre><span class="cmt">// Sometimes fetch() returns slow, causing timeout.</span>
-<span class="cmt">// Sometimes it's fast. So the test occasionally fails.</span>
-test(&quot;API returns data&quot;, async function () {
-    const response = await fetch(&quot;/api/data&quot;);
-    expect(response.ok).toBe(true);
-});</pre><button class="copy" type="button">Copy</button></div>
-<div class="figures"><a class="figure" href="../img/testing/intermittent-failure.svg"><img class="light" src="../img/testing/intermittent-failure.svg" alt="Intermittent failure: six runs of the same test, two of them red, nothing changed" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/intermittent-failure-dark.svg" alt="Intermittent failure: six runs of the same test, two of them red, nothing changed" width="1200" height="600" loading="lazy"></a></div>
+<div class="text"><p><dfn>Intermittent Failure</dfn></p><p>A failure of the application that happens sometimes, unpredictably, and usually cannot be reproduced consistently. Request #1 works, request #2 fails, request #3 works again — even though nothing was changed. A test that fails this way is a flaky test.</p><p>Common causes: timing issues and race conditions, network instability, concurrency issues (threads or processes interfering), uninitialized values, hardware flakiness (bad RAM, overheating), resource limits hit sometimes (a connection pool exhausted).</p><p>Painful because it does not fail every time, logs often do not show a clear cause, and "works on my machine" happens a lot.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
+<a class="form figure" href="../img/testing/intermittent-failure.svg"><img class="light" src="../img/testing/intermittent-failure.svg" alt="Intermittent failure: six runs of the same test, two of them red, nothing changed" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/intermittent-failure-dark.svg" alt="Intermittent failure: six runs of the same test, two of them red, nothing changed" width="1200" height="600" loading="lazy"></a>
 </article>
 <article class="rule" id="TEST-06">
 <a class="code" href="#TEST-06">TEST-06</a>
@@ -1570,8 +1564,14 @@ test(&quot;API returns data&quot;, async function () {
 </article>
 <article class="rule" id="TEST-07">
 <a class="code" href="#TEST-07">TEST-07</a>
-<div class="text"><p><dfn>Flaky Test</dfn></p><p>Tests that produce inconsistent results, sometimes passing and sometimes failing, without any changes to the code or test being tested.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
-<a class="form figure" href="../img/testing/flaky-test.svg"><img class="light" src="../img/testing/flaky-test.svg" alt="Flaky test: one unchanged test, red and green by turns through the week" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/flaky-test-dark.svg" alt="Flaky test: one unchanged test, red and green by turns through the week" width="1200" height="600" loading="lazy"></a>
+<div class="text"><p><dfn>Flaky Test</dfn></p><p>A test that passes and fails by turns with no change to the code or to the test. The fault is in the test (a fixed timeout, an order it relies on) or an intermittent failure under it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md" title="glossaries/testing.md">testing.md</a></div>
+<div class="form"><pre><span class="cmt">// Sometimes fetch() returns slow, causing timeout.</span>
+<span class="cmt">// Sometimes it's fast. So the test occasionally fails.</span>
+test(&quot;API returns data&quot;, async function () {
+    const response = await fetch(&quot;/api/data&quot;);
+    expect(response.ok).toBe(true);
+});</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/testing/flaky-test.svg"><img class="light" src="../img/testing/flaky-test.svg" alt="Flaky test: one unchanged test, red and green by turns through the week" width="1200" height="600" loading="lazy"><img class="dark" src="../img/testing/flaky-test-dark.svg" alt="Flaky test: one unchanged test, red and green by turns through the week" width="1200" height="600" loading="lazy"></a></div>
 </article>
 <article class="rule" id="TEST-08">
 <a class="code" href="#TEST-08">TEST-08</a>

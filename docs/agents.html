@@ -1247,7 +1247,7 @@ discover it after.
 <p>The author sees the UI with real data, and real data is never the sample the agent typed: a name is long, a title is missing, a count is zero or a million. Each of those breaks a layout made for the sample, and each break costs the author a screenshot and a message. Trying the states takes the agent minutes; finding them one by one takes the author days.</p>
 <a class="figure" href="../img/guides/every_state_before_done.svg"><img class="light" src="../img/guides/every_state_before_done.svg" alt="One alert in six states: the sample, too long, missing, tiny, absurd and error; in each the text wraps inside and the close button stays top right" width="1200" height="600" loading="lazy"><img class="dark" src="../img/guides/every_state_before_done-dark.svg" alt="One alert in six states: the sample, too long, missing, tiny, absurd and error; in each the text wraps inside and the close button stays top right" width="1200" height="600" loading="lazy"></a>
 <h3>The rule</h3>
-<ol><li><strong>List the states before calling it done.</strong> For every text and value the element shows:<ul><li>too long: a title of three lines, a word with no spaces, a path, a URL;</li><li>missing: empty, <code>null</code>, no title at all;</li><li>tiny: one letter, one item;</li><li>absurd: zero, negative, a million, a date years away;</li><li>and the element's own states: loading, error, disabled, many at once.</li></ul></li><li><strong>Render each one and look.</strong> A screenshot of each state, or one page with all of them side by side. A state that was not rendered was not tested.</li><li><strong>Make the layout hold them.</strong> Fixed parts keep their place: a close button stays top right however long the text, a long text wraps or ellipsizes inside its own column, an empty one collapses or shows a placeholder. Nothing overlaps, nothing is pushed out of view, nothing shows through from behind.</li><li><strong>Keep the states in a test.</strong> The crowded case goes into the e2e test, with an assertion that nothing overlaps, so the next change does not break it again unseen.</li><li><strong>Report what each state led to.</strong> The reply names the states rendered, with the screenshots, and sorts them in two:<ul><li><strong>Decided, for your information.</strong> A state with a clear answer is handled and said: &quot;a title longer than the row is cut with an ellipsis; the full one is in the tooltip&quot;.</li><li><strong>Ambiguous, needs your confirmation.</strong> A state with no clear answer is not guessed at quietly. It is put to the author as one question with the options: &quot;an empty title: hide the header, or show 'Untitled'?&quot;.</li></ul></li></ol>
+<ol><li><strong>List the edge cases and the states before calling it done.</strong> The element's own states: loading, error, disabled, many at once. Then, for every text and value it shows, the edge cases:<ul><li>too long: a title of three lines, a word with no spaces, a path, a URL;</li><li>missing: empty, <code>null</code>, no title at all;</li><li>tiny: one letter, one item;</li><li>absurd: zero, negative, a million, a date years away.</li></ul></li><li><strong>Render each one and look.</strong> A screenshot of each state, or one page with all of them side by side. A state that was not rendered was not tested.</li><li><strong>Make the layout hold them.</strong> Fixed parts keep their place: a close button stays top right however long the text, a long text wraps or ellipsizes inside its own column, an empty one collapses or shows a placeholder. Nothing overlaps, nothing is pushed out of view, nothing shows through from behind.</li><li><strong>Keep the states in a test.</strong> The crowded case goes into the e2e test (end to end: a browser opens the real page and acts as the user does), with an assertion that nothing overlaps, so the next change does not break it again unseen.</li><li><strong>Report what each state led to.</strong> The reply names the states rendered, with the screenshots, and sorts them in two:<ul><li><strong>Decided, for your information.</strong> A state with a clear answer is handled and said: &quot;a title longer than the row is cut with an ellipsis; the full one is in the tooltip&quot;.</li><li><strong>Ambiguous, needs your confirmation.</strong> A state with no clear answer is not guessed at quietly. It is put to the author as one question with the options: &quot;an empty title: hide the header, or show 'Untitled'?&quot;.</li></ul></li></ol>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -1280,13 +1280,13 @@ agent minutes; finding them one by one takes the author days.
 
 ## The rule
 
-1. **List the states before calling it done.** For every text and value the
-   element shows:
+1. **List the edge cases and the states before calling it done.** The
+   element's own states: loading, error, disabled, many at once. Then, for
+   every text and value it shows, the edge cases:
    - too long: a title of three lines, a word with no spaces, a path, a URL;
    - missing: empty, `null`, no title at all;
    - tiny: one letter, one item;
-   - absurd: zero, negative, a million, a date years away;
-   - and the element's own states: loading, error, disabled, many at once.
+   - absurd: zero, negative, a million, a date years away.
 2. **Render each one and look.** A screenshot of each state, or one page
    with all of them side by side. A state that was not rendered was not
    tested.
@@ -1295,7 +1295,8 @@ agent minutes; finding them one by one takes the author days.
    ellipsizes inside its own column, an empty one collapses or shows a
    placeholder. Nothing overlaps, nothing is pushed out of view, nothing
    shows through from behind.
-4. **Keep the states in a test.** The crowded case goes into the e2e test,
+4. **Keep the states in a test.** The crowded case goes into the e2e test
+   (end to end: a browser opens the real page and acts as the user does),
    with an assertion that nothing overlaps, so the next change does not
    break it again unseen.
 5. **Report what each state led to.** The reply names the states rendered,

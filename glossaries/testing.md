@@ -32,9 +32,10 @@ Words for failures, and for the tests that find them.
 
 ## Intermittent failures
 
-A failure that happens sometimes, unpredictably, and usually cannot be
-reproduced consistently. Run #1 works, run #2 fails, run #3 works again — even
-though nothing was changed.
+A failure of the application that happens sometimes, unpredictably, and
+usually cannot be reproduced consistently. Request #1 works, request #2
+fails, request #3 works again — even though nothing was changed. A test
+that fails this way is a flaky test.
 
 Common causes: timing issues and race conditions, network instability,
 concurrency issues (threads or processes interfering), uninitialized values,
@@ -43,15 +44,6 @@ connection pool exhausted).
 
 Painful because it does not fail every time, logs often do not show a clear
 cause, and "works on my machine" happens a lot.
-
-```js
-// Sometimes fetch() returns slow, causing timeout.
-// Sometimes it's fast. So the test occasionally fails.
-test("API returns data", async function () {
-    const response = await fetch("/api/data");
-    expect(response.ok).toBe(true);
-});
-```
 
 ![Intermittent failure: six runs of the same test, two of them red, nothing changed](../img/testing/intermittent-failure.svg)
 
@@ -174,6 +166,19 @@ errors", a working name kept until the author settles what it means
 ![Error flood: forty requests, thirty of them failed](../img/testing/error-flood.svg)
 
 ## Flaky test
+
+A test that passes and fails by turns with no change to the code or to the
+test. The fault is in the test (a fixed timeout, an order it relies on) or
+an intermittent failure under it.
+
+```js
+// Sometimes fetch() returns slow, causing timeout.
+// Sometimes it's fast. So the test occasionally fails.
+test("API returns data", async function () {
+    const response = await fetch("/api/data");
+    expect(response.ok).toBe(true);
+});
+```
 
 ![Flaky test: one unchanged test, red and green by turns through the week](../img/testing/flaky-test.svg)
 

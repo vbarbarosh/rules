@@ -39,13 +39,13 @@ agent minutes; finding them one by one takes the author days.
 
 ## The rule
 
-1. **List the states before calling it done.** For every text and value the
-   element shows:
+1. **List the edge cases and the states before calling it done.** The
+   element's own states: loading, error, disabled, many at once. Then, for
+   every text and value it shows, the edge cases:
    - too long: a title of three lines, a word with no spaces, a path, a URL;
    - missing: empty, `null`, no title at all;
    - tiny: one letter, one item;
-   - absurd: zero, negative, a million, a date years away;
-   - and the element's own states: loading, error, disabled, many at once.
+   - absurd: zero, negative, a million, a date years away.
 2. **Render each one and look.** A screenshot of each state, or one page
    with all of them side by side. A state that was not rendered was not
    tested.
@@ -54,7 +54,8 @@ agent minutes; finding them one by one takes the author days.
    ellipsizes inside its own column, an empty one collapses or shows a
    placeholder. Nothing overlaps, nothing is pushed out of view, nothing
    shows through from behind.
-4. **Keep the states in a test.** The crowded case goes into the e2e test,
+4. **Keep the states in a test.** The crowded case goes into the e2e test
+   (end to end: a browser opens the real page and acts as the user does),
    with an assertion that nothing overlaps, so the next change does not
    break it again unseen.
 5. **Report what each state led to.** The reply names the states rendered,
