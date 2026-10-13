@@ -1090,7 +1090,7 @@ main[data-page="diagrams"] .prose > h3 {
     </div>
     <h1>Diagrams</h1>
     <p class="lede">A visual language: the kinds of picture an agent draws in its replies, so the author reads at a glance what words would take a page to say. For each kind: what it shows, when it fits and when it does not, its parts, how it is drawn.</p>
-    <p class="stats"><b>1</b> diagram</p>
+    <p class="stats"><b>6</b> diagrams</p>
 </div>
 </header>
 
@@ -1099,7 +1099,7 @@ main[data-page="diagrams"] .prose > h3 {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter diagrams, e.g. retry, icons, events" aria-label="Filter diagrams">
         </label>
-        <span class="count" id="count">1 diagram</span>
+        <span class="count" id="count">6 diagrams</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the diagrams shown, as Markdown">Copy</button>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
@@ -1117,6 +1117,11 @@ main[data-page="diagrams"] .prose > h3 {
 <nav class="groups" aria-label="Diagrams">
 <a href="#use" data-group="use"><span class="tag">USE</span><span class="name">Hand them to an agent</span></a>
 <a href="#sequence" data-group="sequence"><span class="tag">01</span><span class="name">Sequence diagram: who talks to whom</span></a>
+<a href="#state" data-group="state"><span class="tag">02</span><span class="name">State diagram: what moves a thing between its states</span></a>
+<a href="#flowchart" data-group="flowchart"><span class="tag">03</span><span class="name">Flowchart: what is decided where</span></a>
+<a href="#timeline" data-group="timeline"><span class="tag">04</span><span class="name">Timeline: what happened when</span></a>
+<a href="#containers" data-group="containers"><span class="tag">05</span><span class="name">Container sketch (C4): where the parts run</span></a>
+<a href="#entities" data-group="entities"><span class="tag">06</span><span class="name">Entity-relationship: what data there is and how it links</span></a>
 </nav>
 <main data-page="diagrams">
 <section class="group use" id="use">
@@ -1126,7 +1131,12 @@ main[data-page="diagrams"] .prose > h3 {
 <p>Paste this into a project's <code>CLAUDE.md</code> or <code>AGENTS.md</code>: it is read at every start, so the agent draws its pictures this way without being told. The <a href="agents.html#use">agents' guides</a> hand these over too. To give one kind in a conversation, copy it with its <b>Copy for an agent</b> button.</p>
 </div>
 <div class="form"><pre>Draw the pictures in your replies the way these diagrams say:
-- Sequence diagram: who talks to whom: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/sequence.md</pre><button class="copy" type="button">Copy</button></div>
+- Sequence diagram: who talks to whom: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/sequence.md
+- State diagram: what moves a thing between its states: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/state.md
+- Flowchart: what is decided where: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/flowchart.md
+- Timeline: what happened when: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/timeline.md
+- Container sketch (C4): where the parts run: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/containers.md
+- Entity-relationship: what data there is and how it links: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/entities.md</pre><button class="copy" type="button">Copy</button></div>
 </section>
 <section class="group guide" id="sequence">
 <h2><span class="tag">01</span><span class="name">Sequence diagram: who talks to whom</span></h2>
@@ -1136,7 +1146,7 @@ main[data-page="diagrams"] .prose > h3 {
 <h3>Fits when</h3>
 <ul><li><strong>Parts pass something along:</strong> a person, a browser, a server, a database, a job, an outside service.</li><li><strong>The order matters:</strong> a failure, a retry, a timeout, a race; what happens where, and after what.</li><li><strong>A fix changes the course:</strong> a step added, an event dropped, a call moved. Today beside proposed.</li></ul>
 <h3>Not when</h3>
-<ul><li><strong>One part alone,</strong> nothing passed between: its logic is a flowchart, its look a screenshot.</li><li><strong>The order does not matter,</strong> only what depends on what: that is a map.</li><li><strong>Too many at once:</strong> more than five participants or ten messages. Split it in two, or say it in a table.</li><li><strong>A change the author sees on screen:</strong> screenshots before and after say it better.</li></ul>
+<ul><li><strong>One part alone,</strong> nothing passed between: its states are a <a href="#state">state diagram</a>, its decisions a <a href="#flowchart">flowchart</a>, its look a screenshot.</li><li><strong>The order does not matter,</strong> only where the parts run or how the data links: a <a href="#containers">container sketch</a> or an <a href="#entities">entity-relationship diagram</a>.</li><li><strong>The times matter more than who:</strong> a <a href="#timeline">timeline</a>.</li><li><strong>Too many at once:</strong> more than five participants or ten messages. Split it in two, or say it in a table.</li><li><strong>A change the author sees on screen:</strong> screenshots before and after say it better.</li></ul>
 <h3>How it is drawn</h3>
 <ol><li><strong>Participants:</strong> one column each, a plain icon above a short name. A person, a laptop or browser, a server, a database cylinder, a clock for a cronjob, a page for another writer or a file, a cloud for an outside service, a warning triangle for an error tracker. The icons carry most of the reading; the names stay short.</li><li><strong>Lifelines:</strong> a dashed vertical line under each participant.</li><li><strong>Messages:</strong> arrows between lifelines, top to bottom in time order, each with a few words. A request blue, a failure or an error red, a success or an answer green, what stays the same grey. A note on a step sits on its arrow: <code>13:05 INSERT … SELECT</code>, <code>403 plan limit</code>.</li><li><strong>Today beside proposed</strong> (or before beside after, today beside made): two framed panels, tagged, the same participants in the same order, so only the change differs. The change is drawn, not described: an event crossed out, a step added, a participant greyed.</li><li><strong>Around it:</strong> a title line with the item's id and what it is, one line of context under it (where, how often), one line of proof under the panels.</li><li><strong>In the app's colours,</strong> and drawn for the width it is shown at: its words no smaller than the text around it.</li></ol>
 <a class="figure" href="../img/diagrams/sequence_plan_limit.svg"><img class="light" src="../img/diagrams/sequence_plan_limit.svg" alt="S4, a plan limit: today the browser sends an error event to the tracker after the upgrade window; proposed, no event" width="1000" height="628" loading="lazy"><img class="dark" src="../img/diagrams/sequence_plan_limit-dark.svg" alt="S4, a plan limit: today the browser sends an error event to the tracker after the upgrade window; proposed, no event" width="1000" height="628" loading="lazy"></a>
@@ -1171,9 +1181,13 @@ a fix reads in one look, and today beside proposed shows only the change.
 
 ## Not when
 
-- **One part alone,** nothing passed between: its logic is a flowchart, its
+- **One part alone,** nothing passed between: its states are a
+  [state diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/state.md), its decisions a [flowchart](https://github.com/vbarbarosh/rules/blob/main/diagrams/flowchart.md), its
   look a screenshot.
-- **The order does not matter,** only what depends on what: that is a map.
+- **The order does not matter,** only where the parts run or how the data
+  links: a [container sketch](https://github.com/vbarbarosh/rules/blob/main/diagrams/containers.md) or an
+  [entity-relationship diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/entities.md).
+- **The times matter more than who:** a [timeline](https://github.com/vbarbarosh/rules/blob/main/diagrams/timeline.md).
 - **Too many at once:** more than five participants or ten messages. Split
   it in two, or say it in a table.
 - **A change the author sees on screen:** screenshots before and after say it
@@ -1211,6 +1225,272 @@ a fix reads in one look, and today beside proposed shows only the change.
 ![D1, the same deadlock with no change proposed: the retry drawn as what would be done only if it grows](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/sequence_deadlock_not_now.svg)
 
 ![E7, the exporter's upload: today a failed upload is an error event; proposed, retried up to 3 times, the file arrives, no event](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/sequence_exporter_upload.svg)
+</pre>
+</section>
+<section class="group guide" id="state">
+<h2><span class="tag">02</span><span class="name">State diagram: what moves a thing between its states</span></h2>
+<article class="prose">
+<p>The states a thing has and what moves it from one to the next: a card's steps, a message's life, a job's run. Each state is a box; each arrow says what moves it.</p>
+<a class="figure" href="../img/diagrams/state_sign_in.svg"><img class="light" src="../img/diagrams/state_sign_in.svg" alt="A sign-in card: from signed out through the code and the wait to saved; a refused code goes back for a new link, an unread token is shown in its window" width="1000" height="500" loading="lazy"><img class="dark" src="../img/diagrams/state_sign_in-dark.svg" alt="A sign-in card: from signed out through the code and the wait to saved; a refused code goes back for a new link, an unread token is shown in its window" width="1000" height="500" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>A thing has a few states,</strong> and the question is how it gets from one to another, or why it stays in one.</li><li><strong>A state can be reached by more than one way,</strong> or left by a way that goes back.</li><li><strong>A bug is a wrong state:</strong> stuck, skipped, or reached from where it should not be.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>The order of calls between parts</strong> is the question: that is a <a href="#sequence">sequence diagram</a>.</li><li><strong>One decision with its answers,</strong> no lasting state: a <a href="#flowchart">flowchart</a>.</li><li><strong>More than about eight states:</strong> draw the part that matters, and say the rest.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>States:</strong> rounded boxes, a short name each. Coloured by what they mean: blue a step on the way, green the end that is wanted, orange one that needs a look.</li><li><strong>Transitions:</strong> the project's arrows, grey, each with the few words that move it (a click, an answer, a timeout).</li><li><strong>The start:</strong> a filled dot with an arrow into the first state.</li><li><strong>Around it:</strong> a title with the thing's name, one line of context, one line under it saying how to read it.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Add all five. (2026-10-13, as the note of 16:29 quotes it)</li><li>The new diagrams, I think, should go on the pages too, only in the same format as the other diagrams; and mind the arrows: take the ones the project uses. (16:33)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/state.md" title="diagrams/state.md">state.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># State diagram: what moves a thing between its states
+
+The states a thing has and what moves it from one to the next: a card's
+steps, a message's life, a job's run. Each state is a box; each arrow says
+what moves it.
+
+![A sign-in card: from signed out through the code and the wait to saved; a refused code goes back for a new link, an unread token is shown in its window](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/state_sign_in.svg)
+
+## Fits when
+
+- **A thing has a few states,** and the question is how it gets from one to
+  another, or why it stays in one.
+- **A state can be reached by more than one way,** or left by a way that
+  goes back.
+- **A bug is a wrong state:** stuck, skipped, or reached from where it
+  should not be.
+
+## Not when
+
+- **The order of calls between parts** is the question: that is a
+  [sequence diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/sequence.md).
+- **One decision with its answers,** no lasting state: a
+  [flowchart](https://github.com/vbarbarosh/rules/blob/main/diagrams/flowchart.md).
+- **More than about eight states:** draw the part that matters, and say the
+  rest.
+
+## How it is drawn
+
+1. **States:** rounded boxes, a short name each. Coloured by what they mean:
+   blue a step on the way, green the end that is wanted, orange one that
+   needs a look.
+2. **Transitions:** the project's arrows, grey, each with the few words
+   that move it (a click, an answer, a timeout).
+3. **The start:** a filled dot with an arrow into the first state.
+4. **Around it:** a title with the thing's name, one line of context, one
+   line under it saying how to read it.
+</pre>
+</section>
+<section class="group guide" id="flowchart">
+<h2><span class="tag">03</span><span class="name">Flowchart: what is decided where</span></h2>
+<article class="prose">
+<p>The decisions one action goes through, in order: each question a diamond, each answer its own arrow, each outcome a box.</p>
+<a class="figure" href="../img/diagrams/flowchart_paste.svg"><img class="light" src="../img/diagrams/flowchart_paste.svg" alt="What Paste decides: a token, running, this link; each answer leads to its own outcome" width="1000" height="480" loading="lazy"><img class="dark" src="../img/diagrams/flowchart_paste-dark.svg" alt="What Paste decides: a token, running, this link; each answer leads to its own outcome" width="1000" height="480" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>One action branches:</strong> a click, a request or a job that does different things depending on what it finds.</li><li><strong>The question is which way it went,</strong> and why: an outcome nobody expected.</li><li><strong>A rule has cases,</strong> and every case must be seen at once.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>A thing lives through states</strong> and comes back to them: a <a href="#state">state diagram</a>.</li><li><strong>Several parts take turns:</strong> a <a href="#sequence">sequence diagram</a>.</li><li><strong>More than about six questions:</strong> split it, or say it as a table of cases.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>Steps:</strong> rectangles; the one that starts it darker.</li><li><strong>Questions:</strong> diamonds, a few words ending in a question mark, the words inside the diamond.</li><li><strong>Answers:</strong> the project's arrows, one per answer, each labelled (yes, no, or the value).</li><li><strong>Outcomes:</strong> boxes coloured by what they mean: green done, orange refused or spent, blue the way on.</li><li><strong>Left to right</strong> for the main way, <strong>down</strong> for the answers that leave it.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Add all five. (2026-10-13, as the note of 16:29 quotes it)</li><li>The new diagrams, I think, should go on the pages too, only in the same format as the other diagrams; and mind the arrows: take the ones the project uses. (16:33)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/flowchart.md" title="diagrams/flowchart.md">flowchart.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Flowchart: what is decided where
+
+The decisions one action goes through, in order: each question a diamond,
+each answer its own arrow, each outcome a box.
+
+![What Paste decides: a token, running, this link; each answer leads to its own outcome](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/flowchart_paste.svg)
+
+## Fits when
+
+- **One action branches:** a click, a request or a job that does different
+  things depending on what it finds.
+- **The question is which way it went,** and why: an outcome nobody
+  expected.
+- **A rule has cases,** and every case must be seen at once.
+
+## Not when
+
+- **A thing lives through states** and comes back to them: a
+  [state diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/state.md).
+- **Several parts take turns:** a [sequence diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/sequence.md).
+- **More than about six questions:** split it, or say it as a table of
+  cases.
+
+## How it is drawn
+
+1. **Steps:** rectangles; the one that starts it darker.
+2. **Questions:** diamonds, a few words ending in a question mark, the
+   words inside the diamond.
+3. **Answers:** the project's arrows, one per answer, each labelled (yes,
+   no, or the value).
+4. **Outcomes:** boxes coloured by what they mean: green done, orange
+   refused or spent, blue the way on.
+5. **Left to right** for the main way, **down** for the answers that leave
+   it.
+</pre>
+</section>
+<section class="group guide" id="timeline">
+<h2><span class="tag">04</span><span class="name">Timeline: what happened when</span></h2>
+<article class="prose">
+<p>Events at their moments, from a log: one line of time, left to right, each event a dot with its time and a few words.</p>
+<a class="figure" href="../img/diagrams/timeline_sign_in.svg"><img class="light" src="../img/diagrams/timeline_sign_in.svg" alt="A sign-in second by second: started, link opened, code typed, ended with the token unread, then Paste starting a new sign-in" width="1000" height="520" loading="lazy"><img class="dark" src="../img/diagrams/timeline_sign_in-dark.svg" alt="A sign-in second by second: started, link opened, code typed, ended with the token unread, then Paste starting a new sign-in" width="1000" height="520" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>A log tells it:</strong> times matter, and the gaps between them.</li><li><strong>The question is what came before what,</strong> or what happened while something else waited.</li><li><strong>One event went wrong</strong> among others that did not.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>Who sent what to whom</strong> matters more than when: a <a href="#sequence">sequence diagram</a>.</li><li><strong>The times do not matter,</strong> only the order of states: a <a href="#state">state diagram</a>.</li><li><strong>Hundreds of events:</strong> pick the few that tell it, and say how many were left out.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>The line of time:</strong> one grey line, left to right.</li><li><strong>Events:</strong> a dot on the line, a stem to its label, the time in bold above a few words. The labels go above and below in turn, so close events do not collide.</li><li><strong>Colours:</strong> blue for what went as it should, green for an end that is wanted, red for what went wrong.</li><li><strong>What went wrong</strong> gets a note of its own, in red, under its event.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Add all five. (2026-10-13, as the note of 16:29 quotes it)</li><li>The new diagrams, I think, should go on the pages too, only in the same format as the other diagrams; and mind the arrows: take the ones the project uses. (16:33)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/timeline.md" title="diagrams/timeline.md">timeline.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Timeline: what happened when
+
+Events at their moments, from a log: one line of time, left to right, each
+event a dot with its time and a few words.
+
+![A sign-in second by second: started, link opened, code typed, ended with the token unread, then Paste starting a new sign-in](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/timeline_sign_in.svg)
+
+## Fits when
+
+- **A log tells it:** times matter, and the gaps between them.
+- **The question is what came before what,** or what happened while
+  something else waited.
+- **One event went wrong** among others that did not.
+
+## Not when
+
+- **Who sent what to whom** matters more than when: a
+  [sequence diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/sequence.md).
+- **The times do not matter,** only the order of states: a
+  [state diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/state.md).
+- **Hundreds of events:** pick the few that tell it, and say how many were
+  left out.
+
+## How it is drawn
+
+1. **The line of time:** one grey line, left to right.
+2. **Events:** a dot on the line, a stem to its label, the time in bold
+   above a few words. The labels go above and below in turn, so close
+   events do not collide.
+3. **Colours:** blue for what went as it should, green for an end that is
+   wanted, red for what went wrong.
+4. **What went wrong** gets a note of its own, in red, under its event.
+</pre>
+</section>
+<section class="group guide" id="containers">
+<h2><span class="tag">05</span><span class="name">Container sketch (C4): where the parts run</span></h2>
+<article class="prose">
+<p>Which parts a system has, where each one runs, and what goes between them: the container level of the C4 model, drawn as a sketch.</p>
+<a class="figure" href="../img/diagrams/containers_notes.svg"><img class="light" src="../img/diagrams/containers_notes.svg" alt="Where the parts of a notes app run: the app, its folder and an agent box on a laptop; a router and agent machines; model and speech services on the internet" width="1000" height="560" loading="lazy"><img class="dark" src="../img/diagrams/containers_notes-dark.svg" alt="Where the parts of a notes app run: the app, its folder and an agent box on a laptop; a router and agent machines; model and speech services on the internet" width="1000" height="560" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>The question is where:</strong> which machine, which box, which service runs a part.</li><li><strong>Something crosses a boundary:</strong> a laptop to a server, a box to the internet, and what goes across.</li><li><strong>A newcomer needs the whole</strong> before any one part.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>The order of the calls</strong> matters: a <a href="#sequence">sequence diagram</a>.</li><li><strong>The data and how it links</strong> is the question: an <a href="#entities">entity-relationship diagram</a>.</li><li><strong>The inside of one part:</strong> its states or its decisions, a <a href="#state">state diagram</a> or a <a href="#flowchart">flowchart</a>.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>Where things run:</strong> dashed boxes with their names at the top left (a laptop, other machines, the internet).</li><li><strong>Parts:</strong> boxes inside them, a name and one line of what each is; the one the reply is about in blue.</li><li><strong>What goes between them:</strong> the project's arrows, grey, each with a few words.</li><li><strong>Names:</strong> the standard ones from the <a href="https://vbarbarosh.github.io/rules/docs/glossaries.html#NAME">glossary of names</a> (laptop, router, vps1, box), never a private host.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Add all five. (2026-10-13, as the note of 16:29 quotes it)</li><li>The new diagrams, I think, should go on the pages too, only in the same format as the other diagrams; and mind the arrows: take the ones the project uses. (16:33)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/containers.md" title="diagrams/containers.md">containers.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Container sketch (C4): where the parts run
+
+Which parts a system has, where each one runs, and what goes between them:
+the container level of the C4 model, drawn as a sketch.
+
+![Where the parts of a notes app run: the app, its folder and an agent box on a laptop; a router and agent machines; model and speech services on the internet](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/containers_notes.svg)
+
+## Fits when
+
+- **The question is where:** which machine, which box, which service runs
+  a part.
+- **Something crosses a boundary:** a laptop to a server, a box to the
+  internet, and what goes across.
+- **A newcomer needs the whole** before any one part.
+
+## Not when
+
+- **The order of the calls** matters: a [sequence diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/sequence.md).
+- **The data and how it links** is the question: an
+  [entity-relationship diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/entities.md).
+- **The inside of one part:** its states or its decisions, a
+  [state diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/state.md) or a [flowchart](https://github.com/vbarbarosh/rules/blob/main/diagrams/flowchart.md).
+
+## How it is drawn
+
+1. **Where things run:** dashed boxes with their names at the top left (a
+   laptop, other machines, the internet).
+2. **Parts:** boxes inside them, a name and one line of what each is; the
+   one the reply is about in blue.
+3. **What goes between them:** the project's arrows, grey, each with a few
+   words.
+4. **Names:** the standard ones from the
+   [glossary of names](https://vbarbarosh.github.io/rules/docs/glossaries.html#NAME) (laptop, router, vps1,
+   box), never a private host.
+</pre>
+</section>
+<section class="group guide" id="entities">
+<h2><span class="tag">06</span><span class="name">Entity-relationship: what data there is and how it links</span></h2>
+<article class="prose">
+<p>The kinds of data a system keeps, their main fields, and how many of one go with one of another: 1 to n, n to n.</p>
+<a class="figure" href="../img/diagrams/entities_notes.svg"><img class="light" src="../img/diagrams/entities_notes.svg" alt="A note's data: a note holds messages, messages are linked in subjects, a message has files" width="1000" height="510" loading="lazy"><img class="dark" src="../img/diagrams/entities_notes-dark.svg" alt="A note's data: a note holds messages, messages are linked in subjects, a message has files" width="1000" height="510" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>The question is about data:</strong> where something is kept, what points to what.</li><li><strong>A change touches a link:</strong> one becomes many, or a link goes away.</li><li><strong>A newcomer reads the storage</strong> before the code.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>Where the data lives</strong> (which machine, which service): a <a href="#containers">container sketch</a>.</li><li><strong>What happens to one record over time:</strong> a <a href="#state">state diagram</a>.</li><li><strong>Every field of every table:</strong> keep the main ones; the schema is in the code.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>Entities:</strong> a box per kind of data, its name in bold on a tinted band, its main fields under it.</li><li><strong>Links:</strong> plain lines, no arrowheads; <strong>1</strong> and <strong>n</strong> in bold at the ends, a verb under the line (holds, has, linked in).</li><li><strong>Left to right</strong> in the order a reader meets them; a child under its parent.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Add all five. (2026-10-13, as the note of 16:29 quotes it)</li><li>The new diagrams, I think, should go on the pages too, only in the same format as the other diagrams; and mind the arrows: take the ones the project uses. (16:33)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/entities.md" title="diagrams/entities.md">entities.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Entity-relationship: what data there is and how it links
+
+The kinds of data a system keeps, their main fields, and how many of one go
+with one of another: 1 to n, n to n.
+
+![A note's data: a note holds messages, messages are linked in subjects, a message has files](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/entities_notes.svg)
+
+## Fits when
+
+- **The question is about data:** where something is kept, what points to
+  what.
+- **A change touches a link:** one becomes many, or a link goes away.
+- **A newcomer reads the storage** before the code.
+
+## Not when
+
+- **Where the data lives** (which machine, which service): a
+  [container sketch](https://github.com/vbarbarosh/rules/blob/main/diagrams/containers.md).
+- **What happens to one record over time:** a [state diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/state.md).
+- **Every field of every table:** keep the main ones; the schema is in the
+  code.
+
+## How it is drawn
+
+1. **Entities:** a box per kind of data, its name in bold on a tinted band,
+   its main fields under it.
+2. **Links:** plain lines, no arrowheads; **1** and **n** in bold at the ends,
+   a verb under the line (holds, has, linked in).
+3. **Left to right** in the order a reader meets them; a child under its
+   parent.
 </pre>
 </section>
 <p class="nothing" id="nothing" hidden>No diagram matches that.</p>

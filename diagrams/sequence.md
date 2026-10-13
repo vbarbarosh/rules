@@ -25,9 +25,13 @@ a fix reads in one look, and today beside proposed shows only the change.
 
 ## Not when
 
-- **One part alone,** nothing passed between: its logic is a flowchart, its
+- **One part alone,** nothing passed between: its states are a
+  [state diagram](state.md), its decisions a [flowchart](flowchart.md), its
   look a screenshot.
-- **The order does not matter,** only what depends on what: that is a map.
+- **The order does not matter,** only where the parts run or how the data
+  links: a [container sketch](containers.md) or an
+  [entity-relationship diagram](entities.md).
+- **The times matter more than who:** a [timeline](timeline.md).
 - **Too many at once:** more than five participants or ten messages. Split
   it in two, or say it in a table.
 - **A change the author sees on screen:** screenshots before and after say it
