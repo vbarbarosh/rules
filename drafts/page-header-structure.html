@@ -17,7 +17,6 @@
     --optional-bg: #f7f4ec;
 }
 
-html.dark,
 :root[data-theme="dark"] {
     --bg: #0f1713;
     --paper: #14201a;
@@ -250,7 +249,6 @@ body {
 </style>
 <script>
 if (location.search === '?dark') {
-    document.documentElement.classList.add('dark');
     document.documentElement.dataset.theme = 'dark';
 }
 </script>

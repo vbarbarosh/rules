@@ -113,13 +113,20 @@ test('the preset checks JavaScript and template/style references in the same Vue
     assert.deepEqual(result.messages, []);
 });
 
-test('standalone CSS reports positions in the original file', async function () {
+test('standalone SCSS reports positions in the original file', async function () {
     const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config()});
-    const [result] = await linter.lintText('.foo {\n    transition: all 1s;\n}\n', {filePath: 'example.css'});
+    const [result] = await linter.lintText('.foo {\n    transition: all 1s;\n}\n', {filePath: 'example.scss'});
     assert.equal(result.messages.length, 1);
     assert.equal(result.messages[0].ruleId, 'rules/vue-style-conventions');
     assert.equal(result.messages[0].line, 2);
     assert.equal(result.messages[0].column, 5);
+});
+
+// CSS-09's mixin is Sass: plain CSS has no way to call it, so it is not held to it.
+test('standalone CSS is not held to the transition mixin', async function () {
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config()});
+    const [result] = await linter.lintText('.foo {\n    transition: all 1s;\n}\n', {filePath: 'example.css'});
+    assert.deepEqual(result.messages, []);
 });
 
 test('standalone Sass preserves includes and reports their original lines', async function () {
@@ -176,7 +183,7 @@ test('formatting fixes converge and preserve JavaScript parsing', async function
 test('CSS processing does not offer fixes in synthetic source coordinates', async function () {
     const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config(), fix: true});
     const source = '.foo { transition: all 1s; }';
-    const [result] = await linter.lintText(source, {filePath: 'example.css'});
+    const [result] = await linter.lintText(source, {filePath: 'example.scss'});
     assert.equal(result.output, undefined);
     assert.equal(result.messages.length, 1);
     assert.equal(result.messages[0].fix, undefined);

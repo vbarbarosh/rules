@@ -313,8 +313,6 @@ h1 {
     color: var(--muted);
 }
 
-/* The masthead switch, docked: it opens after the count once the masthead
-   one has left the screen. Closed, it takes no room and the count sits flush right. */
 /* The pictures control: off, small or large; the choice sits on <html>
    as data-pictures and is kept like the theme. Hidden when no picture is shown. */
 .pictures {
@@ -450,6 +448,8 @@ h1 {
     display: none;
 }
 
+/* The masthead switch, docked: it opens after the count once the masthead
+   one has left the screen. Closed, it takes no room and the count sits flush right. */
 .theme-docked {
     flex: none;
     max-width: 0;
@@ -2884,7 +2884,7 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="CSS-09">
 <a class="code" href="#CSS-09">CSS-09</a>
-<div class="text"><p><strong>Transitions come from the mixin.</strong> A <code>transition:</code> property is not written by hand — <code>@include app-transition(props…)</code> fills it, expanding each property into <code>&lt;prop&gt; &lt;speed&gt;</code> at the shared default speed. <code>app-transition-fast</code> and <code>app-transition-debug</code> are the same mixin at the shared fast and debug speeds. List the exact properties that change, never <code>all</code>, and put the include on the base rule rather than the state variant, so the animation covers both directions.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Transitions come from the mixin.</strong> A <code>transition:</code> property is not written by hand — <code>@include app-transition(props…)</code> fills it, expanding each property into <code>&lt;prop&gt; &lt;speed&gt;</code> at the shared default speed. <code>app-transition-fast</code> and <code>app-transition-debug</code> are the same mixin at the shared fast and debug speeds. List the exact properties that change, never <code>all</code>, and put the include on the base rule rather than the state variant, so the animation covers both directions. The mixin is Sass; plain <code>.css</code> files are not checked for it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>@include app-transition(box-shadow, border-color)</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/css_transitions_from_mixin.svg"><img class="light" src="../img/rules/css_transitions_from_mixin.svg" alt="The transition mixin expanding into each property at the shared speed; transition: all by hand beside the mixin with exact properties" width="1200" height="476" loading="lazy"><img class="dark" src="../img/rules/css_transitions_from_mixin-dark.svg" alt="The transition mixin expanding into each property at the shared speed; transition: all by hand beside the mixin with exact properties" width="1200" height="476" loading="lazy"></a></div>
 </article>

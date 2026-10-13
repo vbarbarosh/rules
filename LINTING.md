@@ -1,10 +1,11 @@
 # Linting the rulebook
 
 This repository is also a reusable ESLint plugin. It checks JavaScript, Vue
-2/3 single-file components, and CSS/SCSS/indented Sass. It follows the
-whole-line import sorting rule in `drafts/imports_sorted.md`, part of the
-brace catalog in `drafts/formatting_blocks.md` (the rest is under Scope),
-and the class conventions in `drafts/css_classes.md`.
+2/3 single-file components, and CSS/SCSS/indented Sass; the transition and
+`@include` checks run on SCSS and Sass only, where the mixins live. It
+follows the whole-line import sorting rule in `drafts/imports_sorted.md`,
+part of the brace catalog in `drafts/formatting_blocks.md` (the rest is
+under Scope), and the class conventions in `drafts/css_classes.md`.
 
 ## Run it
 
@@ -110,7 +111,7 @@ legacy ESLint configuration; that configuration is not automatically merged.
 | `vue-layout-classes` | `gap*` closes the layout group: the flex/grid/split container, then its `flex-*` modifiers, then gap; `grid*` and `flex*` layout classes never share an element; no `mg*`/`mi*` on flex/grid containers; correct fluid/grow/shrink family under a known parent. |
 | `vue-hashtag-syntax` | Exact source forms supported by the existing hashtag loader; catches unsupported quoting, spaces around `=`, unsupported attributes and JS strings. |
 | `vue-local-class-style` | Each statically known `#-*` template class or supported JS selector has a nonempty style selector in the same component. Style syntax/coverage failures are errors once a `#-*` class asks to be verified. |
-| `vue-style-conventions` | `@import` first in a component style block; inside a rule, `@include` first, ahead of the property declarations (`$variables` do not count; root-level includes are free); transition properties through the shared mixins; no `all`. Whether a transition belongs on the base rule or on a state is a design call and is not checked. |
+| `vue-style-conventions` | `@import` first in a component style block; inside a rule, `@include` first, ahead of the property declarations (`$variables` do not count; root-level includes are free); transition properties through the shared mixins; no `all`. CSS-09 requires the include on the base rule, not on a state; that placement is not checked. |
 
 The preset also enables four-space JS indentation, aligned switch cases,
 mandatory braces, function declaration style, a space before the parenthesis

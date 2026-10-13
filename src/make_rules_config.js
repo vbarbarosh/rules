@@ -50,11 +50,18 @@ function make_rules_config(options = {})
             },
         },
         {
-            files: ['**/*.{css,scss,sass}'],
+            files: ['**/*.{scss,sass}'],
             plugins: {rules: plugin},
             languageOptions: {parser: vue_parser},
             processor: 'rules/styles',
             rules: {'rules/vue-local-class-style': 'error', 'rules/vue-style-conventions': ['error', {app_prefixes}]},
+        },
+        {
+            files: ['**/*.css'],
+            plugins: {rules: plugin},
+            languageOptions: {parser: vue_parser},
+            processor: 'rules/styles',
+            rules: {'rules/vue-local-class-style': 'error'},
         },
     ];
 }

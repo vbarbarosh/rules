@@ -145,6 +145,9 @@ List the exact properties that change; never `all`. The include goes on the
 base rule, not on the `:hover` / `.active` variant, so the animation covers
 both directions.
 
+The mixin is Sass: the linter checks it, and the `@include`-first order, in
+SCSS and Sass only; a plain `.css` file is not checked for them.
+
 ## Selector lists
 
 A rule that applies to several selectors puts each one on its own line, the

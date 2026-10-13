@@ -30,8 +30,9 @@ test('every page puts one blank line between rules (CSS-13)', function () {
     for (const style of styles_from_pages()) {
         style.root.walk(function (node) {
             const previous = node.prev();
-            if (['rule', 'atrule'].includes(node.type) && previous && (previous.type !== 'comment') && !/^\n\n[ \t]*$/.test(node.raws.before)) {
-                breaks.push(`${style.file}:${style.line + node.source.start.line - 1}: ${node.selector || `@${node.name}`}`);
+            const counted = ['rule', 'atrule'].includes(node.type) || ((node.type === 'comment') && ['rule', 'atrule'].includes(previous?.type));
+            if (counted && previous && (previous.type !== 'comment') && !/^\n\n[ \t]*$/.test(node.raws.before)) {
+                breaks.push(`${style.file}:${style.line + node.source.start.line - 1}: ${node.selector || (node.name ? `@${node.name}` : `/* ${node.text} */`)}`);
             }
         });
     }

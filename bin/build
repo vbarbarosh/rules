@@ -7,6 +7,7 @@ const package_json = require('../package.json');
 const path = require('node:path');
 
 const BLOB_URL = 'https://github.com/vbarbarosh/rules/blob/main/';
+const RAW_URL = 'https://raw.githubusercontent.com/vbarbarosh/rules/main/';
 const CLASS_BY_MARKER = {'//': 'cmt', '&lt;!--': 'cmt', '✓': 'yes', '✗': 'no', '←': 'aside'};
 const docs_dir = path.join(__dirname, '..', 'docs');
 const GLOSSARY_FILES = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md', 'glossaries/maps.md'];
@@ -609,8 +610,19 @@ function html_from_guide(guide, index)
         + `<details class="words"><summary>In the author's words</summary>\n${html_from_guide_markdown(guide.words)}</details>\n`
         + `<div class="guide-actions">${source}<button class="copy-guide" type="button">Copy for an agent</button></div>\n`
         + '</div>\n'
-        + `<pre data-md hidden>${html_escape(`# ${guide.title}\n\n${guide.body}\n`)}</pre>\n`
+        + `<pre data-md hidden>${html_escape(md_from_guide(guide))}</pre>\n`
         + '</section>\n';
+}
+
+// A copied guide leaves the page, so its relative links and images point
+// into the repository instead.
+function md_from_guide(guide)
+{
+    const dir = path.posix.dirname(guide.file);
+    const body = guide.body.replace(/(!?)\[([^\]]*)\]\((?!https?:|#)([^)]+)\)/g, function (link, bang, label, href) {
+        return `${bang}[${label}](${bang ? RAW_URL : BLOB_URL}${path.posix.join(dir, href)})`;
+    });
+    return `# ${guide.title}\n\n${body}\n`;
 }
 
 // A picture of a guide, with its -dark twin when there is one; pictures on
