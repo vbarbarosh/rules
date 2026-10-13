@@ -137,9 +137,9 @@ and the reading order says so.
 
 A `transition:` property is not written by hand. `@include app-transition(props...)`
 fills it: the mixin expands each property into `<prop> <speed>` and joins them
-with commas, so every transition in the codebase runs at the one shared speed.
-`app-transition-fast` and `app-transition-debug` are the same mixin against the
-fast and debug speeds.
+with commas, so every transition in the codebase runs at the shared default
+speed. `app-transition-fast` and `app-transition-debug` are the same mixin
+against the shared fast and debug speeds.
 
 List the exact properties that change; never `all`. The include goes on the
 base rule, not on the `:hover` / `.active` variant, so the animation covers

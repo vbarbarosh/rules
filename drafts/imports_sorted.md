@@ -39,9 +39,9 @@ order and not this rule.
 
 - No groups. Builtins, packages and local files are one list, not three.
 - No blank lines and no comments inside the block — either one breaks the sort.
-- The one exception is a side-effect import — `import './x'`, a bare
+- The first exception is a side-effect import — `import './x'`, a bare
   `require('x')`. Those keep the order they run in, in their own block at the
-  very top of the file; one blank line, then the sorted named imports. This
+  very top of the file; one blank line, then the sorted default imports. This
   is the one place a file relies on execution order, FLOW-10's one visible
   exception: the imports say it in the first lines, where it is seen.
 
@@ -52,10 +52,11 @@ order and not this rule.
   import Vue from 'vue';
   import axios from 'axios';
   ```
-- A named import from a library — `import {mapState} from 'vuex'`,
-  `const {promisify} = require('util')` — may also stand apart: one blank
-  line after the default imports, then those lines, sorted among themselves.
-  This holds until the linter sorts the whole block the way it should.
+- The second exception: a named import from a library — `import {mapState}
+  from 'vuex'`, `const {promisify} = require('util')` — may also stand apart:
+  one blank line after the default imports, then those lines, sorted among
+  themselves. This holds until the linter sorts the whole block the way it
+  should.
 
   ```js
   import Vue from 'vue';

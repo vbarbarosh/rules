@@ -944,9 +944,11 @@ li.mono {
 <span class="t">[2026-08-17T02:55:37.000Z]</span><span class="g">[cd8e5vqp]</span><span class="e">[db_query_end_error]</span><span class="d"> 30.001s ETIMEDOUT</span>
 <span class="t">[2026-08-17T02:55:37.000Z]</span><span class="g">[c7f3a91k]</span><span class="e">[request_end_error]</span><span class="d"> 30.014s status=500 reason=db_timeout</span></pre>
     <p class="caption">The same worker twice, with no <code>[time]</code> — here the runtime adds it:</p>
-<pre class="mono"><span class="g">[c9k2vf3p]</span><span class="s">[mp4gif_worker_begin]</span>
+<pre class="mono"><span class="g">[c9k2vf3p]</span><span class="k">[group_spawn]</span>
+<span class="g">[c9k2vf3p]</span><span class="s">[mp4gif_worker_begin]</span>
 <span class="g">[c9k2vf3p]</span><span class="s">[mp4gif_worker_end_ok]</span><span class="d"> 4.512s</span>
 
+<span class="g">[c7t0xb1m]</span><span class="k">[group_spawn]</span>
 <span class="g">[c7t0xb1m]</span><span class="s">[mp4gif_worker_begin]</span>
 <span class="g">[c7t0xb1m]</span><span class="e">[mp4gif_worker_end_error]</span><span class="d"> 0.884s ffmpeg exit=1</span></pre>
 </section>

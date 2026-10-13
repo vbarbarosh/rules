@@ -1344,7 +1344,7 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
 </article>
 <article class="rule" id="CORE-02">
 <a class="code" href="#CORE-02">CORE-02</a>
-<div class="text"><p><strong>Unwritten conventions bind too.</strong> An unwritten convention is still a convention. File names, CSS classes, formatting and even attribute order follow the same systematic approach — silence is not permission.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Unwritten conventions bind too.</strong> An unwritten convention is still a convention. File names, CSS classes, formatting and even attribute order follow the same systematic approach, even where it is not written down.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../img/rules/unwritten_conventions.svg"><img class="light" src="../img/rules/unwritten_conventions.svg" alt="No rule names it, yet every file in components/ is kebab-case: user-menu.vue follows them, UserMenu.vue does not; the same for classes, formatting and attribute order" width="1200" height="580" loading="lazy"><img class="dark" src="../img/rules/unwritten_conventions-dark.svg" alt="No rule names it, yet every file in components/ is kebab-case: user-menu.vue follows them, UserMenu.vue does not; the same for classes, formatting and attribute order" width="1200" height="580" loading="lazy"></a>
 </article>
 <article class="rule" id="CORE-03">
@@ -1355,7 +1355,7 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
 </article>
 <article class="rule" id="CORE-04">
 <a class="code" href="#CORE-04">CORE-04</a>
-<div class="text"><p><strong>Opposites come from the established pairs, not from invention.</strong> <code>req/res</code> is Express-only; <code>res/rej</code> is valid for Promise executors, as are the full names <code>resolve/reject</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Opposites come from the established pairs.</strong> <code>req/res</code> is Express-only; <code>res/rej</code> is valid for Promise executors, as are the full names <code>resolve/reject</code>.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>construct/destruct  create/destroy
 open/close          begin/end
 start/finish        first/last
@@ -1385,7 +1385,7 @@ items_sorted_by_time        <span class="cmt">// data</span></pre><button class=
 </article>
 <article class="rule" id="NAME-03">
 <a class="code" href="#NAME-03">NAME-03</a>
-<div class="text"><p><strong>A bare "by" name is data, never called.</strong> A bare <code>_by_</code> name is always data, never a function: it is read with brackets, or with <code>.get()</code> when it is a <code>Map</code> — never called.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>A bare "by" name is data, never called.</strong> A bare <code>_by_</code> name is always data, never a function: it is read with brackets, or with <code>.get()</code> when it is a <code>Map</code> — never called.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>user_by_id&#91;id]       <span class="yes">✓ right</span>
 user_by_id.get(id)   <span class="yes">✓ right, a Map</span>
 user_by_id(id)       <span class="no">✗ wrong</span></pre><button class="copy" type="button">Copy</button></div>
@@ -1413,7 +1413,7 @@ children_by_parent_id&#91;parent_id]  <span class="cmt">// Node&#91;]</span></pr
 </article>
 <article class="rule" id="NAME-07">
 <a class="code" href="#NAME-07">NAME-07</a>
-<div class="text"><p><strong>Group by, sort by, index by produce them.</strong> The operations that produce those shapes are <code>_group_by_</code>, <code>_sort_by_</code> and <code>_index_by_</code>. The criterion follows the verb.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Group by, sort by, index by produce them.</strong> The operations that produce those shapes are <code>_group_by_</code>, <code>_sort_by_</code> and <code>_index_by_</code>. The criterion follows the verb.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>users_index_by_id(users)     <span class="cmt">// user_by_id</span>
 users_group_by_role(users)   <span class="cmt">// users_by_role</span>
 items_sort_by_time(items)    <span class="cmt">// items_sorted_by_time</span></pre><button class="copy" type="button">Copy</button></div>
@@ -1421,7 +1421,7 @@ items_sort_by_time(items)    <span class="cmt">// items_sorted_by_time</span></p
 </article>
 <article class="rule" id="NAME-08">
 <a class="code" href="#NAME-08">NAME-08</a>
-<div class="text"><p><strong>"From" means computed: result first, source last.</strong> Use <code>_from_</code> only when something is computed, parsed or constructed — result first, source last.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>"From" means computed: result first, source last.</strong> Use <code>_from_</code> only when something is computed, parsed or constructed — result first, source last.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/docs/README.md" title="docs/README.md">docs/README.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>user_from_token(token)
 date_from_timestamp(ts)
 tree_from_array(rows)</pre><button class="copy" type="button">Copy</button></div>
@@ -1434,7 +1434,7 @@ tree_from_array(rows)</pre><button class="copy" type="button">Copy</button></div
 </article>
 <article class="rule" id="NAME-10">
 <a class="code" href="#NAME-10">NAME-10</a>
-<div class="text"><p><strong>"To" only in method position.</strong> <code>_to_</code> is for method position only, where the source is the receiver.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>"To" belongs in method position.</strong> A standalone conversion prefers <code>_from_</code>; <code>_to_</code> is for method position, where the source is the receiver.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/naming_markers.md" title="drafts/naming_markers.md">naming_markers.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>tree.to_json()</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/to_in_method_position.svg"><img class="light" src="../img/rules/to_in_method_position.svg" alt="tree.to_json() with tree as the receiver; standalone it is json_from_tree(tree), never tree_to_json(tree)" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/to_in_method_position-dark.svg" alt="tree.to_json() with tree as the receiver; standalone it is json_from_tree(tree), never tree_to_json(tree)" width="1200" height="520" loading="lazy"></a></div>
 </article>
@@ -1489,7 +1489,7 @@ process() handle() util()   <span class="no">✗ avoid</span></pre><button class
 </article>
 <article class="rule" id="NAME-18">
 <a class="code" href="#NAME-18">NAME-18</a>
-<div class="text"><p><strong>Verb-first families are the exceptions.</strong> The verb-first families are the exceptions to domain-first naming: <code>main</code> — reserved for the entry function of an executable script — <code>format_*</code>, <code>render_*</code>, <code>export_*</code>, <code>is_*</code>, <code>refresh_*</code>, <code>click_*</code>, <code>emit_*</code>, and the steps of a script (<code>build_glossaries_html()</code>). A step is a function <code>main()</code> calls once, in order, to do one part of the work; a verb-first name that is not a step is renamed when next touched.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Verb-first families are the exceptions.</strong> The verb-first families are the exceptions to domain-first naming: <code>main</code> — reserved for the entry function of an executable script — <code>format_*</code>, <code>render_*</code>, <code>export_*</code>, <code>is_*</code>, <code>refresh_*</code>, <code>click_*</code>, <code>emit_*</code>, <code>check_*</code> (MP-40), <code>make_*</code> (MP-53), and the steps of a script (<code>build_glossaries_html()</code>). A step is a function <code>main()</code> calls once, in order, to do one part of the work; a verb-first name that is not a step is renamed when next touched.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>function main()
 {
     report_print();
@@ -1950,7 +1950,7 @@ const users_by_role = users_group_by_role(users);   <span class="yes">✓ yes</s
 </article>
 <article class="rule" id="FMT-19">
 <a class="code" href="#FMT-19">FMT-19</a>
-<div class="text"><p><strong>Comment intent, not mechanics.</strong> Comments explain intent or policy only. No comments for obvious mechanics.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Comment intent, not mechanics.</strong> Comments explain intent or policy only. No comments for obvious mechanics. One exception: the route comment of FMT-21 states the route.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../img/rules/fmt_comment_intent.svg"><img class="light" src="../img/rules/fmt_comment_intent.svg" alt="A comment repeating the call, turned into one giving the reason for the retry" width="1200" height="386" loading="lazy"><img class="dark" src="../img/rules/fmt_comment_intent-dark.svg" alt="A comment repeating the call, turned into one giving the reason for the retry" width="1200" height="386" loading="lazy"></a>
 </article>
 <article class="rule" id="FMT-20">
@@ -2194,7 +2194,7 @@ match ($status) {                                          <span class="yes">✓
 </article>
 <article class="rule" id="FILE-04">
 <a class="code" href="#FILE-04">FILE-04</a>
-<div class="text"><p><strong>An executable hands main to cli.</strong> An executable hands its entry function to <code>cli</code>. <code>cli</code> owns the process contract: it keeps the event loop alive until <code>main</code> settles, reports a failure, and exits non-zero — <code>ExitCodeError</code> picks the code, any other error exits 1.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/cli_main.md" title="drafts/cli_main.md">cli_main.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>An executable hands main to cli.</strong> An executable hands its entry function to <code>cli</code>. <code>cli</code> owns the process contract: it keeps the event loop alive until <code>main</code> settles, reports a failure, and exits non-zero — <code>ExitCodeError</code> picks the code, any other error exits 1. A browser page script has no <code>cli</code>; it calls <code>main();</code> (MP-10).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/cli_main.md" title="drafts/cli_main.md">cli_main.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>const cli = require('@vbarbarosh/node-helpers/src/cli');
 
 cli(main);
@@ -2378,7 +2378,7 @@ bin/watch      ww</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="PROJ-03">
 <a class="code" href="#PROJ-03">PROJ-03</a>
-<div class="text"><p><strong>Run, test, build and watch wrap npm.</strong> In a node.js project <code>run</code>, <code>test</code>, <code>build</code> and <code>watch</code> are thin wrappers over npm. The wrappers still earn their keep: <code>rr</code>, <code>tt</code>, <code>bb</code>, <code>ww</code> are shorter than any npm form, and the names hold for projects that are not node.js.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Run, test, build and watch wrap npm.</strong> In a node.js project <code>run</code>, <code>test</code>, <code>build</code> and <code>watch</code> are usually thin wrappers over npm. The wrappers still earn their keep: <code>rr</code>, <code>tt</code>, <code>bb</code>, <code>ww</code> are shorter than any npm form, and the names hold for projects that are not node.js.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>alias rr='bin/run'
 alias tt='bin/test'
 alias bb='bin/build'
@@ -2450,10 +2450,10 @@ src/helpers/array_group.test.js</pre><button class="copy" type="button">Copy</bu
 </article>
 <article class="rule" id="PROJ-14">
 <a class="code" href="#PROJ-14">PROJ-14</a>
-<div class="text"><p><strong>The project root carries the same standard files.</strong></p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>.env  .env.example  .gitignore  Dockerfile
-LICENSE  README.md  package.json</pre><button class="copy" type="button">Copy</button></div>
-<div class="figures"><a class="figure" href="../img/rules/proj_root_standard_files.svg"><img class="light" src="../img/rules/proj_root_standard_files.svg" alt="The project root with .env, .env.example, .gitignore, Dockerfile, LICENSE, README.md and package.json" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/proj_root_standard_files-dark.svg" alt="The project root with .env, .env.example, .gitignore, Dockerfile, LICENSE, README.md and package.json" width="1200" height="480" loading="lazy"></a></div>
+<div class="text"><p><strong>The project root carries the same standard files.</strong> <code>.env</code> is not one of them: it is there only when the runner puts it there (PROJ-06).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/layout.md" title="drafts/layout.md">layout.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>.env.example  .gitignore  Dockerfile  LICENSE
+README.md  package.json</pre><button class="copy" type="button">Copy</button></div>
+<div class="figures"><a class="figure" href="../img/rules/proj_root_standard_files.svg"><img class="light" src="../img/rules/proj_root_standard_files.svg" alt="The project root with .env.example, .gitignore, Dockerfile, LICENSE, README.md and package.json" width="1200" height="480" loading="lazy"><img class="dark" src="../img/rules/proj_root_standard_files-dark.svg" alt="The project root with .env.example, .gitignore, Dockerfile, LICENSE, README.md and package.json" width="1200" height="480" loading="lazy"></a></div>
 </article>
 <article class="rule" id="PROJ-15">
 <a class="code" href="#PROJ-15">PROJ-15</a>
@@ -2502,12 +2502,12 @@ docker run -v /srv/app/data:/app/data app</pre><button class="copy" type="button
 </article>
 <article class="rule" id="PROJ-20">
 <a class="code" href="#PROJ-20">PROJ-20</a>
-<div class="text"><p><strong>The README runs in a fixed order.</strong> A GitHub <code>README.md</code> runs in one order: badges, cover image, name, short description, website, quick start, documentation, license. Badges, the website link and the further documentation pages may be absent; the rest are always there.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>The README runs in a fixed order.</strong> A GitHub <code>README.md</code> runs in one order: badges, cover image, name, short description, website, quick start, documentation, license. Badges and the further documentation pages may be absent, and the website link is left out when the website is the documentation; the rest are always there.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../drafts/readme-structure.png"><img class="light" src="../drafts/readme-structure.png" alt="the parts of a README, top to bottom" width="2560" height="2854" loading="lazy"><img class="dark" src="../drafts/readme-structure-dark.png" alt="the parts of a README, top to bottom" width="2560" height="2854" loading="lazy"></a>
 </article>
 <article class="rule" id="PROJ-21">
 <a class="code" href="#PROJ-21">PROJ-21</a>
-<div class="text"><p><strong>Badges at the top, a row per kind.</strong> Badges sit at the very top, above the cover, a row per kind: the package and its numbers on one row, the CI workflows on the next. As many as the project has.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Badges at the top, a row per kind.</strong> Badges are optional. When there are any, they sit at the very top, above the cover, a row per kind: the package and its numbers on one row, the CI workflows on the next. As many as the project has.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/readme.md" title="drafts/readme.md">readme.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../img/rules/proj_badges_row_per_kind.svg"><img class="light" src="../img/rules/proj_badges_row_per_kind.svg" alt="The top of a README: a row of package badges, a row of CI badges, then the cover image" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/proj_badges_row_per_kind-dark.svg" alt="The top of a README: a row of package badges, a row of CI badges, then the cover image" width="1200" height="500" loading="lazy"></a>
 </article>
 <article class="rule" id="PROJ-22">
@@ -2583,7 +2583,7 @@ build/front.d: missing      <span class="no">✗ ships nothing</span></pre><butt
 <h2><span class="tag">REL</span><span class="name">Packaging and release</span><span class="note">Ship a prebuilt dist/.</span></h2>
 <article class="rule" id="REL-01">
 <a class="code" href="#REL-01">REL-01</a>
-<div class="text"><p><strong>Ship a prebuilt dist/.</strong> Distribute a prebuilt <code>dist/</code> from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>A project can ship a prebuilt dist/.</strong> A project can distribute a prebuilt <code>dist/</code> from the repository, the way Vue, VueRouter, Vuex, jQuery, Bootstrap, Axios, Cuid and Jsondiffpatch do.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/packaging/packaging.md" title="packaging/packaging.md">packaging.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&lt;script src=&quot;https://unpkg.com/vue@2.6.11/dist/vue.js&quot;&gt;&lt;/script&gt;</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/rel_ship_prebuilt_dist.svg"><img class="light" src="../img/rules/rel_ship_prebuilt_dist.svg" alt="dist/vue.js in the repository, served by unpkg, loaded by a page with a script tag, with no build on the user side" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/rel_ship_prebuilt_dist-dark.svg" alt="dist/vue.js in the repository, served by unpkg, loaded by a page with a script tag, with no build on the user side" width="1200" height="500" loading="lazy"></a></div>
 </article>
@@ -2672,7 +2672,7 @@ every case found.</pre><button class="copy" type="button">Copy</button></div>
 <h2><span class="tag">LOG</span><span class="name">Logs</span><span class="note">One line, one event, four fields.</span></h2>
 <article class="rule" id="LOG-01">
 <a class="code" href="#LOG-01">LOG-01</a>
-<div class="text"><p><strong>One line, one event, four fields.</strong> A log is one infinite file. One physical line records one event, in four fields and nothing else.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>One line, one event, four fields.</strong> A log is one stream of lines, as if one infinite file; its files may be split by day (PROJ-05). One physical line records one event, in four fields and nothing else.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>[time][group_uid][sender] details</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/log_one_line_four_fields.svg"><img class="light" src="../img/rules/log_one_line_four_fields.svg" alt="A log line as its four fields, time, group_uid, sender and details, each with what it holds, above three such lines of one log" width="1200" height="486" loading="lazy"><img class="dark" src="../img/rules/log_one_line_four_fields-dark.svg" alt="A log line as its four fields, time, group_uid, sender and details, each with what it holds, above three such lines of one log" width="1200" height="486" loading="lazy"></a></div>
 </article>
@@ -2726,9 +2726,11 @@ every case found.</pre><button class="copy" type="button">Copy</button></div>
 <article class="rule" id="LOG-10">
 <a class="code" href="#LOG-10">LOG-10</a>
 <div class="text"><p><strong>Every begin is closed by its end.</strong> A <code>_begin</code> event is closed by the same stem with <code>_end_ok</code> or <code>_end_error</code>, in the same group. An end never appears without its begin in that group.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
-<div class="form"><pre>&#91;c9k2vf3p]&#91;mp4gif_worker_begin]
+<div class="form"><pre>&#91;c9k2vf3p]&#91;group_spawn]
+&#91;c9k2vf3p]&#91;mp4gif_worker_begin]
 &#91;c9k2vf3p]&#91;mp4gif_worker_end_ok] 4.512s
 
+&#91;c7t0xb1m]&#91;group_spawn]
 &#91;c7t0xb1m]&#91;mp4gif_worker_begin]
 &#91;c7t0xb1m]&#91;mp4gif_worker_end_error] 0.884s ffmpeg exit=1</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/log_begin_closed_by_end.svg"><img class="light" src="../img/rules/log_begin_closed_by_end.svg" alt="A begin closed by end_ok and a begin closed by end_error; an end with no begin beside the begin and its end" width="1200" height="504" loading="lazy"><img class="dark" src="../img/rules/log_begin_closed_by_end-dark.svg" alt="A begin closed by end_ok and a begin closed by end_error; an end with no begin beside the begin and its end" width="1200" height="504" loading="lazy"></a></div>
@@ -2802,7 +2804,7 @@ value=""</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="LOG-21">
 <a class="code" href="#LOG-21">LOG-21</a>
-<div class="text"><p><strong>Keep one log line under 2k UTF-8 bytes.</strong> A log line describes an event; it is not payload storage.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Try to keep one log line under 2k UTF-8 bytes.</strong> A log line describes an event; it is not payload storage.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/logs.md" title="drafts/logs.md">logs.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <a class="form figure" href="../img/rules/log_line_under_2k.svg"><img class="light" src="../img/rules/log_line_under_2k.svg" alt="A 120-byte event under the 2 KB mark and a 48 000-byte payload far past it; the payload beside a counted, truncated line" width="1200" height="520" loading="lazy"><img class="dark" src="../img/rules/log_line_under_2k-dark.svg" alt="A 120-byte event under the 2 KB mark and a 48 000-byte payload far past it; the payload beside a counted, truncated line" width="1200" height="520" loading="lazy"></a>
 </article>
 <article class="rule" id="LOG-22">
@@ -2860,7 +2862,7 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="CSS-06">
 <a class="code" href="#CSS-06">CSS-06</a>
-<div class="text"><p><strong>The x class comes before its setter.</strong> An <code>x*</code> class usually comes before the setter it clears the way for — the broad class leads and the narrow one corrects it, whichever of the two is the reset.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Broad before narrow.</strong> An <code>x*</code> class usually comes before the setter it clears the way for — the broad class leads and the narrow one corrects it, whichever of the two is the reset.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&lt;div class="xm ml5" /&gt;   <span class="cmt">&lt;!-- margin: 0; margin-left: 5px; --&gt;</span>
 &lt;div class="m5 xml" /&gt;   <span class="cmt">&lt;!-- margin: 5px; margin-left: 0;  --&gt;</span></pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/css_x_before_setter.svg"><img class="light" src="../img/rules/css_x_before_setter.svg" alt="xm ml5 and m5 xml with the margins each produces; the reset after the setter beside the reset first" width="1200" height="510" loading="lazy"><img class="dark" src="../img/rules/css_x_before_setter-dark.svg" alt="xm ml5 and m5 xml with the margins each produces; the reset after the setter beside the reset first" width="1200" height="510" loading="lazy"></a></div>
@@ -2880,7 +2882,7 @@ grid-foo gap5</pre><button class="copy" type="button">Copy</button></div>
 </article>
 <article class="rule" id="CSS-09">
 <a class="code" href="#CSS-09">CSS-09</a>
-<div class="text"><p><strong>Transitions come from the mixin.</strong> A <code>transition:</code> property is not written by hand — <code>@include app-transition(props…)</code> fills it, expanding each property into <code>&lt;prop&gt; &lt;speed&gt;</code> against the one shared speed. <code>app-transition-fast</code> and <code>app-transition-debug</code> are the same mixin at the fast and debug speeds. List the exact properties that change, never <code>all</code>, and put the include on the base rule rather than the state variant, so the animation covers both directions.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Transitions come from the mixin.</strong> A <code>transition:</code> property is not written by hand — <code>@include app-transition(props…)</code> fills it, expanding each property into <code>&lt;prop&gt; &lt;speed&gt;</code> at the shared default speed. <code>app-transition-fast</code> and <code>app-transition-debug</code> are the same mixin at the shared fast and debug speeds. List the exact properties that change, never <code>all</code>, and put the include on the base rule rather than the state variant, so the animation covers both directions.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/css_classes.md" title="drafts/css_classes.md">css_classes.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>@include app-transition(box-shadow, border-color)</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/css_transitions_from_mixin.svg"><img class="light" src="../img/rules/css_transitions_from_mixin.svg" alt="The transition mixin expanding into each property at the shared speed; transition: all by hand beside the mixin with exact properties" width="1200" height="476" loading="lazy"><img class="dark" src="../img/rules/css_transitions_from_mixin-dark.svg" alt="The transition mixin expanding into each property at the shared speed; transition: all by hand beside the mixin with exact properties" width="1200" height="476" loading="lazy"></a></div>
 </article>
@@ -2965,7 +2967,7 @@ ON
 </article>
 <article class="rule" id="SQL-05">
 <a class="code" href="#SQL-05">SQL-05</a>
-<div class="text"><p><strong>Short expressions stay on one line.</strong> A short expression stays on one line: a <code>WHERE</code> that opens a subquery, even at the top level, and the clauses inside a subquery.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/sql.md" title="drafts/sql.md">sql.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Short expressions may stay on one line.</strong> A short expression can stay on one line: a <code>WHERE</code> that opens a subquery, even at the top level, and the clauses inside a subquery.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/sql.md" title="drafts/sql.md">sql.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>WHERE id IN (
     SELECT id FROM (
         SELECT MIN(id) AS id
@@ -3072,7 +3074,7 @@ emit_input(value) <span class="cmt">// return a value from an input</span></pre>
 </article>
 <article class="rule" id="VUE-12">
 <a class="code" href="#VUE-12">VUE-12</a>
-<div class="text"><p><strong>A slider thumb moves from 0 to 100%.</strong> A slider is a container and a thumb. Position the thumb with <code>top</code> or <code>left</code> from <code>0</code> to <code>100%</code> — <code>0</code> means empty, <code>100%</code> means full.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-slider.md" title="vue2/vue-slider.md">vue-slider.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>A slider thumb moves from 0 to 100%.</strong> A slider is usually a container and a thumb. Prefer positioning the thumb with <code>top</code> or <code>left</code> from <code>0</code> to <code>100%</code> — <code>0</code> means empty, <code>100%</code> means full.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-slider.md" title="vue2/vue-slider.md">vue-slider.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>left: 0      <span class="cmt">// empty</span>
 left: 100%   <span class="cmt">// full</span></pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/vue_slider_thumb_percent.svg"><img class="light" src="../img/rules/vue_slider_thumb_percent.svg" alt="Three sliders with the thumb at left 0, 50% and 100%: empty, half and full" width="1200" height="500" loading="lazy"><img class="dark" src="../img/rules/vue_slider_thumb_percent-dark.svg" alt="Three sliders with the thumb at left 0, 50% and 100%: empty, half and full" width="1200" height="500" loading="lazy"></a></div>
@@ -3373,7 +3375,7 @@ window.addEventListener('drop', v =&gt; v.preventDefault());</pre><button class=
 </article>
 <article class="rule" id="DOC-09">
 <a class="code" href="#DOC-09">DOC-09</a>
-<div class="text"><p><strong>Findings have permanent ids and evidence.</strong> A finding id is <code>&lt;PROJECT&gt;-NN</code>, never reused and never renumbered. Each finding is one section citing <code>file:line</code> and the evidence — the quoted lines, the command which was run and what it printed.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Findings have permanent ids and evidence.</strong> A finding id is <code>&lt;PROJECT&gt;-NN</code>, never reused and never renumbered. Each finding is one section citing <code>file:line</code> and the evidence — the quoted lines, the command which was run and what it printed. A finding in the author's own text is reported only; it is not patched.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/audit_note.md" title="drafts/audit_note.md">audit_note.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>### DEMO-01 Classes banned in one file, shown in another (high)</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/doc_findings_ids_evidence.svg"><img class="light" src="../img/rules/doc_findings_ids_evidence.svg" alt="A finding with its id, file and line, quoted code and the command with its output; reusing an old id is wrong, the next one is new" width="1200" height="600" loading="lazy"><img class="dark" src="../img/rules/doc_findings_ids_evidence-dark.svg" alt="A finding with its id, file and line, quoted code and the command with its output; reusing an old id is wrong, the next one is new" width="1200" height="600" loading="lazy"></a></div>
 </article>

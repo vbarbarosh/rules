@@ -7,9 +7,10 @@
 
 # Theme switch
 
-Every new UI — a SPA, an app screen, a report, a standalone HTML page — carries
-a visible light/dark switch. A page that only follows `prefers-color-scheme`
-has no switch, and does not count.
+Every UI — a SPA, an app screen, a report, a standalone HTML page — carries
+a visible light/dark switch: a new one from the start, and any project page
+at all ([page_header.md](page_header.md)). A page that only follows
+`prefers-color-scheme` has no switch, and does not count.
 
 One exception (MP-59): a page made only to be photographed for a rule's
 picture, opened once as is and once with `?dark` and saved as two PNGs,
@@ -19,8 +20,9 @@ the other pages use. A page that becomes a demo people open gets the switch.
 ## Two states
 
 The switch has exactly two states, **Light** and **Dark**. There is no System,
-Auto or follow-the-OS option, not even as the default. The reader picks the
-theme on the page; he does not inherit it.
+Auto or follow-the-OS option. On a first visit, with nothing saved, the OS
+setting is only the starting point (UI-04); from then on the reader picks
+the theme on the page.
 
 ## One shared icon pair
 
