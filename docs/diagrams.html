@@ -1446,14 +1446,14 @@ the container level of the C4 model, drawn as a sketch.
 <section class="group guide" id="entities">
 <h2><span class="tag">06</span><span class="name">Entity-relationship: what data there is and how it links</span></h2>
 <article class="prose">
-<p>The kinds of data a system keeps, their main fields, and how many of one go with one of another: 1 to n, n to n.</p>
+<p>The kinds of data a system keeps, their main fields, and how many of one go with one of another: 1 to n, n to n, marked on each line's ends.</p>
 <a class="figure" href="../img/diagrams/entities_notes.svg"><img class="light" src="../img/diagrams/entities_notes.svg" alt="A note's data: a note holds messages, messages are linked in subjects, a message has files" width="1000" height="510" loading="lazy"><img class="dark" src="../img/diagrams/entities_notes-dark.svg" alt="A note's data: a note holds messages, messages are linked in subjects, a message has files" width="1000" height="510" loading="lazy"></a>
 <h3>Fits when</h3>
 <ul><li><strong>The question is about data:</strong> where something is kept, what points to what.</li><li><strong>A change touches a link:</strong> one becomes many, or a link goes away.</li><li><strong>A newcomer reads the storage</strong> before the code.</li></ul>
 <h3>Not when</h3>
 <ul><li><strong>Where the data lives</strong> (which machine, which service): a <a href="#containers">container sketch</a>.</li><li><strong>What happens to one record over time:</strong> a <a href="#state">state diagram</a>.</li><li><strong>Every field of every table:</strong> keep the main ones; the schema is in the code.</li></ul>
 <h3>How it is drawn</h3>
-<ol><li><strong>Entities:</strong> a box per kind of data, its name in bold on a tinted band, its main fields under it.</li><li><strong>Links:</strong> plain lines, no arrowheads; <strong>1</strong> and <strong>n</strong> in bold at the ends, a verb under the line (holds, has, linked in).</li><li><strong>Left to right</strong> in the order a reader meets them; a child under its parent.</li></ol>
+<ol><li><strong>Entities:</strong> a box per kind of data, its name in bold on a tinted band, its main fields under it.</li><li><strong>Links:</strong> plain lines, no arrowheads, a verb under the line (holds, has, linked in).</li><li><strong>Their ends, crow's feet:</strong> two short bars across the line where it is one, a three-pronged foot with a bar before it where it is many (one or more). <strong>1</strong> and <strong>n</strong> in bold beside them, for a reader who does not know the marks.</li><li><strong>Left to right</strong> in the order a reader meets them; a child under its parent.</li></ol>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -1464,7 +1464,7 @@ the container level of the C4 model, drawn as a sketch.
 <pre data-md hidden># Entity-relationship: what data there is and how it links
 
 The kinds of data a system keeps, their main fields, and how many of one go
-with one of another: 1 to n, n to n.
+with one of another: 1 to n, n to n, marked on each line's ends.
 
 ![A note's data: a note holds messages, messages are linked in subjects, a message has files](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/entities_notes.svg)
 
@@ -1487,9 +1487,13 @@ with one of another: 1 to n, n to n.
 
 1. **Entities:** a box per kind of data, its name in bold on a tinted band,
    its main fields under it.
-2. **Links:** plain lines, no arrowheads; **1** and **n** in bold at the ends,
-   a verb under the line (holds, has, linked in).
-3. **Left to right** in the order a reader meets them; a child under its
+2. **Links:** plain lines, no arrowheads, a verb under the line (holds, has,
+   linked in).
+3. **Their ends, crow's feet:** two short bars across the line where it is
+   one, a three-pronged foot with a bar before it where it is many (one or
+   more). **1** and **n** in bold beside them, for a reader who does not
+   know the marks.
+4. **Left to right** in the order a reader meets them; a child under its
    parent.
 </pre>
 </section>

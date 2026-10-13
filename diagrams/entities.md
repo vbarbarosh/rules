@@ -6,7 +6,7 @@
 # Entity-relationship: what data there is and how it links
 
 The kinds of data a system keeps, their main fields, and how many of one go
-with one of another: 1 to n, n to n.
+with one of another: 1 to n, n to n, marked on each line's ends.
 
 ![A note's data: a note holds messages, messages are linked in subjects, a message has files](../img/diagrams/entities_notes.svg)
 
@@ -29,7 +29,11 @@ with one of another: 1 to n, n to n.
 
 1. **Entities:** a box per kind of data, its name in bold on a tinted band,
    its main fields under it.
-2. **Links:** plain lines, no arrowheads; **1** and **n** in bold at the ends,
-   a verb under the line (holds, has, linked in).
-3. **Left to right** in the order a reader meets them; a child under its
+2. **Links:** plain lines, no arrowheads, a verb under the line (holds, has,
+   linked in).
+3. **Their ends, crow's feet:** two short bars across the line where it is
+   one, a three-pronged foot with a bar before it where it is many (one or
+   more). **1** and **n** in bold beside them, for a reader who does not
+   know the marks.
+4. **Left to right** in the order a reader meets them; a child under its
    parent.
