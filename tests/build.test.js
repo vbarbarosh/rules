@@ -10,7 +10,7 @@ let fixture_dir;
 
 test.before(function () {
     fixture_dir = fs.mkdtempSync(path.join(os.tmpdir(), 'rules-build-'));
-    for (const file of ['bin/build', 'package.json', 'docs', 'drafts', 'agents', 'glossaries', 'img', 'formatting.html']) {
+    for (const file of ['bin/build', 'bin/self-check', 'package.json', 'docs', 'drafts', 'agents', 'glossaries', 'img', 'formatting.html']) {
         fs.cpSync(path.join(root_dir, file), path.join(fixture_dir, file), {recursive: true});
     }
     fs.symlinkSync(path.join(root_dir, 'node_modules'), path.join(fixture_dir, 'node_modules'), 'dir');

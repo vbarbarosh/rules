@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const child_process = require('node:child_process');
 const cli = require('@vbarbarosh/node-helpers/src/cli');
 const fs = require('node:fs');
 const package_json = require('../package.json');
@@ -23,6 +24,7 @@ function main()
     build_glossaries_html();
     build_agents_html();
     stamp_static_pages_version();
+    run_self_check();
 }
 
 // rules.md and animations.md: two indexes, one template; a part only one
@@ -77,6 +79,12 @@ function stamp_static_pages_version()
         const html_stamped = html_versioned.replace(/<!-- theme-icons -->[\s\S]*?<!-- \/theme-icons -->/g, icons);
         fs.writeFileSync(file_path, html_stamped);
     }
+}
+
+// A build that fails the self-check ships nothing (PROJ-30).
+function run_self_check()
+{
+    child_process.execFileSync(path.join(root_dir, 'bin', 'self-check'), {stdio: 'inherit'});
 }
 
 // Inline the shared assets so currentColor and local file previews both work.

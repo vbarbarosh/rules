@@ -16,6 +16,14 @@ async function main()
 settles, reports a failure, and exits non-zero (`ExitCodeError` picks the exit
 code; any other error exits 1).
 
+`cli` takes a second function, `report(error)`, which prints the failure;
+the default is `console.error(error)`. A script passes its own when an
+`ExitCodeError` should print only its message, as `bin/lint` does:
+
+```js
+cli(main, report);
+```
+
 - `main().catch(...)` with a hand-rolled `process.exit(1)` does not exist.
 - `cli(main)`, never `cli(main())`: `cli` runs the function through
   `Promise.try`, so a synchronous throw inside `main` is reported the same as a

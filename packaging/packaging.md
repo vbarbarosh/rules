@@ -27,6 +27,8 @@ packages. This project can do the same. Here is a workflow:
 5. Create a tag
 
 ```
+# Ensure that there are no changes
+test -z "$(git status --porcelain)"
 # Increase a version without commiting it and making a tag
 npm version $1 --no-git-tag-version
 # Rebuild dist
@@ -53,14 +55,12 @@ will do all of this. Feel free to use and tweak it:
     scriptdir=`dirname $script`
     scriptname=`basename $script`
 
-    BLACK="\e[30m" RED="\e[31m" GREEN="\e[32m" YELLOW="\e[33m" BLUE="\e[34m"
-    PURPLE="\e[35m" CYAN="\e[36m" WHITE="\e[37m" RESET="\e[0m"
+    RED="\e[31m" GREEN="\e[32m" RESET="\e[0m"
 
     EXIT_MESSAGE="${RED}bin/release failed${RESET}"
 
     # http://redsymbol.net/articles/bash-exit-traps/
-    tempdir=`mktemp -d -t tmp.XXXXXXXXXX`
-    trap 'rm -rf $tempdir; echo -e "$EXIT_MESSAGE"' EXIT
+    trap 'echo -e "$EXIT_MESSAGE"' EXIT
     cd $scriptdir/..
 
     case "${1-}"  in
@@ -71,6 +71,12 @@ will do all of this. Feel free to use and tweak it:
         exit 1
         ;;
     esac
+
+    # Ensure that there are no changes
+    if [ -n "$(git status --porcelain)" ]; then
+        echo release: the working tree has changes >&2
+        exit 1
+    fi
 
     # Increase a version without commiting it and making a tag
     npm version $1 --no-git-tag-version

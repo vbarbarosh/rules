@@ -8,20 +8,13 @@ script=`realpath $0`
 scriptdir=`dirname $script`
 scriptname=`basename $script`
 
-BLACK="\e[30m" RED="\e[31m" GREEN="\e[32m" YELLOW="\e[33m" BLUE="\e[34m"
-PURPLE="\e[35m" CYAN="\e[36m" WHITE="\e[37m" RESET="\e[0m"
+RED="\e[31m" GREEN="\e[32m" RESET="\e[0m"
 
 EXIT_MESSAGE="${RED}bin/configure failed${RESET}"
 
 # http://redsymbol.net/articles/bash-exit-traps/
-tempdir=`mktemp -d -t tmp.XXXXXXXXXX`
-trap 'rm -rf $tempdir; echo -e "$EXIT_MESSAGE"' EXIT
+trap 'echo -e "$EXIT_MESSAGE"' EXIT
 cd $scriptdir/..
-
-echo script=$script
-echo scriptdir=$scriptdir
-echo scriptname=$scriptname
-echo tempdir=$tempdir
 
 npm ci --include=dev
 npx playwright install chromium
