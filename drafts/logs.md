@@ -5,7 +5,7 @@ following form:
 [time][group_uid][sender] ... details ...
 
 **time** is optional and should be present in files but absent in docker
-services (where each each log item as its own timestamp).
+services (where each log item as its own timestamp).
 
 **group_uid** organize each log items into groups and allows to answer who
 create such group (who was the parent).
@@ -43,7 +43,7 @@ namespace/block.
 ⚠️  Use groups only where there is something to follow
 
 The following usually is a noise;
-    [bbb][spawn] parent=aaa
+    [bbb][group_spawn] parent=aaa
     [bbb][process_begin]
     [bbb][process_end_ok] 0.000s
 
@@ -56,7 +56,7 @@ Event Better:
 
 group_spawn + begin + end ---- group for just one call is a distracting noise!
 groups only make sense for work that spawns several seconds and more
-or for work that hit many function calls which also pring logs;
+or for work that hit many function calls which also print logs;
 
 💩 How not to do logs:
     [2026-08-22T22:59:08.570Z][cykjcd41houu][group_spawn] parent=clqyeqao15d2

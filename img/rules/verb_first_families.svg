@@ -21,6 +21,6 @@
 <text x="990.0" y="287.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">emit_*</text>
 <rect x="60" y="350" width="1080" height="110" rx="10" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="84" y="392" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">function main()  { build_glossaries_html(); build_agents_html(); }</text>
-<text x="84" y="432" fill="#686a61" font-size="18">main runs a script; a step is what it calls once, in order</text>
+<text x="84" y="432" fill="#686a61" font-size="18">main runs a script; a step is what it calls once per part of the work, in order</text>
 <text x="48" y="520" fill="#686a61" font-size="21">main is kept for the entry function of an executable script.</text>
 </svg>

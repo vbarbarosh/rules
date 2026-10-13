@@ -699,6 +699,12 @@ work; it may start with its verb, as `build_glossaries_html()` does in
 `bin/build`. A verb-first name that is not a step is renamed to the domain
 first when it is next touched; the examples in the documents stay.
 
+**Clarified:** 2026-10-13, author message `20261013_113227-me` (the audit's
+answers), answer 22A ("Yes, still a step: MP-58 says \"once per part of the
+work\""): a step is a function `main()` calls once per part of the work, in
+order. `build_index_html()`, called once for each page `bin/build` writes,
+is a step; `bin/build` stays as it is.
+
 ## MP-59 — A page made only to be photographed keeps no theme switch
 
 **Scope:** UI-01, [theme switch](drafts/theme_switch.md), the render sources
@@ -865,3 +871,51 @@ an operand of another operator and precedence needs them.
 **Clarified:** 2026-10-13, author message `20261013_110437-me` ("B: a
 directive keeps them"): a Vue directive keeps its parentheses around a
 ternary, by VUE-06; this rule is for JavaScript.
+
+## MP-73 — Three slips in the author's half of logs.md are corrected
+
+**Scope:** LOG-06, the author's half of [logs](drafts/logs.md).
+**Approved:** 2026-10-13, author message `20261013_113227-me` (the audit's
+answers), answer 12A ("Correct the three lines").
+
+In the author's half of `drafts/logs.md`, the example's `[spawn]` reads
+`[group_spawn]`, the event LOG-06 and the rest of that half name; "each
+each" reads "each", and "pring" reads "print". No other word of that half
+changes.
+
+## MP-74 — refresh() is idempotent
+
+**Scope:** FN-11, the author's half of [refresh](drafts/refresh.md).
+**Approved:** 2026-10-13, author message `20261013_113227-me` (the audit's
+answers), answer 27A ("Yes: refresh() is idempotent, and your half says
+so").
+
+`refresh()` is safe to call at any moment, any number of times. The
+author's half of `drafts/refresh.md` says so in a line of its own; FN-11
+and its picture stay as they are.
+
+## MP-75 — CSS class names are written whole, picked by a switch
+
+**Scope:** FLOW-12, the pages and scripts that build a class name at run
+time.
+**Approved:** 2026-10-13, author message `20261013_113227-me` (the audit's
+answers), answer 23A ("Yes: CSS class names are written whole, picked by a
+switch").
+
+FLOW-12's "names are written whole" covers CSS class names too, so a
+search for a class finds the line that sets it. A class picked from a few
+known ones is listed whole in a `switch`: `tone_class_of(tone)` returns
+`tone-accent`, `tone-ok`, `tone-warn` or `tone-danger`, and a pair carries
+the whole class, `'theme-light'` and `'theme-dark'`. A method name picked
+at run time, as with PhotoSwipe's keys, gets a switch as well.
+
+## MP-76 — Demos follow the code rules
+
+**Scope:** the demos in `demos/`, PROJ-29, the code rules.
+**Approved:** 2026-10-13, author message `20261013_113227-me` (the audit's
+answers), answer 24A ("Demos follow the code rules").
+
+A demo follows the code rules as any other code of the repository does:
+`demos/items_by.js` gets `cli(main)` and a `main()`, and names as NAME-13
+has them. A demo that shows an old form on purpose says "Superseded" in its
+header, as `demos/item_to.js` does.
