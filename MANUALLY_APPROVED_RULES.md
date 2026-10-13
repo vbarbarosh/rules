@@ -552,6 +552,9 @@ follows, out is not needed there; then give them normal names") and
 returned on a condition or transformed on its way out gets a name of its own.
 Each generic name has one meaning, listed on one page.
 
+**Clarified:** 2026-10-13 by MP-77, `res` has two meanings, one in each of
+its pairs, `req/res` and `res/rej`.
+
 ## MP-48 — A piece shown in two places is one component
 
 **Scope:** VUE-20 to VUE-24, [Vue components](vue2/vue-components.md).
@@ -580,6 +583,12 @@ A title stays within 72 characters, scope included: the 70 to aim for and
 the 75 of a rare case in MP-39 are gone. Every line of the body is held to
 72 as well, broken between words. MP-49 was held for a proposal the author
 set aside on 2026-10-11; the number stays unused.
+
+**Clarified:** 2026-10-13, voice comment `20261011_143613-me` ("the body
+too, we aim at 72"), the audit's question 19 settled by it as answer B:
+the quotes above are the author's words. The author's half of
+`drafts/commits.md` still reads "is held to 72 characters too"; it changes
+only on the author's word (DOC-03). The rule does not change.
 
 ## MP-51 — A doc GIF shows its time and its progress, at 30 fps
 
@@ -626,6 +635,15 @@ file shaped by a tool: `src/config.js` exporting `rules_config` became
 that builds a value is named for making it. The package path
 `@vbarbarosh/rules/config` stays, pointing at the new file, so projects
 that load it keep working.
+
+**Clarified:** 2026-10-13, voice comment `20261012_202926-me` ("whatever
+the file is called, the export must have the same name"), the audit's
+question 21 settled by it as answer A: a file whose shape a tool sets has
+no exception either. `src/index.js`, which exports `plugin`, becomes
+`src/plugin.js`, and `package.json` points at it. Each rule file in
+`src/rules/` declares its `{meta, create}` object under the file's name and
+exports it last. FILE-20's "tool-shaped files follow the tool" is about the
+export's shape, or a file whose name the tool fixes, as `eslint.config.js`.
 
 ## MP-54 — build/ is never committed; nothing more
 
@@ -919,3 +937,30 @@ A demo follows the code rules as any other code of the repository does:
 `demos/items_by.js` gets `cli(main)` and a `main()`, and names as NAME-13
 has them. A demo that shows an old form on purpose says "Superseded" in its
 header, as `demos/item_to.js` does.
+
+## MP-77 — res has two meanings, one in each of its pairs
+
+**Scope:** VAR-18, CORE-04, [generic names](drafts/generic_names.md).
+**Approved:** 2026-10-07, author choice A in `20261007_203200-me` ("Keep
+res/rej for Promise executors"); the audit's question 15 settled by it as
+answer B on 2026-10-13.
+
+`res` is a generic name in two pairs: beside `req`, the response of an
+Express route handler (MP-71); beside `rej`, the resolve of a Promise
+executor (MP-23). The generic-names page lists both pairs, and VAR-18 gives
+`res` the meaning of its pair. CORE-04 keeps `res/rej`.
+
+## MP-78 — bin/configure predicts the install; later sudo calls are sudo -n
+
+**Scope:** PROJ-17, [configure](drafts/configure.md).
+**Approved:** 2026-09-27, voice comment `20260927_154207-me` (every
+question the run may raise, sudo too, is asked at the very start; once the
+run has begun there are no more questions); applied by 3003447 on
+2026-10-08, recorded on 2026-10-13, the audit's question 20 settled by it
+as answer A.
+
+The check at the start predicts the state after the install. A sandbox
+that is missing, not `root:4755`, or about to be replaced by a new
+Electron needs `sudo`, so `sudo -v` is taken up front. The later calls
+are `sudo -n`: should the ticket be gone, they fail at once instead of
+stopping at a prompt.

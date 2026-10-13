@@ -1,8 +1,9 @@
 A generic name says nothing about the data; it says what the variable is for.
-Each one has exactly one meaning, listed here. Anywhere else it is the wrong
-name: the variable is named by what it holds.
+Each one has the meaning listed here; `res` has two, one in each of its
+pairs. Anywhere else it is the wrong name: the variable is named by what it
+holds.
 
-| Name | Its one meaning | Rule |
+| Name | Its meaning | Rule |
 |---|---|---|
 | `i`, `j`, `k` | the index of an indexed `for`, by nesting depth | VAR-11, VAR-12 |
 | `end` | the cached length in a single indexed loop | VAR-11 |
@@ -14,6 +15,7 @@ name: the variable is named by what it holds.
 | `out` | the value the function builds and returns as `return out;`, exactly | VAR-02, VAR-13 |
 | `time0` | the start time of a measurement | VAR-14 |
 | `req`, `res` | the request and response of an Express route handler | CORE-04 |
+| `res`, `rej` | the resolve and reject of a Promise executor; `resolve` and `reject` whole are as good | CORE-04 |
 
 ```js
 // ✗ out returned on a condition
