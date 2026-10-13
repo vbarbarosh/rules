@@ -7,7 +7,7 @@ const {chromium} = require('playwright');
 // Run with Playwright and Chromium installed: node --test tests/browser/picture-size.test.js
 const root_dir = path.join(__dirname, '../..');
 const photoswipe_url = `https://cdn.jsdelivr.net/npm/photoswipe@${JSON.parse(fs.readFileSync(path.join(__dirname, '../../node_modules/photoswipe/package.json'), 'utf8')).version}/dist/`;
-const page_files = ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/glossaries.html'];
+const PAGE_FILES = ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/glossaries.html'];
 let browser;
 
 test.before(async function () {
@@ -18,7 +18,7 @@ test.after(async function () {
     await browser?.close();
 });
 
-for (const page_file of page_files) {
+for (const page_file of PAGE_FILES) {
     test(`${page_file}: the pictures control sets the three states, keeps the choice, and a click opens PhotoSwipe`, async function () {
         const context = await browser.newContext({viewport: {width: 1280, height: 800}});
         const page = await context.newPage();
@@ -118,7 +118,7 @@ test('docs/rules.html: an XL kept from before opens as L', async function () {
     }
 });
 
-for (const page_file of page_files) {
+for (const page_file of PAGE_FILES) {
     test(`${page_file}: every picture, alone or in a row, is half the column in S and the whole in L`, async function () {
         const context = await browser.newContext({viewport: {width: 1280, height: 800}});
         const page = await context.newPage();
@@ -138,9 +138,9 @@ for (const page_file of page_files) {
                         return {caption: figure.dataset.caption, width: figure.getBoundingClientRect().width, column};
                     });
                 });
-                for (const v of figures) {
+                for (const figure of figures) {
                     // two in a row in S share the 12 px gap between them
-                    assert.ok(Math.abs(v.width - v.column*part) <= 7, `${state}: ${v.caption}: ${v.width} of ${v.column}`);
+                    assert.ok(Math.abs(figure.width - figure.column*part) <= 7, `${state}: ${figure.caption}: ${figure.width} of ${figure.column}`);
                 }
             }
         }
@@ -161,7 +161,7 @@ for (const page_file of page_files) {
             await page.locator('.pictures-docked').waitFor({state: 'visible'});
             for (const state of ['small', 'large', 'off', 'large']) {
                 // the picture nearest the middle of the screen is the one that stays
-                const anchor = await page.evaluateHandle(() => figure_in_view());
+                const anchor = await page.evaluateHandle(() => figure_find_in_view());
                 assert.equal(await anchor.evaluate(v => v.matches('a.figure')), true);
                 const before = await anchor.evaluate(v => v.getBoundingClientRect().top);
                 await page.locator(`.pictures-docked button[data-pictures="${state}"]`).click();

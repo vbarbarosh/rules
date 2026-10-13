@@ -1772,6 +1772,56 @@ function refresh_theme_labels()
     }
 }
 
+// The term being read, named in its group row: the last one whose entry
+// has reached the row, or, once all but its bottom padding has gone under
+// the row, the one after it. The row never drops back to its note between two
+// terms; before the group's first term reaches it, the row shows its note.
+function refresh_trails()
+{
+    for (const h2 of document.querySelectorAll('.group > h2')) {
+        const line = h2.getBoundingClientRect().bottom;
+        const rule_els = Array.from(h2.parentElement.querySelectorAll('article.rule:not([hidden])'));
+        let index = rule_els.findLastIndex(v => v.getBoundingClientRect().top < line);
+        if ((index !== -1) && (index < rule_els.length - 1) && (rule_els[index].getBoundingClientRect().bottom - parseFloat(getComputedStyle(rule_els[index]).paddingBottom) <= line)) {
+            index += 1;
+        }
+        const rule_el = rule_els[index];
+        const trail = h2.querySelector('.trail');
+        if (!rule_el || !rule_el.querySelector('dfn') || (h2.parentElement.getBoundingClientRect().bottom <= line)) {
+            trail.replaceChildren();
+            continue;
+        }
+        const dfn = rule_el.querySelector('dfn');
+        const sub_name = rule_el.closest('section.sub')?.querySelector('h3 .name')?.textContent;
+        const names = [sub_name, dfn.textContent].filter(v => v);
+        if (trail.textContent === names.map(v => `›${v}`).join('')) {
+            continue;
+        }
+        trail.replaceChildren(...names.flatMap(function (name, index) {
+            const el = document.createElement((index === names.length - 1) ? 'b' : 'span');
+            el.textContent = name;
+            return [Object.assign(document.createElement('i'), {textContent: '›'}), el];
+        }));
+    }
+}
+
+function refresh_pictures_labels()
+{
+    const current = root_el.getAttribute('data-pictures');
+    for (const button of document.querySelectorAll('.pictures button')) {
+        button.setAttribute('aria-pressed', String(button.dataset.pictures === current));
+    }
+}
+
+// The control only where it acts: a page, or a filter, that shows no picture hides it.
+function refresh_pictures_control()
+{
+    const shown = Array.from(document.querySelectorAll('a.figure')).some(v => !v.closest('[hidden]'));
+    for (const control of document.querySelectorAll('.pictures')) {
+        control.hidden = !shown;
+    }
+}
+
 // The switch in the bar stands in for the masthead one while that is off screen.
 function theme_dock_watch()
 {
@@ -1883,39 +1933,6 @@ function spy_apply()
     refresh_trails();
 }
 
-// The term being read, named in its group row: the last one whose entry
-// has reached the row, or, once all but its bottom padding has gone under
-// the row, the one after it. The row never drops back to its note between two
-// terms; before the group's first term reaches it, the row shows its note.
-function refresh_trails()
-{
-    for (const h2 of document.querySelectorAll('.group > h2')) {
-        const line = h2.getBoundingClientRect().bottom;
-        const rule_els = Array.from(h2.parentElement.querySelectorAll('article.rule:not([hidden])'));
-        let i = rule_els.findLastIndex(v => v.getBoundingClientRect().top < line);
-        if ((i !== -1) && (i < rule_els.length - 1) && (rule_els[i].getBoundingClientRect().bottom - parseFloat(getComputedStyle(rule_els[i]).paddingBottom) <= line)) {
-            i += 1;
-        }
-        const rule_el = rule_els[i];
-        const trail = h2.querySelector('.trail');
-        if (!rule_el || !rule_el.querySelector('dfn') || (h2.parentElement.getBoundingClientRect().bottom <= line)) {
-            trail.replaceChildren();
-            continue;
-        }
-        const dfn = rule_el.querySelector('dfn');
-        const sub_name = rule_el.closest('section.sub')?.querySelector('h3 .name')?.textContent;
-        const names = [sub_name, dfn.textContent].filter(v => v);
-        if (trail.textContent === names.map(v => `›${v}`).join('')) {
-            continue;
-        }
-        trail.replaceChildren(...names.flatMap(function (name, i) {
-            const el = document.createElement((i === names.length - 1) ? 'b' : 'span');
-            el.textContent = name;
-            return [Object.assign(document.createElement('i'), {textContent: '›'}), el];
-        }));
-    }
-}
-
 // The list of groups scrolls on its own — down the side in a short window,
 // sideways on a phone. It stays still while the current link is in view;
 // a link that is out of view is brought to the middle. While a smooth scroll
@@ -2010,7 +2027,7 @@ function click_pictures(event)
         return;
     }
     // Nothing jumps (UIM-01): the picture being looked at keeps its place on the screen.
-    const anchor = button.closest('.pictures-docked') ? figure_in_view() : null;
+    const anchor = button.closest('.pictures-docked') ? figure_find_in_view() : null;
     const anchor_top = anchor?.getBoundingClientRect().top;
     root_el.setAttribute('data-pictures', button.dataset.pictures);
     if (anchor) {
@@ -2022,45 +2039,6 @@ function click_pictures(event)
     catch {
     }
     refresh_pictures_labels();
-}
-
-// The picture nearest the middle of what the reader sees under the bar; with
-// none on screen, the first block of text there.
-function figure_in_view()
-{
-    const top = document.querySelector('.bar').getBoundingClientRect().bottom;
-    const middle = (top + innerHeight)/2;
-    let nearest = null;
-    let nearest_distance = Infinity;
-    for (const figure of document.querySelectorAll('a.figure')) {
-        const rect = figure.getBoundingClientRect();
-        if ((rect.height === 0) || (rect.bottom < top) || (rect.top > innerHeight)) {
-            continue;
-        }
-        const distance = Math.abs((rect.top + rect.bottom)/2 - middle);
-        if (distance < nearest_distance) {
-            nearest = figure;
-            nearest_distance = distance;
-        }
-    }
-    return nearest ?? Array.from(document.querySelectorAll('main article, main section')).find(v => v.getBoundingClientRect().bottom > top) ?? null;
-}
-
-function refresh_pictures_labels()
-{
-    const current = root_el.getAttribute('data-pictures');
-    for (const button of document.querySelectorAll('.pictures button')) {
-        button.setAttribute('aria-pressed', String(button.dataset.pictures === current));
-    }
-}
-
-// The control only where it acts: a page, or a filter, that shows no picture hides it.
-function refresh_pictures_control()
-{
-    const shown = Array.from(document.querySelectorAll('a.figure')).some(v => !v.closest('[hidden]'));
-    for (const control of document.querySelectorAll('.pictures')) {
-        control.hidden = !shown;
-    }
 }
 
 // A click on a picture, or on its mark when pictures are off, opens the
@@ -2089,10 +2067,68 @@ async function click_figure(event)
     }
 }
 
+function click_theme(event)
+{
+    const button = event.target.closest('.theme button');
+    if (!button) {
+        return;
+    }
+    const theme = (root_el.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+    root_el.setAttribute('data-theme', theme);
+    try {
+        localStorage.setItem('rules-theme', theme);
+    }
+    catch {
+    }
+    refresh_theme_labels();
+}
+
+async function click_copy(event)
+{
+    const button = event.target.closest('.copy');
+    if (!button) {
+        return;
+    }
+    const snippet = snippet_from_pre(button.parentNode.querySelector('pre'));
+    try {
+        await clipboard_write(snippet);
+        copy_state_show(button, 'Copied', 'done');
+    }
+    catch (error) {
+        console.log(error.message);
+        copy_state_show(button, 'Failed', 'failed');
+    }
+}
+
+// The picture nearest the middle of what the reader sees under the bar; with
+// none on screen, the first block of text there.
+function figure_find_in_view()
+{
+    const top = document.querySelector('.bar').getBoundingClientRect().bottom;
+    const middle = (top + innerHeight)/2;
+    let nearest = null;
+    let nearest_distance = Infinity;
+    for (const figure of document.querySelectorAll('a.figure')) {
+        const rect = figure.getBoundingClientRect();
+        if ((rect.height === 0) || (rect.bottom < top) || (rect.top > innerHeight)) {
+            continue;
+        }
+        const distance = Math.abs((rect.top + rect.bottom)/2 - middle);
+        if (distance < nearest_distance) {
+            nearest = figure;
+            nearest_distance = distance;
+        }
+    }
+    return nearest ?? Array.from(document.querySelectorAll('main article, main section')).find(v => v.getBoundingClientRect().bottom > top) ?? null;
+}
+
 // PhotoSwipe's module and stylesheet, fetched once, on the first click.
 function load_photoswipe()
 {
-    load_photoswipe.promise ??= Promise.all([
+    if (load_photoswipe.promise) {
+        return load_photoswipe.promise;
+    }
+    const loaded = Promise.all([
         import(`${PHOTOSWIPE_URL}photoswipe.esm.min.js`),
         new Promise(function (resolve, reject) {
             const link = document.createElement('link');
@@ -2102,7 +2138,8 @@ function load_photoswipe()
             link.addEventListener('error', () => reject(new Error(`Failed to load ${link.href}`)));
             document.head.append(link);
         }),
-    ]).then(v => v[0].default).catch(function (error) {
+    ]);
+    load_photoswipe.promise = loaded.then(v => v[0].default).catch(function (error) {
         load_photoswipe.promise = null;
         throw error;
     });
@@ -2150,39 +2187,6 @@ function open_photoswipe(PhotoSwipe, figure)
         if (action) {
             pswp.on('openingAnimationEnd', () => pswp[action]());
         }
-    }
-}
-
-function click_theme(event)
-{
-    const button = event.target.closest('.theme button');
-    if (!button) {
-        return;
-    }
-    const theme = (root_el.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
-    root_el.setAttribute('data-theme', theme);
-    try {
-        localStorage.setItem('rules-theme', theme);
-    }
-    catch {
-    }
-    refresh_theme_labels();
-}
-
-async function click_copy(event)
-{
-    const button = event.target.closest('.copy');
-    if (!button) {
-        return;
-    }
-    const snippet = snippet_from_pre(button.parentNode.querySelector('pre'));
-    try {
-        await clipboard_write(snippet);
-        copy_state_show(button, 'Copied', 'done');
-    }
-    catch (error) {
-        console.log(error.message);
-        copy_state_show(button, 'Failed', 'failed');
     }
 }
 

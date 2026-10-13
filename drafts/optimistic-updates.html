@@ -146,7 +146,7 @@ function refresh_frame(ms)
     const pressed = (ms >= PRESS_MS);
     const answered = (ms >= PRESS_MS + WAIT_MS);
     for (const clock_el of document.querySelectorAll('.clock')) {
-        clock_el.textContent = `${(since_press/1000).toFixed(3)} s`;
+        clock_el.textContent = format_duration(since_press);
     }
     for (const screen_el of document.querySelectorAll('.screen')) {
         const optimistic = (screen_el.dataset.panel === 'after');
@@ -160,6 +160,11 @@ function refresh_frame(ms)
         screen_el.querySelector('.mine').classList.toggle('hidden', !answered && !(optimistic && pressed));
         screen_el.querySelector('.badge')?.classList.toggle('hidden', answered);
     }
+}
+
+function format_duration(ms)
+{
+    return `${(ms/1000).toFixed(3)} s`;
 }
 </script>
 </body>

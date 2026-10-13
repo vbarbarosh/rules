@@ -7,7 +7,7 @@ const {chromium} = require('playwright');
 
 const url = `file://${path.join(__dirname, 'scroll-anchoring.html')}`;
 
-const cases = [
+const CASES = [
     {button: 'add', scroll_top: 600, what: 'a message added above the view'},
     {button: 'add', scroll_top: 0, what: 'a message added while the view is at the very top'},
     {button: 'grow', scroll_top: 600, what: 'the summary growing above the view'},
@@ -28,7 +28,7 @@ test.after(async function () {
     await browser.close();
 });
 
-for (const item of cases) {
+for (const item of CASES) {
     test(`the line being read stays put: ${item.what}`, async function () {
         await page.goto(url);
         const shift = await anchor_shift(page, 'kept', item.button, item.scroll_top);

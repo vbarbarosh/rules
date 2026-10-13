@@ -35,10 +35,10 @@ function build_index_html(name)
     const template = fs.readFileSync(path.join(docs_dir, 'rules.template.html'), 'utf8');
     const index = index_from_markdown(markdown, `${name}.md`);
     index_assert_counts(index);
-    fs.writeFileSync(path.join(docs_dir, `${name}.html`), html_from_index(template_only(template, name), index, name));
+    fs.writeFileSync(path.join(docs_dir, `${name}.html`), html_from_index(template_keep_only(template, name), index, name));
 }
 
-function template_only(template, name)
+function template_keep_only(template, name)
 {
     return template.replace(/<!-- only:(\w+) -->([\s\S]*?)<!-- \/only:\1 -->\n?/g, function (match, key, body) {
         return (key === name) ? body : '';
@@ -56,7 +56,6 @@ function build_glossaries_html()
     fs.writeFileSync(path.join(docs_dir, 'glossaries.html'), html_from_glossaries(template, glossaries));
 }
 
-// The pages written by hand carry the version in their header too.
 function build_agents_html()
 {
     const template = fs.readFileSync(path.join(docs_dir, 'agents.template.html'), 'utf8');
@@ -69,6 +68,7 @@ function build_agents_html()
     fs.writeFileSync(path.join(docs_dir, 'agents.html'), html_from_guides(template, readme, guides));
 }
 
+// The pages written by hand: the version where the header shows one, the theme icons on all.
 function stamp_static_pages_version()
 {
     for (const static_page of STATIC_PAGES) {
@@ -344,7 +344,7 @@ function html_from_glossaries(template, glossaries)
 
 function html_from_glossary_links(glossary)
 {
-    const count = glossary.terms.length + glossary.groups.reduce((sum, v) => sum + v.terms.length, 0);
+    const count = glossary.terms.length + glossary.groups.reduce((sum, group) => sum + group.terms.length, 0);
     let out = `<a href="#${glossary.tag}" data-group="${glossary.tag}"><span class="tag">${glossary.tag}</span><span class="name">${glossary.name}</span><span class="n">${count}</span></a>\n`;
     for (const group of glossary.groups) {
         out += `<a class="sub" href="#${group.tag}" data-group="${group.tag}"><span class="tag">${group.tag}</span><span class="name">${group.name}</span><span class="n">${group.terms.length}</span></a>\n`;
@@ -412,6 +412,16 @@ function format_term_definition(term)
     }
     const text = `${term.definition.charAt(0).toUpperCase()}${term.definition.slice(1)}`;
     return /[\p{L}\p{N}]$/u.test(text) ? `${text}.` : text;
+}
+
+// What a project's CLAUDE.md or AGENTS.md carries to hand the guides over.
+function format_guides_handover(guides)
+{
+    const lines = ['Work the way these guides say; read them before the first edit:'];
+    for (const guide of guides) {
+        lines.push(`- ${guide.title}: https://raw.githubusercontent.com/vbarbarosh/rules/main/${guide.file}`);
+    }
+    return lines.join('\n');
 }
 
 // A canonical form is a <pre> block, one code span, or prose. Code is shown
@@ -582,16 +592,6 @@ function html_from_guides(template, readme, guides)
     return template_fill(template, values);
 }
 
-// What a project's CLAUDE.md or AGENTS.md carries to hand the guides over.
-function format_guides_handover(guides)
-{
-    const lines = ['Work the way these guides say; read them before the first edit:'];
-    for (const guide of guides) {
-        lines.push(`- ${guide.title}: https://raw.githubusercontent.com/vbarbarosh/rules/main/${guide.file}`);
-    }
-    return lines.join('\n');
-}
-
 function html_from_guide_link(guide, index)
 {
     const tag = String(index + 1).padStart(2, '0');
@@ -665,7 +665,7 @@ function html_from_guide_list(lines)
     }
     const tag = ordered ? 'ol' : 'ul';
     const html_items = items.map(function (item) {
-        const nested_index = item.findIndex((v, i) => (i > 0) && /^\s+- /.test(v));
+        const nested_index = item.findIndex((line, index) => (index > 0) && /^\s+- /.test(line));
         const text = (nested_index === -1) ? item : item.slice(0, nested_index);
         const nested = (nested_index === -1) ? '' : html_from_guide_list(item.slice(nested_index).map(v => v.trim()));
         return `<li>${html_from_guide_inline(text.map(v => v.trim()).join(' '))}${nested}</li>`;

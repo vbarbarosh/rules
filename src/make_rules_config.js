@@ -20,7 +20,8 @@ function make_rules_config(options = {})
                 'rules/return-out': 'error',
                 'rules/operator-spacing': 'error',
                 'curly': ['error', 'all'],
-                'no-restricted-syntax': ['error',
+                'no-restricted-syntax': [
+                    'error',
                     {selector: 'DoWhileStatement', message: 'Use while or for instead of do...while.'},
                     {selector: 'CallExpression[callee.type="MemberExpression"][callee.property.name="forEach"]', message: 'Use for...of instead of forEach.'},
                 ],

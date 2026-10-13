@@ -5,7 +5,7 @@ const {chromium} = require('playwright');
 
 // Run with Playwright and Chromium installed: node --test tests/browser/try-it.test.js
 const root_dir = path.join(__dirname, '../..');
-const demos = ['../drafts/animations.html#slide-workspaces', '../drafts/animations.html#list-changes'];
+const DEMOS = ['../drafts/animations.html#slide-workspaces', '../drafts/animations.html#list-changes'];
 let browser;
 
 test.before(async function () {
@@ -28,7 +28,7 @@ test('docs/rules.html: Try it slides the demo in from the right, Esc and ✕ sli
         const code = await first.evaluate(v => v.closest('article.rule').id);
         await first.click();
         await page.waitForTimeout(600);
-        assert.equal(await panel_state(page), 'open');
+        assert.equal(await panel_state_of(page), 'open');
         assert.equal(await page.locator('#demo_code').textContent(), code);
         assert.ok((await page.locator('#demo_title').textContent()).length > 0);
         const src = await page.locator('#demo_frame').getAttribute('src');
@@ -45,14 +45,14 @@ test('docs/rules.html: Try it slides the demo in from the right, Esc and ✕ sli
 
         await page.keyboard.press('Escape');
         await page.waitForTimeout(600);
-        assert.equal(await panel_state(page), 'closed');
+        assert.equal(await panel_state_of(page), 'closed');
         assert.ok(await first.evaluate(v => v === document.activeElement), 'focus goes back to the button');
 
         await first.click();
         await page.waitForTimeout(600);
         await page.locator('#demo_close').click();
         await page.waitForTimeout(600);
-        assert.equal(await panel_state(page), 'closed');
+        assert.equal(await panel_state_of(page), 'closed');
 
         // another Try it while open: the open demo slides out as the new one slides in over it
         await first.click();
@@ -67,7 +67,7 @@ test('docs/rules.html: Try it slides the demo in from the right, Esc and ✕ sli
         assert.ok(sliding[1] < 1280, `the new one is on its way in: ${sliding}`);
         await page.waitForTimeout(600);
         assert.equal(await page.locator('.demo-panel').count(), 1);
-        assert.equal(await panel_state(page), 'open');
+        assert.equal(await panel_state_of(page), 'open');
         const second_demo = await second.getAttribute('data-demo');
         const second_src = await page.locator('#demo_frame').getAttribute('src');
         assert.ok(second_src.startsWith(`${second_demo.split('#')[0]}?embed`), second_src);
@@ -98,7 +98,7 @@ test('docs/animations.html: a click beside the demo panel slides it out and keep
         await page.goto(`file://${path.join(root_dir, 'docs/animations.html')}`);
         await page.locator('#ANIM-01 .try-it').click();
         await page.waitForTimeout(600);
-        assert.equal(await panel_state(page), 'open');
+        assert.equal(await panel_state_of(page), 'open');
 
         // a press in the panel's title dragged out onto the page
         const title = await page.locator('#demo_title').boundingBox();
@@ -107,11 +107,11 @@ test('docs/animations.html: a click beside the demo panel slides it out and keep
         await page.mouse.move(100, 400, {steps: 5});
         await page.mouse.up();
         await page.waitForTimeout(600);
-        assert.equal(await panel_state(page), 'open');
+        assert.equal(await panel_state_of(page), 'open');
 
         await page.mouse.click(100, 400);
         await page.waitForTimeout(600);
-        assert.equal(await panel_state(page), 'closed');
+        assert.equal(await panel_state_of(page), 'closed');
 
         // the filter clicked beside the panel keeps its focus
         await page.locator('#ANIM-01 .try-it').click();
@@ -119,7 +119,7 @@ test('docs/animations.html: a click beside the demo panel slides it out and keep
         const q = await page.locator('#q').boundingBox();
         await page.mouse.click(q.x + 20, q.y + q.height/2);
         await page.waitForTimeout(600);
-        assert.equal(await panel_state(page), 'closed');
+        assert.equal(await panel_state_of(page), 'closed');
         assert.equal(await page.evaluate(() => document.activeElement.id), 'q');
         assert.deepEqual(errors, []);
     }
@@ -235,7 +235,7 @@ test('docs/animations.html: the ANIM rules on a page of their own, each with its
         await page.locator('#q').fill('');
         await page.locator('#ANIM-06 .try-it').click();
         await page.waitForTimeout(600);
-        assert.equal(await panel_state(page), 'open');
+        assert.equal(await panel_state_of(page), 'open');
         assert.equal(await page.locator('#demo_code').textContent(), 'ANIM-06');
         assert.deepEqual(errors, []);
 
@@ -254,7 +254,9 @@ async function rules_open(page)
 {
     await page.route('https://**/*', v => v.abort());
     await page.goto(`file://${path.join(root_dir, 'docs/rules.html')}`);
-    await page.evaluate(function (demos) {
+    await page.evaluate(try_it_buttons_add, DEMOS);
+
+    function try_it_buttons_add(demos) {
         const rules = [...document.querySelectorAll('article.rule')];
         for (let i = 0; i < 2; i += 1) {
             const button = document.createElement('button');
@@ -264,19 +266,19 @@ async function rules_open(page)
             button.textContent = '▶ Try it';
             rules[i].append(button);
         }
-    }, demos);
+    }
 }
 
 // open: slid in and shown; closed: slid out of sight and hidden.
-async function panel_state(page)
+async function panel_state_of(page)
 {
-    return page.locator('#demo_panel').evaluate(function (v) {
-        const style = getComputedStyle(v);
-        const box = v.getBoundingClientRect();
-        if ((style.transform === 'none') && (style.visibility === 'visible') && (Math.round(box.right) === innerWidth) && !v.hasAttribute('aria-hidden')) {
+    return page.locator('#demo_panel').evaluate(function (panel) {
+        const style = getComputedStyle(panel);
+        const box = panel.getBoundingClientRect();
+        if ((style.transform === 'none') && (style.visibility === 'visible') && (Math.round(box.right) === innerWidth) && !panel.hasAttribute('aria-hidden')) {
             return 'open';
         }
-        if ((style.visibility === 'hidden') && (Math.round(box.left) >= innerWidth) && (v.getAttribute('aria-hidden') === 'true')) {
+        if ((style.visibility === 'hidden') && (Math.round(box.left) >= innerWidth) && (panel.getAttribute('aria-hidden') === 'true')) {
             return 'closed';
         }
         return `between: ${style.transform} ${style.visibility} ${box.left}`;

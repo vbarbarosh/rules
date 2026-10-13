@@ -1353,6 +1353,45 @@ const SECTIONS = [
 ];
 const DURATIONS = [250, 400, 800, 2000];
 const EASING = 'cubic-bezier(.2, .8, .2, 1)';
+// list-changes: every change is measured before and after (FLIP): the rows on
+// screen start from where they are this moment and move to their new places
+const list = {
+    rows: [
+        {id: 1, who: 'DA', title: 'Pick the release date', when: 'Mon'},
+        {id: 2, who: 'AL', title: 'Fix the export of large files', when: 'Tue'},
+        {id: 3, who: 'SM', title: 'Answer the support queue', when: 'Tue'},
+        {id: 4, who: 'KI', title: 'The new sidebar hover', when: 'Wed'},
+        {id: 5, who: 'LE', title: 'Icons for the empty states', when: 'Thu'},
+        {id: 6, who: 'RO', title: 'Move the backups to night', when: 'Fri'},
+    ],
+    selected: 1,
+    keep: true,
+    next_id: 7,
+    duration: 400,
+    elements: new Map(),
+};
+const LIST_NEW_TITLES = ['Write the release notes', 'Check the search index', 'Plan the team lunch', 'Review #418', 'Rename the old reports', 'A test for the drafts list', 'Clean up the archive', 'Answer Dana about Friday'];
+const LIST_PEOPLE = ['DA', 'AL', 'SM', 'KI', 'LE', 'RO', 'TJ'];
+const LIST_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+// expand-collapse: a header opens its message and folds it back. Each part
+// says how it morphs (data-morph): the parts both layouts have travel from
+// one place and size to the other (FLIP), a text that changes its look
+// travels with a copy of its old look fading over it, a word group narrows
+// (.msg-collapse), and what only one layout has fades (.msg-open-only,
+// .msg-folded-only), as a copy where it stood when it leaves.
+const conv = {
+    messages: [
+        {id: 1, from: 'you', time: '17:31', text: 'The sidebar should be hidden by a click outside it.', open: false},
+        {id: 2, from: 'agent', time: '17:46', text: 'Done and pushed: a click beside the demo panel slides it out, as Esc and ✕ do.', pic: true, open: false},
+        {id: 3, from: 'you', voice: true, date: '2026-10-12 ', time: '19:04', lines: ['Transcribing', 'Transcribing: 0%', 'Transcribing: 5% | Details if any'], text: 'Let\'s use this format for transcribing. Most likely what comes after the pipe will never be in the label, but it is there to be complete.', length: '0:34', file: '20261012_190421-me.md', open: false},
+    ],
+    clicked: null,
+    duration: 400,
+    elements: new Map(),
+};
+const MIC_SVG = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5.5" y="1.5" width="5" height="8" rx="2.5"/><path d="M3 7.5a5 5 0 0 0 10 0M8 12.5v2"/></svg>';
+
+main();
 
 function main()
 {
@@ -1361,7 +1400,7 @@ function main()
         button.addEventListener('click', click_theme);
     }
     for (const root of document.querySelectorAll('.mockup')) {
-        mockup_render(root, root.dataset.kind);
+        mockup_make(root, root.dataset.kind);
     }
     list_main();
     conv_main();
@@ -1410,9 +1449,25 @@ function refresh_theme_labels()
     }
 }
 
-function $(id)
+function el_get(id)
 {
     return document.getElementById(id);
+}
+
+function durations_buttons_add(el)
+{
+    for (const duration of DURATIONS) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.duration = duration;
+        button.textContent = format_duration(duration);
+        el.append(button);
+    }
+}
+
+function format_duration(ms)
+{
+    return (ms < 1000) ? `${ms} ms` : `${ms/1000} s`;
 }
 
 // where an element stands this moment, mid-slide too
@@ -1434,7 +1489,7 @@ function animations_cancel(el)
     }
 }
 
-function mockup_render(root, kind)
+function mockup_make(root, kind)
 {
     root.innerHTML = `
             <div class="window">
@@ -1463,20 +1518,14 @@ function mockup_render(root, kind)
         view_el: null,
         views: new Map(),
     };
-    for (const [i, v] of SECTIONS.entries()) {
+    for (const [index, section] of SECTIONS.entries()) {
         const li = document.createElement('li');
-        li.dataset.index = i;
-        li.innerHTML = `<b>${i + 1}</b><span></span>`;
-        li.querySelector('span').textContent = v.label;
+        li.dataset.index = index;
+        li.innerHTML = `<b>${index + 1}</b><span></span>`;
+        li.querySelector('span').textContent = section.label;
         out.items_el.append(li);
     }
-    for (const v of DURATIONS) {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.dataset.duration = v;
-        button.textContent = (v < 1000) ? `${v} ms` : `${v/1000} s`;
-        out.durations_el.append(button);
-    }
+    durations_buttons_add(out.durations_el);
     out.view_el = view_get(out, 0, null);
     out.view_el.hidden = false;
     mockup_refresh(out);
@@ -1492,23 +1541,23 @@ function view_get(mockup, section, row)
     if (mockup.views.has(key)) {
         return mockup.views.get(key);
     }
-    const v = SECTIONS[section];
+    section_entry = SECTIONS[section];
     const el = document.createElement('div');
-    el.className = `view tone-${v.tone}`;
+    el.className = `view tone-${section_entry.tone}`;
     el.hidden = true;
     if (row !== null) {
-        const [who, title, when] = v.rows[row];
+        const [who, title, when] = section_entry.rows[row];
         el.innerHTML = `<div class="detail-bar"><button class="back" type="button">‹ Back</button><span></span></div><h3 class="detail-title"></h3><div class="detail-hero"></div><div class="detail-lines"><i style="width: 92%"></i><i style="width: 80%"></i><i style="width: 86%"></i><i style="width: 54%"></i><i style="width: 90%"></i><i style="width: 70%"></i></div>`;
-        el.querySelector('.detail-bar span').textContent = `${v.label} › ${title}`;
+        el.querySelector('.detail-bar span').textContent = `${section_entry.label} › ${title}`;
         el.querySelector('.detail-title').textContent = title;
         el.querySelector('.detail-hero').textContent = `${who} · ${when}`;
     }
     else if (mockup.kind === 'rows') {
         el.innerHTML = `<div class="view-head"><div class="view-number">${section + 1}</div><div><h3></h3><p></p></div></div><ul class="rows"></ul>`;
-        for (const [j, [who, title, when]] of v.rows.entries()) {
+        for (const [row_index, [who, title, when]] of section_entry.rows.entries()) {
             const li = document.createElement('li');
             li.className = 'row';
-            li.dataset.row = j;
+            li.dataset.row = row_index;
             li.innerHTML = '<span class="row-avatar"></span><span class="row-title"></span><i></i><span class="row-time"></span><span class="row-chevron">›</span>';
             li.querySelector('.row-avatar').textContent = who.slice(0, 2);
             li.querySelector('.row-title').textContent = title;
@@ -1517,11 +1566,11 @@ function view_get(mockup, section, row)
         }
     }
     else {
-        el.innerHTML = `<div class="view-head"><div class="view-number">${section + 1}</div><div><h3></h3><p></p></div></div><div class="view-cards">${'<div class="view-card"><i></i><i></i><i></i></div>'.repeat(12 + v.cards)}</div>`;
+        el.innerHTML = `<div class="view-head"><div class="view-number">${section + 1}</div><div><h3></h3><p></p></div></div><div class="view-cards">${'<div class="view-card"><i></i><i></i><i></i></div>'.repeat(12 + section_entry.cards)}</div>`;
     }
     if (row === null) {
-        el.querySelector('h3').textContent = v.label;
-        el.querySelector('p').textContent = v.note;
+        el.querySelector('h3').textContent = section_entry.label;
+        el.querySelector('p').textContent = section_entry.note;
     }
     mockup.viewport_el.append(el);
     mockup.views.set(key, el);
@@ -1544,23 +1593,23 @@ function mockup_refresh(mockup)
     mockup.sidebar_el.style.setProperty('--duration', `${mockup.duration}ms`);
 }
 
-function item(mockup, i)
+function item_of(mockup, index)
 {
-    return mockup.items_el.querySelector(`li[data-index="${i}"]`);
+    return mockup.items_el.querySelector(`li[data-index="${index}"]`);
 }
 
-function mark_place(mockup, i)
+function mark_place(mockup, index)
 {
-    mockup.mark_el.style.height = `${item(mockup, i).offsetHeight}px`;
-    mockup.mark_el.style.transform = `translate(0px, ${item(mockup, i).offsetTop}px)`;
+    mockup.mark_el.style.height = `${item_of(mockup, index).offsetHeight}px`;
+    mockup.mark_el.style.transform = `translate(0px, ${item_of(mockup, index).offsetTop}px)`;
 }
 
-function mark_slide(mockup, i)
+function mark_slide(mockup, index)
 {
     const from = place_now(mockup.mark_el);
     animations_cancel(mockup.mark_el);
-    mark_place(mockup, i);
-    mockup.mark_el.animate([{transform: translate(from)}, {transform: translate({x: 0, y: item(mockup, i).offsetTop})}], {duration: mockup.duration, easing: EASING});
+    mark_place(mockup, index);
+    mockup.mark_el.animate([{transform: translate(from)}, {transform: translate({x: 0, y: item_of(mockup, index).offsetTop})}], {duration: mockup.duration, easing: EASING});
 }
 
 // the slide: the views on screen move as one; the new view joins them next to
@@ -1581,7 +1630,7 @@ function views_slide(mockup, target_el, axis, direction)
     if (!shown.has(target_el)) {
         // a view still leaving on that side gives its place to the new one
         for (const [el, place] of shown) {
-            if (el !== mockup.view_el && Math.sign(Math.round(place[axis] - from[axis])) === direction && Math.abs(place[other] - from[other]) < 1) {
+            if ((el !== mockup.view_el) && (Math.sign(Math.round(place[axis] - from[axis])) === direction) && (Math.abs(place[other] - from[other]) < 1)) {
                 el.hidden = true;
                 el.style.transform = '';
                 shown.delete(el);
@@ -1607,7 +1656,7 @@ function views_slide(mockup, target_el, axis, direction)
 
 function section_go(mockup, section)
 {
-    if (section < 0 || section >= SECTIONS.length) {
+    if ((section < 0) || (section >= SECTIONS.length)) {
         return;
     }
     if (section === mockup.section) {
@@ -1656,11 +1705,11 @@ function mockup_listen(mockup)
         }
     });
     mockup.sidebar_el.addEventListener('keydown', function (event) {
-        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        if ((event.key === 'ArrowDown') || (event.key === 'ArrowUp')) {
             event.preventDefault();
             section_go(mockup, mockup.section + ((event.key === 'ArrowDown') ? 1 : -1));
         }
-        else if (mockup.kind === 'rows' && (event.key === 'ArrowLeft' || event.key === 'Backspace')) {
+        else if ((mockup.kind === 'rows') && ((event.key === 'ArrowLeft') || (event.key === 'Backspace'))) {
             event.preventDefault();
             row_back(mockup);
         }
@@ -1677,29 +1726,7 @@ function mockup_listen(mockup)
     });
 }
 
-
-// list-changes: every change is measured before and after (FLIP): the rows on
-// screen start from where they are this moment and move to their new places
-const list = {
-    rows: [
-        {id: 1, who: 'DA', title: 'Pick the release date', when: 'Mon'},
-        {id: 2, who: 'AL', title: 'Fix the export of large files', when: 'Tue'},
-        {id: 3, who: 'SM', title: 'Answer the support queue', when: 'Tue'},
-        {id: 4, who: 'KI', title: 'The new sidebar hover', when: 'Wed'},
-        {id: 5, who: 'LE', title: 'Icons for the empty states', when: 'Thu'},
-        {id: 6, who: 'RO', title: 'Move the backups to night', when: 'Fri'},
-    ],
-    selected: 1,
-    keep: true,
-    next_id: 7,
-    duration: 400,
-    elements: new Map(),
-};
-const LIST_NEW_TITLES = ['Write the release notes', 'Check the search index', 'Plan the team lunch', 'Review #418', 'Rename the old reports', 'A test for the drafts list', 'Clean up the archive', 'Answer Dana about Friday'];
-const LIST_PEOPLE = ['DA', 'AL', 'SM', 'KI', 'LE', 'RO', 'TJ'];
-const LIST_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-
-function list_row_render(row)
+function list_row_make(row)
 {
     const li = document.createElement('li');
     li.className = 'lrow';
@@ -1708,7 +1735,6 @@ function list_row_render(row)
     li.querySelector('.lrow-avatar').textContent = row.who;
     li.querySelector('.lrow-title').textContent = row.title;
     li.querySelector('.lrow-time').textContent = row.when;
-    list.elements.set(row.id, li);
     return li;
 }
 
@@ -1723,8 +1749,8 @@ function list_refresh()
     for (const [id, li] of list.elements) {
         li.setAttribute('aria-selected', String(id === list.selected));
     }
-    $('list-count').textContent = `${list.rows.length} ${(list.rows.length === 1) ? 'row' : 'rows'}`;
-    $('list-empty').hidden = (list.rows.length > 0);
+    el_get('list-count').textContent = `${list.rows.length} ${(list.rows.length === 1) ? 'row' : 'rows'}`;
+    el_get('list-empty').hidden = (list.rows.length > 0);
     // a control that cannot work now is disabled, with the reason beside it
     const only = (list.rows.length === 1) ? 'it is the only row' : null;
     const reasons = {
@@ -1734,14 +1760,14 @@ function list_refresh()
         'down': only ?? ((index === -1) ? 'the list is empty' : (index === last) ? 'the selected row is already at the bottom' : null),
         'last-top': (list.rows.length === 0) ? 'the list is empty' : only,
     };
-    for (const button of $('list-actions').querySelectorAll('button')) {
+    for (const button of el_get('list-actions').querySelectorAll('button')) {
         const reason = reasons[button.dataset.action] ?? null;
         button.disabled = (reason !== null);
         button.title = reason ?? '';
     }
     const notes = [...new Set(Object.values(reasons).filter(Boolean))];
-    $('list-note').textContent = (index === -1) ? 'The list is empty: only Add works.' : `Selected: ${list.rows[index].title}${notes.length ? ` · ${notes.join('; ')}` : ''}.`;
-    for (const button of $('list-durations').querySelectorAll('button')) {
+    el_get('list-note').textContent = (index === -1) ? 'The list is empty: only Add works.' : `Selected: ${list.rows[index].title}${notes.length ? ` · ${notes.join('; ')}` : ''}.`;
+    for (const button of el_get('list-durations').querySelectorAll('button')) {
         button.setAttribute('aria-pressed', String(Number(button.dataset.duration) === list.duration));
     }
 }
@@ -1769,12 +1795,12 @@ function list_anchor(own_id)
 function list_line_place()
 {
     const li = list.elements.get(list.selected);
-    $('list-line').hidden = !li;
+    el_get('list-line').hidden = !li;
     if (li) {
-        const scroller = $('list-body');
-        const frame = $('list-line').parentElement.getBoundingClientRect();
-        const top = scroller.getBoundingClientRect().top + scroller.clientTop + $('list').offsetTop + li.offsetTop - scroller.scrollTop;
-        $('list-line').style.top = `${top - frame.top - 3}px`;
+        const scroller = el_get('list-body');
+        const frame = el_get('list-line').parentElement.getBoundingClientRect();
+        const top = scroller.getBoundingClientRect().top + scroller.clientTop + el_get('list').offsetTop + li.offsetTop - scroller.scrollTop;
+        el_get('list-line').style.top = `${top - frame.top - 3}px`;
     }
 }
 
@@ -1785,7 +1811,7 @@ function list_line_place()
 function list_settle(scroller, tops)
 {
     for (const el of scroller.children) {
-        if (el === $('list')) {
+        if (el === el_get('list')) {
             continue;
         }
         // a click mid-way: from where it stands now (tops), to its new place
@@ -1804,7 +1830,7 @@ function list_settle(scroller, tops)
 // the scroll position taking up the difference above the anchored row
 function list_change(change, moved_id = null, own_id = moved_id)
 {
-    const scroller = $('list-body');
+    const scroller = el_get('list-body');
     const anchor_id = list_anchor(own_id);
     const anchor_top = (anchor_id === null) ? null : list.elements.get(anchor_id).getBoundingClientRect().top;
     const tops = new Map([...scroller.children].map(v => [v, v.getBoundingClientRect().top]));
@@ -1820,22 +1846,25 @@ function list_change(change, moved_id = null, own_id = moved_id)
     change(list.rows);
     const ids = new Set(list.rows.map(v => v.id));
     for (const row of list.rows) {
-        $('list').append(list.elements.get(row.id) ?? list_row_render(row));
+        if (!list.elements.has(row.id)) {
+            list.elements.set(row.id, list_row_make(row));
+        }
+        el_get('list').append(list.elements.get(row.id));
     }
     for (const [id, li] of list.elements) {
         if (!ids.has(id)) {
             li.remove();
         }
     }
-    if (anchor_id !== null && ids.has(anchor_id)) {
+    if ((anchor_id !== null) && ids.has(anchor_id)) {
         const scroll_top = scroller.scrollTop;
         scroller.scrollTop += list.elements.get(anchor_id).getBoundingClientRect().top - anchor_top;
         // rows still fading out stay where they are on screen too
-        for (const li of $('list').querySelectorAll('.lrow.leaving')) {
+        for (const li of el_get('list').querySelectorAll('.lrow.leaving')) {
             li.style.top = `${parseFloat(li.style.top) + scroller.scrollTop - scroll_top}px`;
         }
     }
-    const list_top = $('list').getBoundingClientRect().top;
+    const list_top = el_get('list').getBoundingClientRect().top;
     // a removed row fades out where it stands this moment, out of the flow
     for (const [id, place] of first) {
         if (ids.has(id)) {
@@ -1845,7 +1874,7 @@ function list_change(change, moved_id = null, own_id = moved_id)
         list.elements.delete(id);
         li.classList.add('leaving');
         li.style.top = `${place.top - list_top}px`;
-        $('list').append(li);
+        el_get('list').append(li);
         li.animate([{opacity: place.opacity, transform: 'none'}, {opacity: 0, transform: 'translateX(24px) scale(.97)'}], {duration: list.duration, easing: EASING, fill: 'forwards'}).onfinish = function () {
             li.remove();
         };
@@ -1858,7 +1887,7 @@ function list_change(change, moved_id = null, own_id = moved_id)
         }
         const dy = first.get(row.id).top - li.getBoundingClientRect().top;
         const opacity = first.get(row.id).opacity;
-        if (dy === 0 && opacity === 1) {
+        if ((dy === 0) && (opacity === 1)) {
             continue;
         }
         if (row.id === moved_id) {
@@ -1870,7 +1899,7 @@ function list_change(change, moved_id = null, own_id = moved_id)
     }
     list_settle(scroller, tops);
     list_refresh();
-    if ($('list-line').hidden && list.selected !== null) {
+    if (el_get('list-line').hidden && (list.selected !== null)) {
         setTimeout(list_line_place, list.duration);
     }
 }
@@ -1893,32 +1922,32 @@ function list_remove(id)
         return;
     }
     const selected = (list.selected === id);
-    list_change(function (rows) {
+    list_change(rows_remove, null, id);
+    if (selected) {
+        setTimeout(list_line_place, list.duration);
+    }
+
+    function rows_remove(rows) {
         rows.splice(index, 1);
         if (selected) {
             // the row that takes its place is selected
             list.selected = rows[Math.min(index, rows.length - 1)]?.id ?? null;
         }
-    }, null, id);
-    if (selected) {
-        setTimeout(list_line_place, list.duration);
     }
 }
 
 function list_move(id, to)
 {
     const from = list.rows.findIndex(v => v.id === id);
-    if (from === -1 || to < 0 || to >= list.rows.length || to === from) {
+    if ((from === -1) || (to < 0) || (to >= list.rows.length) || (to === from)) {
         return;
     }
-    list_change(function (rows) {
-        rows.splice(to, 0, ...rows.splice(from, 1));
-    }, id);
+    list_change(rows_move, id);
     // the reader moved the selected row: the view follows it if it leaves
     if (id === list.selected) {
         // where the row will stand, not where its motion starts
-        const scroller = $('list-body');
-        const top = $('list').offsetTop + list.elements.get(id).offsetTop;
+        const scroller = el_get('list-body');
+        const top = el_get('list').offsetTop + list.elements.get(id).offsetTop;
         const bottom = top + list.elements.get(id).offsetHeight;
         const shift = (top < scroller.scrollTop) ? top - scroller.scrollTop - 18 : (bottom > scroller.scrollTop + scroller.clientHeight) ? bottom - scroller.scrollTop - scroller.clientHeight + 18 : 0;
         if (shift !== 0) {
@@ -1926,21 +1955,21 @@ function list_move(id, to)
         }
         setTimeout(list_line_place, list.duration + ((shift !== 0) ? 400 : 0));
     }
+
+    function rows_move(rows) {
+        rows.splice(to, 0, ...rows.splice(from, 1));
+    }
 }
 
 function list_main()
 {
     for (const row of list.rows) {
-        $('list').append(list_row_render(row));
+        const li = list_row_make(row);
+        list.elements.set(row.id, li);
+        el_get('list').append(li);
     }
-    for (const v of DURATIONS) {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.dataset.duration = v;
-        button.textContent = (v < 1000) ? `${v} ms` : `${v/1000} s`;
-        $('list-durations').append(button);
-    }
-    $('list').addEventListener('click', function (event) {
+    durations_buttons_add(el_get('list-durations'));
+    el_get('list').addEventListener('click', function (event) {
         const li = event.target.closest('.lrow');
         if (!li || li.classList.contains('leaving')) {
             return;
@@ -1954,15 +1983,15 @@ function list_main()
         list_line_place();
     });
     // the reader's own scroll carries the selected row, and the line with it
-    $('list-body').addEventListener('scroll', list_line_place);
+    el_get('list-body').addEventListener('scroll', list_line_place);
     addEventListener('resize', list_line_place);
-    $('list-keep').addEventListener('click', function () {
+    el_get('list-keep').addEventListener('click', function () {
         list.keep = !list.keep;
-        $('list-keep').setAttribute('aria-pressed', String(list.keep));
-        $('list-keep').textContent = list.keep ? 'Nothing jumps: on' : 'Nothing jumps: off';
+        el_get('list-keep').setAttribute('aria-pressed', String(list.keep));
+        el_get('list-keep').textContent = list.keep ? 'Nothing jumps: on' : 'Nothing jumps: off';
         list_line_place();
     });
-    $('list-actions').addEventListener('click', function (event) {
+    el_get('list-actions').addEventListener('click', function (event) {
         const button = event.target.closest('button');
         if (!button || button.disabled) {
             return;
@@ -1995,7 +2024,7 @@ function list_main()
             break;
         }
     });
-    $('list-durations').addEventListener('click', function (event) {
+    el_get('list-durations').addEventListener('click', function (event) {
         const button = event.target.closest('button');
         if (button) {
             list.duration = Number(button.dataset.duration);
@@ -2006,25 +2035,7 @@ function list_main()
     list_line_place();
 }
 
-// expand-collapse: a header opens its message and folds it back. Each part
-// says how it morphs (data-morph): the parts both layouts have travel from
-// one place and size to the other (FLIP), a text that changes its look
-// travels with a copy of its old look fading over it, a word group narrows
-// (.msg-collapse), and what only one layout has fades (.msg-open-only,
-// .msg-folded-only), as a copy where it stood when it leaves.
-const conv = {
-    messages: [
-        {id: 1, from: 'you', time: '17:31', text: 'The sidebar should be hidden by a click outside it.', open: false},
-        {id: 2, from: 'agent', time: '17:46', text: 'Done and pushed: a click beside the demo panel slides it out, as Esc and ✕ do.', pic: true, open: false},
-        {id: 3, from: 'you', voice: true, date: '2026-10-12 ', time: '19:04', lines: ['Transcribing', 'Transcribing: 0%', 'Transcribing: 5% | Details if any'], text: 'Let\'s use this format for transcribing. Most likely what comes after the pipe will never be in the label, but it is there to be complete.', length: '0:34', file: '20261012_190421-me.md', open: false},
-    ],
-    clicked: null,
-    duration: 400,
-    elements: new Map(),
-};
-const MIC_SVG = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5.5" y="1.5" width="5" height="8" rx="2.5"/><path d="M3 7.5a5 5 0 0 0 10 0M8 12.5v2"/></svg>';
-
-function conv_card_render(message)
+function conv_card_make(message)
 {
     const el = document.createElement('article');
     const name = (message.from === 'you') ? 'You' : 'rules';
@@ -2046,15 +2057,14 @@ function conv_card_render(message)
         el.insertAdjacentHTML('beforeend', '<div class="msg-pic msg-open-only" aria-hidden="true" data-key="pic"><i></i><i></i><i></i></div>');
     }
     if (message.voice) {
-        conv_voice_render(el, message);
+        conv_voice_parts_add(el, message);
     }
-    conv.elements.set(message.id, el);
     return el;
 }
 
 // the voice message's own parts: its date, three status lines, the mark
 // before the transcript, a status pill, the file, a player and attachments
-function conv_voice_render(el, message)
+function conv_voice_parts_add(el, message)
 {
     const date = document.createElement('span');
     date.className = 'msg-date msg-open-only';
@@ -2063,16 +2073,16 @@ function conv_voice_render(el, message)
     date.textContent = message.date;
     el.querySelector('.msg-time').prepend(date);
     el.querySelector('.msg-text').insertAdjacentHTML('beforebegin', '<div class="msg-code msg-open-only" data-key="code"></div>');
-    for (const [i, line] of message.lines.entries()) {
+    for (const [index, line] of message.lines.entries()) {
         const span = document.createElement('span');
-        span.className = `msg-l msg-l${i + 1}`;
+        span.className = `msg-l msg-l${index + 1}`;
         span.dataset.morph = 'stretch';
-        span.dataset.key = `l${i + 1}`;
+        span.dataset.key = `l${index + 1}`;
         span.textContent = line;
         el.querySelector('.msg-text').before(span);
     }
     el.querySelector('.msg-text').insertAdjacentHTML('beforebegin', `<span class="msg-mic msg-folded-only" aria-hidden="true" data-key="mic">${MIC_SVG}</span>`);
-    const bars = Array.from({length: 160}, (v, i) => `<i style="height: ${4 + Math.round(18*Math.abs(Math.sin(i*1.7)*Math.sin(i*0.37)))}px"></i>`).join('');
+    const bars = Array.from({length: 160}, (slot, index) => `<i style="height: ${4 + Math.round(18*Math.abs(Math.sin(index*1.7)*Math.sin(index*0.37)))}px"></i>`).join('');
     el.insertAdjacentHTML('beforeend', '<span class="msg-pill" data-morph="edge" data-key="pill"><span class="msg-cover" aria-hidden="true"></span><i></i>In progress<span class="msg-collapse" data-key="pill-more"> for 1 min</span></span>'
         + `<span class="msg-file msg-open-only" data-key="file">${message.file}</span>`
         + '<span class="msg-dots msg-open-only" aria-hidden="true" data-key="dots">⋯</span>'
@@ -2088,8 +2098,8 @@ function conv_refresh()
         el.querySelector('.msg-head').setAttribute('aria-expanded', String(message.open));
     }
     const open = conv.messages.filter(v => v.open).length;
-    $('conv-count').textContent = `${conv.messages.length} messages, ${open} open`;
-    for (const button of $('conv-durations').querySelectorAll('button')) {
+    el_get('conv-count').textContent = `${conv.messages.length} messages, ${open} open`;
+    for (const button of el_get('conv-durations').querySelectorAll('button')) {
         button.setAttribute('aria-pressed', String(Number(button.dataset.duration) === conv.duration));
     }
 }
@@ -2098,10 +2108,10 @@ function conv_refresh()
 function conv_line_place()
 {
     const el = conv.elements.get(conv.clicked);
-    $('conv-line').hidden = !el;
+    el_get('conv-line').hidden = !el;
     if (el) {
-        const frame = $('conv-line').parentElement.getBoundingClientRect();
-        $('conv-line').style.top = `${el.getBoundingClientRect().top - frame.top - 3}px`;
+        const frame = el_get('conv-line').parentElement.getBoundingClientRect();
+        el_get('conv-line').style.top = `${el.getBoundingClientRect().top - frame.top - 3}px`;
     }
 }
 
@@ -2172,7 +2182,7 @@ function conv_toggle(id)
 {
     const message = conv.messages.find(v => v.id === id);
     const el = conv.elements.get(id);
-    const scroller = $('conv-body');
+    const scroller = el_get('conv-body');
     const head_top = el.getBoundingClientRect().top;
     const scroll_top = scroller.scrollTop;
     const duration = conv.duration;
@@ -2215,8 +2225,8 @@ function conv_toggle(id)
     const collapse_last = collapses.map(v => ({width: v.getBoundingClientRect().width}));
     const card_rect = el.getBoundingClientRect();
     el.animate([{height: `${height_first}px`, borderColor: border_first}, {height: `${height_last}px`, borderColor: border_last}], timing);
-    for (const [i, part] of morphs.entries()) {
-        const frames = [{transform: conv_part_from(part, morph_first[i], morph_last[i])}, {transform: 'none'}];
+    for (const [index, part] of morphs.entries()) {
+        const frames = [{transform: conv_part_from(part, morph_first[index], morph_last[index])}, {transform: 'none'}];
         if (['look', 'stretch'].includes(part.dataset.morph)) {
             // the new look rises just as the copy of the old one has gone,
             // early in the move, so two looks of one text barely overlap
@@ -2227,12 +2237,12 @@ function conv_toggle(id)
         }
         part.animate(frames, timing);
     }
-    for (const [i, cover] of covers.entries()) {
+    for (const [index, cover] of covers.entries()) {
         // the cover is there by half way, before the lines reach the pill
-        cover.animate([{opacity: cover_first[i]}, {opacity: cover_last[i], offset: 0.5}, {opacity: cover_last[i]}], timing);
+        cover.animate([{opacity: cover_first[index]}, {opacity: cover_last[index], offset: 0.5}, {opacity: cover_last[index]}], timing);
     }
-    for (const [i, part] of collapses.entries()) {
-        part.animate([{maxWidth: `${collapse_first[i].width}px`}, {maxWidth: `${collapse_last[i].width}px`}], timing);
+    for (const [index, part] of collapses.entries()) {
+        part.animate([{maxWidth: `${collapse_first[index].width}px`}, {maxWidth: `${collapse_last[index].width}px`}], timing);
     }
     for (const ghost of ghosts) {
         const part = morphs.find(v => v.dataset.key === ghost.dataset.key);
@@ -2240,8 +2250,8 @@ function conv_toggle(id)
         const leader = morphs.find(v => v.dataset.key === ghost.dataset.with);
         if (leader) {
             // it leaves with the part it stood beside, fading on the way
-            const i = morphs.indexOf(leader);
-            const moved = `translate(${morph_last[i].rect.left - morph_first[i].rect.left}px, ${morph_last[i].rect.top - morph_first[i].rect.top}px)`;
+            const leader_index = morphs.indexOf(leader);
+            const moved = `translate(${morph_last[leader_index].rect.left - morph_first[leader_index].rect.left}px, ${morph_last[leader_index].rect.top - morph_first[leader_index].rect.top}px)`;
             frames.splice(0, 2, {opacity: ghost.style.opacity, transform: ghost.style.transform}, {opacity: 0, transform: `${moved} ${ghost.style.transform}`});
             ghost.animate(frames, {duration, easing: EASING, fill: 'forwards'}).addEventListener('finish', () => ghost.remove());
             continue;
@@ -2263,8 +2273,8 @@ function conv_toggle(id)
         const leader = morphs.find(v => v.dataset.key === part.dataset.with);
         if (leader) {
             // it comes with the part it stands beside, rising on the way
-            const i = morphs.indexOf(leader);
-            const from = `translate(${morph_first[i].rect.left - morph_last[i].rect.left}px, ${morph_first[i].rect.top - morph_last[i].rect.top}px)`;
+            const leader_index = morphs.indexOf(leader);
+            const from = `translate(${morph_first[leader_index].rect.left - morph_last[leader_index].rect.left}px, ${morph_first[leader_index].rect.top - morph_last[leader_index].rect.top}px)`;
             part.animate([{opacity: start, transform: from}, {opacity: 1, transform: 'none'}], timing);
             continue;
         }
@@ -2279,25 +2289,21 @@ function conv_toggle(id)
 function conv_main()
 {
     for (const message of conv.messages) {
-        $('conv').append(conv_card_render(message));
+        const el = conv_card_make(message);
+        conv.elements.set(message.id, el);
+        el_get('conv').append(el);
     }
-    for (const v of DURATIONS) {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.dataset.duration = v;
-        button.textContent = (v < 1000) ? `${v} ms` : `${v/1000} s`;
-        $('conv-durations').append(button);
-    }
-    $('conv').addEventListener('click', function (event) {
+    durations_buttons_add(el_get('conv-durations'));
+    el_get('conv').addEventListener('click', function (event) {
         const head = event.target.closest('.msg-head');
         if (head) {
             conv_toggle(Number(head.parentElement.dataset.id));
         }
     });
     // the reader's own scroll carries the header, and the line with it
-    $('conv-body').addEventListener('scroll', conv_line_place);
+    el_get('conv-body').addEventListener('scroll', conv_line_place);
     addEventListener('resize', conv_line_place);
-    $('conv-durations').addEventListener('click', function (event) {
+    el_get('conv-durations').addEventListener('click', function (event) {
         const button = event.target.closest('button');
         if (button) {
             conv.duration = Number(button.dataset.duration);
@@ -2306,8 +2312,6 @@ function conv_main()
     });
     conv_refresh();
 }
-
-main();
 </script>
 </body>
 </html>

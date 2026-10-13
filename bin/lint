@@ -6,7 +6,7 @@ const cli = require('@vbarbarosh/node-helpers/src/cli');
 const make_rules_config = require('../src/make_rules_config');
 const path = require('node:path');
 
-const usage = [
+const USAGE = [
     'usage: [PREFIXES=vb-,app-] lint <path>...',
     '       [PREFIXES=vb-,app-] npx vbarbarosh/rules <path>...',
 ].join('\n');
@@ -17,7 +17,7 @@ async function main()
 {
     const args = process.argv.slice(2);
     if ((args.length === 0) || args.some(v => v.startsWith('-'))) {
-        throw new ExitCodeError(1, usage);
+        throw new ExitCodeError(1, USAGE);
     }
     const targets = args.map(v => path.resolve(v));
     const options = {};

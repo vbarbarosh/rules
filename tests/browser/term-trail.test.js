@@ -29,7 +29,7 @@ for (const width of [1280, 390]) {
                 // the name just under the row: no trail yet
                 await rule.evaluate(v => window.scrollTo({top: v.getBoundingClientRect().top + scrollY - 400, behavior: 'instant'}));
                 await page.waitForTimeout(100);
-                assert.ok(!(await trails(page)).some(v => v.endsWith(`›${name}`)), `${name}: its name is on screen, the row does not name it`);
+                assert.ok(!(await trails_of(page)).some(v => v.endsWith(`›${name}`)), `${name}: its name is on screen, the row does not name it`);
                 // the name scrolled under the row, the entry still running
                 await rule.evaluate(function (rule_el) {
                     // the header row sticks at its top; its bottom is the line the name passes under
@@ -79,7 +79,7 @@ for (const width of [1280, 390]) {
             });
             assert.ok(steps.length > 50, `${steps.length} steps`);
             assert.deepEqual(steps.filter(v => !v.term), []);
-            const names = steps.map(v => v.term).filter((v, i, all) => v !== all[i - 1]);
+            const names = steps.map(v => v.term).filter((term, index, terms) => term !== terms[index - 1]);
             assert.equal(new Set(names).size, names.length, `each term named once, in order: ${names.join(', ')}`);
         }
         finally {
@@ -97,14 +97,14 @@ test('a filter that hides the term under the row leaves no trail of it', async f
         await page.locator('#q').fill('sidecar');
         await page.evaluate(() => window.scrollTo({top: 0, behavior: 'instant'}));
         await page.waitForTimeout(100);
-        assert.deepEqual(await trails(page), []);
+        assert.deepEqual(await trails_of(page), []);
     }
     finally {
         await context.close();
     }
 });
 
-async function trails(page)
+async function trails_of(page)
 {
     return page.evaluate(() => Array.from(document.querySelectorAll('.group > h2 .trail')).map(vv => vv.textContent).filter(vv => vv));
 }

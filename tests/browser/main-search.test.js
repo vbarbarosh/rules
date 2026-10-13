@@ -7,7 +7,7 @@ const {chromium} = require('playwright');
 
 // Run with Playwright and Chromium: node --test tests/browser/main-search.test.js
 const root_dir = path.join(__dirname, '../..');
-const page_names = ['rules', 'agents', 'glossaries'];
+const PAGE_NAMES = ['rules', 'agents', 'glossaries'];
 let browser;
 let server;
 let origin;
@@ -34,7 +34,7 @@ test.after(async function () {
     }
 });
 
-for (const page_name of page_names) {
+for (const page_name of PAGE_NAMES) {
     test(`${page_name}: background typing keeps the first character, selection and input events`, async function () {
         const page = await open_page(page_name);
         try {

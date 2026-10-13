@@ -10,7 +10,7 @@ const {chromium} = require('playwright');
 // Optional screenshots: RULES_SCREENSHOTS=/absolute/output/path
 
 const root_dir = path.join(__dirname, '../..');
-const targets = ['UIM-08', 'DOC-01', 'FN-01'];
+const TARGETS = ['UIM-08', 'DOC-01', 'FN-01'];
 let browser;
 let server;
 let origin;
@@ -42,7 +42,7 @@ for (const theme of ['light', 'dark']) {
     for (const width of [1280, 390]) {
         for (const navigation of ['direct', 'link']) {
             test(`${theme}, ${width}px, ${navigation}: delayed images preserve rule targets`, async function () {
-                for (const target of targets) {
+                for (const target of TARGETS) {
                     const page = await browser.newPage({viewport: {width, height: 800}, colorScheme: theme});
                     let release;
                     const gate = new Promise(v => release = v);

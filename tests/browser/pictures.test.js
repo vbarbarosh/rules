@@ -10,14 +10,13 @@ const {chromium} = require('playwright');
 // A label on a line sits on its own pill drawn after the line; a legend sample or an axis end
 // is marked data-legend or data-free.
 const root_dir = path.join(__dirname, '../..');
-const fonts_list = [
+const FONTS_LIST = [
     {sans: 'Ubuntu', mono: 'Ubuntu Mono'},
     {sans: 'Noto Sans', mono: 'Noto Sans Mono'},
     {sans: 'Liberation Sans', mono: 'Liberation Mono'},
 ];
-const svg_files = fs.readdirSync(path.join(root_dir, 'img'), {recursive: true})
-    .filter(v => v.endsWith('.svg') && !v.endsWith('-dark.svg') && v.includes(path.sep))
-    .sort();
+const img_files = fs.readdirSync(path.join(root_dir, 'img'), {recursive: true});
+const svg_files = img_files.filter(v => v.endsWith('.svg') && !v.endsWith('-dark.svg') && v.includes(path.sep)).sort();
 let browser;
 
 test.before(async function () {
@@ -33,7 +32,7 @@ for (const file of svg_files) {
         const page = await browser.newPage();
         try {
             const svg = fs.readFileSync(path.join(root_dir, 'img', file), 'utf8');
-            for (const fonts of fonts_list) {
+            for (const fonts of FONTS_LIST) {
                 const css = `text{font-family:'${fonts.sans}'!important} text[font-family*=mono]{font-family:'${fonts.mono}'!important}`;
                 await page.setContent(`<!doctype html><style>body{margin:0}${css}</style>${svg}`);
                 await page.evaluate(() => document.fonts.ready);
@@ -60,61 +59,61 @@ function find_faults()
     const svg = document.querySelector('svg');
     const view_box = svg.viewBox.baseVal;
     const all = Array.from(svg.querySelectorAll('*')).filter(v => !v.closest('defs,marker'));
-    const order = new Map(all.map((v, i) => [v, i]));
-    const texts = all.filter(v => v.tagName === 'text' && v.textContent.trim());
-    const rects = all.filter(v => v.tagName === 'rect' && !(+v.getAttribute('width') >= view_box.width && +v.getAttribute('height') >= view_box.height));
+    const order = new Map(all.map((element, index) => [element, index]));
+    const texts = all.filter(v => (v.tagName === 'text') && v.textContent.trim());
+    const rects = all.filter(v => (v.tagName === 'rect') && !((+v.getAttribute('width') >= view_box.width) && (+v.getAttribute('height') >= view_box.height)));
     const circles = all.filter(v => v.tagName === 'circle');
     const arrows = all.filter(v => ['line', 'path', 'polyline'].includes(v.tagName));
-    const text_boxes = new Map(texts.map(v => [v, text_box(v)]));
+    const text_boxes = new Map(texts.map(v => [v, text_box_of(v)]));
     const out = [];
 
     for (const text of texts) {
-        const points = text_points(text);
-        if (points.some(v => v.x < 8 || v.y < 4 || v.x > view_box.width - 8 || v.y > view_box.height - 4)) {
-            out.push(`past the picture's edge: ${label(text)}`);
+        const points = text_points_of(text);
+        if (points.some(v => (v.x < 8) || (v.y < 4) || (v.x > view_box.width - 8) || (v.y > view_box.height - 4))) {
+            out.push(`past the picture's edge: ${label_of(text)}`);
         }
         for (const rect of rects) {
-            const n = points.filter(v => inside(v, quad(rect, rect.getBBox()))).length;
+            const n = points.filter(v => is_inside(v, quad_of(rect, rect.getBBox()))).length;
             if (n === 0) {
-                if (points.some(v => inside(v, quad(rect, rect.getBBox(), 6)))) {
-                    out.push(`next to a box's border: ${label(text)}`);
+                if (points.some(v => is_inside(v, quad_of(rect, rect.getBBox(), 6)))) {
+                    out.push(`next to a box's border: ${label_of(text)}`);
                 }
             }
             else if (n < points.length) {
-                out.push(`across a box's border: ${label(text)}`);
+                out.push(`across a box's border: ${label_of(text)}`);
             }
-            else if (order.get(rect) > order.get(text) && is_filled(rect)) {
-                out.push(`under a box: ${label(text)}`);
+            else if ((order.get(rect) > order.get(text)) && is_filled(rect)) {
+                out.push(`under a box: ${label_of(text)}`);
             }
         }
         // A paragraph (the column at x 48), in no box, keeps 20 units from every box
-        const loose = !rects.some(v => points.every(vv => inside(vv, quad(v, v.getBBox()))));
-        if (text.getAttribute('x') === '48' && loose && rects.some(v => points.some(vv => inside(vv, quad(v, v.getBBox(), 20))))) {
-            out.push(`a paragraph crowding a box: ${label(text)}`);
+        const loose = !rects.some(v => points.every(vv => is_inside(vv, quad_of(v, v.getBBox()))));
+        if ((text.getAttribute('x') === '48') && loose && rects.some(v => points.some(vv => is_inside(vv, quad_of(v, v.getBBox(), 20))))) {
+            out.push(`a paragraph crowding a box: ${label_of(text)}`);
         }
-        const own = smallest_box(points[Math.floor(points.length/2)]);
-        if (own && !label_pill(text) && points.some(v => !inside(v, quad(own, own.getBBox(), -6)))) {
-            out.push(`no room inside its box: ${label(text)}`);
+        const own = smallest_box_of(points[Math.floor(points.length/2)]);
+        if (own && !label_pill_of(text) && points.some(v => !is_inside(v, quad_of(own, own.getBBox(), -6)))) {
+            out.push(`no room inside its box: ${label_of(text)}`);
         }
     }
-    for (const [i, text] of texts.entries()) {
-        const q = quad(text, text_boxes.get(text));
-        for (const other of texts.slice(i + 1)) {
-            if (text_points(other).some(v => inside(v, q))) {
-                out.push(`on other text: ${label(text)} / ${label(other)}`);
+    for (const [index, text] of texts.entries()) {
+        const q = quad_of(text, text_boxes.get(text));
+        for (const other of texts.slice(index + 1)) {
+            if (text_points_of(other).some(v => is_inside(v, q))) {
+                out.push(`on other text: ${label_of(text)} / ${label_of(other)}`);
             }
         }
     }
     for (const arrow of arrows) {
-        const points = arrow_points(arrow);
+        const points = arrow_points_of(arrow);
         for (const text of texts) {
-            const pill = label_pill(text);
-            if (pill && order.get(pill) > order.get(arrow)) {
+            const pill = label_pill_of(text);
+            if (pill && (order.get(pill) > order.get(arrow))) {
                 continue;
             }
-            const q = quad(text, text_boxes.get(text), 6);
-            if (points.some(v => inside(v, q))) {
-                out.push(`on an arrow: ${label(text)}`);
+            const q = quad_of(text, text_boxes.get(text), 6);
+            if (points.some(v => is_inside(v, q))) {
+                out.push(`on an arrow: ${label_of(text)}`);
             }
         }
         if (!arrow.getAttribute('marker-end') && !arrow.getAttribute('marker-start')) {
@@ -131,25 +130,25 @@ function find_faults()
     }
     return out;
 
-    function to_root(element, x, y) {
+    function root_point_from(element, x, y) {
         const m = svg.getCTM().inverse().multiply(element.getCTM());
         return {x: m.a*x + m.c*y + m.e, y: m.b*x + m.d*y + m.f};
     }
 
-    function label(element) {
+    function label_of(element) {
         return element.textContent.trim().slice(0, 40);
     }
 
-    function quad(element, box, pad = 0) {
+    function quad_of(element, box, pad = 0) {
         return [
-            to_root(element, box.x - pad, box.y - pad),
-            to_root(element, box.x + box.width + pad, box.y - pad),
-            to_root(element, box.x + box.width + pad, box.y + box.height + pad),
-            to_root(element, box.x - pad, box.y + box.height + pad),
+            root_point_from(element, box.x - pad, box.y - pad),
+            root_point_from(element, box.x + box.width + pad, box.y - pad),
+            root_point_from(element, box.x + box.width + pad, box.y + box.height + pad),
+            root_point_from(element, box.x - pad, box.y + box.height + pad),
         ];
     }
 
-    function inside(point, q) {
+    function is_inside(point, q) {
         let sign = 0;
         for (let i = 0; i < 4; ++i) {
             const a = q[i];
@@ -170,67 +169,67 @@ function find_faults()
 
     function is_filled(element) {
         const fill = element.getAttribute('fill');
-        return fill && fill !== 'none' && fill !== 'transparent' && element.getAttribute('fill-opacity') !== '0';
+        return fill && (fill !== 'none') && (fill !== 'transparent') && (element.getAttribute('fill-opacity') !== '0');
     }
 
     // The glyphs' box: from the cap height to the descender, not the font's full line
-    function text_box(text) {
+    function text_box_of(text) {
         const box = text.getBBox();
         const font_size = parseFloat(text.getAttribute('font-size')) || 16;
         const y = +text.getAttribute('y') || box.y;
         return {x: box.x, y: Math.max(box.y, y - font_size*0.78), width: box.width, height: Math.min(box.height, font_size)};
     }
 
-    function text_points(text) {
+    function text_points_of(text) {
         const box = text_boxes.get(text);
         const out = [];
         for (let i = 0; i <= 8; ++i) {
             for (let j = 0; j <= 4; ++j) {
-                out.push(to_root(text, box.x + box.width*i/8, box.y + box.height*j/4));
+                out.push(root_point_from(text, box.x + box.width*i/8, box.y + box.height*j/4));
             }
         }
         return out;
     }
 
     // A label on a line: a filled rect with no border drawn right before the text
-    function label_pill(text) {
+    function label_pill_of(text) {
         const prev = text.previousElementSibling;
-        return (prev && prev.tagName === 'rect' && !prev.getAttribute('stroke') && is_filled(prev)) ? prev : null;
+        return (prev && (prev.tagName === 'rect') && !prev.getAttribute('stroke') && is_filled(prev)) ? prev : null;
     }
 
-    function smallest_box(point) {
-        const boxes = rects.filter(v => inside(point, quad(v, v.getBBox(), -6)));
+    function smallest_box_of(point) {
+        const boxes = rects.filter(v => is_inside(point, quad_of(v, v.getBBox(), -6)));
         boxes.sort((a, b) => a.getBBox().width*a.getBBox().height - b.getBBox().width*b.getBBox().height);
         return boxes[0] ?? null;
     }
 
     // 61 points along the line, then its arrowheads as filled triangles
-    function arrow_points(arrow) {
+    function arrow_points_of(arrow) {
         const length = arrow.getTotalLength();
         const out = [];
-        for (let k = 0; k <= 60; ++k) {
-            const p = arrow.getPointAtLength(length*k/60);
-            out.push(to_root(arrow, p.x, p.y));
+        for (let i = 0; i <= 60; ++i) {
+            const p = arrow.getPointAtLength(length*i/60);
+            out.push(root_point_from(arrow, p.x, p.y));
         }
         const size = 8*(parseFloat(arrow.getAttribute('stroke-width')) || 1);
         if (arrow.getAttribute('marker-end')) {
-            out.push(...head_points(out[60], out[59], size));
+            out.push(...head_points_of(out[60], out[59], size));
         }
         if (arrow.getAttribute('marker-start')) {
-            out.push(...head_points(out[0], out[1], size));
+            out.push(...head_points_of(out[0], out[1], size));
         }
         return out;
     }
 
-    function head_points(tip, from, size) {
+    function head_points_of(tip, from, size) {
         const d = Math.hypot(tip.x - from.x, tip.y - from.y) || 1;
         const ux = (tip.x - from.x)/d;
         const uy = (tip.y - from.y)/d;
         const out = [];
-        for (let k = 0; k <= 6; ++k) {
-            for (let w = -3; w <= 3; ++w) {
-                const back = size*k/6;
-                const half = size/2*(k/6)*w/3;
+        for (let i = 0; i <= 6; ++i) {
+            for (let j = -3; j <= 3; ++j) {
+                const back = size*i/6;
+                const half = size/2*(i/6)*j/3;
                 out.push({x: tip.x - ux*back - uy*half, y: tip.y - uy*back + ux*half});
             }
         }
@@ -240,33 +239,33 @@ function find_faults()
     // Within 8 units of a box's border, a circle, another line, or inside a text it points to
     function is_attached(end, arrow) {
         for (const rect of rects) {
-            const q = quad(rect, rect.getBBox());
+            const q = quad_of(rect, rect.getBBox());
             for (let i = 0; i < 4; ++i) {
-                if (segment_distance(end, q[i], q[(i + 1) % 4]) <= 8) {
+                if (segment_distance_of(end, q[i], q[(i + 1) % 4]) <= 8) {
                     return true;
                 }
             }
         }
         for (const circle of circles) {
-            const c = to_root(circle, +circle.getAttribute('cx'), +circle.getAttribute('cy'));
+            const c = root_point_from(circle, +circle.getAttribute('cx'), +circle.getAttribute('cy'));
             if (Math.abs(Math.hypot(end.x - c.x, end.y - c.y) - +circle.getAttribute('r')) <= 8) {
                 return true;
             }
         }
         for (const other of arrows.filter(v => v !== arrow)) {
             const length = other.getTotalLength();
-            for (let k = 0; k <= 40; ++k) {
-                const p = other.getPointAtLength(length*k/40);
-                const q = to_root(other, p.x, p.y);
+            for (let i = 0; i <= 40; ++i) {
+                const p = other.getPointAtLength(length*i/40);
+                const q = root_point_from(other, p.x, p.y);
                 if (Math.hypot(end.x - q.x, end.y - q.y) <= 8) {
                     return true;
                 }
             }
         }
-        return texts.some(v => inside(end, quad(v, text_boxes.get(v), 12)));
+        return texts.some(v => is_inside(end, quad_of(v, text_boxes.get(v), 12)));
     }
 
-    function segment_distance(point, a, b) {
+    function segment_distance_of(point, a, b) {
         const dx = b.x - a.x;
         const dy = b.y - a.y;
         const u = Math.max(0, Math.min(1, ((point.x - a.x)*dx + (point.y - a.y)*dy)/(dx*dx + dy*dy)));

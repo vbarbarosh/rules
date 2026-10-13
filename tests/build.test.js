@@ -175,14 +175,17 @@ test('docs/README.md counts the rules the indexes count', function () {
 // rules.md with a Try it link added at the end of one rule's form cell.
 function try_it_add(markdown, code, url)
 {
-    return markdown.split('\n').map(function (line) {
+    const lines = markdown.split('\n').map(line_try_it_add);
+    return lines.join('\n');
+
+    function line_try_it_add(line) {
         if (!line.startsWith(`| ${code} |`)) {
             return line;
         }
         const cells = line.split(' | ');
         cells[2] = `${cells[2]} [▶ Try it](${url})`;
         return cells.join(' | ');
-    }).join('\n');
+    }
 }
 
 function build()

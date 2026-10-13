@@ -6,7 +6,7 @@ const {chromium} = require('playwright');
 
 // Run with Playwright and Chromium installed: node --test tests/browser/theme-switch.test.js
 const root_dir = path.join(__dirname, '../..');
-const page_files = ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html'];
+const PAGE_FILES = ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html'];
 const paths = ['sun', 'moon'].map(v => fs.readFileSync(path.join(root_dir, 'img', `theme-${v}.svg`), 'utf8').match(/ d="([^"]+)"/)[1]);
 let browser;
 
@@ -18,7 +18,7 @@ test.after(async function () {
     await browser?.close();
 });
 
-for (const page_file of page_files) {
+for (const page_file of PAGE_FILES) {
     for (const initial of ['light', 'dark']) {
         test(`${page_file}: ${initial} current icon, direct toggle, keyboard, persistence and blocked storage`, async function () {
             for (const blocked of [false, true]) {
@@ -73,7 +73,7 @@ for (const page_file of page_files) {
 }
 
 // The links come first and the switch last, at the right edge (MP-44).
-for (const page_file of page_files.filter(v => v !== 'drafts/scroll-anchoring.html')) {
+for (const page_file of PAGE_FILES.filter(v => v !== 'drafts/scroll-anchoring.html')) {
     for (const [width, theme_initial] of [[1280, 'light'], [1280, 'dark'], [375, 'dark']]) {
         test(`${page_file}: ${width}px ${theme_initial} header ends with GitHub, then the theme switch, alike`, async function () {
             const context = await browser.newContext({colorScheme: theme_initial, viewport: {width, height: 800}});
