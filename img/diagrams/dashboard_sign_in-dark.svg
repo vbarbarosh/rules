@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 740" width="1000" height="740" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="740" fill="#1E1D21"/><text x="20" y="46" font-size="26" font-weight="700" fill="#E8E6DC">Status dashboard: the sign-in service</text>
+<text x="20" y="82" font-size="18" fill="#BAB8AB">Numbers on top, a tile per part below, the gaps gathered at the end.</text>
+<rect x="20" y="110" width="16" height="16" rx="4" fill="#5CC26A"/>
+<text x="46" y="124" font-size="18" fill="#BAB8AB">in place, checked</text>
+<rect x="241.5" y="110" width="16" height="16" rx="4" fill="#F08C4A"/>
+<text x="267.5" y="124" font-size="18" fill="#BAB8AB">stale or unchecked</text>
+<rect x="472.5" y="110" width="16" height="16" rx="4" fill="#F06A62"/>
+<text x="498.5" y="124" font-size="18" fill="#BAB8AB">missing or failed</text>
+<rect x="20" y="148" width="310" height="122" rx="8" fill="#3D2A1D" stroke="#F08C4A" stroke-width="2"/>
+<text x="38" y="196" font-size="34" font-weight="700" fill="#E8E6DC">4 / 8</text>
+<text x="38" y="226" font-size="18" fill="#E8E6DC">parts in place</text>
+<text x="38" y="252" font-size="18" fill="#BAB8AB">4 gaps below</text>
+<rect x="345" y="148" width="310" height="122" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="2"/>
+<text x="363" y="196" font-size="34" font-weight="700" fill="#E8E6DC">212</text>
+<text x="363" y="226" font-size="18" fill="#E8E6DC">unit tests pass</text>
+<text x="363" y="252" font-size="18" fill="#BAB8AB">run 10-14</text>
+<rect x="670" y="148" width="310" height="122" rx="8" fill="#4A2323" stroke="#F06A62" stroke-width="2"/>
+<text x="688" y="196" font-size="34" font-weight="700" fill="#E8E6DC">1 failed</text>
+<text x="688" y="226" font-size="18" fill="#E8E6DC">browser tests</text>
+<text x="688" y="252" font-size="18" fill="#BAB8AB">sign-out, 10-14</text>
+<rect x="20" y="290" width="472" height="250" rx="10" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="38" y="322" font-size="20" font-weight="700" fill="#E8E6DC">Providers</text>
+<text x="38" y="348" font-size="18" fill="#BAB8AB">what a user signs in with</text>
+<rect x="38" y="364" width="212" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="54" y="394" font-size="18" font-weight="700" fill="#E8E6DC">Google</text>
+<text x="54" y="420" font-size="18" fill="#5CC26A">linked, tested</text>
+<rect x="264" y="364" width="212" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="280" y="394" font-size="18" font-weight="700" fill="#E8E6DC">GitHub</text>
+<text x="280" y="420" font-size="18" fill="#5CC26A">linked, tested</text>
+<rect x="38" y="450" width="212" height="72" rx="8" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1.5"/>
+<text x="54" y="480" font-size="18" font-weight="700" fill="#E8E6DC">Apple</text>
+<text x="54" y="506" font-size="18" fill="#F08C4A">key expires in 3 days</text>
+<rect x="264" y="450" width="212" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="280" y="480" font-size="18" font-weight="700" fill="#E8E6DC">E-mail code</text>
+<text x="280" y="506" font-size="18" fill="#5CC26A">linked, tested</text>
+<rect x="508" y="290" width="472" height="250" rx="10" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="526" y="322" font-size="20" font-weight="700" fill="#E8E6DC">Tests</text>
+<text x="526" y="348" font-size="18" fill="#BAB8AB">what guards it</text>
+<rect x="526" y="364" width="212" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="542" y="394" font-size="18" font-weight="700" fill="#E8E6DC">Unit tests</text>
+<text x="542" y="420" font-size="18" fill="#5CC26A">212 pass</text>
+<rect x="752" y="364" width="212" height="72" rx="8" fill="#4A2323" stroke="#F06A62" stroke-width="1.5"/>
+<text x="768" y="394" font-size="18" font-weight="700" fill="#E8E6DC">Browser tests</text>
+<text x="768" y="420" font-size="18" fill="#F06A62">1 failed</text>
+<rect x="526" y="450" width="212" height="72" rx="8" fill="#4A2323" stroke="#F06A62" stroke-width="1.5"/>
+<text x="542" y="480" font-size="18" font-weight="700" fill="#E8E6DC">Audit log</text>
+<text x="542" y="506" font-size="18" fill="#F06A62">no test</text>
+<rect x="752" y="450" width="212" height="72" rx="8" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1.5"/>
+<text x="768" y="480" font-size="18" font-weight="700" fill="#E8E6DC">Docs</text>
+<text x="768" y="506" font-size="18" fill="#F08C4A">changed 09-02</text>
+<rect x="20" y="556" width="960" height="166" rx="10" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="38" y="588" font-size="20" font-weight="700" fill="#E8E6DC">Gaps</text>
+<text x="38" y="614" font-size="18" fill="#BAB8AB">only the amber and the red</text>
+<rect x="38" y="632" width="222" height="72" rx="8" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1.5"/>
+<text x="54" y="662" font-size="18" font-weight="700" fill="#E8E6DC">Apple</text>
+<text x="54" y="688" font-size="18" fill="#F08C4A">key expires in 3 days</text>
+<rect x="272" y="632" width="222" height="72" rx="8" fill="#4A2323" stroke="#F06A62" stroke-width="1.5"/>
+<text x="288" y="662" font-size="18" font-weight="700" fill="#E8E6DC">Browser tests</text>
+<text x="288" y="688" font-size="18" fill="#F06A62">1 failed</text>
+<rect x="506" y="632" width="222" height="72" rx="8" fill="#4A2323" stroke="#F06A62" stroke-width="1.5"/>
+<text x="522" y="662" font-size="18" font-weight="700" fill="#E8E6DC">Audit log</text>
+<text x="522" y="688" font-size="18" fill="#F06A62">no test</text>
+<rect x="740" y="632" width="222" height="72" rx="8" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1.5"/>
+<text x="756" y="662" font-size="18" font-weight="700" fill="#E8E6DC">Docs</text>
+<text x="756" y="688" font-size="18" fill="#F08C4A">changed 09-02</text></svg>

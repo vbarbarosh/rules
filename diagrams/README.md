@@ -10,3 +10,4 @@ what it shows, when it fits and when it does not, its parts, how it is drawn.
 - [timeline.md](timeline.md) — what happened when, from a log: one line of time, each event at its moment
 - [containers.md](containers.md) — which parts exist, where each runs, what goes between them (C4 containers)
 - [entities.md](entities.md) — what data there is and how it links: a box per kind, 1 and n at the ends
+- [dashboard.md](dashboard.md) — where each part stands: a RAG status dashboard, big numbers on top, tiles coloured green, amber or red

@@ -1090,7 +1090,7 @@ main[data-page="diagrams"] .prose > h3 {
     </div>
     <h1>Diagrams</h1>
     <p class="lede">A visual language: the kinds of picture an agent draws in its replies, so the author reads at a glance what words would take a page to say. For each kind: what it shows, when it fits and when it does not, its parts, how it is drawn.</p>
-    <p class="stats"><b>6</b> diagrams</p>
+    <p class="stats"><b>7</b> diagrams</p>
 </div>
 </header>
 
@@ -1099,7 +1099,7 @@ main[data-page="diagrams"] .prose > h3 {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter diagrams, e.g. retry, icons, events" aria-label="Filter diagrams">
         </label>
-        <span class="count" id="count">6 diagrams</span>
+        <span class="count" id="count">7 diagrams</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the diagrams shown, as Markdown">Copy</button>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
@@ -1122,6 +1122,7 @@ main[data-page="diagrams"] .prose > h3 {
 <a href="#timeline" data-group="timeline"><span class="tag">04</span><span class="name">Timeline: what happened when</span></a>
 <a href="#containers" data-group="containers"><span class="tag">05</span><span class="name">Container sketch (C4): where the parts run</span></a>
 <a href="#entities" data-group="entities"><span class="tag">06</span><span class="name">Entity-relationship: what data there is and how it links</span></a>
+<a href="#dashboard" data-group="dashboard"><span class="tag">07</span><span class="name">Status dashboard: where each part stands</span></a>
 </nav>
 <main data-page="diagrams">
 <section class="group use" id="use">
@@ -1136,7 +1137,8 @@ main[data-page="diagrams"] .prose > h3 {
 - Flowchart: what is decided where: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/flowchart.md
 - Timeline: what happened when: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/timeline.md
 - Container sketch (C4): where the parts run: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/containers.md
-- Entity-relationship: what data there is and how it links: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/entities.md</pre><button class="copy" type="button">Copy</button></div>
+- Entity-relationship: what data there is and how it links: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/entities.md
+- Status dashboard: where each part stands: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/dashboard.md</pre><button class="copy" type="button">Copy</button></div>
 </section>
 <section class="group guide" id="sequence">
 <h2><span class="tag">01</span><span class="name">Sequence diagram: who talks to whom</span></h2>
@@ -1495,6 +1497,62 @@ with one of another: 1 to n, n to n, marked on each line's ends.
    know the marks.
 4. **Left to right** in the order a reader meets them; a child under its
    parent.
+</pre>
+</section>
+<section class="group guide" id="dashboard">
+<h2><span class="tag">07</span><span class="name">Status dashboard: where each part stands</span></h2>
+<article class="prose">
+<p>A RAG status dashboard (red, amber, green): the state of many parts at once, each a tile coloured by its state. Big numbers on top, the tiles grouped below, the gaps gathered at the end.</p>
+<a class="figure" href="../img/diagrams/dashboard_sign_in.svg"><img class="light" src="../img/diagrams/dashboard_sign_in.svg" alt="The sign-in service: 4 of 8 parts in place, 212 unit tests pass, 1 browser test failed; providers and tests as tiles; the gaps, Apple's key, the browser test, the audit log and the docs, gathered at the end" width="1000" height="740" loading="lazy"><img class="dark" src="../img/diagrams/dashboard_sign_in-dark.svg" alt="The sign-in service: 4 of 8 parts in place, 212 unit tests pass, 1 browser test failed; providers and tests as tiles; the gaps, Apple's key, the browser test, the audit log and the docs, gathered at the end" width="1000" height="740" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>The question is where things stand:</strong> many parts, each in place, stale or missing.</li><li><strong>The reader must find the gaps fast:</strong> a project's checks, a release, an audit of what is covered.</li><li><strong>The same view is read again later,</strong> and the colours show what moved.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>One thing and its states over time:</strong> a <a href="#state">state diagram</a>.</li><li><strong>What happened in what order:</strong> a <a href="#timeline">timeline</a> or a <a href="#sequence">sequence diagram</a>.</li><li><strong>A few parts only:</strong> a sentence or a list says it; a dashboard needs enough tiles to scan.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>The key:</strong> green in place and checked, amber stale or unchecked, red missing or failed, in one line under the title.</li><li><strong>KPI cards:</strong> three or four big numbers on top, each a word of what it counts and a line of context, coloured like the worst it stands for.</li><li><strong>The status board:</strong> a panel per area, its name and a line of what it holds; a tile per part, its name in bold and its state in its colour.</li><li><strong>The gaps:</strong> the amber and red tiles again, gathered in a panel at the end, so the reader does not hunt for them.</li><li><strong>Real states only:</strong> a tile's word says why it has its colour (&quot;1 failed&quot;, &quot;no test&quot;), never just &quot;bad&quot;.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Let's add it to the diagrams too, but first make a few sketches. (2026-10-14 13:45, of a status dashboard)</li><li>Sketch: A, the full dashboard. (13:49)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/dashboard.md" title="diagrams/dashboard.md">dashboard.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Status dashboard: where each part stands
+
+A RAG status dashboard (red, amber, green): the state of many parts at
+once, each a tile coloured by its state. Big numbers on top, the tiles
+grouped below, the gaps gathered at the end.
+
+![The sign-in service: 4 of 8 parts in place, 212 unit tests pass, 1 browser test failed; providers and tests as tiles; the gaps, Apple's key, the browser test, the audit log and the docs, gathered at the end](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/dashboard_sign_in.svg)
+
+## Fits when
+
+- **The question is where things stand:** many parts, each in place,
+  stale or missing.
+- **The reader must find the gaps fast:** a project's checks, a release,
+  an audit of what is covered.
+- **The same view is read again later,** and the colours show what moved.
+
+## Not when
+
+- **One thing and its states over time:** a [state diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/state.md).
+- **What happened in what order:** a [timeline](https://github.com/vbarbarosh/rules/blob/main/diagrams/timeline.md) or a
+  [sequence diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/sequence.md).
+- **A few parts only:** a sentence or a list says it; a dashboard needs
+  enough tiles to scan.
+
+## How it is drawn
+
+1. **The key:** green in place and checked, amber stale or unchecked, red
+   missing or failed, in one line under the title.
+2. **KPI cards:** three or four big numbers on top, each a word of what it
+   counts and a line of context, coloured like the worst it stands for.
+3. **The status board:** a panel per area, its name and a line of what it
+   holds; a tile per part, its name in bold and its state in its colour.
+4. **The gaps:** the amber and red tiles again, gathered in a panel at the
+   end, so the reader does not hunt for them.
+5. **Real states only:** a tile's word says why it has its colour (&quot;1
+   failed&quot;, &quot;no test&quot;), never just &quot;bad&quot;.
 </pre>
 </section>
 <p class="nothing" id="nothing" hidden>No diagram matches that.</p>
