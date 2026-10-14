@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 916" width="1000" height="916" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="916" fill="#1E1D21"/><text x="20" y="46" font-size="26" font-weight="700" fill="#E8E6DC">One case: a shop's help chat</text>
+<text x="20" y="82" font-size="18" fill="#BAB8AB">One real question: today's answer beside the answer with the fix.</text>
+<rect x="20" y="104" width="560" height="60" rx="8" fill="#1E2A4A"/>
+<text x="40" y="144" font-size="26" font-weight="700" fill="#E8E6DC">"How much is shipping to Canada?"</text>
+<text x="604" y="141" font-size="18" fill="#BAB8AB">asked in the help chat, 10-09</text>
+<circle cx="34" cy="198" r="14" fill="#F06A62"/>
+<path d="M28 192 L40 204 M40 192 L28 204" fill="none" stroke="#26252A" stroke-width="2.5" stroke-linecap="round"/>
+<text x="60" y="205" font-size="20" font-weight="700" fill="#E8E6DC">Today: no article has the rates</text>
+<circle cx="524" cy="198" r="14" fill="#5CC26A"/>
+<path d="M517 198 L522 203 L531 193" fill="none" stroke="#26252A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="550" y="205" font-size="20" font-weight="700" fill="#E8E6DC">With a shipping-rates article</text>
+<rect x="20" y="222" width="470" height="248" rx="8" fill="#26252A" stroke="#F06A62" stroke-width="3"/>
+<rect x="40" y="240" width="134" height="28" rx="8" fill="#F06A62"/>
+<text x="54" y="260" font-size="18" font-weight="700" fill="#26252A">not_covered</text>
+<text x="40" y="304" font-size="18" fill="#E8E6DC">Shipping costs depend on where you live</text>
+<text x="40" y="332" font-size="18" fill="#E8E6DC">and what you order. You will see the</text>
+<text x="40" y="360" font-size="18" fill="#E8E6DC">exact cost at checkout, before you pay.</text>
+<text x="40" y="388" font-size="18" fill="#E8E6DC">We ship to many countries. See</text>
+<text x="40" y="416" font-size="18" fill="#E8E6DC">Delivery and returns.</text>
+<rect x="510" y="222" width="470" height="248" rx="8" fill="#26252A" stroke="#5CC26A" stroke-width="3"/>
+<rect x="530" y="240" width="110" height="28" rx="8" fill="#5CC26A"/>
+<text x="544" y="260" font-size="18" font-weight="700" fill="#26252A">answered</text>
+<text x="530" y="304" font-size="18" fill="#E8E6DC">To Canada, by the parcel's weight:</text>
+<text x="530" y="340" font-size="18" fill="#E8E6DC">Up to 1 kg</text>
+<text x="956" y="340" font-size="18" font-weight="700" text-anchor="end" fill="#E8E6DC">$12</text>
+<line x1="530" y1="355" x2="956" y2="355" stroke="#45443A" stroke-width="1.5"/>
+<text x="530" y="376" font-size="18" fill="#E8E6DC">1 to 5 kg</text>
+<text x="956" y="376" font-size="18" font-weight="700" text-anchor="end" fill="#E8E6DC">$24</text>
+<line x1="530" y1="391" x2="956" y2="391" stroke="#45443A" stroke-width="1.5"/>
+<text x="530" y="412" font-size="18" fill="#E8E6DC">5 to 20 kg</text>
+<text x="956" y="412" font-size="18" font-weight="700" text-anchor="end" fill="#E8E6DC">$48</text>
+<line x1="530" y1="427" x2="956" y2="427" stroke="#45443A" stroke-width="1.5"/>
+<text x="530" y="448" font-size="18" fill="#E8E6DC">Orders over $150</text>
+<text x="956" y="448" font-size="18" font-weight="700" text-anchor="end" fill="#E8E6DC">free</text>
+<text x="20" y="502" font-size="20" font-weight="700" fill="#F06A62">The help can't answer.</text>
+<text x="20" y="530" font-size="18" fill="#BAB8AB">Its real reply, 10-09 14:12.</text>
+<text x="510" y="502" font-size="20" font-weight="700" fill="#5CC26A">4 rates, in one table.</text>
+<text x="510" y="530" font-size="18" fill="#F08C4A">The rates are a draft, to confirm.</text>
+<rect x="20" y="552" width="228" height="118" rx="8" fill="#26252A"/>
+<text x="38" y="598" font-size="34" font-weight="700" fill="#E8E6DC">42</text>
+<text x="38" y="628" font-size="18" fill="#BAB8AB">articles in</text>
+<text x="38" y="652" font-size="18" fill="#BAB8AB">the help center</text>
+<rect x="264" y="552" width="228" height="118" rx="8" fill="#26252A"/>
+<text x="282" y="598" font-size="34" font-weight="700" fill="#E8E6DC">18 / 23</text>
+<text x="282" y="628" font-size="18" fill="#BAB8AB">top questions</text>
+<text x="282" y="652" font-size="18" fill="#BAB8AB">answered, 2 partly</text>
+<rect x="508" y="552" width="228" height="118" rx="8" fill="#26252A"/>
+<text x="526" y="598" font-size="34" font-weight="700" fill="#F06A62">3</text>
+<text x="526" y="628" font-size="18" fill="#BAB8AB">of 23 skipped: no</text>
+<text x="526" y="652" font-size="18" fill="#BAB8AB">article holds it</text>
+<rect x="752" y="552" width="228" height="118" rx="8" fill="#26252A"/>
+<text x="770" y="598" font-size="34" font-weight="700" fill="#F08C4A">0</text>
+<text x="770" y="628" font-size="18" fill="#BAB8AB">chats on mobile:</text>
+<text x="770" y="652" font-size="18" fill="#BAB8AB">it is desktop-only</text>
+<text x="20" y="714" font-size="22" font-weight="700" fill="#E8E6DC">Works</text>
+<circle cx="33" cy="745" r="13" fill="#5CC26A"/>
+<path d="M27 745 L31 749 L39 741" fill="none" stroke="#26252A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="58" y="752" font-size="18" fill="#E8E6DC">Answers from the help center</text>
+<circle cx="33" cy="779" r="13" fill="#5CC26A"/>
+<path d="M27 779 L31 783 L39 775" fill="none" stroke="#26252A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="58" y="786" font-size="18" fill="#E8E6DC">Order status by order number</text>
+<circle cx="33" cy="813" r="13" fill="#5CC26A"/>
+<path d="M27 813 L31 817 L39 809" fill="none" stroke="#26252A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="58" y="820" font-size="18" fill="#E8E6DC">Hands over to a person</text>
+<circle cx="33" cy="847" r="13" fill="#5CC26A"/>
+<path d="M27 847 L31 851 L39 843" fill="none" stroke="#26252A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="58" y="854" font-size="18" fill="#E8E6DC">Last full run: 20 pass, 3 fail</text>
+<text x="510" y="714" font-size="22" font-weight="700" fill="#E8E6DC">Missing, by effort</text>
+<text x="510" y="752" font-size="18" font-weight="700" fill="#E8E6DC">Shipping rates article</text>
+<rect x="800" y="732" width="110" height="28" rx="8" fill="#F06A62"/>
+<text x="812" y="752" font-size="18" font-weight="700" fill="#26252A">medium</text>
+<text x="510" y="786" font-size="18" fill="#E8E6DC">Returns of sale items</text>
+<rect x="800" y="766" width="76" height="28" rx="8" fill="#F06A62"/>
+<text x="812" y="786" font-size="18" font-weight="700" fill="#26252A">small</text>
+<text x="510" y="820" font-size="18" fill="#E8E6DC">Gift card terms</text>
+<rect x="800" y="800" width="76" height="28" rx="8" fill="#F06A62"/>
+<text x="812" y="820" font-size="18" font-weight="700" fill="#26252A">small</text>
+<text x="510" y="854" font-size="18" fill="#E8E6DC">Customs fees by country</text>
+<rect x="800" y="834" width="76" height="28" rx="8" fill="#F08C4A"/>
+<text x="812" y="854" font-size="18" font-weight="700" fill="#26252A">wait</text>
+<text x="510" y="888" font-size="18" fill="#E8E6DC">Open the chat on mobile</text>
+<rect x="800" y="868" width="88" height="28" rx="8" fill="#F08C4A"/>
+<text x="812" y="888" font-size="18" font-weight="700" fill="#26252A">decide</text></svg>

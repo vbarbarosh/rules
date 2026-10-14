@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 672" width="1000" height="672" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><defs><marker id="arrow-grey" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#5C5A55" stroke-linejoin="round"/></marker></defs><rect width="1000" height="672" fill="#E9E6E0"/><text x="20" y="46" font-size="26" font-weight="700" fill="#1F1E1C">Gift cards: how they work, and what we don&#39;t know</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">Green is read from the code. Amber is a question no one can answer today.</text>
+<rect x="20" y="110" width="290" height="398" rx="8" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<text x="38" y="148" font-size="20" font-weight="700" fill="#1F1E1C">1 · Buying</text>
+<text x="38" y="182" font-size="18" fill="#1F1E1C">Bought online or at the till,</text>
+<text x="38" y="208" font-size="18" fill="#1F1E1C">for <tspan font-weight="700">10</tspan> to <tspan font-weight="700">200</tspan>.</text>
+<text x="38" y="234" font-size="18" fill="#1F1E1C">Each gets a <tspan font-weight="700">16-digit</tspan> code,</text>
+<text x="38" y="260" font-size="18" fill="#1F1E1C">sent by e-mail or printed.</text>
+<rect x="34" y="288" width="262" height="72" rx="8" fill="#FCE4D6"/>
+<rect x="34" y="288" width="6" height="72" rx="3" fill="#C2410C"/>
+<text x="56" y="316" font-size="18" font-weight="700" fill="#1F1E1C">Can a card be refunded?</text>
+<text x="56" y="342" font-size="18" fill="#5C5A55">no refund in the code</text>
+<rect x="355" y="110" width="290" height="398" rx="8" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<text x="373" y="148" font-size="20" font-weight="700" fill="#1F1E1C">2 · Spending</text>
+<text x="373" y="182" font-size="18" fill="#1F1E1C">Pays all or part of an order;</text>
+<text x="373" y="208" font-size="18" fill="#1F1E1C">what is left <tspan font-weight="700">stays on it</tspan>.</text>
+<text x="373" y="234" font-size="18" fill="#1F1E1C">One balance for the shop</text>
+<text x="373" y="260" font-size="18" fill="#1F1E1C">and the till.</text>
+<rect x="369" y="288" width="262" height="96" rx="8" fill="#FCE4D6"/>
+<rect x="369" y="288" width="6" height="96" rx="3" fill="#C2410C"/>
+<text x="391" y="316" font-size="18" font-weight="700" fill="#1F1E1C">Two orders at once:</text>
+<text x="391" y="340" font-size="18" font-weight="700" fill="#1F1E1C">can both spend it?</text>
+<text x="391" y="366" font-size="18" fill="#5C5A55">no lock on the balance</text>
+<rect x="369" y="396" width="262" height="96" rx="8" fill="#FCE4D6"/>
+<rect x="369" y="396" width="6" height="96" rx="3" fill="#C2410C"/>
+<text x="391" y="424" font-size="18" font-weight="700" fill="#1F1E1C">Does a return go back</text>
+<text x="391" y="448" font-size="18" font-weight="700" fill="#1F1E1C">onto the card?</text>
+<text x="391" y="474" font-size="18" fill="#5C5A55">today the till pays cash</text>
+<rect x="690" y="110" width="290" height="398" rx="8" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<text x="708" y="148" font-size="20" font-weight="700" fill="#1F1E1C">3 · Expiring</text>
+<text x="708" y="182" font-size="18" fill="#1F1E1C">A card ends <tspan font-weight="700">24 months</tspan></text>
+<text x="708" y="208" font-size="18" fill="#1F1E1C">after it is bought.</text>
+<text x="708" y="234" font-size="18" fill="#1F1E1C">What is left on it is <tspan font-weight="700">lost</tspan>.</text>
+<rect x="704" y="262" width="262" height="72" rx="8" fill="#FCE4D6"/>
+<rect x="704" y="262" width="6" height="72" rx="3" fill="#C2410C"/>
+<text x="726" y="290" font-size="18" font-weight="700" fill="#1F1E1C">Is the buyer told first?</text>
+<text x="726" y="316" font-size="18" fill="#5C5A55">no reminder is sent</text>
+<rect x="704" y="346" width="262" height="96" rx="8" fill="#FCE4D6"/>
+<rect x="704" y="346" width="6" height="96" rx="3" fill="#C2410C"/>
+<text x="726" y="374" font-size="18" font-weight="700" fill="#1F1E1C">Does the law let</text>
+<text x="726" y="398" font-size="18" font-weight="700" fill="#1F1E1C">a card expire?</text>
+<text x="726" y="424" font-size="18" fill="#5C5A55">asked 10-02, no answer</text>
+<path d="M310 309 H351" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
+<path d="M645 309 H686" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
+<rect x="20" y="530" width="228" height="122" rx="8" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="38" y="578" font-size="34" font-weight="700" fill="#1F1E1C">1 240</text>
+<text x="38" y="608" font-size="18" fill="#1F1E1C">cards sold</text>
+<text x="38" y="634" font-size="18" fill="#5C5A55">this year</text>
+<rect x="264" y="530" width="228" height="122" rx="8" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="282" y="578" font-size="34" font-weight="700" fill="#1F1E1C">3 400</text>
+<text x="282" y="608" font-size="18" fill="#1F1E1C">left unspent</text>
+<text x="282" y="634" font-size="18" fill="#5C5A55">on open cards</text>
+<rect x="508" y="530" width="228" height="122" rx="8" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="526" y="578" font-size="34" font-weight="700" fill="#C2410C">5</text>
+<text x="526" y="608" font-size="18" fill="#1F1E1C">open questions</text>
+<text x="526" y="634" font-size="18" fill="#5C5A55">in the panels above</text>
+<rect x="752" y="530" width="228" height="122" rx="8" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="770" y="578" font-size="34" font-weight="700" fill="#C92A2A">0</text>
+<text x="770" y="608" font-size="18" fill="#1F1E1C">reminders sent</text>
+<text x="770" y="634" font-size="18" fill="#5C5A55">before a card ends</text>
+</svg>

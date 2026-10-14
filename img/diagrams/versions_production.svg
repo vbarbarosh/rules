@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 628" width="1000" height="628" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="628" fill="#E9E6E0"/><text x="20" y="46" font-size="26" font-weight="700" fill="#1F1E1C">Versions: what runs on production</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">As read on 2026-10-14 09:30, one row per deployed part.</text>
+<text x="20" y="128" font-size="18" font-weight="700" fill="#1F1E1C">api, web and worker run their latest release.</text>
+<text x="20" y="156" font-size="18" fill="#1F1E1C">For 2 parts deployed by hand, nothing tells which code runs.</text>
+<rect x="20" y="186" width="960" height="382" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="38" y="222" font-size="18" font-weight="700" letter-spacing="1" fill="#5C5A55">PART</text>
+<text x="190" y="222" font-size="18" font-weight="700" letter-spacing="1" fill="#5C5A55">VERSION</text>
+<text x="340" y="222" font-size="18" font-weight="700" letter-spacing="1" fill="#5C5A55">COMMIT</text>
+<text x="440" y="222" font-size="18" font-weight="700" letter-spacing="1" fill="#5C5A55">DATE</text>
+<text x="521" y="222" font-size="18" font-weight="700" letter-spacing="1" fill="#5C5A55">LATEST?</text>
+<line x1="36" y1="244" x2="964" y2="244" stroke="#D3CFC7" stroke-width="1.5"/>
+<text x="38" y="284" font-size="18" font-weight="700" fill="#1F1E1C">api</text>
+<text x="190" y="285" font-size="22" font-weight="700" fill="#1F1E1C">v4.18.2</text>
+<text x="340" y="284" font-size="18" fill="#2B3FBF" text-decoration="underline">7c3e91a</text>
+<text x="440" y="284" font-size="18" fill="#1F1E1C">10-13</text>
+<path d="M521 278 L526 283 L536 272" fill="none" stroke="#2B8A3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="547" y="284" font-size="18" font-weight="700" fill="#2B8A3E">latest</text>
+<text x="640" y="284" font-size="18" fill="#5C5A55">nothing on main is left out</text>
+<line x1="36" y1="308" x2="964" y2="308" stroke="#D3CFC7" stroke-width="1.5"/>
+<text x="38" y="348" font-size="18" font-weight="700" fill="#1F1E1C">web</text>
+<text x="190" y="349" font-size="22" font-weight="700" fill="#1F1E1C">v2.31.0</text>
+<text x="340" y="348" font-size="18" fill="#2B3FBF" text-decoration="underline">b40d2f6</text>
+<text x="440" y="348" font-size="18" fill="#1F1E1C">10-13</text>
+<path d="M521 342 L526 347 L536 336" fill="none" stroke="#2B8A3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="547" y="348" font-size="18" font-weight="700" fill="#2B8A3E">latest</text>
+<text x="640" y="348" font-size="18" fill="#5C5A55">nothing on main is left out</text>
+<line x1="36" y1="372" x2="964" y2="372" stroke="#D3CFC7" stroke-width="1.5"/>
+<text x="38" y="412" font-size="18" font-weight="700" fill="#1F1E1C">worker</text>
+<text x="190" y="413" font-size="22" font-weight="700" fill="#1F1E1C">v1.9.7</text>
+<text x="340" y="412" font-size="18" fill="#2B3FBF" text-decoration="underline">2e8a5c3</text>
+<text x="440" y="412" font-size="18" fill="#1F1E1C">10-02</text>
+<path d="M521 406 L526 411 L536 400" fill="none" stroke="#2B8A3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="547" y="412" font-size="18" font-weight="700" fill="#2B8A3E">latest</text>
+<text x="640" y="412" font-size="18" fill="#5C5A55">nothing on main is left out</text>
+<line x1="36" y1="436" x2="964" y2="436" stroke="#D3CFC7" stroke-width="1.5"/>
+<text x="38" y="476" font-size="18" font-weight="700" fill="#1F1E1C">image resizer</text>
+<text x="190" y="477" font-size="22" font-weight="700" fill="#1F1E1C">no release</text>
+<text x="340" y="476" font-size="18" fill="#8F8B82">—</text>
+<text x="440" y="476" font-size="18" fill="#8F8B82">—</text>
+<text x="521" y="476" font-size="18" font-weight="700" fill="#C2410C">? unknown</text>
+<text x="640" y="476" font-size="18" fill="#5C5A55">by hand; newest code <tspan fill="#2B3FBF" text-decoration="underline">9e1b7d0</tspan>, 09-24</text>
+<line x1="36" y1="500" x2="964" y2="500" stroke="#D3CFC7" stroke-width="1.5"/>
+<text x="38" y="540" font-size="18" font-weight="700" fill="#1F1E1C">mail sender</text>
+<text x="190" y="541" font-size="22" font-weight="700" fill="#1F1E1C">no release</text>
+<text x="340" y="540" font-size="18" fill="#8F8B82">—</text>
+<text x="440" y="540" font-size="18" fill="#8F8B82">—</text>
+<text x="521" y="540" font-size="18" font-weight="700" fill="#C2410C">? unknown</text>
+<text x="640" y="540" font-size="18" fill="#5C5A55">by hand; newest code <tspan fill="#2B3FBF" text-decoration="underline">5d6f02b</tspan>, 10-08</text>
+<text x="20" y="604" font-size="18" fill="#5C5A55">"Latest": all of main is in the release. Read from the deploy log and git.</text></svg>

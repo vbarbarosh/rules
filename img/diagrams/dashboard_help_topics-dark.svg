@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 664" width="1000" height="664" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="664" fill="#1E1D21"/><text x="20" y="46" font-size="26" font-weight="700" fill="#E8E6DC">Status dashboard: the help centre, 12 topics</text>
+<text x="20" y="82" font-size="18" fill="#BAB8AB">Each topic coloured by where its latest change is. Click one for its details.</text>
+<rect x="20" y="110" width="310" height="124" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="2"/>
+<text x="38" y="156" font-size="34" font-weight="700" fill="#E8E6DC">7</text>
+<text x="38" y="188" font-size="18" fill="#E8E6DC">on production</text>
+<text x="38" y="214" font-size="18" fill="#BAB8AB">as it is</text>
+<rect x="345" y="110" width="310" height="124" rx="8" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="2"/>
+<text x="363" y="156" font-size="34" font-weight="700" fill="#E8E6DC">4</text>
+<text x="363" y="188" font-size="18" fill="#E8E6DC">on development</text>
+<text x="363" y="214" font-size="18" fill="#BAB8AB">not released</text>
+<rect x="670" y="110" width="310" height="124" rx="8" fill="#3D2A1D" stroke="#F08C4A" stroke-width="2"/>
+<text x="688" y="156" font-size="34" font-weight="700" fill="#E8E6DC">1</text>
+<text x="688" y="188" font-size="18" fill="#E8E6DC">only in the working tree</text>
+<text x="688" y="214" font-size="18" fill="#BAB8AB">not committed</text>
+<rect x="20" y="254" width="192" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="36" y="284" font-size="18" font-weight="700" fill="#E8E6DC">Orders</text>
+<rect x="224" y="254" width="192" height="72" rx="8" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1.5"/>
+<text x="240" y="284" font-size="18" font-weight="700" fill="#E8E6DC">Returns</text>
+<text x="240" y="310" font-size="18" fill="#6E9BF5">not released</text>
+<rect x="428" y="254" width="192" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="444" y="284" font-size="18" font-weight="700" fill="#E8E6DC">Refunds</text>
+<rect x="20" y="338" width="192" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="36" y="368" font-size="18" font-weight="700" fill="#E8E6DC">Shipping</text>
+<rect x="224" y="338" width="192" height="72" rx="8" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1.5"/>
+<text x="240" y="368" font-size="18" font-weight="700" fill="#E8E6DC">Tracking</text>
+<text x="240" y="394" font-size="18" fill="#6E9BF5">not released</text>
+<rect x="428" y="338" width="192" height="72" rx="8" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1.5"/>
+<text x="444" y="368" font-size="18" font-weight="700" fill="#E8E6DC">Payments</text>
+<text x="444" y="394" font-size="18" fill="#6E9BF5">not released</text>
+<rect x="20" y="422" width="192" height="72" rx="8" fill="#3D2A1D" stroke="#E8E6DC" stroke-width="3"/>
+<text x="36" y="452" font-size="18" font-weight="700" fill="#E8E6DC">Gift cards</text>
+<text x="36" y="478" font-size="18" fill="#F08C4A">not committed</text>
+<rect x="224" y="422" width="192" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="240" y="452" font-size="18" font-weight="700" fill="#E8E6DC">Coupons</text>
+<rect x="428" y="422" width="192" height="72" rx="8" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1.5"/>
+<text x="444" y="452" font-size="18" font-weight="700" fill="#E8E6DC">Accounts</text>
+<text x="444" y="478" font-size="18" fill="#6E9BF5">not released</text>
+<rect x="20" y="506" width="192" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="36" y="536" font-size="18" font-weight="700" fill="#E8E6DC">Sign-in</text>
+<rect x="224" y="506" width="192" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="240" y="536" font-size="18" font-weight="700" fill="#E8E6DC">Sizes</text>
+<rect x="428" y="506" width="192" height="72" rx="8" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="444" y="536" font-size="18" font-weight="700" fill="#E8E6DC">Contact us</text>
+<circle cx="398" cy="440" r="7" fill="#F06A62"/>
+<circle cx="398" cy="524" r="7" fill="#F06A62"/>
+<rect x="20" y="600" width="16" height="16" rx="4" fill="#1E3A24" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="46" y="614" font-size="18" fill="#BAB8AB">production</text>
+<rect x="170" y="600" width="16" height="16" rx="4" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1.5"/>
+<text x="196" y="614" font-size="18" fill="#BAB8AB">development</text>
+<rect x="335" y="600" width="16" height="16" rx="4" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1.5"/>
+<text x="361" y="614" font-size="18" fill="#BAB8AB">working tree</text>
+<circle cx="28" cy="638" r="7" fill="#F06A62"/>
+<text x="46" y="644" font-size="18" fill="#BAB8AB">a question it can't answer: data missing</text>
+<rect x="640" y="254" width="340" height="362" rx="10" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="660" y="290" font-size="22" font-weight="700" fill="#E8E6DC">Gift cards</text>
+<rect x="660" y="304" width="200" height="36" rx="8" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1.5"/>
+<text x="672" y="328" font-size="18" fill="#F08C4A">in the working tree</text>
+<text x="660" y="376" font-size="18" font-weight="700" font-variant="small-caps" letter-spacing="1" fill="#BAB8AB">Customers ask</text>
+<text x="660" y="404" font-size="18" fill="#E8E6DC">•</text>
+<text x="678" y="404" font-size="18" fill="#E8E6DC">Can I return a gift card?</text>
+<text x="660" y="432" font-size="18" fill="#E8E6DC">•</text>
+<text x="678" y="432" font-size="18" fill="#E8E6DC">Does a gift card expire?</text>
+<text x="660" y="460" font-size="18" fill="#E8E6DC">•</text>
+<text x="678" y="460" font-size="18" fill="#E8E6DC">Can I pay with two cards?</text>
+<text x="660" y="498" font-size="18" font-weight="700" font-variant="small-caps" letter-spacing="1" fill="#BAB8AB">Answered from</text>
+<text x="660" y="526" font-size="18" fill="#E8E6DC">•</text>
+<text x="678" y="526" font-size="18" fill="#E8E6DC">gift cards, payments</text>
+<text x="660" y="564" font-size="18" font-weight="700" font-variant="small-caps" letter-spacing="1" fill="#BAB8AB">Only in the working tree</text>
+<text x="660" y="592" font-size="18" fill="#E8E6DC">•</text>
+<text x="678" y="592" font-size="18" fill="#E8E6DC">the new expiry rule</text></svg>

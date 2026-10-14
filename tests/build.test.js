@@ -59,8 +59,8 @@ test('diagrams/ builds its own page from the agents template, and the agents han
     assert.match(diagrams, /<h1>Diagrams<\/h1>/);
     assert.match(diagrams, /<a href="diagrams.html" aria-current="page">Diagrams<\/a>/);
     assert.match(diagrams, /<section class="group guide" id="sequence">/);
-    assert.match(diagrams, /<p class="stats"><b>20<\/b> diagrams<\/p>/);
-    for (const id of ['sequence', 'state', 'flowchart', 'timeline', 'containers', 'entities', 'dashboard', 'cloud', 'network', 'tiers', 'isometric', 'servicemap', 'sankey', 'dataflow', 'matrix', 'callgraph', 'pipeline', 'modules', 'flame', 'treemap']) {
+    assert.match(diagrams, /<p class="stats"><b>24<\/b> diagrams<\/p>/);
+    for (const id of ['sequence', 'case', 'state', 'flowchart', 'questions', 'timeline', 'milestone', 'containers', 'entities', 'dashboard', 'versions', 'cloud', 'network', 'tiers', 'isometric', 'servicemap', 'sankey', 'dataflow', 'matrix', 'callgraph', 'pipeline', 'modules', 'flame', 'treemap']) {
         assert.match(diagrams, new RegExp(`<section class="group guide" id="${id}">`));
     }
     assert.match(diagrams, /<img class="dark" src="..\/img\/diagrams\/sequence_parts-dark.svg"/);
