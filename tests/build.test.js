@@ -59,8 +59,8 @@ test('diagrams/ builds its own page from the agents template, and the agents han
     assert.match(diagrams, /<h1>Diagrams<\/h1>/);
     assert.match(diagrams, /<a href="diagrams.html" aria-current="page">Diagrams<\/a>/);
     assert.match(diagrams, /<section class="group guide" id="sequence">/);
-    assert.match(diagrams, /<p class="stats"><b>7<\/b> diagrams<\/p>/);
-    for (const id of ['sequence', 'state', 'flowchart', 'timeline', 'containers', 'entities', 'dashboard']) {
+    assert.match(diagrams, /<p class="stats"><b>20<\/b> diagrams<\/p>/);
+    for (const id of ['sequence', 'state', 'flowchart', 'timeline', 'containers', 'entities', 'dashboard', 'cloud', 'network', 'tiers', 'isometric', 'servicemap', 'sankey', 'dataflow', 'matrix', 'callgraph', 'pipeline', 'modules', 'flame', 'treemap']) {
         assert.match(diagrams, new RegExp(`<section class="group guide" id="${id}">`));
     }
     assert.match(diagrams, /<img class="dark" src="..\/img\/diagrams\/sequence_parts-dark.svg"/);
@@ -69,7 +69,7 @@ test('diagrams/ builds its own page from the agents template, and the agents han
     const agents = fs.readFileSync(path.join(fixture_dir, 'docs/agents.html'), 'utf8');
     assert.match(agents, /<a href="agents.html" aria-current="page">Agents<\/a>\n\s*<a href="diagrams.html">Diagrams<\/a>/);
     assert.match(agents, /Draw the pictures in your replies the way these diagrams say:\n- Sequence diagram: who talks to whom: https:\/\/raw.githubusercontent.com\/vbarbarosh\/rules\/main\/diagrams\/sequence.md\n/);
-    assert.match(agents, /diagrams\/dashboard.md<\/pre>/);
+    assert.match(agents, /diagrams\/treemap.md<\/pre>/);
     assert.match(agents, /<p class="stats"><b>4<\/b> guides<\/p>/);
 });
 

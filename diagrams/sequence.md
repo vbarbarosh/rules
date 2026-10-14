@@ -69,3 +69,5 @@ a fix reads in one look, and today beside proposed shows only the change.
 ![D1, the same deadlock with no change proposed: the retry drawn as what would be done only if it grows](../img/diagrams/sequence_deadlock_not_now.svg)
 
 ![E7, the exporter's upload: today a failed upload is an error event; proposed, retried up to 3 times, the file arrives, no event](../img/diagrams/sequence_exporter_upload.svg)
+
+![One upload through a render service: the browser gets a signed URL from the API through Cloudflare, puts the file straight to S3, asks for a render; the API queues it and answers 202; later SQS starts Lambda, which renders to S3 and marks the job done](../img/diagrams/sequence_banner_render.svg)

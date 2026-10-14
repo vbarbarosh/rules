@@ -37,3 +37,7 @@ the container level of the C4 model, drawn as a sketch.
 4. **Names:** the standard ones from the
    [glossary of names](https://vbarbarosh.github.io/rules/docs/glossaries.html#NAME) (laptop, router, vps1,
    box), never a private host.
+
+## Examples
+
+![A render service as C4 containers: a user, Cloudflare and Stripe outside; inside, the proxy, the API, the render queue, the renderer, the database, the cache and the media store, each with its technology and what it does](../img/diagrams/containers_banners.svg)
