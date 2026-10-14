@@ -159,6 +159,8 @@ for (const page_file of PAGE_FILES) {
             const figure = page.locator('a.figure').nth(Math.floor(await page.locator('a.figure').count()/2));
             await figure.evaluate(v => window.scrollTo({top: v.getBoundingClientRect().top + scrollY - 300, behavior: 'instant'}));
             await page.locator('.pictures-docked').waitFor({state: 'visible'});
+            // Still sliding in, its buttons look cut off, and the click scrolls the page to them
+            await page.locator('.pictures-docked').evaluate(v => Promise.all(v.getAnimations().map(vv => vv.finished)));
             for (const state of ['small', 'large', 'off', 'large']) {
                 // the picture nearest the middle of the screen is the one that stays
                 const anchor = await page.evaluateHandle(() => figure_find_in_view());
