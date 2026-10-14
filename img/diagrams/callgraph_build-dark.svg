@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">
+<rect x="0" y="0" width="1000" height="700" rx="16" fill="#1E1D21"/>
+<defs><marker id="cg-arrow-blue" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#6E9BF5"/></marker><marker id="cg-arrow-grey" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#BAB8AB"/></marker><marker id="cg-arrow-orange" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#F08C4A"/></marker></defs>
+<text x="30" y="46" font-size="26" font-weight="bold" fill="#E8E6DC">Call graph: which function calls which</text>
+<text x="30" y="76" font-size="18" fill="#BAB8AB">bin/build, from main down: 44 functions, the 16 that carry it drawn</text>
+<rect x="20" y="158" width="296" height="272" rx="12" fill="none" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="34" y="180" font-size="16" fill="#BAB8AB">rules and animations pages</text>
+<rect x="328" y="158" width="296" height="272" rx="12" fill="none" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="342" y="180" font-size="16" fill="#BAB8AB">glossaries</text>
+<rect x="636" y="158" width="296" height="272" rx="12" fill="none" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="918" y="180" font-size="16" text-anchor="end" fill="#BAB8AB">agents and diagrams pages</text>
+<rect x="20" y="468" width="960" height="150" rx="12" fill="none" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="34" y="590.5" font-size="16" fill="#BAB8AB">Markdown to HTML helpers: called from many places</text>
+<path d="M484,136 C484,150 282,142 282,188" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M500,136 C500,162 507,162 507,188" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M516,136 C516,150 678,142 678,188" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M464.5,118 H414.5" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M535.5,118 H585.5" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M259.5,118 H173.5" fill="none" stroke="#F08C4A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-orange)"/>
+<path d="M852.5,118 H940 Q954,118 954,132 V562" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M140,228 V250" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M282,228 V312" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M255,352 V374" fill="none" stroke="#BAB8AB" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#cg-arrow-grey)"/>
+<path d="M440,228 V250" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M600,228 V312" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M563,352 V374" fill="none" stroke="#BAB8AB" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#cg-arrow-grey)"/>
+<path d="M700,228 V250" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M800,228 V312" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M865.5,352 V374" fill="none" stroke="#BAB8AB" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#cg-arrow-grey)"/>
+<path d="M52,290 V442 C52,469 144,469 144,496" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M358,290 V442 C358,469 249,469 249,496" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M160,352 V442 C160,469 440,469 440,496" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M443,352 V442 C443,469 484,469 484,496" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M756,352 V442 C756,469 524,469 524,496" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M784,352 V442 C784,469 804,469 804,496" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M865.5,414 V496" fill="none" stroke="#BAB8AB" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#cg-arrow-grey)"/>
+<path d="M546,518 C636,518 647,584 733,584" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<rect x="180.5" y="105" width="68" height="24" rx="12" fill="#1E1D21"/><text x="214.5" y="123.5" font-size="16" text-anchor="middle" fill="#F08C4A">spawns</text>
+<rect x="464.5" y="100" width="71" height="36" rx="8" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1.5"/><text x="500" y="124.5" font-size="18" text-anchor="middle" fill="#E8E6DC">main</text>
+<rect x="24.5" y="100" width="145" height="36" rx="8" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1.5" stroke-dasharray="5 4"/><text x="97" y="124.5" font-size="18" text-anchor="middle" fill="#E8E6DC">bin/self-check</text>
+<rect x="259.5" y="100" width="151" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="335" y="124.5" font-size="18" text-anchor="middle" fill="#E8E6DC">run_self_check</text>
+<rect x="589.5" y="100" width="263" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="721" y="124.5" font-size="18" text-anchor="middle" fill="#E8E6DC">stamp_static_pages_version</text>
+<rect x="107" y="192" width="197" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="205.5" y="216.5" font-size="18" text-anchor="middle" fill="#E8E6DC">build_index_html ×2</text>
+<rect x="32" y="254" width="222" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="143" y="278.5" font-size="18" text-anchor="middle" fill="#E8E6DC">index_from_markdown</text>
+<rect x="134" y="316" width="170" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="219" y="340.5" font-size="18" text-anchor="middle" fill="#E8E6DC">html_from_index</text>
+<rect x="206" y="378" width="98" height="36" rx="8" fill="#33322C" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 4"/><text x="255" y="402.5" font-size="18" text-anchor="middle" fill="#BAB8AB">+5 more</text>
+<rect x="402" y="192" width="210" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="507" y="216.5" font-size="18" text-anchor="middle" fill="#E8E6DC">build_glossaries_html</text>
+<rect x="340" y="254" width="246" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="463" y="278.5" font-size="18" text-anchor="middle" fill="#E8E6DC">glossary_from_markdown</text>
+<rect x="403" y="316" width="209" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="507.5" y="340.5" font-size="18" text-anchor="middle" fill="#E8E6DC">html_from_glossaries</text>
+<rect x="514" y="378" width="98" height="36" rx="8" fill="#33322C" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 4"/><text x="563" y="402.5" font-size="18" text-anchor="middle" fill="#BAB8AB">+6 more</text>
+<rect x="648" y="192" width="183" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="739.5" y="216.5" font-size="18" text-anchor="middle" fill="#E8E6DC">build_agents_html</text>
+<rect x="648" y="254" width="131" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="713.5" y="278.5" font-size="18" text-anchor="middle" fill="#E8E6DC">guides_read</text>
+<rect x="739" y="316" width="181" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="829.5" y="340.5" font-size="18" text-anchor="middle" fill="#E8E6DC">html_from_guides</text>
+<rect x="811" y="378" width="109" height="36" rx="8" fill="#33322C" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 4"/><text x="865.5" y="402.5" font-size="18" text-anchor="middle" fill="#BAB8AB">+11 more</text>
+<rect x="120" y="500" width="153" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="196.5" y="524.5" font-size="18" text-anchor="middle" fill="#E8E6DC">cells_from_row</text>
+<rect x="770" y="500" width="134" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="837" y="524.5" font-size="18" text-anchor="middle" fill="#E8E6DC">html_escape</text>
+<rect x="458" y="566" width="98" height="36" rx="8" fill="#33322C" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 4"/><text x="507" y="590.5" font-size="18" text-anchor="middle" fill="#BAB8AB">+6 more</text>
+<rect x="414" y="500" width="132" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="480" y="524.5" font-size="18" text-anchor="middle" fill="#E8E6DC">template_fill</text>
+<rect x="737" y="566" width="231" height="36" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/><text x="852.5" y="590.5" font-size="18" text-anchor="middle" fill="#E8E6DC">html_from_theme_icons</text>
+<text x="30" y="654" font-size="17" fill="#BAB8AB">Good for: seeing what a change touches; the helpers everything leans on; dead code.</text>
+<text x="30" y="680" font-size="17" fill="#BAB8AB">Drawn with: code2flow, pyan (Python), Doxygen + Graphviz dot, an IDE call hierarchy.</text>
+</svg>

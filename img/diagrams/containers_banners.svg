@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" width="1000" height="760" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">
+<defs><marker id="c4-arrow-bab8ab" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#55534E"/></marker></defs>
+<rect width="1000" height="760" rx="16" fill="#E9E6E0"/>
+<text x="40" y="46" font-size="26" font-weight="bold" fill="#1F1E1C">C4 container diagram: the parts and what each does</text>
+<text x="40" y="76" font-size="18" fill="#55534E">Which parts make up the app, what each one does, how they talk</text>
+<rect class="frame" x="20" y="236" width="960" height="440" rx="14" fill="none" stroke="#BDB9B1" stroke-width="1.5" stroke-dasharray="8 6"/>
+<text x="40" y="628" font-size="18" font-weight="bold" fill="#55534E">Banner app</text>
+<text x="40" y="652" font-size="16" fill="#55534E">[Software System, AWS]</text>
+<rect class="box" x="40" y="100" width="190" height="84" rx="16" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.75"/>
+<text x="89" y="127" font-size="18" font-weight="bold" fill="#1F1E1C">User</text>
+<text x="89" y="150" font-size="16" fill="#55534E">[Person]</text>
+<text x="89" y="172" font-size="16" fill="#1F1E1C">browser or phone</text>
+<g class="icon" fill="#2B3FBF"><circle cx="63" cy="128" r="9"/><path d="M47 160 a16 15 0 0 1 32 0 z"/></g>
+<rect class="box" x="405" y="100" width="190" height="84" rx="10" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.75"/>
+<text x="500" y="127" font-size="18" font-weight="bold" fill="#55534E" text-anchor="middle">Cloudflare</text>
+<text x="500" y="150" font-size="16" fill="#55534E" text-anchor="middle">[External: CDN, WAF]</text>
+<text x="500" y="172" font-size="16" fill="#55534E" text-anchor="middle">caches pages, media</text>
+<rect class="box" x="770" y="100" width="190" height="84" rx="10" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.75"/>
+<text x="865" y="127" font-size="18" font-weight="bold" fill="#55534E" text-anchor="middle">Stripe</text>
+<text x="865" y="150" font-size="16" fill="#55534E" text-anchor="middle">[External system]</text>
+<text x="865" y="172" font-size="16" fill="#55534E" text-anchor="middle">takes payments</text>
+<rect class="box" x="40" y="280" width="190" height="84" rx="10" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.75"/>
+<text x="135" y="307" font-size="18" font-weight="bold" fill="#1F1E1C" text-anchor="middle">Media store</text>
+<text x="135" y="330" font-size="16" fill="#55534E" text-anchor="middle">[AWS S3]</text>
+<text x="135" y="352" font-size="16" fill="#1F1E1C" text-anchor="middle">uploads and banners</text>
+<rect class="box" x="405" y="280" width="190" height="84" rx="10" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.75"/>
+<text x="500" y="307" font-size="18" font-weight="bold" fill="#1F1E1C" text-anchor="middle">Reverse proxy</text>
+<text x="500" y="330" font-size="16" fill="#55534E" text-anchor="middle">[nginx behind ALB]</text>
+<text x="500" y="352" font-size="16" fill="#1F1E1C" text-anchor="middle">routes to the API</text>
+<rect class="box" x="40" y="424" width="190" height="84" rx="10" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.75"/>
+<text x="135" y="451" font-size="18" font-weight="bold" fill="#1F1E1C" text-anchor="middle">Renderer</text>
+<text x="135" y="474" font-size="16" fill="#55534E" text-anchor="middle">[AWS Lambda]</text>
+<text x="135" y="496" font-size="16" fill="#1F1E1C" text-anchor="middle">renders a banner</text>
+<rect class="box" x="405" y="424" width="190" height="84" rx="10" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.75"/>
+<text x="500" y="451" font-size="18" font-weight="bold" fill="#1F1E1C" text-anchor="middle">Render queue</text>
+<text x="500" y="474" font-size="16" fill="#55534E" text-anchor="middle">[AWS SQS]</text>
+<text x="500" y="496" font-size="16" fill="#1F1E1C" text-anchor="middle">holds render jobs</text>
+<rect class="box" x="770" y="424" width="190" height="84" rx="10" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.75"/>
+<text x="865" y="451" font-size="18" font-weight="bold" fill="#1F1E1C" text-anchor="middle">API</text>
+<text x="865" y="474" font-size="16" fill="#55534E" text-anchor="middle">[Node.js on ECS, ×2]</text>
+<text x="865" y="496" font-size="16" fill="#1F1E1C" text-anchor="middle">pages, banners, billing</text>
+<rect class="box" x="405" y="568" width="190" height="84" rx="10" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.75"/>
+<text x="500" y="595" font-size="18" font-weight="bold" fill="#1F1E1C" text-anchor="middle">Database</text>
+<text x="500" y="618" font-size="16" fill="#55534E" text-anchor="middle">[PostgreSQL, RDS]</text>
+<text x="500" y="640" font-size="16" fill="#1F1E1C" text-anchor="middle">primary + read replica</text>
+<rect class="box" x="770" y="568" width="190" height="84" rx="10" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.75"/>
+<text x="865" y="595" font-size="18" font-weight="bold" fill="#1F1E1C" text-anchor="middle">Cache</text>
+<text x="865" y="618" font-size="16" fill="#55534E" text-anchor="middle">[Redis, ElastiCache]</text>
+<text x="865" y="640" font-size="16" fill="#1F1E1C" text-anchor="middle">cache and sessions</text>
+<path class="link" d="M230 142 L401 142" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M500 184 L500 276" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M135 184 L135 276" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M420 184 L234 318" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M595 340 L766 452" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M865 424 L865 188" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M770 466 L599 466" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M405 466 L234 466" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M135 424 L135 368" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M215 508 L401 590" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M785 508 L599 590" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M865 508 L865 564" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<text x="40" y="712" font-size="17" fill="#55534E">Good for: telling developers and newcomers which part does what, and in what tech.</text>
+<text x="40" y="738" font-size="17" fill="#55534E">Drawn with: Structurizr, C4-PlantUML, IcePanel, draw.io C4 shapes, Mermaid C4.</text>
+<rect class="pill" x="256.5" y="130" width="118" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="315.5" y="148" font-size="16" fill="#1F1E1C" text-anchor="middle">visits · HTTPS</text>
+<rect class="pill" x="428.5" y="245" width="143" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="500" y="263" font-size="16" fill="#1F1E1C" text-anchor="middle">forwards · HTTPS</text>
+<rect class="pill" x="35" y="195" width="200" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="135" y="213" font-size="16" fill="#1F1E1C" text-anchor="middle">uploads · presigned URL</text>
+<rect class="pill" x="295.57462686567163" y="195" width="185" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="388.07462686567163" y="213" font-size="16" fill="#1F1E1C" text-anchor="middle">fetches media · HTTPS</text>
+<rect class="pill" x="619" y="384" width="123" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="680.5" y="402" font-size="16" fill="#1F1E1C" text-anchor="middle">proxies · HTTP</text>
+<rect class="pill" x="766.5" y="310" width="197" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="865" y="328" font-size="16" fill="#1F1E1C" text-anchor="middle">takes payments · HTTPS</text>
+<rect class="pill" x="607.5" y="454" width="154" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="684.5" y="472" font-size="16" fill="#1F1E1C" text-anchor="middle">queues a job · SQS</text>
+<rect class="pill" x="254.5" y="454" width="130" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="319.5" y="472" font-size="16" fill="#1F1E1C" text-anchor="middle">triggers · event</text>
+<rect class="pill" x="51.5" y="384" width="167" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="135" y="402" font-size="16" fill="#1F1E1C" text-anchor="middle">puts the file · S3 API</text>
+<rect class="pill" x="219.5" y="537" width="177" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="308" y="555" font-size="16" fill="#1F1E1C" text-anchor="middle">marks job done · SQL</text>
+<rect class="pill" x="614" y="537" width="156" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="692" y="555" font-size="16" fill="#1F1E1C" text-anchor="middle">reads, writes · SQL</text>
+<rect class="pill" x="772" y="524" width="186" height="24" rx="12" fill="#E9E6E0"/>
+<text class="onpill" x="865" y="542" font-size="16" fill="#1F1E1C" text-anchor="middle">cache, sessions · Redis</text>
+</svg>

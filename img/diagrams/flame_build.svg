@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 806" width="1000" height="806" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">
+<rect x="0" y="0" width="1000" height="806" rx="16" fill="#E9E6E0"/>
+<text x="30" y="46" font-size="26" font-weight="bold" fill="#1F1E1C">Flame graph: where one run spends its time</text>
+<text x="30" y="76" font-size="18" fill="#55534E">Which call stacks take the time: one run of bin/build, measured with node --cpu-prof</text>
+<text x="32" y="118" font-size="16" fill="#55534E">Zoomed in on build_index_html (363 ms): the frames above it, spread to the full width</text>
+<rect x="31.0" y="508" width="221.1" height="30" rx="3" fill="none" stroke="#2B3FBF" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="141.6" y="528" font-size="16" text-anchor="middle" fill="#2B3FBF">▲ zoomed in above</text>
+<rect x="20" y="90" width="960" height="370" rx="10" fill="none" stroke="#D3CFC7" stroke-width="1.5" stroke-dasharray="6 5"/>
+<rect x="31.0" y="420" width="938.0" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="39.0" y="440" font-size="16" fill="#1F1E1C">build_index_html · 363 ms</text>
+<rect x="31.0" y="388" width="892.3" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="39.0" y="408" font-size="16" fill="#1F1E1C">html_from_index · 346 ms</text>
+<rect x="31.0" y="356" width="878.3" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="39.0" y="376" font-size="16" fill="#1F1E1C">html_from_group · 340 ms</text>
+<rect x="31.0" y="324" width="858.1" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="39.0" y="344" font-size="16" fill="#1F1E1C">html_from_rule · 333 ms</text>
+<rect x="31.0" y="292" width="844.5" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="39.0" y="312" font-size="16" fill="#1F1E1C">html_from_form · 327 ms</text>
+<rect x="31.0" y="260" width="608.7" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="39.0" y="280" font-size="16" fill="#1F1E1C">html_from_image · 236 ms</text>
+<rect x="31.0" y="228" width="542.3" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="39.0" y="248" font-size="16" fill="#1F1E1C">size_attributes_from_image · 210 ms</text>
+<rect x="31.0" y="196" width="506.5" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<text x="39.0" y="216" font-size="16" fill="#1F1E1C">readFileSync · 197 ms</text>
+<rect x="31.0" y="164" width="478.6" height="30" rx="3" fill="#FCE4D6" stroke="#C2410C" stroke-width="1"/>
+<text x="39.0" y="184" font-size="16" fill="#1F1E1C">read · 186 ms</text>
+<rect x="575.3" y="228" width="46.4" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<rect x="641.7" y="260" width="228.9" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="649.7" y="280" font-size="16" fill="#1F1E1C">html_from_form · 89 ms</text>
+<rect x="641.7" y="228" width="223.3" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="649.7" y="248" font-size="16" fill="#1F1E1C">html_from_image · 87 ms</text>
+<rect x="641.7" y="196" width="213.0" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="649.7" y="216" font-size="16" fill="#1F1E1C">size_attributes_from_im…</text>
+<rect x="641.7" y="164" width="213.0" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<text x="649.7" y="184" font-size="16" fill="#1F1E1C">readFileSync · 83 ms</text>
+<rect x="641.7" y="132" width="208.3" height="30" rx="3" fill="#FCE4D6" stroke="#C2410C" stroke-width="1"/>
+<text x="649.7" y="152" font-size="16" fill="#1F1E1C">read · 81 ms</text>
+<rect x="856.6" y="196" width="3.3" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="877.5" y="292" width="8.8" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="891.1" y="324" width="15.7" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="911.3" y="356" width="9.3" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="911.3" y="324" width="6.5" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="911.3" y="292" width="1.4" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<rect x="925.3" y="388" width="26.0" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<rect x="953.3" y="388" width="6.7" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<rect x="962.0" y="388" width="1.4" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="31.0" y="636" width="938.0" height="30" rx="3" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1"/>
+<text x="39.0" y="656" font-size="16" fill="#1F1E1C">all: one run of bin/build · 1531 ms</text>
+<rect x="31.0" y="604" width="836.4" height="30" rx="3" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1"/>
+<text x="39.0" y="624" font-size="16" fill="#1F1E1C">cli · 1366 ms</text>
+<rect x="31.0" y="572" width="834.2" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="39.0" y="592" font-size="16" fill="#1F1E1C">main · 1362 ms</text>
+<rect x="31.0" y="540" width="221.1" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="39.0" y="560" font-size="16" fill="#1F1E1C">build_index_html · 363 ms</text>
+<rect x="254.1" y="540" width="38.6" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="273.4" y="560" font-size="16" text-anchor="middle" fill="#1F1E1C">a</text>
+<rect x="254.1" y="508" width="27.8" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="254.1" y="476" width="26.7" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="283.9" y="508" width="6.6" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<rect x="294.7" y="540" width="16.4" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="294.7" y="508" width="8.4" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="294.7" y="476" width="8.4" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="305.1" y="508" width="3.4" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="305.1" y="476" width="2.8" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<rect x="313.1" y="540" width="4.9" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<rect x="313.1" y="508" width="2.6" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<rect x="320.0" y="540" width="544.5" height="30" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1"/>
+<text x="328.0" y="560" font-size="16" fill="#1F1E1C">run_self_check · 890 ms</text>
+<rect x="320.0" y="508" width="544.5" height="30" rx="3" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1"/>
+<text x="328.0" y="528" font-size="16" fill="#1F1E1C">execFileSync · 890 ms</text>
+<rect x="320.0" y="476" width="543.9" height="30" rx="3" fill="#FCE4D6" stroke="#C2410C" stroke-width="1"/>
+<text x="328.0" y="496" font-size="16" fill="#1F1E1C">spawnSync · 889 ms</text>
+<rect x="869.4" y="604" width="57.7" height="30" rx="3" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1"/>
+<text x="898.2" y="624" font-size="16" text-anchor="middle" fill="#1F1E1C">b</text>
+<rect x="929.0" y="604" width="21.1" height="30" rx="3" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1"/>
+<text x="939.6" y="624" font-size="16" text-anchor="middle" fill="#1F1E1C">c</text>
+<rect x="952.1" y="604" width="11.9" height="30" rx="3" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1"/>
+<text x="30" y="696" font-size="16" fill="#55534E">Narrow: a build_glossaries_html 66 ms · b require: loading modules 97 ms · c garbage collector 38 ms</text>
+<rect x="30" y="709" width="14" height="14" rx="3" fill="#FCE4D6" stroke="#C2410C"/><text x="52" y="722" font-size="16" fill="#55534E">Orange: time spent in the frame itself. spawnSync waits for bin/self-check; read reads whole images for their size.</text>
+<text x="30" y="762" font-size="17" fill="#55534E">Good for: finding the slow part of a run: the widest bars at the top are where the time goes</text>
+<text x="30" y="786" font-size="17" fill="#55534E">Drawn with: speedscope, Chrome DevTools, 0x, clinic flame, Brendan Gregg's flamegraph.pl</text>
+</svg>

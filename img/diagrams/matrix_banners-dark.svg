@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 754" width="1000" height="754" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">
+<rect width="1000" height="754" rx="16" fill="#1E1D21"/>
+<text x="40" y="46" font-size="26" font-weight="700" fill="#E8E6DC">Dependency matrix: every link in a grid</text>
+<text x="40" y="76" font-size="18" fill="#BAB8AB">Which part calls which, all at once, with no lines to cross?</text>
+<rect x="290" y="206" width="624" height="408" fill="#26252A"/>
+<rect x="290" y="206" width="52" height="34" fill="#45443A"/>
+<rect x="342" y="240" width="52" height="34" fill="#45443A"/>
+<rect x="394" y="274" width="52" height="34" fill="#45443A"/>
+<rect x="446" y="308" width="52" height="34" fill="#45443A"/>
+<rect x="498" y="342" width="52" height="34" fill="#45443A"/>
+<rect x="550" y="376" width="52" height="34" fill="#45443A"/>
+<rect x="602" y="410" width="52" height="34" fill="#45443A"/>
+<rect x="654" y="444" width="52" height="34" fill="#45443A"/>
+<rect x="706" y="478" width="52" height="34" fill="#45443A"/>
+<rect x="758" y="512" width="52" height="34" fill="#45443A"/>
+<rect x="810" y="546" width="52" height="34" fill="#45443A"/>
+<rect x="862" y="580" width="52" height="34" fill="#45443A"/>
+<rect x="345" y="209" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="368" y="228.5" font-size="16" fill="#E8E6DC" text-anchor="middle">443</text>
+<rect x="813" y="209" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="836" y="228.5" font-size="16" fill="#E8E6DC" text-anchor="middle">PUT</text>
+<rect x="397" y="243" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="420" y="262.5" font-size="16" fill="#E8E6DC" text-anchor="middle">443</text>
+<rect x="813" y="243" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="836" y="262.5" font-size="16" fill="#E8E6DC" text-anchor="middle">GET</text>
+<rect x="449" y="277" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="472" y="296.5" font-size="16" fill="#E8E6DC" text-anchor="middle">80</text>
+<rect x="501" y="311" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="524" y="330.5" font-size="16" fill="#E8E6DC" text-anchor="middle">3000</text>
+<rect x="605" y="345" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="628" y="364.5" font-size="16" fill="#E8E6DC" text-anchor="middle">5432</text>
+<rect x="657" y="413" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="680" y="432.5" font-size="16" fill="#E8E6DC" text-anchor="middle">copy</text>
+<rect x="657" y="345" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="680" y="364.5" font-size="16" fill="#E8E6DC" text-anchor="middle">5432</text>
+<rect x="553" y="345" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="576" y="364.5" font-size="16" fill="#E8E6DC" text-anchor="middle">6379</text>
+<rect x="709" y="345" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="732" y="364.5" font-size="16" fill="#E8E6DC" text-anchor="middle">send</text>
+<rect x="761" y="481" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="784" y="500.5" font-size="16" fill="#E8E6DC" text-anchor="middle">fires</text>
+<rect x="813" y="515" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="836" y="534.5" font-size="16" fill="#E8E6DC" text-anchor="middle">PUT</text>
+<rect x="605" y="515" width="46" height="28" rx="4" fill="#3D2A1D"/>
+<text x="628" y="534.5" font-size="16" fill="#F08C4A" text-anchor="middle">5432</text>
+<rect x="865" y="345" width="46" height="28" rx="4" fill="#1E2A4A"/>
+<text x="888" y="364.5" font-size="16" fill="#E8E6DC" text-anchor="middle">443</text>
+<line x1="342" y1="206" x2="342" y2="614" stroke="#45443A" stroke-width="1"/>
+<line x1="290" y1="240" x2="914" y2="240" stroke="#45443A" stroke-width="1"/>
+<line x1="446" y1="206" x2="446" y2="614" stroke="#45443A" stroke-width="1"/>
+<line x1="290" y1="308" x2="914" y2="308" stroke="#45443A" stroke-width="1"/>
+<line x1="550" y1="206" x2="550" y2="614" stroke="#45443A" stroke-width="1"/>
+<line x1="290" y1="376" x2="914" y2="376" stroke="#45443A" stroke-width="1"/>
+<line x1="602" y1="206" x2="602" y2="614" stroke="#45443A" stroke-width="1"/>
+<line x1="290" y1="410" x2="914" y2="410" stroke="#45443A" stroke-width="1"/>
+<line x1="654" y1="206" x2="654" y2="614" stroke="#45443A" stroke-width="1"/>
+<line x1="290" y1="444" x2="914" y2="444" stroke="#45443A" stroke-width="1"/>
+<line x1="758" y1="206" x2="758" y2="614" stroke="#45443A" stroke-width="1"/>
+<line x1="290" y1="512" x2="914" y2="512" stroke="#45443A" stroke-width="1"/>
+<line x1="810" y1="206" x2="810" y2="614" stroke="#45443A" stroke-width="1"/>
+<line x1="290" y1="546" x2="914" y2="546" stroke="#45443A" stroke-width="1"/>
+<line x1="394" y1="206" x2="394" y2="614" stroke="#5E5C4E" stroke-width="1.75"/>
+<line x1="290" y1="274" x2="914" y2="274" stroke="#5E5C4E" stroke-width="1.75"/>
+<line x1="498" y1="206" x2="498" y2="614" stroke="#5E5C4E" stroke-width="1.75"/>
+<line x1="290" y1="342" x2="914" y2="342" stroke="#5E5C4E" stroke-width="1.75"/>
+<line x1="706" y1="206" x2="706" y2="614" stroke="#5E5C4E" stroke-width="1.75"/>
+<line x1="290" y1="478" x2="914" y2="478" stroke="#5E5C4E" stroke-width="1.75"/>
+<line x1="862" y1="206" x2="862" y2="614" stroke="#5E5C4E" stroke-width="1.75"/>
+<line x1="290" y1="580" x2="914" y2="580" stroke="#5E5C4E" stroke-width="1.75"/>
+<rect x="290" y="206" width="624" height="408" fill="none" stroke="#5E5C4E" stroke-width="1.75"/>
+<text x="278" y="229" font-size="18" fill="#E8E6DC" text-anchor="end">users</text>
+<text x="322.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 322.5 196)">users</text>
+<text x="278" y="263" font-size="18" fill="#E8E6DC" text-anchor="end">Cloudflare</text>
+<text x="374.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 374.5 196)">Cloudflare</text>
+<text x="278" y="297" font-size="18" fill="#E8E6DC" text-anchor="end">ALB</text>
+<text x="426.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 426.5 196)">ALB</text>
+<text x="278" y="331" font-size="18" fill="#E8E6DC" text-anchor="end">nginx</text>
+<text x="478.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 478.5 196)">nginx</text>
+<text x="278" y="365" font-size="18" fill="#E8E6DC" text-anchor="end">API</text>
+<text x="530.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 530.5 196)">API</text>
+<text x="278" y="399" font-size="18" fill="#E8E6DC" text-anchor="end">Redis</text>
+<text x="582.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 582.5 196)">Redis</text>
+<text x="278" y="433" font-size="18" fill="#E8E6DC" text-anchor="end">PostgreSQL</text>
+<text x="634.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 634.5 196)">PostgreSQL</text>
+<text x="278" y="467" font-size="18" fill="#E8E6DC" text-anchor="end">replica</text>
+<text x="686.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 686.5 196)">replica</text>
+<text x="278" y="501" font-size="18" fill="#E8E6DC" text-anchor="end">SQS</text>
+<text x="738.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 738.5 196)">SQS</text>
+<text x="278" y="535" font-size="18" fill="#E8E6DC" text-anchor="end">Lambda</text>
+<text x="790.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 790.5 196)">Lambda</text>
+<text x="278" y="569" font-size="18" fill="#E8E6DC" text-anchor="end">S3</text>
+<text x="842.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 842.5 196)">S3</text>
+<text x="278" y="603" font-size="18" fill="#E8E6DC" text-anchor="end">Stripe</text>
+<text x="894.5" y="196" font-size="18" fill="#E8E6DC" transform="rotate(-90 894.5 196)">Stripe</text>
+<path d="M168 211 H160 V269 H168" fill="none" stroke="#5E5C4E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="148" y="245.5" font-size="16" fill="#BAB8AB" text-anchor="end">internet</text>
+<path d="M168 279 H160 V337 H168" fill="none" stroke="#5E5C4E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="148" y="313.5" font-size="16" fill="#BAB8AB" text-anchor="end">public</text>
+<path d="M168 347 H160 V473 H168" fill="none" stroke="#5E5C4E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="148" y="415.5" font-size="16" fill="#BAB8AB" text-anchor="end">private</text>
+<path d="M168 483 H160 V575 H168" fill="none" stroke="#5E5C4E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="148" y="534.5" font-size="16" fill="#BAB8AB" text-anchor="end">managed</text>
+<path d="M168 585 H160 V609 H168" fill="none" stroke="#5E5C4E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="148" y="602.5" font-size="16" fill="#BAB8AB" text-anchor="end">outside</text>
+<text x="40" y="650" font-size="17" fill="#E8E6DC">How to read: the row calls the column. Row users, column Cloudflare: users call Cloudflare on 443.</text>
+<text x="40" y="675" font-size="17" fill="#E8E6DC">Calls above the grey diagonal go down the chain; the one below it (orange) is Lambda writing back.</text>
+<text x="40" y="712" font-size="17" fill="#BAB8AB">Good for: every link at a glance, however many; layers, and cycles as cells below the diagonal.</text>
+<text x="40" y="737" font-size="17" fill="#BAB8AB">Drawn with: Lattix, NDepend dependency matrix, Structure101, IntelliJ IDEA DSM, a spreadsheet.</text>
+</svg>

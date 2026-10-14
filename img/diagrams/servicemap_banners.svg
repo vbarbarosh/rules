@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" width="1000" height="760" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">
+<defs><marker id="svc-arrow-blue" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2B3FBF"/></marker><marker id="svc-arrow-grey" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#55534E"/></marker></defs>
+<rect width="1000" height="760" rx="16" fill="#E9E6E0"/>
+<text x="40" y="46" font-size="26" fill="#1F1E1C" text-anchor="start" font-weight="bold">Service map: what talks to what, live, from traces</text>
+<text x="40" y="76" font-size="18" fill="#55534E" text-anchor="start">Which service calls which, how much, and which one is unwell right now?</text>
+<circle cx="90" cy="360" r="36" fill="#DFDBD2"/>
+<circle cx="300" cy="360" r="36" fill="#DDF0E0"/>
+<circle cx="480" cy="360" r="36" fill="#DDF0E0"/>
+<circle cx="620" cy="190" r="36" fill="#DDF0E0"/>
+<circle cx="680" cy="380" r="36" fill="#DDF0E0"/>
+<circle cx="790" cy="160" r="36" fill="#DFDBD2"/>
+<circle cx="875" cy="262" r="36" fill="#DDF0E0"/>
+<circle cx="900" cy="460" r="36" fill="#FCE4D6"/>
+<circle cx="760" cy="590" r="36" fill="#DDF0E0"/>
+<circle cx="575" cy="505" r="36" fill="#DDF0E0"/>
+<circle cx="462" cy="605" r="36" fill="#FBDCDC"/>
+<circle cx="250" cy="600" r="36" fill="#DDF0E0"/>
+<line x1="90" y1="360" x2="300" y2="360" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="22.1"/>
+<line x1="120.0" y1="360.0" x2="266.0" y2="360.0" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="300" y1="360" x2="480" y2="360" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="12.8"/>
+<line x1="330.0" y1="360.0" x2="446.0" y2="360.0" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="480" y1="360" x2="620" y2="190" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="12.8"/>
+<line x1="499.1" y1="336.8" x2="598.4" y2="216.2" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="620" y1="190" x2="680" y2="380" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="12.8"/>
+<line x1="629.0" y1="218.6" x2="669.8" y2="347.6" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="680" y1="380" x2="875" y2="262" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="9.5"/>
+<line x1="705.7" y1="364.5" x2="845.9" y2="279.6" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="680" y1="380" x2="900" y2="460" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="8.6"/>
+<line x1="708.2" y1="390.3" x2="868.0" y2="448.4" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="680" y1="380" x2="760" y2="590" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="5.1"/>
+<line x1="690.7" y1="408.0" x2="747.9" y2="558.2" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="680" y1="380" x2="575" y2="505" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="2.5"/>
+<line x1="660.7" y1="403.0" x2="596.9" y2="479.0" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="575" y1="505" x2="462" y2="605" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="2.5"/>
+<line x1="552.5" y1="524.9" x2="487.5" y2="582.5" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="462" y1="605" x2="250" y2="600" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="2.5"/>
+<line x1="432.0" y1="604.3" x2="284.0" y2="600.8" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="462" y1="605" x2="760" y2="590" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="2.5"/>
+<line x1="492.0" y1="603.5" x2="726.0" y2="591.7" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#svc-arrow-blue)"/>
+<line x1="693.4" y1="353.2" x2="774.8" y2="190.4" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#svc-arrow-grey)"/>
+<line x1="293.9" y1="389.4" x2="256.9" y2="566.7" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#svc-arrow-grey)"/>
+<line x1="106.6" y1="385.0" x2="231.1" y2="571.7" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#svc-arrow-grey)"/>
+<line x1="782.0" y1="569.6" x2="875.1" y2="483.1" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#svc-arrow-grey)"/>
+<rect x="142.2" y="346.0" width="105.6" height="28" rx="14" fill="#E9E6E0"/>
+<text x="195.0" y="365.5" font-size="16" fill="#1F1E1C" text-anchor="middle">1000 req/s</text>
+<rect x="341.7" y="346.0" width="96.6" height="28" rx="14" fill="#E9E6E0"/>
+<text x="390.0" y="365.5" font-size="16" fill="#1F1E1C" text-anchor="middle">300 req/s</text>
+<rect x="487.7" y="278.0" width="96.6" height="28" rx="14" fill="#E9E6E0"/>
+<text x="536.0" y="297.5" font-size="16" fill="#1F1E1C" text-anchor="middle">300 req/s</text>
+<rect x="604.7" y="280.5" width="96.6" height="28" rx="14" fill="#E9E6E0"/>
+<text x="653.0" y="300.0" font-size="16" fill="#1F1E1C" text-anchor="middle">300 req/s</text>
+<rect x="729.2" y="307.0" width="96.6" height="28" rx="14" fill="#E9E6E0"/>
+<text x="777.5" y="326.5" font-size="16" fill="#1F1E1C" text-anchor="middle">150 req/s</text>
+<rect x="752.7" y="410.0" width="96.6" height="28" rx="14" fill="#E9E6E0"/>
+<text x="801.0" y="429.5" font-size="16" fill="#1F1E1C" text-anchor="middle">120 req/s</text>
+<rect x="676.2" y="471.0" width="87.7" height="28" rx="14" fill="#E9E6E0"/>
+<text x="720.0" y="490.5" font-size="16" fill="#1F1E1C" text-anchor="middle">30 req/s</text>
+<rect x="592.6" y="428.5" width="69.8" height="28" rx="14" fill="#E9E6E0"/>
+<text x="627.5" y="448.0" font-size="16" fill="#1F1E1C" text-anchor="middle">40/min</text>
+<rect x="483.6" y="541.0" width="69.8" height="28" rx="14" fill="#E9E6E0"/>
+<text x="518.5" y="560.5" font-size="16" fill="#1F1E1C" text-anchor="middle">40/min</text>
+<rect x="321.1" y="588.5" width="69.8" height="28" rx="14" fill="#E9E6E0"/>
+<text x="356.0" y="608.0" font-size="16" fill="#1F1E1C" text-anchor="middle">40/min</text>
+<rect x="576.1" y="583.5" width="69.8" height="28" rx="14" fill="#E9E6E0"/>
+<text x="611.0" y="603.0" font-size="16" fill="#1F1E1C" text-anchor="middle">40/min</text>
+<rect x="707.7" y="223.0" width="87.7" height="28" rx="14" fill="#E9E6E0"/>
+<text x="751.5" y="242.5" font-size="16" fill="#55534E" text-anchor="middle">payments</text>
+<rect x="244.6" y="466.0" width="60.8" height="28" rx="14" fill="#E9E6E0"/>
+<text x="275.0" y="485.5" font-size="16" fill="#55534E" text-anchor="middle">media</text>
+<rect x="135.1" y="466.0" width="69.8" height="28" rx="14" fill="#E9E6E0"/>
+<text x="170.0" y="485.5" font-size="16" fill="#55534E" text-anchor="middle">upload</text>
+<rect x="772.7" y="511.0" width="114.6" height="28" rx="14" fill="#E9E6E0"/>
+<text x="830.0" y="530.5" font-size="16" fill="#55534E" text-anchor="middle">replication</text>
+<circle cx="90" cy="360" r="28" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="4" stroke-dasharray="5 4"/>
+<circle cx="90" cy="353" r="6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><path d="M79 373 q0 -12 11 -12 q11 0 11 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/>
+<text x="90" y="286" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">users</text>
+<text x="90" y="308" font-size="16" fill="#55534E" text-anchor="middle">browser, phone</text>
+<circle cx="300" cy="360" r="28" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="4"/>
+<path d="M287 368 h26 a7 7 0 0 0 0 -14 a9 9 0 0 0 -16 -4 a7 7 0 0 0 -10 6 a6 6 0 0 0 0 12 z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/>
+<text x="300" y="286" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">Cloudflare</text>
+<text x="300" y="308" font-size="16" fill="#55534E" text-anchor="middle">1000 req/s · 70% hit</text>
+<circle cx="480" cy="360" r="28" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="4"/>
+<path d="M467 360 h9 M476 360 L491 350 M476 360 H491 M476 360 L491 370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><circle cx="476" cy="360" r="2.5" fill="#1F1E1C"/>
+<text x="480" y="424" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">ALB</text>
+<text x="480" y="446" font-size="16" fill="#55534E" text-anchor="middle">300 req/s</text>
+<circle cx="620" cy="190" r="28" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="4"/>
+<polygon points="631.3,196.5 620.0,203.0 608.7,196.5 608.7,183.5 620.0,177.0 631.3,183.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><path d="M615 196 v-12 l10 12 v-12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/>
+<text x="620" y="116" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">nginx</text>
+<text x="620" y="138" font-size="16" fill="#55534E" text-anchor="middle">300 req/s</text>
+<circle cx="680" cy="380" r="28" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="4"/>
+<path d="M674 371 l-9 9 l9 9 M686 371 l9 9 l-9 9 M683 369 l-6 22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/>
+<text x="636" y="377" font-size="18" fill="#1F1E1C" text-anchor="end" font-weight="bold">API</text>
+<text x="636" y="399" font-size="16" fill="#55534E" text-anchor="end">300 req/s</text>
+<circle cx="790" cy="160" r="28" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="4" stroke-dasharray="5 4"/>
+<rect x="776" y="150" width="28" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><path d="M776 156 h28 M781 165 h7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/>
+<text x="834" y="157" font-size="18" fill="#1F1E1C" text-anchor="start" font-weight="bold">Stripe</text>
+<text x="834" y="179" font-size="16" fill="#55534E" text-anchor="start">external</text>
+<circle cx="875" cy="262" r="28" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="4"/>
+<path d="M862 254 l13 -6 l13 6 l-13 6 z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#F1EFEB" stroke="#1F1E1C"/><path d="M862 262 l13 -6 l13 6 l-13 6 z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#F1EFEB" stroke="#1F1E1C"/><path d="M862 270 l13 -6 l13 6 l-13 6 z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#F1EFEB" stroke="#1F1E1C"/>
+<text x="875" y="326" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">Redis</text>
+<text x="875" y="348" font-size="16" fill="#55534E" text-anchor="middle">150 req/s</text>
+<circle cx="900" cy="460" r="28" fill="#F1EFEB" stroke="#C2410C" stroke-width="4"/>
+<path d="M889 451 v18 a11 4 0 0 0 22 0 v-18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><ellipse cx="900" cy="451" rx="11" ry="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><path d="M889 460 a11 4 0 0 0 22 0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/>
+<text x="900" y="386" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">replica</text>
+<text x="900" y="408" font-size="16" fill="#C2410C" text-anchor="middle">lag 0.4 s</text>
+<circle cx="760" cy="590" r="28" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="4"/>
+<path d="M749 581 v18 a11 4 0 0 0 22 0 v-18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><ellipse cx="760" cy="581" rx="11" ry="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><path d="M749 590 a11 4 0 0 0 22 0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/>
+<text x="760" y="654" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">PostgreSQL primary</text>
+<text x="760" y="676" font-size="16" fill="#55534E" text-anchor="middle">30 req/s + writes</text>
+<circle cx="575" cy="505" r="28" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="4"/>
+<rect x="560" y="497" width="30" height="16" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><path d="M568 497 v16 M575 497 v16 M582 497 v16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/>
+<text x="531" y="502" font-size="18" fill="#1F1E1C" text-anchor="end" font-weight="bold">SQS render-jobs</text>
+<text x="531" y="524" font-size="16" fill="#55534E" text-anchor="end">40 jobs/min</text>
+<circle cx="462" cy="605" r="28" fill="#F1EFEB" stroke="#C92A2A" stroke-width="4"/>
+<path d="M453 593 h4 l12 24 M463 603 l-8 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C" />
+<text x="462" y="669" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">Lambda renderer</text>
+<text x="462" y="691" font-size="16" fill="#C92A2A" text-anchor="middle">p95 4.1 s · 3% errors</text>
+<circle cx="250" cy="600" r="28" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="4"/>
+<path d="M238 592 l3 18 h18 l3 -18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/><ellipse cx="250" cy="592" rx="12" ry="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1F1E1C"/>
+<text x="250" y="664" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">S3 media</text>
+<text x="250" y="686" font-size="16" fill="#55534E" text-anchor="middle">40 puts/min</text>
+<rect x="40" y="96" width="330" height="134" rx="10" fill="#F1EFEB" stroke="#BDB9B1"/>
+<circle cx="64" cy="122" r="8" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="3.5"/>
+<text x="82" y="127.5" font-size="16" fill="#1F1E1C" text-anchor="start">ok</text>
+<circle cx="184" cy="122" r="8" fill="#F1EFEB" stroke="#C2410C" stroke-width="3.5"/>
+<text x="202" y="127.5" font-size="16" fill="#1F1E1C" text-anchor="start">slow / lagging</text>
+<circle cx="64" cy="150" r="8" fill="#F1EFEB" stroke="#C92A2A" stroke-width="3.5"/>
+<text x="82" y="155.5" font-size="16" fill="#1F1E1C" text-anchor="start">errors</text>
+<circle cx="184" cy="150" r="8" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="3.5" stroke-dasharray="4 3"/>
+<text x="202" y="155.5" font-size="16" fill="#1F1E1C" text-anchor="start">outside, not traced</text>
+<line x1="56" y1="186" x2="96" y2="186" stroke="#2B3FBF" stroke-opacity="0.32" stroke-width="20"/>
+<line x1="56" y1="186" x2="96" y2="186" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round"/>
+<text x="110" y="191.5" font-size="16" fill="#1F1E1C" text-anchor="start">width = requests per second</text>
+<line x1="56" y1="212" x2="96" y2="212" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 6"/>
+<text x="110" y="217.5" font-size="16" fill="#1F1E1C" text-anchor="start">volume not measured</text>
+<text x="40" y="722" font-size="17" fill="#55534E" text-anchor="start">Good for: on-call, spotting the slow or failing hop and who depends on it, at a glance.</text>
+<text x="40" y="746" font-size="17" fill="#55534E" text-anchor="start">Drawn with: Datadog Service Map, Grafana Tempo service graph, AWS X-Ray, Kiali, Dynatrace Smartscape.</text>
+</svg>

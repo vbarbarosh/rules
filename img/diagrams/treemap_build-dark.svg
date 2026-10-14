@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" width="1000" height="760" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">
+<rect x="0" y="0" width="1000" height="760" rx="16" fill="#1E1D21"/>
+<text x="30" y="46" font-size="26" font-weight="bold" fill="#E8E6DC">Code map: how big each part is</text>
+<text x="30" y="76" font-size="18" fill="#BAB8AB">Which parts of bin/build hold the most code: each function a rectangle, its area its lines</text>
+<rect x="31" y="99" width="492.7383089324441" height="286.42441630216445" rx="8" fill="#26252A" stroke="#6E9BF5" stroke-width="1.5"/>
+<text x="42" y="122" font-size="16" font-weight="bold" fill="#E8E6DC">Guides → agents.html, diagrams.html</text><text x="512.7383089324442" y="122" font-size="16" text-anchor="end" fill="#BAB8AB">184 lines</text>
+<rect x="38.0" y="134.0" width="250.5" height="244.4" rx="4" fill="none" stroke="#6E9BF5" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="46.0" y="158.0" font-size="16" fill="#E8E6DC">10 small functions</text>
+<text x="46.0" y="178.0" font-size="16" fill="#BAB8AB">97 lines</text>
+<text x="46.0" y="208.0" font-size="16" fill="#BAB8AB">guide_from_markdown 16</text>
+<text x="46.0" y="228.0" font-size="16" fill="#BAB8AB">html_from_guide 14</text>
+<text x="46.0" y="248.0" font-size="16" fill="#BAB8AB">guide_files_from_readme 11</text>
+<text x="46.0" y="268.0" font-size="16" fill="#BAB8AB">guides_read 10</text>
+<text x="46.0" y="288.0" font-size="16" fill="#BAB8AB">build_agents_html 9</text>
+<text x="46.0" y="308.0" font-size="16" fill="#BAB8AB">format_guides_handover 8</text>
+<text x="46.0" y="328.0" font-size="16" fill="#BAB8AB">format_diagrams_</text>
+<text x="60.0" y="348.0" font-size="16" fill="#BAB8AB">handover 8</text>
+<text x="46.0" y="368.0" font-size="16" fill="#BAB8AB">+3 more</text>
+<rect x="292.5" y="134.0" width="112.7" height="124.5" rx="4" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1"/>
+<text x="300.5" y="158.0" font-size="16" fill="#E8E6DC">html_from_</text>
+<text x="300.5" y="178.0" font-size="16" fill="#E8E6DC">guide_</text>
+<text x="300.5" y="198.0" font-size="16" fill="#E8E6DC">markdown</text>
+<text x="300.5" y="218.0" font-size="16" fill="#BAB8AB">23 lines</text>
+<rect x="409.1" y="134.0" width="107.6" height="124.5" rx="4" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1"/>
+<text x="417.1" y="158.0" font-size="16" fill="#E8E6DC">html_from_</text>
+<text x="417.1" y="178.0" font-size="16" fill="#E8E6DC">guide_inline</text>
+<text x="417.1" y="198.0" font-size="16" fill="#BAB8AB">22 lines</text>
+<rect x="292.5" y="262.5" width="110.1" height="115.9" rx="4" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1"/>
+<text x="300.5" y="286.5" font-size="16" fill="#E8E6DC">html_from_</text>
+<text x="300.5" y="306.5" font-size="16" fill="#E8E6DC">guides</text>
+<text x="300.5" y="326.5" font-size="16" fill="#BAB8AB">21 lines</text>
+<rect x="406.6" y="262.5" width="110.1" height="115.9" rx="4" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1"/>
+<text x="414.6" y="286.5" font-size="16" fill="#E8E6DC">html_from_</text>
+<text x="414.6" y="306.5" font-size="16" fill="#E8E6DC">guide_list</text>
+<text x="414.6" y="326.5" font-size="16" fill="#BAB8AB">21 lines</text>
+<rect x="31" y="387.42441630216445" width="492.7383089324441" height="271.5755836978356" rx="8" fill="#26252A" stroke="#5CC26A" stroke-width="1.5"/>
+<text x="42" y="410.42441630216445" font-size="16" font-weight="bold" fill="#E8E6DC">Glossaries → glossaries.html</text><text x="512.7383089324442" y="410.42441630216445" font-size="16" text-anchor="end" fill="#BAB8AB">173 lines</text>
+<rect x="38.0" y="422.4" width="208.1" height="229.6" rx="4" fill="#1E3A24" stroke="#5CC26A" stroke-width="1"/>
+<text x="46.0" y="446.4" font-size="16" fill="#E8E6DC">glossary_from_</text>
+<text x="46.0" y="466.4" font-size="16" fill="#E8E6DC">markdown</text>
+<text x="46.0" y="486.4" font-size="16" fill="#BAB8AB">76 lines</text>
+<rect x="250.1" y="422.4" width="155.1" height="229.6" rx="4" fill="none" stroke="#5CC26A" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="258.1" y="446.4" font-size="16" fill="#E8E6DC">6 small functions</text>
+<text x="258.1" y="466.4" font-size="16" fill="#BAB8AB">57 lines</text>
+<text x="258.1" y="496.4" font-size="16" fill="#BAB8AB">html_from_</text>
+<text x="272.1" y="516.4" font-size="16" fill="#BAB8AB">glossary 12</text>
+<text x="258.1" y="536.4" font-size="16" fill="#BAB8AB">build_</text>
+<text x="272.1" y="556.4" font-size="16" fill="#BAB8AB">glossaries_</text>
+<text x="272.1" y="576.4" font-size="16" fill="#BAB8AB">html 10</text>
+<text x="258.1" y="596.4" font-size="16" fill="#BAB8AB">term_from_</text>
+<text x="272.1" y="616.4" font-size="16" fill="#BAB8AB">item 9</text>
+<text x="258.1" y="636.4" font-size="16" fill="#BAB8AB">+3 more</text>
+<rect x="409.1" y="422.4" width="107.6" height="136.1" rx="4" fill="#1E3A24" stroke="#5CC26A" stroke-width="1"/>
+<text x="417.1" y="446.4" font-size="16" fill="#E8E6DC">html_from_</text>
+<text x="417.1" y="466.4" font-size="16" fill="#E8E6DC">terms</text>
+<text x="417.1" y="486.4" font-size="16" fill="#BAB8AB">24 lines</text>
+<rect x="409.1" y="562.6" width="107.6" height="89.4" rx="4" fill="#1E3A24" stroke="#5CC26A" stroke-width="1"/>
+<text x="417.1" y="586.6" font-size="16" fill="#E8E6DC">html_from_</text>
+<text x="417.1" y="606.6" font-size="16" fill="#E8E6DC">glossaries</text>
+<text x="417.1" y="626.6" font-size="16" fill="#BAB8AB">16 lines</text>
+<rect x="525.7383089324442" y="99" width="443.2616910675559" height="274.09970396912354" rx="8" fill="#26252A" stroke="#F08C4A" stroke-width="1.5"/>
+<text x="536.7383089324442" y="122" font-size="16" font-weight="bold" fill="#E8E6DC">Indexes → rules.html, animations.html</text><text x="958" y="122" font-size="16" text-anchor="end" fill="#BAB8AB">157 lines</text>
+<rect x="532.7" y="134.0" width="125.7" height="232.1" rx="4" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1"/>
+<text x="540.7" y="158.0" font-size="16" fill="#E8E6DC">index_from_</text>
+<text x="540.7" y="178.0" font-size="16" fill="#E8E6DC">markdown</text>
+<text x="540.7" y="198.0" font-size="16" fill="#BAB8AB">47 lines</text>
+<rect x="662.4" y="134.0" width="172.6" height="132.5" rx="4" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1"/>
+<text x="670.4" y="158.0" font-size="16" fill="#E8E6DC">html_from_form</text>
+<text x="670.4" y="178.0" font-size="16" fill="#BAB8AB">37 lines</text>
+<rect x="662.4" y="270.5" width="172.6" height="95.6" rx="4" fill="none" stroke="#F08C4A" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="670.4" y="294.5" font-size="16" fill="#E8E6DC">4 small functions</text>
+<text x="670.4" y="314.5" font-size="16" fill="#BAB8AB">27 lines</text>
+<rect x="839.1" y="134.0" width="122.9" height="119.2" rx="4" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1"/>
+<text x="847.1" y="158.0" font-size="16" fill="#E8E6DC">index_assert_</text>
+<text x="847.1" y="178.0" font-size="16" fill="#E8E6DC">counts</text>
+<text x="847.1" y="198.0" font-size="16" fill="#BAB8AB">24 lines</text>
+<rect x="839.1" y="257.2" width="122.9" height="108.9" rx="4" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1"/>
+<text x="847.1" y="281.2" font-size="16" fill="#E8E6DC">html_from_</text>
+<text x="847.1" y="301.2" font-size="16" fill="#E8E6DC">index</text>
+<text x="847.1" y="321.2" font-size="16" fill="#BAB8AB">22 lines</text>
+<rect x="525.7383089324442" y="375.09970396912354" width="267.1522269685879" height="283.90029603087646" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="536.7383089324442" y="398.09970396912354" font-size="16" font-weight="bold" fill="#E8E6DC">Shared by every page</text><text x="781.8905359010321" y="398.09970396912354" font-size="16" text-anchor="end" fill="#BAB8AB">97 lines</text>
+<rect x="532.7" y="410.1" width="131.2" height="241.9" rx="4" fill="none" stroke="#5E5C4E" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="540.7" y="434.1" font-size="16" fill="#E8E6DC">7 small</text>
+<text x="540.7" y="454.1" font-size="16" fill="#E8E6DC">functions</text>
+<text x="540.7" y="474.1" font-size="16" fill="#BAB8AB">51 lines</text>
+<text x="540.7" y="504.1" font-size="16" fill="#BAB8AB">template_</text>
+<text x="554.7" y="524.1" font-size="16" fill="#BAB8AB">fill 12</text>
+<text x="540.7" y="544.1" font-size="16" fill="#BAB8AB">html_from_</text>
+<text x="554.7" y="564.1" font-size="16" fill="#BAB8AB">image 11</text>
+<text x="540.7" y="584.1" font-size="16" fill="#BAB8AB">html_from_</text>
+<text x="554.7" y="604.1" font-size="16" fill="#BAB8AB">line 9</text>
+<text x="540.7" y="624.1" font-size="16" fill="#BAB8AB">+4 more</text>
+<rect x="667.9" y="410.1" width="117.9" height="129.6" rx="4" fill="#33322C" stroke="#5E5C4E" stroke-width="1"/>
+<text x="675.9" y="434.1" font-size="16" fill="#E8E6DC">size_</text>
+<text x="675.9" y="454.1" font-size="16" fill="#E8E6DC">attributes_</text>
+<text x="675.9" y="474.1" font-size="16" fill="#E8E6DC">from_image</text>
+<text x="675.9" y="494.1" font-size="16" fill="#BAB8AB">25 lines</text>
+<rect x="667.9" y="543.7" width="117.9" height="108.3" rx="4" fill="#33322C" stroke="#5E5C4E" stroke-width="1"/>
+<text x="675.9" y="567.7" font-size="16" fill="#E8E6DC">html_from_</text>
+<text x="675.9" y="587.7" font-size="16" fill="#E8E6DC">inline</text>
+<text x="675.9" y="607.7" font-size="16" fill="#BAB8AB">21 lines</text>
+<rect x="794.8905359010321" y="375.09970396912354" width="174.10946409896798" height="164.7933629969654" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="805.8905359010321" y="398.09970396912354" font-size="16" font-weight="bold" fill="#E8E6DC">Run</text><text x="958" y="398.09970396912354" font-size="16" text-anchor="end" fill="#BAB8AB">32 lines</text>
+<rect x="801.9" y="410.1" width="160.1" height="122.8" rx="4" fill="none" stroke="#5E5C4E" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="809.9" y="434.1" font-size="16" fill="#E8E6DC">4 small functions</text>
+<text x="809.9" y="454.1" font-size="16" fill="#BAB8AB">32 lines</text>
+<text x="809.9" y="484.1" font-size="16" fill="#BAB8AB">main 9</text>
+<text x="809.9" y="504.1" font-size="16" fill="#BAB8AB">+3 more</text>
+<rect x="794.8905359010321" y="541.893066966089" width="174.10946409896798" height="117.10693303391105" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="805.8905359010321" y="564.893066966089" font-size="16" font-weight="bold" fill="#E8E6DC">Top of file</text><text x="958" y="564.893066966089" font-size="16" text-anchor="end" fill="#BAB8AB">20 lines</text>
+<rect x="801.9" y="576.9" width="160.1" height="75.1" rx="4" fill="#33322C" stroke="#5E5C4E" stroke-width="1"/>
+<text x="809.9" y="600.9" font-size="16" fill="#E8E6DC">requires, constants</text>
+<text x="809.9" y="620.9" font-size="16" fill="#BAB8AB">20 lines</text>
+<text x="30" y="688" font-size="16" fill="#BAB8AB">44 functions in 643 lines, plus 20 lines of requires and constants. Dashed: small ones, merged.</text>
+<text x="30" y="716" font-size="17" fill="#BAB8AB">Good for: seeing where the code is: the big parts to split, the parts that grow</text>
+<text x="30" y="740" font-size="17" fill="#BAB8AB">Drawn with: CodeScene, CodeCity, SonarQube, d3-hierarchy treemap, WinDirStat-style tools</text>
+</svg>

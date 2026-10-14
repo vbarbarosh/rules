@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 740" width="1000" height="740" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">
+<defs>
+<marker id="iso-arrow-blue" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2B3FBF"/></marker>
+<marker id="iso-arrow-green" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2B8A3E"/></marker>
+<marker id="iso-arrow-orange" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#C2410C"/></marker>
+</defs>
+<rect width="1000" height="740" rx="16" fill="#E9E6E0"/>
+<text x="32" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Isometric 3D diagram: the system as a model</text>
+<text x="32" y="74" font-size="18" fill="#55534E">What does the whole system look like, laid out as one picture?</text>
+<line x1="146.7" y1="96.0" x2="16.0" y2="171.4" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="196.9" y1="96.0" x2="16.0" y2="200.4" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="247.1" y1="96.0" x2="16.0" y2="229.4" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="297.4" y1="96.0" x2="16.0" y2="258.4" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="347.6" y1="96.0" x2="16.0" y2="287.4" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="397.9" y1="96.0" x2="16.0" y2="316.4" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="432.2" y1="105.2" x2="16.0" y2="345.4" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="457.3" y1="119.7" x2="25.3" y2="369.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="482.4" y1="134.2" x2="50.4" y2="383.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="507.5" y1="148.7" x2="75.5" y2="398.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="532.6" y1="163.2" x2="100.7" y2="412.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="557.8" y1="177.7" x2="125.8" y2="427.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="582.9" y1="192.2" x2="150.9" y2="441.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="608.0" y1="206.7" x2="176.0" y2="456.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="633.1" y1="221.2" x2="201.1" y2="470.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="658.2" y1="235.6" x2="226.2" y2="485.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="683.3" y1="250.1" x2="251.4" y2="499.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="708.4" y1="264.6" x2="276.5" y2="514.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="733.6" y1="279.1" x2="301.6" y2="528.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="758.7" y1="293.6" x2="326.7" y2="543.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="783.8" y1="308.1" x2="351.8" y2="557.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="808.9" y1="322.6" x2="376.9" y2="572.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="834.0" y1="337.1" x2="402.0" y2="586.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="859.1" y1="351.6" x2="427.2" y2="601.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="884.2" y1="366.1" x2="452.3" y2="615.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="909.4" y1="380.6" x2="477.4" y2="630.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="934.5" y1="395.1" x2="502.5" y2="644.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="959.6" y1="409.6" x2="527.6" y2="659.0" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="984.0" y1="424.5" x2="552.7" y2="673.5" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="416.3" y1="96.0" x2="984.0" y2="423.8" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="366.1" y1="96.0" x2="979.7" y2="450.2" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="315.8" y1="96.0" x2="954.6" y2="464.8" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="265.5" y1="96.0" x2="929.4" y2="479.2" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="215.3" y1="96.0" x2="904.3" y2="493.8" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="165.1" y1="96.0" x2="879.2" y2="508.2" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="130.8" y1="105.2" x2="854.1" y2="522.8" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="105.7" y1="119.7" x2="829.0" y2="537.2" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="80.6" y1="134.2" x2="803.9" y2="551.8" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="55.5" y1="148.7" x2="778.8" y2="566.2" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="30.3" y1="163.2" x2="753.6" y2="580.8" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="16.0" y1="183.9" x2="728.5" y2="595.2" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="16.0" y1="212.9" x2="703.4" y2="609.8" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="16.0" y1="241.9" x2="678.3" y2="624.2" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="16.0" y1="270.9" x2="653.2" y2="638.7" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="16.0" y1="299.8" x2="628.1" y2="653.2" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="16.0" y1="328.8" x2="603.0" y2="667.7" stroke="#D3CFC7" stroke-width="1"/>
+<line x1="16.0" y1="357.8" x2="563.6" y2="674.0" stroke="#D3CFC7" stroke-width="1"/>
+<polygon points="135.8 119.7 289.0 208.1 188.6 266.1 35.4 177.7" fill="none" stroke="#55534E" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<polygon points="427.2 137.1 944.5 435.8 572.8 650.4 55.5 351.6" fill="none" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<polygon points="728.5 444.5 497.5 577.9 497.5 571.9 728.5 438.5" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="93.1 344.4 497.5 577.9 497.5 571.9 93.1 338.4" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="324.2 205.0 728.5 438.5 497.5 571.9 93.1 338.4" fill="#D3CFC7" stroke="#BDB9B1" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="487.4 316.6 321.7 412.4 321.7 402.4 487.4 306.6" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="153.4 315.2 321.7 412.4 321.7 402.4 153.4 305.2" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="319.2 209.5 487.4 306.6 321.7 402.4 153.4 305.2" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="698.4 438.4 532.6 534.1 532.6 524.1 698.4 428.4" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="341.8 423.9 532.6 534.1 532.6 524.1 341.8 413.9" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="507.5 318.2 698.4 428.4 532.6 524.1 341.8 413.9" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.5" stroke-linejoin="round"/>
+<line x1="154.6" y1="177.0" x2="175.8" y2="189.1" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
+<line x1="246.5" y1="225.4" x2="273.0" y2="236.4" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
+<line x1="340.5" y1="268.2" x2="364.1" y2="281.8" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
+<line x1="431.0" y1="320.4" x2="459.4" y2="336.8" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
+<line x1="531.4" y1="378.4" x2="580.8" y2="406.9" stroke="#2B8A3E" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-green)"/>
+<line x1="594.2" y1="442.1" x2="564.8" y2="459.1" stroke="#2B8A3E" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-green)"/>
+<line x1="483.6" y1="378.4" x2="453.8" y2="395.7" stroke="#2B8A3E" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-green)"/>
+<line x1="555.2" y1="343.1" x2="602.6" y2="321.8" stroke="#C2410C" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-orange)"/>
+<line x1="657.0" y1="321.9" x2="699.0" y2="346.1" stroke="#C2410C" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-orange)"/>
+<line x1="767.5" y1="385.7" x2="816.9" y2="414.3" stroke="#C2410C" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-orange)"/>
+<path d="M178.5 163.2 L130.8 190.7 L130.8 176.7 L178.5 149.2 Z" fill="#F1EFEB" stroke="#55534E" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M83.1 163.2 L130.8 190.7 L130.8 176.7 L83.1 149.2 Z" fill="#DFDBD2" stroke="#55534E" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M130.8 121.6 L178.5 149.2 L130.8 176.7 L83.1 149.2 Z" fill="#DFDBD2" stroke="#55534E" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M266.4 213.9 L218.7 241.4 L218.7 223.4 L266.4 195.9 Z" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M171.0 213.9 L218.7 241.4 L218.7 223.4 L171.0 195.9 Z" fill="#DFDBD2" stroke="#2B3FBF" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M218.7 168.3 L266.4 195.9 L218.7 223.4 L171.0 195.9 Z" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M364.4 254.4 L316.6 282.0 L316.6 270.0 L364.4 242.4 Z" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M268.9 254.4 L316.6 282.0 L316.6 270.0 L268.9 242.4 Z" fill="#DFDBD2" stroke="#2B3FBF" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M316.6 214.9 L364.4 242.4 L316.6 270.0 L268.9 242.4 Z" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M680.8 308.1 L633.1 335.7 L633.1 325.7 L680.8 298.1 Z" fill="#F1EFEB" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M585.4 308.1 L633.1 335.7 L633.1 325.7 L585.4 298.1 Z" fill="#DFDBD2" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M633.1 270.6 L680.8 298.1 L633.1 325.7 L585.4 298.1 Z" fill="#FCE4D6" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M454.8 306.6 L407.1 334.2 L407.1 316.2 L454.8 288.6 Z" fill="#F1EFEB" stroke="#2B3FBF" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M359.3 306.6 L407.1 334.2 L407.1 316.2 L359.3 288.6 Z" fill="#DFDBD2" stroke="#2B3FBF" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M407.1 261.1 L454.8 288.6 L407.1 316.2 L359.3 288.6 Z" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M791.3 371.9 L743.6 399.5 L743.6 379.5 L791.3 351.9 Z" fill="#F1EFEB" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M695.9 371.9 L743.6 399.5 L743.6 379.5 L695.9 351.9 Z" fill="#DFDBD2" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M743.6 324.4 L791.3 351.9 L743.6 379.5 L695.9 351.9 Z" fill="#FCE4D6" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M555.2 364.6 L507.5 392.2 L507.5 368.2 L555.2 340.6 Z" fill="#F1EFEB" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M459.8 364.6 L507.5 392.2 L507.5 368.2 L459.8 340.6 Z" fill="#DFDBD2" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M507.5 313.1 L555.2 340.6 L507.5 368.2 L459.8 340.6 Z" fill="#FCE4D6" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M383.40000000000003 400.9 V416.9 A33.7 19.5 0 0 0 450.8 416.9 V400.9" fill="#DFDBD2" stroke="#2B8A3E" stroke-width="1.5"/>
+<path d="M383.4 400.9 A33.7 19.5 0 0 1 450.8 400.9 A33.7 19.5 0 0 1 383.4 400.9 Z" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<path d="M820.4 413.8 V435.8 A33.7 19.5 0 0 0 887.8000000000001 435.8 V413.8" fill="#DFDBD2" stroke="#2B8A3E" stroke-width="1.5"/>
+<path d="M820.4 413.8 A33.7 19.5 0 0 1 887.8 413.8 A33.7 19.5 0 0 1 820.4 413.8 Z" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<path d="M584.3 402.4 V428.4 A33.7 19.5 0 0 0 651.7 428.4 V402.4" fill="#DFDBD2" stroke="#2B8A3E" stroke-width="1.5"/>
+<path d="M584.3 402.4 A33.7 19.5 0 0 1 651.7 402.4 A33.7 19.5 0 0 1 584.3 402.4 Z" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<path d="M493.90000000000003 460.6 V480.6 A33.7 19.5 0 0 0 561.3000000000001 480.6 V460.6" fill="#DFDBD2" stroke="#2B8A3E" stroke-width="1.5"/>
+<path d="M493.9 460.6 A33.7 19.5 0 0 1 561.3 460.6 A33.7 19.5 0 0 1 493.9 460.6 Z" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<rect x="188.5" y="137.2" width="58.7" height="22" rx="11" fill="#E9E6E0"/>
+<text x="217.8" y="153.7" font-size="16" fill="#1F1E1C" text-anchor="middle">Users</text>
+<rect x="276.4" y="185.9" width="93.6" height="22" rx="11" fill="#E9E6E0"/>
+<text x="323.2" y="202.4" font-size="16" fill="#1F1E1C" text-anchor="middle">Cloudflare</text>
+<rect x="294.1" y="290.0" width="45" height="22" rx="11" fill="#E9E6E0"/>
+<text x="316.6" y="306.5" font-size="16" fill="#1F1E1C" text-anchor="middle">ALB</text>
+<rect x="690.8" y="284.1" width="46.1" height="22" rx="11" fill="#E9E6E0"/>
+<text x="713.8" y="300.6" font-size="16" fill="#1F1E1C" text-anchor="middle">SQS</text>
+<rect x="378.0" y="342.2" width="58.2" height="22" rx="11" fill="#E9E6E0"/>
+<text x="407.1" y="358.7" font-size="16" fill="#1F1E1C" text-anchor="middle">nginx</text>
+<rect x="801.3" y="342.9" width="77" height="22" rx="11" fill="#E9E6E0"/>
+<text x="839.8" y="359.4" font-size="16" fill="#1F1E1C" text-anchor="middle">Lambda</text>
+<rect x="475.6" y="400.2" width="63.8" height="22" rx="11" fill="#E9E6E0"/>
+<text x="507.5" y="416.7" font-size="16" fill="#1F1E1C" text-anchor="middle">API ×2</text>
+<rect x="388.8" y="444.4" width="56.6" height="22" rx="11" fill="#E9E6E0"/>
+<text x="417.1" y="460.9" font-size="16" fill="#1F1E1C" text-anchor="middle">Redis</text>
+<rect x="837.1" y="463.3" width="33.9" height="22" rx="11" fill="#E9E6E0"/>
+<text x="854.1" y="479.8" font-size="16" fill="#1F1E1C" text-anchor="middle">S3</text>
+<rect x="661.7" y="434.9" width="103.6" height="22" rx="11" fill="#E9E6E0"/>
+<text x="713.5" y="451.4" font-size="16" fill="#1F1E1C" text-anchor="middle">PostgreSQL</text>
+<rect x="494.6" y="508.1" width="66.1" height="22" rx="11" fill="#E9E6E0"/>
+<text x="527.6" y="524.6" font-size="16" fill="#1F1E1C" text-anchor="middle">replica</text>
+<rect x="153.6" y="367.3" width="117.7" height="22" rx="11" fill="#E9E6E0"/>
+<text x="212.4" y="383.8" font-size="16" fill="#55534E" text-anchor="middle">public subnet</text>
+<rect x="349.8" y="482.5" width="124.7" height="22" rx="11" fill="#E9E6E0"/>
+<text x="412.1" y="499.0" font-size="16" fill="#55534E" text-anchor="middle">private subnet</text>
+<rect x="114.8" y="398.6" width="132.4" height="22" rx="11" fill="#E9E6E0"/>
+<text x="181.0" y="415.1" font-size="16" fill="#55534E" text-anchor="middle">VPC 10.0.0.0/16</text>
+<rect x="404.2" y="169.6" width="196.5" height="22" rx="11" fill="#E9E6E0"/>
+<text x="502.5" y="186.1" font-size="16" fill="#C2410C" text-anchor="middle">AWS region eu-central-1</text>
+<rect x="26.8" y="184.1" width="77.4" height="22" rx="11" fill="#E9E6E0"/>
+<text x="65.5" y="200.6" font-size="16" fill="#55534E" text-anchor="middle">Internet</text>
+<text x="32" y="696" font-size="17" fill="#55534E">Good for: showing the whole system at once, on a slide or in a doc: a picture to point at.</text>
+<text x="32" y="720" font-size="17" fill="#55534E">Drawn with: Cloudcraft, draw.io (isometric shapes), Lucidchart, Icograms, isoflow.</text>
+</svg>

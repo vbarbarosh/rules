@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 751" width="1000" height="751" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">
+<defs><marker id="seq-arrow-blue" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#6E9BF5"/></marker><marker id="seq-arrow-green" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#5CC26A"/></marker></defs>
+<rect width="1000" height="751" rx="16" fill="#1E1D21"/>
+<text x="40" y="46" font-size="26" font-weight="700" fill="#E8E6DC">Sequence diagram: one request's path through the parts</text>
+<text x="40" y="76" font-size="18" fill="#BAB8AB">Who calls whom, in what order, for one upload?</text>
+<line data-legend="" x1="529.0874176025391" y1="70" x2="555.0874176025391" y2="70" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<text x="567.0874176025391" y="76" font-size="16" fill="#BAB8AB">request</text>
+<line data-legend="" x1="646.5915374755859" y1="70" x2="672.5915374755859" y2="70" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-green)"/>
+<text x="684.5915374755859" y="76" font-size="16" fill="#BAB8AB">reply</text>
+<circle cx="749.0316162109375" cy="70" r="4.5" fill="#6E9BF5"/>
+<text x="762.0316162109375" y="76" font-size="16" fill="#BAB8AB">passes through Cloudflare</text>
+<rect x="58" y="98" width="40" height="32" rx="4" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/>
+<line x1="58" y1="107" x2="98" y2="107" stroke="#BAB8AB" stroke-width="1.75"/>
+<circle cx="64" cy="102.5" r="1.6" fill="#BAB8AB"/><circle cx="69" cy="102.5" r="1.6" fill="#BAB8AB"/><circle cx="74" cy="102.5" r="1.6" fill="#BAB8AB"/>
+<text x="78" y="160" font-size="18" font-weight="700" fill="#E8E6DC" text-anchor="middle">Browser</text>
+<line x1="78" y1="172" x2="78" y2="667" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 5"/>
+<path d="M197 128 H227 A8 8 0 0 0 225 111 A11 11 0 0 0 205 107 A9 9 0 0 0 197 128 Z" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/>
+<text x="212" y="160" font-size="18" font-weight="700" fill="#E8E6DC" text-anchor="middle">Cloudflare</text>
+<line x1="212" y1="172" x2="212" y2="667" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 5"/>
+<rect x="327" y="100" width="28" height="22" rx="3" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/>
+<rect x="337" y="108" width="28" height="22" rx="3" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/>
+<line x1="343" y1="116" x2="359" y2="116" stroke="#BAB8AB" stroke-width="1.75" stroke-linecap="round"/>
+<line x1="343" y1="122" x2="354" y2="122" stroke="#BAB8AB" stroke-width="1.75" stroke-linecap="round"/>
+<text x="346" y="160" font-size="18" font-weight="700" fill="#E8E6DC" text-anchor="middle">API</text>
+<line x1="346" y1="172" x2="346" y2="667" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 5"/>
+<path d="M464 102 L468 130 A12 3.5 0 0 0 492 130 L496 102" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/>
+<ellipse cx="480" cy="102" rx="16" ry="4.5" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/>
+<text x="480" y="160" font-size="18" font-weight="700" fill="#E8E6DC" text-anchor="middle">S3</text>
+<line x1="480" y1="172" x2="480" y2="667" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 5"/>
+<rect x="592" y="103" width="44" height="22" rx="5" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/><line x1="603" y1="103" x2="603" y2="125" stroke="#BAB8AB" stroke-width="1.75"/><line x1="614" y1="103" x2="614" y2="125" stroke="#BAB8AB" stroke-width="1.75"/><line x1="625" y1="103" x2="625" y2="125" stroke="#BAB8AB" stroke-width="1.75"/><rect x="595" y="108" width="5" height="12" rx="1" fill="#6E9BF5"/><rect x="606" y="108" width="5" height="12" rx="1" fill="#6E9BF5"/>
+<text x="614" y="160" font-size="18" font-weight="700" fill="#E8E6DC" text-anchor="middle">SQS</text>
+<line x1="614" y1="172" x2="614" y2="667" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 5"/>
+<rect x="731" y="97" width="34" height="34" rx="7" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/>
+<text x="748" y="120" font-size="20" font-weight="700" fill="#E8E6DC" text-anchor="middle">λ</text>
+<text x="748" y="160" font-size="18" font-weight="700" fill="#E8E6DC" text-anchor="middle">Lambda</text>
+<line x1="748" y1="172" x2="748" y2="667" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 5"/>
+<path d="M887 102 V127 A15 4.5 0 0 0 917 127 V102" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/>
+<path d="M887 114 A15 4.5 0 0 0 917 114" fill="none" stroke="#BAB8AB" stroke-width="1.75"/>
+<ellipse cx="902" cy="102" rx="15" ry="4.5" stroke="#BAB8AB" stroke-width="1.75" fill="#33322C" stroke-linejoin="round"/>
+<text x="902" y="160" font-size="18" font-weight="700" fill="#E8E6DC" text-anchor="middle">PostgreSQL</text>
+<line x1="902" y1="172" x2="902" y2="667" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="78" y1="214" x2="342" y2="214" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<circle cx="212" cy="214" r="4.5" fill="#6E9BF5"/>
+<rect x="134.95187377929688" y="187" width="140.09625244140625" height="22" fill="#1E1D21"/>
+<text x="205" y="204" font-size="16" fill="#E8E6DC" text-anchor="middle">POST /upload-url</text>
+<path d="M346 236 H376 V254 H350" fill="none" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#seq-arrow-blue)"/>
+<text x="386" y="250" font-size="16" fill="#E8E6DC">signs URL</text>
+<line x1="346" y1="276" x2="82" y2="276" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-green)"/>
+<circle cx="212" cy="276" r="4.5" fill="#5CC26A"/>
+<rect x="135.6718292236328" y="249" width="166.65634155273438" height="22" fill="#1E1D21"/>
+<text x="219" y="266" font-size="16" fill="#5CC26A" text-anchor="middle">200 + presigned URL</text>
+<line x1="78" y1="307" x2="476" y2="307" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<rect x="151.77576446533203" y="280" width="240.44847106933594" height="22" fill="#1E1D21"/>
+<text x="272" y="297" font-size="16" fill="#E8E6DC" text-anchor="middle">PUT banner.png, straight to S3</text>
+<line x1="480" y1="338" x2="82" y2="338" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-green)"/>
+<text x="286" y="328" font-size="16" fill="#5CC26A" text-anchor="middle">200</text>
+<line x1="78" y1="369" x2="342" y2="369" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<circle cx="212" cy="369" r="4.5" fill="#6E9BF5"/>
+<rect x="148.67990112304688" y="342" width="112.64019775390625" height="22" fill="#1E1D21"/>
+<text x="205" y="359" font-size="16" fill="#E8E6DC" text-anchor="middle">POST /render</text>
+<line x1="346" y1="400" x2="898" y2="400" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<rect x="534.4078598022461" y="373" width="165.1842803955078" height="22" fill="#1E1D21"/>
+<text x="617" y="390" font-size="16" fill="#E8E6DC" text-anchor="middle">INSERT job (queued)</text>
+<line x1="346" y1="431" x2="610" y2="431" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<rect x="393.3358459472656" y="404" width="159.32830810546875" height="22" fill="#1E1D21"/>
+<text x="473" y="421" font-size="16" fill="#E8E6DC" text-anchor="middle">send to render-jobs</text>
+<line x1="346" y1="462" x2="82" y2="462" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-green)"/>
+<circle cx="212" cy="462" r="4.5" fill="#5CC26A"/>
+<rect x="133.02381896972656" y="435" width="171.95236206054688" height="22" fill="#1E1D21"/>
+<text x="219" y="452" font-size="16" fill="#5CC26A" text-anchor="middle">202 Accepted + job id</text>
+<line x1="40" y1="493" x2="960" y2="493" stroke="#5E5C4E" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="78.1598892211914" y="480" width="133.6802215576172" height="24" fill="#1E1D21"/>
+<text x="145" y="498" font-size="16" fill="#BAB8AB" text-anchor="middle">later, on its own</text>
+<line x1="614" y1="525" x2="744" y2="525" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<text x="674" y="515" font-size="16" fill="#E8E6DC" text-anchor="middle">triggers</text>
+<line x1="748" y1="556" x2="484" y2="556" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<rect x="555.4398803710938" y="529" width="131.1202392578125" height="22" fill="#1E1D21"/>
+<text x="621" y="546" font-size="16" fill="#E8E6DC" text-anchor="middle">GET banner.png</text>
+<line x1="480" y1="587" x2="744" y2="587" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-green)"/>
+<rect x="575.183952331543" y="560" width="63.63209533691406" height="22" fill="#1E1D21"/>
+<text x="607" y="577" font-size="16" fill="#5CC26A" text-anchor="middle">the file</text>
+<line x1="748" y1="618" x2="484" y2="618" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<rect x="556.7998733520508" y="591" width="128.40025329589844" height="22" fill="#1E1D21"/>
+<text x="621" y="608" font-size="16" fill="#E8E6DC" text-anchor="middle">PUT render.png</text>
+<line x1="748" y1="649" x2="898" y2="649" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#seq-arrow-blue)"/>
+<text x="818" y="639" font-size="16" fill="#E8E6DC" text-anchor="middle">UPDATE: done</text>
+<text x="40" y="701" font-size="17" fill="#BAB8AB">Good for: one request hop by hop; what waits for what, and what runs later on its own.</text>
+<text x="40" y="726" font-size="17" fill="#BAB8AB">Drawn with: Mermaid sequenceDiagram, PlantUML, WebSequenceDiagrams, Jaeger / Zipkin traces.</text>
+</svg>

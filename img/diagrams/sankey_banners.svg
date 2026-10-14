@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" width="1000" height="660" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">
+<rect width="1000" height="660" rx="16" fill="#E9E6E0"/>
+<text x="40" y="46" font-size="26" fill="#1F1E1C" text-anchor="start" font-weight="bold">Sankey diagram: where the traffic goes, how much</text>
+<text x="40" y="76" font-size="18" fill="#55534E" text-anchor="start">Of every 1000 requests a second, how many reach each part, and where do they stop?</text>
+<path d="M64 150 C132 150 132 150 200 150 L200 550 C132 550 132 550 64 550 Z" fill="#D6DCF1"/>
+<path d="M214 150 C282 150 282 150 350 150 L350 270 C282 270 282 270 214 270 Z" fill="#D6DCF1"/>
+<path d="M214 270 C282 270 282 306 350 306 L350 586 C282 586 282 550 214 550 Z" fill="#DDF0E0"/>
+<path d="M364 150 C422 150 422 150 480 150 L480 270 C422 270 422 270 364 270 Z" fill="#D6DCF1"/>
+<path d="M494 150 C552 150 552 150 610 150 L610 270 C552 270 552 270 494 270 Z" fill="#D6DCF1"/>
+<path d="M624 150 C687 150 687 140 750 140 L750 200 C687 200 687 210 624 210 Z" fill="#D6DCF1"/>
+<path d="M624 210 C687 210 687 230 750 230 L750 278 C687 278 687 258 624 258 Z" fill="#D6DCF1"/>
+<path d="M624 258 C687 258 687 308 750 308 L750 320 C687 320 687 270 624 270 Z" fill="#D6DCF1"/>
+<text x="132" y="355.5" font-size="16" fill="#1F1E1C" text-anchor="middle">1000 req/s</text>
+<text x="282" y="215.5" font-size="16" fill="#1F1E1C" text-anchor="middle">300 req/s</text>
+<text x="282" y="433.5" font-size="16" fill="#1F1E1C" text-anchor="middle">700 req/s</text>
+<text x="422" y="215.5" font-size="16" fill="#1F1E1C" text-anchor="middle">300 req/s</text>
+<text x="552" y="215.5" font-size="16" fill="#1F1E1C" text-anchor="middle">300 req/s</text>
+<text x="673" y="182.1" font-size="16" fill="#1F1E1C" text-anchor="middle">150 req/s</text>
+<text x="673" y="246.2" font-size="16" fill="#1F1E1C" text-anchor="middle">120 req/s</text>
+<rect x="50" y="150" width="14" height="400" rx="3" fill="#2B3FBF"/>
+<rect x="200" y="150" width="14" height="400" rx="3" fill="#2B3FBF"/>
+<rect x="350" y="150" width="14" height="120" rx="3" fill="#2B3FBF"/>
+<rect x="350" y="306" width="14" height="280" rx="3" fill="#2B8A3E"/>
+<rect x="480" y="150" width="14" height="120" rx="3" fill="#2B3FBF"/>
+<rect x="610" y="150" width="14" height="120" rx="3" fill="#2B3FBF"/>
+<rect x="750" y="140" width="14" height="60" rx="3" fill="#2B3FBF"/>
+<rect x="750" y="230" width="14" height="48" rx="3" fill="#2B3FBF"/>
+<rect x="750" y="308" width="14" height="12" rx="3" fill="#2B3FBF"/>
+<text x="57" y="136" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">users</text>
+<text x="207" y="136" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">Cloudflare</text>
+<text x="357" y="136" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">ALB</text>
+<text x="487" y="136" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">nginx</text>
+<text x="617" y="136" font-size="18" fill="#1F1E1C" text-anchor="middle" font-weight="bold">API</text>
+<text x="778" y="167" font-size="18" fill="#1F1E1C" text-anchor="start" font-weight="bold">Redis</text>
+<text x="778" y="189" font-size="16" fill="#55534E" text-anchor="start">cache, sessions</text>
+<text x="778" y="251" font-size="18" fill="#1F1E1C" text-anchor="start" font-weight="bold">replica</text>
+<text x="778" y="273" font-size="16" fill="#55534E" text-anchor="start">reads, lags 0.4 s</text>
+<text x="778" y="311" font-size="18" fill="#1F1E1C" text-anchor="start" font-weight="bold">PostgreSQL primary</text>
+<text x="778" y="333" font-size="16" fill="#1F1E1C" text-anchor="start">30 req/s of reads</text>
+<text x="378" y="443" font-size="18" fill="#1F1E1C" text-anchor="start" font-weight="bold">served from the cache</text>
+<text x="378" y="465" font-size="16" fill="#55534E" text-anchor="start">70%: never reach AWS</text>
+<text x="560" y="530" font-size="16" fill="#55534E" text-anchor="start">Too thin to draw at this scale: 40 render jobs</text>
+<text x="560" y="552" font-size="16" fill="#55534E" text-anchor="start">a minute (0.7 req/s) to SQS, Lambda and S3.</text>
+<text x="40" y="616" font-size="17" fill="#55534E" text-anchor="start">Good for: capacity and cost, how much each layer absorbs and passes on; not for who calls whom.</text>
+<text x="40" y="642" font-size="17" fill="#55534E" text-anchor="start">Drawn with: d3-sankey, Plotly, Google Charts, SankeyMATIC, Power BI, Tableau.</text>
+</svg>
