@@ -52,7 +52,7 @@ body {
 
 .caption span { font-weight: 400; color: var(--muted); }
 
-.screen { height: 440px; padding: 14px 18px; border: 2px solid var(--ink); background: var(--paper); overflow: hidden; }
+.screen { min-height: 400px; padding: 14px 18px; border: 2px solid var(--ink); background: var(--paper); overflow: hidden; }
 
 table { width: 100%; border-collapse: collapse; font-size: 16px; }
 
@@ -93,6 +93,14 @@ tr.is-open td { border-bottom: 0; background: var(--open); font-weight: 700; }
 
 .details dd { margin: 0; overflow-wrap: anywhere; }
 
+.screen.is-wide { min-height: 0; margin-bottom: 22px; }
+
+.screen.is-wide td { white-space: nowrap; }
+
+.section { margin: 8px 0 14px; padding-top: 14px; border-top: 2px solid var(--line); font-size: 24px; font-weight: 800; }
+
+.empty { color: var(--line); }
+
 .foot { margin-top: 26px; font-size: 18px; color: var(--muted); }
 
 .foot b { color: var(--ink); }
@@ -104,7 +112,27 @@ if (location.search === '?dark') {
 </script>
 </head>
 <body>
-<div class="title">A table turned grid: what it is and its state; the rest below</div>
+<div class="title">A table folds only what does not fit</div>
+<div class="section">Wide screen: room for every column</div>
+<div class="caption no">✗ Not this <span>folded with room to spare: a click for every answer</span></div>
+<div class="screen is-wide">
+    <table>
+        <tr><th class="chevron"></th><th>Name</th><th></th><th>State</th></tr>
+        <tr><td class="chevron">▸</td><td class="mono">logs</td><td></td><td><span class="dot"></span>ready</td></tr>
+        <tr><td class="chevron">▸</td><td class="mono">charts-on-the-other-side</td><td></td><td><span class="dot"></span>ready</td></tr>
+        <tr><td class="chevron">▸</td><td class="mono">held</td><td></td><td class="bad"><span class="dot is-off"></span>socket taken</td></tr>
+    </table>
+</div>
+<div class="caption yes">✓ This <span>every column on top: read at a glance, no click</span></div>
+<div class="screen is-wide">
+    <table>
+        <tr><th>Name</th><th>Listens on</th><th>Carried to</th><th>Now</th></tr>
+        <tr><td class="mono">logs</td><td class="mono"><span class="muted">laptop ·</span> ~/.cache/relay/logs.sock</td><td class="mono"><span class="muted">vps1 ·</span> 46457</td><td><span class="dot"></span>ready</td></tr>
+        <tr><td class="mono">charts-on-the-other-side</td><td class="mono"><span class="muted">laptop ·</span> ~/.cache/relay/charts.sock</td><td class="mono"><span class="muted">vps1 ·</span> 127.0.0.1:41941</td><td><span class="dot"></span>ready</td></tr>
+        <tr><td class="mono">held</td><td class="mono"><span class="muted">laptop ·</span> ~/.cache/relay/held.sock</td><td class="mono"><span class="muted">vps1 ·</span> 5432</td><td class="bad"><span class="dot is-off"></span>socket taken</td></tr>
+    </table>
+</div>
+<div class="section">Phone width: the columns no longer fit</div>
 <div class="panels">
     <div>
         <div class="caption no">✗ Not this <span>every detail a column, broken mid-word</span></div>
@@ -137,6 +165,6 @@ if (location.search === '?dark') {
         </div>
     </div>
 </div>
-<div class="foot"><b>On top, only what says what a row is and its state.</b> Every other detail opens under the row, as many as there are.</div>
+<div class="foot"><b>Every column stays while it fits.</b> Only what does not fit at this width folds under the row, the least needed first; what a row is and its state never fold.</div>
 </body>
 </html>

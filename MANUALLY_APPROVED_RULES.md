@@ -977,3 +977,17 @@ VUE-06 wraps a compound directive value in parentheses only in a
 template, where inside an attribute's quotes it is easy to miss. A
 condition moved out of a `v-if` into a computed or a method loses them
 and follows FMT-27: `return !is_ready && !is_gone;`.
+
+## MP-80 — A table folds only what does not fit
+
+**Scope:** UI-21 to UI-23, [table_details.md](drafts/table_details.md).
+**Approved:** 2026-10-15, voice comment `20261015_144000-me`, on a
+serviceman table folded down to its label with room to spare: "even when
+there is room, it left only the label and put everything else inside, out
+of sight; before I saw everything at a glance, now I have to keep clicking
+to open the details".
+
+Columns fold into a row's details only when the table no longer fits and
+turns into a grid, and only as many as it must at that width. With room,
+every column stays on top. What a row is and its state never fold.
+
