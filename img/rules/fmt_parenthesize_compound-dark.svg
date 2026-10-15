@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="566" viewBox="0 0 1200 566" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
-<rect width="1200" height="566" fill="#16181b"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="690" fill="#16181b"/>
 <defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Parenthesize compound operands in logic</text>
 <text x="48" y="108" fill="#92958c" font-size="22">an operand with an operator of its own goes in parentheses</text>
@@ -30,5 +30,14 @@
 <rect x="650" y="443" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="660.0" y="464" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">url: is_api ? '/api/v1' : null,</text>
 <line x1="566" y1="456.0" x2="632" y2="456" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<text x="48" y="534" fill="#92958c" font-size="21">Names, calls and negations stay bare, and so does a ternary given whole as a value.</text>
+<text x="60" y="540" fill="#ff937c" font-size="18" font-weight="700">✗ a whole chain wrapped in a return</text>
+<text x="640" y="540" fill="#72d39c" font-size="18" font-weight="700">✓ the chain bare: one operator, simple operands</text>
+<rect x="60" y="552" width="500" height="56" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="70" y="567" width="480" height="32" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="80.0" y="588" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return (!is_ready &amp;&amp; !is_gone);</text>
+<rect x="640" y="552" width="500" height="56" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="650" y="567" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="660.0" y="588" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">return !is_ready &amp;&amp; !is_gone;</text>
+<line x1="566" y1="580.0" x2="632" y2="580" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="48" y="658" fill="#92958c" font-size="21">Names, calls and negations stay bare, and so does a ternary or a chain given whole.</text>
 </svg>
