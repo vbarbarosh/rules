@@ -964,3 +964,16 @@ that is missing, not `root:4755`, or about to be replaced by a new
 Electron needs `sudo`, so `sudo -v` is taken up front. The later calls
 are `sudo -n`: should the ticket be gone, they fail at once instead of
 stopping at a prompt.
+
+## MP-79 — VUE-06's parentheses stay in the template
+
+**Scope:** VUE-06 and FMT-27, [vue-formatting.md](vue2/vue-formatting.md),
+[FORMATTING.md](FORMATTING.md).
+**Approved:** 2026-10-15, voice comment `20261015_125917-me`: the rule is
+"only for the template, for v-if, because otherwise it is harder to
+notice".
+
+VUE-06 wraps a compound directive value in parentheses only in a
+template, where inside an attribute's quotes it is easy to miss. A
+condition moved out of a `v-if` into a computed or a method loses them
+and follows FMT-27: `return !is_ready && !is_gone;`.

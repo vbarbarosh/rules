@@ -2013,9 +2013,12 @@ function upload_post(req, res)
 </article>
 <article class="rule" id="FMT-27">
 <a class="code" href="#FMT-27">FMT-27</a>
-<div class="text"><p><strong>Parenthesize compound operands in logic.</strong> In a logical expression (<code>&amp;&amp;</code>, <code>||</code>, <code>??</code>) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses. A simple operand — identifier, member access, call, template literal, unary negation — stays bare, and a chain of one logical operator is one expression. A ternary given whole — a value, an argument, a return — stays bare too: it is wrapped only as an operand of another operator. A Vue directive keeps its parentheses (VUE-06).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Parenthesize compound operands in logic.</strong> In a logical expression (<code>&amp;&amp;</code>, <code>||</code>, <code>??</code>) and in the condition of a ternary, an operand that carries an operator of its own is wrapped in parentheses. A simple operand — identifier, member access, call, template literal, unary negation — stays bare, and a chain of one logical operator is one expression. A ternary given whole — a value, an argument, a return — stays bare too: it is wrapped only as an operand of another operator. A Vue directive keeps its parentheses (VUE-06), and only a directive: a condition moved out of a <code>v-if</code> into a computed or a method loses them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/FORMATTING.md" title="FORMATTING.md">FORMATTING.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>return is_dev &#124;&#124; i === end - 1;     <span class="no">✗ no</span>
 return is_dev &#124;&#124; (i === end - 1);   <span class="yes">✓ yes</span>
+
+return (!is_ready &amp;&amp; !is_gone);   <span class="no">✗ no</span>
+return !is_ready &amp;&amp; !is_gone;     <span class="yes">✓ yes</span>
 
 (state === 'done') ? 'ok' : 'wait'
 
@@ -3038,7 +3041,7 @@ emit_input(value) <span class="cmt">// return a value from an input</span></pre>
 </article>
 <article class="rule" id="VUE-06">
 <a class="code" href="#VUE-06">VUE-06</a>
-<div class="text"><p><strong>Compound directive values in parentheses.</strong> A simple directive value stays bare; a compound one is wrapped in parentheses. Every directive — <code>v-if</code>, <code>v-else-if</code>, <code>v-show</code>, <code>v-on</code>, <code>v-bind</code>. Simple is a single identifier, member access, method call, template literal or unary negation; compound is anything carrying a binary operator or a ternary.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-formatting.md" title="vue2/vue-formatting.md">vue-formatting.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="text"><p><strong>Compound directive values in parentheses.</strong> A simple directive value stays bare; a compound one is wrapped in parentheses. Every directive — <code>v-if</code>, <code>v-else-if</code>, <code>v-show</code>, <code>v-on</code>, <code>v-bind</code>. Simple is a single identifier, member access, method call, template literal or unary negation; compound is anything carrying a binary operator or a ternary. Only in a template: inside an attribute's quotes a compound value is easy to miss, and the parentheses show it. The same value moved into script, a computed or a method, loses them and follows FMT-27.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/vue2/vue-formatting.md" title="vue2/vue-formatting.md">vue-formatting.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&lt;template v-if="is_ready"&gt;
 &lt;template v-if="(is_loading_fonts &#124;&#124; is_loading_images)"&gt;
 &lt;div v-bind:class="(compact ? 'narrow' : 'wide')" /&gt;</pre><button class="copy" type="button">Copy</button></div>

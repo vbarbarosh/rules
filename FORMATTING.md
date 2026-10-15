@@ -193,16 +193,19 @@ project, so all JavaScript code follows the same conventions.
     * A chain of one logical operator is one expression: `a && b && c` stays bare
     * A ternary given whole — a value, an argument, a return — stays bare: it is wrapped only as an operand of another operator, where precedence needs it
     * A Vue directive keeps its parentheses: VUE-06 wraps a compound directive value, a ternary included
+    * Only a directive: a condition moved out of a `v-if` into a computed or a method loses its parentheses
     * Example:
 
       ```
       // BAD
       return this.dev.is_ai_chat_dev || i === this.messages.length - 1;
+      return (!this.is_iframe_ready && !this.is_iframe_gone);
       const pressed = button.dataset.set === theme ? 'true' : 'false';
       api_showcases_create: (location.search.includes('showcase=api') ? '/api/v1/showcases/insupdel' : null),
 
       // GOOD
       return this.dev.is_ai_chat_dev || (i === this.messages.length - 1);
+      return !this.is_iframe_ready && !this.is_iframe_gone;
       const pressed = (button.dataset.set === theme) ? 'true' : 'false';
       api_showcases_create: location.search.includes('showcase=api') ? '/api/v1/showcases/insupdel' : null,
       ```

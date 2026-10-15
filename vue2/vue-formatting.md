@@ -42,3 +42,11 @@ parentheses. Every directive — `v-if`, `v-else-if`, `v-show`, `v-on`, `v-bind`
 Simple is a single identifier, member access, method call, template literal, or
 unary negation — `v-if="ready"`, `v-if="!ready"`, `v-bind:items="selection.items"`.
 Compound is anything carrying a binary operator or a ternary.
+
+Only in a template: inside an attribute's quotes a compound value is easy to
+miss, and the parentheses show it. The same value moved into script, a
+computed or a method, loses them and follows FMT-27:
+
+    is_spinner_shown: function () {
+        return !this.is_iframe_ready && !this.is_iframe_gone;
+    },
