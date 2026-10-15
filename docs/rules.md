@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-280 rules · 18 groups · 55 sources · filterable version: [rules.html](rules.html)
+283 rules · 18 groups · 56 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 
@@ -32,7 +32,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CSS | Classes and styles | 13 | A fixed class order; every class has a rule. |
 | SQL | SQL queries | 6 | MySQL: upper-case keywords; the query laid out like code. |
 | VUE | Vue 2 | 24 | Components that behave like the platform. |
-| UI | UI appearance | 8 | How a screen looks. |
+| UI | UI appearance | 11 | How a screen looks. |
 | UIM | UI mechanics | 15 | How a screen works. |
 | DOC | Writing the rules | 14 | How a document in this repo is built. |
 | LINT | Stated by the linter | 11 | Rules that only LINTING.md and the preset spell out. |
@@ -294,6 +294,9 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | UI-06 | **Every project page opens with the same header.** The project on the left; GitHub and the theme switch on the right; search and section links between them, the search lined up with the content column. | ![the parts of a page header, left to right](../drafts/page-header-structure.png) | [page_header.md](../drafts/page_header.md) |
 | UI-07 | **Left: icon, name, version.** The project's icon when it has one, its name, and its released version. | <pre>&#91;icon]  Authwall Docs  v1.16.0</pre> ![A header with the icon, the name Authwall Docs and the released version v1.16.0; an unreleased version beside it](../img/rules/ui_header_left_icon_name_version.svg) | [page_header.md](../drafts/page_header.md) |
 | UI-08 | **Right: the links, then the theme switch, always last.** The GitHub icon links to the repository; other links, such as Twitter or Facebook, sit beside it. However many links a project has, the switch stays at the right edge, the same on every page. The icons look alike: one size, no frame on any of them. | <pre>&#91;GitHub]  &#91;Twitter]  &#91;Current theme icon]</pre> ![Headers with two links and with one, the theme switch last at the right edge in both](../img/rules/ui_header_right_links_then_switch.svg) | [page_header.md](../drafts/page_header.md) |
+| UI-21 | **A table that turns into a grid is redone.** When cells wrap over several lines, words or paths break in the middle, or columns are cut off, the table has more details than one screen can show as columns; narrowing or adding columns does not help. It is redone as UI-22 and UI-23 say. | ![on the left a table of four columns whose paths and states break mid-word into a grid; on the right the same rows with only Name and State, one row opened to show its details under it](../drafts/table-details.png) | [table_details.md](../drafts/table_details.md) |
+| UI-22 | **The row shows what it is and its state.** On top stay only the columns that tell what a row is and what state it is in: a name, a status. A row of them reads at a glance, on one line; everything else is a detail. | <pre>▸ logs                      ● ready<br>▸ held                      ○ socket taken</pre> | [table_details.md](../drafts/table_details.md) |
+| UI-23 | **A click opens the details below the row.** A click on the row opens its details right under it, as wide as the table: one line per detail, its label and its value, as many as there are; a long value wraps there whole. Another click closes them; the row clicked stays where it was (UIM-01). | <pre>▾ charts-on-the-other-side  ● ready<br>    Listens on    laptop · ~/charts.sock<br>    Carried to    vps1 · 127.0.0.1:41941<br>    Last failure  ECONNRESET, 10:42</pre> | [table_details.md](../drafts/table_details.md) |
 | **UIM** | **UI mechanics** — How a screen works. | | |
 | UIM-01 | **Nothing jumps.** In a list or a grid, the item the reader works with, the one selected or being looked at, stays where it is on the screen while the app adds, removes or grows items above, below or beside it — a new message, a summary that finishes loading; the scroll position adjusts instead, as far as the list's ends allow. A control that docks or hides as the page scrolls is outside this rule. | ![a summary grows above; on the left the message being read drops, on the right it stays](../drafts/scroll-anchoring.gif) [▶ Try it](../drafts/scroll-anchoring.html) | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |
 | UIM-02 | **Keep the place yourself; the browser won't.** Before such a change, note the element in the middle of the view and where it is on the screen; after the change, scroll by however far it moved. The browser keeps the place only when the change is entirely above the view: not at the very top, not when the growing block is itself on screen, not after a re-render. | <pre>const keep = scroll_keep(scroller);<br>await keep(async function () {<br>    summary.text = text;<br>    await vm.$nextTick();<br>});</pre> ![A block above grows: alone the browser lets the line being read move 120 px; scroll_keep holds it at 0 px](../img/rules/uim_keep_the_place.svg) [▶ Try it](../drafts/scroll-anchoring.html) | [scroll_anchoring.md](../drafts/scroll_anchoring.md) |

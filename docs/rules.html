@@ -1269,7 +1269,7 @@ footer .lead {
     </div>
     <h1>The Rule Index</h1>
     <p class="lede">Every rule in this repository, stated once, in one table. Each row cites the document it came from; that document stays the source of truth.</p>
-    <p class="stats"><b>280</b> rules<i>·</i><b>18</b> groups<i>·</i><b>55</b> sources</p>
+    <p class="stats"><b>283</b> rules<i>·</i><b>18</b> groups<i>·</i><b>56</b> sources</p>
 </div>
 </header>
 
@@ -1278,7 +1278,7 @@ footer .lead {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter rules, e.g. brace, _by_, logs.md" aria-label="Filter rules">
         </label>
-        <span class="count" id="count">280 rules</span>
+        <span class="count" id="count">283 rules</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the rules shown, as Markdown">Copy</button>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
@@ -1309,7 +1309,7 @@ footer .lead {
 <a href="#CSS" data-group="CSS"><span class="tag">CSS</span><span class="name">Classes and styles</span><span class="n">13</span></a>
 <a href="#SQL" data-group="SQL"><span class="tag">SQL</span><span class="name">SQL queries</span><span class="n">6</span></a>
 <a href="#VUE" data-group="VUE"><span class="tag">VUE</span><span class="name">Vue 2</span><span class="n">24</span></a>
-<a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">UI appearance</span><span class="n">8</span></a>
+<a href="#UI" data-group="UI"><span class="tag">UI</span><span class="name">UI appearance</span><span class="n">11</span></a>
 <a href="#UIM" data-group="UIM"><span class="tag">UIM</span><span class="name">UI mechanics</span><span class="n">15</span></a>
 <a href="#DOC" data-group="DOC"><span class="tag">DOC</span><span class="name">Writing the rules</span><span class="n">14</span></a>
 <a href="#LINT" data-group="LINT"><span class="tag">LINT</span><span class="name">Stated by the linter</span><span class="n">11</span></a>
@@ -3239,6 +3239,25 @@ badge-no-reply</pre><button class="copy" type="button">Copy</button></div>
 <div class="text"><p><strong>Right: the links, then the theme switch, always last.</strong> The GitHub icon links to the repository; other links, such as Twitter or Facebook, sit beside it. However many links a project has, the switch stays at the right edge, the same on every page. The icons look alike: one size, no frame on any of them.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/page_header.md" title="drafts/page_header.md">page_header.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
 <div class="form"><pre>&#91;GitHub]  &#91;Twitter]  &#91;Current theme icon]</pre><button class="copy" type="button">Copy</button></div>
 <div class="figures"><a class="figure" href="../img/rules/ui_header_right_links_then_switch.svg"><img class="light" src="../img/rules/ui_header_right_links_then_switch.svg" alt="Headers with two links and with one, the theme switch last at the right edge in both" width="1200" height="560" loading="lazy"><img class="dark" src="../img/rules/ui_header_right_links_then_switch-dark.svg" alt="Headers with two links and with one, the theme switch last at the right edge in both" width="1200" height="560" loading="lazy"></a></div>
+</article>
+<article class="rule" id="UI-21">
+<a class="code" href="#UI-21">UI-21</a>
+<div class="text"><p><strong>A table that turns into a grid is redone.</strong> When cells wrap over several lines, words or paths break in the middle, or columns are cut off, the table has more details than one screen can show as columns; narrowing or adding columns does not help. It is redone as UI-22 and UI-23 say.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/table_details.md" title="drafts/table_details.md">table_details.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<a class="form figure" href="../drafts/table-details.png"><img class="light" src="../drafts/table-details.png" alt="on the left a table of four columns whose paths and states break mid-word into a grid; on the right the same rows with only Name and State, one row opened to show its details under it" width="2560" height="1404" loading="lazy"><img class="dark" src="../drafts/table-details-dark.png" alt="on the left a table of four columns whose paths and states break mid-word into a grid; on the right the same rows with only Name and State, one row opened to show its details under it" width="2560" height="1404" loading="lazy"></a>
+</article>
+<article class="rule" id="UI-22">
+<a class="code" href="#UI-22">UI-22</a>
+<div class="text"><p><strong>The row shows what it is and its state.</strong> On top stay only the columns that tell what a row is and what state it is in: a name, a status. A row of them reads at a glance, on one line; everything else is a detail.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/table_details.md" title="drafts/table_details.md">table_details.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>▸ logs                      ● ready
+▸ held                      ○ socket taken</pre><button class="copy" type="button">Copy</button></div>
+</article>
+<article class="rule" id="UI-23">
+<a class="code" href="#UI-23">UI-23</a>
+<div class="text"><p><strong>A click opens the details below the row.</strong> A click on the row opens its details right under it, as wide as the table: one line per detail, its label and its value, as many as there are; a long value wraps there whole. Another click closes them; the row clicked stays where it was (UIM-01).</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/drafts/table_details.md" title="drafts/table_details.md">table_details.md</a><button class="copy-rule" type="button" title="Copy this rule as Markdown">Copy</button></div>
+<div class="form"><pre>▾ charts-on-the-other-side  ● ready
+    Listens on    laptop · ~/charts.sock
+    Carried to    vps1 · 127.0.0.1:41941
+    Last failure  ECONNRESET, 10:42</pre><button class="copy" type="button">Copy</button></div>
 </article>
 </section>
 <section class="group" id="UIM">

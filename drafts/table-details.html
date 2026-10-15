@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Table details</title>
+<style>
+:root {
+    --bg: #f3f0e8;
+    --paper: #fffdf7;
+    --ink: #172019;
+    --muted: #687168;
+    --line: #c9cec4;
+    --open: #eeebe2;
+    --accent: #3d62ff;
+    --no: #d63b3b;
+    --yes: #2f8a4a;
+}
+
+html[data-theme="dark"] {
+    --bg: #0f1713;
+    --paper: #14201a;
+    --ink: #f4f6ed;
+    --muted: #91a196;
+    --line: #2c3c33;
+    --open: #1e2d25;
+    --accent: #82a0ff;
+    --no: #ff6b6b;
+    --yes: #5fd08a;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body { margin: 0; width: 1280px; }
+
+body {
+    padding: 48px 72px 52px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.title { margin-bottom: 28px; font-size: 40px; font-weight: 900; letter-spacing: -0.04em; }
+
+.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+.caption { margin-bottom: 12px; font-size: 22px; font-weight: 800; }
+
+.caption.no { color: var(--no); }
+
+.caption.yes { color: var(--yes); }
+
+.caption span { font-weight: 400; color: var(--muted); }
+
+.screen { height: 440px; padding: 14px 18px; border: 2px solid var(--ink); background: var(--paper); overflow: hidden; }
+
+table { width: 100%; border-collapse: collapse; font-size: 16px; }
+
+th { padding: 8px 6px; border-bottom: 1px solid var(--line); font-weight: 400; text-align: left; color: var(--muted); }
+
+td { padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+
+.mono { font-family: ui-monospace, Menlo, monospace; font-size: 15px; }
+
+.grid td { word-break: break-all; }
+
+.grid th:nth-child(1),
+.grid td:nth-child(1) { width: 27%; }
+
+.grid th:nth-child(2),
+.grid td:nth-child(2) { width: 29%; }
+
+.grid th:nth-child(3),
+.grid td:nth-child(3) { width: 26%; }
+
+.muted { color: var(--muted); }
+
+.dot { display: inline-block; width: 11px; height: 11px; margin-right: 6px; border-radius: 50%; background: var(--yes); }
+
+.dot.is-off { border: 2px solid var(--muted); background: none; }
+
+.bad { color: var(--no); }
+
+.chevron { width: 26px; color: var(--muted); }
+
+tr.is-open td { border-bottom: 0; background: var(--open); font-weight: 700; }
+
+.details td { padding: 4px 16px 14px 38px; background: var(--open); }
+
+.details dl { display: grid; grid-template-columns: 112px 1fr; gap: 6px 12px; margin: 0; font-size: 15px; }
+
+.details dt { color: var(--muted); }
+
+.details dd { margin: 0; overflow-wrap: anywhere; }
+
+.foot { margin-top: 26px; font-size: 18px; color: var(--muted); }
+
+.foot b { color: var(--ink); }
+</style>
+<script>
+if (location.search === '?dark') {
+    document.documentElement.dataset.theme = 'dark';
+}
+</script>
+</head>
+<body>
+<div class="title">A table turned grid: what it is and its state; the rest below</div>
+<div class="panels">
+    <div>
+        <div class="caption no">✗ Not this <span>every detail a column, broken mid-word</span></div>
+        <div class="screen">
+            <table class="grid">
+                <tr><th>Name</th><th>Listens on</th><th>Carried to</th><th>Now</th></tr>
+                <tr><td class="mono">logs</td><td class="mono"><span class="muted">laptop ·</span> ~/.cache/relay/logs.sock</td><td class="mono"><span class="muted">vps1 ·</span> 46457</td><td><span class="dot"></span>ready</td></tr>
+                <tr><td class="mono">charts-on-the-other-side</td><td class="mono"><span class="muted">laptop ·</span> ~/.cache/relay/a-long-folder/charts.sock</td><td class="mono"><span class="muted">vps1 ·</span> 127.0.0.1:41941</td><td><span class="dot"></span>ready <span class="muted">last failure ECONNRESET</span></td></tr>
+                <tr><td class="mono">held</td><td class="mono"><span class="muted">laptop ·</span> ~/.cache/relay/held.sock</td><td class="mono"><span class="muted">vps1 ·</span> 5432</td><td class="bad"><span class="dot is-off"></span>socket taken</td></tr>
+                <tr><td class="mono">cache</td><td class="mono"><span class="muted">laptop ·</span> 16379</td><td class="mono"><span class="muted">vps2 ·</span> 6379</td><td class="bad"><span class="dot is-off"></span>vps2 offline</td></tr>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="caption yes">✓ This <span>a click opens the row's details below it</span></div>
+        <div class="screen">
+            <table>
+                <tr><th class="chevron"></th><th>Name</th><th>State</th></tr>
+                <tr><td class="chevron">▸</td><td class="mono">logs</td><td><span class="dot"></span>ready</td></tr>
+                <tr class="is-open"><td class="chevron">▾</td><td class="mono">charts-on-the-other-side</td><td><span class="dot"></span>ready</td></tr>
+                <tr class="details"><td colspan="3"><dl>
+                    <dt>Listens on</dt><dd class="mono">laptop · ~/.cache/relay/a-long-folder/charts.sock</dd>
+                    <dt>Carried to</dt><dd class="mono">vps1 · 127.0.0.1:41941</dd>
+                    <dt>Last failure</dt><dd>ECONNRESET, 10:42</dd>
+                    <dt>Up since</dt><dd>Yesterday 18:05</dd>
+                </dl></td></tr>
+                <tr><td class="chevron">▸</td><td class="mono">held</td><td class="bad"><span class="dot is-off"></span>socket taken</td></tr>
+                <tr><td class="chevron">▸</td><td class="mono">cache</td><td class="bad"><span class="dot is-off"></span>vps2 offline</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="foot"><b>On top, only what says what a row is and its state.</b> Every other detail opens under the row, as many as there are.</div>
+</body>
+</html>
