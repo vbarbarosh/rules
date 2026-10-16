@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 568" width="1000" height="568" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="568" fill="#1E1D21"/>
+<text x="20" y="46" font-size="26" fill="#E8E6DC" font-weight="700">Kanban board: the checkout&#39;s work this week</text>
+<text x="20" y="82" font-size="18" fill="#BAB8AB">Where each piece of work is: a column per stage, a card per piece, a limit on Doing.</text>
+<rect x="20" y="106" width="229" height="354" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="36" y="140" font-size="20" fill="#E8E6DC" font-weight="700">To do</text>
+<text x="233" y="140" font-size="18" fill="#BAB8AB" font-weight="700" text-anchor="end">4</text>
+<rect x="32" y="158" width="205" height="76" rx="6" fill="#2E2D33" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="50" y="188" font-size="18" fill="#E8E6DC" font-weight="700">Saved cards</text>
+<text x="50" y="216" font-size="18" fill="#BAB8AB">by me</text>
+<rect x="32" y="246" width="205" height="76" rx="6" fill="#2E2D33" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="50" y="276" font-size="18" fill="#E8E6DC" font-weight="700">Receipt e-mail</text>
+<text x="50" y="304" font-size="18" fill="#BAB8AB">by me</text>
+<rect x="32" y="334" width="205" height="76" rx="6" fill="#2E2D33" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="50" y="364" font-size="18" fill="#E8E6DC" font-weight="700">Coupon field</text>
+<text x="50" y="392" font-size="18" fill="#BAB8AB">by you</text>
+<text x="50" y="446" font-size="18" fill="#BAB8AB">+ 1 more</text>
+<rect x="263" y="106" width="229" height="354" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="279" y="140" font-size="20" fill="#E8E6DC" font-weight="700">Doing</text>
+<text x="476" y="140" font-size="18" fill="#6E9BF5" font-weight="700" text-anchor="end">3 of 3</text>
+<rect x="275" y="158" width="205" height="76" rx="6" fill="#2E2D33" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="293" y="188" font-size="18" fill="#E8E6DC" font-weight="700">Apple Pay</text>
+<text x="293" y="216" font-size="18" fill="#BAB8AB">by me · 2 days</text>
+<rect x="275" y="246" width="205" height="76" rx="6" fill="#2E2D33" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="293" y="276" font-size="18" fill="#E8E6DC" font-weight="700">Tax by country</text>
+<text x="293" y="304" font-size="18" fill="#BAB8AB">by me · 1 day</text>
+<rect x="275" y="334" width="205" height="76" rx="6" fill="#2E2D33" stroke="#F06A62" stroke-width="1.5"/>
+<rect x="275" y="334" width="6" height="76" rx="3" fill="#F06A62"/>
+<text x="293" y="364" font-size="18" fill="#E8E6DC" font-weight="700">Bank payouts</text>
+<text x="293" y="392" font-size="18" fill="#F06A62">blocked 3 days</text>
+<rect x="506" y="106" width="229" height="354" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="522" y="140" font-size="20" fill="#E8E6DC" font-weight="700">Review</text>
+<text x="719" y="140" font-size="18" fill="#BAB8AB" font-weight="700" text-anchor="end">1</text>
+<rect x="518" y="158" width="205" height="76" rx="6" fill="#3D2A1D" stroke="#F08C4A" stroke-width="1.5"/>
+<rect x="518" y="158" width="6" height="76" rx="3" fill="#F08C4A"/>
+<text x="536" y="188" font-size="18" fill="#E8E6DC" font-weight="700">Fees text</text>
+<text x="536" y="216" font-size="18" fill="#F08C4A">waits on you</text>
+<rect x="749" y="106" width="229" height="354" rx="8" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5"/>
+<text x="765" y="140" font-size="20" fill="#E8E6DC" font-weight="700">Done</text>
+<text x="962" y="140" font-size="18" fill="#BAB8AB" font-weight="700" text-anchor="end">5</text>
+<rect x="761" y="158" width="205" height="76" rx="6" fill="#2E2D33" stroke="#5E5C4E" stroke-width="1.5"/>
+<path d="M936 182 L941 187 L950 177" fill="none" stroke="#5CC26A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="779" y="188" font-size="18" fill="#E8E6DC" font-weight="700">Card form</text>
+<text x="779" y="216" font-size="18" fill="#BAB8AB">10-12</text>
+<rect x="761" y="246" width="205" height="76" rx="6" fill="#2E2D33" stroke="#5E5C4E" stroke-width="1.5"/>
+<path d="M936 270 L941 275 L950 265" fill="none" stroke="#5CC26A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="779" y="276" font-size="18" fill="#E8E6DC" font-weight="700">Refunds</text>
+<text x="779" y="304" font-size="18" fill="#BAB8AB">10-14</text>
+<text x="779" y="358" font-size="18" fill="#BAB8AB">+ 3 more</text>
+<rect x="20" y="480" width="960" height="68" rx="8" fill="#1E2A4A" stroke="#6E9BF5" stroke-width="1.5"/>
+<text x="40" y="521" font-size="18" fill="#E8E6DC"><tspan font-weight="700" fill="#6E9BF5">Now</tspan><tspan dx="14">Doing is full. Bank payouts waits on the bank; the fees text waits on you.</tspan></text>
+</svg>
