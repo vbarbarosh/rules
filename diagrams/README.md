@@ -11,6 +11,7 @@ what it shows, when it fits and when it does not, its parts, how it is drawn.
 - [questions.md](questions.md) — what is known and what is not: how a thing works stage by stage, the facts in green, the open questions in amber where they arise
 - [timeline.md](timeline.md) — what happened when, from a log: one line of time, each event at its moment
 - [milestone.md](milestone.md) — where a goal stands: its steps as dots on one line, done green, now blue, ahead grey, and who each waits on
+- [roadmap.md](roadmap.md) — what is planned when: the months on one line, a lane per area of work, a bar per piece, a red line for today; done green, under way blue, at risk amber, planned grey
 - [kanban.md](kanban.md) — where each piece of work is: a column per stage, a card per piece, a limit on Doing; what waits on you in amber, what is blocked in red
 - [containers.md](containers.md) — which parts exist, where each runs, what goes between them (C4 containers)
 - [entities.md](entities.md) — what data there is and how it links: a box per kind, 1 and n at the ends
