@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 722" width="1000" height="722" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="722" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Cause tree: why customers were charged twice</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">Each row down says why; amber is the root cause, grey ruled out, green the fix.</text>
+<rect x="20" y="106" width="960" height="510" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<path d="M500 228 H181 V250" fill="none" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M500 228 H819 V250" fill="none" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M500 348 H181 V370" fill="none" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<line x1="500" y1="206" x2="500" y2="250" stroke="#5C5A55" stroke-width="2"/>
+<line x1="500" y1="326" x2="500" y2="370" stroke="#5C5A55" stroke-width="2"/>
+<line x1="500" y1="446" x2="500" y2="490" stroke="#5C5A55" stroke-width="2"/>
+<line x1="645" y1="542" x2="674" y2="542" stroke="#2B8A3E" stroke-width="2.5"/>
+<rect x="355" y="130" width="290" height="76" rx="6" fill="#C92A2A"/>
+<text x="373" y="162" font-size="18" fill="#F1EFEB" font-weight="700">Customers charged twice</text>
+<text x="373" y="190" font-size="18" fill="#F1EFEB">38 orders on 10-14</text>
+<rect x="36" y="250" width="290" height="76" rx="6" fill="#F1EFEB" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="54" y="282" font-size="18" fill="#5C5A55" font-weight="700">The provider retried</text>
+<text x="54" y="310" font-size="18" fill="#5C5A55">ruled out: one call each</text>
+<rect x="355" y="250" width="290" height="76" rx="6" fill="#FBFAF8" stroke="#5C5A55" stroke-width="2"/>
+<text x="373" y="282" font-size="18" fill="#1F1E1C" font-weight="700">Pay button sent twice</text>
+<text x="373" y="310" font-size="18" fill="#5C5A55">two requests 0.4 s apart</text>
+<rect x="674" y="250" width="290" height="76" rx="6" fill="#F1EFEB" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="692" y="282" font-size="18" fill="#5C5A55" font-weight="700">A reload resent it</text>
+<text x="692" y="310" font-size="18" fill="#5C5A55">ruled out: no reloads</text>
+<rect x="36" y="370" width="290" height="76" rx="6" fill="#F1EFEB" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="54" y="402" font-size="18" fill="#5C5A55" font-weight="700">The mobile app retried</text>
+<text x="54" y="430" font-size="18" fill="#5C5A55">ruled out: all 38 on web</text>
+<rect x="355" y="370" width="290" height="76" rx="6" fill="#FBFAF8" stroke="#5C5A55" stroke-width="2"/>
+<text x="373" y="402" font-size="18" fill="#1F1E1C" font-weight="700">Button stays enabled</text>
+<text x="373" y="430" font-size="18" fill="#5C5A55">for the 1.8 s it waits</text>
+<rect x="355" y="490" width="290" height="104" rx="6" fill="#FCE4D6" stroke="#C2410C" stroke-width="2.5"/>
+<text x="373" y="522" font-size="18" fill="#C2410C" font-weight="700">Spinner shows only</text>
+<text x="373" y="548" font-size="18" fill="#C2410C" font-weight="700">after the reply</text>
+<text x="373" y="576" font-size="18" fill="#C2410C">the root cause</text>
+<rect x="674" y="490" width="290" height="104" rx="6" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="2"/>
+<text x="692" y="522" font-size="18" fill="#2B8A3E" font-weight="700">Fix: disable the button</text>
+<text x="692" y="548" font-size="18" fill="#2B8A3E" font-weight="700">on the first click</text>
+<text x="692" y="576" font-size="18" fill="#1F1E1C">show the spinner at once</text>
+<rect x="20" y="636" width="960" height="68" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="40" y="677" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Now</tspan><tspan dx="14">A second click gets through while the button waits; disable it on the first click.</tspan></text>
+</svg>

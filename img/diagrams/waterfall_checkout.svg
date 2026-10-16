@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 644" width="1000" height="644" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="644" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Trace: POST /checkout, 1840 ms</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">A row per span, indented under its caller; red is the slowest, amber a wait.</text>
+<rect x="20" y="106" width="960" height="434" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="40" y="140" font-size="18" fill="#5C5A55" font-weight="700">Span</text>
+<text x="410" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="end">ms</text>
+<text x="436" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">0</text>
+<text x="571" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">500</text>
+<text x="706" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">1000</text>
+<text x="841" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">1500</text>
+<line x1="36" y1="154" x2="964" y2="154" stroke="#BDB9B1" stroke-width="1.5"/>
+<rect x="517" y="208" width="43" height="276" fill="#FCE4D6"/>
+<line x1="436" y1="158" x2="436" y2="484" stroke="#BDB9B1" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="571" y1="158" x2="571" y2="484" stroke="#BDB9B1" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="706" y1="158" x2="706" y2="484" stroke="#BDB9B1" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="841" y1="158" x2="841" y2="484" stroke="#BDB9B1" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="40" y="191" font-size="18" fill="#1F1E1C" font-weight="700">api<tspan dx="8" fill="#5C5A55" font-weight="400">POST /checkout</tspan></text>
+<text x="410" y="191" font-size="18" fill="#1F1E1C" text-anchor="end">1840</text>
+<rect x="436" y="172" width="497" height="26" rx="4" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="64" y="237" font-size="18" fill="#1F1E1C" font-weight="700">auth<tspan dx="8" fill="#5C5A55" font-weight="400">check token</tspan></text>
+<text x="410" y="237" font-size="18" fill="#1F1E1C" text-anchor="end">40</text>
+<rect x="439" y="218" width="11" height="26" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="64" y="283" font-size="18" fill="#1F1E1C" font-weight="700">cart service<tspan dx="8" fill="#5C5A55" font-weight="400">load cart</tspan></text>
+<text x="410" y="283" font-size="18" fill="#1F1E1C" text-anchor="end">240</text>
+<rect x="452" y="264" width="65" height="26" rx="4" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="88" y="329" font-size="18" fill="#1F1E1C" font-weight="700">database<tspan dx="8" fill="#5C5A55" font-weight="400">read cart</tspan></text>
+<text x="410" y="329" font-size="18" fill="#1F1E1C" text-anchor="end">180</text>
+<rect x="460" y="310" width="49" height="26" rx="4" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="64" y="375" font-size="18" fill="#C92A2A" font-weight="700">payment provider<tspan dx="8" fill="#5C5A55" font-weight="400">charge card</tspan></text>
+<text x="410" y="375" font-size="18" fill="#C92A2A" font-weight="700" text-anchor="end">1200</text>
+<rect x="560" y="356" width="324" height="26" rx="4" fill="#C92A2A" stroke="#C92A2A" stroke-width="1.5"/>
+<text x="64" y="421" font-size="18" fill="#1F1E1C" font-weight="700">database<tspan dx="8" fill="#5C5A55" font-weight="400">save order</tspan></text>
+<text x="410" y="421" font-size="18" fill="#1F1E1C" text-anchor="end">80</text>
+<rect x="890" y="402" width="22" height="26" rx="4" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="64" y="467" font-size="18" fill="#1F1E1C" font-weight="700">mail queue<tspan dx="8" fill="#5C5A55" font-weight="400">receipt queued</tspan></text>
+<text x="410" y="467" font-size="18" fill="#1F1E1C" text-anchor="end">30</text>
+<rect x="914" y="448" width="8" height="26" rx="3" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<rect x="464" y="494" width="150" height="30" rx="15" fill="#C2410C"/>
+<text x="539" y="515" font-size="18" fill="#F1EFEB" font-weight="700" text-anchor="middle">waits 160 ms</text>
+<rect x="20" y="558" width="960" height="68" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="40" y="599" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Now</tspan><tspan dx="14">The payment provider takes 1200 of the 1840 ms; 160 ms before it is a wait.</tspan></text>
+</svg>

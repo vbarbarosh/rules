@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 804" width="1000" height="804" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="804" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Change map: the coupon field commit</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">Green + added, blue ~ changed, red − removed; … folds what the commit leaves alone.</text>
+<rect x="20" y="106" width="960" height="594" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="40" y="142" font-size="20" fill="#1F1E1C" font-weight="700">6 files<tspan dx="22" font-size="18" fill="#2B8A3E">3 added</tspan><tspan dx="18" font-size="18" fill="#2B3FBF">2 changed</tspan><tspan dx="18" font-size="18" fill="#C92A2A">1 removed</tspan></text>
+<text x="628" y="142" font-size="20" fill="#2B8A3E" font-weight="700" text-anchor="end">+312</text>
+<text x="706" y="142" font-size="20" fill="#C92A2A" font-weight="700" text-anchor="end">−148</text>
+<text x="736" y="142" font-size="18" fill="#5C5A55">lines</text>
+<line x1="36" y1="164" x2="964" y2="164" stroke="#BDB9B1" stroke-width="1.5"/>
+<path d="M48 214V670" fill="none" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="48" y1="228" x2="60" y2="228" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="48" y1="534" x2="60" y2="534" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="48" y1="602" x2="60" y2="602" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="48" y1="670" x2="60" y2="670" stroke="#BDB9B1" stroke-width="1.5"/>
+<path d="M78 248V500" fill="none" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="78" y1="262" x2="90" y2="262" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="78" y1="398" x2="90" y2="398" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="78" y1="500" x2="90" y2="500" stroke="#BDB9B1" stroke-width="1.5"/>
+<path d="M108 282V364" fill="none" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="108" y1="296" x2="120" y2="296" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="108" y1="330" x2="120" y2="330" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="108" y1="364" x2="120" y2="364" stroke="#BDB9B1" stroke-width="1.5"/>
+<path d="M108 418V466" fill="none" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="108" y1="432" x2="120" y2="432" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="108" y1="466" x2="120" y2="466" stroke="#BDB9B1" stroke-width="1.5"/>
+<path d="M78 554V568" fill="none" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="78" y1="568" x2="90" y2="568" stroke="#BDB9B1" stroke-width="1.5"/>
+<path d="M78 622V636" fill="none" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="78" y1="636" x2="90" y2="636" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="40" y="200" font-size="18" fill="#1F1E1C" font-weight="700">shop/</text>
+<text x="70" y="234" font-size="18" fill="#1F1E1C" font-weight="700">src/</text>
+<text x="100" y="268" font-size="18" fill="#1F1E1C" font-weight="700">api/</text>
+<text x="130" y="302" font-size="18" fill="#2B8A3E"><tspan font-weight="700">+</tspan><tspan dx="10">coupons.js</tspan></text>
+<text x="628" y="302" font-size="18" fill="#2B8A3E" text-anchor="end">+64</text>
+<rect x="736" y="288" width="115" height="14" rx="2" fill="#2B8A3E"/>
+<text x="130" y="336" font-size="18" fill="#C92A2A"><tspan font-weight="700">−</tspan><tspan dx="10" text-decoration="line-through">old-discounts.js</tspan></text>
+<text x="706" y="336" font-size="18" fill="#C92A2A" text-anchor="end">−92</text>
+<rect x="736" y="322" width="166" height="14" rx="2" fill="#C92A2A"/>
+<text x="130" y="370" font-size="18" fill="#5C5A55">… 4 more files</text>
+<text x="100" y="404" font-size="18" fill="#1F1E1C" font-weight="700">checkout/</text>
+<text x="130" y="438" font-size="18" fill="#2B3FBF"><tspan font-weight="700">~</tspan><tspan dx="10">checkout.vue</tspan></text>
+<text x="628" y="438" font-size="18" fill="#2B8A3E" text-anchor="end">+18</text>
+<text x="706" y="438" font-size="18" fill="#C92A2A" text-anchor="end">−27</text>
+<rect x="736" y="424" width="32" height="14" rx="2" fill="#2B8A3E"/>
+<rect x="768" y="424" width="49" height="14" rx="2" fill="#C92A2A"/>
+<text x="130" y="472" font-size="18" fill="#2B8A3E"><tspan font-weight="700">+</tspan><tspan dx="10">coupon-field.vue</tspan></text>
+<text x="628" y="472" font-size="18" fill="#2B8A3E" text-anchor="end">+121</text>
+<rect x="736" y="458" width="218" height="14" rx="2" fill="#2B8A3E"/>
+<text x="100" y="506" font-size="18" fill="#5C5A55">… components/, pages/, store/</text>
+<text x="70" y="540" font-size="18" fill="#1F1E1C" font-weight="700">tests/</text>
+<text x="100" y="574" font-size="18" fill="#2B8A3E"><tspan font-weight="700">+</tspan><tspan dx="10">coupon.test.js</tspan></text>
+<text x="628" y="574" font-size="18" fill="#2B8A3E" text-anchor="end">+88</text>
+<rect x="736" y="560" width="158" height="14" rx="2" fill="#2B8A3E"/>
+<text x="70" y="608" font-size="18" fill="#1F1E1C" font-weight="700">docs/</text>
+<text x="100" y="642" font-size="18" fill="#2B3FBF"><tspan font-weight="700">~</tspan><tspan dx="10">coupons.md</tspan></text>
+<text x="628" y="642" font-size="18" fill="#2B8A3E" text-anchor="end">+21</text>
+<text x="706" y="642" font-size="18" fill="#C92A2A" text-anchor="end">−29</text>
+<rect x="736" y="628" width="38" height="14" rx="2" fill="#2B8A3E"/>
+<rect x="774" y="628" width="52" height="14" rx="2" fill="#C92A2A"/>
+<text x="70" y="676" font-size="18" fill="#5C5A55">… bin/, public/</text>
+<rect x="20" y="718" width="960" height="68" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="40" y="759" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Now</tspan><tspan dx="14">Mostly new code. Check checkout.vue: it swaps old discounts for coupons.</tspan></text>
+</svg>

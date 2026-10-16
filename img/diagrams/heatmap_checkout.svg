@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="640" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Heatmap: checkout errors, 5 to 11 October</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">Errors per 2 hours</text>
+<rect x="220" y="66" width="28" height="20" rx="3" fill="#E6E2DB"/>
+<text x="256" y="82" font-size="18" fill="#5C5A55">0</text>
+<rect x="296" y="66" width="28" height="20" rx="3" fill="#FCE4D6"/>
+<text x="332" y="82" font-size="18" fill="#5C5A55">1–4</text>
+<rect x="398" y="66" width="28" height="20" rx="3" fill="#F3B488"/>
+<text x="434" y="82" font-size="18" fill="#5C5A55">5–9</text>
+<rect x="500" y="66" width="28" height="20" rx="3" fill="#E5823F"/>
+<text x="536" y="82" font-size="18" fill="#5C5A55">10–29</text>
+<rect x="618" y="66" width="28" height="20" rx="3" fill="#D45A1F"/>
+<text x="654" y="82" font-size="18" fill="#5C5A55">30–49</text>
+<rect x="736" y="66" width="28" height="20" rx="3" fill="#C2410C"/>
+<text x="772" y="82" font-size="18" fill="#5C5A55">50+</text>
+<rect x="20" y="106" width="960" height="438" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="134" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">00</text>
+<text x="206" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">02</text>
+<text x="278" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">04</text>
+<text x="350" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">06</text>
+<text x="422" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">08</text>
+<text x="494" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">10</text>
+<text x="566" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">12</text>
+<text x="638" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">14</text>
+<text x="710" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">16</text>
+<text x="782" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">18</text>
+<text x="854" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">20</text>
+<text x="926" y="140" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">22</text>
+<text x="40" y="187" font-size="18" fill="#1F1E1C" font-weight="700">Mon</text>
+<rect x="100" y="160" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="172" y="160" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="244" y="160" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="316" y="160" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="388" y="160" width="68" height="40" rx="4" fill="#D45A1F"/>
+<text x="422" y="187" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">46</text>
+<rect x="460" y="160" width="68" height="40" rx="4" fill="#C2410C"/>
+<text x="494" y="187" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">58</text>
+<rect x="532" y="160" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="604" y="160" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="676" y="160" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="748" y="160" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="820" y="160" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="892" y="160" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<text x="40" y="233" font-size="18" fill="#1F1E1C" font-weight="700">Tue</text>
+<rect x="100" y="206" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="172" y="206" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="244" y="206" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="316" y="206" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="388" y="206" width="68" height="40" rx="4" fill="#D45A1F"/>
+<text x="422" y="233" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">41</text>
+<rect x="460" y="206" width="68" height="40" rx="4" fill="#C2410C"/>
+<text x="494" y="233" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">52</text>
+<rect x="532" y="206" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="604" y="206" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="676" y="206" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="748" y="206" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="820" y="206" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="892" y="206" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<text x="40" y="279" font-size="18" fill="#1F1E1C" font-weight="700">Wed</text>
+<rect x="100" y="252" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="172" y="252" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="244" y="252" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="316" y="252" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="388" y="252" width="68" height="40" rx="4" fill="#C2410C"/>
+<text x="422" y="279" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">55</text>
+<rect x="460" y="252" width="68" height="40" rx="4" fill="#C2410C"/>
+<text x="494" y="279" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">63</text>
+<rect x="532" y="252" width="68" height="40" rx="4" fill="#E5823F"/>
+<rect x="604" y="252" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="676" y="252" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="748" y="252" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="820" y="252" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="892" y="252" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<text x="40" y="325" font-size="18" fill="#1F1E1C" font-weight="700">Thu</text>
+<rect x="100" y="298" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="172" y="298" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="244" y="298" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="316" y="298" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="388" y="298" width="68" height="40" rx="4" fill="#D45A1F"/>
+<text x="422" y="325" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">38</text>
+<rect x="460" y="298" width="68" height="40" rx="4" fill="#D45A1F"/>
+<text x="494" y="325" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">47</text>
+<rect x="532" y="298" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="604" y="298" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="676" y="298" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="748" y="298" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="820" y="298" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="892" y="298" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<text x="40" y="371" font-size="18" fill="#1F1E1C" font-weight="700">Fri</text>
+<rect x="100" y="344" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="172" y="344" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="244" y="344" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="316" y="344" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="388" y="344" width="68" height="40" rx="4" fill="#D45A1F"/>
+<text x="422" y="371" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">44</text>
+<rect x="460" y="344" width="68" height="40" rx="4" fill="#D45A1F"/>
+<text x="494" y="371" font-size="18" fill="#FBFAF7" font-weight="700" text-anchor="middle">49</text>
+<rect x="532" y="344" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="604" y="344" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="676" y="344" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="748" y="344" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="820" y="344" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="892" y="344" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<text x="40" y="417" font-size="18" fill="#1F1E1C" font-weight="700">Sat</text>
+<rect x="100" y="390" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="172" y="390" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="244" y="390" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="316" y="390" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="388" y="390" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="460" y="390" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="532" y="390" width="68" height="40" rx="4" fill="#F3B488"/>
+<rect x="604" y="390" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="676" y="390" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="748" y="390" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="820" y="390" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="892" y="390" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<text x="40" y="463" font-size="18" fill="#1F1E1C" font-weight="700">Sun</text>
+<rect x="100" y="436" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="172" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="244" y="436" width="68" height="40" rx="4" fill="#E6E2DB"/>
+<rect x="316" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="388" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="460" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="532" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="604" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="676" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="748" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="820" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="892" y="436" width="68" height="40" rx="4" fill="#FCE4D6"/>
+<rect x="383" y="155" width="150" height="234" rx="7" fill="none" stroke="#2B3FBF" stroke-width="3"/>
+<text x="40" y="520" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Hot spot, in the blue frame:</tspan><tspan dx="10">Mon to Fri, 08:00 to 12:00, 493 of 684 errors.</tspan></text>
+<rect x="20" y="562" width="960" height="60" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="40" y="599" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Now</tspan><tspan dx="14">7 in 10 errors hit weekday mornings, while the late nightly import still runs.</tspan></text>
+</svg>

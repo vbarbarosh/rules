@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 614" width="1000" height="614" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><rect width="1000" height="614" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Line chart: the checkout page&#39;s load time, two weeks</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">p95 in seconds, a point a day; red before the deploy, green after.</text>
+<rect x="20" y="106" width="960" height="404" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="96" y1="460" x2="960" y2="460" stroke="#BDB9B1" stroke-width="2"/>
+<text x="80" y="466" font-size="18" fill="#5C5A55" text-anchor="end">0 s</text>
+<line x1="96" y1="350" x2="960" y2="350" stroke="#BDB9B1" stroke-width="1"/>
+<text x="80" y="356" font-size="18" fill="#5C5A55" text-anchor="end">1 s</text>
+<line x1="96" y1="240" x2="960" y2="240" stroke="#BDB9B1" stroke-width="1"/>
+<text x="80" y="246" font-size="18" fill="#5C5A55" text-anchor="end">2 s</text>
+<line x1="96" y1="130" x2="960" y2="130" stroke="#BDB9B1" stroke-width="1"/>
+<text x="80" y="136" font-size="18" fill="#5C5A55" text-anchor="end">3 s</text>
+<text x="130" y="488" font-size="18" fill="#5C5A55" text-anchor="middle">10-01</text>
+<text x="254" y="488" font-size="18" fill="#5C5A55" text-anchor="middle">10-03</text>
+<text x="378" y="488" font-size="18" fill="#5C5A55" text-anchor="middle">10-05</text>
+<text x="502" y="488" font-size="18" fill="#5C5A55" text-anchor="middle">10-07</text>
+<text x="626" y="488" font-size="18" fill="#5C5A55" text-anchor="middle">10-09</text>
+<text x="750" y="488" font-size="18" fill="#5C5A55" text-anchor="middle">10-11</text>
+<text x="874" y="488" font-size="18" fill="#5C5A55" text-anchor="middle">10-13</text>
+<line x1="96" y1="295" x2="960" y2="295" stroke="#B5B1A8" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="956" y="283" font-size="18" fill="#5C5A55" text-anchor="end">goal 1.5 s</text>
+<line x1="533" y1="150" x2="533" y2="460" stroke="#2B3FBF" stroke-width="2" stroke-dasharray="6 5"/>
+<polyline points="130,207 192,185 254,196 316,174 378,207 440,196 502,185 533,267.5" fill="none" stroke="#C92A2A" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="533,267.5 564,350 626,361 688,372 750,361 812,361 874,350 936,361" fill="none" stroke="#2B8A3E" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="130" cy="207" r="5" fill="#C92A2A"/>
+<circle cx="192" cy="185" r="5" fill="#C92A2A"/>
+<circle cx="254" cy="196" r="5" fill="#C92A2A"/>
+<circle cx="316" cy="174" r="5" fill="#C92A2A"/>
+<circle cx="378" cy="207" r="5" fill="#C92A2A"/>
+<circle cx="440" cy="196" r="5" fill="#C92A2A"/>
+<circle cx="502" cy="185" r="5" fill="#C92A2A"/>
+<circle cx="564" cy="350" r="5" fill="#2B8A3E"/>
+<circle cx="626" cy="361" r="5" fill="#2B8A3E"/>
+<circle cx="688" cy="372" r="5" fill="#2B8A3E"/>
+<circle cx="750" cy="361" r="5" fill="#2B8A3E"/>
+<circle cx="812" cy="361" r="5" fill="#2B8A3E"/>
+<circle cx="874" cy="350" r="5" fill="#2B8A3E"/>
+<circle cx="936" cy="361" r="5" fill="#2B8A3E"/>
+<rect x="457" y="118" width="152" height="32" rx="16" fill="#2B3FBF"/>
+<text x="533" y="140" font-size="18" fill="#F1EFEB" font-weight="700" text-anchor="middle">deploy 10-08</text>
+<text x="130" y="158" font-size="18" fill="#C92A2A" font-weight="700">before: about 2.4 s</text>
+<text x="626" y="410" font-size="18" fill="#2B8A3E" font-weight="700">after: about 0.9 s</text>
+<rect x="20" y="528" width="960" height="68" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="40" y="569" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Now</tspan><tspan dx="14">The 10-08 deploy cut p95 from about 2.4 s to 0.9 s, well under the goal.</tspan></text>
+</svg>

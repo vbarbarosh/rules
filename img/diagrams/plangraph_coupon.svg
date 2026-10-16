@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="1000" height="480" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><defs><marker id="arrow-blue" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2B3FBF" stroke-linejoin="round"/></marker><marker id="arrow-grey" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#5C5A55" stroke-linejoin="round"/></marker></defs><rect width="1000" height="480" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Plan graph: a coupon field at checkout</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">Green done, blue under way, grey not started, amber waits on you; bold blue sets the date.</text>
+<rect x="20" y="106" width="960" height="270" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="131" y="146" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">Days 1–2</text>
+<text x="377" y="146" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">Days 3–5</text>
+<text x="623" y="146" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">Day 6</text>
+<text x="869" y="146" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">Day 7</text>
+<path d="M226 255 C254 255 250 205 278 205" fill="none" stroke="#2B3FBF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M226 270 C254 270 250 305 278 305" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
+<path d="M472 205 C500 205 496 255 524 255" fill="none" stroke="#2B3FBF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M472 305 C500 305 496 270 524 270" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
+<path d="M718 255 H770" fill="none" stroke="#2B3FBF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<rect x="36" y="220" width="190" height="70" rx="8" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="2"/>
+<text x="131" y="249" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">P1 Coupon API</text>
+<text x="131" y="273" font-size="18" fill="#2B8A3E" text-anchor="middle">2 days, done</text>
+<rect x="282" y="170" width="190" height="70" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="2"/>
+<text x="377" y="199" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">P2 The form</text>
+<text x="377" y="223" font-size="18" fill="#2B3FBF" text-anchor="middle">3 days, under way</text>
+<rect x="282" y="270" width="190" height="70" rx="8" fill="#F1EFEB" stroke="#B5B1A8" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="377" y="299" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">P3 The e-mail</text>
+<text x="377" y="323" font-size="18" fill="#5C5A55" text-anchor="middle">1 day, not started</text>
+<rect x="528" y="220" width="190" height="70" rx="8" fill="#F1EFEB" stroke="#B5B1A8" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="623" y="249" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">P4 Tests</text>
+<text x="623" y="273" font-size="18" fill="#5C5A55" text-anchor="middle">1 day, not started</text>
+<rect x="774" y="220" width="190" height="70" rx="8" fill="#FCE4D6" stroke="#C2410C" stroke-width="2"/>
+<text x="869" y="249" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">P5 Your go</text>
+<text x="869" y="273" font-size="18" fill="#C2410C" text-anchor="middle">waits on you</text>
+<rect x="20" y="394" width="960" height="68" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="40" y="435" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Now</tspan><tspan dx="14">A late form moves the ship day; the e-mail can slip 2 days. Then: your go.</tspan></text>
+</svg>

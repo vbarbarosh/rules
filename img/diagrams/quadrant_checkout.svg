@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 754" width="1000" height="754" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><defs><marker id="arrow-grey" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#5C5A55" stroke-linejoin="round"/></marker></defs><rect width="1000" height="754" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Priority quadrant: eight checkout ideas</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">A dot per idea: higher is more value, further right more effort.</text>
+<rect x="20" y="106" width="960" height="544" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<rect x="100" y="130" width="418" height="222" rx="8" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<rect x="530" y="130" width="418" height="222" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<rect x="100" y="364" width="418" height="222" rx="8" fill="#E9E6E0" stroke="#B5B1A8" stroke-width="1.5"/>
+<rect x="530" y="364" width="418" height="222" rx="8" fill="#E9E6E0" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="118" y="164" font-size="20" fill="#2B8A3E" font-weight="700">Do first</text>
+<text x="118" y="190" font-size="18" fill="#5C5A55">high value, low effort</text>
+<text x="930" y="164" font-size="20" fill="#2B3FBF" font-weight="700" text-anchor="end">Plan</text>
+<text x="930" y="190" font-size="18" fill="#5C5A55" text-anchor="end">high value, high effort</text>
+<text x="118" y="540" font-size="20" fill="#1F1E1C" font-weight="700">Later</text>
+<text x="118" y="566" font-size="18" fill="#5C5A55">low value, low effort</text>
+<text x="930" y="540" font-size="20" fill="#5C5A55" font-weight="700" text-anchor="end">Skip</text>
+<text x="930" y="566" font-size="18" fill="#5C5A55" text-anchor="end">low value, high effort</text>
+<g data-free=""><line x1="84" y1="602" x2="84" y2="134" stroke="#5C5A55" stroke-width="2" marker-end="url(#arrow-grey)"/><line x1="84" y1="602" x2="946" y2="602" stroke="#5C5A55" stroke-width="2" marker-end="url(#arrow-grey)"/></g>
+<text x="58" y="358" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle" transform="rotate(-90 58 358)">Value</text>
+<text x="524" y="632" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">Effort</text>
+<circle cx="270" cy="221" r="9" fill="#2B8A3E" stroke="#2B8A3E" stroke-width="2"/>
+<rect x="286" y="205" width="129" height="32" rx="16" fill="#F1EFEB"/>
+<text x="301" y="227" font-size="18" fill="#1F1E1C" font-weight="700">Apple Pay</text>
+<circle cx="439" cy="267" r="9" fill="#2B8A3E" stroke="#2B8A3E" stroke-width="2"/>
+<rect x="272" y="251" width="151" height="32" rx="16" fill="#F1EFEB"/>
+<text x="287" y="273" font-size="18" fill="#1F1E1C" font-weight="700">Saved cards</text>
+<circle cx="821" cy="221" r="9" fill="#2B3FBF" stroke="#2B3FBF" stroke-width="2"/>
+<rect x="588" y="205" width="217" height="32" rx="16" fill="#F1EFEB"/>
+<text x="603" y="227" font-size="18" fill="#1F1E1C" font-weight="700">One-page checkout</text>
+<circle cx="651" cy="290" r="9" fill="#2B3FBF" stroke="#2B3FBF" stroke-width="2"/>
+<rect x="667" y="274" width="184" height="32" rx="16" fill="#F1EFEB"/>
+<text x="682" y="296" font-size="18" fill="#1F1E1C" font-weight="700">Tax by country</text>
+<circle cx="270" cy="426" r="9" fill="#5C5A55" stroke="#5C5A55" stroke-width="2"/>
+<rect x="286" y="410" width="162" height="32" rx="16" fill="#F1EFEB"/>
+<text x="301" y="432" font-size="18" fill="#1F1E1C" font-weight="700">Coupon field</text>
+<circle cx="185" cy="472" r="9" fill="#5C5A55" stroke="#5C5A55" stroke-width="2"/>
+<rect x="201" y="456" width="184" height="32" rx="16" fill="#F1EFEB"/>
+<text x="216" y="478" font-size="18" fill="#1F1E1C" font-weight="700">Receipt e-mail</text>
+<circle cx="609" cy="495" r="9" fill="#F1EFEB" stroke="#5C5A55" stroke-width="2"/>
+<rect x="625" y="479" width="129" height="32" rx="16" fill="#F1EFEB"/>
+<text x="640" y="501" font-size="18" fill="#5C5A55" font-weight="700">Gift wrap</text>
+<circle cx="778" cy="449" r="9" fill="#F1EFEB" stroke="#5C5A55" stroke-width="2"/>
+<rect x="794" y="433" width="129" height="32" rx="16" fill="#F1EFEB"/>
+<text x="809" y="455" font-size="18" fill="#5C5A55" font-weight="700">Dark mode</text>
+<rect x="20" y="668" width="960" height="68" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="40" y="709" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Now</tspan><tspan dx="14">Apple Pay and saved cards first: much value, little work. Drop gift wrap and dark mode.</tspan></text>
+</svg>

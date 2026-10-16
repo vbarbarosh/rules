@@ -1090,7 +1090,7 @@ main[data-page="diagrams"] .prose > h3 {
     </div>
     <h1>Diagrams</h1>
     <p class="lede">A visual language: the kinds of picture an agent draws in its replies, so the author reads at a glance what words would take a page to say. For each kind: what it shows, when it fits and when it does not, its parts, how it is drawn.</p>
-    <p class="stats"><b>26</b> diagrams</p>
+    <p class="stats"><b>35</b> diagrams</p>
 </div>
 </header>
 
@@ -1099,7 +1099,7 @@ main[data-page="diagrams"] .prose > h3 {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter diagrams, e.g. retry, icons, events" aria-label="Filter diagrams">
         </label>
-        <span class="count" id="count">26 diagrams</span>
+        <span class="count" id="count">35 diagrams</span>
         <button class="copy-shown" id="copy_shown" type="button" title="Copy the diagrams shown, as Markdown">Copy</button>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
@@ -1118,30 +1118,39 @@ main[data-page="diagrams"] .prose > h3 {
 <a href="#use" data-group="use"><span class="tag">USE</span><span class="name">Hand them to an agent</span></a>
 <a href="#sequence" data-group="sequence"><span class="tag">01</span><span class="name">Sequence diagram: who talks to whom</span></a>
 <a href="#case" data-group="case"><span class="tag">02</span><span class="name">One case: today beside fixed</span></a>
-<a href="#state" data-group="state"><span class="tag">03</span><span class="name">State diagram: what moves a thing between its states</span></a>
-<a href="#flowchart" data-group="flowchart"><span class="tag">04</span><span class="name">Flowchart: what is decided where</span></a>
-<a href="#questions" data-group="questions"><span class="tag">05</span><span class="name">Known and open questions: how it works, and the gaps</span></a>
-<a href="#timeline" data-group="timeline"><span class="tag">06</span><span class="name">Timeline: what happened when</span></a>
-<a href="#milestone" data-group="milestone"><span class="tag">07</span><span class="name">Milestone track: where a goal stands</span></a>
-<a href="#roadmap" data-group="roadmap"><span class="tag">08</span><span class="name">Roadmap: what is planned when</span></a>
-<a href="#kanban" data-group="kanban"><span class="tag">09</span><span class="name">Kanban board: where each piece of work is</span></a>
-<a href="#containers" data-group="containers"><span class="tag">10</span><span class="name">Container sketch (C4): where the parts run</span></a>
-<a href="#entities" data-group="entities"><span class="tag">11</span><span class="name">Entity-relationship: what data there is and how it links</span></a>
-<a href="#dashboard" data-group="dashboard"><span class="tag">12</span><span class="name">Status dashboard: where each part stands</span></a>
-<a href="#versions" data-group="versions"><span class="tag">13</span><span class="name">Versions: which version runs where</span></a>
-<a href="#cloud" data-group="cloud"><span class="tag">14</span><span class="name">Cloud architecture diagram: what runs where</span></a>
-<a href="#network" data-group="network"><span class="tag">15</span><span class="name">Network diagram: addresses, ports, who may connect</span></a>
-<a href="#tiers" data-group="tiers"><span class="tag">16</span><span class="name">Layered diagram: the tiers a request passes</span></a>
-<a href="#isometric" data-group="isometric"><span class="tag">17</span><span class="name">Isometric diagram: the system as a model</span></a>
-<a href="#servicemap" data-group="servicemap"><span class="tag">18</span><span class="name">Service map: what talks to what, live</span></a>
-<a href="#sankey" data-group="sankey"><span class="tag">19</span><span class="name">Sankey diagram: where the traffic goes, how much</span></a>
-<a href="#dataflow" data-group="dataflow"><span class="tag">20</span><span class="name">Data flow diagram: where data crosses a trust boundary</span></a>
-<a href="#matrix" data-group="matrix"><span class="tag">21</span><span class="name">Dependency matrix: every link in a grid</span></a>
-<a href="#callgraph" data-group="callgraph"><span class="tag">22</span><span class="name">Call graph: which function calls which</span></a>
-<a href="#pipeline" data-group="pipeline"><span class="tag">23</span><span class="name">Data flow of a script: files in, steps, files out</span></a>
-<a href="#modules" data-group="modules"><span class="tag">24</span><span class="name">Module graph: which file needs which</span></a>
-<a href="#flame" data-group="flame"><span class="tag">25</span><span class="name">Flame graph: where one run spends its time</span></a>
-<a href="#treemap" data-group="treemap"><span class="tag">26</span><span class="name">Code map: how big each part is</span></a>
+<a href="#screen" data-group="screen"><span class="tag">03</span><span class="name">Annotated screen: where on the screen</span></a>
+<a href="#state" data-group="state"><span class="tag">04</span><span class="name">State diagram: what moves a thing between its states</span></a>
+<a href="#flowchart" data-group="flowchart"><span class="tag">05</span><span class="name">Flowchart: what is decided where</span></a>
+<a href="#swimlanes" data-group="swimlanes"><span class="tag">06</span><span class="name">Swimlanes: who does each step</span></a>
+<a href="#questions" data-group="questions"><span class="tag">07</span><span class="name">Known and open questions: how it works, and the gaps</span></a>
+<a href="#causetree" data-group="causetree"><span class="tag">08</span><span class="name">Cause tree: why it happened</span></a>
+<a href="#timeline" data-group="timeline"><span class="tag">09</span><span class="name">Timeline: what happened when</span></a>
+<a href="#milestone" data-group="milestone"><span class="tag">10</span><span class="name">Milestone track: where a goal stands</span></a>
+<a href="#plangraph" data-group="plangraph"><span class="tag">11</span><span class="name">Plan graph: what waits on what</span></a>
+<a href="#roadmap" data-group="roadmap"><span class="tag">12</span><span class="name">Roadmap: what is planned when</span></a>
+<a href="#kanban" data-group="kanban"><span class="tag">13</span><span class="name">Kanban board: where each piece of work is</span></a>
+<a href="#quadrant" data-group="quadrant"><span class="tag">14</span><span class="name">Priority quadrant: what to do first</span></a>
+<a href="#containers" data-group="containers"><span class="tag">15</span><span class="name">Container sketch (C4): where the parts run</span></a>
+<a href="#entities" data-group="entities"><span class="tag">16</span><span class="name">Entity-relationship: what data there is and how it links</span></a>
+<a href="#dashboard" data-group="dashboard"><span class="tag">17</span><span class="name">Status dashboard: where each part stands</span></a>
+<a href="#linechart" data-group="linechart"><span class="tag">18</span><span class="name">Line chart: a number over time</span></a>
+<a href="#heatmap" data-group="heatmap"><span class="tag">19</span><span class="name">Heatmap: when it happens</span></a>
+<a href="#versions" data-group="versions"><span class="tag">20</span><span class="name">Versions: which version runs where</span></a>
+<a href="#cloud" data-group="cloud"><span class="tag">21</span><span class="name">Cloud architecture diagram: what runs where</span></a>
+<a href="#network" data-group="network"><span class="tag">22</span><span class="name">Network diagram: addresses, ports, who may connect</span></a>
+<a href="#tiers" data-group="tiers"><span class="tag">23</span><span class="name">Layered diagram: the tiers a request passes</span></a>
+<a href="#isometric" data-group="isometric"><span class="tag">24</span><span class="name">Isometric diagram: the system as a model</span></a>
+<a href="#servicemap" data-group="servicemap"><span class="tag">25</span><span class="name">Service map: what talks to what, live</span></a>
+<a href="#sankey" data-group="sankey"><span class="tag">26</span><span class="name">Sankey diagram: where the traffic goes, how much</span></a>
+<a href="#waterfall" data-group="waterfall"><span class="tag">27</span><span class="name">Trace waterfall: where one request spends its time</span></a>
+<a href="#dataflow" data-group="dataflow"><span class="tag">28</span><span class="name">Data flow diagram: where data crosses a trust boundary</span></a>
+<a href="#matrix" data-group="matrix"><span class="tag">29</span><span class="name">Dependency matrix: every link in a grid</span></a>
+<a href="#callgraph" data-group="callgraph"><span class="tag">30</span><span class="name">Call graph: which function calls which</span></a>
+<a href="#pipeline" data-group="pipeline"><span class="tag">31</span><span class="name">Data flow of a script: files in, steps, files out</span></a>
+<a href="#modules" data-group="modules"><span class="tag">32</span><span class="name">Module graph: which file needs which</span></a>
+<a href="#changemap" data-group="changemap"><span class="tag">33</span><span class="name">Change map: what a change touches</span></a>
+<a href="#flame" data-group="flame"><span class="tag">34</span><span class="name">Flame graph: where one run spends its time</span></a>
+<a href="#treemap" data-group="treemap"><span class="tag">35</span><span class="name">Code map: how big each part is</span></a>
 </nav>
 <main data-page="diagrams">
 <section class="group use" id="use">
@@ -1153,16 +1162,23 @@ main[data-page="diagrams"] .prose > h3 {
 <div class="form"><pre>Draw the pictures in your replies the way these diagrams say:
 - Sequence diagram: who talks to whom: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/sequence.md
 - One case: today beside fixed: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/case.md
+- Annotated screen: where on the screen: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/screen.md
 - State diagram: what moves a thing between its states: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/state.md
 - Flowchart: what is decided where: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/flowchart.md
+- Swimlanes: who does each step: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/swimlanes.md
 - Known and open questions: how it works, and the gaps: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/questions.md
+- Cause tree: why it happened: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/causetree.md
 - Timeline: what happened when: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/timeline.md
 - Milestone track: where a goal stands: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/milestone.md
+- Plan graph: what waits on what: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/plangraph.md
 - Roadmap: what is planned when: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/roadmap.md
 - Kanban board: where each piece of work is: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/kanban.md
+- Priority quadrant: what to do first: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/quadrant.md
 - Container sketch (C4): where the parts run: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/containers.md
 - Entity-relationship: what data there is and how it links: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/entities.md
 - Status dashboard: where each part stands: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/dashboard.md
+- Line chart: a number over time: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/linechart.md
+- Heatmap: when it happens: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/heatmap.md
 - Versions: which version runs where: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/versions.md
 - Cloud architecture diagram: what runs where: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/cloud.md
 - Network diagram: addresses, ports, who may connect: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/network.md
@@ -1170,11 +1186,13 @@ main[data-page="diagrams"] .prose > h3 {
 - Isometric diagram: the system as a model: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/isometric.md
 - Service map: what talks to what, live: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/servicemap.md
 - Sankey diagram: where the traffic goes, how much: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/sankey.md
+- Trace waterfall: where one request spends its time: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/waterfall.md
 - Data flow diagram: where data crosses a trust boundary: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/dataflow.md
 - Dependency matrix: every link in a grid: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/matrix.md
 - Call graph: which function calls which: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/callgraph.md
 - Data flow of a script: files in, steps, files out: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/pipeline.md
 - Module graph: which file needs which: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/modules.md
+- Change map: what a change touches: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/changemap.md
 - Flame graph: where one run spends its time: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/flame.md
 - Code map: how big each part is: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/treemap.md</pre><button class="copy" type="button">Copy</button></div>
 </section>
@@ -1336,8 +1354,72 @@ case stands for the rest.
    font shows them alike.
 </pre>
 </section>
+<section class="group guide" id="screen">
+<h2><span class="tag">03</span><span class="name">Annotated screen: where on the screen</span></h2>
+<article class="prose">
+<p>A plain sketch of a screen, grey blocks and a few real labels, with an amber number on each spot that changes; beside it a numbered list says what changes at each. The reader sees where the change is before reading what it is.</p>
+<a class="figure" href="../img/diagrams/screen_checkout.svg"><img class="light" src="../img/diagrams/screen_checkout.svg" alt="The checkout page sketched twice, while paying and with the card declined, in grey blocks with real labels for Checkout, the total of $84.00, the coupon field and the Pay button; amber number 1 sits by the coupon field under the total, 2 by the Pay button, faded, with a spinner and the word Paying, 3 by a red Card declined message right above the blue Pay button; beside the sketches a list says 1 the coupon field moves from the top of the page to under the total, 2 Pay shows a spinner and stays disabled until the bank answers, 3 the error shows right above the button, not at the top of the page; a Now box sums up the three changes" width="1000" height="680" loading="lazy"><img class="dark" src="../img/diagrams/screen_checkout-dark.svg" alt="The checkout page sketched twice, while paying and with the card declined, in grey blocks with real labels for Checkout, the total of $84.00, the coupon field and the Pay button; amber number 1 sits by the coupon field under the total, 2 by the Pay button, faded, with a spinner and the word Paying, 3 by a red Card declined message right above the blue Pay button; beside the sketches a list says 1 the coupon field moves from the top of the page to under the total, 2 Pay shows a spinner and stays disabled until the bank answers, 3 the error shows right above the button, not at the top of the page; a Now box sums up the three changes" width="1000" height="680" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>A change to a screen:</strong> a field moves, a button gets a new state, a message shows in a new place.</li><li><strong>The question is where:</strong> words alone would say &quot;the error moves up&quot; and leave the reader to guess from where to where.</li><li><strong>No screenshots yet:</strong> the change is planned, or the screen is still being built.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>Real screenshots exist</strong> before and after: <a href="#case">one case</a>, the screenshots side by side.</li><li><strong>The parts of a system,</strong> not of a screen: a <a href="#containers">container diagram</a>.</li><li><strong>A thing's states</strong> and what moves it between them: a <a href="#state">state diagram</a>.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>The sketch:</strong> the screen as a framed wireframe, its parts as plain grey blocks; only the parts that matter get real labels, such as the total, a field's placeholder or a button's text.</li><li><strong>States:</strong> a frame per state when the change shows in one state only, such as while paying or after an error; the state's name in bold above its frame. One frame when the state does not matter.</li><li><strong>The numbers:</strong> an amber circle with a number beside each spot that changes, in the margin of the frame, never over a label; each number once only, in the frame where it shows best.</li><li><strong>Colour in the sketch:</strong> grey for what stays; the changed parts in their real colours, such as a blue button or a red error.</li><li><strong>The list:</strong> beside the sketch, the same amber numbers in order, each with what changes in bold and a line or two of why under it.</li><li><strong>Now:</strong> a blue box under the panel says in one sentence all the changes together.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Good, add them all. (2026-10-16 21:00)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/screen.md" title="diagrams/screen.md">screen.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Annotated screen: where on the screen
+
+A plain sketch of a screen, grey blocks and a few real labels, with an
+amber number on each spot that changes; beside it a numbered list says
+what changes at each. The reader sees where the change is before reading
+what it is.
+
+![The checkout page sketched twice, while paying and with the card declined, in grey blocks with real labels for Checkout, the total of $84.00, the coupon field and the Pay button; amber number 1 sits by the coupon field under the total, 2 by the Pay button, faded, with a spinner and the word Paying, 3 by a red Card declined message right above the blue Pay button; beside the sketches a list says 1 the coupon field moves from the top of the page to under the total, 2 Pay shows a spinner and stays disabled until the bank answers, 3 the error shows right above the button, not at the top of the page; a Now box sums up the three changes](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/screen_checkout.svg)
+
+## Fits when
+
+- **A change to a screen:** a field moves, a button gets a new state, a
+  message shows in a new place.
+- **The question is where:** words alone would say &quot;the error moves up&quot;
+  and leave the reader to guess from where to where.
+- **No screenshots yet:** the change is planned, or the screen is still
+  being built.
+
+## Not when
+
+- **Real screenshots exist** before and after: [one case](https://github.com/vbarbarosh/rules/blob/main/diagrams/case.md), the
+  screenshots side by side.
+- **The parts of a system,** not of a screen: a
+  [container diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/containers.md).
+- **A thing's states** and what moves it between them: a
+  [state diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/state.md).
+
+## How it is drawn
+
+1. **The sketch:** the screen as a framed wireframe, its parts as plain
+   grey blocks; only the parts that matter get real labels, such as the
+   total, a field's placeholder or a button's text.
+2. **States:** a frame per state when the change shows in one state
+   only, such as while paying or after an error; the state's name in
+   bold above its frame. One frame when the state does not matter.
+3. **The numbers:** an amber circle with a number beside each spot that
+   changes, in the margin of the frame, never over a label; each number
+   once only, in the frame where it shows best.
+4. **Colour in the sketch:** grey for what stays; the changed parts in
+   their real colours, such as a blue button or a red error.
+5. **The list:** beside the sketch, the same amber numbers in order,
+   each with what changes in bold and a line or two of why under it.
+6. **Now:** a blue box under the panel says in one sentence all the
+   changes together.
+</pre>
+</section>
 <section class="group guide" id="state">
-<h2><span class="tag">03</span><span class="name">State diagram: what moves a thing between its states</span></h2>
+<h2><span class="tag">04</span><span class="name">State diagram: what moves a thing between its states</span></h2>
 <article class="prose">
 <p>The states a thing has and what moves it from one to the next: a card's steps, a message's life, a job's run. Each state is a box; each arrow says what moves it.</p>
 <a class="figure" href="../img/diagrams/state_sign_in.svg"><img class="light" src="../img/diagrams/state_sign_in.svg" alt="A sign-in card: from signed out through the code and the wait to saved; a refused code goes back for a new link, an unread token is shown in its window" width="1000" height="500" loading="lazy"><img class="dark" src="../img/diagrams/state_sign_in-dark.svg" alt="A sign-in card: from signed out through the code and the wait to saved; a refused code goes back for a new link, an unread token is shown in its window" width="1000" height="500" loading="lazy"></a>
@@ -1393,7 +1475,7 @@ what moves it.
 </pre>
 </section>
 <section class="group guide" id="flowchart">
-<h2><span class="tag">04</span><span class="name">Flowchart: what is decided where</span></h2>
+<h2><span class="tag">05</span><span class="name">Flowchart: what is decided where</span></h2>
 <article class="prose">
 <p>The decisions one action goes through, in order: each question a diamond, each answer its own arrow, each outcome a box.</p>
 <a class="figure" href="../img/diagrams/flowchart_paste.svg"><img class="light" src="../img/diagrams/flowchart_paste.svg" alt="What Paste decides: a token, running, this link; each answer leads to its own outcome" width="1000" height="480" loading="lazy"><img class="dark" src="../img/diagrams/flowchart_paste-dark.svg" alt="What Paste decides: a token, running, this link; each answer leads to its own outcome" width="1000" height="480" loading="lazy"></a>
@@ -1446,8 +1528,71 @@ each answer its own arrow, each outcome a box.
    it.
 </pre>
 </section>
+<section class="group guide" id="swimlanes">
+<h2><span class="tag">06</span><span class="name">Swimlanes: who does each step</span></h2>
+<article class="prose">
+<p>A process as its steps in order, a lane per actor, each step a box in the lane of who does it. An arrow leads from each step to the next, and it crosses lanes where the work changes hands. The reader sees who holds the work now and which hand-off waits on them.</p>
+<a class="figure" href="../img/diagrams/swimlanes_refund.svg"><img class="light" src="../img/diagrams/swimlanes_refund.svg" alt="A refund in four lanes, Customer, Support, You the shop owner, and Payment service: the customer asks for a refund and support checks the order, both done in green; the amber arrow hands it to you, and Approves the refund is amber, waiting 2 days; then, dashed grey and still to come, the payment service pays it back and support e-mails the customer; a Now box says the refund waits on you to approve" width="1000" height="626" loading="lazy"><img class="dark" src="../img/diagrams/swimlanes_refund-dark.svg" alt="A refund in four lanes, Customer, Support, You the shop owner, and Payment service: the customer asks for a refund and support checks the order, both done in green; the amber arrow hands it to you, and Approves the refund is amber, waiting 2 days; then, dashed grey and still to come, the payment service pays it back and support e-mails the customer; a Now box says the refund waits on you to approve" width="1000" height="626" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>Several people or services share one process,</strong> each doing a part of it in turn.</li><li><strong>The question is who does what,</strong> and where the work passes from one to another.</li><li><strong>A hand-off is slow or stuck,</strong> and the reader sees whose lane it waits in, often their own.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>Messages between parts of a system,</strong> in time order: a <a href="#sequence">sequence diagram</a>.</li><li><strong>Decisions</strong> with yes and no branches: a <a href="#flowchart">flowchart</a>.</li><li><strong>A thing's states</strong> and what moves it between them: a <a href="#state">state diagram</a>.</li><li><strong>Many pieces of work</strong> by stage, not one process: a <a href="#kanban">kanban board</a>.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>Lanes:</strong> one row per actor in one framed panel, the name in bold at the left, thin lines between the rows; two to five lanes, the reader's own named &quot;You&quot;.</li><li><strong>Steps:</strong> one box per step, left to right in order, each in the lane of who does it; a verb in bold and a few words under it.</li><li><strong>Arrows:</strong> from each step to the next, down or up out of the box and then right into the next one; the arrowheads touch the boxes.</li><li><strong>Colours:</strong> green for steps done, grey dashed for steps to come. A hand-off that waits on the reader is amber, its arrow too, and says for how long.</li><li><strong>Now:</strong> a blue box under the panel says in one sentence who holds the work and what it waits on.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Good, add them all. (2026-10-16 21:00)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/swimlanes.md" title="diagrams/swimlanes.md">swimlanes.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Swimlanes: who does each step
+
+A process as its steps in order, a lane per actor, each step a box in
+the lane of who does it. An arrow leads from each step to the next, and
+it crosses lanes where the work changes hands. The reader sees who holds
+the work now and which hand-off waits on them.
+
+![A refund in four lanes, Customer, Support, You the shop owner, and Payment service: the customer asks for a refund and support checks the order, both done in green; the amber arrow hands it to you, and Approves the refund is amber, waiting 2 days; then, dashed grey and still to come, the payment service pays it back and support e-mails the customer; a Now box says the refund waits on you to approve](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/swimlanes_refund.svg)
+
+## Fits when
+
+- **Several people or services share one process,** each doing a part
+  of it in turn.
+- **The question is who does what,** and where the work passes from one
+  to another.
+- **A hand-off is slow or stuck,** and the reader sees whose lane it
+  waits in, often their own.
+
+## Not when
+
+- **Messages between parts of a system,** in time order: a
+  [sequence diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/sequence.md).
+- **Decisions** with yes and no branches: a
+  [flowchart](https://github.com/vbarbarosh/rules/blob/main/diagrams/flowchart.md).
+- **A thing's states** and what moves it between them: a
+  [state diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/state.md).
+- **Many pieces of work** by stage, not one process: a
+  [kanban board](https://github.com/vbarbarosh/rules/blob/main/diagrams/kanban.md).
+
+## How it is drawn
+
+1. **Lanes:** one row per actor in one framed panel, the name in bold
+   at the left, thin lines between the rows; two to five lanes, the
+   reader's own named &quot;You&quot;.
+2. **Steps:** one box per step, left to right in order, each in the
+   lane of who does it; a verb in bold and a few words under it.
+3. **Arrows:** from each step to the next, down or up out of the box and
+   then right into the next one; the arrowheads touch the boxes.
+4. **Colours:** green for steps done, grey dashed for steps to come. A
+   hand-off that waits on the reader is amber, its arrow too, and says
+   for how long.
+5. **Now:** a blue box under the panel says in one sentence who holds
+   the work and what it waits on.
+</pre>
+</section>
 <section class="group guide" id="questions">
-<h2><span class="tag">05</span><span class="name">Known and open questions: how it works, and the gaps</span></h2>
+<h2><span class="tag">07</span><span class="name">Known and open questions: how it works, and the gaps</span></h2>
 <article class="prose">
 <p>How something works, stage by stage, with the facts read from the code and the questions no one can answer yet, each where it arises. A panel per stage, left to right; the questions inside the panel they belong to; a row of big numbers under them.</p>
 <a class="figure" href="../img/diagrams/questions_gift_cards.svg"><img class="light" src="../img/diagrams/questions_gift_cards.svg" alt="Gift cards in a small shop: buying, spending and expiring as three green panels of facts; amber questions inside them, a refund, two orders at once, a return, a reminder, the law; 1 240 cards sold, 3 400 left unspent, 5 open questions, 0 reminders sent" width="1000" height="672" loading="lazy"><img class="dark" src="../img/diagrams/questions_gift_cards-dark.svg" alt="Gift cards in a small shop: buying, spending and expiring as three green panels of facts; amber questions inside them, a refund, two orders at once, a return, a reminder, the law; 1 240 cards sold, 3 400 left unspent, 5 open questions, 0 reminders sent" width="1000" height="672" loading="lazy"></a>
@@ -1506,8 +1651,73 @@ of big numbers under them.
    code or a log; a guess is a question, and goes in amber.
 </pre>
 </section>
+<section class="group guide" id="causetree">
+<h2><span class="tag">08</span><span class="name">Cause tree: why it happened</span></h2>
+<article class="prose">
+<p>The failure on top, its causes below it as a tree: each row down says why the row above happened. The root cause is amber, the fix green beside it, and the causes that were checked and ruled out stay in grey with the reason. The reader sees why it broke, what one change ends it, and what was already looked at.</p>
+<a class="figure" href="../img/diagrams/causetree_charged_twice.svg"><img class="light" src="../img/diagrams/causetree_charged_twice.svg" alt="Why customers were charged twice: a red box on top says customers were charged twice, 38 orders on 10-14; below it, the pay button sent twice, two requests 0.4 s apart, beside two grey dashed boxes ruled out, the provider retried (one call each) and a reload resent it (no reloads); below that, the button stays enabled for the 1.8 s it waits, beside a grey box ruled out, the mobile app retried (all 38 on web); at the bottom the root cause in amber, the spinner shows only after the reply, joined by a green line to the fix, disable the button on the first click and show the spinner at once; a Now box says a second click gets through while the button waits" width="1000" height="722" loading="lazy"><img class="dark" src="../img/diagrams/causetree_charged_twice-dark.svg" alt="Why customers were charged twice: a red box on top says customers were charged twice, 38 orders on 10-14; below it, the pay button sent twice, two requests 0.4 s apart, beside two grey dashed boxes ruled out, the provider retried (one call each) and a reload resent it (no reloads); below that, the button stays enabled for the 1.8 s it waits, beside a grey box ruled out, the mobile app retried (all 38 on web); at the bottom the root cause in amber, the spinner shows only after the reply, joined by a green line to the fix, disable the button on the first click and show the spinner at once; a Now box says a second click gets through while the button waits" width="1000" height="722" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>Something broke and the question is why,</strong> down to the one cause a change would end.</li><li><strong>Several causes were suspected,</strong> and the reader sees which were checked and why they are out.</li><li><strong>The fix follows from the cause,</strong> and the reader sees it is aimed at the root, not at the failure on top.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>The order of events</strong> in one request: a <a href="#sequence">sequence diagram</a>; what happened when, from a log: a <a href="#timeline">timeline</a>.</li><li><strong>The cause is not found yet:</strong> what is known and what is still open, a <a href="#questions">questions diagram</a>.</li><li><strong>One real request today beside the same with the fix:</strong> a <a href="#case">case</a>.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>The failure:</strong> a red box on top, what broke in a few words and, under it, how much or since when.</li><li><strong>The causes:</strong> one box per row down, each the &quot;because&quot; of the box above it, its name in bold in two or three words and under it what shows it; dark lines join the chain from the failure to the root.</li><li><strong>Ruled out:</strong> a grey box with a dashed border beside the cause it was checked against, its name in grey and &quot;ruled out:&quot; with the reason; grey dashed lines join it.</li><li><strong>The root cause:</strong> the last box of the chain, amber with an amber border, its name in bold and &quot;the root cause&quot; under it.</li><li><strong>The fix:</strong> a green box beside the root cause, joined to it by a green line, the change in bold.</li><li><strong>Now:</strong> a blue box under the tree says in one sentence why it broke and what fixes it.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Good, add them all. (2026-10-16 21:00)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/causetree.md" title="diagrams/causetree.md">causetree.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Cause tree: why it happened
+
+The failure on top, its causes below it as a tree: each row down says
+why the row above happened. The root cause is amber, the fix green
+beside it, and the causes that were checked and ruled out stay in grey
+with the reason. The reader sees why it broke, what one change ends it,
+and what was already looked at.
+
+![Why customers were charged twice: a red box on top says customers were charged twice, 38 orders on 10-14; below it, the pay button sent twice, two requests 0.4 s apart, beside two grey dashed boxes ruled out, the provider retried (one call each) and a reload resent it (no reloads); below that, the button stays enabled for the 1.8 s it waits, beside a grey box ruled out, the mobile app retried (all 38 on web); at the bottom the root cause in amber, the spinner shows only after the reply, joined by a green line to the fix, disable the button on the first click and show the spinner at once; a Now box says a second click gets through while the button waits](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/causetree_charged_twice.svg)
+
+## Fits when
+
+- **Something broke and the question is why,** down to the one cause a
+  change would end.
+- **Several causes were suspected,** and the reader sees which were
+  checked and why they are out.
+- **The fix follows from the cause,** and the reader sees it is aimed at
+  the root, not at the failure on top.
+
+## Not when
+
+- **The order of events** in one request: a
+  [sequence diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/sequence.md); what happened when, from a log: a
+  [timeline](https://github.com/vbarbarosh/rules/blob/main/diagrams/timeline.md).
+- **The cause is not found yet:** what is known and what is still open,
+  a [questions diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/questions.md).
+- **One real request today beside the same with the fix:** a
+  [case](https://github.com/vbarbarosh/rules/blob/main/diagrams/case.md).
+
+## How it is drawn
+
+1. **The failure:** a red box on top, what broke in a few words and,
+   under it, how much or since when.
+2. **The causes:** one box per row down, each the &quot;because&quot; of the box
+   above it, its name in bold in two or three words and under it what
+   shows it; dark lines join the chain from the failure to the root.
+3. **Ruled out:** a grey box with a dashed border beside the cause it
+   was checked against, its name in grey and &quot;ruled out:&quot; with the
+   reason; grey dashed lines join it.
+4. **The root cause:** the last box of the chain, amber with an amber
+   border, its name in bold and &quot;the root cause&quot; under it.
+5. **The fix:** a green box beside the root cause, joined to it by a
+   green line, the change in bold.
+6. **Now:** a blue box under the tree says in one sentence why it broke
+   and what fixes it.
+</pre>
+</section>
 <section class="group guide" id="timeline">
-<h2><span class="tag">06</span><span class="name">Timeline: what happened when</span></h2>
+<h2><span class="tag">09</span><span class="name">Timeline: what happened when</span></h2>
 <article class="prose">
 <p>Events at their moments, from a log: one line of time, left to right, each event a dot with its time and a few words.</p>
 <a class="figure" href="../img/diagrams/timeline_sign_in.svg"><img class="light" src="../img/diagrams/timeline_sign_in.svg" alt="A sign-in second by second: started, link opened, code typed, ended with the token unread, then Paste starting a new sign-in" width="1000" height="520" loading="lazy"><img class="dark" src="../img/diagrams/timeline_sign_in-dark.svg" alt="A sign-in second by second: started, link opened, code typed, ended with the token unread, then Paste starting a new sign-in" width="1000" height="520" loading="lazy"></a>
@@ -1559,7 +1769,7 @@ event a dot with its time and a few words.
 </pre>
 </section>
 <section class="group guide" id="milestone">
-<h2><span class="tag">07</span><span class="name">Milestone track: where a goal stands</span></h2>
+<h2><span class="tag">10</span><span class="name">Milestone track: where a goal stands</span></h2>
 <article class="prose">
 <p>One goal and its steps on a line, left to right: the steps done, the step now, the steps ahead, and who each one waits on.</p>
 <a class="figure" href="../img/diagrams/milestone_payments.svg"><img class="light" src="../img/diagrams/milestone_payments.svg" alt="Payments open to every shop, 3 of 6 done: the card form, refunds and five shops trying it done with their dates; fees shown at checkout now, waiting on you to approve the text; opening to every shop by you and watching the first week by me ahead" width="1000" height="480" loading="lazy"><img class="dark" src="../img/diagrams/milestone_payments-dark.svg" alt="Payments open to every shop, 3 of 6 done: the card form, refunds and five shops trying it done with their dates; fees shown at checkout now, waiting on you to approve the text; opening to every shop by you and watching the first week by me ahead" width="1000" height="480" loading="lazy"></a>
@@ -1615,8 +1825,72 @@ now, the steps ahead, and who each one waits on.
    waits on, in one sentence.
 </pre>
 </section>
+<section class="group guide" id="plangraph">
+<h2><span class="tag">11</span><span class="name">Plan graph: what waits on what</span></h2>
+<article class="prose">
+<p>A plan's parts as boxes, an arrow from each part to the parts that wait on it. Parts that can run side by side stand in one column. The longest chain is bold blue: it sets the day the plan ends.</p>
+<a class="figure" href="../img/diagrams/plangraph_coupon.svg"><img class="light" src="../img/diagrams/plangraph_coupon.svg" alt="A coupon field at checkout in five parts over seven days: P1 the coupon API, 2 days, done in green; then side by side P2 the form, 3 days, under way in blue, and P3 the e-mail, 1 day, not started in grey; both lead to P4 tests, 1 day, not started; then P5 your go, waiting on you in amber; the arrows P1 to P2 to P4 to P5 are bold blue, the longest chain; a Now box says a late form moves the ship day, the e-mail can slip 2 days, and then it waits on your go" width="1000" height="480" loading="lazy"><img class="dark" src="../img/diagrams/plangraph_coupon-dark.svg" alt="A coupon field at checkout in five parts over seven days: P1 the coupon API, 2 days, done in green; then side by side P2 the form, 3 days, under way in blue, and P3 the e-mail, 1 day, not started in grey; both lead to P4 tests, 1 day, not started; then P5 your go, waiting on you in amber; the arrows P1 to P2 to P4 to P5 are bold blue, the longest chain; a Now box says a late form moves the ship day, the e-mail can slip 2 days, and then it waits on your go" width="1000" height="480" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>A plan in parts,</strong> some of which wait on others and some of which can run at the same time.</li><li><strong>The question is what holds the end date:</strong> which parts must not slip, and which have time to spare.</li><li><strong>A part waits on the reader,</strong> and the reader sees how much waits behind it.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>One goal's steps in a line,</strong> one after another: a <a href="#milestone">milestone track</a>.</li><li><strong>The months ahead,</strong> bars against dates: a <a href="#roadmap">roadmap</a>.</li><li><strong>Work by stage today,</strong> not by what it waits on: a <a href="#kanban">kanban board</a>.</li><li><strong>What is decided where,</strong> questions and their answers: a <a href="#flowchart">flowchart</a>.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>The parts:</strong> one box per part, its name in bold, P1, P2 and so on with a few words; under it how long it takes and where it stands. Three to eight parts.</li><li><strong>The columns:</strong> left to right in the order the parts can start, the days on top. Parts that can run side by side are stacked in one column.</li><li><strong>The arrows:</strong> from a part to each part that waits on it, from box edge to box edge, thin grey.</li><li><strong>The longest chain:</strong> its arrows bold blue, so the reader sees which parts move the end date and which can slip.</li><li><strong>Where each stands:</strong> green is done, blue under way, grey with a dashed border not started, amber with &quot;waits on you&quot; a part the reader must do or approve.</li><li><strong>Now:</strong> a blue box under the panel says in one sentence what holds the end date, what has time to spare and what waits on the reader.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Good, add them all. (2026-10-16 21:00)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/plangraph.md" title="diagrams/plangraph.md">plangraph.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Plan graph: what waits on what
+
+A plan's parts as boxes, an arrow from each part to the parts that wait
+on it. Parts that can run side by side stand in one column. The longest
+chain is bold blue: it sets the day the plan ends.
+
+![A coupon field at checkout in five parts over seven days: P1 the coupon API, 2 days, done in green; then side by side P2 the form, 3 days, under way in blue, and P3 the e-mail, 1 day, not started in grey; both lead to P4 tests, 1 day, not started; then P5 your go, waiting on you in amber; the arrows P1 to P2 to P4 to P5 are bold blue, the longest chain; a Now box says a late form moves the ship day, the e-mail can slip 2 days, and then it waits on your go](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/plangraph_coupon.svg)
+
+## Fits when
+
+- **A plan in parts,** some of which wait on others and some of which
+  can run at the same time.
+- **The question is what holds the end date:** which parts must not
+  slip, and which have time to spare.
+- **A part waits on the reader,** and the reader sees how much waits
+  behind it.
+
+## Not when
+
+- **One goal's steps in a line,** one after another: a
+  [milestone track](https://github.com/vbarbarosh/rules/blob/main/diagrams/milestone.md).
+- **The months ahead,** bars against dates: a [roadmap](https://github.com/vbarbarosh/rules/blob/main/diagrams/roadmap.md).
+- **Work by stage today,** not by what it waits on: a
+  [kanban board](https://github.com/vbarbarosh/rules/blob/main/diagrams/kanban.md).
+- **What is decided where,** questions and their answers: a
+  [flowchart](https://github.com/vbarbarosh/rules/blob/main/diagrams/flowchart.md).
+
+## How it is drawn
+
+1. **The parts:** one box per part, its name in bold, P1, P2 and so on
+   with a few words; under it how long it takes and where it stands.
+   Three to eight parts.
+2. **The columns:** left to right in the order the parts can start, the
+   days on top. Parts that can run side by side are stacked in one
+   column.
+3. **The arrows:** from a part to each part that waits on it, from box
+   edge to box edge, thin grey.
+4. **The longest chain:** its arrows bold blue, so the reader sees which
+   parts move the end date and which can slip.
+5. **Where each stands:** green is done, blue under way, grey with a
+   dashed border not started, amber with &quot;waits on you&quot; a part the
+   reader must do or approve.
+6. **Now:** a blue box under the panel says in one sentence what holds
+   the end date, what has time to spare and what waits on the reader.
+</pre>
+</section>
 <section class="group guide" id="roadmap">
-<h2><span class="tag">08</span><span class="name">Roadmap: what is planned when</span></h2>
+<h2><span class="tag">12</span><span class="name">Roadmap: what is planned when</span></h2>
 <article class="prose">
 <p>The months ahead on one line of time, a lane per area of work, each piece of work a bar from its start to its end; a red line marks today. The reader sees what is done, what is under way, what is at risk and what comes next.</p>
 <a class="figure" href="../img/diagrams/roadmap_shop.svg"><img class="light" src="../img/diagrams/roadmap_shop.svg" alt="The shop from July to December: Payments has the card form done and bank payouts under way; Checkout has Apple Pay under way and tax by country at risk in amber after it; Help centre has the gift card articles done and search planned in grey; a red dashed line marks today, 10-16; a Now box says tax by country is at risk because it needs Apple Pay" width="1000" height="556" loading="lazy"><img class="dark" src="../img/diagrams/roadmap_shop-dark.svg" alt="The shop from July to December: Payments has the card form done and bank payouts under way; Checkout has Apple Pay under way and tax by country at risk in amber after it; Help centre has the gift card articles done and search planned in grey; a red dashed line marks today, 10-16; a Now box says tax by country is at risk because it needs Apple Pay" width="1000" height="556" loading="lazy"></a>
@@ -1674,7 +1948,7 @@ comes next.
 </pre>
 </section>
 <section class="group guide" id="kanban">
-<h2><span class="tag">09</span><span class="name">Kanban board: where each piece of work is</span></h2>
+<h2><span class="tag">13</span><span class="name">Kanban board: where each piece of work is</span></h2>
 <article class="prose">
 <p>Many pieces of work at once, each in the column of its stage: to do, doing, in review, done. The board says what is in flight, where work piles up, and what waits on whom.</p>
 <a class="figure" href="../img/diagrams/kanban_checkout.svg"><img class="light" src="../img/diagrams/kanban_checkout.svg" alt="The checkout's work this week: To do holds saved cards, the receipt e-mail and the coupon field, one more hidden; Doing is full at 3 of 3, Apple Pay, tax by country, and bank payouts blocked for 3 days in red; Review holds the fees text, waiting on you in amber; Done holds the card form and refunds with their dates, three more hidden; a Now box says what is stuck" width="1000" height="568" loading="lazy"><img class="dark" src="../img/diagrams/kanban_checkout-dark.svg" alt="The checkout's work this week: To do holds saved cards, the receipt e-mail and the coupon field, one more hidden; Doing is full at 3 of 3, Apple Pay, tax by country, and bank payouts blocked for 3 days in red; Review holds the fees text, waiting on you in amber; Done holds the card form and refunds with their dates, three more hidden; a Now box says what is stuck" width="1000" height="568" loading="lazy"></a>
@@ -1734,8 +2008,69 @@ piles up, and what waits on whom.
    and what waits on whom.
 </pre>
 </section>
+<section class="group guide" id="quadrant">
+<h2><span class="tag">14</span><span class="name">Priority quadrant: what to do first</span></h2>
+<article class="prose">
+<p>Many pieces of work weighed on two things only: how much each is worth and how much it costs. Value goes up, effort goes right, and the square splits in four quarters: do first, plan, later, skip. The reader sees what to start with and what to drop.</p>
+<a class="figure" href="../img/diagrams/quadrant_checkout.svg"><img class="light" src="../img/diagrams/quadrant_checkout.svg" alt="Eight checkout ideas on value and effort: the green Do first quarter, high value and low effort, holds Apple Pay and saved cards; the blue Plan quarter, high value and high effort, holds the one-page checkout and tax by country; the grey Later quarter, low value and low effort, holds the coupon field and the receipt e-mail; the dashed grey Skip quarter, low value and high effort, holds dark mode and gift wrap as hollow dots; a Now box says Apple Pay and saved cards come first and gift wrap and dark mode are dropped" width="1000" height="754" loading="lazy"><img class="dark" src="../img/diagrams/quadrant_checkout-dark.svg" alt="Eight checkout ideas on value and effort: the green Do first quarter, high value and low effort, holds Apple Pay and saved cards; the blue Plan quarter, high value and high effort, holds the one-page checkout and tax by country; the grey Later quarter, low value and low effort, holds the coupon field and the receipt e-mail; the dashed grey Skip quarter, low value and high effort, holds dark mode and gift wrap as hollow dots; a Now box says Apple Pay and saved cards come first and gift wrap and dark mode are dropped" width="1000" height="754" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>Many ideas and room for a few,</strong> and the question is which ones to start with.</li><li><strong>Two things decide it:</strong> what a piece of work brings and what it costs, each a rough guess, not a measure.</li><li><strong>The reader must say no</strong> to some of them, and wants to see why.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>Work by stage today,</strong> in flight or stuck: a <a href="#kanban">kanban board</a>.</li><li><strong>The months ahead,</strong> what is planned when: a <a href="#roadmap">roadmap</a>.</li><li><strong>Options compared on many criteria,</strong> not two: a table, a row per option and a column per criterion.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>The axes:</strong> value up the left side, effort along the bottom, each an arrow with its name; no numbers, only more and less.</li><li><strong>The quarters:</strong> four framed boxes with a gap between them, each named in its outer corner in bold, what it means under the name. Do first is green, top left; plan is blue, top right; later is grey, bottom left; skip is grey with a dashed border, bottom right.</li><li><strong>The dots:</strong> one per piece of work, where its value and effort put it, in its quarter's colour; a skipped one is hollow. Four to twelve of them.</li><li><strong>The labels:</strong> the name in bold on its own light pill beside its dot, clear of the quarter's border and of other pills; right of the dot, or left when the right has no room.</li><li><strong>Now:</strong> a blue box under the panel says in one sentence what comes first and what is dropped.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Good, add them all. (2026-10-16 21:00)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/quadrant.md" title="diagrams/quadrant.md">quadrant.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Priority quadrant: what to do first
+
+Many pieces of work weighed on two things only: how much each is worth
+and how much it costs. Value goes up, effort goes right, and the square
+splits in four quarters: do first, plan, later, skip. The reader sees
+what to start with and what to drop.
+
+![Eight checkout ideas on value and effort: the green Do first quarter, high value and low effort, holds Apple Pay and saved cards; the blue Plan quarter, high value and high effort, holds the one-page checkout and tax by country; the grey Later quarter, low value and low effort, holds the coupon field and the receipt e-mail; the dashed grey Skip quarter, low value and high effort, holds dark mode and gift wrap as hollow dots; a Now box says Apple Pay and saved cards come first and gift wrap and dark mode are dropped](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/quadrant_checkout.svg)
+
+## Fits when
+
+- **Many ideas and room for a few,** and the question is which ones to
+  start with.
+- **Two things decide it:** what a piece of work brings and what it
+  costs, each a rough guess, not a measure.
+- **The reader must say no** to some of them, and wants to see why.
+
+## Not when
+
+- **Work by stage today,** in flight or stuck: a
+  [kanban board](https://github.com/vbarbarosh/rules/blob/main/diagrams/kanban.md).
+- **The months ahead,** what is planned when: a [roadmap](https://github.com/vbarbarosh/rules/blob/main/diagrams/roadmap.md).
+- **Options compared on many criteria,** not two: a table, a row per
+  option and a column per criterion.
+
+## How it is drawn
+
+1. **The axes:** value up the left side, effort along the bottom, each
+   an arrow with its name; no numbers, only more and less.
+2. **The quarters:** four framed boxes with a gap between them, each
+   named in its outer corner in bold, what it means under the name.
+   Do first is green, top left; plan is blue, top right; later is grey,
+   bottom left; skip is grey with a dashed border, bottom right.
+3. **The dots:** one per piece of work, where its value and effort put
+   it, in its quarter's colour; a skipped one is hollow. Four to twelve
+   of them.
+4. **The labels:** the name in bold on its own light pill beside its
+   dot, clear of the quarter's border and of other pills; right of the
+   dot, or left when the right has no room.
+5. **Now:** a blue box under the panel says in one sentence what comes
+   first and what is dropped.
+</pre>
+</section>
 <section class="group guide" id="containers">
-<h2><span class="tag">10</span><span class="name">Container sketch (C4): where the parts run</span></h2>
+<h2><span class="tag">15</span><span class="name">Container sketch (C4): where the parts run</span></h2>
 <article class="prose">
 <p>Which parts a system has, where each one runs, and what goes between them: the container level of the C4 model, drawn as a sketch.</p>
 <a class="figure" href="../img/diagrams/containers_notes.svg"><img class="light" src="../img/diagrams/containers_notes.svg" alt="Where the parts of a notes app run: the app, its folder and an agent box on a laptop; a router and agent machines; model and speech services on the internet" width="1000" height="560" loading="lazy"><img class="dark" src="../img/diagrams/containers_notes-dark.svg" alt="Where the parts of a notes app run: the app, its folder and an agent box on a laptop; a router and agent machines; model and speech services on the internet" width="1000" height="560" loading="lazy"></a>
@@ -1795,7 +2130,7 @@ the container level of the C4 model, drawn as a sketch.
 </pre>
 </section>
 <section class="group guide" id="entities">
-<h2><span class="tag">11</span><span class="name">Entity-relationship: what data there is and how it links</span></h2>
+<h2><span class="tag">16</span><span class="name">Entity-relationship: what data there is and how it links</span></h2>
 <article class="prose">
 <p>The kinds of data a system keeps, their main fields, and how many of one go with one of another: 1 to n, n to n, marked on each line's ends.</p>
 <a class="figure" href="../img/diagrams/entities_notes.svg"><img class="light" src="../img/diagrams/entities_notes.svg" alt="A note's data: a note holds messages, messages are linked in subjects, a message has files" width="1000" height="510" loading="lazy"><img class="dark" src="../img/diagrams/entities_notes-dark.svg" alt="A note's data: a note holds messages, messages are linked in subjects, a message has files" width="1000" height="510" loading="lazy"></a>
@@ -1849,7 +2184,7 @@ with one of another: 1 to n, n to n, marked on each line's ends.
 </pre>
 </section>
 <section class="group guide" id="dashboard">
-<h2><span class="tag">12</span><span class="name">Status dashboard: where each part stands</span></h2>
+<h2><span class="tag">17</span><span class="name">Status dashboard: where each part stands</span></h2>
 <article class="prose">
 <p>A RAG status dashboard (red, amber, green): the state of many parts at once, each a tile coloured by its state. Big numbers on top, the tiles grouped below, the gaps gathered at the end. Two more kinds at the end: tiles coloured by where each part is, and a whole beside its gap.</p>
 <a class="figure" href="../img/diagrams/dashboard_sign_in.svg"><img class="light" src="../img/diagrams/dashboard_sign_in.svg" alt="The sign-in service: 4 of 8 parts in place, 212 unit tests pass, 1 browser test failed; providers and tests as tiles; the gaps, Apple's key, the browser test, the audit log and the docs, gathered at the end" width="1000" height="740" loading="lazy"><img class="dark" src="../img/diagrams/dashboard_sign_in-dark.svg" alt="The sign-in service: 4 of 8 parts in place, 212 unit tests pass, 1 browser test failed; providers and tests as tiles; the gaps, Apple's key, the browser test, the audit log and the docs, gathered at the end" width="1000" height="740" loading="lazy"></a>
@@ -1949,8 +2284,132 @@ what is missing from it; a row of squares counts the runs.
   failed, when, and why the rest were skipped.
 </pre>
 </section>
+<section class="group guide" id="linechart">
+<h2><span class="tag">18</span><span class="name">Line chart: a number over time</span></h2>
+<article class="prose">
+<p>One number over days or hours, a point for each, joined by a line; a dashed line marks the moment something changed, a deploy or a fix. The reader sees the number before and after, and whether it stayed.</p>
+<a class="figure" href="../img/diagrams/linechart_checkout.svg"><img class="light" src="../img/diagrams/linechart_checkout.svg" alt="The checkout page's p95 load time from 10-01 to 10-14, a point a day, 0 to 3 s up the side: before the deploy the line is red at about 2.4 s, between 2.3 and 2.6; a blue dashed line marks the deploy of 10-08; after it the line is green at about 0.9 s, between 0.8 and 1.0; a grey dashed line marks the goal of 1.5 s; a Now box says the deploy cut p95 from about 2.4 s to 0.9 s, well under the goal" width="1000" height="614" loading="lazy"><img class="dark" src="../img/diagrams/linechart_checkout-dark.svg" alt="The checkout page's p95 load time from 10-01 to 10-14, a point a day, 0 to 3 s up the side: before the deploy the line is red at about 2.4 s, between 2.3 and 2.6; a blue dashed line marks the deploy of 10-08; after it the line is green at about 0.9 s, between 0.8 and 1.0; a grey dashed line marks the goal of 1.5 s; a Now box says the deploy cut p95 from about 2.4 s to 0.9 s, well under the goal" width="1000" height="614" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>One number, measured again and again:</strong> a load time, an error rate, a queue's length; two numbers at most.</li><li><strong>The question is before and after:</strong> did the deploy or the fix move the number, and did it stay moved.</li><li><strong>A goal or a limit exists,</strong> and the reader sees which side of it the line is on.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>One run's time by function:</strong> a <a href="#flame">flame graph</a>.</li><li><strong>When something happens by hour and day of the week:</strong> a <a href="#heatmap">heatmap</a>.</li><li><strong>Work planned over months:</strong> a <a href="#roadmap">roadmap</a>.</li><li><strong>Events from a log,</strong> not a measured number: a <a href="#timeline">timeline</a>.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>Time:</strong> left to right along the bottom, the dates or hours under it, every other one when they crowd; a week to a month of days, or a day of hours.</li><li><strong>The number:</strong> up the side from zero, a few round values with their unit (&quot;1 s&quot;, &quot;2 s&quot;), a thin line across the panel at each.</li><li><strong>The line:</strong> a dot per measurement, joined. Red before the change, green after it when the number improved; one colour when nothing changed.</li><li><strong>The change:</strong> a blue dashed line down the panel at its moment, its name and date on a blue pill at the top.</li><li><strong>The goal:</strong> a grey dashed line across, its value at the right end; only when there is one.</li><li><strong>What it says:</strong> the typical value before and after in the line's colour, next to the line, in a few words.</li><li><strong>Now:</strong> a blue box under the panel says in one sentence what changed and by how much.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Good, add them all. (2026-10-16 21:00)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/linechart.md" title="diagrams/linechart.md">linechart.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Line chart: a number over time
+
+One number over days or hours, a point for each, joined by a line; a
+dashed line marks the moment something changed, a deploy or a fix. The
+reader sees the number before and after, and whether it stayed.
+
+![The checkout page's p95 load time from 10-01 to 10-14, a point a day, 0 to 3 s up the side: before the deploy the line is red at about 2.4 s, between 2.3 and 2.6; a blue dashed line marks the deploy of 10-08; after it the line is green at about 0.9 s, between 0.8 and 1.0; a grey dashed line marks the goal of 1.5 s; a Now box says the deploy cut p95 from about 2.4 s to 0.9 s, well under the goal](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/linechart_checkout.svg)
+
+## Fits when
+
+- **One number, measured again and again:** a load time, an error rate,
+  a queue's length; two numbers at most.
+- **The question is before and after:** did the deploy or the fix move
+  the number, and did it stay moved.
+- **A goal or a limit exists,** and the reader sees which side of it the
+  line is on.
+
+## Not when
+
+- **One run's time by function:** a [flame graph](https://github.com/vbarbarosh/rules/blob/main/diagrams/flame.md).
+- **When something happens by hour and day of the week:** a
+  [heatmap](https://github.com/vbarbarosh/rules/blob/main/diagrams/heatmap.md).
+- **Work planned over months:** a [roadmap](https://github.com/vbarbarosh/rules/blob/main/diagrams/roadmap.md).
+- **Events from a log,** not a measured number: a
+  [timeline](https://github.com/vbarbarosh/rules/blob/main/diagrams/timeline.md).
+
+## How it is drawn
+
+1. **Time:** left to right along the bottom, the dates or hours under
+   it, every other one when they crowd; a week to a month of days, or a
+   day of hours.
+2. **The number:** up the side from zero, a few round values with their
+   unit (&quot;1 s&quot;, &quot;2 s&quot;), a thin line across the panel at each.
+3. **The line:** a dot per measurement, joined. Red before the change,
+   green after it when the number improved; one colour when nothing
+   changed.
+4. **The change:** a blue dashed line down the panel at its moment, its
+   name and date on a blue pill at the top.
+5. **The goal:** a grey dashed line across, its value at the right end;
+   only when there is one.
+6. **What it says:** the typical value before and after in the line's
+   colour, next to the line, in a few words.
+7. **Now:** a blue box under the panel says in one sentence what changed
+   and by how much.
+</pre>
+</section>
+<section class="group guide" id="heatmap">
+<h2><span class="tag">19</span><span class="name">Heatmap: when it happens</span></h2>
+<article class="prose">
+<p>A week in one grid: the days as rows, the hours as columns, each cell as dark as its count. The reader sees at once which hours of which days pile up, and which stay quiet.</p>
+<a class="figure" href="../img/diagrams/heatmap_checkout.svg"><img class="light" src="../img/diagrams/heatmap_checkout.svg" alt="Checkout errors from 5 to 11 October, a row per day from Monday to Sunday and a column per two hours from 00 to 22; a legend scale runs from grey for none through five ambers to the darkest for 50 and more; most cells are pale, the weekend almost blank; a blue frame holds Monday to Friday at 08 and 10, every cell dark with its count inside, from 38 to 63; under the grid the hot spot is named, Mon to Fri 08:00 to 12:00, 493 of 684 errors; a Now box says 7 in 10 errors hit weekday mornings, while the late nightly import still runs" width="1000" height="640" loading="lazy"><img class="dark" src="../img/diagrams/heatmap_checkout-dark.svg" alt="Checkout errors from 5 to 11 October, a row per day from Monday to Sunday and a column per two hours from 00 to 22; a legend scale runs from grey for none through five ambers to the darkest for 50 and more; most cells are pale, the weekend almost blank; a blue frame holds Monday to Friday at 08 and 10, every cell dark with its count inside, from 38 to 63; under the grid the hot spot is named, Mon to Fri 08:00 to 12:00, 493 of 684 errors; a Now box says 7 in 10 errors hit weekday mornings, while the late nightly import still runs" width="1000" height="640" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>Many events, and the question is when:</strong> which hours of which days they come at.</li><li><strong>A pattern repeats</strong> by the day of the week or the hour of the day, and a line of time would hide it.</li><li><strong>One spot stands out,</strong> and its days and hours point at a cause: a job that runs late, a peak of visitors, a weekly report.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>One number over time,</strong> going up or down: a <a href="#linechart">line chart</a>.</li><li><strong>Events in their order,</strong> each with its moment: a <a href="#timeline">timeline</a>.</li><li><strong>Parts and their health,</strong> not the hours: a <a href="#dashboard">status dashboard</a>.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>The grid:</strong> in one framed panel, a row per day from Monday to Sunday, its name in bold on the left; a column per hour, or per two hours, its start on top.</li><li><strong>The cells:</strong> one per day and hour, as dark as its count: grey for none, then pale to dark amber; five or six steps in all.</li><li><strong>The scale:</strong> on the line under the title, a swatch per step with its range, from none to the darkest.</li><li><strong>The hot spot:</strong> a blue frame around its cells, their counts inside them; under the grid, in blue, its days, its hours and its share of the whole.</li><li><strong>Now:</strong> a blue box under the panel says in one sentence when most of it happens and why.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Good, add them all. (2026-10-16 21:00)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/heatmap.md" title="diagrams/heatmap.md">heatmap.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Heatmap: when it happens
+
+A week in one grid: the days as rows, the hours as columns, each cell as
+dark as its count. The reader sees at once which hours of which days
+pile up, and which stay quiet.
+
+![Checkout errors from 5 to 11 October, a row per day from Monday to Sunday and a column per two hours from 00 to 22; a legend scale runs from grey for none through five ambers to the darkest for 50 and more; most cells are pale, the weekend almost blank; a blue frame holds Monday to Friday at 08 and 10, every cell dark with its count inside, from 38 to 63; under the grid the hot spot is named, Mon to Fri 08:00 to 12:00, 493 of 684 errors; a Now box says 7 in 10 errors hit weekday mornings, while the late nightly import still runs](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/heatmap_checkout.svg)
+
+## Fits when
+
+- **Many events, and the question is when:** which hours of which days
+  they come at.
+- **A pattern repeats** by the day of the week or the hour of the day,
+  and a line of time would hide it.
+- **One spot stands out,** and its days and hours point at a cause: a
+  job that runs late, a peak of visitors, a weekly report.
+
+## Not when
+
+- **One number over time,** going up or down: a
+  [line chart](https://github.com/vbarbarosh/rules/blob/main/diagrams/linechart.md).
+- **Events in their order,** each with its moment: a
+  [timeline](https://github.com/vbarbarosh/rules/blob/main/diagrams/timeline.md).
+- **Parts and their health,** not the hours: a
+  [status dashboard](https://github.com/vbarbarosh/rules/blob/main/diagrams/dashboard.md).
+
+## How it is drawn
+
+1. **The grid:** in one framed panel, a row per day from Monday to
+   Sunday, its name in bold on the left; a column per hour, or per two
+   hours, its start on top.
+2. **The cells:** one per day and hour, as dark as its count: grey for
+   none, then pale to dark amber; five or six steps in all.
+3. **The scale:** on the line under the title, a swatch per step with
+   its range, from none to the darkest.
+4. **The hot spot:** a blue frame around its cells, their counts inside
+   them; under the grid, in blue, its days, its hours and its share of
+   the whole.
+5. **Now:** a blue box under the panel says in one sentence when most of
+   it happens and why.
+</pre>
+</section>
 <section class="group guide" id="versions">
-<h2><span class="tag">13</span><span class="name">Versions: which version runs where</span></h2>
+<h2><span class="tag">20</span><span class="name">Versions: which version runs where</span></h2>
 <article class="prose">
 <p>A table of what is deployed: one row per part, its version, its commit and its date, and whether it is the latest. A verdict in a sentence on top, what &quot;latest&quot; means at the bottom.</p>
 <a class="figure" href="../img/diagrams/versions_production.svg"><img class="light" src="../img/diagrams/versions_production.svg" alt="What runs on production: api, web and worker run their latest release; the image resizer and the mail sender were deployed by hand, so no one can tell which code they run" width="1000" height="628" loading="lazy"><img class="dark" src="../img/diagrams/versions_production-dark.svg" alt="What runs on production: api, web and worker run their latest release; the image resizer and the mail sender were deployed by hand, so no one can tell which code they run" width="1000" height="628" loading="lazy"></a>
@@ -2010,7 +2469,7 @@ top, what &quot;latest&quot; means at the bottom.
 </pre>
 </section>
 <section class="group guide" id="cloud">
-<h2><span class="tag">14</span><span class="name">Cloud architecture diagram: what runs where</span></h2>
+<h2><span class="tag">21</span><span class="name">Cloud architecture diagram: what runs where</span></h2>
 <article class="prose">
 <p>The parts of a system inside the places they run: the internet, a CDN's edge, a cloud region, its network and subnets, the managed services beside it. Each part an icon with its name, the links as arrows.</p>
 <a class="figure" href="../img/diagrams/cloud_banners.svg"><img class="light" src="../img/diagrams/cloud_banners.svg" alt="A render service on AWS: users and Stripe on the internet, Cloudflare at the edge; in the region a VPC with the load balancer and nginx in its public subnet, the API, PostgreSQL and Redis in its private one; SQS, Lambda and S3 managed, outside the VPC" width="1000" height="826" loading="lazy"><img class="dark" src="../img/diagrams/cloud_banners-dark.svg" alt="A render service on AWS: users and Stripe on the internet, Cloudflare at the edge; in the region a VPC with the load balancer and nginx in its public subnet, the API, PostgreSQL and Redis in its private one; SQS, Lambda and S3 managed, outside the VPC" width="1000" height="826" loading="lazy"></a>
@@ -2060,7 +2519,7 @@ beside it. Each part an icon with its name, the links as arrows.
 </pre>
 </section>
 <section class="group guide" id="network">
-<h2><span class="tag">15</span><span class="name">Network diagram: addresses, ports, who may connect</span></h2>
+<h2><span class="tag">22</span><span class="name">Network diagram: addresses, ports, who may connect</span></h2>
 <article class="prose">
 <p>The network engineer's view: address ranges as bands, the gateways at their borders, a security group around what it guards with what it lets in, every link with its protocol and port.</p>
 <a class="figure" href="../img/diagrams/network_banners.svg"><img class="light" src="../img/diagrams/network_banners.svg" alt="The render service's network: a VPC of 10.0.0.0/16 with a public subnet for the load balancer and nginx and a private one for the API, PostgreSQL and Redis; each security group with its rule, each link with its port: 443, 80, 3000, 5432, 6379" width="1000" height="822" loading="lazy"><img class="dark" src="../img/diagrams/network_banners-dark.svg" alt="The render service's network: a VPC of 10.0.0.0/16 with a public subnet for the load balancer and nginx and a private one for the API, PostgreSQL and Redis; each security group with its rule, each link with its port: 443, 80, 3000, 5432, 6379" width="1000" height="822" loading="lazy"></a>
@@ -2106,7 +2565,7 @@ in, every link with its protocol and port.
 </pre>
 </section>
 <section class="group guide" id="tiers">
-<h2><span class="tag">16</span><span class="name">Layered diagram: the tiers a request passes</span></h2>
+<h2><span class="tag">23</span><span class="name">Layered diagram: the tiers a request passes</span></h2>
 <article class="prose">
 <p>The parts in columns by tier, left to right in the order a request meets them: the edge, the entry, the compute, the background work, the data. The main path bold, the side paths in their own style.</p>
 <a class="figure" href="../img/diagrams/tiers_banners.svg"><img class="light" src="../img/diagrams/tiers_banners.svg" alt="The render service in five tiers: Cloudflare at the edge, the load balancer and nginx at the entry, the API in compute, SQS and Lambda for background work, PostgreSQL, Redis and S3 as data; the main path blue, the render jobs dashed green" width="1000" height="760" loading="lazy"><img class="dark" src="../img/diagrams/tiers_banners-dark.svg" alt="The render service in five tiers: Cloudflare at the edge, the load balancer and nginx at the entry, the API in compute, SQS and Lambda for background work, PostgreSQL, Redis and S3 as data; the main path blue, the render jobs dashed green" width="1000" height="760" loading="lazy"></a>
@@ -2153,7 +2612,7 @@ The main path bold, the side paths in their own style.
 </pre>
 </section>
 <section class="group guide" id="isometric">
-<h2><span class="tag">17</span><span class="name">Isometric diagram: the system as a model</span></h2>
+<h2><span class="tag">24</span><span class="name">Isometric diagram: the system as a model</span></h2>
 <article class="prose">
 <p>The same parts as blocks on an isometric floor, the networks as raised platforms, the main paths along the grid: a picture to point at on a slide, read before any word.</p>
 <a class="figure" href="../img/diagrams/isometric_banners.svg"><img class="light" src="../img/diagrams/isometric_banners.svg" alt="The render service as an isometric model: users and Cloudflare on the internet; the region's VPC a slab with a platform for each subnet; the API, PostgreSQL, Redis and the replica on the private one; SQS, Lambda and S3 beside it" width="1000" height="740" loading="lazy"><img class="dark" src="../img/diagrams/isometric_banners-dark.svg" alt="The render service as an isometric model: users and Cloudflare on the internet; the region's VPC a slab with a platform for each subnet; the API, PostgreSQL, Redis and the replica on the private one; SQS, Lambda and S3 beside it" width="1000" height="740" loading="lazy"></a>
@@ -2200,7 +2659,7 @@ slide, read before any word.
 </pre>
 </section>
 <section class="group guide" id="servicemap">
-<h2><span class="tag">18</span><span class="name">Service map: what talks to what, live</span></h2>
+<h2><span class="tag">25</span><span class="name">Service map: what talks to what, live</span></h2>
 <article class="prose">
 <p>What a tracing tool draws from real traffic: each service a circle with a ring for its health, each link as thick as its traffic, the numbers on the links. The unwell one stands out at a glance.</p>
 <a class="figure" href="../img/diagrams/servicemap_banners.svg"><img class="light" src="../img/diagrams/servicemap_banners.svg" alt="The render service's map: Cloudflare 1000 requests a second, 300 through the load balancer and nginx to the API, 150 to Redis, 120 to the replica; Lambda ringed red with 3% errors, the replica orange with 0.4 s of lag" width="1000" height="760" loading="lazy"><img class="dark" src="../img/diagrams/servicemap_banners-dark.svg" alt="The render service's map: Cloudflare 1000 requests a second, 300 through the load balancer and nginx to the API, 150 to Redis, 120 to the replica; Lambda ringed red with 3% errors, the replica orange with 0.4 s of lag" width="1000" height="760" loading="lazy"></a>
@@ -2247,7 +2706,7 @@ links. The unwell one stands out at a glance.
 </pre>
 </section>
 <section class="group guide" id="sankey">
-<h2><span class="tag">19</span><span class="name">Sankey diagram: where the traffic goes, how much</span></h2>
+<h2><span class="tag">26</span><span class="name">Sankey diagram: where the traffic goes, how much</span></h2>
 <article class="prose">
 <p>Traffic as bands that split and end, each as wide as its share: what a cache absorbs, what reaches each part behind it.</p>
 <a class="figure" href="../img/diagrams/sankey_banners.svg"><img class="light" src="../img/diagrams/sankey_banners.svg" alt="1000 requests a second reach Cloudflare; 700 are served from its cache, 300 go on through the load balancer and nginx to the API, which reads 150 from Redis, 120 from the replica, 30 from the primary" width="1000" height="660" loading="lazy"><img class="dark" src="../img/diagrams/sankey_banners-dark.svg" alt="1000 requests a second reach Cloudflare; 700 are served from its cache, 300 go on through the load balancer and nginx to the API, which reads 150 from Redis, 120 from the replica, 30 from the primary" width="1000" height="660" loading="lazy"></a>
@@ -2289,8 +2748,70 @@ cache absorbs, what reaches each part behind it.
 3. **Ends:** what stops early ends at its own bar, in its own colour.
 </pre>
 </section>
+<section class="group guide" id="waterfall">
+<h2><span class="tag">27</span><span class="name">Trace waterfall: where one request spends its time</span></h2>
+<article class="prose">
+<p>One request traced across services: a row per span, each a bar from its start to its end on one scale of milliseconds, a called span indented under its caller. The reader sees the slowest span, what runs in turn, and the gaps where the request only waits.</p>
+<a class="figure" href="../img/diagrams/waterfall_checkout.svg"><img class="light" src="../img/diagrams/waterfall_checkout.svg" alt="A trace of POST /checkout, 1840 ms: the api's bar spans it all; under it auth checks the token in 40 ms, the cart service loads the cart in 240 ms with a database read of 180 ms indented under it, then an amber band marks 160 ms of waiting, then the payment provider charges the card in 1200 ms in red, the database saves the order in 80 ms and the mail queue takes the receipt in 30 ms; a Now box says the payment provider takes 1200 of the 1840 ms and 160 ms before it is a wait" width="1000" height="644" loading="lazy"><img class="dark" src="../img/diagrams/waterfall_checkout-dark.svg" alt="A trace of POST /checkout, 1840 ms: the api's bar spans it all; under it auth checks the token in 40 ms, the cart service loads the cart in 240 ms with a database read of 180 ms indented under it, then an amber band marks 160 ms of waiting, then the payment provider charges the card in 1200 ms in red, the database saves the order in 80 ms and the mail queue takes the receipt in 30 ms; a Now box says the payment provider takes 1200 of the 1840 ms and 160 ms before it is a wait" width="1000" height="644" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>&quot;Why is this request slow?&quot;:</strong> one request, measured across the services it passes.</li><li><strong>Calls in turn or at once:</strong> the reader sees what waits for what, and what could run side by side.</li><li><strong>Time lost between spans:</strong> a gap where nothing runs is as plain as the work.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>The call stacks of one process,</strong> by function: a <a href="#flame">flame graph</a>.</li><li><strong>Who talks to whom,</strong> in order, with the messages: a <a href="#sequence">sequence diagram</a>.</li><li><strong>A number over time,</strong> many requests: a <a href="#linechart">line chart</a>.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>Time:</strong> milliseconds left to right in one framed panel, the ticks on top, faint dashed lines down from them; zero is the request's start.</li><li><strong>Rows:</strong> one per span in the order it starts, the service in bold and what it did after it; a called span indented under its caller.</li><li><strong>Milliseconds:</strong> each span's time in a column right before its bar, so the numbers read down one line.</li><li><strong>Bars:</strong> one per span from its start to its end, to one scale; a few milliseconds still get a thin bar. The slowest span is solid red, its name and time in red.</li><li><strong>Waits:</strong> a gap where no span runs is an amber band behind the rows, its length on an amber pill under them.</li><li><strong>Now:</strong> a blue box under the panel says in one sentence where the time goes.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Good, add them all. (2026-10-16 21:00)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/waterfall.md" title="diagrams/waterfall.md">waterfall.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Trace waterfall: where one request spends its time
+
+One request traced across services: a row per span, each a bar from its
+start to its end on one scale of milliseconds, a called span indented
+under its caller. The reader sees the slowest span, what runs in turn,
+and the gaps where the request only waits.
+
+![A trace of POST /checkout, 1840 ms: the api's bar spans it all; under it auth checks the token in 40 ms, the cart service loads the cart in 240 ms with a database read of 180 ms indented under it, then an amber band marks 160 ms of waiting, then the payment provider charges the card in 1200 ms in red, the database saves the order in 80 ms and the mail queue takes the receipt in 30 ms; a Now box says the payment provider takes 1200 of the 1840 ms and 160 ms before it is a wait](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/waterfall_checkout.svg)
+
+## Fits when
+
+- **&quot;Why is this request slow?&quot;:** one request, measured across the
+  services it passes.
+- **Calls in turn or at once:** the reader sees what waits for what, and
+  what could run side by side.
+- **Time lost between spans:** a gap where nothing runs is as plain as
+  the work.
+
+## Not when
+
+- **The call stacks of one process,** by function: a
+  [flame graph](https://github.com/vbarbarosh/rules/blob/main/diagrams/flame.md).
+- **Who talks to whom,** in order, with the messages: a
+  [sequence diagram](https://github.com/vbarbarosh/rules/blob/main/diagrams/sequence.md).
+- **A number over time,** many requests: a [line chart](https://github.com/vbarbarosh/rules/blob/main/diagrams/linechart.md).
+
+## How it is drawn
+
+1. **Time:** milliseconds left to right in one framed panel, the ticks
+   on top, faint dashed lines down from them; zero is the request's
+   start.
+2. **Rows:** one per span in the order it starts, the service in bold
+   and what it did after it; a called span indented under its caller.
+3. **Milliseconds:** each span's time in a column right before its bar,
+   so the numbers read down one line.
+4. **Bars:** one per span from its start to its end, to one scale; a
+   few milliseconds still get a thin bar. The slowest span is solid red,
+   its name and time in red.
+5. **Waits:** a gap where no span runs is an amber band behind the rows,
+   its length on an amber pill under them.
+6. **Now:** a blue box under the panel says in one sentence where the
+   time goes.
+</pre>
+</section>
 <section class="group guide" id="dataflow">
-<h2><span class="tag">20</span><span class="name">Data flow diagram: where data crosses a trust boundary</span></h2>
+<h2><span class="tag">28</span><span class="name">Data flow diagram: where data crosses a trust boundary</span></h2>
 <article class="prose">
 <p>The threat modeller's view: outside parties, processes and data stores, the flows between them labelled with the data they carry, and the trust boundaries as red dashed lines. Each crossing gets a number to discuss.</p>
 <a class="figure" href="../img/diagrams/dataflow_banners.svg"><img class="light" src="../img/diagrams/dataflow_banners.svg" alt="The render service's data flows: a user's login and cookie through Cloudflare into the VPC, banner JSON into PostgreSQL, render jobs to SQS, rendered PNGs to S3, a card token to Stripe; eight numbered crossings, three noted: TLS ends at the load balancer, the upload skips the WAF, only a token leaves" width="1000" height="772" loading="lazy"><img class="dark" src="../img/diagrams/dataflow_banners-dark.svg" alt="The render service's data flows: a user's login and cookie through Cloudflare into the VPC, banner JSON into PostgreSQL, render jobs to SQS, rendered PNGs to S3, a card token to Stripe; eight numbered crossings, three noted: TLS ends at the load balancer, the upload skips the WAF, only a token leaves" width="1000" height="772" loading="lazy"></a>
@@ -2336,7 +2857,7 @@ boundaries as red dashed lines. Each crossing gets a number to discuss.
 </pre>
 </section>
 <section class="group guide" id="matrix">
-<h2><span class="tag">21</span><span class="name">Dependency matrix: every link in a grid</span></h2>
+<h2><span class="tag">29</span><span class="name">Dependency matrix: every link in a grid</span></h2>
 <article class="prose">
 <p>The parts as rows and the same parts as columns; a filled cell where the row calls the column. Every link at once, however many, with no lines to cross.</p>
 <a class="figure" href="../img/diagrams/matrix_banners.svg"><img class="light" src="../img/diagrams/matrix_banners.svg" alt="Twelve parts of the render service in a grid: users call Cloudflare on 443, the API calls Redis, PostgreSQL, the replica, SQS and Stripe; the one call below the diagonal, Lambda writing back to PostgreSQL, in orange" width="1000" height="754" loading="lazy"><img class="dark" src="../img/diagrams/matrix_banners-dark.svg" alt="Twelve parts of the render service in a grid: users call Cloudflare on 443, the API calls Redis, PostgreSQL, the replica, SQS and Stripe; the one call below the diagonal, Lambda writing back to PostgreSQL, in orange" width="1000" height="754" loading="lazy"></a>
@@ -2382,7 +2903,7 @@ cross.
 </pre>
 </section>
 <section class="group guide" id="callgraph">
-<h2><span class="tag">22</span><span class="name">Call graph: which function calls which</span></h2>
+<h2><span class="tag">30</span><span class="name">Call graph: which function calls which</span></h2>
 <article class="prose">
 <p>A program from its entry down: each function a box, an arrow to each one it calls, the related ones framed together, the helpers everything leans on at the bottom.</p>
 <a class="figure" href="../img/diagrams/callgraph_build.svg"><img class="light" src="../img/diagrams/callgraph_build.svg" alt="bin/build from main down: the steps for the rules pages, the glossaries and the agents pages, each with its parser and renderer, all leaning on template_fill and html_escape; 16 of its 44 functions drawn, the rest as &quot;+N more&quot;" width="1000" height="700" loading="lazy"><img class="dark" src="../img/diagrams/callgraph_build-dark.svg" alt="bin/build from main down: the steps for the rules pages, the glossaries and the agents pages, each with its parser and renderer, all leaning on template_fill and html_escape; 16 of its 44 functions drawn, the rest as &quot;+N more&quot;" width="1000" height="700" loading="lazy"></a>
@@ -2428,7 +2949,7 @@ on at the bottom.
 </pre>
 </section>
 <section class="group guide" id="pipeline">
-<h2><span class="tag">23</span><span class="name">Data flow of a script: files in, steps, files out</span></h2>
+<h2><span class="tag">31</span><span class="name">Data flow of a script: files in, steps, files out</span></h2>
 <article class="prose">
 <p>What a script reads on the left, the steps it makes of it in the middle, what it writes on the right; each arrow named by what passes along it.</p>
 <a class="figure" href="../img/diagrams/pipeline_build.svg"><img class="light" src="../img/diagrams/pipeline_build.svg" alt="bin/build: docs/rules.md, the templates, the glossaries, the guides and the pictures in; parse, read guides, render and stamp in the middle; docs/rules.html and four more pages out, and the hand-written pages stamped in place" width="1000" height="750" loading="lazy"><img class="dark" src="../img/diagrams/pipeline_build-dark.svg" alt="bin/build: docs/rules.md, the templates, the glossaries, the guides and the pictures in; parse, read guides, render and stamp in the middle; docs/rules.html and four more pages out, and the hand-written pages stamped in place" width="1000" height="750" loading="lazy"></a>
@@ -2471,7 +2992,7 @@ what it writes on the right; each arrow named by what passes along it.
 </pre>
 </section>
 <section class="group guide" id="modules">
-<h2><span class="tag">24</span><span class="name">Module graph: which file needs which</span></h2>
+<h2><span class="tag">32</span><span class="name">Module graph: which file needs which</span></h2>
 <article class="prose">
 <p>The files of a project as boxes in their folders, an arrow from each file to each one it requires, the packages from outside in their own shape.</p>
 <a class="figure" href="../img/diagrams/modules_rules.svg"><img class="light" src="../img/diagrams/modules_rules.svg" alt="The rulebook's files: tests require src/make_rules_config.js and plugin.js, which require the rules and helpers; bin/build requires package.json and node-helpers and runs bin/self-check; the npm packages eslint, postcss and playwright below" width="1000" height="760" loading="lazy"><img class="dark" src="../img/diagrams/modules_rules-dark.svg" alt="The rulebook's files: tests require src/make_rules_config.js and plugin.js, which require the rules and helpers; bin/build requires package.json and node-helpers and runs bin/self-check; the npm packages eslint, postcss and playwright below" width="1000" height="760" loading="lazy"></a>
@@ -2515,8 +3036,69 @@ to each one it requires, the packages from outside in their own shape.
    process; &quot;+N more&quot; for the rest.
 </pre>
 </section>
+<section class="group guide" id="changemap">
+<h2><span class="tag">33</span><span class="name">Change map: what a change touches</span></h2>
+<article class="prose">
+<p>The project's folder tree, trimmed to the files one change touches: each file a row, marked added, changed or removed, its lines added and removed at the right. The reader sees where the change lands and how big it is before reading the diff.</p>
+<a class="figure" href="../img/diagrams/changemap_coupon.svg"><img class="light" src="../img/diagrams/changemap_coupon.svg" alt="The coupon field commit in the shop: on top 6 files, 3 added, 2 changed, 1 removed, +312 and −148 lines; under src/api, coupons.js added with +64 and old-discounts.js removed and struck through with −92, 4 more files folded; under src/checkout, checkout.vue changed with +18 −27 and coupon-field.vue added with +121; components, pages and store folded; tests/coupon.test.js added with +88; docs/coupons.md changed with +21 −29; bin and public folded; each file has a bar of green for lines added and red for lines removed; a Now box says it is mostly new code and checkout.vue is the file to check" width="1000" height="804" loading="lazy"><img class="dark" src="../img/diagrams/changemap_coupon-dark.svg" alt="The coupon field commit in the shop: on top 6 files, 3 added, 2 changed, 1 removed, +312 and −148 lines; under src/api, coupons.js added with +64 and old-discounts.js removed and struck through with −92, 4 more files folded; under src/checkout, checkout.vue changed with +18 −27 and coupon-field.vue added with +121; components, pages and store folded; tests/coupon.test.js added with +88; docs/coupons.md changed with +21 −29; bin and public folded; each file has a bar of green for lines added and red for lines removed; a Now box says it is mostly new code and checkout.vue is the file to check" width="1000" height="804" loading="lazy"></a>
+<h3>Fits when</h3>
+<ul><li><strong>One commit or one pull request:</strong> which files it adds, changes and removes, and where in the project they sit.</li><li><strong>The question is where to look first:</strong> the big rows, the removed file, the one changed file in a folder of new ones.</li><li><strong>A change spreads over folders:</strong> code, tests and docs, and the reader sees that each got its part.</li></ul>
+<h3>Not when</h3>
+<ul><li><strong>Which file needs which:</strong> a <a href="#modules">module graph</a>.</li><li><strong>How big each part of the code is,</strong> not what one change did: a <a href="#treemap">treemap</a>.</li><li><strong>A script's data flow,</strong> files in and files out: a <a href="#pipeline">pipeline</a>.</li></ul>
+<h3>How it is drawn</h3>
+<ol><li><strong>The total:</strong> on top of the panel, the number of files, then how many added, changed and removed in their colours; the lines added in green and removed in red at the right.</li><li><strong>The tree:</strong> folders in bold with a slash, each level indented, thin grey lines from a folder to what it holds.</li><li><strong>The files:</strong> one row each, a mark and its name in colour: green + added, blue ~ changed, red − removed and struck through.</li><li><strong>The lines:</strong> at the right of each file, the lines added and removed as numbers, then a bar of green and red as long as they are.</li><li><strong>What it leaves alone:</strong> folders and files the change does not touch fold into one grey row, &quot;… 4 more files&quot; or &quot;… bin/, public/&quot;.</li><li><strong>Now:</strong> a blue box under the panel says in one sentence what the change is and which file to check first.</li></ol>
+</article>
+<div class="guide-foot">
+<details class="words"><summary>In the author's words</summary>
+<ul><li>Good, add them all. (2026-10-16 21:00)</li></ul>
+</details>
+<div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/changemap.md" title="diagrams/changemap.md">changemap.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
+</div>
+<pre data-md hidden># Change map: what a change touches
+
+The project's folder tree, trimmed to the files one change touches: each
+file a row, marked added, changed or removed, its lines added and
+removed at the right. The reader sees where the change lands and how big
+it is before reading the diff.
+
+![The coupon field commit in the shop: on top 6 files, 3 added, 2 changed, 1 removed, +312 and −148 lines; under src/api, coupons.js added with +64 and old-discounts.js removed and struck through with −92, 4 more files folded; under src/checkout, checkout.vue changed with +18 −27 and coupon-field.vue added with +121; components, pages and store folded; tests/coupon.test.js added with +88; docs/coupons.md changed with +21 −29; bin and public folded; each file has a bar of green for lines added and red for lines removed; a Now box says it is mostly new code and checkout.vue is the file to check](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/changemap_coupon.svg)
+
+## Fits when
+
+- **One commit or one pull request:** which files it adds, changes and
+  removes, and where in the project they sit.
+- **The question is where to look first:** the big rows, the removed
+  file, the one changed file in a folder of new ones.
+- **A change spreads over folders:** code, tests and docs, and the
+  reader sees that each got its part.
+
+## Not when
+
+- **Which file needs which:** a [module graph](https://github.com/vbarbarosh/rules/blob/main/diagrams/modules.md).
+- **How big each part of the code is,** not what one change did: a
+  [treemap](https://github.com/vbarbarosh/rules/blob/main/diagrams/treemap.md).
+- **A script's data flow,** files in and files out: a
+  [pipeline](https://github.com/vbarbarosh/rules/blob/main/diagrams/pipeline.md).
+
+## How it is drawn
+
+1. **The total:** on top of the panel, the number of files, then how
+   many added, changed and removed in their colours; the lines added in
+   green and removed in red at the right.
+2. **The tree:** folders in bold with a slash, each level indented, thin
+   grey lines from a folder to what it holds.
+3. **The files:** one row each, a mark and its name in colour: green +
+   added, blue ~ changed, red − removed and struck through.
+4. **The lines:** at the right of each file, the lines added and removed
+   as numbers, then a bar of green and red as long as they are.
+5. **What it leaves alone:** folders and files the change does not touch
+   fold into one grey row, &quot;… 4 more files&quot; or &quot;… bin/, public/&quot;.
+6. **Now:** a blue box under the panel says in one sentence what the
+   change is and which file to check first.
+</pre>
+</section>
 <section class="group guide" id="flame">
-<h2><span class="tag">25</span><span class="name">Flame graph: where one run spends its time</span></h2>
+<h2><span class="tag">34</span><span class="name">Flame graph: where one run spends its time</span></h2>
 <article class="prose">
 <p>One measured run: each call stack a column of bars, the caller under the callee, each bar as wide as its share of the time. The widest bars at the top are where the time goes.</p>
 <a class="figure" href="../img/diagrams/flame_build.svg"><img class="light" src="../img/diagrams/flame_build.svg" alt="One run of bin/build, 1531 ms: 889 ms waiting for bin/self-check, 363 ms in build_index_html, most of that reading whole images only to learn their size" width="1000" height="806" loading="lazy"><img class="dark" src="../img/diagrams/flame_build-dark.svg" alt="One run of bin/build, 1531 ms: 889 ms waiting for bin/self-check, 363 ms in build_index_html, most of that reading whole images only to learn their size" width="1000" height="806" loading="lazy"></a>
@@ -2561,7 +3143,7 @@ top are where the time goes.
 </pre>
 </section>
 <section class="group guide" id="treemap">
-<h2><span class="tag">26</span><span class="name">Code map: how big each part is</span></h2>
+<h2><span class="tag">35</span><span class="name">Code map: how big each part is</span></h2>
 <article class="prose">
 <p>A treemap of the code: each function a rectangle, its area its lines, grouped by the part of the program it belongs to.</p>
 <a class="figure" href="../img/diagrams/treemap_build.svg"><img class="light" src="../img/diagrams/treemap_build.svg" alt="bin/build's 44 functions by size: the guides 184 lines, the glossaries 173, the indexes 157, the shared helpers 97; glossary_from_markdown the biggest at 76" width="1000" height="760" loading="lazy"><img class="dark" src="../img/diagrams/treemap_build-dark.svg" alt="bin/build's 44 functions by size: the guides 184 lines, the glossaries 173, the indexes 157, the shared helpers 97; glossary_from_markdown the biggest at 76" width="1000" height="760" loading="lazy"></a>

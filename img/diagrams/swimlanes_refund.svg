@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 626" width="1000" height="626" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><defs><marker id="arrow-text" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#1F1E1C" stroke-linejoin="round"/></marker><marker id="arrow-amber" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#C2410C" stroke-linejoin="round"/></marker><marker id="arrow-grey" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#5C5A55" stroke-linejoin="round"/></marker></defs><rect width="1000" height="626" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Swimlanes: who does each step of a refund</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">A lane per actor, steps left to right. Green done, amber waits on you, grey to come.</text>
+<rect x="20" y="106" width="960" height="416" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="200" y1="106" x2="200" y2="522" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="21" y1="210" x2="979" y2="210" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="21" y1="314" x2="979" y2="314" stroke="#BDB9B1" stroke-width="1.5"/>
+<line x1="21" y1="418" x2="979" y2="418" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="40" y="165" font-size="20" fill="#1F1E1C" font-weight="700">Customer</text>
+<text x="40" y="269" font-size="20" fill="#1F1E1C" font-weight="700">Support</text>
+<text x="40" y="362" font-size="20" fill="#1F1E1C" font-weight="700">You</text>
+<text x="40" y="386" font-size="18" fill="#5C5A55">shop owner</text>
+<text x="40" y="466" font-size="20" fill="#1F1E1C" font-weight="700">Payment</text>
+<text x="40" y="490" font-size="20" fill="#1F1E1C" font-weight="700">service</text>
+<rect x="214" y="126" width="136" height="64" rx="8" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<text x="282" y="152" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">Asks for</text>
+<text x="282" y="176" font-size="18" fill="#1F1E1C" text-anchor="middle">a refund</text>
+<rect x="366" y="230" width="136" height="64" rx="8" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="1.5"/>
+<text x="434" y="256" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">Checks</text>
+<text x="434" y="280" font-size="18" fill="#1F1E1C" text-anchor="middle">the order</text>
+<rect x="518" y="323" width="136" height="86" rx="8" fill="#FCE4D6" stroke="#C2410C" stroke-width="2"/>
+<text x="586" y="350" font-size="18" fill="#C2410C" font-weight="700" text-anchor="middle">Approves</text>
+<text x="586" y="372" font-size="18" fill="#C2410C" font-weight="700" text-anchor="middle">the refund</text>
+<text x="586" y="394" font-size="18" fill="#C2410C" text-anchor="middle">waits 2 days</text>
+<rect x="670" y="438" width="136" height="64" rx="8" fill="#F1EFEB" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="738" y="464" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">Pays</text>
+<text x="738" y="488" font-size="18" fill="#1F1E1C" text-anchor="middle">it back</text>
+<rect x="822" y="230" width="136" height="64" rx="8" fill="#F1EFEB" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="890" y="256" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">E-mails</text>
+<text x="890" y="280" font-size="18" fill="#1F1E1C" text-anchor="middle">the customer</text>
+<path d="M282 190 L282 262 L362 262" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#1F1E1C" marker-end="url(#arrow-text)"/>
+<path d="M434 294 L434 366 L514 366" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#C2410C" marker-end="url(#arrow-amber)"/>
+<path d="M586 409 L586 470 L666 470" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#5C5A55" stroke-dasharray="6 5" marker-end="url(#arrow-grey)"/>
+<path d="M738 438 L738 262 L818 262" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#5C5A55" stroke-dasharray="6 5" marker-end="url(#arrow-grey)"/>
+<rect x="20" y="540" width="960" height="68" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="40" y="581" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Now</tspan><tspan dx="14">Support checked the order 2 days ago; the refund now waits on you to approve.</tspan></text>
+</svg>
