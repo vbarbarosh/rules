@@ -16,7 +16,7 @@ where we are, where we came from, where we are going.
 | breadcrumbs     | The trail behind: from the root to where you stand, each crumb a way back (Home › Docs › Page).               |
 | timeline        | Events placed along time.                                                                                     |
 | backlog         | Work known but not yet planned, in no fixed order.                                                            |
-| anatomy         | The parts of one thing and where they sit, each one "part of" the one above it (button › icon, label).        |
+| anatomy         | The parts of one thing seen whole, each named where it sits (a button: container, icon, label).               |
 | labelled diagram | A thing drawn whole, a thin line from each part to its name.                                                 |
 | exploded view   | A thing's parts pulled apart along the lines they fit on, numbered for a parts list.                          |
 | cutaway         | A thing drawn with part of its casing taken away, so the inside shows.                                        |
