@@ -23,6 +23,7 @@
     --line-2: #e8e5d9;
     --accent: #2743b8;
     --accent-soft: #e2e7fb;
+    --mark: #f6dd8a;
     --yes: #1a7443;
     --no: #b2341f;
     --cmt: #6c6e65;
@@ -49,6 +50,7 @@
     --line-2: #212428;
     --accent: #9db2ff;
     --accent-soft: #1b2346;
+    --mark: #5a4810;
     --yes: #72d39c;
     --no: #ff937c;
     --cmt: #878b82;
@@ -840,6 +842,11 @@ footer code {
 }
 
 /* Without a pointer to hover with, the button sits under the code instead of over it. */
+::highlight(q) {
+    background-color: var(--mark);
+    color: var(--ink);
+}
+
 @media (hover: none) {
     .copy {
         position: static;
@@ -3207,8 +3214,10 @@ const use_el = document.getElementById('use');
 const copy_shown_el = document.getElementById('copy_shown');
 const guide_els = Array.from(document.querySelectorAll('section.guide'));
 const section_els = Array.from(document.querySelectorAll('section.group'));
+const guide_els_original = guide_els.slice();
 const nav_by_group = {};
 const haystack_by_id = {};
+const title_by_id = {};
 
 let spy_pending = false;
 
@@ -3221,6 +3230,7 @@ function main()
     }
     for (const guide_el of guide_els) {
         haystack_by_id[guide_el.id] = guide_el.querySelector('[data-md]').textContent.toLowerCase();
+        title_by_id[guide_el.id] = guide_el.querySelector('h2 .name').textContent.toLowerCase();
     }
 
     refresh_theme_labels();
@@ -3317,8 +3327,9 @@ function results_scroll_top()
     }
 }
 
-// Every word of the query must occur somewhere in the guide. The handing
-// over shows only while nothing is typed.
+// Every word of the query must occur somewhere in the guide. A guide whose
+// title holds every word comes first, then the other matches, in the page
+// and the sidebar. The handing over shows only while nothing is typed.
 function filter_apply()
 {
     const words = q_el.value.toLowerCase().split(/\s+/).filter(v => v);
@@ -3331,6 +3342,18 @@ function filter_apply()
             total++;
         }
     }
+    const order = [
+        ...guide_els_original.filter(is_titled),
+        ...guide_els_original.filter(v => !v.hidden && !is_titled(v)),
+        ...guide_els_original.filter(v => v.hidden),
+    ];
+    for (const guide_el of order) {
+        nothing_el.before(guide_el);
+        nav_by_group[guide_el.id].parentElement.append(nav_by_group[guide_el.id]);
+    }
+    guide_els.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+    section_els.sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1);
+    highlight_apply(words);
     use_el.hidden = (words.length > 0);
     nav_by_group.use.classList.toggle('none', words.length > 0);
     nothing_el.hidden = (total > 0);
@@ -3339,6 +3362,37 @@ function filter_apply()
     const noun = (guide_els.length === 1) ? 'diagram' : 'diagrams';
     count_el.textContent = (total === guide_els.length) ? `${total} ${noun}` : `${total} of ${guide_els.length} ${noun}`;
     spy_apply();
+
+    function is_titled(guide_el) {
+        return (words.length > 0) && words.every(v => title_by_id[guide_el.id].includes(v));
+    }
+}
+
+// The words of the query, marked wherever they show, in the content and the
+// sidebar: a highlight over the text, the text itself left as it is.
+function highlight_apply(words)
+{
+    if (!window.CSS || !CSS.highlights || !window.Highlight) {
+        return;
+    }
+    const ranges = [];
+    for (const root of (words.length > 0) ? document.querySelectorAll('main, nav.groups') : []) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode: v => v.parentElement.closest('[hidden], [data-md], script, style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+        });
+        for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+            const text = node.data.toLowerCase();
+            for (const word of words) {
+                for (let i = text.indexOf(word); i !== -1; i = text.indexOf(word, i + word.length)) {
+                    const range = new Range();
+                    range.setStart(node, i);
+                    range.setEnd(node, i + word.length);
+                    ranges.push(range);
+                }
+            }
+        }
+    }
+    CSS.highlights.set('q', new Highlight(...ranges));
 }
 
 function scroll_window()
