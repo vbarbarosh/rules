@@ -65,5 +65,10 @@
 <text x="1050" y="688" fill="#191a17" font-size="22" font-weight="700" text-anchor="middle">Map</text>
 <rect x="300.0" y="651.0" width="200" height="58" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2.5"/>
 <text x="400" y="688" fill="#191a17" font-size="22" font-weight="700" text-anchor="middle">Breadcrumbs</text>
+<line x1="150" y1="651" x2="150" y2="551" stroke="#686a61" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<rect x="85" y="585" width="130" height="30" rx="15" fill="#fffefb"/>
+<text x="150" y="607" fill="#686a61" font-size="19" font-style="italic" text-anchor="middle">pairs with</text>
+<rect x="50.0" y="651.0" width="200" height="58" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2.5"/>
+<text x="150" y="688" fill="#191a17" font-size="22" font-weight="700" text-anchor="middle">Anatomy</text>
 <g font-size="19" fill="#686a61"><rect x="760" y="36" width="34" height="22" rx="5" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/><text x="804" y="54">the terms you named or kept</text><rect x="760" y="72" width="34" height="22" rx="5" fill="#efece2" stroke="#a19f93" stroke-width="2"/><text x="804" y="90">proposed, to keep or drop</text></g>
 </svg>

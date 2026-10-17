@@ -16,6 +16,7 @@ where we are, where we came from, where we are going.
 | breadcrumbs     | The trail behind: from the root to where you stand, each crumb a way back (Home › Docs › Page).               |
 | timeline        | Events placed along time.                                                                                     |
 | backlog         | Work known but not yet planned, in no fixed order.                                                            |
+| anatomy         | The parts of one thing and where they sit, each one "part of" the one above it (button › icon, label).        |
 
 ## Tree
 
@@ -160,3 +161,20 @@ the "what is next" list of a subject file, the parts not yet on a roadmap. It
 feeds a roadmap.
 
 ![Backlog: a pile of cards in no order, and the three columns of the roadmap they feed](../img/maps/backlog.svg)
+
+## Anatomy
+
+The parts of one thing, named, and where each one sits: each part is "part
+of" the one above it. Borrowed from biology (the anatomy of a hand), it is
+common in computing: the anatomy of a button (container, icon, label), of a
+URL (scheme, host, path, query), of a log line or of a file. Design systems
+give each component page an Anatomy section.
+
+In the agent notes: a message is a folder with a `README.md` (its header
+and its text), its `files/` (a voice comment, a screenshot) and its
+`computed/` (the transcript).
+
+A taxonomy sorts kinds ("is a"); an anatomy takes one thing apart ("part
+of"). A tree of parts is also called a meronomy.
+
+![Anatomy: the parts of one message in a note](../img/maps/anatomy.svg)
