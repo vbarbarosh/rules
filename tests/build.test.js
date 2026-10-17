@@ -10,7 +10,7 @@ let fixture_dir;
 
 test.before(function () {
     fixture_dir = fs.mkdtempSync(path.join(os.tmpdir(), 'rules-build-'));
-    for (const file of ['bin/build', 'bin/self-check', 'package.json', 'docs', 'drafts', 'agents', 'diagrams', 'glossaries', 'img', 'formatting.html']) {
+    for (const file of ['bin/build', 'bin/self-check', 'package.json', 'docs', 'drafts', 'agents', 'diagrams', 'apis', 'glossaries', 'img', 'formatting.html']) {
         fs.cpSync(path.join(root_dir, file), path.join(fixture_dir, file), {recursive: true});
     }
     fs.symlinkSync(path.join(root_dir, 'node_modules'), path.join(fixture_dir, 'node_modules'), 'dir');
@@ -24,7 +24,7 @@ test('generated rule and guide images all reserve positive dimensions, including
     const result = build();
     assert.equal(result.status, 0, result.stderr);
     let count = 0;
-    for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/glossaries.html']) {
+    for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/apis.html', 'docs/glossaries.html']) {
         const html = fs.readFileSync(path.join(fixture_dir, file), 'utf8');
         for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
             assert.match(tag, /width="[1-9]\d*"/);
@@ -69,8 +69,32 @@ test('diagrams/ builds its own page from the agents template, and the agents han
     const agents = fs.readFileSync(path.join(fixture_dir, 'docs/agents.html'), 'utf8');
     assert.match(agents, /<a href="agents.html" aria-current="page">Agents<\/a>\n\s*<a href="diagrams.html">Diagrams<\/a>/);
     assert.match(agents, /Draw the pictures in your replies the way these diagrams say:\n- Sequence diagram: who talks to whom: https:\/\/raw.githubusercontent.com\/vbarbarosh\/rules\/main\/diagrams\/sequence.md\n/);
-    assert.match(agents, /diagrams\/treemap.md<\/pre>/);
+    assert.match(agents, /diagrams\/treemap.md\nDraw an API the way these forms say:/);
     assert.match(agents, /<p class="stats"><b>5<\/b> guides<\/p>/);
+});
+
+test('apis/ builds its own page from the agents template, and the agents hand it over', function () {
+    const result = build();
+    assert.equal(result.status, 0, result.stderr);
+    const apis = fs.readFileSync(path.join(fixture_dir, 'docs/apis.html'), 'utf8');
+    assert.match(apis, /<h1>APIs<\/h1>/);
+    assert.match(apis, /<a href="diagrams.html">Diagrams<\/a>\n\s*<a href="apis.html" aria-current="page">APIs<\/a>/);
+    assert.match(apis, /<p class="stats"><b>2<\/b> forms<\/p>/);
+    for (const id of ['compact', 'expanded']) {
+        assert.match(apis, new RegExp(`<section class="group guide" id="${id}">`));
+    }
+    assert.match(apis, /<img class="dark" src="..\/img\/apis\/compact_articles-dark.svg"/);
+    assert.match(apis, /<img class="dark" src="..\/img\/apis\/expanded_post_422-dark.svg"/);
+    assert.match(apis, /tree\/main\/apis">apis\/<\/a>/);
+    assert.match(apis, /<main data-page="apis">/);
+    assert.ok(!apis.includes('{{'), 'no placeholder left');
+    const agents = fs.readFileSync(path.join(fixture_dir, 'docs/agents.html'), 'utf8');
+    assert.match(agents, /<a href="diagrams.html">Diagrams<\/a>\n\s*<a href="apis.html">APIs<\/a>/);
+    assert.match(agents, /Draw an API the way these forms say:\n- Compact: one resource, every request a row: https:\/\/raw.githubusercontent.com\/vbarbarosh\/rules\/main\/apis\/compact.md\n/);
+    assert.match(agents, /apis\/expanded.md<\/pre>/);
+    for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/diagrams.html', 'docs/glossaries.html']) {
+        assert.match(fs.readFileSync(path.join(fixture_dir, file), 'utf8'), /<a href="apis.html">APIs<\/a>/, file);
+    }
 });
 
 test('the standard names show on the glossaries page with their two groups', function () {
@@ -128,7 +152,7 @@ test('all built theme icons follow the shared SVG assets, including handwritten 
         fs.writeFileSync(file, original.replace('M12,9', 'M12,8.5'));
         const result = build();
         assert.equal(result.status, 0, result.stderr);
-        for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html']) {
+        for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/apis.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html']) {
             const html = fs.readFileSync(path.join(fixture_dir, file), 'utf8');
             assert.ok(html.includes('d="M12,8.5'), file);
             assert.ok(!html.includes('d="M12,9'), file);

@@ -31,6 +31,7 @@ Full documentation: **[vbarbarosh.github.io/rules/docs/rules.html](https://vbarb
 * [Glossaries](https://vbarbarosh.github.io/rules/docs/glossaries.html) — every term, in one filterable page
 * [Instructions for agents](https://vbarbarosh.github.io/rules/docs/agents.html) — what is expected of an agent, ready to paste into CLAUDE.md · [as Markdown](agents/)
 * [Diagrams](https://vbarbarosh.github.io/rules/docs/diagrams.html) — the pictures an agent draws in its replies: when each fits, how it is drawn · [as Markdown](diagrams/)
+* [APIs](https://vbarbarosh.github.io/rules/docs/apis.html) — how an API is drawn, compact (a resource, every request a row) and expanded (one request taken apart) · [as Markdown](apis/)
 
 ## License
 

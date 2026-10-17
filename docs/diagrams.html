@@ -1031,16 +1031,21 @@ footer {
     }
 }
 
-/* A diagram is drawn for the whole column, so its words read at the text's
-   size; the text beside it keeps its line length. */
-main[data-page="diagrams"] .prose {
+/* A diagram or an API's form is drawn for the whole column, so its words
+   read at the text's size; the text beside it keeps its line length. */
+main[data-page="diagrams"] .prose,
+main[data-page="apis"] .prose {
     max-width: 964px;
 }
 
 main[data-page="diagrams"] .prose > p,
 main[data-page="diagrams"] .prose > ul,
 main[data-page="diagrams"] .prose > ol,
-main[data-page="diagrams"] .prose > h3 {
+main[data-page="diagrams"] .prose > h3,
+main[data-page="apis"] .prose > p,
+main[data-page="apis"] .prose > ul,
+main[data-page="apis"] .prose > ol,
+main[data-page="apis"] .prose > h3 {
     max-width: 72ch;
 }
 </style>
@@ -1080,6 +1085,7 @@ main[data-page="diagrams"] .prose > h3 {
             <a href="animations.html">Animations</a>
             <a href="agents.html">Agents</a>
             <a href="diagrams.html" aria-current="page">Diagrams</a>
+            <a href="apis.html">APIs</a>
             <a href="glossaries.html">Glossaries</a>
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>

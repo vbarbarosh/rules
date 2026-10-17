@@ -1031,16 +1031,21 @@ footer {
     }
 }
 
-/* A diagram is drawn for the whole column, so its words read at the text's
-   size; the text beside it keeps its line length. */
-main[data-page="diagrams"] .prose {
+/* A diagram or an API's form is drawn for the whole column, so its words
+   read at the text's size; the text beside it keeps its line length. */
+main[data-page="diagrams"] .prose,
+main[data-page="apis"] .prose {
     max-width: 964px;
 }
 
 main[data-page="diagrams"] .prose > p,
 main[data-page="diagrams"] .prose > ul,
 main[data-page="diagrams"] .prose > ol,
-main[data-page="diagrams"] .prose > h3 {
+main[data-page="diagrams"] .prose > h3,
+main[data-page="apis"] .prose > p,
+main[data-page="apis"] .prose > ul,
+main[data-page="apis"] .prose > ol,
+main[data-page="apis"] .prose > h3 {
     max-width: 72ch;
 }
 </style>
@@ -1080,6 +1085,7 @@ main[data-page="diagrams"] .prose > h3 {
             <a href="animations.html">Animations</a>
             <a href="agents.html" aria-current="page">Agents</a>
             <a href="diagrams.html">Diagrams</a>
+            <a href="apis.html">APIs</a>
             <a href="glossaries.html">Glossaries</a>
             <a href="../formatting.html">Formatting</a>
             <a href="../drafts/logs-cheatsheet.html">Logs</a>
@@ -1134,7 +1140,7 @@ main[data-page="diagrams"] .prose > h3 {
 <h2><span class="tag">USE</span><span class="name">Hand them to an agent</span></h2>
 <div class="prose">
 
-<p>Paste this into a project's <code>CLAUDE.md</code> or <code>AGENTS.md</code>: it is read at every start, so the agent works this way without being told, and draws its pictures the way the <a href="diagrams.html">diagrams</a> say. To give one guide in a conversation, copy it with its <b>Copy for an agent</b> button.</p>
+<p>Paste this into a project's <code>CLAUDE.md</code> or <code>AGENTS.md</code>: it is read at every start, so the agent works this way without being told, draws its pictures the way the <a href="diagrams.html">diagrams</a> say, and an API the way its <a href="apis.html">forms</a> do. To give one guide in a conversation, copy it with its <b>Copy for an agent</b> button.</p>
 </div>
 <div class="form"><pre>Work the way these guides say; read them before the first edit:
 - Consequences first: https://raw.githubusercontent.com/vbarbarosh/rules/main/agents/consequences_first.md
@@ -1177,7 +1183,10 @@ Draw the pictures in your replies the way these diagrams say:
 - Module graph: which file needs which: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/modules.md
 - Change map: what a change touches: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/changemap.md
 - Flame graph: where one run spends its time: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/flame.md
-- Code map: how big each part is: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/treemap.md</pre><button class="copy" type="button">Copy</button></div>
+- Code map: how big each part is: https://raw.githubusercontent.com/vbarbarosh/rules/main/diagrams/treemap.md
+Draw an API the way these forms say:
+- Compact: one resource, every request a row: https://raw.githubusercontent.com/vbarbarosh/rules/main/apis/compact.md
+- Expanded: one request taken apart: https://raw.githubusercontent.com/vbarbarosh/rules/main/apis/expanded.md</pre><button class="copy" type="button">Copy</button></div>
 </section>
 <section class="group guide" id="consequences_first">
 <h2><span class="tag">01</span><span class="name">Consequences first</span></h2>

@@ -7,7 +7,7 @@ const {chromium} = require('playwright');
 // Run with Playwright and Chromium installed: node --test tests/browser/picture-size.test.js
 const root_dir = path.join(__dirname, '../..');
 const photoswipe_url = `https://cdn.jsdelivr.net/npm/photoswipe@${JSON.parse(fs.readFileSync(path.join(__dirname, '../../node_modules/photoswipe/package.json'), 'utf8')).version}/dist/`;
-const PAGE_FILES = ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/glossaries.html'];
+const PAGE_FILES = ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/apis.html', 'docs/glossaries.html'];
 let browser;
 
 test.before(async function () {

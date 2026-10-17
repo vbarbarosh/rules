@@ -26,8 +26,8 @@ tests. The old naming demos and documentation examples are not included:
 some intentionally demonstrate invalid or superseded conventions. It also runs
 `bin/build`, which renders `docs/rules.html` and `docs/animations.html` from
 their Markdown, `docs/glossaries.html` from `glossaries/*.md` and
-`docs/agents.html` and `docs/diagrams.html` from `agents/*.md` and
-`diagrams/*.md`, each through its `docs/*.template.html`, and fails when a page differs from the committed one:
+`docs/agents.html`, `docs/diagrams.html` and `docs/apis.html` from
+`agents/*.md`, `diagrams/*.md` and `apis/*.md`, each through its `docs/*.template.html`, and fails when a page differs from the committed one:
 edit the markdown or the template, never the page, then run `bin/build`.
 
 To check an application using this checkout, run ESLint from the application's

@@ -8,7 +8,7 @@ const {chromium} = require('playwright');
 // Run with Playwright and Chromium: node --test tests/browser/search-results.test.js
 // What a search shows: the best match first, the words found marked.
 const root_dir = path.join(__dirname, '../..');
-const QUERY_BY_PAGE = {rules: 'commit', animations: 'card', glossaries: 'legend', agents: 'picture', diagrams: 'kanban'};
+const QUERY_BY_PAGE = {rules: 'commit', animations: 'card', glossaries: 'legend', agents: 'picture', diagrams: 'kanban', apis: 'status'};
 let browser;
 let server;
 let origin;

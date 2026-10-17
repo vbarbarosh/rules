@@ -141,7 +141,7 @@ async function guide_images_check(color_scheme)
 {
     const page = await browser.newPage({colorScheme: color_scheme});
     try {
-        for (const file of ['docs/agents.html', 'docs/diagrams.html']) {
+        for (const file of ['docs/agents.html', 'docs/diagrams.html', 'docs/apis.html']) {
             await page.goto(`${origin}/${file}`);
             const images = await page.locator('.figure img:visible').all();
             assert.ok(images.length > 0, file);
