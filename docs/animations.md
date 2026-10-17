@@ -3,14 +3,14 @@
 How a screen moves: sections, rows and lists, and what a click mid-way does.
 Each rule has a picture and a live demo.
 
-15 rules · 1 group · 1 source · filterable version: [animations.html](animations.html)
+16 rules · 1 group · 1 source · filterable version: [animations.html](animations.html)
 
 The rules of the code are in [rules.md](rules.md); these were its ANIM
 group until 2026-10-12, and keep their codes.
 
 | Tag | Group | Rules | |
 |-----|-------|------:|---|
-| ANIM | Animations | 15 | How a screen moves. |
+| ANIM | Animations | 16 | How a screen moves. |
 
 | Code | Rule | Canonical form | Source |
 |------|------|----------------|--------|
@@ -30,3 +30,4 @@ group until 2026-10-12, and keep their codes.
 | ANIM-13 | **New things arrive whole.** A new row or message arrives in its first frame as it will stay, with every tag and badge on it and at its final height; nothing fills in or grows after it lands. | ![Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height](../img/rules/anim_arrive_whole.svg) [▶ Try it](../drafts/animations.html#list-changes) | [animations.md](../drafts/animations.md) |
 | ANIM-14 | **Growing goes through the heights between.** A section that opens grows from closed to full through every height between, its content clipped inside, never shown whole for a frame first; closing is the same, backwards. | ![Left, a Sending section is whole for a frame, then grows; right, it grows through every height](../img/rules/anim_grow_through_heights.svg) [▶ Try it](../drafts/animations.html#expand-collapse) | [animations.md](../drafts/animations.md) |
 | ANIM-15 | **The chosen highlight glides in its final colours.** The selection highlight moves from item to item in the colours it ends in, from the first frame to the last; no grey or faded colour on the way. | ![Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way](../img/rules/anim_highlight_final_colours.svg) [▶ Try it](../drafts/animations.html#slide-workspaces) | [animations.md](../drafts/animations.md) |
+| ANIM-16 | **Nothing appears or disappears suddenly.** No element appears or disappears suddenly; every element appears and disappears smoothly: a menu, a tooltip, a toast, a badge, a panel or a dialog fades in as it comes and out as it goes, at the shared speed, never whole on one frame and gone on the next. | ![Left, a menu and a toast pop in and out on one frame; right, they fade in and out](../img/rules/anim_appear_smoothly.svg) [▶ Try it](../drafts/animations.html#list-changes) | [animations.md](../drafts/animations.md) |

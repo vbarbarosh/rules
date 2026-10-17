@@ -37,6 +37,10 @@
   settle in the same frames; land exactly; new things arrive whole; grow
   through the heights between; the highlight in its final colours; the speed
   stays 400 ms
+- a new rule for the UI, in my own words, to keep as they are:
+
+  ни один элемент не появляется и не исчезает внезапно
+  любой элемент должен появляться и исчезать плавно
 
 # Animations
 
@@ -213,6 +217,17 @@ grown. Closing is the same movement, backwards (MP-68).
 The selection highlight moves from item to item in the colours it ends in,
 from the first frame to the last: no grey or faded colour on the way
 (MP-69).
+
+## Nothing appears or disappears suddenly
+
+No element appears or disappears suddenly; every element appears and
+disappears smoothly (MP-81). It holds for everything on the screen, not only
+the lists and cards above: a menu, a tooltip, a toast, a badge, a panel or a
+dialog fades in as it comes and fades out as it goes, at the shared speed.
+Nothing is missing on one frame and whole on the next, or whole on one frame
+and gone on the next. A row that comes and goes (ANIM-06), what one layout
+of a card only has (ANIM-10) and a section that grows (ANIM-14) are cases of
+it.
 
 ## How the demo moves
 

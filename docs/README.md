@@ -22,7 +22,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below but the animations, all 283 of them, in one filterable table; the 15 animation rules are on [animations.html](animations.html)**
+- **[docs/rules.html](rules.html) — every rule below but the animations, all 283 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
 
 ### Naming and variables (NAME, VAR, FN)
 

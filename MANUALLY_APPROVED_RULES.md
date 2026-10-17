@@ -991,3 +991,16 @@ Columns fold into a row's details only when the table no longer fits and
 turns into a grid, and only as many as it must at that width. With room,
 every column stays on top. What a row is and its state never fold.
 
+
+## MP-81 — Nothing appears or disappears suddenly
+
+**Scope:** ANIM-16, [animations](drafts/animations.md).
+**Approved:** 2026-10-17, author message `20261017_234822-me`, written as
+the rule itself, to be kept as it is: "ни один элемент не появляется и не
+исчезает внезапно / любой элемент должен появляться и исчезать плавно"
+("no element appears or disappears suddenly; every element must appear and
+disappear smoothly"), and in its voice comment: "a new rule for the UI".
+
+Every element on the screen, not only rows and the parts of a card, fades
+in as it comes and out as it goes, at the shared speed; none is whole on
+one frame and gone on the next.
