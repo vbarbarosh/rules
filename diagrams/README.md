@@ -3,6 +3,8 @@
 A visual language: the kinds of picture an agent draws in its replies, so the
 author reads at a glance what words would take a page to say. For each kind:
 what it shows, when it fits and when it does not, its parts, how it is drawn.
+Which kind for which data: the chooser in the guide
+[Data as a picture](https://vbarbarosh.github.io/rules/docs/agents.html#data_as_a_picture).
 
 - [sequence.md](sequence.md) — who talks to whom, in time order: the course of events in a request, a failure, a retry or a fix; today beside proposed
 - [case.md](case.md) — one real request, today beside fixed: the question on top, today's answer in red beside the answer with the fix in green, then big numbers, what works and what is missing
