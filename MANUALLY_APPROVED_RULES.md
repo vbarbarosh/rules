@@ -999,8 +999,14 @@ every column stays on top. What a row is and its state never fold.
 the rule itself, to be kept as it is: "ни один элемент не появляется и не
 исчезает внезапно / любой элемент должен появляться и исчезать плавно"
 ("no element appears or disappears suddenly; every element must appear and
-disappear smoothly"), and in its voice comment: "a new rule for the UI".
+disappear smoothly"), and in its voice comment: "a new rule for the UI";
+morphing added 2026-10-18, author message `20261018_000049-me`, a voice
+comment: "fade-in and fade-out are the light examples, the simplest
+animations; the ideal animation is morphing, when an element takes another
+shape; so, where possible, morph".
 
-Every element on the screen, not only rows and the parts of a card, fades
-in as it comes and out as it goes, at the shared speed; none is whole on
-one frame and gone on the next.
+Every element on the screen, not only rows and the parts of a card, comes
+and goes smoothly; none is whole on one frame and gone on the next. Where it
+comes from something on the screen or goes into it, it morphs, its shape,
+size and place changing through every frame between; only what has nothing
+to come from or go into fades, at the shared speed.

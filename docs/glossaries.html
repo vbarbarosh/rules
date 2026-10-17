@@ -1244,7 +1244,7 @@ footer .lead {
         </div>
     </div>
     <h1>The Glossaries</h1>
-    <p class="stats"><b>86</b> terms<i>·</i><b>5</b> glossaries<i>·</i><b>11</b> groups</p>
+    <p class="stats"><b>88</b> terms<i>·</i><b>6</b> glossaries<i>·</i><b>11</b> groups</p>
 </div>
 </header>
 
@@ -1253,7 +1253,7 @@ footer .lead {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter terms, e.g. tool, flaky, agents.md" aria-label="Filter terms">
         </label>
-        <span class="count" id="count">86 terms</span>
+        <span class="count" id="count">88 terms</span>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
             <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
@@ -1284,6 +1284,7 @@ footer .lead {
 <a href="#NAME" data-group="NAME"><span class="tag">NAME</span><span class="name">Standard names</span><span class="n">13</span></a>
 <a class="sub" href="#MACH" data-group="MACH"><span class="tag">MACH</span><span class="name">Machines</span><span class="n">9</span></a>
 <a class="sub" href="#PLACE" data-group="PLACE"><span class="tag">PLACE</span><span class="name">Placeholders</span><span class="n">4</span></a>
+<a href="#MOTION" data-group="MOTION"><span class="tag">MOTION</span><span class="name">Motion</span><span class="n">2</span></a>
 </nav>
 <main>
 <section class="group" id="AGENT">
@@ -1781,12 +1782,25 @@ if (late &amp;&amp; (agent.model === strongest)) {
 </article>
 </section>
 </section>
+<section class="group" id="MOTION">
+<h2><span class="tag">MOTION</span><span class="name">Motion</span><span class="note">Words for how things move on a screen. The rules that use them are on the Animations page (ANIM).</span></h2>
+<article class="rule" id="MOTION-01">
+<a class="code" href="#MOTION-01">MOTION-01</a>
+<div class="text"><p><dfn>morphing</dfn></p><p>One element turns into another: its shape, size and place change through every frame between, so the eye follows it as the same thing, never one thing swapped for another. A menu grows out of its button and shrinks back into it; a chip opens into its field; a card's avatar shrinks into its folded line while the time moves beside it.</p><p>It is the ideal animation: almost every animation rule is built on it. What comes from something on the screen, or goes into it, morphs (ANIM-16); only what has nothing to come from fades.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/motion.md" title="glossaries/motion.md">motion.md</a></div>
+<a class="form figure" href="../img/rules/anim_appear_smoothly.svg"><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Morphing: the menu grows out of its button and back, the toast only fades" width="720" height="300" loading="lazy"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Morphing: the menu grows out of its button and back, the toast only fades" width="720" height="300" loading="lazy"></a>
+</article>
+<article class="rule" id="MOTION-02">
+<a class="code" href="#MOTION-02">MOTION-02</a>
+<div class="text"><p><dfn>fade</dfn></p><p>An element comes or goes by its opacity alone, where it stands, its shape and place unchanged: the simplest smooth change. It is for what has nothing to morph from or into, a toast or a tooltip, and for the parts of a morph that have no place in the other shape (ANIM-10). Never whole on one frame and gone on the next.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/motion.md" title="glossaries/motion.md">motion.md</a></div>
+<a class="form figure" href="../img/rules/anim_appear_smoothly.svg"><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Fade: the toast comes and goes by its opacity, where it stands" width="720" height="300" loading="lazy"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Fade: the toast comes and goes by its opacity, where it stands" width="720" height="300" loading="lazy"></a>
+</article>
+</section>
 <p class="nothing" id="nothing" hidden>No term matches that.</p>
 </main>
 </div>
 
 <footer class="wrap">
-    <span>The same glossaries as plain text: <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md">agents.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md">testing.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md">doc.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md">maps.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/names.md">names.md</a></span>
+    <span>The same glossaries as plain text: <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/agents.md">agents.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/testing.md">testing.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/doc.md">doc.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md">maps.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/names.md">names.md</a>, <a href="https://github.com/vbarbarosh/rules/blob/main/glossaries/motion.md">motion.md</a></span>
     <span>The rules: <a href="rules.html">The Rule Index</a></span>
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>

@@ -42,6 +42,10 @@
   ни один элемент не появляется и не исчезает внезапно
   любой элемент должен появляться и исчезать плавно
 
+- about this rule: fade-in and fade-out are the light examples, the simplest
+  animations; the ideal animation is morphing, when an element takes another
+  shape; so, where possible, morph
+
 # Animations
 
 An animation shows where things went. The reader clicks the next section and
@@ -223,11 +227,19 @@ from the first frame to the last: no grey or faded colour on the way
 No element appears or disappears suddenly; every element appears and
 disappears smoothly (MP-81). It holds for everything on the screen, not only
 the lists and cards above: a menu, a tooltip, a toast, a badge, a panel or a
-dialog fades in as it comes and fades out as it goes, at the shared speed.
-Nothing is missing on one frame and whole on the next, or whole on one frame
-and gone on the next. A row that comes and goes (ANIM-06), what one layout
-of a card only has (ANIM-10) and a section that grows (ANIM-14) are cases of
-it.
+dialog. Nothing is missing on one frame and whole on the next, or whole on
+one frame and gone on the next. A row that comes and goes (ANIM-06), what one
+layout of a card only has (ANIM-10) and a section that grows (ANIM-14) are
+cases of it.
+
+**Morphing** is one element turning into another: its shape, size and place
+change through every frame between, so the eye follows it as the same thing,
+never one thing swapped for another. It is the ideal; a fade is the simplest
+case. Where an element comes from something on the screen or goes into it,
+it morphs: a menu grows out of its button and shrinks back into it, a chip
+opens into its field, a card into its page. Only what has nothing to come
+from or go into, a toast or a tooltip, fades in as it comes and out as it
+goes, at the shared speed.
 
 ## How the demo moves
 
