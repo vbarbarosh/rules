@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1300" height="730" fill="#fffefb"/>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Labelled diagram</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the thing whole; a thin line from each part to its name</text>
+<rect x="514" y="222" width="12" height="80" fill="#686a61"/>
+<rect x="514" y="222" width="176" height="14" rx="7" fill="#686a61"/>
+<rect x="676" y="164" width="28" height="62" rx="14" fill="#fbeedb" stroke="#b8650a" stroke-width="2.5"/>
+<polygon points="400,290 640,290 598,360 442,360" fill="#e8e5d9" stroke="#686a61" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="420" y="360" width="200" height="200" rx="8" fill="#fbeedb" stroke="#b8650a" stroke-width="2.5"/>
+<rect x="450" y="474" width="140" height="62" rx="4" fill="#fbeedb" stroke="#b8650a" stroke-width="2.5"/>
+<circle cx="520" cy="505" r="7" fill="#b8650a"/>
+<line x1="690" y1="180" x2="790" y2="180" stroke="#2743b8" stroke-width="2"/>
+<circle cx="690" cy="180" r="5" fill="#2743b8"/>
+<text x="804" y="187" fill="#191a17" font-size="22" font-weight="700" text-anchor="start">Knob</text>
+<line x1="620" y1="229" x2="790" y2="262" stroke="#2743b8" stroke-width="2"/>
+<circle cx="620" cy="229" r="5" fill="#2743b8"/>
+<text x="804" y="269" fill="#191a17" font-size="22" font-weight="700" text-anchor="start">Crank</text>
+<line x1="520" y1="262" x2="330" y2="230" stroke="#2743b8" stroke-width="2"/>
+<circle cx="520" cy="262" r="5" fill="#2743b8"/>
+<text x="316" y="237" fill="#191a17" font-size="22" font-weight="700" text-anchor="end">Shaft</text>
+<line x1="432" y1="320" x2="330" y2="320" stroke="#2743b8" stroke-width="2"/>
+<circle cx="432" cy="320" r="5" fill="#2743b8"/>
+<text x="316" y="327" fill="#191a17" font-size="22" font-weight="700" text-anchor="end">Hopper</text>
+<text x="316" y="353" fill="#686a61" font-size="19" text-anchor="end">the beans go in</text>
+<line x1="436" y1="420" x2="330" y2="420" stroke="#2743b8" stroke-width="2"/>
+<circle cx="436" cy="420" r="5" fill="#2743b8"/>
+<text x="316" y="427" fill="#191a17" font-size="22" font-weight="700" text-anchor="end">Body</text>
+<line x1="470" y1="520" x2="330" y2="520" stroke="#2743b8" stroke-width="2"/>
+<circle cx="470" cy="520" r="5" fill="#2743b8"/>
+<text x="316" y="527" fill="#191a17" font-size="22" font-weight="700" text-anchor="end">Drawer</text>
+<text x="316" y="553" fill="#686a61" font-size="19" text-anchor="end">the ground coffee</text>
+<text x="48" y="680" fill="#686a61" font-size="21">what is inside stays hidden: a cutaway or an exploded view shows it</text>
+</svg>

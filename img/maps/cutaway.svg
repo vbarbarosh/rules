@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1300" height="730" fill="#fffefb"/>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Cutaway</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the same grinder, part of its casing taken away so the inside shows</text>
+<rect x="514" y="222" width="12" height="80" fill="#686a61"/>
+<rect x="514" y="222" width="176" height="14" rx="7" fill="#686a61"/>
+<rect x="676" y="164" width="28" height="62" rx="14" fill="#fbeedb" stroke="#b8650a" stroke-width="2.5"/>
+<polygon points="400,290 640,290 598,360 442,360" fill="#e8e5d9" stroke="#686a61" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="420" y="360" width="200" height="200" rx="8" fill="#fbeedb" stroke="#b8650a" stroke-width="2.5"/>
+<rect x="450" y="474" width="140" height="62" rx="4" fill="#fbeedb" stroke="#b8650a" stroke-width="2.5"/>
+<polygon points="446,372 594,372 594,450 570,440 548,456 522,442 496,458 470,444 446,452" fill="#d9d5c7" stroke="#b8650a" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round"/>
+<polygon points="514,372 526,372 526,404 514,404" fill="#686a61"/>
+<polygon points="542.0,418.0 541.7,421.8 535.0,423.5 533.9,426.0 536.9,432.1 534.1,434.9 528.0,431.9 525.5,433.0 523.8,439.7 520.0,440.0 517.2,433.8 514.5,433.0 509.0,437.1 505.9,434.9 507.7,428.3 506.1,426.0 499.3,425.5 498.3,421.8 504.0,418.0 504.2,415.2 499.3,410.5 500.9,407.0 507.7,407.7 509.7,405.7 509.0,398.9 512.5,397.3 517.2,402.2 520.0,402.0 523.8,396.3 527.5,397.3 528.0,404.1 530.3,405.7 536.9,403.9 539.1,407.0 535.0,412.5 535.8,415.2" fill="#e8e5d9" stroke="#191a17" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="520" cy="418" r="7" fill="#686a61"/>
+<polygon points="462,488 578,488 578,526 462,526" fill="#d9d5c7" stroke="#b8650a" stroke-width="2" stroke-dasharray="6 4"/>
+<polygon points="470,526 492,508 520,500 548,506 572,526" fill="#b8650a"/>
+<line x1="526" y1="388" x2="790" y2="340" stroke="#2743b8" stroke-width="2"/>
+<circle cx="526" cy="388" r="5" fill="#2743b8"/>
+<text x="804" y="347" fill="#191a17" font-size="22" font-weight="700" text-anchor="start">Shaft</text>
+<text x="804" y="373" fill="#686a61" font-size="19" text-anchor="start">turns with the crank</text>
+<line x1="542" y1="418" x2="790" y2="430" stroke="#2743b8" stroke-width="2"/>
+<circle cx="542" cy="418" r="5" fill="#2743b8"/>
+<text x="804" y="437" fill="#191a17" font-size="22" font-weight="700" text-anchor="start">Burrs</text>
+<text x="804" y="463" fill="#686a61" font-size="19" text-anchor="start">they grind the beans</text>
+<line x1="540" y1="510" x2="790" y2="530" stroke="#2743b8" stroke-width="2"/>
+<circle cx="540" cy="510" r="5" fill="#2743b8"/>
+<text x="804" y="537" fill="#191a17" font-size="22" font-weight="700" text-anchor="start">Ground coffee</text>
+<text x="804" y="563" fill="#686a61" font-size="19" text-anchor="start">falls into the drawer</text>
+<line x1="436" y1="400" x2="330" y2="400" stroke="#2743b8" stroke-width="2"/>
+<circle cx="436" cy="400" r="5" fill="#2743b8"/>
+<text x="316" y="407" fill="#191a17" font-size="22" font-weight="700" text-anchor="end">Body</text>
+<text x="316" y="433" fill="#686a61" font-size="19" text-anchor="end">cut open in front</text>
+<text x="48" y="680" fill="#686a61" font-size="21">only what the cut opens is named: the rest is the labelled diagram</text>
+</svg>

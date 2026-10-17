@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 990" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1300" height="990" fill="#fffefb"/>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Exploded view</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the same grinder, its parts pulled apart along the lines they fit on</text>
+<g transform="translate(0,50)">
+<line x1="520" y1="236" x2="520" y2="640" stroke="#a19f93" stroke-width="2" stroke-dasharray="10 6 2 6"/>
+<line x1="620" y1="760" x2="700" y2="760" stroke="#a19f93" stroke-width="2" stroke-dasharray="10 6 2 6"/>
+<rect x="514" y="160" width="176" height="14" rx="7" fill="#686a61"/>
+<rect x="676" y="102" width="28" height="62" rx="14" fill="#fbeedb" stroke="#b8650a" stroke-width="2.5"/>
+<rect x="514" y="236" width="12" height="100" fill="#686a61"/>
+<polygon points="400,380 640,380 598,446 442,446" fill="#e8e5d9" stroke="#686a61" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="546.0,500.0 545.6,504.5 538.8,506.8 537.3,510.0 539.9,516.7 536.7,519.9 530.0,517.3 526.8,518.8 524.5,525.6 520.0,526.0 516.5,519.7 513.2,518.8 507.0,522.5 503.3,519.9 504.7,512.9 502.7,510.0 495.6,508.9 494.4,504.5 500.0,500.0 500.3,496.5 495.6,491.1 497.5,487.0 504.7,487.1 507.1,484.7 507.0,477.5 511.1,475.6 516.5,480.3 520.0,480.0 524.5,474.4 528.9,475.6 530.0,482.7 532.9,484.7 539.9,483.3 542.5,487.0 538.8,493.2 539.7,496.5" fill="#e8e5d9" stroke="#191a17" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="520" cy="500" r="7" fill="#686a61"/>
+<circle cx="520" cy="580" r="34" fill="none" stroke="#686a61" stroke-width="10"/>
+<rect x="420" y="640" width="200" height="190" rx="8" fill="#fbeedb" stroke="#b8650a" stroke-width="2.5"/>
+<rect x="700" y="730" width="140" height="62" rx="4" fill="#fbeedb" stroke="#b8650a" stroke-width="2.5"/>
+<circle cx="770" cy="761" r="7" fill="#b8650a"/>
+<line x1="396" y1="167" x2="514" y2="167" stroke="#2743b8" stroke-width="2"/>
+<circle cx="380" cy="167" r="16" fill="#2743b8"/>
+<text x="380" y="173" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">1</text>
+<line x1="396" y1="286" x2="514" y2="286" stroke="#2743b8" stroke-width="2"/>
+<circle cx="380" cy="286" r="16" fill="#2743b8"/>
+<text x="380" y="292" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">2</text>
+<line x1="396" y1="413" x2="418" y2="413" stroke="#2743b8" stroke-width="2"/>
+<circle cx="380" cy="413" r="16" fill="#2743b8"/>
+<text x="380" y="419" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">3</text>
+<line x1="396" y1="500" x2="494" y2="500" stroke="#2743b8" stroke-width="2"/>
+<circle cx="380" cy="500" r="16" fill="#2743b8"/>
+<text x="380" y="506" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">4</text>
+<line x1="396" y1="580" x2="486" y2="580" stroke="#2743b8" stroke-width="2"/>
+<circle cx="380" cy="580" r="16" fill="#2743b8"/>
+<text x="380" y="586" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">5</text>
+<line x1="396" y1="735" x2="420" y2="735" stroke="#2743b8" stroke-width="2"/>
+<circle cx="380" cy="735" r="16" fill="#2743b8"/>
+<text x="380" y="741" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">6</text>
+<line x1="770" y1="714" x2="770" y2="730" stroke="#2743b8" stroke-width="2"/>
+<circle cx="770" cy="698" r="16" fill="#2743b8"/>
+<text x="770" y="704" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">7</text>
+</g>
+<rect x="900" y="160" width="340" height="400" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
+<text x="924" y="202" fill="#191a17" font-size="24" font-weight="700">Parts list</text>
+<circle cx="940" cy="240" r="14" fill="#2743b8"/>
+<text x="940" y="246" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">1</text>
+<text x="970" y="246" fill="#191a17" font-size="21">Crank and knob</text>
+<circle cx="940" cy="286" r="14" fill="#2743b8"/>
+<text x="940" y="292" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">2</text>
+<text x="970" y="292" fill="#191a17" font-size="21">Shaft</text>
+<circle cx="940" cy="332" r="14" fill="#2743b8"/>
+<text x="940" y="338" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">3</text>
+<text x="970" y="338" fill="#191a17" font-size="21">Hopper</text>
+<circle cx="940" cy="378" r="14" fill="#2743b8"/>
+<text x="940" y="384" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">4</text>
+<text x="970" y="384" fill="#191a17" font-size="21">Inner burr</text>
+<circle cx="940" cy="424" r="14" fill="#2743b8"/>
+<text x="940" y="430" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">5</text>
+<text x="970" y="430" fill="#191a17" font-size="21">Outer burr</text>
+<circle cx="940" cy="470" r="14" fill="#2743b8"/>
+<text x="940" y="476" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">6</text>
+<text x="970" y="476" fill="#191a17" font-size="21">Body</text>
+<circle cx="940" cy="516" r="14" fill="#2743b8"/>
+<text x="940" y="522" fill="#fffefb" font-size="18" font-weight="700" text-anchor="middle">7</text>
+<text x="970" y="522" fill="#191a17" font-size="21">Drawer</text>
+<text x="48" y="940" fill="#686a61" font-size="21">each part numbered; the numbers lead to the parts list</text>
+</svg>

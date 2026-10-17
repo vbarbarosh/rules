@@ -1237,7 +1237,7 @@ footer .lead {
         </div>
     </div>
     <h1>The Glossaries</h1>
-    <p class="stats"><b>82</b> terms<i>·</i><b>5</b> glossaries<i>·</i><b>11</b> groups</p>
+    <p class="stats"><b>86</b> terms<i>·</i><b>5</b> glossaries<i>·</i><b>11</b> groups</p>
 </div>
 </header>
 
@@ -1246,7 +1246,7 @@ footer .lead {
         <label class="search">
             <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="filter terms, e.g. tool, flaky, agents.md" aria-label="Filter terms">
         </label>
-        <span class="count" id="count">82 terms</span>
+        <span class="count" id="count">86 terms</span>
         <div class="pictures pictures-docked" role="group" aria-label="Pictures" title="Pictures">
             <svg class="pictures-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><circle cx="5.5" cy="6.5" r="1.25"/><path d="M2 12 L6.5 8 L9.5 10.5 L11.5 9 L14 11"/></svg>
             <button type="button" data-pictures="off" aria-pressed="false" title="Pictures hidden: a mark opens each one">off</button>
@@ -1273,7 +1273,7 @@ footer .lead {
 <a class="sub" href="#KIND" data-group="KIND"><span class="tag">KIND</span><span class="name">Kinds</span><span class="n">3</span></a>
 <a href="#TEST" data-group="TEST"><span class="tag">TEST</span><span class="name">Testing</span><span class="n">10</span></a>
 <a href="#WORD" data-group="WORD"><span class="tag">WORD</span><span class="name">Documents</span><span class="n">2</span></a>
-<a href="#MAP" data-group="MAP"><span class="tag">MAP</span><span class="name">Maps and ways</span><span class="n">12</span></a>
+<a href="#MAP" data-group="MAP"><span class="tag">MAP</span><span class="name">Maps and ways</span><span class="n">16</span></a>
 <a href="#NAME" data-group="NAME"><span class="tag">NAME</span><span class="name">Standard names</span><span class="n">13</span></a>
 <a class="sub" href="#MACH" data-group="MACH"><span class="tag">MACH</span><span class="name">Machines</span><span class="n">9</span></a>
 <a class="sub" href="#PLACE" data-group="PLACE"><span class="tag">PLACE</span><span class="name">Placeholders</span><span class="n">4</span></a>
@@ -1655,7 +1655,7 @@ if (late &amp;&amp; (agent.model === strongest)) {
 <article class="rule" id="MAP-05">
 <a class="code" href="#MAP-05">MAP-05</a>
 <div class="text"><p><dfn>ontology</dfn></p><p>In philosophy, the study of what exists. In computing, a written map of what a field talks about, in four parts: the kinds of things (a message, a conversation, a subject file), the things themselves (your message of this morning asking for a glossary is a message), the relations between them (a conversation is made of messages; a reply answers a message) and the rules (every conversation has exactly one subject file). It is written down so that people and programs use the words the same way: RDF and OWL are the standards, Schema.org the best known on the web.</p><p>A glossary defines words one by one; an ontology also says how they connect. Written down once, a rename (workdir became subjectdir) happens in one place, and an agent can check a word against it.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
-<div class="figures"><a class="figure" href="../img/maps/ontology.svg"><img class="light" src="../img/maps/ontology.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780" loading="lazy"><img class="dark" src="../img/maps/ontology-dark.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780" loading="lazy"></a><a class="figure" href="../img/maps/terms-map.svg"><img class="light" src="../img/maps/terms-map.svg" alt="The terms of this glossary and how they relate" width="1200" height="730" loading="lazy"><img class="dark" src="../img/maps/terms-map-dark.svg" alt="The terms of this glossary and how they relate" width="1200" height="730" loading="lazy"></a></div>
+<div class="figures"><a class="figure" href="../img/maps/ontology.svg"><img class="light" src="../img/maps/ontology.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780" loading="lazy"><img class="dark" src="../img/maps/ontology-dark.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780" loading="lazy"></a><a class="figure" href="../img/maps/terms-map.svg"><img class="light" src="../img/maps/terms-map.svg" alt="The terms of this glossary and how they relate" width="1200" height="900" loading="lazy"><img class="dark" src="../img/maps/terms-map-dark.svg" alt="The terms of this glossary and how they relate" width="1200" height="900" loading="lazy"></a></div>
 </article>
 <article class="rule" id="MAP-06">
 <a class="code" href="#MAP-06">MAP-06</a>
@@ -1689,8 +1689,28 @@ if (late &amp;&amp; (agent.model === strongest)) {
 </article>
 <article class="rule" id="MAP-12">
 <a class="code" href="#MAP-12">MAP-12</a>
-<div class="text"><p><dfn>anatomy</dfn></p><p>The parts of one thing, named, and where each one sits: each part is "part of" the one above it. Borrowed from biology (the anatomy of a hand), it is common in computing: the anatomy of a button (container, icon, label), of a URL (scheme, host, path, query), of a log line or of a file. Design systems give each component page an Anatomy section.</p><p>In the agent notes: a message is a folder with a <code>README.md</code> (its header and its text), its <code>files/</code> (a voice comment, a screenshot) and its <code>computed/</code> (the transcript).</p><p>A taxonomy sorts kinds ("is a"); an anatomy takes one thing apart ("part of"). A tree of parts is also called a meronomy.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
-<a class="form figure" href="../img/maps/anatomy.svg"><img class="light" src="../img/maps/anatomy.svg" alt="Anatomy: the parts of one message in a note" width="1300" height="730" loading="lazy"><img class="dark" src="../img/maps/anatomy-dark.svg" alt="Anatomy: the parts of one message in a note" width="1300" height="730" loading="lazy"></a>
+<div class="text"><p><dfn>anatomy</dfn></p><p>The parts of one thing, seen whole: each part named where it sits, in the thing it belongs to. Borrowed from biology (the anatomy of a hand), it is common in computing: the anatomy of a button (a container, an icon on the left, a label beside it), of a URL (scheme, host, path, query, in that order), of a log line or of a file. Design systems give each component page an Anatomy section: the component drawn once, each part numbered in place, the names beside.</p><p>In the agent notes: a message as the app shows it, its header on top, its text, a voice comment's player with the transcript under it, a screenshot last.</p><p>A taxonomy sorts many things into kinds ("is a"); an anatomy opens one thing ("part of"). The parts taken out and set in a tree are a meronomy, which keeps what holds what but loses where each part sits: the anatomy is the picture of the whole, usually a labelled diagram.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/anatomy.svg"><img class="light" src="../img/maps/anatomy.svg" alt="Anatomy: one message seen whole, its five parts numbered where they sit" width="1300" height="730" loading="lazy"><img class="dark" src="../img/maps/anatomy-dark.svg" alt="Anatomy: one message seen whole, its five parts numbered where they sit" width="1300" height="730" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-13">
+<a class="code" href="#MAP-13">MAP-13</a>
+<div class="text"><p><dfn>labelled diagram</dfn></p><p>A thing drawn whole, as it is seen, with a thin line (a callout, or leader line) from each part to its name. Nothing is moved and nothing is opened, so only the outside can be named. The common picture of an anatomy: a diagram of a flower in a school book, a device's parts in its manual, a component in a design system.</p><p>What is inside stays hidden; a cutaway opens it, an exploded view takes it apart.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/labelled-diagram.svg"><img class="light" src="../img/maps/labelled-diagram.svg" alt="Labelled diagram: a hand coffee grinder whole, a line from each part to its name" width="1300" height="730" loading="lazy"><img class="dark" src="../img/maps/labelled-diagram-dark.svg" alt="Labelled diagram: a hand coffee grinder whole, a line from each part to its name" width="1300" height="730" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-14">
+<a class="code" href="#MAP-14">MAP-14</a>
+<div class="text"><p><dfn>exploded view</dfn></p><p>The parts of a thing pulled apart along the lines they fit on, each in the place it goes, so that every part is seen and the order of putting them together can be read off the picture. Each part has a number; the numbers lead to a parts list (in industry, a bill of materials). An assembly sheet of flat-pack furniture is one.</p><p>It shows what a labelled diagram cannot: the parts behind other parts, and how they go together.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/exploded-view.svg"><img class="light" src="../img/maps/exploded-view.svg" alt="Exploded view: the same grinder, its seven parts pulled apart along their axis and numbered, with the parts list" width="1300" height="990" loading="lazy"><img class="dark" src="../img/maps/exploded-view-dark.svg" alt="Exploded view: the same grinder, its seven parts pulled apart along their axis and numbered, with the parts list" width="1300" height="990" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-15">
+<a class="code" href="#MAP-15">MAP-15</a>
+<div class="text"><p><dfn>cutaway</dfn></p><p>A thing drawn whole with part of its casing taken away, so the inside shows in its place: the gears of a clock behind its face, the rooms of a ship behind its hull. The edge of the cut is drawn, so it reads as opened, not as missing.</p><p>Unlike an exploded view nothing moves: the inside is seen where it works. Only what the cut opens is named; the outside is the labelled diagram's.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/cutaway.svg"><img class="light" src="../img/maps/cutaway.svg" alt="Cutaway: the same grinder with its front cut open, the shaft, the burrs and the ground coffee named" width="1300" height="730" loading="lazy"><img class="dark" src="../img/maps/cutaway-dark.svg" alt="Cutaway: the same grinder with its front cut open, the shaft, the burrs and the ground coffee named" width="1300" height="730" loading="lazy"></a>
+</article>
+<article class="rule" id="MAP-16">
+<a class="code" href="#MAP-16">MAP-16</a>
+<div class="text"><p><dfn>legend</dfn></p><p>The key of a picture: a small box, set apart from the drawing, with a sample of each colour, line and sign and what it means. A map's legend says that a blue line is a river and a dashed red one a border; a chart's says which colour is which series. In British English also a key.</p><p>A label names one thing on the drawing itself; a caption says under the picture what the whole shows; a legend explains the marks, once, for all of them.</p><p>In the agent notes: the overview's colours (green done, orange waits on the author, the accent at work), and the two samples at the top of this page's terms map.</p><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/glossaries/maps.md" title="glossaries/maps.md">maps.md</a></div>
+<a class="form figure" href="../img/maps/legend.svg"><img class="light" src="../img/maps/legend.svg" alt="Legend: a small map of roads, a river, a border and a park, its legend beside it" width="1300" height="760" loading="lazy"><img class="dark" src="../img/maps/legend-dark.svg" alt="Legend: a small map of roads, a river, a border and a park, its legend beside it" width="1300" height="760" loading="lazy"></a>
 </article>
 </section>
 <section class="group" id="NAME">

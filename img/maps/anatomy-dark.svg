@@ -1,42 +1,79 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <rect width="1300" height="730" fill="#16181b"/>
-<defs><marker id="a" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#92958c" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Anatomy</text>
-<text x="48" y="108" fill="#92958c" font-size="22">the parts of one thing and where they sit; here, the parts of one message in this note</text>
-<line x1="192" y1="321" x2="568.95" y2="219.52" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<rect x="325" y="255" width="110" height="30" rx="15" fill="#16181b"/>
-<text x="380" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">part of</text>
-<line x1="650" y1="321" x2="650.00" y2="219.52" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<rect x="595" y="255" width="110" height="30" rx="15" fill="#16181b"/>
-<text x="650" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">part of</text>
-<line x1="1108" y1="321" x2="731.05" y2="219.52" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<rect x="865" y="255" width="110" height="30" rx="15" fill="#16181b"/>
-<text x="920" y="277" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">part of</text>
-<line x1="106" y1="491" x2="173.09" y2="381.00" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="278" y1="491" x2="210.91" y2="381.00" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="564" y1="491" x2="631.09" y2="381.00" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="736" y1="491" x2="668.91" y2="381.00" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="1022" y1="491" x2="1089.09" y2="381.00" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<line x1="1194" y1="491" x2="1126.91" y2="381.00" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
-<rect x="555.0" y="161.0" width="190" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
-<text x="650" y="198" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">A message</text>
-<rect x="97.0" y="321.0" width="190" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
-<text x="192" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">README.md</text>
-<rect x="555.0" y="321.0" width="190" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
-<text x="650" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">files/</text>
-<rect x="1013.0" y="321.0" width="190" height="58" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2.5"/>
-<text x="1108" y="358" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">computed/</text>
-<rect x="26.0" y="491.0" width="160" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
-<text x="106" y="527" fill="#d3d1c9" font-size="18" text-anchor="middle">Header</text>
-<rect x="198.0" y="491.0" width="160" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
-<text x="278" y="527" fill="#d3d1c9" font-size="18" text-anchor="middle">Text</text>
-<rect x="484.0" y="491.0" width="160" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
-<text x="564" y="527" fill="#d3d1c9" font-size="18" text-anchor="middle">voice.webm</text>
-<rect x="656.0" y="491.0" width="160" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
-<text x="736" y="527" fill="#d3d1c9" font-size="18" text-anchor="middle">screenshot.png</text>
-<rect x="942.0" y="491.0" width="160" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
-<text x="1022" y="527" fill="#d3d1c9" font-size="18" text-anchor="middle">voice.txt</text>
-<rect x="1114.0" y="491.0" width="160" height="58" rx="12" fill="#212428" stroke="#92958c" stroke-width="2.5" stroke-dasharray="8 6"/>
-<text x="1194" y="527" fill="#d3d1c9" font-size="18" text-anchor="middle">levels.json</text>
-<g font-size="21" fill="#92958c"><text x="48" y="650">every arrow is "part of": a piece of the one above</text><text x="48" y="682">a tree of parts; a taxonomy is a tree of kinds</text></g>
+<text x="48" y="108" fill="#92958c" font-size="22">the parts of one thing seen whole; here, one message of a note</text>
+<rect x="120" y="150" width="580" height="490" rx="14" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<rect x="144" y="172" width="532" height="72" rx="8" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="164" y="202" fill="#d3d1c9" font-size="18" font-family="ui-monospace, monospace">Re: the message it answers</text>
+<text x="164" y="230" fill="#d3d1c9" font-size="18" font-family="ui-monospace, monospace">Aloud: two sentences to hear</text>
+<rect x="144" y="264" width="532" height="12" rx="6" fill="#4a4f57"/>
+<rect x="144" y="286" width="500" height="12" rx="6" fill="#4a4f57"/>
+<rect x="144" y="308" width="360" height="12" rx="6" fill="#4a4f57"/>
+<rect x="144" y="340" width="532" height="56" rx="28" fill="#16181b" stroke="#4a4f57" stroke-width="2"/>
+<polygon points="170,354 170,382 192,368" fill="#9db2ff"/>
+<line x1="214" y1="364" x2="214" y2="372" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="224" y1="359" x2="224" y2="377" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="234" y1="354" x2="234" y2="382" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="244" y1="361" x2="244" y2="375" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="254" y1="357" x2="254" y2="379" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="264" y1="352" x2="264" y2="384" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="274" y1="358" x2="274" y2="378" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="284" y1="363" x2="284" y2="373" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="294" y1="356" x2="294" y2="380" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="304" y1="353" x2="304" y2="383" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="314" y1="360" x2="314" y2="376" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="324" y1="364" x2="324" y2="372" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="334" y1="358" x2="334" y2="378" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="344" y1="355" x2="344" y2="381" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="354" y1="362" x2="354" y2="374" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="364" y1="359" x2="364" y2="377" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="374" y1="354" x2="374" y2="382" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="384" y1="357" x2="384" y2="379" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="394" y1="363" x2="394" y2="373" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="404" y1="360" x2="404" y2="376" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="414" y1="356" x2="414" y2="380" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="424" y1="361" x2="424" y2="375" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="434" y1="364" x2="434" y2="372" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="444" y1="359" x2="444" y2="377" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="454" y1="355" x2="454" y2="381" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="464" y1="362" x2="464" y2="374" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="474" y1="358" x2="474" y2="378" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="484" y1="364" x2="484" y2="372" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="494" y1="361" x2="494" y2="375" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="504" y1="357" x2="504" y2="379" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="514" y1="363" x2="514" y2="373" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="524" y1="360" x2="524" y2="376" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="534" y1="364" x2="534" y2="372" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<line x1="544" y1="362" x2="544" y2="374" stroke="#92958c" stroke-width="4" stroke-linecap="round"/>
+<text x="656" y="375" fill="#92958c" font-size="18" text-anchor="end">0:17</text>
+<text x="148" y="430" fill="#92958c" font-size="18" font-style="italic">“the picture above shows a tree…”</text>
+<rect x="144" y="454" width="532" height="164" rx="8" fill="#0b0c0e" stroke="#4a4f57" stroke-width="2"/>
+<polygon points="160,602 290,500 380,580 450,530 660,602" fill="#16301f" stroke="#72d39c" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="590" cy="500" r="22" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<line x1="690" y1="208" x2="744" y2="208" stroke="#9db2ff" stroke-width="2"/>
+<circle cx="760" cy="208" r="16" fill="#9db2ff"/>
+<text x="760" y="214" fill="#16181b" font-size="18" font-weight="700" text-anchor="middle">1</text>
+<text x="796" y="210" fill="#d3d1c9" font-size="22" font-weight="700">Header</text>
+<text x="796" y="236" fill="#92958c" font-size="19">Re: and Aloud:, on top</text>
+<line x1="690" y1="286" x2="744" y2="286" stroke="#9db2ff" stroke-width="2"/>
+<circle cx="760" cy="286" r="16" fill="#9db2ff"/>
+<text x="760" y="292" fill="#16181b" font-size="18" font-weight="700" text-anchor="middle">2</text>
+<text x="796" y="288" fill="#d3d1c9" font-size="22" font-weight="700">Text</text>
+<text x="796" y="314" fill="#92958c" font-size="19">under the header</text>
+<line x1="690" y1="368" x2="744" y2="368" stroke="#9db2ff" stroke-width="2"/>
+<circle cx="760" cy="368" r="16" fill="#9db2ff"/>
+<text x="760" y="374" fill="#16181b" font-size="18" font-weight="700" text-anchor="middle">3</text>
+<text x="796" y="370" fill="#d3d1c9" font-size="22" font-weight="700">Voice comment</text>
+<text x="796" y="396" fill="#92958c" font-size="19">its player, in the text</text>
+<line x1="690" y1="430" x2="744" y2="430" stroke="#9db2ff" stroke-width="2"/>
+<circle cx="760" cy="430" r="16" fill="#9db2ff"/>
+<text x="760" y="436" fill="#16181b" font-size="18" font-weight="700" text-anchor="middle">4</text>
+<text x="796" y="432" fill="#d3d1c9" font-size="22" font-weight="700">Transcript</text>
+<text x="796" y="458" fill="#92958c" font-size="19">under its voice comment</text>
+<line x1="690" y1="536" x2="744" y2="536" stroke="#9db2ff" stroke-width="2"/>
+<circle cx="760" cy="536" r="16" fill="#9db2ff"/>
+<text x="760" y="542" fill="#16181b" font-size="18" font-weight="700" text-anchor="middle">5</text>
+<text x="796" y="538" fill="#d3d1c9" font-size="22" font-weight="700">Screenshot</text>
+<text x="796" y="564" fill="#92958c" font-size="19">last, the width of the text</text>
+<text x="48" y="680" fill="#92958c" font-size="21">each part named where it sits, in the whole it belongs to; not taken out into a tree</text>
 </svg>

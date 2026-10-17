@@ -17,6 +17,10 @@ where we are, where we came from, where we are going.
 | timeline        | Events placed along time.                                                                                     |
 | backlog         | Work known but not yet planned, in no fixed order.                                                            |
 | anatomy         | The parts of one thing and where they sit, each one "part of" the one above it (button › icon, label).        |
+| labelled diagram | A thing drawn whole, a thin line from each part to its name.                                                 |
+| exploded view   | A thing's parts pulled apart along the lines they fit on, numbered for a parts list.                          |
+| cutaway         | A thing drawn with part of its casing taken away, so the inside shows.                                        |
+| legend          | The key of a picture: what each colour, line and sign means, set apart from the drawing.                      |
 
 ## Tree
 
@@ -164,17 +168,76 @@ feeds a roadmap.
 
 ## Anatomy
 
-The parts of one thing, named, and where each one sits: each part is "part
-of" the one above it. Borrowed from biology (the anatomy of a hand), it is
-common in computing: the anatomy of a button (container, icon, label), of a
-URL (scheme, host, path, query), of a log line or of a file. Design systems
-give each component page an Anatomy section.
+The parts of one thing, seen whole: each part named where it sits, in the
+thing it belongs to. Borrowed from biology (the anatomy of a hand), it is
+common in computing: the anatomy of a button (a container, an icon on the
+left, a label beside it), of a URL (scheme, host, path, query, in that
+order), of a log line or of a file. Design systems give each component page
+an Anatomy section: the component drawn once, each part numbered in place,
+the names beside.
 
-In the agent notes: a message is a folder with a `README.md` (its header
-and its text), its `files/` (a voice comment, a screenshot) and its
-`computed/` (the transcript).
+In the agent notes: a message as the app shows it, its header on top, its
+text, a voice comment's player with the transcript under it, a screenshot
+last.
 
-A taxonomy sorts kinds ("is a"); an anatomy takes one thing apart ("part
-of"). A tree of parts is also called a meronomy.
+A taxonomy sorts many things into kinds ("is a"); an anatomy opens one
+thing ("part of"). The parts taken out and set in a tree are a meronomy,
+which keeps what holds what but loses where each part sits: the anatomy is
+the picture of the whole, usually a labelled diagram.
 
-![Anatomy: the parts of one message in a note](../img/maps/anatomy.svg)
+![Anatomy: one message seen whole, its five parts numbered where they sit](../img/maps/anatomy.svg)
+
+## Labelled diagram
+
+A thing drawn whole, as it is seen, with a thin line (a callout, or leader
+line) from each part to its name. Nothing is moved and nothing is opened, so
+only the outside can be named. The common picture of an anatomy: a diagram
+of a flower in a school book, a device's parts in its manual, a component in
+a design system.
+
+What is inside stays hidden; a cutaway opens it, an exploded view takes it
+apart.
+
+![Labelled diagram: a hand coffee grinder whole, a line from each part to its name](../img/maps/labelled-diagram.svg)
+
+## Exploded view
+
+The parts of a thing pulled apart along the lines they fit on, each in the
+place it goes, so that every part is seen and the order of putting them
+together can be read off the picture. Each part has a number; the numbers
+lead to a parts list (in industry, a bill of materials). An assembly sheet
+of flat-pack furniture is one.
+
+It shows what a labelled diagram cannot: the parts behind other parts, and
+how they go together.
+
+![Exploded view: the same grinder, its seven parts pulled apart along their axis and numbered, with the parts list](../img/maps/exploded-view.svg)
+
+## Cutaway
+
+A thing drawn whole with part of its casing taken away, so the inside shows
+in its place: the gears of a clock behind its face, the rooms of a ship
+behind its hull. The edge of the cut is drawn, so it reads as opened, not
+as missing.
+
+Unlike an exploded view nothing moves: the inside is seen where it works.
+Only what the cut opens is named; the outside is the labelled diagram's.
+
+![Cutaway: the same grinder with its front cut open, the shaft, the burrs and the ground coffee named](../img/maps/cutaway.svg)
+
+## Legend
+
+The key of a picture: a small box, set apart from the drawing, with a
+sample of each colour, line and sign and what it means. A map's legend says
+that a blue line is a river and a dashed red one a border; a chart's says
+which colour is which series. In British English also a key.
+
+A label names one thing on the drawing itself; a caption says under the
+picture what the whole shows; a legend explains the marks, once, for all of
+them.
+
+In the agent notes: the overview's colours (green done, orange waits on the
+author, the accent at work), and the two samples at the top of this page's
+terms map.
+
+![Legend: a small map of roads, a river, a border and a park, its legend beside it](../img/maps/legend.svg)

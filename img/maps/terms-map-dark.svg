@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 730" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
-<rect width="1200" height="730" fill="#16181b"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="900" fill="#16181b"/>
 <defs><marker id="a" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#92958c" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">The terms and how they relate</text>
 <text x="48" y="108" fill="#92958c" font-size="22">the page of terms as its own small ontology</text>
@@ -71,4 +71,24 @@
 <rect x="50.0" y="651.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
 <text x="150" y="688" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Anatomy</text>
 <g font-size="19" fill="#92958c"><rect x="760" y="36" width="34" height="22" rx="5" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/><text x="804" y="54">the terms you named or kept</text><rect x="760" y="72" width="34" height="22" rx="5" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/><text x="804" y="90">proposed, to keep or drop</text></g>
+<line x1="150" y1="811" x2="150" y2="711" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<rect x="110" y="746" width="80" height="30" rx="15" fill="#16181b"/>
+<text x="150" y="768" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">draws</text>
+<line x1="400" y1="811" x2="236" y2="711" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<rect x="278" y="746" width="80" height="30" rx="15" fill="#16181b"/>
+<text x="318" y="768" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">draws</text>
+<line x1="650" y1="811" x2="248" y2="711" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<rect x="480" y="767" width="80" height="30" rx="15" fill="#16181b"/>
+<text x="520" y="789" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">draws</text>
+<line x1="1050" y1="811" x2="1050" y2="711" stroke="#92958c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a)"/>
+<rect x="1005" y="746" width="90" height="30" rx="15" fill="#16181b"/>
+<text x="1050" y="768" fill="#92958c" font-size="19" font-style="italic" text-anchor="middle">part of</text>
+<rect x="42.0" y="811.0" width="216" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="150" y="847" fill="#d3d1c9" font-size="21" font-weight="700" text-anchor="middle">Labelled diagram</text>
+<rect x="300.0" y="811.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="400" y="848" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Exploded view</text>
+<rect x="550.0" y="811.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="650" y="848" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Cutaway</text>
+<rect x="950.0" y="811.0" width="200" height="58" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2.5"/>
+<text x="1050" y="848" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Legend</text>
 </svg>

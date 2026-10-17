@@ -160,7 +160,7 @@ One task, told as each person's story; see
 - [glossaries/agents.md](../glossaries/agents.md) — vocabulary for developing agents: parts, roles, time, messages, tools
 - [glossaries/testing.md](../glossaries/testing.md) — happy path, smoke tests, flaky tests, intermittent failures, showstoppers, self-check
 - [glossaries/doc.md](../glossaries/doc.md) — vocabulary and glossary: the words about words
-- [glossaries/maps.md](../glossaries/maps.md) — maps and ways: tree, graph, map, taxonomy, anatomy, ontology, knowledge graph; roadmap, milestone, breadcrumbs, timeline, backlog
+- [glossaries/maps.md](../glossaries/maps.md) — maps and ways: tree, graph, map, taxonomy, anatomy, ontology, knowledge graph; roadmap, milestone, breadcrumbs, timeline, backlog; labelled diagram, exploded view, cutaway, legend
 - [glossaries/names.md](../glossaries/names.md) — standard names: plain public words in place of private ones; laptop, vps1, router, box; example.com, user@example.com, 192.0.2.x
 
 ## Naming Grammar
