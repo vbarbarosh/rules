@@ -1791,6 +1791,7 @@ if (late &amp;&amp; (agent.model === strongest)) {
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
 
+<script src="filter1_from_spec.js"></script>
 <script>
 const root_el = document.documentElement;
 const PHOTOSWIPE_URL = 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/';
@@ -1976,11 +1977,10 @@ function results_scroll_top()
 // all its groups.
 function filter_apply()
 {
-    const words = q_el.value.toLowerCase().split(/\s+/).filter(v => v);
+    const query = query_parse(q_el.value);
     let total = 0;
     for (const rule_el of rule_els) {
-        const haystack = haystack_by_id[rule_el.id];
-        const ok = words.every(v => haystack.includes(v));
+        const ok = query.filter(name_by_id[rule_el.id]) || query.filter(haystack_by_id[rule_el.id]);
         rule_el.hidden = !ok;
         if (ok) {
             total++;
@@ -1994,7 +1994,7 @@ function filter_apply()
         a.classList.toggle('none', visible === 0);
         a.querySelector('.n').textContent = (visible === group_rule_els.length) ? group_rule_els.length : `${visible}/${group_rule_els.length}`;
     }
-    // A term whose name holds every word comes first in its group.
+    // A term whose name passes the query comes first in its group.
     for (const [list_el, terms] of terms_by_list) {
         for (const rule_el of [...terms.filter(is_named), ...terms.filter(v => !is_named(v))]) {
             list_el.insertBefore(rule_el, end_by_list.get(list_el));
@@ -2003,12 +2003,25 @@ function filter_apply()
     nothing_el.hidden = (total > 0);
     refresh_pictures_control();
     count_el.textContent = (total === rule_els.length) ? `${total} terms` : `${total} of ${rule_els.length} terms`;
-    highlight_apply(words);
+    highlight_apply(query.words);
     spy_apply();
 
     function is_named(rule_el) {
-        return (words.length > 0) && words.every(v => name_by_id[rule_el.id].includes(v));
+        return !query.empty && query.filter(name_by_id[rule_el.id]);
     }
+}
+
+// The query the navplace way: its words are the parts of one spec of
+// filter1_from_spec (^ at the start, $ at the end, ! not); the parts that must
+// be there are the words to mark.
+function query_parse(text)
+{
+    const spec = text.toLowerCase().trim().split(/\s+/).join('/');
+    return {
+        empty: !spec,
+        filter: filter1_from_spec(spec),
+        words: spec.split('/').filter(v => (v.split('!').length % 2) === 1).map(v => v.replace(/[\^$!]/g, '')).filter(v => v),
+    };
 }
 
 // The words of the query, marked wherever they show, in the content and the

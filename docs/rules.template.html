@@ -1349,6 +1349,7 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
     <iframe id="demo_frame" title="Demo"></iframe>
 </aside>
 
+<script src="filter1_from_spec.js"></script>
 <script>
 const root_el = document.documentElement;
 const PHOTOSWIPE_URL = 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/';
@@ -1367,6 +1368,9 @@ const section_els = Array.from(document.querySelectorAll('section.group'));
 const rule_els = Array.from(document.querySelectorAll('article.rule'));
 const nav_by_group = {};
 const haystack_by_id = {};
+const name_by_id = {};
+const rules_by_list = new Map();
+const end_by_list = new Map();
 
 let demo_button_el = null;
 const demo_button_by_panel = new WeakMap();
@@ -1384,6 +1388,12 @@ function main()
     }
     for (const rule_el of rule_els) {
         haystack_by_id[rule_el.id] = haystack_from_rule(rule_el);
+        name_by_id[rule_el.id] = `${rule_el.id} ${rule_el.querySelector('.text p strong')?.textContent ?? ''}`.toLowerCase();
+        if (!rules_by_list.has(rule_el.parentElement)) {
+            rules_by_list.set(rule_el.parentElement, []);
+        }
+        rules_by_list.get(rule_el.parentElement).push(rule_el);
+        end_by_list.set(rule_el.parentElement, rule_el.nextSibling);
     }
 
     refresh_theme_labels();
@@ -1507,14 +1517,13 @@ function results_scroll_top()
 // its text, its canonical form or its source.
 function filter_apply()
 {
-    const words = q_el.value.toLowerCase().split(/\s+/).filter(v => v);
+    const query = query_parse(q_el.value);
     let total = 0;
     for (const group_el of group_els) {
         const group_rule_els = group_el.querySelectorAll('article.rule');
         let visible = 0;
         for (const group_rule_el of group_rule_els) {
-            const haystack = haystack_by_id[group_rule_el.id];
-            const ok = words.every(v => haystack.includes(v));
+            const ok = query.filter(name_by_id[group_rule_el.id]) || query.filter(haystack_by_id[group_rule_el.id]);
             group_rule_el.hidden = !ok;
             if (ok) {
                 visible++;
@@ -1528,15 +1537,38 @@ function filter_apply()
     }
     // the animations page has no USE section
     if (use_el) {
-        use_el.hidden = (words.length > 0);
-        nav_by_group.use.classList.toggle('none', words.length > 0);
+        use_el.hidden = !query.empty;
+        nav_by_group.use.classList.toggle('none', !query.empty);
     }
     nothing_el.hidden = (total > 0);
     refresh_pictures_control();
     copy_shown_el.hidden = (total === 0);
     count_el.textContent = (total === rule_els.length) ? `${total} rules` : `${total} of ${rule_els.length} rules`;
-    highlight_apply(words);
+    // A rule whose code or lead sentence passes the query comes first in its group.
+    for (const [list_el, rules] of rules_by_list) {
+        for (const rule_el of [...rules.filter(is_named), ...rules.filter(v => !is_named(v))]) {
+            list_el.insertBefore(rule_el, end_by_list.get(list_el));
+        }
+    }
+    highlight_apply(query.words);
     spy_apply();
+
+    function is_named(rule_el) {
+        return !query.empty && query.filter(name_by_id[rule_el.id]);
+    }
+}
+
+// The query the navplace way: its words are the parts of one spec of
+// filter1_from_spec (^ at the start, $ at the end, ! not); the parts that must
+// be there are the words to mark.
+function query_parse(text)
+{
+    const spec = text.toLowerCase().trim().split(/\s+/).join('/');
+    return {
+        empty: !spec,
+        filter: filter1_from_spec(spec),
+        words: spec.split('/').filter(v => (v.split('!').length % 2) === 1).map(v => v.replace(/[\^$!]/g, '')).filter(v => v),
+    };
 }
 
 // The words of the query, marked wherever they show, in the content and the

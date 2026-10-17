@@ -3202,6 +3202,7 @@ grouped by the part of the program it belongs to.
     <span><a href="https://github.com/vbarbarosh/rules">github.com/vbarbarosh/rules</a></span>
 </footer>
 
+<script src="filter1_from_spec.js"></script>
 <script>
 const root_el = document.documentElement;
 const PHOTOSWIPE_URL = 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/';
@@ -3220,6 +3221,8 @@ const haystack_by_id = {};
 const title_by_id = {};
 
 let spy_pending = false;
+let nav_target = null;
+let nav_timer = null;
 
 main();
 
@@ -3327,15 +3330,16 @@ function results_scroll_top()
     }
 }
 
-// Every word of the query must occur somewhere in the guide. A guide whose
-// title holds every word comes first, then the other matches, in the page
-// and the sidebar. The handing over shows only while nothing is typed.
+// A guide matches when its title or its text passes the query; a title
+// that passes comes first, then the other matches, in the page and the
+// sidebar, as navplace lists its names first. The handing over shows only
+// while nothing is typed.
 function filter_apply()
 {
-    const words = q_el.value.toLowerCase().split(/\s+/).filter(v => v);
+    const query = query_parse(q_el.value);
     let total = 0;
     for (const guide_el of guide_els) {
-        const ok = words.every(v => haystack_by_id[guide_el.id].includes(v));
+        const ok = query.filter(title_by_id[guide_el.id]) || query.filter(haystack_by_id[guide_el.id]);
         guide_el.hidden = !ok;
         nav_by_group[guide_el.id].classList.toggle('none', !ok);
         if (ok) {
@@ -3353,9 +3357,9 @@ function filter_apply()
     }
     guide_els.sort((a, b) => order.indexOf(a) - order.indexOf(b));
     section_els.sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1);
-    highlight_apply(words);
-    use_el.hidden = (words.length > 0);
-    nav_by_group.use.classList.toggle('none', words.length > 0);
+    highlight_apply(query.words);
+    use_el.hidden = !query.empty;
+    nav_by_group.use.classList.toggle('none', !query.empty);
     nothing_el.hidden = (total > 0);
     refresh_pictures_control();
     copy_shown_el.hidden = (total === 0);
@@ -3364,8 +3368,21 @@ function filter_apply()
     spy_apply();
 
     function is_titled(guide_el) {
-        return (words.length > 0) && words.every(v => title_by_id[guide_el.id].includes(v));
+        return !query.empty && query.filter(title_by_id[guide_el.id]);
     }
+}
+
+// The query the navplace way: its words are the parts of one spec of
+// filter1_from_spec (^ at the start, $ at the end, ! not); the parts that must
+// be there are the words to mark.
+function query_parse(text)
+{
+    const spec = text.toLowerCase().trim().split(/\s+/).join('/');
+    return {
+        empty: !spec,
+        filter: filter1_from_spec(spec),
+        words: spec.split('/').filter(v => (v.split('!').length % 2) === 1).map(v => v.replace(/[\^$!]/g, '')).filter(v => v),
+    };
 }
 
 // The words of the query, marked wherever they show, in the content and the
@@ -3421,8 +3438,46 @@ function spy_apply()
         }
     }
     for (const section_el of section_els) {
-        nav_by_group[section_el.id].classList.toggle('current', section_el === current);
+        const a = nav_by_group[section_el.id];
+        const was_current = a.classList.contains('current');
+        a.classList.toggle('current', section_el === current);
+        if (!was_current && (section_el === current)) {
+            nav_reveal(a);
+        }
     }
+}
+
+// The list of groups scrolls on its own — down the side in a short window,
+// sideways on a phone. It stays still while the current link is in view;
+// a link that is out of view is brought to the middle. While a smooth scroll
+// is under way the list is judged by where it is heading, not where it is.
+function nav_reveal(a)
+{
+    const nav = a.parentNode;
+    const top = nav_target ? nav_target.top : nav.scrollTop;
+    const left = nav_target ? nav_target.left : nav.scrollLeft;
+    const in_view = (a.offsetTop >= top) && (a.offsetTop + a.offsetHeight <= top + nav.clientHeight)
+        && (a.offsetLeft >= left) && (a.offsetLeft + a.offsetWidth <= left + nav.clientWidth);
+    if (in_view) {
+        return;
+    }
+    nav_target = {
+        top: clamp(a.offsetTop - (nav.clientHeight - a.offsetHeight)/2, 0, nav.scrollHeight - nav.clientHeight),
+        left: clamp(a.offsetLeft - (nav.clientWidth - a.offsetWidth)/2, 0, nav.scrollWidth - nav.clientWidth),
+    };
+    nav.scrollTo({top: nav_target.top, left: nav_target.left, behavior: 'smooth'});
+    clearTimeout(nav_timer);
+    nav_timer = setTimeout(nav_target_clear, 700);
+}
+
+function nav_target_clear()
+{
+    nav_target = null;
+}
+
+function clamp(value, min, max)
+{
+    return Math.max(min, Math.min(max, value));
 }
 
 function clipboard_write(text)

@@ -68,6 +68,63 @@ test('glossaries: a term whose name holds the query comes first in its group', a
     }
 });
 
+test('diagrams: navplace\'s spec, ^ at the start, $ at the end, ! leaves a name out', async function () {
+    const page = await open_page('diagrams', '^kan');
+    try {
+        assert.deepEqual(await shown_guides(page), ['kanban']);
+        await page.fill('#q', 'whom$');
+        assert.equal((await shown_guides(page))[0], 'sequence');
+        await page.fill('#q', 'kanban !swim');
+        const shown = await shown_guides(page);
+        assert.equal(shown[0], 'kanban');
+        assert.ok(!shown.includes('swimlanes'), shown.join());
+        const marked = await page.evaluate(() => Array.from(CSS.highlights.get('q')).map(vv => vv.toString().toLowerCase()));
+        assert.ok(marked.length > 0 && marked.every(v => v === 'kanban'), marked.join());
+    }
+    finally {
+        await page.close();
+    }
+});
+
+test('rules: a rule whose code or lead sentence passes the query comes first in its group; clearing it restores the order', async function () {
+    const page = await open_page('rules', '');
+    try {
+        const before = await page.evaluate(() => Array.from(document.querySelectorAll('article.rule')).map(vv => vv.id));
+        await page.fill('#q', '^git');
+        const shown = await page.evaluate(() => Array.from(document.querySelectorAll('article.rule')).filter(vv => !vv.hidden).map(vv => vv.id));
+        assert.ok(shown.length > 0 && shown.every(v => v.startsWith('GIT-')), shown.join());
+        // NAME-04 mentions a lookup in its text; NAME-09 says it in its lead sentence
+        await page.fill('#q', 'lookup');
+        const named = await page.evaluate(() => Array.from(document.querySelectorAll('#NAME article.rule')).filter(vv => !vv.hidden).map(vv => vv.id));
+        assert.deepEqual(named.slice(0, 2), ['NAME-09', 'NAME-04']);
+        await page.fill('#q', '');
+        assert.deepEqual(await page.evaluate(() => Array.from(document.querySelectorAll('article.rule')).map(vv => vv.id)), before);
+    }
+    finally {
+        await page.close();
+    }
+});
+
+test('diagrams: in a short window the sidebar scrolls its current item back into view', async function () {
+    const page = await browser.newPage({viewport: {width: 1400, height: 600}});
+    try {
+        await page.goto(`${origin}/docs/diagrams.html`);
+        await page.evaluate(() => document.getElementById('treemap').scrollIntoView({behavior: 'instant'}));
+        await page.waitForTimeout(900);
+        const in_view = await page.evaluate(function () {
+            const nav = document.querySelector('nav.groups');
+            const a = nav.querySelector('a.current');
+            const nav_rect = nav.getBoundingClientRect();
+            const a_rect = a.getBoundingClientRect();
+            return {id: a.dataset.group, ok: (a_rect.top >= nav_rect.top - 1) && (a_rect.bottom <= nav_rect.bottom + 1)};
+        });
+        assert.deepEqual(in_view, {id: 'treemap', ok: true});
+    }
+    finally {
+        await page.close();
+    }
+});
+
 for (const [page_name, query] of Object.entries(QUERY_BY_PAGE)) {
     test(`${page_name}: the words found are marked, and only while the query is there`, async function () {
         const page = await open_page(page_name, query);

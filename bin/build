@@ -29,6 +29,7 @@ function main()
     build_index_html('animations');
     build_glossaries_html();
     build_agents_html();
+    build_filter_js();
     stamp_static_pages_version();
     run_self_check();
 }
@@ -83,6 +84,28 @@ function guides_read(dir)
         guides.push(guide_from_markdown(markdown, guide_file, dir));
     }
     return {dir, readme, guides};
+}
+
+// The search of every page is navplace's: filter1_from_spec of node-helpers,
+// copied as it is installed, made a browser global.
+function build_filter_js()
+{
+    const file = require.resolve('@vbarbarosh/node-helpers/src/filter1_from_spec');
+    const helpers_version = JSON.parse(fs.readFileSync(path.join(path.dirname(file), '..', 'package.json'), 'utf8')).version;
+    const source = fs.readFileSync(file, 'utf8').replace(/\nmodule\.exports = filter1_from_spec;\n$/, '\n');
+    if (source.includes('module.exports')) {
+        throw new Error('filter1_from_spec.js: its export is no longer the last line');
+    }
+    const lines = [
+        `// @vbarbarosh/node-helpers ${helpers_version}, src/filter1_from_spec.js; written by bin/build`,
+        '(function () {',
+        '    window.filter1_from_spec = filter1_from_spec;',
+        '',
+        source.trimEnd().replace(/^(?=.)/gm, '    '),
+        '})();',
+        '',
+    ];
+    fs.writeFileSync(path.join(docs_dir, 'filter1_from_spec.js'), lines.join('\n'));
 }
 
 // The pages written by hand: the version where the header shows one, the theme icons on all.
