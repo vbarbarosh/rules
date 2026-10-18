@@ -1219,9 +1219,11 @@ main[data-page="apis"] .prose > h3 {
 <h3>Not when</h3>
 <ul><li><strong>One part alone,</strong> nothing passed between: its states are a <a href="#state">state diagram</a>, its decisions a <a href="#flowchart">flowchart</a>, its look a screenshot.</li><li><strong>The order does not matter,</strong> only where the parts run or how the data links: a <a href="#containers">container sketch</a> or an <a href="#entities">entity-relationship diagram</a>.</li><li><strong>The times matter more than who:</strong> a <a href="#timeline">timeline</a>.</li><li><strong>Too many at once:</strong> more than five participants or ten messages. Split it in two, or say it in a table.</li><li><strong>A change the author sees on screen:</strong> screenshots before and after say it better.</li></ul>
 <h3>How it is drawn</h3>
-<ol><li><strong>Participants:</strong> one column each, a plain icon above a short name. A person, a laptop or browser, a server, a database cylinder, a clock for a cronjob, a page for another writer or a file, a cloud for an outside service, a warning triangle for an error tracker. The icons carry most of the reading; the names stay short.</li><li><strong>Lifelines:</strong> a dashed vertical line under each participant.</li><li><strong>Messages:</strong> arrows between lifelines, top to bottom in time order, each with a few words. A request blue, a failure or an error red, a success or an answer green, what stays the same grey. A note on a step sits on its arrow: <code>13:05 INSERT … SELECT</code>, <code>403 plan limit</code>.</li><li><strong>Today beside proposed</strong> (or before beside after, today beside made): two framed panels, tagged, the same participants in the same order, so only the change differs. The change is drawn, not described: an event crossed out, a step added, a participant greyed.</li><li><strong>Around it:</strong> a title line with the item's id and what it is, one line of context under it (where, how often), one line of proof under the panels.</li><li><strong>In the app's colours,</strong> and drawn for the width it is shown at: its words no smaller than the text around it.</li></ol>
+<ol><li><strong>Participants:</strong> one column each, a plain icon above a short name. A person, a laptop or browser, a server, a database cylinder, a clock for a cronjob, a page for another writer or a file, a cloud for an outside service, a warning triangle for an error tracker. The icons carry most of the reading; the names stay short.</li><li><strong>Lifelines:</strong> a dashed vertical line under each participant.</li><li><strong>Messages:</strong> arrows between lifelines, top to bottom in time order, each with a few words. A request blue, a failure or an error red, a success or an answer green, what stays the same grey. A note on a step sits on its arrow: <code>13:05 INSERT … SELECT</code>, <code>403 plan limit</code>.</li><li><strong>A step on a clock or a loop</strong> (every minute, a retry until it works): a low rectangle with well-rounded corners (48 high for 18-pixel words, its radius a third of that), spanning the lifelines it involves. One arrowhead sits on its top edge pointing right, one on its bottom edge pointing left, so it reads as a cycle. Its period is written inside (<code>every minute</code>); what it checks and does goes beside it, right of the lifelines: <code>alive? writing?</code>, then <code>gone, silent 30 s or older: started again</code>. The loop is orange, the waiting colour; its words keep the usual text colours.</li></ol>
+<p>   Turned down: a straight arrow reads as one call, not a repeat; an ellipse    reads poorly; a UML <code>loop</code> frame around the steps, its tag in the corner,    stretches a compact diagram into a long one. A refresh sign, a filled    rectangle with an arrow on every side and a path out of a lifeline and    back came second. 5. <strong>Today beside proposed</strong> (or before beside after, today beside made): two    framed panels, tagged, the same participants in the same order, so only    the change differs. The change is drawn, not described: an event crossed    out, a step added, a participant greyed. 6. <strong>Around it:</strong> a title line with the item's id and what it is, one line of    context under it (where, how often), one line of proof under the panels. 7. <strong>In the app's colours,</strong> and drawn for the width it is shown at: its words    no smaller than the text around it.</p>
 <a class="figure" href="../img/diagrams/sequence_plan_limit.svg"><img class="light" src="../img/diagrams/sequence_plan_limit.svg" alt="S4, a plan limit: today the browser sends an error event to the tracker after the upgrade window; proposed, no event" width="1000" height="628" loading="lazy"><img class="dark" src="../img/diagrams/sequence_plan_limit-dark.svg" alt="S4, a plan limit: today the browser sends an error event to the tracker after the upgrade window; proposed, no event" width="1000" height="628" loading="lazy"></a>
 <h3>Examples</h3>
+<a class="figure" href="../img/diagrams/sequence_servermon_loop.svg"><img class="light" src="../img/diagrams/sequence_servermon_loop.svg" alt="servermon kept running by the agent: systemd starts the agent, the agent writes and starts servermon, which writes a JSON line a second and keeps running when the agent restarts; every minute, in an orange rounded loop, the agent asks alive? writing? and starts it again if gone or silent 30 s" width="1000" height="760" loading="lazy"><img class="dark" src="../img/diagrams/sequence_servermon_loop-dark.svg" alt="servermon kept running by the agent: systemd starts the agent, the agent writes and starts servermon, which writes a JSON line a second and keeps running when the agent restarts; every minute, in an orange rounded loop, the agent asks alive? writing? and starts it again if gone or silent 30 s" width="1000" height="760" loading="lazy"></a>
 <a class="figure" href="../img/diagrams/sequence_upload_retried.svg"><img class="light" src="../img/diagrams/sequence_upload_retried.svg" alt="U2, an upload retried: before, a passing 500 fails the export; after, the job waits and puts the file again, and the export is done" width="1000" height="628" loading="lazy"><img class="dark" src="../img/diagrams/sequence_upload_retried-dark.svg" alt="U2, an upload retried: before, a passing 500 fails the export; after, the job waits and puts the file again, and the export is done" width="1000" height="628" loading="lazy"></a>
 <a class="figure" href="../img/diagrams/sequence_deadlock_retried.svg"><img class="light" src="../img/diagrams/sequence_deadlock_retried.svg" alt="D1, a deadlock in a cronjob retried inside the run: today an error event and the rows a run later; made, once more at once and no event" width="1000" height="710" loading="lazy"><img class="dark" src="../img/diagrams/sequence_deadlock_retried-dark.svg" alt="D1, a deadlock in a cronjob retried inside the run: today an error event and the rows a run later; made, once more at once and no event" width="1000" height="710" loading="lazy"></a>
 <a class="figure" href="../img/diagrams/sequence_deadlock_not_now.svg"><img class="light" src="../img/diagrams/sequence_deadlock_not_now.svg" alt="D1, the same deadlock with no change proposed: the retry drawn as what would be done only if it grows" width="1000" height="682" loading="lazy"><img class="dark" src="../img/diagrams/sequence_deadlock_not_now-dark.svg" alt="D1, the same deadlock with no change proposed: the retry drawn as what would be done only if it grows" width="1000" height="682" loading="lazy"></a>
@@ -1230,7 +1232,7 @@ main[data-page="apis"] .prose > h3 {
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
-<ul><li>Pictures that are clear to me; I'd like agents to make pictures of this kind in their messages: it makes them easier to understand. And especially the icons. (2026-10-13 15:29)</li><li>It makes sense to make one diagrams page, where we add diagrams, describe what they are, when they fit and when they do not: a visual language of sorts. This is a good example of a diagram for the course of events. (15:50)</li></ul>
+<ul><li>Pictures that are clear to me; I'd like agents to make pictures of this kind in their messages: it makes them easier to understand. And especially the icons. (2026-10-13 15:29)</li><li>It makes sense to make one diagrams page, where we add diagrams, describe what they are, when they fit and when they do not: a visual language of sorts. This is a good example of a diagram for the course of events. (15:50)</li><li>This picture shows a loop: the part of a process where something is polled, something is done all the time. Loops can be drawn this way. (2026-10-18 21:12)</li></ul>
 </details>
 <div class="guide-actions"><a class="src" href="https://github.com/vbarbarosh/rules/blob/main/diagrams/sequence.md" title="diagrams/sequence.md">sequence.md</a><button class="copy-guide" type="button">Copy for an agent</button></div>
 </div>
@@ -1277,18 +1279,34 @@ a fix reads in one look, and today beside proposed shows only the change.
    with a few words. A request blue, a failure or an error red, a success or
    an answer green, what stays the same grey. A note on a step sits on its
    arrow: `13:05 INSERT … SELECT`, `403 plan limit`.
-4. **Today beside proposed** (or before beside after, today beside made): two
+4. **A step on a clock or a loop** (every minute, a retry until it works):
+   a low rectangle with well-rounded corners (48 high for 18-pixel words,
+   its radius a third of that), spanning the lifelines it involves. One arrowhead sits on its top
+   edge pointing right, one on its bottom edge pointing left, so it reads as
+   a cycle. Its period is written inside (`every minute`); what it checks and
+   does goes beside it, right of the lifelines: `alive? writing?`, then
+   `gone, silent 30 s or older: started again`. The loop is orange, the
+   waiting colour; its words keep the usual text colours.
+
+   Turned down: a straight arrow reads as one call, not a repeat; an ellipse
+   reads poorly; a UML `loop` frame around the steps, its tag in the corner,
+   stretches a compact diagram into a long one. A refresh sign, a filled
+   rectangle with an arrow on every side and a path out of a lifeline and
+   back came second.
+5. **Today beside proposed** (or before beside after, today beside made): two
    framed panels, tagged, the same participants in the same order, so only
    the change differs. The change is drawn, not described: an event crossed
    out, a step added, a participant greyed.
-5. **Around it:** a title line with the item's id and what it is, one line of
+6. **Around it:** a title line with the item's id and what it is, one line of
    context under it (where, how often), one line of proof under the panels.
-6. **In the app's colours,** and drawn for the width it is shown at: its words
+7. **In the app's colours,** and drawn for the width it is shown at: its words
    no smaller than the text around it.
 
 ![S4, a plan limit: today the browser sends an error event to the tracker after the upgrade window; proposed, no event](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/sequence_plan_limit.svg)
 
 ## Examples
+
+![servermon kept running by the agent: systemd starts the agent, the agent writes and starts servermon, which writes a JSON line a second and keeps running when the agent restarts; every minute, in an orange rounded loop, the agent asks alive? writing? and starts it again if gone or silent 30 s](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/sequence_servermon_loop.svg)
 
 ![U2, an upload retried: before, a passing 500 fails the export; after, the job waits and puts the file again, and the export is done](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/sequence_upload_retried.svg)
 
