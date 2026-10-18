@@ -183,12 +183,12 @@ for (const theme of ['light', 'dark']) {
             await page.goto(`file://${path.join(root_dir, 'drafts/animations.html')}?embed&theme=${theme}#list-changes`);
             assert.equal(await page.evaluate(() => document.documentElement.dataset.theme), theme);
             assert.equal(await page.locator('header').isVisible(), false);
-            assert.deepEqual(await page.evaluate(() => [...document.querySelectorAll('section.animation')].filter(vv => !vv.hidden).map(vv => vv.id)), ['list-changes']);
+            assert.deepEqual(await page.evaluate(() => [...document.querySelectorAll('section.animation')].filter(v => !v.hidden).map(v => v.id)), ['list-changes']);
             await page.evaluate(function () {
                 location.hash = 'slide-workspaces';
             });
             await page.waitForTimeout(100);
-            assert.deepEqual(await page.evaluate(() => [...document.querySelectorAll('section.animation')].filter(vv => !vv.hidden).map(vv => vv.id)), ['slide-workspaces']);
+            assert.deepEqual(await page.evaluate(() => [...document.querySelectorAll('section.animation')].filter(v => !v.hidden).map(v => v.id)), ['slide-workspaces']);
             assert.ok(await page.evaluate(() => document.documentElement.scrollWidth) <= 760);
             assert.deepEqual(errors, []);
         }
@@ -223,7 +223,7 @@ test('docs/animations.html: the ANIM rules on a page of their own, each with its
     try {
         await page.route('https://**/*', v => v.abort());
         await page.goto(`file://${path.join(root_dir, 'docs/animations.html')}`);
-        const codes = await page.evaluate(() => [...document.querySelectorAll('article.rule')].map(vv => vv.id));
+        const codes = await page.evaluate(() => [...document.querySelectorAll('article.rule')].map(v => v.id));
         assert.deepEqual(codes, ['ANIM-01', 'ANIM-02', 'ANIM-03', 'ANIM-04', 'ANIM-05', 'ANIM-06', 'ANIM-07', 'ANIM-08', 'ANIM-09', 'ANIM-10', 'ANIM-11', 'ANIM-12', 'ANIM-13', 'ANIM-14', 'ANIM-15', 'ANIM-16']);
         assert.equal(await page.locator('article.rule .try-it').count(), 16);
         assert.equal(await page.locator('#use').count(), 0);

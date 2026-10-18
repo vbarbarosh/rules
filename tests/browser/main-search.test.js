@@ -40,12 +40,12 @@ for (const page_name of PAGE_NAMES) {
         try {
             await page.evaluate(function () {
                 window.input_events = 0;
-                document.getElementById('q').addEventListener('input', v => window.input_events += 1);
+                document.getElementById('q').addEventListener('input', () => window.input_events += 1);
             });
             await page.keyboard.type('filter');
             assert.equal(await page.locator('#q').inputValue(), 'filter');
             assert.equal(await page.locator('#q').evaluate(v => v === document.activeElement), true);
-            assert.equal(await page.evaluate(v => window.input_events), 6);
+            assert.equal(await page.evaluate(() => window.input_events), 6);
             assert.equal(new URL(page.url()).searchParams.get('q'), 'filter');
             await page.evaluate(function () {
                 const input = document.getElementById('q');
@@ -57,16 +57,16 @@ for (const page_name of PAGE_NAMES) {
             assert.equal(await page.locator('#q').inputValue(), 'hello you');
             await page.keyboard.press('Escape');
             assert.equal(await page.locator('#q').inputValue(), '');
-            await page.evaluate(v => document.activeElement.blur());
+            await page.evaluate(() => document.activeElement.blur());
             await page.keyboard.type('no-match-query-123456789');
             assert.equal(await page.locator('#nothing').isVisible(), true);
             await page.keyboard.press('Escape');
             assert.equal(await page.locator('#nothing').isVisible(), false);
-            await page.evaluate(v => document.activeElement.blur());
+            await page.evaluate(() => document.activeElement.blur());
             await page.keyboard.type('/');
             assert.equal(await page.locator('#q').inputValue(), '/');
             await page.keyboard.press('Escape');
-            await page.evaluate(v => document.activeElement.blur());
+            await page.evaluate(() => document.activeElement.blur());
             await page.keyboard.press('Shift+A');
             assert.equal(await page.locator('#q').inputValue(), 'A');
             await page.evaluate(function () {

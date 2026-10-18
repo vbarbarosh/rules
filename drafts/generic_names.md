@@ -8,7 +8,7 @@ holds.
 | `i`, `j`, `k` | the index of an indexed `for`, by nesting depth | VAR-11, VAR-12 |
 | `end` | the cached length in a single indexed loop | VAR-11 |
 | `ii`, `jj`, `kk` | the cached length in nested loops, after its index | VAR-12 |
-| `v`, `vv`, `vvv` | the lone value or event parameter of a tiny arrow, by arrow depth | VAR-09, VAR-16 |
+| `v`, `vv`, `vvv` | the lone value or event parameter of a tiny arrow; `vv` only when `v` is taken, `vvv` only when `vv` is | VAR-09, VAR-16 |
 | `e` | the error parameter of an arrow | VAR-05, VAR-06 |
 | `error`, `error2`, `error3` | a catch binding or the error parameter of a regular function; `error2`, `error3` in a nested catch | VAR-05, VAR-17 |
 | `event` | the event parameter of a regular DOM handler | VAR-16 |

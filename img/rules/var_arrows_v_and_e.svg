@@ -2,21 +2,21 @@
 <rect width="1200" height="560" fill="#fffefb"/>
 <defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Arrow values use v; arrow errors use e</text>
-<text x="48" y="108" fill="#686a61" font-size="22">v at the first arrow, vv inside it, vvv inside that</text>
+<text x="48" y="108" fill="#686a61" font-size="22">vv only when v is taken, vvv only when vv is</text>
 <rect x="60" y="150" width="700" height="300" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="84" y="186" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">items.some(v =&gt;</text>
 <rect x="100" y="210" width="620" height="210" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
 <text x="124" y="246" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">v.sizes.some(vv =&gt;</text>
 <rect x="140" y="270" width="540" height="110" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
 <text x="164" y="316" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">vv.parts.some(vvv =&gt; vvv.ok)</text>
-<text x="164" y="352" fill="#686a61" font-size="17">depth 3</text>
+<text x="164" y="352" fill="#686a61" font-size="17">v and vv taken</text>
 <rect x="820" y="150" width="320" height="56" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
-<text x="980.0" y="184.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">depth 1: v</text>
+<text x="980.0" y="184.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">nothing taken: v</text>
 <rect x="820" y="226" width="320" height="56" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
-<text x="980.0" y="260.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">depth 2: vv</text>
+<text x="980.0" y="260.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">v taken: vv</text>
 <rect x="820" y="302" width="320" height="56" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
-<text x="980.0" y="336.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">depth 3: vvv</text>
+<text x="980.0" y="336.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">vv taken: vvv</text>
 <rect x="820" y="378" width="320" height="56" rx="10" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
 <text x="980.0" y="412.65" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">an error arrow: e</text>
-<text x="48" y="510" fill="#686a61" font-size="21">An error arrow keeps e at any depth; several parameters get names for their roles.</text>
+<text x="48" y="510" fill="#686a61" font-size="21">An empty arrow and an error arrow take no v name; several parameters get role names.</text>
 </svg>

@@ -106,5 +106,5 @@ test('a filter that hides the term under the row leaves no trail of it', async f
 
 async function trails_of(page)
 {
-    return page.evaluate(() => Array.from(document.querySelectorAll('.group > h2 .trail')).map(vv => vv.textContent).filter(vv => vv));
+    return page.evaluate(() => Array.from(document.querySelectorAll('.group > h2 .trail')).map(v => v.textContent).filter(v => v));
 }

@@ -46,7 +46,7 @@ project, so all JavaScript code follows the same conventions.
       const text_items = items.filter(v => item_text(v) === text);
       ```
     * A lone value or event parameter in an arrow is `v`; an error parameter is `e`
-    * Value arrows use `v`, `vv`, `vvv` by arrow nesting depth, including an enclosing error arrow (`promise.catch(e => items.map(vv => vv.uid))`)
+    * Value arrows use `v`; `vv` only when `v` is already taken where the arrow stands, `vvv` only when `vv` is. An arrow with no parameter, an error arrow or a parameter with another name takes nothing (`expect.poll(() => page.evaluate(() => items.filter(v => v.ok)))`, `promise.catch(e => report(e, items.map(v => v.uid)))`). A parameter the arrow does not use is not declared: `promise.catch(() => items.map(v => v.uid))`, not `e => …` (arrows only; a regular function may)
     * Error arrows include promise rejection handlers and EventEmitter `error` listeners: `promise.catch(e => report(e))`, `server.on('error', e => report(e))`
     * A DOM event is a value even when its type is `error`: `el.addEventListener('error', v => report(v))`
     * Error callback names stay `e` / `error` at every depth; regular DOM event handlers use `function (event)`. Only nested catch bindings use `error2`, `error3`

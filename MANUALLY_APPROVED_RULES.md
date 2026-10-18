@@ -147,14 +147,21 @@ is an opportunity.
 ## MP-14 — Callback and nested error names
 
 **Scope:** VAR-05/09/16/17, LINT-03, callback lint rules and examples.
-**Approved:** 2026-10-07;
+**Approved:** 2026-10-07, value names amended 2026-10-18;
 [implementation](https://github.com/vbarbarosh/rules/commit/2b13985).
 
-A lone value or DOM-event arrow parameter is `v`, nested by total arrow depth
-as `vv`, `vvv`, and so on. Error arrows use `e` at every depth. Regular error
-callbacks use `error`; regular DOM-event callbacks use `event`. Nested catch
-bindings use `error2`, `error3`, and so on when nesting is inside a catch.
-DOM error events follow event naming, not Error-callback naming.
+A lone value or DOM-event arrow parameter is `v`; `vv` only when `v` is already
+taken where the arrow stands, `vvv` only when `vv` is, and so on. An arrow with
+no parameter, an error arrow's `e` and a parameter with another name take
+nothing (2026-10-18, author requests `20261018_132340-me` and
+`20261018_132403-me`, superseding "by total arrow depth"). An arrow does not
+declare a parameter it does not use: `promise.catch(() => items.map(v =>
+v.uid))`, not `e => …`; arrows only, a regular function may declare a parameter
+it does not use (2026-10-18, `20261018_132809-me`, `20261018_133241-me`). Error
+arrows use `e` at every depth. Regular error callbacks use `error`; regular
+DOM-event callbacks use `event`. Nested catch bindings use `error2`, `error3`,
+and so on when nesting is inside a catch. DOM error events follow event naming,
+not Error-callback naming.
 
 ## MP-15 — Optimistic updates
 

@@ -14,10 +14,13 @@ function tiny_arrows(context)
             else if ((node.loc.start.line !== node.loc.end.line) || !['CallExpression', 'NewExpression', 'Property'].includes(node.parent.type)) {
                 context.report({node, messageId: 'tiny'});
             }
+            const last = node.params.at(-1);
+            if ((last?.type === 'Identifier') && context.sourceCode.getDeclaredVariables(node).find(v => v.name === last.name)?.references.length === 0) {
+                context.report({node: last, messageId: 'unused', data: {name: last.name}});
+            }
             if ((node.params.length === 1) && !is_error_callback(node)) {
                 const param = node.params[0];
-                const depth = context.sourceCode.getAncestors(node).filter(v => v.type === 'ArrowFunctionExpression').length;
-                const expected = 'v'.repeat(depth + 1);
+                const expected = free_value_name(context.sourceCode.getScope(node).upper);
                 if ((param.type === 'Identifier') && (param.name !== expected)) {
                     context.report({node: param, messageId: 'name', data: {expected}});
                 }
@@ -27,6 +30,26 @@ function tiny_arrows(context)
             }
         },
     };
+}
+
+// `v`, unless it is already taken where the arrow stands; then `vv`, `vvv`.
+function free_value_name(scope)
+{
+    let name = 'v';
+    while (is_taken(scope, name)) {
+        name += 'v';
+    }
+    return name;
+}
+
+function is_taken(scope, name)
+{
+    for (let s = scope; s; s = s.upper) {
+        if (s.set.has(name)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 // `() => {}` is a no-op, as `ignore` is; it is laid out as any tiny arrow.
@@ -61,6 +84,7 @@ module.exports = {
             block: 'An arrow with a {} body is not an arrow; write function (...) { ... } instead.',
             tiny: 'Use a function declaration/expression; arrows are only single-line expression callbacks.',
             name: 'Name this arrow parameter "{{expected}}".',
+            unused: 'A parameter the arrow does not use is not declared: () => run(), not {{name}} => run().',
             destructured: 'Take the parameter whole as "{{expected}}" and read its fields: v => v.uid, not ({uid}) => uid.',
         },
     },

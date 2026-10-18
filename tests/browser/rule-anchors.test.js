@@ -73,7 +73,7 @@ for (const theme of ['light', 'dark']) {
                         const before = await target_position_measure(page, target);
                         assert.ok((before.top >= before.margin - 2) && (before.top < 400), JSON.stringify({target, before}));
                         release();
-                        await page.evaluate(v => Promise.all([...document.images].map(vv => vv.decode())), null);
+                        await page.evaluate(() => Promise.all([...document.images].map(v => v.decode())));
                         await scroll_settle(page);
                         const after = await target_position_measure(page, target);
                         assert.ok(Math.abs(after.top - before.top) <= 1, JSON.stringify({target, before, after}));

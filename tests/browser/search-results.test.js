@@ -39,11 +39,11 @@ test('diagrams: the guide named by the query comes first, in the page and the si
     const page = await open_page('diagrams', 'kanban');
     try {
         assert.deepEqual(await shown_guides(page), ['kanban', 'swimlanes', 'plangraph', 'roadmap', 'quadrant']);
-        const nav_shown = await page.evaluate(() => Array.from(document.querySelectorAll('nav.groups a')).map(vv => vv.dataset.group).slice(1, 6));
+        const nav_shown = await page.evaluate(() => Array.from(document.querySelectorAll('nav.groups a')).map(v => v.dataset.group).slice(1, 6));
         assert.deepEqual(nav_shown, ['kanban', 'swimlanes', 'plangraph', 'roadmap', 'quadrant']);
         await page.fill('#q', '');
-        const ids = await page.evaluate(() => Array.from(document.querySelectorAll('section.guide')).map(vv => vv.id));
-        const nav = await page.evaluate(() => Array.from(document.querySelectorAll('nav.groups a')).map(vv => vv.dataset.group));
+        const ids = await page.evaluate(() => Array.from(document.querySelectorAll('section.guide')).map(v => v.id));
+        const nav = await page.evaluate(() => Array.from(document.querySelectorAll('nav.groups a')).map(v => v.dataset.group));
         assert.equal(ids[0], 'sequence');
         assert.equal(ids[ids.indexOf('kanban') - 1], 'roadmap');
         assert.deepEqual(nav, ['use', ...ids]);
@@ -57,10 +57,10 @@ test('glossaries: a term whose name holds the query comes first in its group', a
     const page = await open_page('glossaries', 'graph');
     try {
         // Tree, the first term, mentions a graph; the two named for it come before it
-        const shown = await page.evaluate(() => Array.from(document.querySelectorAll('#MAP article.rule')).filter(vv => !vv.hidden).map(vv => vv.querySelector('dfn').textContent));
+        const shown = await page.evaluate(() => Array.from(document.querySelectorAll('#MAP article.rule')).filter(v => !v.hidden).map(v => v.querySelector('dfn').textContent));
         assert.deepEqual(shown.slice(0, 3), ['graph', 'knowledge graph', 'tree']);
         await page.fill('#q', '');
-        const all = await page.evaluate(() => Array.from(document.querySelectorAll('#MAP article.rule')).map(vv => vv.id));
+        const all = await page.evaluate(() => Array.from(document.querySelectorAll('#MAP article.rule')).map(v => v.id));
         assert.deepEqual(all, all.slice().sort());
     }
     finally {
@@ -78,7 +78,7 @@ test('diagrams: navplace\'s spec, ^ at the start, $ at the end, ! leaves a name 
         const shown = await shown_guides(page);
         assert.equal(shown[0], 'kanban');
         assert.ok(!shown.includes('swimlanes'), shown.join());
-        const marked = await page.evaluate(() => Array.from(CSS.highlights.get('q')).map(vv => vv.toString().toLowerCase()));
+        const marked = await page.evaluate(() => Array.from(CSS.highlights.get('q')).map(v => v.toString().toLowerCase()));
         assert.ok(marked.length > 0 && marked.every(v => v === 'kanban'), marked.join());
     }
     finally {
@@ -89,16 +89,16 @@ test('diagrams: navplace\'s spec, ^ at the start, $ at the end, ! leaves a name 
 test('rules: a rule whose code or lead sentence passes the query comes first in its group; clearing it restores the order', async function () {
     const page = await open_page('rules', '');
     try {
-        const before = await page.evaluate(() => Array.from(document.querySelectorAll('article.rule')).map(vv => vv.id));
+        const before = await page.evaluate(() => Array.from(document.querySelectorAll('article.rule')).map(v => v.id));
         await page.fill('#q', '^git');
-        const shown = await page.evaluate(() => Array.from(document.querySelectorAll('article.rule')).filter(vv => !vv.hidden).map(vv => vv.id));
+        const shown = await page.evaluate(() => Array.from(document.querySelectorAll('article.rule')).filter(v => !v.hidden).map(v => v.id));
         assert.ok(shown.length > 0 && shown.every(v => v.startsWith('GIT-')), shown.join());
         // NAME-04 mentions a lookup in its text; NAME-09 says it in its lead sentence
         await page.fill('#q', 'lookup');
-        const named = await page.evaluate(() => Array.from(document.querySelectorAll('#NAME article.rule')).filter(vv => !vv.hidden).map(vv => vv.id));
+        const named = await page.evaluate(() => Array.from(document.querySelectorAll('#NAME article.rule')).filter(v => !v.hidden).map(v => v.id));
         assert.deepEqual(named.slice(0, 2), ['NAME-09', 'NAME-04']);
         await page.fill('#q', '');
-        assert.deepEqual(await page.evaluate(() => Array.from(document.querySelectorAll('article.rule')).map(vv => vv.id)), before);
+        assert.deepEqual(await page.evaluate(() => Array.from(document.querySelectorAll('article.rule')).map(v => v.id)), before);
     }
     finally {
         await page.close();
@@ -129,7 +129,7 @@ for (const [page_name, query] of Object.entries(QUERY_BY_PAGE)) {
     test(`${page_name}: the words found are marked, and only while the query is there`, async function () {
         const page = await open_page(page_name, query);
         try {
-            const marked = await page.evaluate(() => Array.from(CSS.highlights.get('q')).map(vv => vv.toString().toLowerCase()));
+            const marked = await page.evaluate(() => Array.from(CSS.highlights.get('q')).map(v => v.toString().toLowerCase()));
             assert.ok(marked.length > 0, 'nothing marked');
             assert.ok(marked.every(v => v === marked[0]), marked.join());
             assert.equal(marked[0], query);
@@ -153,5 +153,5 @@ async function open_page(page_name, query)
 
 function shown_guides(page)
 {
-    return page.evaluate(() => Array.from(document.querySelectorAll('section.guide')).filter(vv => !vv.hidden).map(vv => vv.id));
+    return page.evaluate(() => Array.from(document.querySelectorAll('section.guide')).filter(v => !v.hidden).map(v => v.id));
 }

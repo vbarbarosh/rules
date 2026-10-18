@@ -3489,7 +3489,7 @@ function clamp(value, min, max)
 function clipboard_write(text)
 {
     if (navigator.clipboard && window.isSecureContext) {
-        return navigator.clipboard.writeText(text).catch(e => clipboard_write_legacy(text));
+        return navigator.clipboard.writeText(text).catch(() => clipboard_write_legacy(text));
     }
     return clipboard_write_legacy(text);
 }
