@@ -6,9 +6,10 @@ const {chromium} = require('playwright');
 
 // Run with Playwright and Chromium installed: node --test tests/browser/pictures.test.js
 // Every picture in img/, drawn in three fonts the docs may meet: no text past an edge or a box's
-// border, under a later box, on an arrow or on other text; no arrow end that touches nothing.
-// A label on a line sits on its own pill drawn after the line; a legend sample or an axis end
-// is marked data-legend or data-free.
+// border, under a later box, on an arrow or on other text; no arrow end that touches nothing;
+// a curved arrow meets its target square on, so its head points straight in; every url(#id),
+// light and dark, names an element. A label on a line sits on its own pill drawn after the
+// line; a legend sample or an axis end is marked data-legend or data-free.
 const root_dir = path.join(__dirname, '../..');
 const FONTS_LIST = [
     {sans: 'Ubuntu', mono: 'Ubuntu Mono'},
@@ -45,6 +46,14 @@ for (const file of svg_files) {
     });
     test(`img/${file}: the dark picture is the light one in other colours`, function () {
         assert.equal(strip_colours(file.replace(/\.svg$/, '-dark.svg')), strip_colours(file));
+    });
+    // An id taken for a colour changes case with it, and an arrow loses its head
+    test(`img/${file}: every url(#id), light and dark, names an element`, function () {
+        for (const name of [file, file.replace(/\.svg$/, '-dark.svg')]) {
+            const svg = fs.readFileSync(path.join(root_dir, 'img', name), 'utf8');
+            const ids = new Set(Array.from(svg.matchAll(/\bid="([^"]+)"/g), v => v[1]));
+            assert.deepEqual(Array.from(svg.matchAll(/url\(#([^)]+)\)/g), v => v[1]).filter(v => !ids.has(v)), [], name);
+        }
     });
 }
 
@@ -118,6 +127,12 @@ function find_faults()
         }
         if (!arrow.getAttribute('marker-end') && !arrow.getAttribute('marker-start')) {
             continue;
+        }
+        const is_curved = (arrow.tagName === 'path') && /[CcQqSsTtAa]/.test(arrow.getAttribute('d'));
+        for (const [which, end] of [['start', points[0]], ['end', points[60]]]) {
+            if (is_curved && arrow.getAttribute(`marker-${which}`) && !is_along_axis(arrow, which)) {
+                out.push(`a curved arrow's head off its axis: ${Math.round(end.x)},${Math.round(end.y)}`);
+            }
         }
         if (arrow.closest('[data-legend],[data-free]')) {
             continue;
@@ -263,6 +278,120 @@ function find_faults()
             }
         }
         return texts.some(v => is_inside(end, quad_of(v, text_boxes.get(v), 12)));
+    }
+
+    // A curved arrow meets its target square on: the control point next to a marked end stands
+    // straight above, below or beside it (an arc's is sampled), and its last 12 units run along
+    // that axis, under the head, within 1 unit
+    function is_along_axis(arrow, which) {
+        const length = arrow.getTotalLength();
+        const end = end_and_control_of(arrow.getAttribute('d'), which);
+        const control = end.control ?? along(1);
+        const is_vertical = Math.abs(control.x - end.tip.x) <= 1;
+        if (!is_vertical && (Math.abs(control.y - end.tip.y) > 1)) {
+            return false;
+        }
+        for (let i = 1; i <= 12; ++i) {
+            const p = along(i);
+            if (Math.abs(is_vertical ? p.x - end.tip.x : p.y - end.tip.y) > 1) {
+                return false;
+            }
+        }
+        return true;
+
+        function along(distance) {
+            return arrow.getPointAtLength((which === 'end') ? length - distance : distance);
+        }
+    }
+
+    // A path's first or last point and the control point next to it, in its own units; null
+    // for an arc. A straight segment's control point is its other end.
+    function end_and_control_of(d, which) {
+        const tokens = d.match(/[a-z]|[-+]?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?/gi);
+        const segments = [];
+        let point = {x: 0, y: 0};
+        let first = point;
+        let base = point;
+        let command = '';
+        let index = 0;
+        while (index < tokens.length) {
+            if (/[a-z]/i.test(tokens[index])) {
+                command = tokens[index++];
+            }
+            const kind = command.toUpperCase();
+            const previous = segments.at(-1);
+            base = (command === kind) ? {x: 0, y: 0} : point;
+            let controls = [];
+            let to;
+            switch (kind) {
+            case 'M':
+                point = at();
+                first = point;
+                command = (command === 'M') ? 'L' : 'l';
+                continue;
+            case 'Z':
+                to = first;
+                break;
+            case 'L':
+                to = at();
+                break;
+            case 'H':
+                to = {x: base.x + next(), y: point.y};
+                break;
+            case 'V':
+                to = {x: point.x, y: base.y + next()};
+                break;
+            case 'C':
+                controls = [at(), at()];
+                to = at();
+                break;
+            case 'S':
+                controls = [['C', 'S'].includes(previous?.kind) ? mirror(previous) : point, at()];
+                to = at();
+                break;
+            case 'Q':
+                controls = [at()];
+                to = at();
+                break;
+            case 'T':
+                controls = [['Q', 'T'].includes(previous?.kind) ? mirror(previous) : point];
+                to = at();
+                break;
+            case 'A':
+                index += 5;
+                controls = null;
+                to = at();
+                break;
+            default:
+                throw new Error(`unknown path command: ${command}`);
+            }
+            segments.push({kind, from: point, controls, to});
+            point = to;
+        }
+        const segment = (which === 'end') ? segments.at(-1) : segments[0];
+        const tip = (which === 'end') ? segment.to : segment.from;
+        if (!segment.controls) {
+            return {tip, control: null};
+        }
+        const candidates = [segment.from, ...segment.controls, segment.to];
+        if (which === 'end') {
+            candidates.reverse();
+        }
+        return {tip, control: candidates.find(v => (v.x !== tip.x) || (v.y !== tip.y)) ?? tip};
+
+        function next() {
+            return +tokens[index++];
+        }
+
+        function at() {
+            return {x: base.x + next(), y: base.y + next()};
+        }
+
+        // The previous segment's last control point reflected through the current point
+        function mirror(previous) {
+            const control = previous.controls.at(-1);
+            return {x: 2*point.x - control.x, y: 2*point.y - control.y};
+        }
     }
 
     function segment_distance_of(point, a, b) {

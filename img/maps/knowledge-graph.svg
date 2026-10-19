@@ -13,7 +13,7 @@
 <text x="160.0" y="477" fill="#686a61" font-size="22" text-anchor="middle" font-weight="700">Conversation</text>
 <line x1="256" y1="270" x2="372" y2="270" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <text x="315" y="242" fill="#686a61" font-size="20" text-anchor="middle" font-style="italic">belongs to</text>
-<path d="M200 306 C200 372 240 372 236.12 308" fill="none" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<path d="M200 306 C200 372 240 372 240 308" fill="none" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <text x="252" y="352" fill="#686a61" font-size="20" text-anchor="start" font-style="italic">answers</text>
 <line x1="110" y1="434" x2="110" y2="308" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <text x="122" y="380" fill="#686a61" font-size="20" text-anchor="start" font-style="italic">made of</text>

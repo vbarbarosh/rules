@@ -6,8 +6,8 @@
 <rect x="60" y="220" width="260" height="110" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="190" y="269.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">this agent</text>
 <text x="190" y="295.9" fill="#92958c" font-size="19" text-anchor="middle">stops here</text>
-<line x1="326" y1="258" x2="452.06" y2="225.5" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
-<line x1="326" y1="292" x2="452.15" y2="344.23" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
+<line x1="326" y1="258" x2="452.06" y2="225.5" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="326" y1="292" x2="452.15" y2="344.23" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="460" y="180" width="300" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="610.0" y="220.0" fill="#d3d1c9" font-size="20" text-anchor="middle" font-weight="700">the user</text>
 <text x="610.0" y="244.0" fill="#92958c" font-size="17" text-anchor="middle">a question only they can answer</text>

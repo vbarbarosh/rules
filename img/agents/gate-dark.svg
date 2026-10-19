@@ -6,7 +6,7 @@
 <rect x="60" y="190" width="260" height="90" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="190.0" y="229.5" fill="#9db2ff" font-size="22" text-anchor="middle" font-weight="700">tool_call</text>
 <text x="190.0" y="255.9" fill="#92958c" font-size="19" text-anchor="middle">shell: git push --force</text>
-<line x1="320" y1="235" x2="398" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
+<line x1="320" y1="235" x2="398" y2="235" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="400" y="160" width="420" height="150" rx="12" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
 <text x="610" y="205" fill="#ffb257" font-size="22" text-anchor="middle" font-weight="700">Run git push --force?</text>
 <rect x="440" y="240" width="135" height="40" rx="20.0" fill="#16301f"/>
@@ -14,7 +14,7 @@
 <rect x="600" y="240" width="58" height="40" rx="20.0" fill="#3b1f22"/>
 <text x="629.02" y="266.84" fill="#ff937c" font-size="19" text-anchor="middle" font-weight="700">No</text>
 <text x="610" y="346" fill="#92958c" font-size="19" text-anchor="middle">the harness waits for the user</text>
-<line x1="820" y1="235" x2="898" y2="235" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
+<line x1="820" y1="235" x2="898" y2="235" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="900" y="190" width="240" height="90" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="1020.0" y="242.92" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">runs, or not</text>
 <text x="48" y="440" fill="#92958c" font-size="21" text-anchor="start">A gate is a question to the user, put by the harness before a destructive tool runs; a</text>

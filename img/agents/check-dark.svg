@@ -6,14 +6,14 @@
 <rect x="60" y="200" width="220" height="90" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
 <text x="170.0" y="239.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">final</text>
 <text x="170.0" y="265.9" fill="#92958c" font-size="19" text-anchor="middle">"the footer is fixed"</text>
-<line x1="280" y1="245" x2="358" y2="245" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
+<line x1="280" y1="245" x2="358" y2="245" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="360" y="200" width="260" height="90" rx="12" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
 <text x="490.0" y="239.5" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">npm test</text>
 <text x="490.0" y="265.9" fill="#92958c" font-size="19" text-anchor="middle">run by the harness</text>
-<line x1="620" y1="225" x2="718.18" y2="180.82" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a56db3a)"/>
+<line x1="620" y1="225" x2="718.18" y2="180.82" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a56DB3A)"/>
 <rect x="720" y="150" width="300" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="870.0" y="192.2" fill="#72d39c" font-size="20" text-anchor="middle" font-weight="700">passed: the turn ends</text>
-<line x1="620" y1="265" x2="718.18" y2="309.18" stroke="#ff937c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#aff6b6b)"/>
+<line x1="620" y1="265" x2="718.18" y2="309.18" stroke="#ff937c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#aFF6B6B)"/>
 <rect x="720" y="280" width="420" height="100" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="930" y="314" fill="#ff937c" font-size="20" text-anchor="middle" font-weight="700">failed: 1 test</text>
 <text x="930" y="342" fill="#d3d1c9" font-size="18" text-anchor="middle">the output goes back as a message:</text>

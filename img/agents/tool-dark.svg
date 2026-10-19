@@ -14,7 +14,7 @@
 <text x="110" y="385" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">    "path": "string"</text>
 <text x="110" y="414" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" xml:space="preserve">  }</text>
 <text x="110" y="443" fill="#d3d1c9" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
-<line x1="566" y1="330" x2="692" y2="330" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299da)"/>
+<line x1="566" y1="330" x2="692" y2="330" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <text x="630" y="298" fill="#9db2ff" font-size="20" text-anchor="middle" font-style="italic">requests</text>
 <rect x="700" y="150" width="452" height="360" rx="16" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
 <text x="720" y="184" fill="#92958c" font-size="22" text-anchor="start" font-weight="700">what the harness owns</text>

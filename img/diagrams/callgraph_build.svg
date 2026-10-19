@@ -11,9 +11,9 @@
 <text x="918" y="180" font-size="16" text-anchor="end" fill="#55534E">agents and diagrams pages</text>
 <rect x="20" y="468" width="960" height="150" rx="12" fill="none" stroke="#BDB9B1" stroke-width="1.5" stroke-dasharray="6 5"/>
 <text x="34" y="590.5" font-size="16" fill="#55534E">Markdown to HTML helpers: called from many places</text>
-<path d="M484,136 C484,150 282,142 282,188" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M484,136 C484,150 282,150 282,172 V188" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
 <path d="M500,136 C500,162 507,162 507,188" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
-<path d="M516,136 C516,150 678,142 678,188" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M516,136 C516,150 678,150 678,172 V188" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
 <path d="M464.5,118 H414.5" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
 <path d="M535.5,118 H585.5" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
 <path d="M259.5,118 H173.5" fill="none" stroke="#C2410C" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-orange)"/>
@@ -27,12 +27,12 @@
 <path d="M700,228 V250" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
 <path d="M800,228 V312" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
 <path d="M865.5,352 V374" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#cg-arrow-grey)"/>
-<path d="M52,290 V442 C52,469 144,469 144,496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
-<path d="M358,290 V442 C358,469 249,469 249,496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
-<path d="M160,352 V442 C160,469 440,469 440,496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
-<path d="M443,352 V442 C443,469 484,469 484,496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
-<path d="M756,352 V442 C756,469 524,469 524,496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
-<path d="M784,352 V442 C784,469 804,469 804,496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M52,290 V442 C52,461 144,461 144,480 V496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M358,290 V442 C358,461 249,461 249,480 V496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M160,352 V442 C160,461 440,461 440,480 V496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M443,352 V442 C443,461 484,461 484,480 V496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M756,352 V442 C756,461 524,461 524,480 V496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
+<path d="M784,352 V442 C784,461 804,461 804,480 V496" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
 <path d="M865.5,414 V496" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#cg-arrow-grey)"/>
 <path d="M546,518 C636,518 647,584 733,584" fill="none" stroke="#2B3FBF" stroke-width="1.75" stroke-linecap="round" marker-end="url(#cg-arrow-blue)"/>
 <rect x="180.5" y="105" width="68" height="24" rx="12" fill="#E9E6E0"/><text x="214.5" y="123.5" font-size="16" text-anchor="middle" fill="#C2410C">spawns</text>

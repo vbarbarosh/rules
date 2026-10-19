@@ -19,16 +19,16 @@
 <text x="1030" y="334.8" fill="#92958c" font-size="20" text-anchor="middle">ready for its users</text>
 <line x1="376" y1="312" x2="410" y2="312" stroke="#4a4f57" stroke-width="2"/>
 <line x1="410" y1="192" x2="410" y2="432" stroke="#4a4f57" stroke-width="2"/>
-<line x1="410" y1="192" x2="442" y2="192" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
-<line x1="410" y1="272" x2="442" y2="272" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
-<line x1="410" y1="352" x2="442" y2="352" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
-<line x1="410" y1="432" x2="442" y2="432" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
+<line x1="410" y1="192" x2="442" y2="192" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="410" y1="272" x2="442" y2="272" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="410" y1="352" x2="442" y2="352" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="410" y1="432" x2="442" y2="432" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <line x1="856" y1="192" x2="874" y2="192" stroke="#4a4f57" stroke-width="2"/>
 <line x1="856" y1="272" x2="874" y2="272" stroke="#4a4f57" stroke-width="2"/>
 <line x1="856" y1="352" x2="874" y2="352" stroke="#4a4f57" stroke-width="2"/>
 <line x1="856" y1="432" x2="874" y2="432" stroke="#4a4f57" stroke-width="2"/>
 <line x1="874" y1="192" x2="874" y2="432" stroke="#4a4f57" stroke-width="2"/>
-<line x1="874" y1="312" x2="912" y2="312" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5e5c4e)"/>
+<line x1="874" y1="312" x2="912" y2="312" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <text x="48" y="514" fill="#92958c" font-size="21" text-anchor="start">The user starts turns; the operator makes the agent that answers them. Often the same</text>
 <text x="48" y="545" fill="#92958c" font-size="21" text-anchor="start">person, never the same role.</text>
 </svg>
