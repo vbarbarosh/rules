@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="700" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Chronology</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the events in the order they happened, each with its time</text>
+<line x1="70" y1="360" x2="1110" y2="360" stroke="#4a4f57" stroke-width="4"/>
+<path d="M1106 350 L1126 360 L1106 370 Z" fill="#4a4f57"/>
+<rect x="841" y="344" width="8" height="32" fill="#16181b"/>
+<line x1="834" y1="374" x2="844" y2="346" stroke="#4a4f57" stroke-width="4"/>
+<line x1="846" y1="374" x2="856" y2="346" stroke="#4a4f57" stroke-width="4"/>
+<text x="845" y="412" fill="#ffb257" font-size="21" font-style="italic" text-anchor="middle">23 hours</text>
+<line x1="170" y1="360" x2="170" y2="320" stroke="#4a4f57" stroke-width="2"/>
+<circle cx="170" cy="360" r="11" fill="#9db2ff" stroke="#16181b" stroke-width="4"/>
+<text x="170" y="268" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Mon 10:02</text>
+<text x="170" y="300" fill="#d3d1c9" font-size="21" text-anchor="middle">Opened the pricing page</text>
+<line x1="320" y1="360" x2="320" y2="400" stroke="#4a4f57" stroke-width="2"/>
+<circle cx="320" cy="360" r="11" fill="#9db2ff" stroke="#16181b" stroke-width="4"/>
+<text x="320" y="486" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Mon 10:04</text>
+<text x="320" y="518" fill="#d3d1c9" font-size="21" text-anchor="middle">Signed up</text>
+<line x1="470" y1="360" x2="470" y2="320" stroke="#4a4f57" stroke-width="2"/>
+<circle cx="470" cy="360" r="11" fill="#9db2ff" stroke="#16181b" stroke-width="4"/>
+<text x="470" y="268" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Mon 10:05</text>
+<text x="470" y="300" fill="#d3d1c9" font-size="21" text-anchor="middle">Confirmed the email</text>
+<line x1="620" y1="360" x2="620" y2="400" stroke="#4a4f57" stroke-width="2"/>
+<circle cx="620" cy="360" r="11" fill="#9db2ff" stroke="#16181b" stroke-width="4"/>
+<text x="620" y="486" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Mon 10:11</text>
+<text x="620" y="518" fill="#d3d1c9" font-size="21" text-anchor="middle">Made a first banner</text>
+<line x1="770" y1="360" x2="770" y2="320" stroke="#4a4f57" stroke-width="2"/>
+<circle cx="770" cy="360" r="11" fill="#9db2ff" stroke="#16181b" stroke-width="4"/>
+<text x="770" y="268" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Mon 10:26</text>
+<text x="770" y="300" fill="#d3d1c9" font-size="21" text-anchor="middle">Exported it as a GIF</text>
+<line x1="920" y1="360" x2="920" y2="400" stroke="#4a4f57" stroke-width="2"/>
+<circle cx="920" cy="360" r="11" fill="#9db2ff" stroke="#16181b" stroke-width="4"/>
+<text x="920" y="486" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Tue 09:14</text>
+<text x="920" y="518" fill="#d3d1c9" font-size="21" text-anchor="middle">Came back to it</text>
+<line x1="1070" y1="360" x2="1070" y2="320" stroke="#4a4f57" stroke-width="2"/>
+<circle cx="1070" cy="360" r="11" fill="#72d39c" stroke="#16181b" stroke-width="4"/>
+<text x="1070" y="268" fill="#d3d1c9" font-size="22" font-weight="700" text-anchor="middle">Tue 09:20</text>
+<text x="1070" y="300" fill="#d3d1c9" font-size="21" text-anchor="middle">Upgraded to Pro</text>
+<text x="48" y="664" fill="#92958c" font-size="21">A timeline keeps the distances in time; a chronology keeps the order and the times.</text>
+</svg>

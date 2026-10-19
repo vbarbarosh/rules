@@ -15,6 +15,7 @@ where we are, where we came from, where we are going.
 | milestone       | One point on the way, reached or not. Takes no time, unlike a task.                                           |
 | breadcrumbs     | The trail behind: from the root to where you stand, each crumb a way back (Home › Docs › Page).               |
 | timeline        | Events placed along time.                                                                                     |
+| chronology      | Events in the order they happened, each with its time; the gaps between them not drawn.                       |
 | backlog         | Work known but not yet planned, in no fixed order.                                                            |
 | anatomy         | The parts of one thing seen whole, each named where it sits (a button: container, icon, label).               |
 | labelled diagram | A thing drawn whole, a thin line from each part to its name.                                                 |
@@ -157,6 +158,21 @@ Events placed along time. In the agent notes: the change log at the end of
 each subject file, and the times in message names. A roadmap is laid on one.
 
 ![Timeline: the events of this morning along one line](../img/maps/timeline.svg)
+
+## Chronology
+
+Events in the order they happened, each with its date or time, at even
+steps: the order and the times count, not the distance between them. It
+fits what a user did over time: first one thing, then another, then a
+third. A long gap is cut short, its length written on the cut.
+
+In the agent notes: a conversation's messages, first to last, each with
+its time in its name.
+
+A timeline puts each event at its moment, so the gaps show; in a
+chronology a night between two visits takes no more room than a minute.
+
+![Chronology: one user's seven actions evenly along a line, from opening the pricing page to upgrading the next day, the 23-hour night cut short](../img/maps/chronology.svg)
 
 ## Backlog
 
