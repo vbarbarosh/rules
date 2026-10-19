@@ -908,6 +908,170 @@ footer code {
     color: var(--muted);
 }
 
+/* ---------- overview ---------- */
+
+/* Every item on one screen: a small picture each, or a group's first
+   pictures as a mosaic; larger on hover. */
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+    gap: 10px;
+    padding: 16px 2px 4px;
+}
+
+.tiles.few {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: color var(--fast);
+}
+
+.tile > img,
+.mosaic {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 3;
+    object-fit: contain;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.mosaic {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.mosaic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+}
+
+.tile:hover,
+.tile:focus-visible {
+    color: var(--accent);
+}
+
+.tile:hover > img,
+.tile:focus-visible > img,
+.tile:hover .mosaic,
+.tile:focus-visible .mosaic {
+    border-color: var(--accent);
+}
+
+.tile > .name {
+    font-size: 14px;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+:root[data-theme="dark"] .tile .light,
+:root:not([data-theme="dark"]) .tile .dark,
+:root[data-theme="dark"] .peek .light,
+:root:not([data-theme="dark"]) .peek .dark {
+    display: none;
+}
+
+/* What the tile under the pointer holds, beside it; it takes no clicks. */
+.peek {
+    position: fixed;
+    z-index: 10;
+    width: min(560px, 100vw - 32px);
+    margin: 0;
+    padding: 10px;
+    pointer-events: none;
+    background: var(--surface);
+    border: 1px solid var(--line-heavy);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+.peek.list {
+    width: min(440px, 100vw - 32px);
+}
+
+.peek.list.two {
+    width: min(760px, 100vw - 32px);
+}
+
+.peek > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.peek-head {
+    margin: 0 0 8px;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.peek-head b {
+    margin-right: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--accent);
+}
+
+.peek-items {
+    display: grid;
+    gap: 4px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.peek-items.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.peek-items li {
+    display: grid;
+    grid-template-columns: 54px auto minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.peek-items .thumb img {
+    display: block;
+    width: 54px;
+    height: 32px;
+    object-fit: contain;
+    background: var(--bg);
+    border: 1px solid var(--line);
+}
+
+.peek-items .code {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.peek-items .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* ---------- footer ---------- */
 
 footer {
@@ -1084,6 +1248,8 @@ footer .lead {
     }
 
     .bar,
+    .overview,
+    .peek,
     .groups,
     .pages,
     .theme,
@@ -1302,9 +1468,31 @@ footer .lead {
 
 <div class="wrap layout">
 <nav class="groups" aria-label="Groups">
+<a href="#overview" data-group="overview"><span class="tag">ALL</span><span class="name">At a glance</span><span class="n"></span></a>
 <a href="#ANIM" data-group="ANIM"><span class="tag">ANIM</span><span class="name">Animations</span><span class="n">16</span></a>
 </nav>
 <main>
+<section class="group overview" id="overview">
+<h2><span class="tag">ALL</span><span class="name">At a glance</span></h2>
+<div class="tiles">
+<a class="tile" href="#ANIM-01"><img class="light" src="../drafts/animations-sections.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"><span class="name">Sections slide the way the list goes</span><template><img class="light" src="../drafts/animations-sections.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"></template></a>
+<a class="tile" href="#ANIM-02"><img class="light" src="../drafts/animations-sections.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"><span class="name">A far jump is one slide</span><template><img class="light" src="../drafts/animations-sections.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"></template></a>
+<a class="tile" href="#ANIM-03"><img class="light" src="../drafts/animations-sections.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"><span class="name">The highlight and the content move together</span><template><img class="light" src="../drafts/animations-sections.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"></template></a>
+<a class="tile" href="#ANIM-04"><img class="light" src="../drafts/animations-rows.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"><span class="name">Depth is left and right</span><template><img class="light" src="../drafts/animations-rows.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"></template></a>
+<a class="tile" href="#ANIM-05"><img class="light" src="../drafts/animations-rows.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"><span class="name">On a row's page, its own section is Back</span><template><img class="light" src="../drafts/animations-rows.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"></template></a>
+<a class="tile" href="#ANIM-06"><img class="light" src="../drafts/animations-list.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"><img class="dark" src="../drafts/animations-list-dark.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"><span class="name">A list shows each change as movement</span><template><img class="light" src="../drafts/animations-list.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"><img class="dark" src="../drafts/animations-list-dark.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"></template></a>
+<a class="tile" href="#ANIM-07"><img class="light" src="../drafts/animations-nothing-jumps.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"><img class="dark" src="../drafts/animations-nothing-jumps-dark.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"><span class="name">A list change never moves the working row</span><template><img class="light" src="../drafts/animations-nothing-jumps.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"><img class="dark" src="../drafts/animations-nothing-jumps-dark.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"></template></a>
+<a class="tile" href="#ANIM-08"><img class="light" src="../drafts/animations-mid-way.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"><img class="dark" src="../drafts/animations-mid-way-dark.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"><span class="name">A click mid-way changes course</span><template><img class="light" src="../drafts/animations-mid-way.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"><img class="dark" src="../drafts/animations-mid-way-dark.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"></template></a>
+<a class="tile" href="#ANIM-09"><img class="light" src="../drafts/animations-expand.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"><span class="name">A header opens its message and folds it back</span><template><img class="light" src="../drafts/animations-expand.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"></template></a>
+<a class="tile" href="#ANIM-10"><img class="light" src="../drafts/animations-expand.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"><span class="name">The parts morph, nothing pops</span><template><img class="light" src="../drafts/animations-expand.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"></template></a>
+<a class="tile" href="#ANIM-11"><img class="light" src="../drafts/animations-expand.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"><span class="name">The header clicked never moves</span><template><img class="light" src="../drafts/animations-expand.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"></template></a>
+<a class="tile" href="#ANIM-12"><img class="light" src="../img/rules/anim_land_exactly.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"><img class="dark" src="../img/rules/anim_land_exactly-dark.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"><span class="name">A moving part lands exactly</span><template><img class="light" src="../img/rules/anim_land_exactly.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"><img class="dark" src="../img/rules/anim_land_exactly-dark.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"></template></a>
+<a class="tile" href="#ANIM-13"><img class="light" src="../img/rules/anim_arrive_whole.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"><img class="dark" src="../img/rules/anim_arrive_whole-dark.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"><span class="name">New things arrive whole</span><template><img class="light" src="../img/rules/anim_arrive_whole.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"><img class="dark" src="../img/rules/anim_arrive_whole-dark.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"></template></a>
+<a class="tile" href="#ANIM-14"><img class="light" src="../img/rules/anim_grow_through_heights.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"><img class="dark" src="../img/rules/anim_grow_through_heights-dark.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"><span class="name">Growing goes through the heights between</span><template><img class="light" src="../img/rules/anim_grow_through_heights.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"><img class="dark" src="../img/rules/anim_grow_through_heights-dark.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"></template></a>
+<a class="tile" href="#ANIM-15"><img class="light" src="../img/rules/anim_highlight_final_colours.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"><img class="dark" src="../img/rules/anim_highlight_final_colours-dark.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"><span class="name">The chosen highlight glides in its final colours</span><template><img class="light" src="../img/rules/anim_highlight_final_colours.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"><img class="dark" src="../img/rules/anim_highlight_final_colours-dark.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"></template></a>
+<a class="tile" href="#ANIM-16"><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"><span class="name">Nothing appears or disappears suddenly</span><template><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"></template></a>
+</div>
+</section>
 <section class="group" id="ANIM">
 <h2><span class="tag">ANIM</span><span class="name">Animations</span><span class="note">How a screen moves.</span></h2>
 <article class="rule" id="ANIM-01">
@@ -1441,7 +1629,8 @@ const use_el = document.getElementById('use');
 const copy_shown_el = document.getElementById('copy_shown');
 let demo_panel_el = document.getElementById('demo_panel');   // a swap puts a new one in its place
 let demo_frame_el = document.getElementById('demo_frame');
-const group_els = Array.from(document.querySelectorAll('section.group:not(.use)'));
+const group_els = Array.from(document.querySelectorAll('section.group:not(.use):not(.overview)'));
+const overview_el = document.getElementById('overview');
 const section_els = Array.from(document.querySelectorAll('section.group'));
 const rule_els = Array.from(document.querySelectorAll('article.rule'));
 const nav_by_group = {};
@@ -1483,6 +1672,7 @@ function main()
     document.addEventListener('click', click_theme);
     document.addEventListener('click', click_pictures);
     document.addEventListener('click', click_figure);
+    peek_watch();
     theme_dock_watch();
 
     if (RENAMED[location.hash.slice(1)]) {
@@ -1618,6 +1808,10 @@ function filter_apply()
         use_el.hidden = !query.empty;
         nav_by_group.use.classList.toggle('none', !query.empty);
     }
+    if (overview_el) {
+        overview_el.hidden = !query.empty;
+        nav_by_group.overview.classList.toggle('none', !query.empty);
+    }
     nothing_el.hidden = (total > 0);
     refresh_pictures_control();
     copy_shown_el.hidden = (total === 0);
@@ -1686,6 +1880,68 @@ function scroll_window()
 }
 
 // The current group is the last one whose heading has reached the sticky bars.
+// A tile of the overview, pointed at or reached with Tab, shows what it
+// holds larger beside it: its picture, or its group's list; that goes when
+// the pointer leaves, the page scrolls or the tile is clicked.
+function peek_watch()
+{
+    if (!overview_el) {
+        return;
+    }
+    const peek_el = document.createElement('div');
+    peek_el.className = 'peek';
+    peek_el.hidden = true;
+    peek_el.setAttribute('aria-hidden', 'true');
+    document.body.append(peek_el);
+    for (const tile of overview_el.querySelectorAll('.tile')) {
+        tile.addEventListener('pointerenter', pointerenter_tile);
+        tile.addEventListener('pointerleave', peek_hide);
+        tile.addEventListener('focus', focus_tile);
+        tile.addEventListener('blur', peek_hide);
+        tile.addEventListener('click', peek_hide);
+    }
+    window.addEventListener('scroll', peek_hide, {passive: true});
+
+    function pointerenter_tile(event) {
+        if (event.pointerType === 'mouse') {
+            peek_show(event.currentTarget);
+        }
+    }
+
+    function focus_tile(event) {
+        if (event.currentTarget.matches(':focus-visible')) {
+            peek_show(event.currentTarget);
+        }
+    }
+
+    function peek_hide() {
+        peek_el.hidden = true;
+    }
+
+    // To the right of the tile when it fits, else to the left; fitting
+    // neither, narrower on the wider side. Level with the tile, kept between
+    // the sticky bar and the bottom of the window.
+    function peek_show(tile) {
+        peek_el.replaceChildren(tile.querySelector('template').content.cloneNode(true));
+        peek_el.classList.toggle('list', peek_el.querySelector('.peek-items') !== null);
+        peek_el.classList.toggle('two', peek_el.querySelector('.peek-items.two') !== null);
+        peek_el.style.maxWidth = '';
+        peek_el.hidden = false;
+        const rect = tile.getBoundingClientRect();
+        const room_right = innerWidth - 16 - (rect.right + 12);
+        const room_left = rect.left - 12 - 16;
+        if ((peek_el.offsetWidth > room_right) && (peek_el.offsetWidth > room_left)) {
+            peek_el.style.maxWidth = `${Math.floor(Math.max(room_right, room_left))}px`;
+        }
+        const width = peek_el.offsetWidth;
+        const height = peek_el.offsetHeight;
+        const left = (width <= room_right) ? rect.right + 12 : Math.max(16, rect.left - 12 - width);
+        const top = clamp(rect.top, bar_el.getBoundingClientRect().bottom + 8, innerHeight - height - 8);
+        peek_el.style.left = `${left}px`;
+        peek_el.style.top = `${top}px`;
+    }
+}
+
 function spy_apply()
 {
     spy_pending = false;

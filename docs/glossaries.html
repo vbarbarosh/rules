@@ -864,6 +864,170 @@ footer code {
     color: var(--muted);
 }
 
+/* ---------- overview ---------- */
+
+/* Every item on one screen: a small picture each, or a group's first
+   pictures as a mosaic; larger on hover. */
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+    gap: 10px;
+    padding: 16px 2px 4px;
+}
+
+.tiles.few {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: color var(--fast);
+}
+
+.tile > img,
+.mosaic {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 3;
+    object-fit: contain;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.mosaic {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.mosaic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+}
+
+.tile:hover,
+.tile:focus-visible {
+    color: var(--accent);
+}
+
+.tile:hover > img,
+.tile:focus-visible > img,
+.tile:hover .mosaic,
+.tile:focus-visible .mosaic {
+    border-color: var(--accent);
+}
+
+.tile > .name {
+    font-size: 14px;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+:root[data-theme="dark"] .tile .light,
+:root:not([data-theme="dark"]) .tile .dark,
+:root[data-theme="dark"] .peek .light,
+:root:not([data-theme="dark"]) .peek .dark {
+    display: none;
+}
+
+/* What the tile under the pointer holds, beside it; it takes no clicks. */
+.peek {
+    position: fixed;
+    z-index: 10;
+    width: min(560px, 100vw - 32px);
+    margin: 0;
+    padding: 10px;
+    pointer-events: none;
+    background: var(--surface);
+    border: 1px solid var(--line-heavy);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+.peek.list {
+    width: min(440px, 100vw - 32px);
+}
+
+.peek.list.two {
+    width: min(760px, 100vw - 32px);
+}
+
+.peek > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.peek-head {
+    margin: 0 0 8px;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.peek-head b {
+    margin-right: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--accent);
+}
+
+.peek-items {
+    display: grid;
+    gap: 4px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.peek-items.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.peek-items li {
+    display: grid;
+    grid-template-columns: 54px auto minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.peek-items .thumb img {
+    display: block;
+    width: 54px;
+    height: 32px;
+    object-fit: contain;
+    background: var(--bg);
+    border: 1px solid var(--line);
+}
+
+.peek-items .code {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.peek-items .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* ---------- footer ---------- */
 
 footer {
@@ -1040,6 +1204,8 @@ footer .lead {
     }
 
     .bar,
+    .overview,
+    .peek,
     .groups,
     .pages,
     .theme,
@@ -1269,6 +1435,7 @@ footer .lead {
 
 <div class="wrap layout">
 <nav class="groups" aria-label="Glossaries">
+<a href="#overview" data-group="overview"><span class="tag">ALL</span><span class="name">At a glance</span><span class="n"></span></a>
 <a href="#AGENT" data-group="AGENT"><span class="tag">AGENT</span><span class="name">Agents</span><span class="n">45</span></a>
 <a class="sub" href="#PART" data-group="PART"><span class="tag">PART</span><span class="name">Parts</span><span class="n">7</span></a>
 <a class="sub" href="#ROLE" data-group="ROLE"><span class="tag">ROLE</span><span class="name">Roles</span><span class="n">2</span></a>
@@ -1288,6 +1455,26 @@ footer .lead {
 <a href="#MOTION" data-group="MOTION"><span class="tag">MOTION</span><span class="name">Motion</span><span class="n">2</span></a>
 </nav>
 <main>
+<section class="group overview" id="overview">
+<h2><span class="tag">ALL</span><span class="name">At a glance</span></h2>
+<div class="tiles">
+<a class="tile group-tile" href="#PART"><span class="mosaic"><img class="light" src="../img/agents/agent.svg" alt="Agent: harness, model, tools and policy in one box, the workspace beside it" width="1200" height="620"><img class="dark" src="../img/agents/agent-dark.svg" alt="Agent: harness, model, tools and policy in one box, the workspace beside it" width="1200" height="620"><img class="light" src="../img/agents/model.svg" alt="Model: a context in, one message out, nothing remembered between calls" width="1200" height="560"><img class="dark" src="../img/agents/model-dark.svg" alt="Model: a context in, one message out, nothing remembered between calls" width="1200" height="560"><img class="light" src="../img/agents/harness.svg" alt="Harness: the loop of building the context, calling the model, running the tools, appending, stopping" width="1200" height="580"><img class="dark" src="../img/agents/harness-dark.svg" alt="Harness: the loop of building the context, calling the model, running the tools, appending, stopping" width="1200" height="580"><img class="light" src="../img/agents/tool.svg" alt="Tool: the definition the model sees, the implementation the harness owns" width="1200" height="640"><img class="dark" src="../img/agents/tool-dark.svg" alt="Tool: the definition the model sees, the implementation the harness owns" width="1200" height="640"></span><span class="name">Parts</span><template><p class="peek-head"><b>PART</b> Parts · 7 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/agents/agent.svg" alt="Agent: harness, model, tools and policy in one box, the workspace beside it" width="1200" height="620"><img class="dark" src="../img/agents/agent-dark.svg" alt="Agent: harness, model, tools and policy in one box, the workspace beside it" width="1200" height="620"></span><span class="code">PART-01</span><span class="name">agent</span></li><li><span class="thumb"><img class="light" src="../img/agents/model.svg" alt="Model: a context in, one message out, nothing remembered between calls" width="1200" height="560"><img class="dark" src="../img/agents/model-dark.svg" alt="Model: a context in, one message out, nothing remembered between calls" width="1200" height="560"></span><span class="code">PART-02</span><span class="name">model</span></li><li><span class="thumb"><img class="light" src="../img/agents/harness.svg" alt="Harness: the loop of building the context, calling the model, running the tools, appending, stopping" width="1200" height="580"><img class="dark" src="../img/agents/harness-dark.svg" alt="Harness: the loop of building the context, calling the model, running the tools, appending, stopping" width="1200" height="580"></span><span class="code">PART-03</span><span class="name">harness</span></li><li><span class="thumb"><img class="light" src="../img/agents/tool.svg" alt="Tool: the definition the model sees, the implementation the harness owns" width="1200" height="640"><img class="dark" src="../img/agents/tool-dark.svg" alt="Tool: the definition the model sees, the implementation the harness owns" width="1200" height="640"></span><span class="code">PART-04</span><span class="name">tool</span></li><li><span class="thumb"><img class="light" src="../img/agents/policy.svg" alt="Policy: text the model reads; what must not happen is stopped by permission, gate and sandbox" width="1200" height="600"><img class="dark" src="../img/agents/policy-dark.svg" alt="Policy: text the model reads; what must not happen is stopped by permission, gate and sandbox" width="1200" height="600"></span><span class="code">PART-05</span><span class="name">policy</span></li><li><span class="thumb"><img class="light" src="../img/agents/skill.svg" alt="Skill: instructions on a shelf, loaded into the context only when asked for" width="1200" height="640"><img class="dark" src="../img/agents/skill-dark.svg" alt="Skill: instructions on a shelf, loaded into the context only when asked for" width="1200" height="640"></span><span class="code">PART-06</span><span class="name">skill</span></li><li><span class="thumb"><img class="light" src="../img/agents/workspace.svg" alt="Workspace: a repository, a canvas or an app database, what the tools act on" width="1200" height="560"><img class="dark" src="../img/agents/workspace-dark.svg" alt="Workspace: a repository, a canvas or an app database, what the tools act on" width="1200" height="560"></span><span class="code">PART-07</span><span class="name">workspace</span></li></ul></template></a>
+<a class="tile group-tile" href="#ROLE"><span class="mosaic"><img class="light" src="../img/agents/user.svg" alt="User: a person or an application starts a turn" width="1200" height="540"><img class="dark" src="../img/agents/user-dark.svg" alt="User: a person or an application starts a turn" width="1200" height="540"><img class="light" src="../img/agents/operator.svg" alt="Operator: writes the policy, picks the model and tools, sets limits, deploys" width="1200" height="600"><img class="dark" src="../img/agents/operator-dark.svg" alt="Operator: writes the policy, picks the model and tools, sets limits, deploys" width="1200" height="600"></span><span class="name">Roles</span><template><p class="peek-head"><b>ROLE</b> Roles · 2 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/agents/user.svg" alt="User: a person or an application starts a turn" width="1200" height="540"><img class="dark" src="../img/agents/user-dark.svg" alt="User: a person or an application starts a turn" width="1200" height="540"></span><span class="code">ROLE-01</span><span class="name">user</span></li><li><span class="thumb"><img class="light" src="../img/agents/operator.svg" alt="Operator: writes the policy, picks the model and tools, sets limits, deploys" width="1200" height="600"><img class="dark" src="../img/agents/operator-dark.svg" alt="Operator: writes the policy, picks the model and tools, sets limits, deploys" width="1200" height="600"></span><span class="code">ROLE-02</span><span class="name">operator</span></li></ul></template></a>
+<a class="tile group-tile" href="#TIME"><span class="mosaic"><img class="light" src="../img/agents/call.svg" alt="Call: one request to the model, inside a round, a turn, a session, a run" width="1200" height="640"><img class="dark" src="../img/agents/call-dark.svg" alt="Call: one request to the model, inside a round, a turn, a session, a run" width="1200" height="640"><img class="light" src="../img/agents/round.svg" alt="Round: one call plus the tool_calls it returned" width="1200" height="640"><img class="dark" src="../img/agents/round-dark.svg" alt="Round: one call plus the tool_calls it returned" width="1200" height="640"><img class="light" src="../img/agents/turn.svg" alt="Turn: one user message through to the final, one or many rounds" width="1200" height="640"><img class="dark" src="../img/agents/turn-dark.svg" alt="Turn: one user message through to the final, one or many rounds" width="1200" height="640"><img class="light" src="../img/agents/session.svg" alt="Session: ordered turns sharing one transcript" width="1200" height="640"><img class="dark" src="../img/agents/session-dark.svg" alt="Session: ordered turns sharing one transcript" width="1200" height="640"></span><span class="name">Time</span><template><p class="peek-head"><b>TIME</b> Time · 5 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/agents/call.svg" alt="Call: one request to the model, inside a round, a turn, a session, a run" width="1200" height="640"><img class="dark" src="../img/agents/call-dark.svg" alt="Call: one request to the model, inside a round, a turn, a session, a run" width="1200" height="640"></span><span class="code">TIME-01</span><span class="name">call</span></li><li><span class="thumb"><img class="light" src="../img/agents/round.svg" alt="Round: one call plus the tool_calls it returned" width="1200" height="640"><img class="dark" src="../img/agents/round-dark.svg" alt="Round: one call plus the tool_calls it returned" width="1200" height="640"></span><span class="code">TIME-02</span><span class="name">round</span></li><li><span class="thumb"><img class="light" src="../img/agents/turn.svg" alt="Turn: one user message through to the final, one or many rounds" width="1200" height="640"><img class="dark" src="../img/agents/turn-dark.svg" alt="Turn: one user message through to the final, one or many rounds" width="1200" height="640"></span><span class="code">TIME-03</span><span class="name">turn</span></li><li><span class="thumb"><img class="light" src="../img/agents/session.svg" alt="Session: ordered turns sharing one transcript" width="1200" height="640"><img class="dark" src="../img/agents/session-dark.svg" alt="Session: ordered turns sharing one transcript" width="1200" height="640"></span><span class="code">TIME-04</span><span class="name">session</span></li><li><span class="thumb"><img class="light" src="../img/agents/run.svg" alt="Run: one launch of the harness, holding the session" width="1200" height="640"><img class="dark" src="../img/agents/run-dark.svg" alt="Run: one launch of the harness, holding the session" width="1200" height="640"></span><span class="code">TIME-05</span><span class="name">run</span></li></ul></template></a>
+<a class="tile group-tile" href="#MSG"><span class="mosaic"><img class="light" src="../img/agents/message.svg" alt="Message: one unit of the transcript with its role" width="1200" height="660"><img class="dark" src="../img/agents/message-dark.svg" alt="Message: one unit of the transcript with its role" width="1200" height="660"><img class="light" src="../img/agents/transcript.svg" alt="Transcript: every message so far, append-only" width="1200" height="660"><img class="dark" src="../img/agents/transcript-dark.svg" alt="Transcript: every message so far, append-only" width="1200" height="660"><img class="light" src="../img/agents/context.svg" alt="Context: system message, tool definitions, the transcript or its summary, grounding, sent whole to the model" width="1200" height="640"><img class="dark" src="../img/agents/context-dark.svg" alt="Context: system message, tool definitions, the transcript or its summary, grounding, sent whole to the model" width="1200" height="640"><img class="light" src="../img/agents/sidecar.svg" alt="Sidecar: the small message over the wire, the large payload kept by the harness" width="1200" height="600"><img class="dark" src="../img/agents/sidecar-dark.svg" alt="Sidecar: the small message over the wire, the large payload kept by the harness" width="1200" height="600"></span><span class="name">Messages</span><template><p class="peek-head"><b>MSG</b> Messages · 10 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/agents/message.svg" alt="Message: one unit of the transcript with its role" width="1200" height="660"><img class="dark" src="../img/agents/message-dark.svg" alt="Message: one unit of the transcript with its role" width="1200" height="660"></span><span class="code">MSG-01</span><span class="name">message</span></li><li><span class="thumb"><img class="light" src="../img/agents/transcript.svg" alt="Transcript: every message so far, append-only" width="1200" height="660"><img class="dark" src="../img/agents/transcript-dark.svg" alt="Transcript: every message so far, append-only" width="1200" height="660"></span><span class="code">MSG-02</span><span class="name">transcript</span></li><li><span class="thumb"><img class="light" src="../img/agents/context.svg" alt="Context: system message, tool definitions, the transcript or its summary, grounding, sent whole to the model" width="1200" height="640"><img class="dark" src="../img/agents/context-dark.svg" alt="Context: system message, tool definitions, the transcript or its summary, grounding, sent whole to the model" width="1200" height="640"></span><span class="code">MSG-03</span><span class="name">context</span></li><li><span class="thumb"><img class="light" src="../img/agents/sidecar.svg" alt="Sidecar: the small message over the wire, the large payload kept by the harness" width="1200" height="600"><img class="dark" src="../img/agents/sidecar-dark.svg" alt="Sidecar: the small message over the wire, the large payload kept by the harness" width="1200" height="600"></span><span class="code">MSG-04</span><span class="name">sidecar</span></li><li><span class="thumb"><img class="light" src="../img/agents/memory.svg" alt="Memory: the transcript, notes, files and databases that outlive one context" width="1200" height="600"><img class="dark" src="../img/agents/memory-dark.svg" alt="Memory: the transcript, notes, files and databases that outlive one context" width="1200" height="600"></span><span class="code">MSG-05</span><span class="name">memory</span></li><li><span class="thumb"><img class="light" src="../img/agents/system.svg" alt="System: the message holding the policy, the tool definitions beside it" width="1200" height="600"><img class="dark" src="../img/agents/system-dark.svg" alt="System: the message holding the policy, the tool definitions beside it" width="1200" height="600"></span><span class="code">MSG-06</span><span class="name">system</span></li><li><span class="thumb"><img class="light" src="../img/agents/tool_call.svg" alt="Tool call: name, arguments and id, from the model to the harness" width="1200" height="560"><img class="dark" src="../img/agents/tool_call-dark.svg" alt="Tool call: name, arguments and id, from the model to the harness" width="1200" height="560"></span><span class="code">MSG-07</span><span class="name">tool_call</span></li><li><span class="thumb"><img class="light" src="../img/agents/tool_result.svg" alt="Tool result: output or error back to the model, paired by id, data not instructions" width="1200" height="600"><img class="dark" src="../img/agents/tool_result-dark.svg" alt="Tool result: output or error back to the model, paired by id, data not instructions" width="1200" height="600"></span><span class="code">MSG-08</span><span class="name">tool_result</span></li><li><span class="thumb"><img class="light" src="../img/agents/final.svg" alt="Final: an assistant message with no tool_call ends the turn; its claim still needs a check" width="1200" height="600"><img class="dark" src="../img/agents/final-dark.svg" alt="Final: an assistant message with no tool_call ends the turn; its claim still needs a check" width="1200" height="600"></span><span class="code">MSG-09</span><span class="name">final</span></li><li><span class="thumb"><img class="light" src="../img/agents/stop_reason.svg" alt="Stop reason: final, tool_call, max_tokens or refusal" width="1200" height="600"><img class="dark" src="../img/agents/stop_reason-dark.svg" alt="Stop reason: final, tool_call, max_tokens or refusal" width="1200" height="600"></span><span class="code">MSG-10</span><span class="name">stop_reason</span></li></ul></template></a>
+<a class="tile group-tile" href="#TOOL"><span class="mosaic"><img class="light" src="../img/agents/tool_definition.svg" alt="Tool definition: name, description and input schema" width="1200" height="640"><img class="dark" src="../img/agents/tool_definition-dark.svg" alt="Tool definition: name, description and input schema" width="1200" height="640"><img class="light" src="../img/agents/input_schema.svg" alt="Input schema: arguments that fit run, arguments that do not are refused" width="1200" height="640"><img class="dark" src="../img/agents/input_schema-dark.svg" alt="Input schema: arguments that fit run, arguments that do not are refused" width="1200" height="640"><img class="light" src="../img/agents/readonly.svg" alt="Readonly: the three classes of tools, readonly highlighted" width="1200" height="600"><img class="dark" src="../img/agents/readonly-dark.svg" alt="Readonly: the three classes of tools, readonly highlighted" width="1200" height="600"><img class="light" src="../img/agents/mutating.svg" alt="Mutating: the three classes of tools, mutating highlighted" width="1200" height="600"><img class="dark" src="../img/agents/mutating-dark.svg" alt="Mutating: the three classes of tools, mutating highlighted" width="1200" height="600"></span><span class="name">Tools</span><template><p class="peek-head"><b>TOOL</b> Tools · 9 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/agents/tool_definition.svg" alt="Tool definition: name, description and input schema" width="1200" height="640"><img class="dark" src="../img/agents/tool_definition-dark.svg" alt="Tool definition: name, description and input schema" width="1200" height="640"></span><span class="code">TOOL-01</span><span class="name">tool_definition</span></li><li><span class="thumb"><img class="light" src="../img/agents/input_schema.svg" alt="Input schema: arguments that fit run, arguments that do not are refused" width="1200" height="640"><img class="dark" src="../img/agents/input_schema-dark.svg" alt="Input schema: arguments that fit run, arguments that do not are refused" width="1200" height="640"></span><span class="code">TOOL-02</span><span class="name">input_schema</span></li><li><span class="thumb"><img class="light" src="../img/agents/readonly.svg" alt="Readonly: the three classes of tools, readonly highlighted" width="1200" height="600"><img class="dark" src="../img/agents/readonly-dark.svg" alt="Readonly: the three classes of tools, readonly highlighted" width="1200" height="600"></span><span class="code">TOOL-03</span><span class="name">readonly</span></li><li><span class="thumb"><img class="light" src="../img/agents/mutating.svg" alt="Mutating: the three classes of tools, mutating highlighted" width="1200" height="600"><img class="dark" src="../img/agents/mutating-dark.svg" alt="Mutating: the three classes of tools, mutating highlighted" width="1200" height="600"></span><span class="code">TOOL-04</span><span class="name">mutating</span></li><li><span class="thumb"><img class="light" src="../img/agents/destructive.svg" alt="Destructive: the three classes of tools, destructive highlighted" width="1200" height="600"><img class="dark" src="../img/agents/destructive-dark.svg" alt="Destructive: the three classes of tools, destructive highlighted" width="1200" height="600"></span><span class="code">TOOL-05</span><span class="name">destructive</span></li><li><span class="thumb"><img class="light" src="../img/agents/permission.svg" alt="Permission: a tool_call outside the allowed paths is refused before it runs" width="1200" height="600"><img class="dark" src="../img/agents/permission-dark.svg" alt="Permission: a tool_call outside the allowed paths is refused before it runs" width="1200" height="600"></span><span class="code">TOOL-06</span><span class="name">permission</span></li><li><span class="thumb"><img class="light" src="../img/agents/gate.svg" alt="Gate: the harness asks the user before a destructive tool runs" width="1200" height="600"><img class="dark" src="../img/agents/gate-dark.svg" alt="Gate: the harness asks the user before a destructive tool runs" width="1200" height="600"></span><span class="code">TOOL-07</span><span class="name">gate</span></li><li><span class="thumb"><img class="light" src="../img/agents/sandbox.svg" alt="Sandbox: files, network and processes inside the boundary, the machine outside it" width="1200" height="580"><img class="dark" src="../img/agents/sandbox-dark.svg" alt="Sandbox: files, network and processes inside the boundary, the machine outside it" width="1200" height="580"></span><span class="code">TOOL-08</span><span class="name">sandbox</span></li><li><span class="thumb"><img class="light" src="../img/agents/grounding.svg" alt="Grounding: the state of the workspace, injected into the context each turn" width="1200" height="600"><img class="dark" src="../img/agents/grounding-dark.svg" alt="Grounding: the state of the workspace, injected into the context each turn" width="1200" height="600"></span><span class="code">TOOL-09</span><span class="name">grounding</span></li></ul></template></a>
+<a class="tile group-tile" href="#LIM"><span class="mosaic"><img class="light" src="../img/agents/max_rounds.svg" alt="Max rounds: the seventh round never runs" width="1200" height="560"><img class="dark" src="../img/agents/max_rounds-dark.svg" alt="Max rounds: the seventh round never runs" width="1200" height="560"><img class="light" src="../img/agents/budget.svg" alt="Budget: token, time and cost bars, scoped to a turn, run or session" width="1200" height="600"><img class="dark" src="../img/agents/budget-dark.svg" alt="Budget: token, time and cost bars, scoped to a turn, run or session" width="1200" height="600"><img class="light" src="../img/agents/truncate.svg" alt="Truncate: one result cut to fit, the whole of it in the sidecar" width="1200" height="640"><img class="dark" src="../img/agents/truncate-dark.svg" alt="Truncate: one result cut to fit, the whole of it in the sidecar" width="1200" height="640"><img class="light" src="../img/agents/compact.svg" alt="Compact: older messages replaced by a summary in the context, kept in the transcript" width="1200" height="620"><img class="dark" src="../img/agents/compact-dark.svg" alt="Compact: older messages replaced by a summary in the context, kept in the transcript" width="1200" height="620"></span><span class="name">Limits</span><template><p class="peek-head"><b>LIM</b> Limits · 4 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/agents/max_rounds.svg" alt="Max rounds: the seventh round never runs" width="1200" height="560"><img class="dark" src="../img/agents/max_rounds-dark.svg" alt="Max rounds: the seventh round never runs" width="1200" height="560"></span><span class="code">LIM-01</span><span class="name">max_rounds</span></li><li><span class="thumb"><img class="light" src="../img/agents/budget.svg" alt="Budget: token, time and cost bars, scoped to a turn, run or session" width="1200" height="600"><img class="dark" src="../img/agents/budget-dark.svg" alt="Budget: token, time and cost bars, scoped to a turn, run or session" width="1200" height="600"></span><span class="code">LIM-02</span><span class="name">budget</span></li><li><span class="thumb"><img class="light" src="../img/agents/truncate.svg" alt="Truncate: one result cut to fit, the whole of it in the sidecar" width="1200" height="640"><img class="dark" src="../img/agents/truncate-dark.svg" alt="Truncate: one result cut to fit, the whole of it in the sidecar" width="1200" height="640"></span><span class="code">LIM-03</span><span class="name">truncate</span></li><li><span class="thumb"><img class="light" src="../img/agents/compact.svg" alt="Compact: older messages replaced by a summary in the context, kept in the transcript" width="1200" height="620"><img class="dark" src="../img/agents/compact-dark.svg" alt="Compact: older messages replaced by a summary in the context, kept in the transcript" width="1200" height="620"></span><span class="code">LIM-04</span><span class="name">compact</span></li></ul></template></a>
+<a class="tile group-tile" href="#FAIL"><span class="mosaic"><img class="light" src="../img/agents/stall.svg" alt="Stall: the same call five times, nothing moves" width="1200" height="580"><img class="dark" src="../img/agents/stall-dark.svg" alt="Stall: the same call five times, nothing moves" width="1200" height="580"><img class="light" src="../img/agents/runaway.svg" alt="Runaway: a turn stopped by the cap, not by a final" width="1200" height="560"><img class="dark" src="../img/agents/runaway-dark.svg" alt="Runaway: a turn stopped by the cap, not by a final" width="1200" height="560"></span><span class="name">Failure</span><template><p class="peek-head"><b>FAIL</b> Failure · 2 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/agents/stall.svg" alt="Stall: the same call five times, nothing moves" width="1200" height="580"><img class="dark" src="../img/agents/stall-dark.svg" alt="Stall: the same call five times, nothing moves" width="1200" height="580"></span><span class="code">FAIL-01</span><span class="name">stall</span></li><li><span class="thumb"><img class="light" src="../img/agents/runaway.svg" alt="Runaway: a turn stopped by the cap, not by a final" width="1200" height="560"><img class="dark" src="../img/agents/runaway-dark.svg" alt="Runaway: a turn stopped by the cap, not by a final" width="1200" height="560"></span><span class="code">FAIL-02</span><span class="name">runaway</span></li></ul></template></a>
+<a class="tile group-tile" href="#RECOV"><span class="mosaic"><img class="light" src="../img/agents/check.svg" alt="Check: tests run after the final; a failure goes back as another round" width="1200" height="580"><img class="dark" src="../img/agents/check-dark.svg" alt="Check: tests run after the final; a failure goes back as another round" width="1200" height="580"><img class="light" src="../img/agents/review.svg" alt="Review: one extra call reads the task and the result and gives a verdict" width="1200" height="580"><img class="dark" src="../img/agents/review-dark.svg" alt="Review: one extra call reads the task and the result and gives a verdict" width="1200" height="580"><img class="light" src="../img/agents/handoff.svg" alt="Handoff: the task and its context passed whole to the user or another agent" width="1200" height="580"><img class="dark" src="../img/agents/handoff-dark.svg" alt="Handoff: the task and its context passed whole to the user or another agent" width="1200" height="580"></span><span class="name">Recovery</span><template><p class="peek-head"><b>RECOV</b> Recovery · 3 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/agents/check.svg" alt="Check: tests run after the final; a failure goes back as another round" width="1200" height="580"><img class="dark" src="../img/agents/check-dark.svg" alt="Check: tests run after the final; a failure goes back as another round" width="1200" height="580"></span><span class="code">RECOV-01</span><span class="name">check</span></li><li><span class="thumb"><img class="light" src="../img/agents/review.svg" alt="Review: one extra call reads the task and the result and gives a verdict" width="1200" height="580"><img class="dark" src="../img/agents/review-dark.svg" alt="Review: one extra call reads the task and the result and gives a verdict" width="1200" height="580"></span><span class="code">RECOV-02</span><span class="name">review</span></li><li><span class="thumb"><img class="light" src="../img/agents/handoff.svg" alt="Handoff: the task and its context passed whole to the user or another agent" width="1200" height="580"><img class="dark" src="../img/agents/handoff-dark.svg" alt="Handoff: the task and its context passed whole to the user or another agent" width="1200" height="580"></span><span class="code">RECOV-03</span><span class="name">handoff</span></li></ul></template></a>
+<a class="tile group-tile" href="#KIND"><span class="mosaic"><img class="light" src="../img/agents/coding_agent.svg" alt="Coding agent: workspace a repository, tools view, grep, edit, shell" width="1200" height="560"><img class="dark" src="../img/agents/coding_agent-dark.svg" alt="Coding agent: workspace a repository, tools view, grep, edit, shell" width="1200" height="560"><img class="light" src="../img/agents/design_agent.svg" alt="Design agent: workspace a canvas, tools inspect, render, place, style" width="1200" height="560"><img class="dark" src="../img/agents/design_agent-dark.svg" alt="Design agent: workspace a canvas, tools inspect, render, place, style" width="1200" height="560"><img class="light" src="../img/agents/embedded_agent.svg" alt="Embedded agent: workspace app data through its API" width="1200" height="560"><img class="dark" src="../img/agents/embedded_agent-dark.svg" alt="Embedded agent: workspace app data through its API" width="1200" height="560"></span><span class="name">Kinds</span><template><p class="peek-head"><b>KIND</b> Kinds · 3 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/agents/coding_agent.svg" alt="Coding agent: workspace a repository, tools view, grep, edit, shell" width="1200" height="560"><img class="dark" src="../img/agents/coding_agent-dark.svg" alt="Coding agent: workspace a repository, tools view, grep, edit, shell" width="1200" height="560"></span><span class="code">KIND-01</span><span class="name">coding agent</span></li><li><span class="thumb"><img class="light" src="../img/agents/design_agent.svg" alt="Design agent: workspace a canvas, tools inspect, render, place, style" width="1200" height="560"><img class="dark" src="../img/agents/design_agent-dark.svg" alt="Design agent: workspace a canvas, tools inspect, render, place, style" width="1200" height="560"></span><span class="code">KIND-02</span><span class="name">design agent</span></li><li><span class="thumb"><img class="light" src="../img/agents/embedded_agent.svg" alt="Embedded agent: workspace app data through its API" width="1200" height="560"><img class="dark" src="../img/agents/embedded_agent-dark.svg" alt="Embedded agent: workspace app data through its API" width="1200" height="560"></span><span class="code">KIND-03</span><span class="name">embedded agent</span></li></ul></template></a>
+<a class="tile group-tile" href="#TEST"><span class="mosaic"><img class="light" src="../img/testing/happy-path.svg" alt="Happy path: the green road of steps, the grey error branches never taken" width="1200" height="640"><img class="dark" src="../img/testing/happy-path-dark.svg" alt="Happy path: the green road of steps, the grey error branches never taken" width="1200" height="640"><img class="light" src="../img/testing/smoke-tests.svg" alt="Smoke tests: power on, does it run at all; the deep tests wait behind" width="1200" height="600"><img class="dark" src="../img/testing/smoke-tests-dark.svg" alt="Smoke tests: power on, does it run at all; the deep tests wait behind" width="1200" height="600"><img class="light" src="../img/testing/edge-case.svg" alt="Edge case: the usual range in green, the empty, first, last and maximum in red" width="1200" height="600"><img class="dark" src="../img/testing/edge-case-dark.svg" alt="Edge case: the usual range in green, the empty, first, last and maximum in red" width="1200" height="600"><img class="light" src="../img/testing/transient-error.svg" alt="Transient error: two failed tries, a wait, the third answered" width="1200" height="600"><img class="dark" src="../img/testing/transient-error-dark.svg" alt="Transient error: two failed tries, a wait, the third answered" width="1200" height="600"></span><span class="name">Testing</span><template><p class="peek-head"><b>TEST</b> Testing · 10 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/testing/happy-path.svg" alt="Happy path: the green road of steps, the grey error branches never taken" width="1200" height="640"><img class="dark" src="../img/testing/happy-path-dark.svg" alt="Happy path: the green road of steps, the grey error branches never taken" width="1200" height="640"></span><span class="code">TEST-01</span><span class="name">Happy Path</span></li><li><span class="thumb"><img class="light" src="../img/testing/smoke-tests.svg" alt="Smoke tests: power on, does it run at all; the deep tests wait behind" width="1200" height="600"><img class="dark" src="../img/testing/smoke-tests-dark.svg" alt="Smoke tests: power on, does it run at all; the deep tests wait behind" width="1200" height="600"></span><span class="code">TEST-02</span><span class="name">Smoke Tests</span></li><li><span class="thumb"><img class="light" src="../img/testing/edge-case.svg" alt="Edge case: the usual range in green, the empty, first, last and maximum in red" width="1200" height="600"><img class="dark" src="../img/testing/edge-case-dark.svg" alt="Edge case: the usual range in green, the empty, first, last and maximum in red" width="1200" height="600"></span><span class="code">TEST-03</span><span class="name">Edge Case</span></li><li><span class="thumb"><img class="light" src="../img/testing/transient-error.svg" alt="Transient error: two failed tries, a wait, the third answered" width="1200" height="600"><img class="dark" src="../img/testing/transient-error-dark.svg" alt="Transient error: two failed tries, a wait, the third answered" width="1200" height="600"></span><span class="code">TEST-04</span><span class="name">Transient Error</span></li><li><span class="thumb"><img class="light" src="../img/testing/intermittent-failure.svg" alt="Intermittent failure: six requests to the same code, two of them failing, nothing changed" width="1200" height="600"><img class="dark" src="../img/testing/intermittent-failure-dark.svg" alt="Intermittent failure: six requests to the same code, two of them failing, nothing changed" width="1200" height="600"></span><span class="code">TEST-05</span><span class="name">Intermittent Failure</span></li><li><span class="thumb"><img class="light" src="../img/testing/error-flood.svg" alt="Error flood: forty requests, thirty of them failed" width="1200" height="600"><img class="dark" src="../img/testing/error-flood-dark.svg" alt="Error flood: forty requests, thirty of them failed" width="1200" height="600"></span><span class="code">TEST-06</span><span class="name">Error Flood</span></li><li><span class="thumb"><img class="light" src="../img/testing/flaky-test.svg" alt="Flaky test: one unchanged test, red and green by turns through the week" width="1200" height="600"><img class="dark" src="../img/testing/flaky-test-dark.svg" alt="Flaky test: one unchanged test, red and green by turns through the week" width="1200" height="600"></span><span class="code">TEST-07</span><span class="name">Flaky Test</span></li><li><span class="thumb"><img class="light" src="../img/testing/showstopper-bug.svg" alt="Showstopper bug: the road from development to customers blocked by a barrier" width="1200" height="600"><img class="dark" src="../img/testing/showstopper-bug-dark.svg" alt="Showstopper bug: the road from development to customers blocked by a barrier" width="1200" height="600"></span><span class="code">TEST-08</span><span class="name">Showstopper Bug</span></li><li><span class="thumb"><img class="light" src="../img/testing/self-check.svg" alt="Self-check: a dashboard of lamps, one lit, naming the port to fix" width="1200" height="640"><img class="dark" src="../img/testing/self-check-dark.svg" alt="Self-check: a dashboard of lamps, one lit, naming the port to fix" width="1200" height="640"></span><span class="code">TEST-09</span><span class="name">Self-check</span></li><li><span class="thumb"><img class="light" src="../img/testing/safety-net.svg" alt="Safety net: the plan as a rope across, the miss falling into the net below" width="1200" height="600"><img class="dark" src="../img/testing/safety-net-dark.svg" alt="Safety net: the plan as a rope across, the miss falling into the net below" width="1200" height="600"></span><span class="code">TEST-10</span><span class="name">Safety net</span></li></ul></template></a>
+<a class="tile group-tile" href="#WORD"><span class="mosaic"><img class="light" src="../img/doc/vocabulary.svg" alt="Vocabulary: our words as pills, the words we do not use struck through" width="1200" height="580"><img class="dark" src="../img/doc/vocabulary-dark.svg" alt="Vocabulary: our words as pills, the words we do not use struck through" width="1200" height="580"><img class="light" src="../img/doc/glossary.svg" alt="Glossary: a table of terms, each with its meaning" width="1200" height="680"><img class="dark" src="../img/doc/glossary-dark.svg" alt="Glossary: a table of terms, each with its meaning" width="1200" height="680"></span><span class="name">Documents</span><template><p class="peek-head"><b>WORD</b> Documents · 2 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/doc/vocabulary.svg" alt="Vocabulary: our words as pills, the words we do not use struck through" width="1200" height="580"><img class="dark" src="../img/doc/vocabulary-dark.svg" alt="Vocabulary: our words as pills, the words we do not use struck through" width="1200" height="580"></span><span class="code">WORD-01</span><span class="name">vocabulary</span></li><li><span class="thumb"><img class="light" src="../img/doc/glossary.svg" alt="Glossary: a table of terms, each with its meaning" width="1200" height="680"><img class="dark" src="../img/doc/glossary-dark.svg" alt="Glossary: a table of terms, each with its meaning" width="1200" height="680"></span><span class="code">WORD-02</span><span class="name">glossary</span></li></ul></template></a>
+<a class="tile group-tile" href="#MAP"><span class="mosaic"><img class="light" src="../img/maps/tree.svg" alt="Tree: the folders of a note" width="1200" height="730"><img class="dark" src="../img/maps/tree-dark.svg" alt="Tree: the folders of a note" width="1200" height="730"><img class="light" src="../img/maps/graph.svg" alt="Graph: the pages of this site and the links between them, one page with two parents and three pages in a circle" width="1200" height="730"><img class="dark" src="../img/maps/graph-dark.svg" alt="Graph: the pages of this site and the links between them, one page with two parents and three pages in a circle" width="1200" height="730"><img class="light" src="../img/maps/map.svg" alt="Map" width="1200" height="730"><img class="dark" src="../img/maps/map-dark.svg" alt="Map" width="1200" height="730"><img class="light" src="../img/maps/taxonomy.svg" alt="Taxonomy: the kinds of things in a note" width="1300" height="730"><img class="dark" src="../img/maps/taxonomy-dark.svg" alt="Taxonomy: the kinds of things in a note" width="1300" height="730"></span><span class="name">Maps and ways</span><template><p class="peek-head"><b>MAP</b> Maps and ways · 17 terms</p><ul class="peek-items two"><li><span class="thumb"><img class="light" src="../img/maps/tree.svg" alt="Tree: the folders of a note" width="1200" height="730"><img class="dark" src="../img/maps/tree-dark.svg" alt="Tree: the folders of a note" width="1200" height="730"></span><span class="code">MAP-01</span><span class="name">tree</span></li><li><span class="thumb"><img class="light" src="../img/maps/graph.svg" alt="Graph: the pages of this site and the links between them, one page with two parents and three pages in a circle" width="1200" height="730"><img class="dark" src="../img/maps/graph-dark.svg" alt="Graph: the pages of this site and the links between them, one page with two parents and three pages in a circle" width="1200" height="730"></span><span class="code">MAP-02</span><span class="name">graph</span></li><li><span class="thumb"><img class="light" src="../img/maps/map.svg" alt="Map" width="1200" height="730"><img class="dark" src="../img/maps/map-dark.svg" alt="Map" width="1200" height="730"></span><span class="code">MAP-03</span><span class="name">map</span></li><li><span class="thumb"><img class="light" src="../img/maps/taxonomy.svg" alt="Taxonomy: the kinds of things in a note" width="1300" height="730"><img class="dark" src="../img/maps/taxonomy-dark.svg" alt="Taxonomy: the kinds of things in a note" width="1300" height="730"></span><span class="code">MAP-04</span><span class="name">taxonomy</span></li><li><span class="thumb"><img class="light" src="../img/maps/ontology.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780"><img class="dark" src="../img/maps/ontology-dark.svg" alt="Ontology: the words of a note and how they connect" width="1200" height="780"></span><span class="code">MAP-05</span><span class="name">ontology</span></li><li><span class="thumb"><img class="light" src="../img/maps/knowledge-graph.svg" alt="Knowledge graph: the ontology on the left, this note's real messages and links on the right" width="1200" height="680"><img class="dark" src="../img/maps/knowledge-graph-dark.svg" alt="Knowledge graph: the ontology on the left, this note's real messages and links on the right" width="1200" height="680"></span><span class="code">MAP-06</span><span class="name">knowledge graph</span></li><li><span class="thumb"><img class="light" src="../img/maps/roadmap.svg" alt="Roadmap" width="1200" height="700"><img class="dark" src="../img/maps/roadmap-dark.svg" alt="Roadmap" width="1200" height="700"></span><span class="code">MAP-07</span><span class="name">roadmap</span></li><li><span class="thumb"><img class="light" src="../img/maps/milestone.svg" alt="Milestone" width="1200" height="700"><img class="dark" src="../img/maps/milestone-dark.svg" alt="Milestone" width="1200" height="700"></span><span class="code">MAP-08</span><span class="name">milestone</span></li><li><span class="thumb"><img class="light" src="../img/maps/breadcrumbs-roadmap-milestone.svg" alt="Breadcrumbs, roadmap and milestone side by side" width="1200" height="860"><img class="dark" src="../img/maps/breadcrumbs-roadmap-milestone-dark.svg" alt="Breadcrumbs, roadmap and milestone side by side" width="1200" height="860"></span><span class="code">MAP-09</span><span class="name">breadcrumbs</span></li><li><span class="thumb"><img class="light" src="../img/maps/timeline.svg" alt="Timeline: the events of this morning along one line" width="1200" height="640"><img class="dark" src="../img/maps/timeline-dark.svg" alt="Timeline: the events of this morning along one line" width="1200" height="640"></span><span class="code">MAP-10</span><span class="name">timeline</span></li><li><span class="thumb"><img class="light" src="../img/maps/chronology.svg" alt="Chronology: one user's seven actions evenly along a line, from opening the pricing page to upgrading the next day, the 23-hour night cut short" width="1200" height="700"><img class="dark" src="../img/maps/chronology-dark.svg" alt="Chronology: one user's seven actions evenly along a line, from opening the pricing page to upgrading the next day, the 23-hour night cut short" width="1200" height="700"></span><span class="code">MAP-11</span><span class="name">chronology</span></li><li><span class="thumb"><img class="light" src="../img/maps/backlog.svg" alt="Backlog: a pile of cards in no order, and the three columns of the roadmap they feed" width="1200" height="680"><img class="dark" src="../img/maps/backlog-dark.svg" alt="Backlog: a pile of cards in no order, and the three columns of the roadmap they feed" width="1200" height="680"></span><span class="code">MAP-12</span><span class="name">backlog</span></li><li><span class="thumb"><img class="light" src="../img/maps/anatomy.svg" alt="Anatomy: one message seen whole, its five parts numbered where they sit" width="1300" height="730"><img class="dark" src="../img/maps/anatomy-dark.svg" alt="Anatomy: one message seen whole, its five parts numbered where they sit" width="1300" height="730"></span><span class="code">MAP-13</span><span class="name">anatomy</span></li><li><span class="thumb"><img class="light" src="../img/maps/labelled-diagram.svg" alt="Labelled diagram: a hand coffee grinder whole, a line from each part to its name" width="1300" height="730"><img class="dark" src="../img/maps/labelled-diagram-dark.svg" alt="Labelled diagram: a hand coffee grinder whole, a line from each part to its name" width="1300" height="730"></span><span class="code">MAP-14</span><span class="name">labelled diagram</span></li><li><span class="thumb"><img class="light" src="../img/maps/exploded-view.svg" alt="Exploded view: the same grinder, its seven parts pulled apart along their axis and numbered, with the parts list" width="1300" height="990"><img class="dark" src="../img/maps/exploded-view-dark.svg" alt="Exploded view: the same grinder, its seven parts pulled apart along their axis and numbered, with the parts list" width="1300" height="990"></span><span class="code">MAP-15</span><span class="name">exploded view</span></li><li><span class="thumb"><img class="light" src="../img/maps/cutaway.svg" alt="Cutaway: the same grinder with its front cut open, the shaft, the burrs and the ground coffee named" width="1300" height="730"><img class="dark" src="../img/maps/cutaway-dark.svg" alt="Cutaway: the same grinder with its front cut open, the shaft, the burrs and the ground coffee named" width="1300" height="730"></span><span class="code">MAP-16</span><span class="name">cutaway</span></li><li><span class="thumb"><img class="light" src="../img/maps/legend.svg" alt="Legend: a small map of roads, a river, a border and a park, its legend beside it" width="1300" height="760"><img class="dark" src="../img/maps/legend-dark.svg" alt="Legend: a small map of roads, a river, a border and a park, its legend beside it" width="1300" height="760"></span><span class="code">MAP-17</span><span class="name">legend</span></li></ul></template></a>
+<a class="tile group-tile" href="#MACH"><span class="mosaic"></span><span class="name">Machines</span><template><p class="peek-head"><b>MACH</b> Machines · 9 terms</p><ul class="peek-items"><li><span class="thumb"></span><span class="code">MACH-01</span><span class="name">laptop</span></li><li><span class="thumb"></span><span class="code">MACH-02</span><span class="name">desktop</span></li><li><span class="thumb"></span><span class="code">MACH-03</span><span class="name">phone</span></li><li><span class="thumb"></span><span class="code">MACH-04</span><span class="name">tablet</span></li><li><span class="thumb"></span><span class="code">MACH-05</span><span class="name">server</span></li><li><span class="thumb"></span><span class="code">MACH-06</span><span class="name">vps1, vps2</span></li><li><span class="thumb"></span><span class="code">MACH-07</span><span class="name">router</span></li><li><span class="thumb"></span><span class="code">MACH-08</span><span class="name">nas</span></li><li><span class="thumb"></span><span class="code">MACH-09</span><span class="name">box</span></li></ul></template></a>
+<a class="tile group-tile" href="#PLACE"><span class="mosaic"></span><span class="name">Placeholders</span><template><p class="peek-head"><b>PLACE</b> Placeholders · 4 terms</p><ul class="peek-items"><li><span class="thumb"></span><span class="code">PLACE-01</span><span class="name">example.com</span></li><li><span class="thumb"></span><span class="code">PLACE-02</span><span class="name">user@example.com</span></li><li><span class="thumb"></span><span class="code">PLACE-03</span><span class="name">user</span></li><li><span class="thumb"></span><span class="code">PLACE-04</span><span class="name">192.0.2.x</span></li></ul></template></a>
+<a class="tile group-tile" href="#MOTION"><span class="mosaic"><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Morphing: the menu grows out of its button and back, the toast only fades" width="720" height="300"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Morphing: the menu grows out of its button and back, the toast only fades" width="720" height="300"><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Fade: the toast comes and goes by its opacity, where it stands" width="720" height="300"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Fade: the toast comes and goes by its opacity, where it stands" width="720" height="300"></span><span class="name">Motion</span><template><p class="peek-head"><b>MOTION</b> Motion · 2 terms</p><ul class="peek-items"><li><span class="thumb"><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Morphing: the menu grows out of its button and back, the toast only fades" width="720" height="300"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Morphing: the menu grows out of its button and back, the toast only fades" width="720" height="300"></span><span class="code">MOTION-01</span><span class="name">morphing</span></li><li><span class="thumb"><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Fade: the toast comes and goes by its opacity, where it stands" width="720" height="300"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Fade: the toast comes and goes by its opacity, where it stands" width="720" height="300"></span><span class="code">MOTION-02</span><span class="name">fade</span></li></ul></template></a>
+</div>
+</section>
 <section class="group" id="AGENT">
 <h2><span class="tag">AGENT</span><span class="name">Agents</span><span class="note">Vocabulary to use when developing agents (coding agents, design agents, embedded agents, etc.).</span></h2>
 <section class="sub" id="PART">
@@ -1820,7 +2007,9 @@ const count_el = document.getElementById('count');
 const nothing_el = document.getElementById('nothing');
 const theme_el = document.getElementById('theme');
 const bar_el = document.querySelector('.bar');
-const group_els = Array.from(document.querySelectorAll('section.group, section.sub'));
+const group_els = Array.from(document.querySelectorAll('section.group:not(.overview), section.sub'));
+const spy_els = Array.from(document.querySelectorAll('section.group, section.sub'));
+const overview_el = document.getElementById('overview');
 const rule_els = Array.from(document.querySelectorAll('article.rule'));
 const nav_by_group = {};
 const haystack_by_id = {};
@@ -1861,6 +2050,7 @@ function main()
     document.addEventListener('click', click_theme);
     document.addEventListener('click', click_pictures);
     document.addEventListener('click', click_figure);
+    peek_watch();
     theme_dock_watch();
 
     q_el.value = new URLSearchParams(location.search).get('q') || '';
@@ -2020,6 +2210,10 @@ function filter_apply()
             list_el.insertBefore(rule_el, end_by_list.get(list_el));
         }
     }
+    if (overview_el) {
+        overview_el.hidden = !query.empty;
+        nav_by_group.overview.classList.toggle('none', !query.empty);
+    }
     nothing_el.hidden = (total > 0);
     refresh_pictures_control();
     count_el.textContent = (total === rule_els.length) ? `${total} terms` : `${total} of ${rule_els.length} terms`;
@@ -2083,13 +2277,75 @@ function scroll_window()
 // The current group is the last one whose heading has reached the sticky bars.
 // Only a group which holds terms directly can be current; the glossary around
 // it is marked as the one the reader is within.
+// A tile of the overview, pointed at or reached with Tab, shows what it
+// holds larger beside it: its picture, or its group's list; that goes when
+// the pointer leaves, the page scrolls or the tile is clicked.
+function peek_watch()
+{
+    if (!overview_el) {
+        return;
+    }
+    const peek_el = document.createElement('div');
+    peek_el.className = 'peek';
+    peek_el.hidden = true;
+    peek_el.setAttribute('aria-hidden', 'true');
+    document.body.append(peek_el);
+    for (const tile of overview_el.querySelectorAll('.tile')) {
+        tile.addEventListener('pointerenter', pointerenter_tile);
+        tile.addEventListener('pointerleave', peek_hide);
+        tile.addEventListener('focus', focus_tile);
+        tile.addEventListener('blur', peek_hide);
+        tile.addEventListener('click', peek_hide);
+    }
+    window.addEventListener('scroll', peek_hide, {passive: true});
+
+    function pointerenter_tile(event) {
+        if (event.pointerType === 'mouse') {
+            peek_show(event.currentTarget);
+        }
+    }
+
+    function focus_tile(event) {
+        if (event.currentTarget.matches(':focus-visible')) {
+            peek_show(event.currentTarget);
+        }
+    }
+
+    function peek_hide() {
+        peek_el.hidden = true;
+    }
+
+    // To the right of the tile when it fits, else to the left; fitting
+    // neither, narrower on the wider side. Level with the tile, kept between
+    // the sticky bar and the bottom of the window.
+    function peek_show(tile) {
+        peek_el.replaceChildren(tile.querySelector('template').content.cloneNode(true));
+        peek_el.classList.toggle('list', peek_el.querySelector('.peek-items') !== null);
+        peek_el.classList.toggle('two', peek_el.querySelector('.peek-items.two') !== null);
+        peek_el.style.maxWidth = '';
+        peek_el.hidden = false;
+        const rect = tile.getBoundingClientRect();
+        const room_right = innerWidth - 16 - (rect.right + 12);
+        const room_left = rect.left - 12 - 16;
+        if ((peek_el.offsetWidth > room_right) && (peek_el.offsetWidth > room_left)) {
+            peek_el.style.maxWidth = `${Math.floor(Math.max(room_right, room_left))}px`;
+        }
+        const width = peek_el.offsetWidth;
+        const height = peek_el.offsetHeight;
+        const left = (width <= room_right) ? rect.right + 12 : Math.max(16, rect.left - 12 - width);
+        const top = clamp(rect.top, bar_el.getBoundingClientRect().bottom + 8, innerHeight - height - 8);
+        peek_el.style.left = `${left}px`;
+        peek_el.style.top = `${top}px`;
+    }
+}
+
 function spy_apply()
 {
     spy_pending = false;
     const line = bar_el.getBoundingClientRect().bottom + 80;
     const at_bottom = (window.innerHeight + window.scrollY >= root_el.scrollHeight - 2);
     let current = null;
-    for (const group_el of group_els) {
+    for (const group_el of spy_els) {
         if (group_el.hidden || group_el.querySelector('section.sub')) {
             continue;
         }
@@ -2098,7 +2354,7 @@ function spy_apply()
             current = group_el;
         }
     }
-    for (const group_el of group_els) {
+    for (const group_el of spy_els) {
         const a = nav_by_group[group_el.id];
         const was_current = a.classList.contains('current');
         a.classList.toggle('current', group_el === current);

@@ -864,6 +864,170 @@ footer code {
     color: var(--muted);
 }
 
+/* ---------- overview ---------- */
+
+/* Every item on one screen: a small picture each, or a group's first
+   pictures as a mosaic; larger on hover. */
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+    gap: 10px;
+    padding: 16px 2px 4px;
+}
+
+.tiles.few {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: color var(--fast);
+}
+
+.tile > img,
+.mosaic {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 3;
+    object-fit: contain;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.mosaic {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.mosaic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+}
+
+.tile:hover,
+.tile:focus-visible {
+    color: var(--accent);
+}
+
+.tile:hover > img,
+.tile:focus-visible > img,
+.tile:hover .mosaic,
+.tile:focus-visible .mosaic {
+    border-color: var(--accent);
+}
+
+.tile > .name {
+    font-size: 14px;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+:root[data-theme="dark"] .tile .light,
+:root:not([data-theme="dark"]) .tile .dark,
+:root[data-theme="dark"] .peek .light,
+:root:not([data-theme="dark"]) .peek .dark {
+    display: none;
+}
+
+/* What the tile under the pointer holds, beside it; it takes no clicks. */
+.peek {
+    position: fixed;
+    z-index: 10;
+    width: min(560px, 100vw - 32px);
+    margin: 0;
+    padding: 10px;
+    pointer-events: none;
+    background: var(--surface);
+    border: 1px solid var(--line-heavy);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+.peek.list {
+    width: min(440px, 100vw - 32px);
+}
+
+.peek.list.two {
+    width: min(760px, 100vw - 32px);
+}
+
+.peek > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.peek-head {
+    margin: 0 0 8px;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.peek-head b {
+    margin-right: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--accent);
+}
+
+.peek-items {
+    display: grid;
+    gap: 4px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.peek-items.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.peek-items li {
+    display: grid;
+    grid-template-columns: 54px auto minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.peek-items .thumb img {
+    display: block;
+    width: 54px;
+    height: 32px;
+    object-fit: contain;
+    background: var(--bg);
+    border: 1px solid var(--line);
+}
+
+.peek-items .code {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.peek-items .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* ---------- footer ---------- */
 
 footer {
@@ -1040,6 +1204,8 @@ footer .lead {
     }
 
     .bar,
+    .overview,
+    .peek,
     .groups,
     .pages,
     .theme,
@@ -1269,8 +1435,13 @@ footer .lead {
 
 <div class="wrap layout">
 <nav class="groups" aria-label="Glossaries">
+<a href="#overview" data-group="overview"><span class="tag">ALL</span><span class="name">At a glance</span><span class="n"></span></a>
 {{groups_nav}}</nav>
 <main>
+<section class="group overview" id="overview">
+<h2><span class="tag">ALL</span><span class="name">At a glance</span></h2>
+{{overview}}
+</section>
 {{groups_main}}<p class="nothing" id="nothing" hidden>No term matches that.</p>
 </main>
 </div>
@@ -1290,7 +1461,9 @@ const count_el = document.getElementById('count');
 const nothing_el = document.getElementById('nothing');
 const theme_el = document.getElementById('theme');
 const bar_el = document.querySelector('.bar');
-const group_els = Array.from(document.querySelectorAll('section.group, section.sub'));
+const group_els = Array.from(document.querySelectorAll('section.group:not(.overview), section.sub'));
+const spy_els = Array.from(document.querySelectorAll('section.group, section.sub'));
+const overview_el = document.getElementById('overview');
 const rule_els = Array.from(document.querySelectorAll('article.rule'));
 const nav_by_group = {};
 const haystack_by_id = {};
@@ -1331,6 +1504,7 @@ function main()
     document.addEventListener('click', click_theme);
     document.addEventListener('click', click_pictures);
     document.addEventListener('click', click_figure);
+    peek_watch();
     theme_dock_watch();
 
     q_el.value = new URLSearchParams(location.search).get('q') || '';
@@ -1490,6 +1664,10 @@ function filter_apply()
             list_el.insertBefore(rule_el, end_by_list.get(list_el));
         }
     }
+    if (overview_el) {
+        overview_el.hidden = !query.empty;
+        nav_by_group.overview.classList.toggle('none', !query.empty);
+    }
     nothing_el.hidden = (total > 0);
     refresh_pictures_control();
     count_el.textContent = (total === rule_els.length) ? `${total} terms` : `${total} of ${rule_els.length} terms`;
@@ -1553,13 +1731,75 @@ function scroll_window()
 // The current group is the last one whose heading has reached the sticky bars.
 // Only a group which holds terms directly can be current; the glossary around
 // it is marked as the one the reader is within.
+// A tile of the overview, pointed at or reached with Tab, shows what it
+// holds larger beside it: its picture, or its group's list; that goes when
+// the pointer leaves, the page scrolls or the tile is clicked.
+function peek_watch()
+{
+    if (!overview_el) {
+        return;
+    }
+    const peek_el = document.createElement('div');
+    peek_el.className = 'peek';
+    peek_el.hidden = true;
+    peek_el.setAttribute('aria-hidden', 'true');
+    document.body.append(peek_el);
+    for (const tile of overview_el.querySelectorAll('.tile')) {
+        tile.addEventListener('pointerenter', pointerenter_tile);
+        tile.addEventListener('pointerleave', peek_hide);
+        tile.addEventListener('focus', focus_tile);
+        tile.addEventListener('blur', peek_hide);
+        tile.addEventListener('click', peek_hide);
+    }
+    window.addEventListener('scroll', peek_hide, {passive: true});
+
+    function pointerenter_tile(event) {
+        if (event.pointerType === 'mouse') {
+            peek_show(event.currentTarget);
+        }
+    }
+
+    function focus_tile(event) {
+        if (event.currentTarget.matches(':focus-visible')) {
+            peek_show(event.currentTarget);
+        }
+    }
+
+    function peek_hide() {
+        peek_el.hidden = true;
+    }
+
+    // To the right of the tile when it fits, else to the left; fitting
+    // neither, narrower on the wider side. Level with the tile, kept between
+    // the sticky bar and the bottom of the window.
+    function peek_show(tile) {
+        peek_el.replaceChildren(tile.querySelector('template').content.cloneNode(true));
+        peek_el.classList.toggle('list', peek_el.querySelector('.peek-items') !== null);
+        peek_el.classList.toggle('two', peek_el.querySelector('.peek-items.two') !== null);
+        peek_el.style.maxWidth = '';
+        peek_el.hidden = false;
+        const rect = tile.getBoundingClientRect();
+        const room_right = innerWidth - 16 - (rect.right + 12);
+        const room_left = rect.left - 12 - 16;
+        if ((peek_el.offsetWidth > room_right) && (peek_el.offsetWidth > room_left)) {
+            peek_el.style.maxWidth = `${Math.floor(Math.max(room_right, room_left))}px`;
+        }
+        const width = peek_el.offsetWidth;
+        const height = peek_el.offsetHeight;
+        const left = (width <= room_right) ? rect.right + 12 : Math.max(16, rect.left - 12 - width);
+        const top = clamp(rect.top, bar_el.getBoundingClientRect().bottom + 8, innerHeight - height - 8);
+        peek_el.style.left = `${left}px`;
+        peek_el.style.top = `${top}px`;
+    }
+}
+
 function spy_apply()
 {
     spy_pending = false;
     const line = bar_el.getBoundingClientRect().bottom + 80;
     const at_bottom = (window.innerHeight + window.scrollY >= root_el.scrollHeight - 2);
     let current = null;
-    for (const group_el of group_els) {
+    for (const group_el of spy_els) {
         if (group_el.hidden || group_el.querySelector('section.sub')) {
             continue;
         }
@@ -1568,7 +1808,7 @@ function spy_apply()
             current = group_el;
         }
     }
-    for (const group_el of group_els) {
+    for (const group_el of spy_els) {
         const a = nav_by_group[group_el.id];
         const was_current = a.classList.contains('current');
         a.classList.toggle('current', group_el === current);

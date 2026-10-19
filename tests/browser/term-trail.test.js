@@ -63,7 +63,7 @@ for (const width of [1280, 390]) {
             await page.route('https://**/*', v => v.abort());
             await page.goto(page_url);
             const steps = await page.evaluate(async function () {
-                const group_el = document.querySelector('.group');
+                const group_el = document.querySelector('.group:not(.overview)');
                 const h2 = group_el.querySelector('h2');
                 const header_bottom = parseFloat(getComputedStyle(h2).top) + h2.getBoundingClientRect().height;
                 const first = group_el.querySelector('article.rule dfn');

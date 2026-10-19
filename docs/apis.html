@@ -779,12 +779,17 @@ footer code {
 
 /* ---------- overview ---------- */
 
-/* Every diagram on one screen: a small picture each, larger on hover. */
+/* Every item on one screen: a small picture each, or a group's first
+   pictures as a mosaic; larger on hover. */
 .tiles {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
     gap: 10px;
     padding: 16px 2px 4px;
+}
+
+.tiles.few {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
 
 .tile {
@@ -797,7 +802,8 @@ footer code {
     transition: color var(--fast);
 }
 
-.tile img {
+.tile > img,
+.mosaic {
     display: block;
     width: 100%;
     height: auto;
@@ -808,17 +814,36 @@ footer code {
     transition: border-color var(--fast), background-color var(--fast);
 }
 
+.mosaic {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.mosaic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+}
+
 .tile:hover,
 .tile:focus-visible {
     color: var(--accent);
 }
 
-.tile:hover img,
-.tile:focus-visible img {
+.tile:hover > img,
+.tile:focus-visible > img,
+.tile:hover .mosaic,
+.tile:focus-visible .mosaic {
     border-color: var(--accent);
 }
 
-.tile .name {
+.tile > .name {
     font-size: 14px;
     line-height: 1.25;
     white-space: nowrap;
@@ -833,7 +858,7 @@ footer code {
     display: none;
 }
 
-/* The picture of the tile under the pointer, beside it; it takes no clicks. */
+/* What the tile under the pointer holds, beside it; it takes no clicks. */
 .peek {
     position: fixed;
     z-index: 10;
@@ -846,10 +871,74 @@ footer code {
     box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
 }
 
-.peek img {
+.peek.list {
+    width: min(440px, 100vw - 32px);
+}
+
+.peek.list.two {
+    width: min(760px, 100vw - 32px);
+}
+
+.peek > img {
     display: block;
     width: 100%;
     height: auto;
+}
+
+.peek-head {
+    margin: 0 0 8px;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.peek-head b {
+    margin-right: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--accent);
+}
+
+.peek-items {
+    display: grid;
+    gap: 4px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.peek-items.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.peek-items li {
+    display: grid;
+    grid-template-columns: 54px auto minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.peek-items .thumb img {
+    display: block;
+    width: 54px;
+    height: 32px;
+    object-fit: contain;
+    background: var(--bg);
+    border: 1px solid var(--line);
+}
+
+.peek-items .code {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.peek-items .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ---------- handing over ---------- */
@@ -1205,11 +1294,19 @@ main[data-page="apis"] .prose > h3 {
 
 <div class="wrap layout">
 <nav class="groups" aria-label="Forms">
+<a href="#overview" data-group="overview"><span class="tag">ALL</span><span class="name">At a glance</span></a>
 <a href="#use" data-group="use"><span class="tag">USE</span><span class="name">Hand them to an agent</span></a>
 <a href="#compact" data-group="compact"><span class="tag">01</span><span class="name">Compact: one resource, every request a row</span></a>
 <a href="#expanded" data-group="expanded"><span class="tag">02</span><span class="name">Expanded: one request taken apart</span></a>
 </nav>
 <main data-page="apis">
+<section class="group overview" id="overview">
+<h2><span class="tag">ALL</span><span class="name">At a glance</span></h2>
+<div class="tiles few">
+<a class="tile" href="#compact"><img class="light" src="../img/apis/compact_articles.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"><img class="dark" src="../img/apis/compact_articles-dark.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"><span class="name">Compact</span><template><img class="light" src="../img/apis/compact_articles.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"><img class="dark" src="../img/apis/compact_articles-dark.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"></template></a>
+<a class="tile" href="#expanded"><img class="light" src="../img/apis/expanded_patch.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"><img class="dark" src="../img/apis/expanded_patch-dark.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"><span class="name">Expanded</span><template><img class="light" src="../img/apis/expanded_patch.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"><img class="dark" src="../img/apis/expanded_patch-dark.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"></template></a>
+</div>
+</section>
 <section class="group use" id="use">
 <h2><span class="tag">USE</span><span class="name">Hand them to an agent</span></h2>
 <div class="prose">
@@ -1747,9 +1844,9 @@ async function click_figure(event)
     }
 }
 
-// A tile of the overview, pointed at or reached with Tab, shows its picture
-// larger beside it; the picture goes when the pointer leaves, the page
-// scrolls or the tile is clicked.
+// A tile of the overview, pointed at or reached with Tab, shows what it
+// holds larger beside it: its picture, or its group's list; that goes when
+// the pointer leaves, the page scrolls or the tile is clicked.
 function peek_watch()
 {
     if (!overview_el) {
@@ -1785,16 +1882,24 @@ function peek_watch()
         peek_el.hidden = true;
     }
 
-    // To the right of the tile when it fits, else to the left; level with
-    // it, kept between the sticky bar and the bottom of the window.
+    // To the right of the tile when it fits, else to the left; fitting
+    // neither, narrower on the wider side. Level with the tile, kept between
+    // the sticky bar and the bottom of the window.
     function peek_show(tile) {
-        peek_el.replaceChildren(...Array.from(tile.querySelectorAll('img'), v => v.cloneNode()));
+        peek_el.replaceChildren(tile.querySelector('template').content.cloneNode(true));
+        peek_el.classList.toggle('list', peek_el.querySelector('.peek-items') !== null);
+        peek_el.classList.toggle('two', peek_el.querySelector('.peek-items.two') !== null);
+        peek_el.style.maxWidth = '';
         peek_el.hidden = false;
         const rect = tile.getBoundingClientRect();
+        const room_right = innerWidth - 16 - (rect.right + 12);
+        const room_left = rect.left - 12 - 16;
+        if ((peek_el.offsetWidth > room_right) && (peek_el.offsetWidth > room_left)) {
+            peek_el.style.maxWidth = `${Math.floor(Math.max(room_right, room_left))}px`;
+        }
         const width = peek_el.offsetWidth;
         const height = peek_el.offsetHeight;
-        const right = rect.right + 12;
-        const left = (right + width <= innerWidth - 16) ? right : Math.max(16, rect.left - 12 - width);
+        const left = (width <= room_right) ? rect.right + 12 : Math.max(16, rect.left - 12 - width);
         const top = clamp(rect.top, bar_el.getBoundingClientRect().bottom + 8, innerHeight - height - 8);
         peek_el.style.left = `${left}px`;
         peek_el.style.top = `${top}px`;

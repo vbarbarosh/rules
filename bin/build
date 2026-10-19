@@ -234,6 +234,7 @@ function html_from_index(template, index, name)
         sources_word: (sources_count === 1) ? 'source' : 'sources',
         groups_nav: index.groups.map(html_from_group_link).join(''),
         groups_main: index.groups.map(html_from_group).join(''),
+        overview: html_from_index_overview(index),
     };
     return template_fill(template, values);
 }
@@ -380,6 +381,7 @@ function html_from_glossaries(template, glossaries)
         groups_count: String(groups.length),
         groups_nav: glossaries.map(html_from_glossary_links).join(''),
         groups_main: glossaries.map(html_from_glossary).join(''),
+        overview: html_from_glossaries_overview(glossaries),
         glossary_links: links.join(', '),
     };
     return template_fill(template, values);
@@ -664,23 +666,90 @@ function html_from_guides(template, set, handover)
         guides_noun: (guides.length === 1) ? words.noun_one : words.noun_many,
         guides_nav: guides.map(html_from_guide_link).join(''),
         guides_main: guides.map(html_from_guide).join(''),
-        guides_overview: guides.map(html_from_guide_tile).join(''),
+        guides_overview: html_from_tiles(guides.map(html_from_guide_tile), guides.length),
         handover: html_escape(handover),
     };
     return template_fill(template, values);
 }
 
-// A guide in the overview: its first picture, small, and its name up to
-// the colon; the page shows the picture larger on hover, a click goes to it.
+// A guide in the overview: its first picture and its name up to the colon.
 function html_from_guide_tile(guide)
 {
     const image = guide.body.match(/^!\[([^\]]*)\]\(([^)]+)\)$/m);
     if (!image) {
         throw new Error(`${guide.file}: no picture for the overview`);
     }
-    const name = guide.title.replace(/:.*$/, '');
-    const imgs = html_from_image_tags(image[1], path.posix.join(`../${guide.dir}`, image[2]));
-    return `<a class="tile" href="#${guide.id}">${imgs}<span class="name">${html_escape(name)}</span></a>\n`;
+    return html_from_tile(guide.id, guide.title.replace(/:.*$/, ''), {alt: image[1], url: path.posix.join(`../${guide.dir}`, image[2])});
+}
+
+// The overview on top of a page: every item on one screen. A few items get
+// a tile each, its picture small, the picture larger on hover; many get a
+// tile for each group, its first pictures as a mosaic, on hover the list
+// of what it holds. A click goes to the item or the group.
+function html_from_tiles(tiles_html, count)
+{
+    return `<div class="tiles${(count <= 8) ? ' few' : ''}">\n${tiles_html.join('')}</div>`;
+}
+
+function html_from_tile(id, name, image)
+{
+    const imgs = html_from_image_tags(image.alt, image.url);
+    return `<a class="tile" href="#${id}">${imgs}<span class="name">${html_escape(name)}</span><template>${imgs}</template></a>\n`;
+}
+
+// items: {code, name, image}, image null for an item with no picture.
+function html_from_group_tile(id, tag, name, noun, items)
+{
+    const pictures = items.filter(v => v.image).slice(0, 4).map(v => html_from_image_tags(v.image.alt, v.image.url));
+    const head = `<p class="peek-head"><b>${tag}</b> ${html_escape(name)} · ${items.length} ${noun}</p>`;
+    const list = items.map(v => `<li>${v.image ? `<span class="thumb">${html_from_image_tags(v.image.alt, v.image.url)}</span>` : '<span class="thumb"></span>'}<span class="code">${v.code}</span><span class="name">${html_escape(v.name)}</span></li>`);
+    return `<a class="tile group-tile" href="#${id}"><span class="mosaic">${pictures.join('')}</span><span class="name">${html_escape(name)}</span><template>${head}<ul class="peek-items${(items.length > 10) ? ' two' : ''}">${list.join('')}</ul></template></a>\n`;
+}
+
+// The first picture of a rule's form, its path from docs/.
+function image_from_rule(rule)
+{
+    const image = rule.form.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+    return image ? {alt: image[1], url: image[2]} : null;
+}
+
+// A rule's name: its bold lead, without the closing full stop.
+function name_from_rule(rule)
+{
+    const lead = rule.text.match(/^\*\*(.+?)\*\*/);
+    const name = (lead ? lead[1] : rule.text).replace(/`/g, '').replace(/\.$/, '');
+    // rules.md writes its text as HTML: the name is escaped again where it is shown
+    return name.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+}
+
+function html_from_index_overview(index)
+{
+    const rules = index.groups.flatMap(v => v.rules);
+    if (rules.length <= 40) {
+        const tiles = rules.filter(image_from_rule).map(v => html_from_tile(v.code, name_from_rule(v), image_from_rule(v)));
+        return html_from_tiles(tiles, tiles.length);
+    }
+    const tiles = index.groups.map(v => html_from_group_tile(v.tag, v.tag, v.name, (v.rules.length === 1) ? 'rule' : 'rules', v.rules.map(vv => ({code: vv.code, name: name_from_rule(vv), image: image_from_rule(vv)}))));
+    return html_from_tiles(tiles, tiles.length);
+}
+
+// A tile for each glossary's own terms and one for each of its groups.
+function html_from_glossaries_overview(glossaries)
+{
+    const tiles = [];
+    for (const glossary of glossaries) {
+        for (const set of [{tag: glossary.tag, name: glossary.name, terms: glossary.terms}, ...glossary.groups]) {
+            if (set.terms.length === 0) {
+                continue;
+            }
+            const items = set.terms.map(function (term, i) {
+                const image = term.images[0] ? {alt: term.images[0].alt, url: path.posix.join('..', path.dirname(glossary.file), term.images[0].url)} : null;
+                return {code: `${set.tag}-${String(i + 1).padStart(2, '0')}`, name: term.name.replace(/[`*]/g, ''), image};
+            });
+            tiles.push(html_from_group_tile(set.tag, set.tag, set.name, (items.length === 1) ? 'term' : 'terms', items));
+        }
+    }
+    return html_from_tiles(tiles, tiles.length);
 }
 
 function html_from_guide_link(guide, index)
