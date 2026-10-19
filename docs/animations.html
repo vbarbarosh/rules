@@ -974,12 +974,15 @@ footer code {
     border-color: var(--accent);
 }
 
+/* A name of two lines at most, cut at the end of the second. */
 .tile > .name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
     font-size: 14px;
     line-height: 1.25;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 :root[data-theme="dark"] .tile .light,
@@ -987,6 +990,71 @@ footer code {
 :root[data-theme="dark"] .peek .light,
 :root:not([data-theme="dark"]) .peek .dark {
     display: none;
+}
+
+/* An item with no picture, or a group with none: its names in the picture's place. */
+.words {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    padding: 6px 8px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.2;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.words span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tile:hover .words,
+.tile:focus-visible .words {
+    border-color: var(--accent);
+}
+
+/* Inside a group: the way back to all groups, the group, its section. */
+.crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 14px;
+    margin: 14px 2px 0;
+    font-size: 16px;
+}
+
+.crumbs-back {
+    padding: 4px 10px;
+    font: inherit;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.crumbs-back:hover {
+    border-color: var(--accent);
+}
+
+.crumbs-here b {
+    margin-right: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--accent);
+}
+
+.crumbs-go {
+    font-size: 15px;
 }
 
 /* What the tile under the pointer holds, beside it; it takes no clicks. */
@@ -1020,6 +1088,13 @@ footer code {
     margin: 0 0 8px;
     font-size: 16px;
     line-height: 1.3;
+}
+
+.peek-note {
+    margin: -4px 0 10px;
+    font-size: 15px;
+    line-height: 1.35;
+    color: var(--ink-2);
 }
 
 .peek-head b {
@@ -1475,22 +1550,22 @@ footer .lead {
 <section class="group overview" id="overview">
 <h2><span class="tag">ALL</span><span class="name">At a glance</span></h2>
 <div class="tiles">
-<a class="tile" href="#ANIM-01"><img class="light" src="../drafts/animations-sections.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"><span class="name">Sections slide the way the list goes</span><template><img class="light" src="../drafts/animations-sections.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"></template></a>
-<a class="tile" href="#ANIM-02"><img class="light" src="../drafts/animations-sections.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"><span class="name">A far jump is one slide</span><template><img class="light" src="../drafts/animations-sections.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"></template></a>
-<a class="tile" href="#ANIM-03"><img class="light" src="../drafts/animations-sections.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"><span class="name">The highlight and the content move together</span><template><img class="light" src="../drafts/animations-sections.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"></template></a>
-<a class="tile" href="#ANIM-04"><img class="light" src="../drafts/animations-rows.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"><span class="name">Depth is left and right</span><template><img class="light" src="../drafts/animations-rows.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"></template></a>
-<a class="tile" href="#ANIM-05"><img class="light" src="../drafts/animations-rows.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"><span class="name">On a row's page, its own section is Back</span><template><img class="light" src="../drafts/animations-rows.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"></template></a>
-<a class="tile" href="#ANIM-06"><img class="light" src="../drafts/animations-list.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"><img class="dark" src="../drafts/animations-list-dark.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"><span class="name">A list shows each change as movement</span><template><img class="light" src="../drafts/animations-list.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"><img class="dark" src="../drafts/animations-list-dark.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"></template></a>
-<a class="tile" href="#ANIM-07"><img class="light" src="../drafts/animations-nothing-jumps.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"><img class="dark" src="../drafts/animations-nothing-jumps-dark.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"><span class="name">A list change never moves the working row</span><template><img class="light" src="../drafts/animations-nothing-jumps.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"><img class="dark" src="../drafts/animations-nothing-jumps-dark.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"></template></a>
-<a class="tile" href="#ANIM-08"><img class="light" src="../drafts/animations-mid-way.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"><img class="dark" src="../drafts/animations-mid-way-dark.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"><span class="name">A click mid-way changes course</span><template><img class="light" src="../drafts/animations-mid-way.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"><img class="dark" src="../drafts/animations-mid-way-dark.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"></template></a>
-<a class="tile" href="#ANIM-09"><img class="light" src="../drafts/animations-expand.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"><span class="name">A header opens its message and folds it back</span><template><img class="light" src="../drafts/animations-expand.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"></template></a>
-<a class="tile" href="#ANIM-10"><img class="light" src="../drafts/animations-expand.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"><span class="name">The parts morph, nothing pops</span><template><img class="light" src="../drafts/animations-expand.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"></template></a>
-<a class="tile" href="#ANIM-11"><img class="light" src="../drafts/animations-expand.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"><span class="name">The header clicked never moves</span><template><img class="light" src="../drafts/animations-expand.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"></template></a>
-<a class="tile" href="#ANIM-12"><img class="light" src="../img/rules/anim_land_exactly.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"><img class="dark" src="../img/rules/anim_land_exactly-dark.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"><span class="name">A moving part lands exactly</span><template><img class="light" src="../img/rules/anim_land_exactly.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"><img class="dark" src="../img/rules/anim_land_exactly-dark.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"></template></a>
-<a class="tile" href="#ANIM-13"><img class="light" src="../img/rules/anim_arrive_whole.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"><img class="dark" src="../img/rules/anim_arrive_whole-dark.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"><span class="name">New things arrive whole</span><template><img class="light" src="../img/rules/anim_arrive_whole.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"><img class="dark" src="../img/rules/anim_arrive_whole-dark.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"></template></a>
-<a class="tile" href="#ANIM-14"><img class="light" src="../img/rules/anim_grow_through_heights.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"><img class="dark" src="../img/rules/anim_grow_through_heights-dark.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"><span class="name">Growing goes through the heights between</span><template><img class="light" src="../img/rules/anim_grow_through_heights.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"><img class="dark" src="../img/rules/anim_grow_through_heights-dark.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"></template></a>
-<a class="tile" href="#ANIM-15"><img class="light" src="../img/rules/anim_highlight_final_colours.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"><img class="dark" src="../img/rules/anim_highlight_final_colours-dark.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"><span class="name">The chosen highlight glides in its final colours</span><template><img class="light" src="../img/rules/anim_highlight_final_colours.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"><img class="dark" src="../img/rules/anim_highlight_final_colours-dark.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"></template></a>
-<a class="tile" href="#ANIM-16"><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"><span class="name">Nothing appears or disappears suddenly</span><template><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"></template></a>
+<a class="tile" href="#ANIM-01"><img class="light" src="../drafts/animations-sections.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="Sections 1 to 2, 2 to 10 and 10 to 9: down the list the page goes up, up the list it goes down" width="760" height="367"><span class="name">Sections slide the way the list goes</span><template><p class="peek-head"><b>ANIM-01</b> Sections slide the way the list goes</p><p class="peek-note">Picking another section in the sidebar slides the content vertically, like switching workspaces.</p></template></a>
+<a class="tile" href="#ANIM-02"><img class="light" src="../drafts/animations-sections.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="From 2 to 10 only the two pages slide; the highlight crosses the items between" width="760" height="367"><span class="name">A far jump is one slide</span><template><p class="peek-head"><b>ANIM-02</b> A far jump is one slide</p><p class="peek-note">From section 2 to 10 the content does not pass through 3 to 9: the two pages slide, and only the highlight crosses the items between them.</p></template></a>
+<a class="tile" href="#ANIM-03"><img class="light" src="../drafts/animations-sections.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"><img class="dark" src="../drafts/animations-sections-dark.gif" alt="The highlight slides from item to item while the pages slide, both ending together" width="760" height="367"><span class="name">The highlight and the content move together</span><template><p class="peek-head"><b>ANIM-03</b> The highlight and the content move together</p><p class="peek-note">The selection in the sidebar slides from the old item to the new one at the same time as the content, with the same duration and easing.</p></template></a>
+<a class="tile" href="#ANIM-04"><img class="light" src="../drafts/animations-rows.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="A row opens from the right and Back returns from the left; a section picked from a row's page slides vertically" width="760" height="367"><span class="name">Depth is left and right</span><template><p class="peek-head"><b>ANIM-04</b> Depth is left and right</p><p class="peek-note">Opening a row moves the list out to the left as its page comes in from the right; Back does the reverse.</p></template></a>
+<a class="tile" href="#ANIM-05"><img class="light" src="../drafts/animations-rows.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"><img class="dark" src="../drafts/animations-rows-dark.gif" alt="On a Calendar row's page, clicking Calendar in the sidebar slides back to the Calendar list" width="760" height="367"><span class="name">On a row's page, its own section is Back</span><template><p class="peek-head"><b>ANIM-05</b> On a row's page, its own section is Back</p><p class="peek-note">Clicking the section the open row belongs to steps back out to its list, the way Back does.</p></template></a>
+<a class="tile" href="#ANIM-06"><img class="light" src="../drafts/animations-list.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"><img class="dark" src="../drafts/animations-list-dark.gif" alt="Rows added at the start and in the middle open a gap, a removed row's gap closes, a moved row travels over the others" width="760" height="407"><span class="name">A list shows each change as movement</span><template><p class="peek-head"><b>ANIM-06</b> A list shows each change as movement</p><p class="peek-note">An added row opens a gap and fades into it; a removed row fades out and the gap closes; a moved row travels to its new place while the others make room.</p></template></a>
+<a class="tile" href="#ANIM-07"><img class="light" src="../drafts/animations-nothing-jumps.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"><img class="dark" src="../drafts/animations-nothing-jumps-dark.gif" alt="Rows come in above and the selected row stays on the dashed line; with the rule off it drops below" width="760" height="407"><span class="name">A list change never moves the working row</span><template><p class="peek-head"><b>ANIM-07</b> A list change never moves the working row</p><p class="peek-note">Rows added or removed above the selected row leave it where it is on the screen, from the first frame to the last.</p></template></a>
+<a class="tile" href="#ANIM-08"><img class="light" src="../drafts/animations-mid-way.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"><img class="dark" src="../drafts/animations-mid-way-dark.gif" alt="A slide reversed half way, Back pressed half way into a row, a section picked half way into another" width="760" height="367"><span class="name">A click mid-way changes course</span><template><p class="peek-head"><b>ANIM-08</b> A click mid-way changes course</p><p class="peek-note">A click during an animation neither waits for it nor jumps back: everything moves on from where it stands on the screen at that moment.</p></template></a>
+<a class="tile" href="#ANIM-09"><img class="light" src="../drafts/animations-expand.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="Three cards: a folded header opens its message and folds it back, the messages below slide" width="760" height="375"><span class="name">A header opens its message and folds it back</span><template><p class="peek-head"><b>ANIM-09</b> A header opens its message and folds it back</p><p class="peek-note">Clicking a folded one-line header opens the message in full; clicking the open header folds it back to its line.</p></template></a>
+<a class="tile" href="#ANIM-10"><img class="light" src="../drafts/animations-expand.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="A voice message: its three status lines join into the one line, the pill narrows, the time moves; slowly at 2 s" width="760" height="375"><span class="name">The parts morph, nothing pops</span><template><p class="peek-head"><b>ANIM-10</b> The parts morph, nothing pops</p><p class="peek-note">The parts the two layouts share morph into their places in the other one.</p></template></a>
+<a class="tile" href="#ANIM-11"><img class="light" src="../drafts/animations-expand.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"><img class="dark" src="../drafts/animations-expand-dark.gif" alt="The clicked header stays on the dashed line while its message morphs open and folded" width="760" height="375"><span class="name">The header clicked never moves</span><template><p class="peek-head"><b>ANIM-11</b> The header clicked never moves</p><p class="peek-note">It stands still from the first frame to the last, opening or folding, mid-way too; only what is below it moves (UIM-01).</p></template></a>
+<a class="tile" href="#ANIM-12"><img class="light" src="../img/rules/anim_land_exactly.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"><img class="dark" src="../img/rules/anim_land_exactly-dark.svg" alt="Left, a time box lands and then corrects itself; right, it is measured where it will be and lands exactly" width="720" height="300"><span class="name">A moving part lands exactly</span><template><p class="peek-head"><b>ANIM-12</b> A moving part lands exactly</p><p class="peek-note">Each part is measured where it will be, laid out unseen first, so its last frame is the still state to the pixel: no hop at the end.</p></template></a>
+<a class="tile" href="#ANIM-13"><img class="light" src="../img/rules/anim_arrive_whole.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"><img class="dark" src="../img/rules/anim_arrive_whole-dark.svg" alt="Left, a new message jumps in and its Answered tag fills in after; right, it arrives with the tag at its final height" width="720" height="300"><span class="name">New things arrive whole</span><template><p class="peek-head"><b>ANIM-13</b> New things arrive whole</p><p class="peek-note">A new row or message arrives in its first frame as it will stay, with every tag and badge on it and at its final height.</p></template></a>
+<a class="tile" href="#ANIM-14"><img class="light" src="../img/rules/anim_grow_through_heights.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"><img class="dark" src="../img/rules/anim_grow_through_heights-dark.svg" alt="Left, a Sending section is whole for a frame, then grows; right, it grows through every height" width="720" height="300"><span class="name">Growing goes through the heights between</span><template><p class="peek-head"><b>ANIM-14</b> Growing goes through the heights between</p><p class="peek-note">A section that opens grows from closed to full through every height between, its content clipped inside, never shown whole for a frame first.</p></template></a>
+<a class="tile" href="#ANIM-15"><img class="light" src="../img/rules/anim_highlight_final_colours.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"><img class="dark" src="../img/rules/anim_highlight_final_colours-dark.svg" alt="Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way" width="720" height="300"><span class="name">The chosen highlight glides in its final colours</span><template><p class="peek-head"><b>ANIM-15</b> The chosen highlight glides in its final colours</p><p class="peek-note">The selection highlight moves from item to item in the colours it ends in, from the first frame to the last.</p></template></a>
+<a class="tile" href="#ANIM-16"><img class="light" src="../img/rules/anim_appear_smoothly.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"><img class="dark" src="../img/rules/anim_appear_smoothly-dark.svg" alt="Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out" width="720" height="300"><span class="name">Nothing appears or disappears suddenly</span><template><p class="peek-head"><b>ANIM-16</b> Nothing appears or disappears suddenly</p><p class="peek-note">No element appears or disappears suddenly; every element appears and disappears smoothly.</p></template></a>
 </div>
 </section>
 <section class="group" id="ANIM">
@@ -1673,6 +1748,7 @@ function main()
     document.addEventListener('click', click_pictures);
     document.addEventListener('click', click_figure);
     peek_watch();
+    group_open_watch();
     theme_dock_watch();
 
     if (RENAMED[location.hash.slice(1)]) {
@@ -1880,6 +1956,66 @@ function scroll_window()
 }
 
 // The current group is the last one whose heading has reached the sticky bars.
+// A click on a group's tile opens the group in its place: a tile for each
+// of its items; All groups, or Escape, goes back.
+function group_open_watch()
+{
+    if (!overview_el || !overview_el.querySelector('.crumbs')) {
+        return;
+    }
+    const crumbs_el = overview_el.querySelector('.crumbs');
+    const groups_el = overview_el.querySelector('.tiles:not([id])');
+    let open_tile = null;
+    overview_el.addEventListener('click', click_overview);
+    document.addEventListener('keydown', keydown_overview);
+
+    function click_overview(event) {
+        if (event.target.closest('.crumbs-back')) {
+            group_close();
+            return;
+        }
+        const tile = event.target.closest('.tile[data-open]');
+        if (!tile || event.ctrlKey || event.metaKey || event.shiftKey || (event.button !== 0)) {
+            return;
+        }
+        event.preventDefault();
+        group_open(tile, event.detail === 0);
+    }
+
+    function keydown_overview(event) {
+        if ((event.key === 'Escape') && open_tile && (document.activeElement !== q_el)) {
+            group_close();
+        }
+    }
+
+    function group_open(tile, keyboard) {
+        const items_el = document.getElementById(tile.dataset.open);
+        const here = document.createElement('span');
+        const tag = document.createElement('b');
+        tag.textContent = items_el.dataset.tag;
+        here.append(tag, items_el.dataset.title);
+        crumbs_el.querySelector('.crumbs-here').replaceChildren(...here.childNodes);
+        crumbs_el.querySelector('.crumbs-go').href = tile.getAttribute('href');
+        groups_el.hidden = true;
+        items_el.hidden = false;
+        crumbs_el.hidden = false;
+        open_tile = tile;
+        if (keyboard) {
+            items_el.querySelector('.tile').focus();
+        }
+    }
+
+    function group_close() {
+        for (const items_el of overview_el.querySelectorAll('.tiles[id]')) {
+            items_el.hidden = true;
+        }
+        crumbs_el.hidden = true;
+        groups_el.hidden = false;
+        open_tile?.focus({preventScroll: true});
+        open_tile = null;
+    }
+}
+
 // A tile of the overview, pointed at or reached with Tab, shows what it
 // holds larger beside it: its picture, or its group's list; that goes when
 // the pointer leaves, the page scrolls or the tile is clicked.
@@ -1923,6 +2059,9 @@ function peek_watch()
     // the sticky bar and the bottom of the window.
     function peek_show(tile) {
         peek_el.replaceChildren(tile.querySelector('template').content.cloneNode(true));
+        if (!peek_el.querySelector('.peek-items')) {
+            peek_el.append(...Array.from(tile.querySelectorAll(':scope > img'), v => v.cloneNode()));
+        }
         peek_el.classList.toggle('list', peek_el.querySelector('.peek-items') !== null);
         peek_el.classList.toggle('two', peek_el.querySelector('.peek-items.two') !== null);
         peek_el.style.maxWidth = '';

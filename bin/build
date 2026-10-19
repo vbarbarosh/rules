@@ -672,38 +672,86 @@ function html_from_guides(template, set, handover)
     return template_fill(template, values);
 }
 
-// A guide in the overview: its first picture and its name up to the colon.
-function html_from_guide_tile(guide)
+// A guide in the overview: its first picture and its name up to the colon;
+// on hover its full title and the first sentence of its first paragraph.
+function html_from_guide_tile(guide, index)
 {
     const image = guide.body.match(/^!\[([^\]]*)\]\(([^)]+)\)$/m);
     if (!image) {
         throw new Error(`${guide.file}: no picture for the overview`);
     }
-    return html_from_tile(guide.id, guide.title.replace(/:.*$/, ''), {alt: image[1], url: path.posix.join(`../${guide.dir}`, image[2])});
+    const paragraph = guide.body.split(/\n{2,}/).find(v => !/^(!\[|## |- |\d+\. )/.test(v));
+    const caption = {code: String(index + 1).padStart(2, '0'), title: guide.title, note: note_from_text(paragraph ?? '')};
+    return html_from_tile(guide.id, guide.title.replace(/:.*$/, ''), {alt: image[1], url: path.posix.join(`../${guide.dir}`, image[2])}, caption);
+}
+
+// One plain line of what an item is: the first sentence of its text, the
+// second too when the first says little; one that runs long is shortened at
+// its colon or semicolon, or at its last comma when that leaves too little.
+function note_from_text(text)
+{
+    const plain = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\*\*|`/g, '').replace(/\s+/g, ' ').trim();
+    const sentences = plain.match(/.+?[.!?](?=\s|$)/g) ?? [plain];
+    let sentence = sentences[0].trim();
+    if ((sentence.length < 60) && sentences[1] && (sentence.length + sentences[1].length <= 160)) {
+        sentence = `${sentence}${sentences[1]}`;
+    }
+    if (sentence.length > 140) {
+        const cut = sentence.search(/[:;] /);
+        const comma = sentence.slice(0, 140).lastIndexOf(', ');
+        sentence = (cut >= 60) ? `${sentence.slice(0, cut)}.` : (comma > 0) ? `${sentence.slice(0, comma)}.` : sentence;
+    }
+    return sentence;
 }
 
 // The overview on top of a page: every item on one screen. A few items get
 // a tile each, its picture small, the picture larger on hover; many get a
 // tile for each group, its first pictures as a mosaic, on hover the list
 // of what it holds. A click goes to the item or the group.
-function html_from_tiles(tiles_html, count)
+// groups_html: a hidden grid of each group's items, opened in place of the
+// groups by a click on the group, the way back above it.
+function html_from_tiles(tiles_html, count, groups_html = [])
 {
-    return `<div class="tiles${(count <= 8) ? ' few' : ''}">\n${tiles_html.join('')}</div>`;
+    const crumbs = groups_html.length ? '<p class="crumbs" hidden><button class="crumbs-back" type="button">‹ All groups</button><span class="crumbs-here"></span><a class="crumbs-go" href="#">its section</a></p>\n' : '';
+    return `${crumbs}<div class="tiles${(count <= 8) ? ' few' : ''}">\n${tiles_html.join('')}</div>${groups_html.join('')}`;
 }
 
-function html_from_tile(id, name, image)
+// caption: {code, title, note}, shown above the picture on hover; the page
+// takes the picture from the tile. A tile inside a group, hidden until the
+// group opens, loads its picture only then.
+function html_from_tile(id, name, image, caption, lazy = false)
 {
-    const imgs = html_from_image_tags(image.alt, image.url);
-    return `<a class="tile" href="#${id}">${imgs}<span class="name">${html_escape(name)}</span><template>${imgs}</template></a>\n`;
+    const imgs = html_from_image_tags(image.alt, image.url, lazy ? ' loading="lazy"' : '');
+    return `<a class="tile" href="#${id}">${imgs}<span class="name">${html_escape(name)}</span><template>${html_from_caption(caption)}</template></a>\n`;
 }
 
-// items: {code, name, image}, image null for an item with no picture.
+// An item with no picture: its name in the picture's place.
+function html_from_word_tile(id, name, caption)
+{
+    return `<a class="tile" href="#${id}"><span class="words"><span>${html_escape(name)}</span></span><span class="name">${html_escape(name)}</span><template>${html_from_caption(caption)}</template></a>\n`;
+}
+
+function html_from_caption(caption)
+{
+    return `<p class="peek-head"><b>${caption.code}</b> ${html_escape(caption.title)}</p><p class="peek-note">${html_escape(caption.note)}</p>`;
+}
+
+// items: {code, name, note, image}, image null for an item with no
+// picture. A group with no picture shows the names of its first items.
 function html_from_group_tile(id, tag, name, noun, items)
 {
     const pictures = items.filter(v => v.image).slice(0, 4).map(v => html_from_image_tags(v.image.alt, v.image.url));
+    const mosaic = pictures.length ? `<span class="mosaic">${pictures.join('')}</span>` : `<span class="words">${items.slice(0, 4).map(v => `<span>${html_escape(v.name)}</span>`).join('')}</span>`;
     const head = `<p class="peek-head"><b>${tag}</b> ${html_escape(name)} · ${items.length} ${noun}</p>`;
     const list = items.map(v => `<li>${v.image ? `<span class="thumb">${html_from_image_tags(v.image.alt, v.image.url)}</span>` : '<span class="thumb"></span>'}<span class="code">${v.code}</span><span class="name">${html_escape(v.name)}</span></li>`);
-    return `<a class="tile group-tile" href="#${id}"><span class="mosaic">${pictures.join('')}</span><span class="name">${html_escape(name)}</span><template>${head}<ul class="peek-items${(items.length > 10) ? ' two' : ''}">${list.join('')}</ul></template></a>\n`;
+    return `<a class="tile group-tile" href="#${id}" data-open="overview-${id}">${mosaic}<span class="name">${html_escape(name)}</span><template>${head}<ul class="peek-items${(items.length > 10) ? ' two' : ''}">${list.join('')}</ul></template></a>\n`;
+}
+
+// The grid a group's tile opens: a tile for each of its items.
+function html_from_group_items(id, tag, name, noun, items)
+{
+    const tiles = items.map(v => v.image ? html_from_tile(v.code, v.name, v.image, v, true) : html_from_word_tile(v.code, v.name, v));
+    return `<div class="tiles" id="overview-${id}" data-title="${html_escape(`${name} · ${items.length} ${noun}`)}" data-tag="${tag}" hidden>\n${tiles.join('')}</div>\n`;
 }
 
 // The first picture of a rule's form, its path from docs/.
@@ -717,26 +765,38 @@ function image_from_rule(rule)
 function name_from_rule(rule)
 {
     const lead = rule.text.match(/^\*\*(.+?)\*\*/);
-    const name = (lead ? lead[1] : rule.text).replace(/`/g, '').replace(/\.$/, '');
-    // rules.md writes its text as HTML: the name is escaped again where it is shown
-    return name.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+    return text_from_html((lead ? lead[1] : rule.text).replace(/`/g, '').replace(/\.$/, ''));
+}
+
+// What a rule says after its bold lead, as one plain line; a rule that is
+// its lead alone is told by its picture's description.
+function note_from_rule(rule)
+{
+    const note = note_from_text(text_from_html(rule.text.replace(/^\*\*.+?\*\*\s*/, '')));
+    return note || note_from_text(text_from_html(image_from_rule(rule)?.alt ?? ''));
+}
+
+// rules.md writes its text as HTML: a name taken from it is escaped again where it is shown.
+function text_from_html(text)
+{
+    return text.replace(/<[^>]+>/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
 }
 
 function html_from_index_overview(index)
 {
     const rules = index.groups.flatMap(v => v.rules);
     if (rules.length <= 40) {
-        const tiles = rules.filter(image_from_rule).map(v => html_from_tile(v.code, name_from_rule(v), image_from_rule(v)));
+        const tiles = rules.filter(image_from_rule).map(v => html_from_tile(v.code, name_from_rule(v), image_from_rule(v), {code: v.code, title: name_from_rule(v), note: note_from_rule(v)}));
         return html_from_tiles(tiles, tiles.length);
     }
-    const tiles = index.groups.map(v => html_from_group_tile(v.tag, v.tag, v.name, (v.rules.length === 1) ? 'rule' : 'rules', v.rules.map(vv => ({code: vv.code, name: name_from_rule(vv), image: image_from_rule(vv)}))));
-    return html_from_tiles(tiles, tiles.length);
+    const sets = index.groups.map(v => [v.tag, v.tag, v.name, (v.rules.length === 1) ? 'rule' : 'rules', v.rules.map(vv => ({code: vv.code, name: name_from_rule(vv), title: name_from_rule(vv), note: note_from_rule(vv), image: image_from_rule(vv)}))]);
+    return html_from_tiles(sets.map(v => html_from_group_tile(...v)), sets.length, sets.map(v => html_from_group_items(...v)));
 }
 
 // A tile for each glossary's own terms and one for each of its groups.
 function html_from_glossaries_overview(glossaries)
 {
-    const tiles = [];
+    const sets = [];
     for (const glossary of glossaries) {
         for (const set of [{tag: glossary.tag, name: glossary.name, terms: glossary.terms}, ...glossary.groups]) {
             if (set.terms.length === 0) {
@@ -744,12 +804,14 @@ function html_from_glossaries_overview(glossaries)
             }
             const items = set.terms.map(function (term, i) {
                 const image = term.images[0] ? {alt: term.images[0].alt, url: path.posix.join('..', path.dirname(glossary.file), term.images[0].url)} : null;
-                return {code: `${set.tag}-${String(i + 1).padStart(2, '0')}`, name: term.name.replace(/[`*]/g, ''), image};
+                const name = term.name.replace(/[`*]/g, '');
+                const note = note_from_text(term.paragraphs.length ? term.paragraphs[0].join(' ') : (format_term_definition(term) ?? ''));
+                return {code: `${set.tag}-${String(i + 1).padStart(2, '0')}`, name, title: name, note, image};
             });
-            tiles.push(html_from_group_tile(set.tag, set.tag, set.name, (items.length === 1) ? 'term' : 'terms', items));
+            sets.push([set.tag, set.tag, set.name, (items.length === 1) ? 'term' : 'terms', items]);
         }
     }
-    return html_from_tiles(tiles, tiles.length);
+    return html_from_tiles(sets.map(v => html_from_group_tile(...v)), sets.length, sets.map(v => html_from_group_items(...v)));
 }
 
 function html_from_guide_link(guide, index)

@@ -843,12 +843,15 @@ footer code {
     border-color: var(--accent);
 }
 
+/* A name of two lines at most, cut at the end of the second. */
 .tile > .name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
     font-size: 14px;
     line-height: 1.25;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 :root[data-theme="dark"] .tile .light,
@@ -856,6 +859,71 @@ footer code {
 :root[data-theme="dark"] .peek .light,
 :root:not([data-theme="dark"]) .peek .dark {
     display: none;
+}
+
+/* An item with no picture, or a group with none: its names in the picture's place. */
+.words {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    padding: 6px 8px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.2;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.words span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tile:hover .words,
+.tile:focus-visible .words {
+    border-color: var(--accent);
+}
+
+/* Inside a group: the way back to all groups, the group, its section. */
+.crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 14px;
+    margin: 14px 2px 0;
+    font-size: 16px;
+}
+
+.crumbs-back {
+    padding: 4px 10px;
+    font: inherit;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.crumbs-back:hover {
+    border-color: var(--accent);
+}
+
+.crumbs-here b {
+    margin-right: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--accent);
+}
+
+.crumbs-go {
+    font-size: 15px;
 }
 
 /* What the tile under the pointer holds, beside it; it takes no clicks. */
@@ -889,6 +957,13 @@ footer code {
     margin: 0 0 8px;
     font-size: 16px;
     line-height: 1.3;
+}
+
+.peek-note {
+    margin: -4px 0 10px;
+    font-size: 15px;
+    line-height: 1.35;
+    color: var(--ink-2);
 }
 
 .peek-head b {
@@ -1303,8 +1378,8 @@ main[data-page="apis"] .prose > h3 {
 <section class="group overview" id="overview">
 <h2><span class="tag">ALL</span><span class="name">At a glance</span></h2>
 <div class="tiles few">
-<a class="tile" href="#compact"><img class="light" src="../img/apis/compact_articles.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"><img class="dark" src="../img/apis/compact_articles-dark.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"><span class="name">Compact</span><template><img class="light" src="../img/apis/compact_articles.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"><img class="dark" src="../img/apis/compact_articles-dark.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"></template></a>
-<a class="tile" href="#expanded"><img class="light" src="../img/apis/expanded_patch.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"><img class="dark" src="../img/apis/expanded_patch-dark.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"><span class="name">Expanded</span><template><img class="light" src="../img/apis/expanded_patch.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"><img class="dark" src="../img/apis/expanded_patch-dark.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"></template></a>
+<a class="tile" href="#compact"><img class="light" src="../img/apis/compact_articles.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"><img class="dark" src="../img/apis/compact_articles-dark.svg" alt="The articles API: GET the list, GET one, POST, PUT, PATCH and DELETE, each a row with what it sends, its answer, the articles stored after it and what sending it twice does; a red line for an article that is not there" width="1200" height="820"><span class="name">Compact</span><template><p class="peek-head"><b>01</b> Compact: one resource, every request a row</p><p class="peek-note">A whole resource on one picture: each request a row, in the order they are sent, with what it sends.</p></template></a>
+<a class="tile" href="#expanded"><img class="light" src="../img/apis/expanded_patch.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"><img class="dark" src="../img/apis/expanded_patch-dark.svg" alt="A PATCH to article 3 and its 200 answer: method and address, headers, a body with only the title, then the status, headers and the whole article as it is now, each part named on the side" width="1000" height="724"><span class="name">Expanded</span><template><p class="peek-head"><b>02</b> Expanded: one request taken apart</p><p class="peek-note">One request and its answer, every part named: the method and address, the headers, the body, the status.</p></template></a>
 </div>
 </section>
 <section class="group use" id="use">
@@ -1501,6 +1576,7 @@ function main()
     document.addEventListener('click', click_pictures);
     document.addEventListener('click', click_figure);
     peek_watch();
+    group_open_watch();
     theme_dock_watch();
 
     q_el.value = new URLSearchParams(location.search).get('q') || '';
@@ -1844,6 +1920,66 @@ async function click_figure(event)
     }
 }
 
+// A click on a group's tile opens the group in its place: a tile for each
+// of its items; All groups, or Escape, goes back.
+function group_open_watch()
+{
+    if (!overview_el || !overview_el.querySelector('.crumbs')) {
+        return;
+    }
+    const crumbs_el = overview_el.querySelector('.crumbs');
+    const groups_el = overview_el.querySelector('.tiles:not([id])');
+    let open_tile = null;
+    overview_el.addEventListener('click', click_overview);
+    document.addEventListener('keydown', keydown_overview);
+
+    function click_overview(event) {
+        if (event.target.closest('.crumbs-back')) {
+            group_close();
+            return;
+        }
+        const tile = event.target.closest('.tile[data-open]');
+        if (!tile || event.ctrlKey || event.metaKey || event.shiftKey || (event.button !== 0)) {
+            return;
+        }
+        event.preventDefault();
+        group_open(tile, event.detail === 0);
+    }
+
+    function keydown_overview(event) {
+        if ((event.key === 'Escape') && open_tile && (document.activeElement !== q_el)) {
+            group_close();
+        }
+    }
+
+    function group_open(tile, keyboard) {
+        const items_el = document.getElementById(tile.dataset.open);
+        const here = document.createElement('span');
+        const tag = document.createElement('b');
+        tag.textContent = items_el.dataset.tag;
+        here.append(tag, items_el.dataset.title);
+        crumbs_el.querySelector('.crumbs-here').replaceChildren(...here.childNodes);
+        crumbs_el.querySelector('.crumbs-go').href = tile.getAttribute('href');
+        groups_el.hidden = true;
+        items_el.hidden = false;
+        crumbs_el.hidden = false;
+        open_tile = tile;
+        if (keyboard) {
+            items_el.querySelector('.tile').focus();
+        }
+    }
+
+    function group_close() {
+        for (const items_el of overview_el.querySelectorAll('.tiles[id]')) {
+            items_el.hidden = true;
+        }
+        crumbs_el.hidden = true;
+        groups_el.hidden = false;
+        open_tile?.focus({preventScroll: true});
+        open_tile = null;
+    }
+}
+
 // A tile of the overview, pointed at or reached with Tab, shows what it
 // holds larger beside it: its picture, or its group's list; that goes when
 // the pointer leaves, the page scrolls or the tile is clicked.
@@ -1887,6 +2023,9 @@ function peek_watch()
     // the sticky bar and the bottom of the window.
     function peek_show(tile) {
         peek_el.replaceChildren(tile.querySelector('template').content.cloneNode(true));
+        if (!peek_el.querySelector('.peek-items')) {
+            peek_el.append(...Array.from(tile.querySelectorAll(':scope > img'), v => v.cloneNode()));
+        }
         peek_el.classList.toggle('list', peek_el.querySelector('.peek-items') !== null);
         peek_el.classList.toggle('two', peek_el.querySelector('.peek-items.two') !== null);
         peek_el.style.maxWidth = '';
