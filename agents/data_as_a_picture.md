@@ -106,6 +106,8 @@ itself. Text that holds data is the author's work left undone.
   (over time),
   [heatmap](https://vbarbarosh.github.io/rules/docs/diagrams.html#heatmap)
   (which days and hours),
+  [event plot](https://vbarbarosh.github.io/rules/docs/diagrams.html#eventplot)
+  (every event of many actors, at its time),
   [sankey](https://vbarbarosh.github.io/rules/docs/diagrams.html#sankey)
   (where it goes, how much),
   [service map](https://vbarbarosh.github.io/rules/docs/diagrams.html#servicemap)
