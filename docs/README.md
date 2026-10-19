@@ -119,6 +119,7 @@ a live demo, on a page of its own: [animations.html](animations.html).
 - create/destroy
 - open/close
 - begin/end
+- since/until — begin/end said of time: the bounds of a span, a query, a filter
 - start/finish
 - first/last
 - next/previous

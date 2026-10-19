@@ -1017,3 +1017,13 @@ and goes smoothly; none is whole on one frame and gone on the next. Where it
 comes from something on the screen or goes into it, it morphs, its shape,
 size and place changing through every frame between; only what has nothing
 to come from or go into fades, at the shared speed.
+
+## MP-82 — since/until is an established pair
+
+**Scope:** CORE-04, natural pairs.
+**Approved:** 2026-10-19, author messages `20261019_221638-me` ("since/until:
+another nice pair, add it to the pairs") and `20261019_221655-me` ("since/until
+is the same as begin/end, only in other words").
+
+`since/until` joins the established pairs. It is `begin/end` said of time:
+the bounds of a span, a query or a filter.
