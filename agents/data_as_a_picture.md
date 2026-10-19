@@ -91,6 +91,8 @@ itself. Text that holds data is the author's work left undone.
 - **What went wrong, and why?** A failure, a log:
   [timeline](https://vbarbarosh.github.io/rules/docs/diagrams.html#timeline)
   (what happened when),
+  [chronology](https://vbarbarosh.github.io/rules/docs/diagrams.html#chronology)
+  (what one user did, in order),
   [cause tree](https://vbarbarosh.github.io/rules/docs/diagrams.html#causetree)
   (why),
   [one case](https://vbarbarosh.github.io/rules/docs/diagrams.html#case)

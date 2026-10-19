@@ -15,6 +15,7 @@ Which kind for which data: the chooser in the guide
 - [questions.md](questions.md) — what is known and what is not: how a thing works stage by stage, the facts in green, the open questions in amber where they arise
 - [causetree.md](causetree.md) — why it happened: the failure in red on top, each row down its "because", ruled-out causes in grey with the reason, the root cause amber, the fix green beside it
 - [timeline.md](timeline.md) — what happened when, from a log: one line of time, each event at its moment
+- [chronology.md](chronology.md) — what one user did, in order: steps at even distances, each with its time, a long gap cut short; a strip, or a list down a line for many
 - [milestone.md](milestone.md) — where a goal stands: its steps as dots on one line, done green, now blue, ahead grey, and who each waits on
 - [plangraph.md](plangraph.md) — what waits on what: a box per part of a plan, arrows to the parts that wait on it, side-by-side parts in one column, the longest chain bold blue; done green, under way blue, not started grey, waits on you amber
 - [roadmap.md](roadmap.md) — what is planned when: the months on one line, a lane per area of work, a bar per piece, a red line for today; done green, under way blue, at risk amber, planned grey
