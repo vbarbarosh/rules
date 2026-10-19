@@ -64,6 +64,7 @@ test('diagrams/ builds its own page from the agents template, and the agents han
         assert.match(diagrams, new RegExp(`<section class="group guide" id="${id}">`));
     }
     assert.match(diagrams, /<img class="dark" src="..\/img\/diagrams\/sequence_parts-dark.svg"/);
+    assert.equal(diagrams.match(/<a class="tile" href="#\w+">/g).length, 36, 'a tile for each diagram in the overview');
     assert.match(diagrams, /tree\/main\/diagrams">diagrams\/<\/a>/);
     assert.ok(!diagrams.includes('{{'), 'no placeholder left');
     const agents = fs.readFileSync(path.join(fixture_dir, 'docs/agents.html'), 'utf8');

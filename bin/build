@@ -528,14 +528,20 @@ function html_from_form(form)
 // A picture, with its -dark twin when there is one; the page's theme picks which shows.
 function html_from_image(alt, url, classes = 'form figure')
 {
+    return `<a class="${classes}" href="${url}">${html_from_image_tags(alt, url, ' loading="lazy"')}</a>`;
+}
+
+// The <img> of a picture, or its light and dark pair.
+function html_from_image_tags(alt, url, extra = '')
+{
     const url_dark = url.replace(/(\.\w+)$/, '-dark$1');
     if (!fs.existsSync(path.join(docs_dir, url))) {
         throw new Error(`rules.md: no picture at ${url}`);
     }
     if (!fs.existsSync(path.join(docs_dir, url_dark))) {
-        return `<a class="${classes}" href="${url}"><img src="${url}" alt="${html_escape(alt)}" ${size_attributes_from_image(url)} loading="lazy"></a>`;
+        return `<img src="${url}" alt="${html_escape(alt)}" ${size_attributes_from_image(url)}${extra}>`;
     }
-    return `<a class="${classes}" href="${url}"><img class="light" src="${url}" alt="${html_escape(alt)}" ${size_attributes_from_image(url)} loading="lazy"><img class="dark" src="${url_dark}" alt="${html_escape(alt)}" ${size_attributes_from_image(url_dark)} loading="lazy"></a>`;
+    return `<img class="light" src="${url}" alt="${html_escape(alt)}" ${size_attributes_from_image(url)}${extra}><img class="dark" src="${url_dark}" alt="${html_escape(alt)}" ${size_attributes_from_image(url_dark)}${extra}>`;
 }
 
 // Reserve space before a local PNG, GIF or SVG loads, using its own intrinsic
@@ -658,9 +664,23 @@ function html_from_guides(template, set, handover)
         guides_noun: (guides.length === 1) ? words.noun_one : words.noun_many,
         guides_nav: guides.map(html_from_guide_link).join(''),
         guides_main: guides.map(html_from_guide).join(''),
+        guides_overview: guides.map(html_from_guide_tile).join(''),
         handover: html_escape(handover),
     };
     return template_fill(template, values);
+}
+
+// A guide in the overview: its first picture, small, and its name up to
+// the colon; the page shows the picture larger on hover, a click goes to it.
+function html_from_guide_tile(guide)
+{
+    const image = guide.body.match(/^!\[([^\]]*)\]\(([^)]+)\)$/m);
+    if (!image) {
+        throw new Error(`${guide.file}: no picture for the overview`);
+    }
+    const name = guide.title.replace(/:.*$/, '');
+    const imgs = html_from_image_tags(image[1], path.posix.join(`../${guide.dir}`, image[2]));
+    return `<a class="tile" href="#${guide.id}">${imgs}<span class="name">${html_escape(name)}</span></a>\n`;
 }
 
 function html_from_guide_link(guide, index)

@@ -39,14 +39,14 @@ test('diagrams: the guide named by the query comes first, in the page and the si
     const page = await open_page('diagrams', 'kanban');
     try {
         assert.deepEqual(await shown_guides(page), ['kanban', 'swimlanes', 'plangraph', 'roadmap', 'quadrant']);
-        const nav_shown = await page.evaluate(() => Array.from(document.querySelectorAll('nav.groups a')).map(v => v.dataset.group).slice(1, 6));
+        const nav_shown = await page.evaluate(() => Array.from(document.querySelectorAll('nav.groups a')).map(v => v.dataset.group).slice(2, 7));
         assert.deepEqual(nav_shown, ['kanban', 'swimlanes', 'plangraph', 'roadmap', 'quadrant']);
         await page.fill('#q', '');
         const ids = await page.evaluate(() => Array.from(document.querySelectorAll('section.guide')).map(v => v.id));
         const nav = await page.evaluate(() => Array.from(document.querySelectorAll('nav.groups a')).map(v => v.dataset.group));
         assert.equal(ids[0], 'sequence');
         assert.equal(ids[ids.indexOf('kanban') - 1], 'roadmap');
-        assert.deepEqual(nav, ['use', ...ids]);
+        assert.deepEqual(nav, ['overview', 'use', ...ids]);
     }
     finally {
         await page.close();

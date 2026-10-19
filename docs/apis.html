@@ -777,6 +777,81 @@ footer code {
     color: var(--no);
 }
 
+/* ---------- overview ---------- */
+
+/* Every diagram on one screen: a small picture each, larger on hover. */
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+    gap: 10px;
+    padding: 16px 2px 4px;
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: color var(--fast);
+}
+
+.tile img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 3;
+    object-fit: contain;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    transition: border-color var(--fast), background-color var(--fast);
+}
+
+.tile:hover,
+.tile:focus-visible {
+    color: var(--accent);
+}
+
+.tile:hover img,
+.tile:focus-visible img {
+    border-color: var(--accent);
+}
+
+.tile .name {
+    font-size: 14px;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+:root[data-theme="dark"] .tile .light,
+:root:not([data-theme="dark"]) .tile .dark,
+:root[data-theme="dark"] .peek .light,
+:root:not([data-theme="dark"]) .peek .dark {
+    display: none;
+}
+
+/* The picture of the tile under the pointer, beside it; it takes no clicks. */
+.peek {
+    position: fixed;
+    z-index: 10;
+    width: min(560px, 100vw - 32px);
+    margin: 0;
+    padding: 10px;
+    pointer-events: none;
+    background: var(--surface);
+    border: 1px solid var(--line-heavy);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+.peek img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 /* ---------- handing over ---------- */
 
 .use .prose {
@@ -1011,6 +1086,8 @@ footer {
 
     .bar,
     .groups,
+    .overview,
+    .peek,
     .pages,
     .theme,
     .copy,
@@ -1292,6 +1369,7 @@ const nothing_el = document.getElementById('nothing');
 const theme_el = document.getElementById('theme');
 const bar_el = document.querySelector('.bar');
 const use_el = document.getElementById('use');
+const overview_el = document.getElementById('overview');
 const copy_shown_el = document.getElementById('copy_shown');
 const guide_els = Array.from(document.querySelectorAll('section.guide'));
 const section_els = Array.from(document.querySelectorAll('section.group'));
@@ -1325,6 +1403,7 @@ function main()
     document.addEventListener('click', click_theme);
     document.addEventListener('click', click_pictures);
     document.addEventListener('click', click_figure);
+    peek_watch();
     theme_dock_watch();
 
     q_el.value = new URLSearchParams(location.search).get('q') || '';
@@ -1440,6 +1519,10 @@ function filter_apply()
     highlight_apply(query.words);
     use_el.hidden = !query.empty;
     nav_by_group.use.classList.toggle('none', !query.empty);
+    if (overview_el) {
+        overview_el.hidden = !query.empty;
+        nav_by_group.overview.classList.toggle('none', !query.empty);
+    }
     nothing_el.hidden = (total > 0);
     refresh_pictures_control();
     copy_shown_el.hidden = (total === 0);
@@ -1661,6 +1744,60 @@ async function click_figure(event)
     }
     finally {
         root_el.classList.remove('photoswipe-loading');
+    }
+}
+
+// A tile of the overview, pointed at or reached with Tab, shows its picture
+// larger beside it; the picture goes when the pointer leaves, the page
+// scrolls or the tile is clicked.
+function peek_watch()
+{
+    if (!overview_el) {
+        return;
+    }
+    const peek_el = document.createElement('div');
+    peek_el.className = 'peek';
+    peek_el.hidden = true;
+    peek_el.setAttribute('aria-hidden', 'true');
+    document.body.append(peek_el);
+    for (const tile of overview_el.querySelectorAll('.tile')) {
+        tile.addEventListener('pointerenter', pointerenter_tile);
+        tile.addEventListener('pointerleave', peek_hide);
+        tile.addEventListener('focus', focus_tile);
+        tile.addEventListener('blur', peek_hide);
+        tile.addEventListener('click', peek_hide);
+    }
+    window.addEventListener('scroll', peek_hide, {passive: true});
+
+    function pointerenter_tile(event) {
+        if (event.pointerType === 'mouse') {
+            peek_show(event.currentTarget);
+        }
+    }
+
+    function focus_tile(event) {
+        if (event.currentTarget.matches(':focus-visible')) {
+            peek_show(event.currentTarget);
+        }
+    }
+
+    function peek_hide() {
+        peek_el.hidden = true;
+    }
+
+    // To the right of the tile when it fits, else to the left; level with
+    // it, kept between the sticky bar and the bottom of the window.
+    function peek_show(tile) {
+        peek_el.replaceChildren(...Array.from(tile.querySelectorAll('img'), v => v.cloneNode()));
+        peek_el.hidden = false;
+        const rect = tile.getBoundingClientRect();
+        const width = peek_el.offsetWidth;
+        const height = peek_el.offsetHeight;
+        const right = rect.right + 12;
+        const left = (right + width <= innerWidth - 16) ? right : Math.max(16, rect.left - 12 - width);
+        const top = clamp(rect.top, bar_el.getBoundingClientRect().bottom + 8, innerHeight - height - 8);
+        peek_el.style.left = `${left}px`;
+        peek_el.style.top = `${top}px`;
     }
 }
 
