@@ -5,9 +5,9 @@
 <text x="48" y="108" fill="#686a61" font-size="22">a second, independent catch under the first way: when the plan misses, the net holds</text>
 <line x1="150" y1="150" x2="150" y2="250" stroke="#a19f93" stroke-width="6"/><line x1="110" y1="250" x2="190" y2="250" stroke="#a19f93" stroke-width="6"/>
 <line x1="1050" y1="150" x2="1050" y2="250" stroke="#a19f93" stroke-width="6"/><line x1="1010" y1="250" x2="1090" y2="250" stroke="#a19f93" stroke-width="6"/>
-<path d="M190 250 C460 150 900 250 987 250 H1003" fill="none" stroke="#1a7443" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a56DB3A)"/>
+<path d="M190 250 C460 150 909.3 164.7 1007.6 233.5 L1020.7 242.7" fill="none" stroke="#1a7443" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a56DB3A)"/>
 <text x="600" y="160" fill="#1a7443" font-size="20" text-anchor="middle" font-style="italic">the plan: the reply switches the model back</text>
-<path d="M190 250 C420 240 600 300 600 439 V455" fill="none" stroke="#b2341f" stroke-width="1.75" stroke-dasharray="10 8" stroke-linecap="round" marker-end="url(#aFF6B6B)"/>
+<path d="M190 250 C420 240 576.2 447.6 586.5 459.9" fill="none" stroke="#b2341f" stroke-width="1.75" stroke-dasharray="10 8" stroke-linecap="round" marker-end="url(#aFF6B6B)"/>
 <text x="640" y="400" fill="#b2341f" font-size="20" text-anchor="start">the reply never came: still on the strongest model</text>
 <path d="M80 470 Q600 560 1120 470" fill="none" stroke="#2743b8" stroke-width="4"/><path d="M110 470 Q600 540 1090 470" fill="none" stroke="#2743b8" stroke-width="3"/>
 <line x1="180" y1="478" x2="180" y2="483" stroke="#2743b8" stroke-width="3"/>

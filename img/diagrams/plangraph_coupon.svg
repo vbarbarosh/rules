@@ -6,10 +6,10 @@
 <text x="377" y="146" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">Days 3–5</text>
 <text x="623" y="146" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">Day 6</text>
 <text x="869" y="146" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">Day 7</text>
-<path d="M226 255 C245 255 243 205 262 205 H278" fill="none" stroke="#2B3FBF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
-<path d="M226 270 C245 270 243 305 262 305 H278" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
-<path d="M472 205 C491 205 489 255 508 255 H524" fill="none" stroke="#2B3FBF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
-<path d="M472 305 C491 305 489 270 508 270 H524" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
+<path d="M226 255 C254 255 251.5 231.1 266.8 218.2 L279.1 207.9" fill="none" stroke="#2B3FBF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M226 270 C254 270 251.3 279.2 266.6 292.1 L278.9 302.4" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
+<path d="M472 205 C500 205 497.5 228.9 512.8 241.8 L525.1 252.1" fill="none" stroke="#2B3FBF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M472 305 C500 305 497.3 295.8 512.6 282.9 L524.9 272.6" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
 <path d="M718 255 H770" fill="none" stroke="#2B3FBF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
 <rect x="36" y="220" width="190" height="70" rx="8" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="2"/>
 <text x="131" y="249" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">P1 Coupon API</text>
