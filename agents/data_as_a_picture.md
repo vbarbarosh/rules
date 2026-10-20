@@ -52,6 +52,8 @@ itself. Text that holds data is the author's work left undone.
   (what is decided where),
   [state](https://vbarbarosh.github.io/rules/docs/diagrams.html#state)
   (what it can be, what moves it),
+  [flywheel](https://vbarbarosh.github.io/rules/docs/diagrams.html#flywheel)
+  (what feeds itself, where it is slow),
   [swimlanes](https://vbarbarosh.github.io/rules/docs/diagrams.html#swimlanes)
   (who does each step),
   [pipeline](https://vbarbarosh.github.io/rules/docs/diagrams.html#pipeline)

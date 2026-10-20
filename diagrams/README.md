@@ -10,6 +10,7 @@ Which kind for which data: the chooser in the guide
 - [case.md](case.md) — one real request, today beside fixed: the question on top, today's answer in red beside the answer with the fix in green, then big numbers, what works and what is missing
 - [screen.md](screen.md) — where on the screen: a grey wireframe of the screen, amber numbered circles on the spots that change, a numbered list beside it saying what changes; a frame per state when it matters
 - [state.md](state.md) — what states a thing has and what moves it between them; boxes, arrows, a dot where it starts
+- [flywheel.md](flywheel.md) — what feeds itself: stages on one circle, each feeding the next, the last the first; the weak link amber, what comes from outside grey and dashed
 - [flowchart.md](flowchart.md) — what is decided where: steps, questions as diamonds, each answer its own arrow
 - [swimlanes.md](swimlanes.md) — who does each step: a lane per actor, a box per step in its lane, arrows in order across lanes; done green, the hand-off that waits on you amber, to come grey dashed
 - [questions.md](questions.md) — what is known and what is not: how a thing works stage by stage, the facts in green, the open questions in amber where they arise
