@@ -8,7 +8,7 @@ feeds the first, so the next turn starts bigger. A data flywheel is the
 common case: use makes data, data makes a better model, a better model
 brings more use. Also called a virtuous cycle or a reinforcing loop.
 
-![Search that learns from its users: more users, more searches, clicks logged, clicks as labels and a better ranking in a ring, each with its number; clicks as labels in amber, only 15% usable, the weak link; seed labels by hand come in from outside](../img/diagrams/flywheel_search.svg)
+![Search that learns from its users: more users, more searches, clicks logged, clicks as labels, model retrained and a better ranking, evenly on one circle, each with its number; clicks as labels in amber, only 15% usable, the weak link; seed labels by hand come in from outside](../img/diagrams/flywheel_search.svg)
 
 ## Fits when
 
@@ -30,10 +30,11 @@ brings more use. Also called a virtuous cycle or a reinforcing loop.
 
 ## How it is drawn
 
-1. **Stages:** four to six boxes on one circle, clockwise, the outcome on
-   top; each with its name and its number now (40k a day).
-2. **Arrows:** blue and bold along the circle, each from one stage into
-   the next; the last back into the first.
+1. **Stages:** four to six boxes evenly on one circle, clockwise, the
+   outcome on top; each with its name and its number now (40k a day).
+2. **Arrows:** blue and bold, arcs of that same circle, each from one
+   stage into the next; the last back into the first. Nothing bends off
+   the circle: a wheel that wobbles reads as broken.
 3. **The weak link:** the stage that turns slowest in amber, said in a
    line under the ring.
 4. **From outside:** what started it or still feeds it, a grey dashed
