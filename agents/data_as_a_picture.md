@@ -41,7 +41,7 @@ itself. Text that holds data is the author's work left undone.
    the colours of the page it is shown on. A picture that was not looked at
    was not checked.
 6. **No shape, no picture.** One fact, a yes or no, a name, a single number:
-   a sentence. A code change: its diff.
+   a sentence.
 
 ## Which picture for which data
 
