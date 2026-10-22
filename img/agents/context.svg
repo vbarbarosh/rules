@@ -14,7 +14,7 @@
 <text x="340" y="430" fill="#686a61" font-size="19" text-anchor="middle">or its compacted form</text>
 <rect x="90" y="485" width="500" height="60" rx="12" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
 <text x="340.0" y="522.2" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">grounding · the workspace now</text>
-<line x1="620" y1="370" x2="698" y2="370" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="626" y1="370" x2="692" y2="370" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="700" y="320" width="300" height="100" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="850.0" y="364.0" fill="#2743b8" font-size="24" text-anchor="middle" font-weight="700">the model</text>
 <text x="850.0" y="392.8" fill="#686a61" font-size="20" text-anchor="middle">reads all of it, nothing else</text>

@@ -5,25 +5,25 @@
 <text x="48" y="108" fill="#92958c" font-size="22">a hard cap on the rounds of one turn</text>
 <rect x="70" y="220" width="110" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="125.0" y="262.2" fill="#72d39c" font-size="20" text-anchor="middle" font-weight="700">round 1</text>
-<line x1="180" y1="255" x2="203" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="186" y1="255" x2="197" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="205" y="220" width="110" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="260.0" y="262.2" fill="#72d39c" font-size="20" text-anchor="middle" font-weight="700">round 2</text>
-<line x1="315" y1="255" x2="338" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="321" y1="255" x2="332" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="340" y="220" width="110" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="395.0" y="262.2" fill="#72d39c" font-size="20" text-anchor="middle" font-weight="700">round 3</text>
-<line x1="450" y1="255" x2="473" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="456" y1="255" x2="467" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="475" y="220" width="110" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="530.0" y="262.2" fill="#72d39c" font-size="20" text-anchor="middle" font-weight="700">round 4</text>
-<line x1="585" y1="255" x2="608" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="591" y1="255" x2="602" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="610" y="220" width="110" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="665.0" y="262.2" fill="#72d39c" font-size="20" text-anchor="middle" font-weight="700">round 5</text>
-<line x1="720" y1="255" x2="743" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="726" y1="255" x2="737" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="745" y="220" width="110" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="800.0" y="262.2" fill="#72d39c" font-size="20" text-anchor="middle" font-weight="700">round 6</text>
-<line x1="855" y1="255" x2="878" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="861" y1="255" x2="872" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="880" y="220" width="110" height="70" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
 <text x="935.0" y="262.2" fill="#ff937c" font-size="20" text-anchor="middle" font-weight="700">round 7</text>
-<line x1="990" y1="255" x2="1013" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="996" y1="255" x2="1007" y2="255" stroke="#4a4f57" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="1015" y="220" width="110" height="70" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="10 8"/>
 <text x="1070.0" y="262.2" fill="#92958c" font-size="20" text-anchor="middle" font-weight="700">round 8</text>
 <line x1="870" y1="190" x2="870" y2="320" stroke="#ff937c" stroke-width="5" stroke-dasharray="12 8"/>

@@ -28,10 +28,10 @@
 <rect x="822" y="230" width="136" height="64" rx="8" fill="#F1EFEB" stroke="#B5B1A8" stroke-width="1.5" stroke-dasharray="6 4"/>
 <text x="890" y="256" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">E-mails</text>
 <text x="890" y="280" font-size="18" fill="#1F1E1C" text-anchor="middle">the customer</text>
-<path d="M282 190 L282 262 L362 262" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#1F1E1C" marker-end="url(#arrow-text)"/>
-<path d="M434 294 L434 366 L514 366" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#C2410C" marker-end="url(#arrow-amber)"/>
-<path d="M586 409 L586 470 L666 470" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#5C5A55" stroke-dasharray="6 5" marker-end="url(#arrow-grey)"/>
-<path d="M738 438 L738 262 L818 262" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#5C5A55" stroke-dasharray="6 5" marker-end="url(#arrow-grey)"/>
+<path d="M282 196 L282 262 L358 262" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#1F1E1C" marker-end="url(#arrow-text)"/>
+<path d="M434 300 L434 366 L510 366" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#C2410C" marker-end="url(#arrow-amber)"/>
+<path d="M586 415 L586 470 L662 470" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#5C5A55" stroke-dasharray="6 5" marker-end="url(#arrow-grey)"/>
+<path d="M738 432 L738 262 L814 262" fill="none" stroke-width="2" stroke-linejoin="round" stroke="#5C5A55" stroke-dasharray="6 5" marker-end="url(#arrow-grey)"/>
 <rect x="20" y="540" width="960" height="68" rx="8" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
 <text x="40" y="581" font-size="18" fill="#1F1E1C"><tspan font-weight="700" fill="#2B3FBF">Now</tspan><tspan dx="14">Support checked the order 2 days ago; the refund now waits on you to approve.</tspan></text>
 </svg>

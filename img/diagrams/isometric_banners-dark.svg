@@ -65,16 +65,16 @@
 <polygon points="698.4 438.4 532.6 534.1 532.6 524.1 698.4 428.4" fill="#26252A" stroke="#5E5C4E" stroke-width="1.5" stroke-linejoin="round"/>
 <polygon points="341.8 423.9 532.6 534.1 532.6 524.1 341.8 413.9" fill="#33322C" stroke="#5E5C4E" stroke-width="1.5" stroke-linejoin="round"/>
 <polygon points="507.5 318.2 698.4 428.4 532.6 524.1 341.8 413.9" fill="#33322C" stroke="#5E5C4E" stroke-width="1.5" stroke-linejoin="round"/>
-<line x1="154.6" y1="177.0" x2="175.8" y2="189.1" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
-<line x1="246.5" y1="225.4" x2="273.0" y2="236.4" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
-<line x1="340.5" y1="268.2" x2="364.1" y2="281.8" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
-<line x1="431.0" y1="320.4" x2="459.4" y2="336.8" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
-<line x1="531.4" y1="378.4" x2="580.8" y2="406.9" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-green)"/>
-<line x1="594.2" y1="442.1" x2="564.8" y2="459.1" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-green)"/>
-<line x1="483.6" y1="378.4" x2="453.8" y2="395.7" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-green)"/>
-<line x1="555.2" y1="343.1" x2="602.6" y2="321.8" stroke="#F08C4A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-orange)"/>
-<line x1="657.0" y1="321.9" x2="699.0" y2="346.1" stroke="#F08C4A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-orange)"/>
-<line x1="767.5" y1="385.7" x2="816.9" y2="414.3" stroke="#F08C4A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-orange)"/>
+<line x1="160.68" y1="180.47" x2="172.33" y2="187.12" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
+<line x1="252.97" y1="228.08" x2="262.84" y2="232.18" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
+<line x1="346.57" y1="271.7" x2="360.63" y2="279.8" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
+<line x1="437.06" y1="323.9" x2="455.94" y2="334.8" stroke="#6E9BF5" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-blue)"/>
+<line x1="537.46" y1="381.9" x2="577.34" y2="404.9" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-green)"/>
+<line x1="588.14" y1="445.6" x2="568.26" y2="457.1" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-green)"/>
+<line x1="477.55" y1="381.91" x2="457.26" y2="393.69" stroke="#5CC26A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-green)"/>
+<line x1="566.14" y1="338.18" x2="598.04" y2="323.85" stroke="#F08C4A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-orange)"/>
+<line x1="663.07" y1="325.39" x2="695.53" y2="344.1" stroke="#F08C4A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-orange)"/>
+<line x1="773.56" y1="389.21" x2="813.44" y2="412.3" stroke="#F08C4A" stroke-width="1.75" stroke-linecap="round" marker-end="url(#iso-arrow-orange)"/>
 <path d="M178.5 163.2 L130.8 190.7 L130.8 176.7 L178.5 149.2 Z" fill="#26252A" stroke="#BAB8AB" stroke-width="1.5" stroke-linejoin="round"/>
 <path d="M83.1 163.2 L130.8 190.7 L130.8 176.7 L83.1 149.2 Z" fill="#33322C" stroke="#BAB8AB" stroke-width="1.5" stroke-linejoin="round"/>
 <path d="M130.8 121.6 L178.5 149.2 L130.8 176.7 L83.1 149.2 Z" fill="#33322C" stroke="#BAB8AB" stroke-width="1.5" stroke-linejoin="round"/>

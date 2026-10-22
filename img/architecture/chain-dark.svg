@@ -17,9 +17,9 @@
 <rect x="620" y="360" width="220" height="70" rx="12" fill="#3b1f1c" stroke="#ff937c" stroke-width="2"/>
 <text x="730.0" y="389.0" fill="#ff937c" font-size="22" text-anchor="middle" font-weight="700">401</text>
 <text x="730.0" y="417.0" fill="#92958c" font-size="19" text-anchor="middle">stops here</text>
-<line x1="280" y1="240" x2="338" y2="240" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="560" y1="240" x2="618" y2="240" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="840" y1="240" x2="898" y2="240" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-green)"/>
-<line x1="730" y1="280" x2="730" y2="358" stroke="#ff937c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-red)"/>
+<line x1="286" y1="240" x2="332" y2="240" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="566" y1="240" x2="612" y2="240" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="846" y1="240" x2="892" y2="240" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-green)"/>
+<line x1="730" y1="286" x2="730" y2="352" stroke="#ff937c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-red)"/>
 <text x="48" y="480" fill="#92958c" font-size="21">Also: sequence, series, cascade</text>
 </svg>

@@ -6,7 +6,7 @@
 <rect x="60" y="180" width="260" height="90" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="190.0" y="219.5" fill="#2743b8" font-size="22" text-anchor="middle" font-weight="700">tool_call</text>
 <text x="190.0" y="245.9" fill="#686a61" font-size="19" text-anchor="middle">edit /etc/hosts</text>
-<line x1="320" y1="225" x2="418" y2="225" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="326" y1="225" x2="412" y2="225" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <rect x="420" y="150" width="400" height="330" rx="16" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2"/>
 <text x="440" y="184" fill="#686a61" font-size="22" text-anchor="start" font-weight="700">the permission</text>
 <text x="450" y="226" fill="#191a17" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">paths: src/**, docs/**</text>
@@ -14,7 +14,7 @@
 <text x="450" y="294" fill="#191a17" font-size="20" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">commands: npm, git, node</text>
 <rect x="450" y="350" width="340" height="60" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="620.0" y="386.84" fill="#b2341f" font-size="19" text-anchor="middle" font-weight="700">/etc/hosts is outside src/</text>
-<line x1="820" y1="225" x2="898" y2="225" stroke="#b2341f" stroke-width="1.75" stroke-linecap="round" marker-end="url(#aFF6B6B)"/>
+<line x1="826" y1="225" x2="892" y2="225" stroke="#b2341f" stroke-width="1.75" stroke-linecap="round" marker-end="url(#aFF6B6B)"/>
 <rect x="900" y="180" width="240" height="90" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
 <text x="1020.0" y="219.5" fill="#b2341f" font-size="22" text-anchor="middle" font-weight="700">refused</text>
 <text x="1020.0" y="245.9" fill="#686a61" font-size="19" text-anchor="middle">the tool never ran</text>

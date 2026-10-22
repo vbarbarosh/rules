@@ -40,8 +40,8 @@
 <text x="726" y="374" font-size="18" font-weight="700" fill="#1F1E1C">Does the law let</text>
 <text x="726" y="398" font-size="18" font-weight="700" fill="#1F1E1C">a card expire?</text>
 <text x="726" y="424" font-size="18" fill="#5C5A55">asked 10-02, no answer</text>
-<path d="M310 309 H351" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
-<path d="M645 309 H686" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
+<path d="M316 309 H347" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
+<path d="M651 309 H682" fill="none" stroke="#5C5A55" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-grey)"/>
 <rect x="20" y="530" width="228" height="122" rx="8" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
 <text x="38" y="578" font-size="34" font-weight="700" fill="#1F1E1C">1 240</text>
 <text x="38" y="608" font-size="18" fill="#1F1E1C">cards sold</text>

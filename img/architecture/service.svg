@@ -12,8 +12,8 @@
 <rect x="640" y="200" width="320" height="200" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="800.0" y="294.0" fill="#2743b8" font-size="22" text-anchor="middle" font-weight="700">service</text>
 <text x="800.0" y="322.0" fill="#686a61" font-size="19" text-anchor="middle">keeps running, waits</text>
-<line x1="312" y1="202" x2="638" y2="260" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-start="url(#a-accent)" marker-end="url(#a-accent)"/>
-<line x1="312" y1="300" x2="638" y2="300" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-start="url(#a-accent)" marker-end="url(#a-accent)"/>
-<line x1="312" y1="398" x2="638" y2="340" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-start="url(#a-accent)" marker-end="url(#a-accent)"/>
+<line x1="317.91" y1="203.05" x2="632.09" y2="258.95" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-start="url(#a-accent)" marker-end="url(#a-accent)"/>
+<line x1="318" y1="300" x2="632" y2="300" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-start="url(#a-accent)" marker-end="url(#a-accent)"/>
+<line x1="317.91" y1="396.95" x2="632.09" y2="341.05" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-start="url(#a-accent)" marker-end="url(#a-accent)"/>
 <text x="48" y="480" fill="#686a61" font-size="21">Also: server, daemon, backend, endpoint, API, microservice</text>
 </svg>

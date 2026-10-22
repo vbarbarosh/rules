@@ -47,18 +47,18 @@
 <text x="865" y="595" font-size="18" font-weight="bold" fill="#1F1E1C" text-anchor="middle">Cache</text>
 <text x="865" y="618" font-size="16" fill="#55534E" text-anchor="middle">[Redis, ElastiCache]</text>
 <text x="865" y="640" font-size="16" fill="#1F1E1C" text-anchor="middle">cache and sessions</text>
-<path class="link" d="M230 142 L401 142" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M500 184 L500 276" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M135 184 L135 276" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M420 184 L234 318" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M595 340 L766 452" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M865 424 L865 188" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M770 466 L599 466" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M405 466 L234 466" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M135 424 L135 368" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M215 508 L401 590" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M785 508 L599 590" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
-<path class="link" d="M865 508 L865 564" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M236 142 L397 142" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M500 190 L500 272" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M135 190 L135 272" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M412.7 189.26 L237.25 315.66" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M600.86 343.84 L762.65 449.81" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M865 418 L865 192" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M764 466 L603 466" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M399 466 L238 466" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M135 418 L135 372" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M225.98 512.84 L397.34 588.39" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M774.02 512.84 L602.66 588.39" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
+<path class="link" d="M865 514 L865 560" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c4-arrow-bab8ab)"/>
 <text x="40" y="712" font-size="17" fill="#55534E">Good for: telling developers and newcomers which part does what, and in what tech.</text>
 <text x="40" y="738" font-size="17" fill="#55534E">Drawn with: Structurizr, C4-PlantUML, IcePanel, draw.io C4 shapes, Mermaid C4.</text>
 <rect class="pill" x="256.5" y="130" width="118" height="24" rx="12" fill="#E9E6E0"/>

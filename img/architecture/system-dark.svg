@@ -16,9 +16,9 @@
 <rect x="740" y="370" width="260" height="70" rx="12" fill="#1d2024" stroke="#4a4f57" stroke-width="2" stroke-dasharray="12 8"/>
 <text x="870.0" y="399.0" fill="#d3d1c9" font-size="22" text-anchor="middle" font-weight="700">payments</text>
 <text x="870.0" y="427.0" fill="#92958c" font-size="19" text-anchor="middle">a provider outside</text>
-<line x1="290" y1="295" x2="398" y2="262" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="620" y1="255" x2="738" y2="255" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="510" y1="290" x2="510" y2="368" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="620" y1="275" x2="738" y2="395" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="295.74" y1="293.25" x2="392.26" y2="263.75" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="626" y1="255" x2="732" y2="255" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="510" y1="296" x2="510" y2="362" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="625.61" y1="280.7" x2="733.09" y2="390.01" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
 <text x="48" y="520" fill="#92958c" font-size="21">Also: platform, stack, infrastructure, application, setup, ecosystem</text>
 </svg>

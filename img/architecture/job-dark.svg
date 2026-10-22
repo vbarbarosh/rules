@@ -12,10 +12,10 @@
 <text x="820.0" y="210.0" fill="#72d39c" font-size="22" text-anchor="middle" font-weight="700">done</text>
 <rect x="720" y="330" width="200" height="64" rx="12" fill="#3b1f1c" stroke="#ff937c" stroke-width="2"/>
 <text x="820.0" y="370.0" fill="#ff937c" font-size="22" text-anchor="middle" font-weight="700">failed</text>
-<line x1="290" y1="282" x2="388" y2="282" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="590" y1="272" x2="718" y2="205" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-green)"/>
-<line x1="590" y1="292" x2="718" y2="360" stroke="#ff937c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-red)"/>
-<polyline points="820,394 820,450 190,450 190,316" fill="none" stroke="#ff937c" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a-red)"/>
+<line x1="296" y1="282" x2="382" y2="282" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="596.2" y1="268.75" x2="712.68" y2="207.78" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-green)"/>
+<line x1="596.18" y1="295.28" x2="712.7" y2="357.19" stroke="#ff937c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-red)"/>
+<polyline points="820,400 820,450 190,450 190,322" fill="none" stroke="#ff937c" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a-red)"/>
 <text x="505" y="482" fill="#ff937c" font-size="19" text-anchor="middle">retried</text>
 <text x="48" y="540" fill="#92958c" font-size="21">Also: batch (many items in one job), run (one execution of it)</text>
 </svg>

@@ -18,10 +18,10 @@
 <rect x="970" y="220" width="190" height="90" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
 <text x="1065.0" y="259.0" fill="#72d39c" font-size="22" text-anchor="middle" font-weight="700">thumbnails</text>
 <text x="1065.0" y="287.0" fill="#92958c" font-size="19" text-anchor="middle">out</text>
-<line x1="240" y1="265" x2="278" y2="265" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="470" y1="265" x2="508" y2="265" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="700" y1="265" x2="738" y2="265" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="930" y1="265" x2="968" y2="265" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-green)"/>
+<line x1="246" y1="265" x2="272" y2="265" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="476" y1="265" x2="502" y2="265" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="706" y1="265" x2="732" y2="265" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="936" y1="265" x2="962" y2="265" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-green)"/>
 <text x="625" y="360" fill="#92958c" font-size="19" text-anchor="middle">each stage busy with its own photo at once</text>
 <text x="48" y="420" fill="#92958c" font-size="21">Also: workflow, flow, stream, assembly line</text>
 </svg>

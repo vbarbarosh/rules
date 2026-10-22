@@ -25,7 +25,7 @@
 <rect x="84" y="478" width="260" height="56" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
 <text x="214" y="512.5" fill="#d3d1c9" font-size="18" text-anchor="middle" font-weight="700">voice in English</text>
 </g>
-<line x1="494" y1="355" x2="594" y2="355" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
+<line x1="494" y1="355" x2="592" y2="355" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a1299DA)"/>
 <text x="545" y="326" fill="#9db2ff" font-size="20" text-anchor="middle" font-style="italic">planned</text>
 <rect x="600" y="150" width="552" height="410" rx="16" fill="#1b2346" stroke="#9db2ff" stroke-width="2" stroke-dasharray="12 8"/>
 <text x="620" y="184" fill="#9db2ff" font-size="22" text-anchor="start" font-weight="700">the roadmap: Now / Next / Later</text>

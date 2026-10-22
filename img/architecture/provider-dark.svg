@@ -15,8 +15,8 @@
 <text x="890.0" y="298.0" fill="#92958c" font-size="22" text-anchor="middle" font-weight="700">cloud storage</text>
 <rect x="740" y="350" width="300" height="70" rx="12" fill="#212428" stroke="#2c3035" stroke-width="2" stroke-dasharray="12 8"/>
 <text x="890.0" y="393.0" fill="#92958c" font-size="22" text-anchor="middle" font-weight="700">in memory</text>
-<line x1="270" y1="290" x2="368" y2="290" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
-<line x1="610" y1="280" x2="738" y2="195" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-green)"/>
+<line x1="276" y1="290" x2="362" y2="290" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-accent)"/>
+<line x1="615.83" y1="276.13" x2="733" y2="198.32" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a-green)"/>
 <line x1="610" y1="290" x2="740" y2="290" stroke="#4a4f57" stroke-width="1.75" stroke-dasharray="6 6"/>
 <line x1="610" y1="300" x2="740" y2="385" stroke="#4a4f57" stroke-width="1.75" stroke-dasharray="6 6"/>
 <text x="48" y="480" fill="#92958c" font-size="21">Also: source, supplier, vendor, backend, adapter, driver</text>

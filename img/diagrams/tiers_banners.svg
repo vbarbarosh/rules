@@ -55,21 +55,21 @@
 <text x="546" y="642" font-size="18" font-weight="bold" fill="#1F1E1C" text-anchor="middle">Stripe</text>
 <text x="546" y="664" font-size="16" fill="#55534E" text-anchor="middle">payments</text>
 <text x="628" y="652" font-size="16" fill="#55534E">external service</text>
-<path class="link" d="M56 400 L56 166 L940 166 L940 226" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
-<path class="link" d="M194 414 L194 196 L870 196 L870 226" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
-<path class="link" d="M612 531 L828.26 449.41" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
-<path class="link" d="M898 382 L898 410" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
-<path class="link" d="M788 282 L848.61 319.88" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
-<path class="link" d="M546 566 L546 612" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
-<path class="link" d="M598 506 L654.52 363.72" fill="none" stroke="#2B8A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#tiers-arrow-56db3a)"/>
-<path class="link" d="M722 322 L722 294" fill="none" stroke="#2B8A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#tiers-arrow-56db3a)"/>
-<path class="link" d="M788 260 L828 260" fill="none" stroke="#2B8A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#tiers-arrow-56db3a)"/>
-<path class="link" d="M92 444 L124 444" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
-<path class="link" d="M260 444 L300 444" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
-<path class="link" d="M370 474 L370 502" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
-<path class="link" d="M436 536 L476 536" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
-<path class="link" d="M612 548 L828 548" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
-<path class="link" d="M612 514 L828.68 368.23" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
+<path class="link" d="M56 394 L56 166 L940 166 L940 222" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
+<path class="link" d="M194 408 L194 196 L870 196 L870 222" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
+<path class="link" d="M617.61 528.88 L824.52 450.82" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
+<path class="link" d="M898 388 L898 406" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
+<path class="link" d="M793.09 285.18 L842.67 316.17" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
+<path class="link" d="M546 572 L546 609" fill="none" stroke="#55534E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-bab8ab)"/>
+<path class="link" d="M600.22 500.42 L651.2 372.08" fill="none" stroke="#2B8A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#tiers-arrow-56db3a)"/>
+<path class="link" d="M722 316 L722 298" fill="none" stroke="#2B8A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#tiers-arrow-56db3a)"/>
+<path class="link" d="M794 260 L824 260" fill="none" stroke="#2B8A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#tiers-arrow-56db3a)"/>
+<path class="link" d="M98 444 L120 444" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
+<path class="link" d="M266 444 L296 444" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
+<path class="link" d="M370 480 L370 498" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
+<path class="link" d="M442 536 L472 536" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
+<path class="link" d="M618 548 L824 548" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
+<path class="link" d="M616.98 510.65 L825.36 370.46" fill="none" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#tiers-arrow-1299da)"/>
 <line class="key" x1="40" y1="613" x2="80" y2="613" stroke="#2B3FBF" stroke-width="3" stroke-linecap="round"/>
 <text x="92" y="618" font-size="16" fill="#55534E">main request path</text>
 <line class="key" x1="40" y1="637" x2="80" y2="637" stroke="#2B8A3E" stroke-width="2" stroke-linecap="round" stroke-dasharray="7 5"/>

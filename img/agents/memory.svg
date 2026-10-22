@@ -6,7 +6,7 @@
 <rect x="60" y="180" width="300" height="110" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="210.0" y="229.0" fill="#2743b8" font-size="24" text-anchor="middle" font-weight="700">the context</text>
 <text x="210.0" y="257.8" fill="#686a61" font-size="20" text-anchor="middle">one call, then gone</text>
-<line x1="360" y1="235" x2="438" y2="235" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
+<line x1="366" y1="235" x2="433" y2="235" stroke="#a19f93" stroke-width="1.75" stroke-linecap="round" marker-end="url(#a5E5C4E)"/>
 <rect x="440" y="150" width="700" height="330" rx="16" fill="#e8e5d9" stroke="#d9d5c7" stroke-width="2" stroke-dasharray="12 8"/>
 <text x="460" y="184" fill="#686a61" font-size="22" text-anchor="start" font-weight="700">memory · outlives the call</text>
 <rect x="470" y="200" width="310" height="70" rx="12" fill="#efece2" stroke="#a19f93" stroke-width="2"/>

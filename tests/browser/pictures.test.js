@@ -6,11 +6,13 @@ const {chromium} = require('playwright');
 
 // Run with Playwright and Chromium installed: node --test tests/browser/pictures.test.js
 // Every picture in img/, drawn in three fonts the docs may meet: no text past an edge or a box's
-// border, under a later box, on an arrow or on other text; no arrow end that touches nothing;
-// a curved arrow runs straight under its head and sweeps in at a slant, not square (a route of
-// straight runs and rounded corners may end square); every url(#id), light and dark, names
-// an element. A label on a line sits on its own pill drawn after the
-// line; a legend sample or an axis end is marked data-legend or data-free.
+// border, under a later box, on an arrow or on other text; no arrow end that touches nothing,
+// nor one that touches its box: a little gap between an arrow and the box it leaves or points
+// at; a curved arrow runs straight under its head and sweeps in at a slant, not square (a route
+// of straight runs and rounded corners may end square); every url(#id), light and dark, names
+// an element. A label on a line sits on its own pill drawn after the line; a legend sample or an
+// axis end is marked data-legend or data-free, and a glow around a node, which arrows may
+// cross, data-halo.
 const root_dir = path.join(__dirname, '../..');
 const FONTS_LIST = [
     {sans: 'Ubuntu', mono: 'Ubuntu Mono'},
@@ -74,6 +76,7 @@ function find_faults()
     const rects = all.filter(v => (v.tagName === 'rect') && !((+v.getAttribute('width') >= view_box.width) && (+v.getAttribute('height') >= view_box.height)));
     const circles = all.filter(v => v.tagName === 'circle');
     const arrows = all.filter(v => ['line', 'path', 'polyline'].includes(v.tagName));
+    const shapes = all.filter(is_shape);
     const text_boxes = new Map(texts.map(v => [v, text_box_of(v)]));
     const out = [];
 
@@ -147,9 +150,13 @@ function find_faults()
         if (arrow.closest('[data-legend],[data-free]')) {
             continue;
         }
-        for (const end of [points[0], points[60]]) {
-            if (!is_attached(end, arrow)) {
+        for (const [which, end] of [['start', points[0]], ['end', points[60]]]) {
+            const tip = tip_of(arrow, which);
+            if (!is_attached(end, arrow) && (outline_gap_of(tip, shapes, 8) > 8)) {
                 out.push(`an arrow ending at nothing: ${Math.round(end.x)},${Math.round(end.y)}`);
+            }
+            if (outline_gap_of(tip, targets_of(arrow, which, tip), 1.5) < 2) {
+                out.push(`an arrow touching its box, no gap: ${Math.round(end.x)},${Math.round(end.y)}`);
             }
         }
     }
@@ -288,6 +295,83 @@ function find_faults()
             }
         }
         return texts.some(v => is_inside(end, quad_of(v, text_boxes.get(v), 12)));
+    }
+
+    // A closed shape an arrow can leave or point at: a box, a circle, a diamond, a cylinder
+    function is_shape(element) {
+        if (!['rect', 'circle', 'ellipse', 'polygon', 'path'].includes(element.tagName) || element.hasAttribute('data-halo')) {
+            return false;
+        }
+        if (element.getAttribute('marker-end') || element.getAttribute('marker-start')) {
+            return false;
+        }
+        const box = element.getBBox();
+        const fill = getComputedStyle(element).fill;
+        return ((box.width < view_box.width) || (box.height < view_box.height)) && (fill !== 'none') && (fill !== 'transparent');
+    }
+
+    function point_at(element, length) {
+        const p = element.getPointAtLength(length);
+        return root_point_from(element, p.x, p.y);
+    }
+
+    // Where an end shows its point: a marked end past the line's end, by as much as its head
+    // reaches beyond the marker's refX
+    function tip_of(arrow, which) {
+        const length = arrow.getTotalLength();
+        const end = point_at(arrow, (which === 'end') ? length : 0);
+        const ref = arrow.getAttribute(`marker-${which}`)?.match(/#([^)]+)/)?.[1];
+        const marker = ref ? svg.getElementById(ref) : null;
+        if (!marker) {
+            return end;
+        }
+        const near = point_at(arrow, (which === 'end') ? Math.max(0, length - 1) : Math.min(length, 1));
+        const d = Math.hypot(end.x - near.x, end.y - near.y) || 1;
+        const scale = (+marker.getAttribute('markerWidth') || 3)/(marker.viewBox.baseVal?.width || 1);
+        const reach = Math.max(...Array.from(marker.children, v => v.getBBox().x + v.getBBox().width));
+        const over = (reach - (+marker.getAttribute('refX') || 0))*scale;
+        return {x: end.x + (end.x - near.x)/d*over, y: end.y + (end.y - near.y)/d*over};
+    }
+
+    function is_on_shape(shape, p) {
+        const m = shape.getCTM().inverse().multiply(svg.getCTM());
+        const point = new DOMPoint(m.a*p.x + m.c*p.y + m.e, m.b*p.x + m.d*p.y + m.f);
+        const style = getComputedStyle(shape);
+        return ((style.fill !== 'none') && shape.isPointInFill(point)) || ((style.stroke !== 'none') && shape.isPointInStroke(point));
+    }
+
+    // How far p is from the nearest outline, fill or stroke, of the shapes; past max, Infinity
+    function outline_gap_of(p, list, max) {
+        for (let r = 0; r <= max; r += 0.5) {
+            const n = r ? 32 : 1;
+            for (let i = 0; i < n; ++i) {
+                const q = {x: p.x + r*Math.cos(2*Math.PI*i/n), y: p.y + r*Math.sin(2*Math.PI*i/n)};
+                if (list.some(v => is_on_shape(v, q))) {
+                    return r;
+                }
+            }
+        }
+        return Infinity;
+    }
+
+    // The shapes an end can touch: not a frame or a lane the arrow runs inside, at its middle,
+    // 15 back from the end, or with the end deep in it
+    function targets_of(arrow, which, tip) {
+        const length = arrow.getTotalLength();
+        const middle = point_at(arrow, length/2);
+        const back = point_at(arrow, (which === 'end') ? Math.max(0, length - 15) : Math.min(length, 15));
+        return shapes.filter(v => !is_on_shape(v, middle) && !is_on_shape(v, back) && !(is_on_shape(v, tip) && (depth_of(v, tip) > 4)));
+    }
+
+    function depth_of(shape, p) {
+        for (let r = 0.5; r <= 8; r += 0.5) {
+            for (let i = 0; i < 16; ++i) {
+                if (!is_on_shape(shape, {x: p.x + r*Math.cos(Math.PI*i/8), y: p.y + r*Math.sin(Math.PI*i/8)})) {
+                    return r;
+                }
+            }
+        }
+        return Infinity;
     }
 
     // The way a marked end points, {tip, x, y} with x, y a unit vector out of the path: from the
