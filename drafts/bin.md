@@ -14,13 +14,15 @@ Every project has the same ones, under the same names, so any checkout is
 set up, run, tested and built the same way, whatever its language
 (PROJ-01).
 
-| Script          | Alias | What it does                                      |
-|-----------------|-------|---------------------------------------------------|
-| `bin/build`     | `bb`  | builds the project into `build/`                  |
-| `bin/run`       | `rr`  | starts the program                                |
-| `bin/configure` |       | makes a fresh checkout ready to work in           |
-| `bin/test`      | `tt`  | runs the tests                                    |
-| `bin/watch`     | `ww`  | rebuilds on every change                          |
+| Script           | Alias | What it does                                    |
+|------------------|-------|-------------------------------------------------|
+| `bin/build`      | `bb`  | builds the project into `build/`                |
+| `bin/run`        | `rr`  | starts the program                              |
+| `bin/configure`  |       | makes a fresh checkout ready to work in         |
+| `bin/test`       | `tt`  | runs the tests                                  |
+| `bin/watch`      | `ww`  | rebuilds on every change                        |
+| `bin/release`    |       | releases a new version: builds, commits `dist/` |
+| `bin/self-check` |       | checks the application is fit to work           |
 
 The aliases are two letters, the script's first letter twice. They live in
 the shell, once for every project:
@@ -32,7 +34,7 @@ alias tt='bin/test'
 alias ww='bin/watch'
 ```
 
-`bin/configure` has none.
+`bin/configure`, `bin/release` and `bin/self-check` have none.
 
 ## bin/build · bb
 
@@ -59,6 +61,23 @@ Runs the tests. In a node.js project it wraps `npm test`.
 
 Rebuilds on every change. In a node.js project it wraps `npm run watch`.
 
+## bin/release
+
+Releases a new version, in one command: `bin/release major|minor|patch`
+(REL-04). It makes sure there are no changes, bumps the version, runs the
+one build and copies `build/` into `dist/`, then commits and tags
+(REL-02, PROJ-04). The steps are in
+[packaging.md](../packaging/packaging.md).
+
+## bin/self-check
+
+The application's own check that it is fit to work: one probe per thing
+it needs, the programs it calls and what the build was to produce, each
+prefixed with its name, so a failure says what to fix. It changes
+nothing, only reads and reports. It is the last step of `bin/build`
+(PROJ-30), and the first of the run when the host may differ from the
+build. The glossary's [Self-check](../glossaries/testing.md) says more.
+
 ## Why wrappers
 
 In a node.js project `bin/run`, `bin/test`, `bin/build` and `bin/watch` are
@@ -69,5 +88,4 @@ thin wrappers over npm, and still worth having (PROJ-03):
   change, each project decides what its verbs do.
 
 A bash script starts as a copy of [bin/templ](../bin/templ) (PROJ-15).
-The other verbs of `bin/`, `bin/release` and `bin/self-check`, are in
-[layout.md](layout.md).
+Where `bin/` sits in the project is in [layout.md](layout.md).

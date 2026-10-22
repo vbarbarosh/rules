@@ -56,7 +56,7 @@ It's just not written down.
 
 - Bash scripts — every script starts as a copy of [bin/templ](../bin/templ). Its header, strict mode included, and the `script` / `scriptdir` / `scriptname` lines stay; the colors, the exit message, the temporary directory and the four `echo` lines stay only where the script uses them.
 - [drafts/layout.md](../drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
-- [drafts/bin.md](../drafts/bin.md) — the bin/ scripts and their aliases: build `bb`, run `rr`, configure, test `tt`, watch `ww`
+- [drafts/bin.md](../drafts/bin.md) — the bin/ scripts and their aliases: build `bb`, run `rr`, configure, test `tt`, watch `ww`, release, self-check
 - [drafts/README.md](../drafts/README.md) — a README in one order: badges, cover, name, description, website, quick start, docs, license
 - [drafts/configure.md](../drafts/configure.md) — `bin/configure` asks every question up front, `sudo` included
 - [drafts/data.md](../drafts/data.md) — `data/` is the project's permanent data; one mount keeps it in docker
