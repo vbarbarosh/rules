@@ -10,7 +10,7 @@ const BLOB_URL = 'https://github.com/vbarbarosh/rules/blob/main/';
 const RAW_URL = 'https://raw.githubusercontent.com/vbarbarosh/rules/main/';
 const CLASS_BY_MARKER = {'//': 'cmt', '&lt;!--': 'cmt', '✓': 'yes', '✗': 'no', '←': 'aside'};
 const docs_dir = path.join(__dirname, '..', 'docs');
-const GLOSSARY_FILES = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/doc.md', 'glossaries/maps.md', 'glossaries/names.md', 'glossaries/motion.md', 'glossaries/architecture.md'];
+const GLOSSARY_FILES = ['glossaries/agents.md', 'glossaries/testing.md', 'glossaries/README.md', 'glossaries/maps.md', 'glossaries/names.md', 'glossaries/motion.md', 'glossaries/architecture.md'];
 // The words that differ between the three pages of guides
 const GUIDE_PAGES = {
     agents: {noun_one: 'guide', noun_many: 'guides', noun_title: 'Guides', filter_example: 'states, scope, ask'},
