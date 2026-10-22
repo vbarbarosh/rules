@@ -121,7 +121,7 @@
         const named = [];
         const told = [];
         for (const entry of entries) {
-            if (query.filter(`${entry.code} ${entry.name}`.toLowerCase())) {
+            if (query.filter(`${entry.id} ${entry.name}`.toLowerCase())) {
                 named.push(entry);
             }
             else if (query.filter(entry.text)) {
