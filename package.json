@@ -1,6 +1,6 @@
 {
   "name": "@vbarbarosh/rules",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Rules for naming, formatting, project layout and UI, so all code reads the same way",
   "homepage": "https://vbarbarosh.github.io/rules/docs/rules.html",
   "main": "src/plugin.js",
@@ -22,9 +22,9 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "lint": "eslint bin/build bin/lint src tests drafts/scroll-anchoring.test.js eslint.config.js eslint.projects.config.js",
+    "lint": "eslint bin/build bin/lint src tests docs/search.js drafts/scroll-anchoring.test.js eslint.config.js eslint.projects.config.js",
     "test": "node --test tests/*.test.js",
-    "check": "npm run lint && npm test && bin/build && git diff --exit-code -- docs/filter1_from_spec.js docs/rules.html docs/animations.html docs/agents.html docs/diagrams.html docs/apis.html docs/glossaries.html formatting.html drafts/logs-cheatsheet.html drafts/scroll-anchoring.html drafts/page-header-structure.html drafts/animations.html"
+    "check": "npm run lint && npm test && bin/build && git diff --exit-code -- docs/filter1_from_spec.js docs/search_index.js docs/rules.html docs/animations.html docs/agents.html docs/diagrams.html docs/apis.html docs/glossaries.html formatting.html drafts/logs-cheatsheet.html drafts/scroll-anchoring.html drafts/page-header-structure.html drafts/animations.html"
   },
   "peerDependencies": {
     "eslint": "^9.39.0 || ^10.0.0"

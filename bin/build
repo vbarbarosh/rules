@@ -26,11 +26,17 @@ cli(main);
 
 function main()
 {
-    build_index_html('rules');
-    build_index_html('animations');
-    build_glossaries_html();
-    build_agents_html();
+    const rules = build_index_html('rules');
+    const animations = build_index_html('animations');
+    const glossaries = build_glossaries_html();
+    const guide_sets = build_agents_html();
     build_filter_js();
+    build_search_index_js([
+        ...search_entries_from_index(rules, 'rules.html'),
+        ...search_entries_from_index(animations, 'animations.html'),
+        ...search_entries_from_glossaries(glossaries),
+        ...guide_sets.flatMap(search_entries_from_guides),
+    ]);
     stamp_static_pages_version();
     run_self_check();
 }
@@ -44,6 +50,7 @@ function build_index_html(name)
     const index = index_from_markdown(markdown, `${name}.md`);
     index_assert_counts(index);
     fs.writeFileSync(path.join(docs_dir, `${name}.html`), html_from_index(template_keep_only(template, name), index, name));
+    return index;
 }
 
 function template_keep_only(template, name)
@@ -62,6 +69,7 @@ function build_glossaries_html()
         glossaries.push(glossary_from_markdown(markdown, glossary_file));
     }
     fs.writeFileSync(path.join(docs_dir, 'glossaries.html'), html_from_glossaries(template, glossaries));
+    return glossaries;
 }
 
 // agents/, diagrams/ and apis/: three sets of guides, one template; the
@@ -76,6 +84,7 @@ function build_agents_html()
     fs.writeFileSync(path.join(docs_dir, 'agents.html'), html_from_guides(template_keep_only(template, 'agents'), agents, handover));
     fs.writeFileSync(path.join(docs_dir, 'diagrams.html'), html_from_guides(template_keep_only(template, 'diagrams'), diagrams, format_diagrams_handover(diagrams.guides)));
     fs.writeFileSync(path.join(docs_dir, 'apis.html'), html_from_guides(template_keep_only(template, 'apis'), apis, format_apis_handover(apis.guides)));
+    return [agents, diagrams, apis];
 }
 
 function guides_read(dir)
@@ -109,6 +118,63 @@ function build_filter_js()
         '',
     ];
     fs.writeFileSync(path.join(docs_dir, 'filter1_from_spec.js'), lines.join('\n'));
+}
+
+// The search box of every page reaches every page (docs/search.js): each
+// rule, term, guide, diagram and form, with the page and the id it lands
+// on, its name, and the lowercase text a query is matched against.
+function build_search_index_js(entries)
+{
+    const lines = [
+        '// Every rule, term, guide, diagram and form, for docs/search.js; written by bin/build',
+        `window.SEARCH_INDEX = [\n${entries.map(v => JSON.stringify(v)).join(',\n')}\n];`,
+        '',
+    ];
+    fs.writeFileSync(path.join(docs_dir, 'search_index.js'), lines.join('\n'));
+}
+
+function search_entries_from_index(index, page)
+{
+    const out = [];
+    for (const group of index.groups) {
+        out.push({page, id: group.tag, code: group.tag, name: group.name, text: `${group.tag} ${group.name} ${group.note}`.toLowerCase()});
+        for (const rule of group.rules) {
+            const form = (rule.form === '—') ? '' : text_from_markdown(text_from_html(rule.form.replace(/<br>/g, ' ')));
+            const text = `${rule.code} ${text_from_markdown(text_from_html(rule.text))} ${form} ${rule.source_label}`;
+            out.push({page, id: rule.code, code: rule.code, name: name_from_rule(rule), text: text.toLowerCase()});
+        }
+    }
+    return out;
+}
+
+function search_entries_from_glossaries(glossaries)
+{
+    const page = 'glossaries.html';
+    const out = [];
+    for (const glossary of glossaries) {
+        for (const owner of [glossary, ...glossary.groups]) {
+            out.push({page, id: owner.tag, code: owner.tag, name: owner.name, text: `${owner.tag} ${owner.name} ${owner.note}`.toLowerCase()});
+            owner.terms.forEach(function (term, i) {
+                const code = `${owner.tag}-${String(i + 1).padStart(2, '0')}`;
+                const words = [code, term.name, term.definition ?? '', ...term.paragraphs.map(v => v.join(' ')), ...term.images.map(v => v.alt), path.basename(glossary.file)];
+                out.push({page, id: code, code, name: text_from_markdown(term.name), text: text_from_markdown(words.join(' ')).toLowerCase()});
+            });
+        }
+    }
+    return out;
+}
+
+function search_entries_from_guides(set)
+{
+    const page = `${set.dir}.html`;
+    return set.guides.map(v => ({page, id: v.id, code: '', name: v.title, text: text_from_markdown(`${v.title} ${v.body}`).toLowerCase()}));
+}
+
+// Markdown as the words a reader sees: links and pictures by their text,
+// the marks of bold, code and headings gone.
+function text_from_markdown(text)
+{
+    return text.replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/&#96;/g, '`').replace(/[*`#>|]/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
 // The pages written by hand: the version where the header shows one, the theme icons on all.
