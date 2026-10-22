@@ -160,7 +160,7 @@ One task, told as each person's story; see
 - **[docs/glossaries.html](glossaries.html) — every term below, in one filterable page**
 - [glossaries/agents.md](../glossaries/agents.md) — vocabulary for developing agents: parts, roles, time, messages, tools
 - [glossaries/testing.md](../glossaries/testing.md) — happy path, smoke tests, flaky tests, intermittent failures, showstoppers, self-check
-- [glossaries/doc.md](../glossaries/doc.md) — vocabulary and glossary: the words about words
+- [glossaries/doc.md](../glossaries/doc.md) — vocabulary, glossary and dictionary: the words about words
 - [glossaries/maps.md](../glossaries/maps.md) — maps and ways: tree, graph, map, taxonomy, anatomy, ontology, knowledge graph; roadmap, milestone, breadcrumbs, timeline, chronology, backlog; labelled diagram, exploded view, cutaway, legend
 - [glossaries/names.md](../glossaries/names.md) — standard names: plain public words in place of private ones; laptop, vps1, router, box; example.com, user@example.com, 192.0.2.x
 - [glossaries/architecture.md](../glossaries/architecture.md) — what software is made of and the work it does, with their synonyms: system, service, provider, module; process, job, task, function
