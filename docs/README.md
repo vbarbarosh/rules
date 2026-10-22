@@ -163,7 +163,7 @@ One task, told as each person's story; see
 - [glossaries/doc.md](../glossaries/doc.md) — vocabulary, glossary and dictionary: the words about words
 - [glossaries/maps.md](../glossaries/maps.md) — maps and ways: tree, graph, map, taxonomy, anatomy, ontology, knowledge graph; roadmap, milestone, breadcrumbs, timeline, chronology, backlog; labelled diagram, exploded view, cutaway, legend
 - [glossaries/names.md](../glossaries/names.md) — standard names: plain public words in place of private ones; laptop, vps1, router, box; example.com, user@example.com, 192.0.2.x
-- [glossaries/architecture.md](../glossaries/architecture.md) — what software is made of and the work it does, with their synonyms: system, service, provider, module; process, job, task, function
+- [glossaries/architecture.md](../glossaries/architecture.md) — what software is made of and the work it does, with their synonyms: system, service, provider, module; process, job, task, function, pipeline, chain
 
 ## Naming Grammar
 

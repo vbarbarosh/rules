@@ -16,14 +16,16 @@ From the whole down to a part of the code.
 
 **Work** (WORK)
 
-What gets done and what does it; each holds the next.
+What gets done and what does it: the first four each hold the next, the last two put work in a row.
 
-| Term     | Definition                                                                                         |
-|----------|----------------------------------------------------------------------------------------------------|
-| process  | A running program, its own memory, from start to exit. Also: worker, instance.                     |
-| job      | Work handed over to run later or apart, with an id and a status. Also: batch, run.                 |
-| task     | One unit of work, one step of a job. Also: step, operation, work item.                             |
-| function | Code with a name: called with arguments, it returns. Also: routine, subroutine, procedure, method. |
+| Term     | Definition                                                                                               |
+|----------|----------------------------------------------------------------------------------------------------------|
+| process  | A running program, its own memory, from start to exit. Also: worker, instance.                           |
+| job      | Work handed over to run later or apart, with an id and a status. Also: batch, run.                       |
+| task     | One unit of work, one step of a job. Also: step, operation, work item.                                   |
+| function | Code with a name: called with arguments, it returns. Also: routine, subroutine, procedure, method.       |
+| pipeline | Stages in a row, the output of each the input of the next. Also: workflow, flow, stream, assembly line.  |
+| chain    | Links one after another, each handing on to the next or stopping there. Also: sequence, series, cascade. |
 
 ## System
 
@@ -116,3 +118,27 @@ Also: **routine** or **subroutine**, **procedure** (often one that returns
 nothing), **method** (a function of an object).
 
 ![Function: resize is called with an image and a width and returns the smaller image](../img/architecture/function.svg)
+
+## Pipeline
+
+Stages in a row, the output of each the input of the next: data goes in at
+one end and comes out changed at the other. Each stage does one thing and
+knows only its neighbours, so all of them can be busy at once, each with
+its own item. A shell's `a | b | c`, a build, a CI pipeline.
+
+Also: **workflow** (the steps, often with people in them), **flow**,
+**stream** (items one by one, without end), **assembly line**.
+
+![Pipeline: photos go through resize, compress and upload and come out as thumbnails, each stage busy with its own photo](../img/architecture/pipeline.svg)
+
+## Chain
+
+Links one after another, each handing on to the next or stopping there.
+What goes along is control, a request or a call, not data being changed:
+middleware (`next()`), a promise chain (`.then()`), method chaining, a
+chain of responsibility. Where a pipeline changes data stage by stage, a
+chain passes a turn, and any link may end it.
+
+Also: **sequence**, **series**, **cascade** (each step sets off the next).
+
+![Chain: a request passes log and auth to the handler; auth may stop it with a 401](../img/architecture/chain.svg)
