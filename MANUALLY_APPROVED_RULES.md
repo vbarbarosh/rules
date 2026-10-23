@@ -1027,3 +1027,16 @@ is the same as begin/end, only in other words").
 
 `since/until` joins the established pairs. It is `begin/end` said of time:
 the bounds of a span, a query or a filter.
+
+## MP-83 — let and const never share a run of declarations
+
+**Scope:** FMT-33, FMT-16, [formatting](FORMATTING.md).
+**Approved:** 2026-10-23, author messages `20261023_161206-me` ("never mix
+let and const in one block; separate them by new line instead!") and
+`20261023_161233-me` ("prefer let be the first").
+
+A run of declarations holds only `let` or only `const`; when both are
+needed, a blank line separates the two runs, and the `let` run comes first.
+That blank line is allowed besides a phase change (FMT-16). Existing code is
+not rewritten for it (CORE-01).
+

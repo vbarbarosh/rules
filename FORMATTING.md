@@ -228,6 +228,27 @@ project, so all JavaScript code follows the same conventions.
       const nodes = [osc, gain];
       ```
 
+* **`let` and `const` apart**
+
+    * A run of declarations, lines with no blank line between them, holds only `let` or only `const`
+    * When a block needs both, they are two runs with one blank line between, the `let` run first
+    * The `const` run comes first only when a `let` needs a value a `const` above it declares
+    * That blank line is the one a blank line may mark besides a phase change
+    * Example:
+
+      ```
+      // BAD
+      const LIMIT = 10;
+      let canvas = null;
+      const cache = new Map();
+
+      // GOOD
+      let canvas = null;
+
+      const LIMIT = 10;
+      const cache = new Map();
+      ```
+
 * **Template literals build strings**
 
     * A string built from parts is a template literal; `+` never joins a string to a value
