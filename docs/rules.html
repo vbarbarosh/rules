@@ -993,7 +993,7 @@ footer code {
 }
 
 /* An item with no picture, or a group with none: its names in the picture's place. */
-.words {
+.tile .words {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1010,7 +1010,7 @@ footer code {
     transition: border-color var(--fast), background-color var(--fast);
 }
 
-.words span {
+.tile .words span {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1493,7 +1493,7 @@ footer .lead {
     <div class="mast-top">
         <div class="project">
             <a class="project-name" href="rules.html">rules</a>
-            <span class="version">v0.1.6</span>
+            <span class="version">v0.1.7</span>
         </div>
         <nav class="pages" aria-label="Pages">
             <a href="rules.html" aria-current="page">Rules</a>

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.6",
+  "version": "0.1.7",
   "pages": [
     {"id":"rules","title":"Rules","path":"docs/rules.html","ids_shown":true},
     {"id":"animations","title":"Animations","path":"docs/animations.html","ids_shown":true},
