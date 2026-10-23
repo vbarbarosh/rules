@@ -10,7 +10,7 @@ let fixture_dir;
 
 test.before(function () {
     fixture_dir = fs.mkdtempSync(path.join(os.tmpdir(), 'rules-build-'));
-    for (const file of ['bin/build', 'bin/self-check', 'package.json', 'docs', 'drafts', 'agents', 'diagrams', 'apis', 'glossaries', 'img', 'formatting.html']) {
+    for (const file of ['bin/build', 'bin/build-search', 'bin/self-check', 'package.json', 'docs', 'drafts', 'agents', 'diagrams', 'apis', 'glossaries', 'img', 'formatting.html']) {
         fs.cpSync(path.join(root_dir, file), path.join(fixture_dir, file), {recursive: true});
     }
     fs.symlinkSync(path.join(root_dir, 'node_modules'), path.join(fixture_dir, 'node_modules'), 'dir');
@@ -102,7 +102,7 @@ test('the standard names show on the glossaries page with their two groups', fun
     const result = build();
     assert.equal(result.status, 0, result.stderr);
     const html = fs.readFileSync(path.join(fixture_dir, 'docs/glossaries.html'), 'utf8');
-    assert.match(html, /<section class="group" id="NAME"/);
+    assert.match(html, /<section class="group" id="NAMES"/);
     for (const tag of ['MACH', 'PLACE']) {
         assert.match(html, new RegExp(`id="${tag}"`));
     }
@@ -128,6 +128,20 @@ test('a picture line in a glossary section goes under the term, sized from the S
     assert.ok(!tree.includes('![Tree'), 'the picture line is not shown as text');
     const ontology = html.match(/<article class="rule" id="MAP-05">[\s\S]*?<\/article>/)[0];
     assert.match(ontology, /<div class="figures"><a class="figure" href="..\/img\/maps\/ontology.svg">.*?<\/a><a class="figure" href="..\/img\/maps\/terms-map.svg">/);
+});
+
+test('an id used twice across the pages fails the build, naming both', function () {
+    const file = path.join(fixture_dir, 'glossaries/names.md');
+    const original = fs.readFileSync(file, 'utf8');
+    try {
+        fs.writeFileSync(file, original.replace('# Standard names (NAMES)', '# Standard names (NAME)'));
+        const result = build();
+        assert.notEqual(result.status, 0);
+        assert.match(result.stderr, /ids used twice across the pages: NAME \(section of rules, section of glossaries\)/);
+    }
+    finally {
+        fs.writeFileSync(file, original);
+    }
 });
 
 test('a "## Term" section finds its term under a group too', function () {

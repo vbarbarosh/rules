@@ -1,4 +1,4 @@
-# Standard names (NAME)
+# Standard names (NAMES)
 
 Plain public names, used in place of private ones: the same word for the same
 thing in every project, so a reader outside knows at once what it is. Several

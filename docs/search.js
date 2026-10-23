@@ -1,17 +1,9 @@
-// The search box of every page reaches every page: under it, the rules,
-// terms, guides, diagrams and forms that match the query, wherever they
-// are, this page's first; the first is selected, and Enter or a click lands
-// on it. Matched the way the page filters (filter1_from_spec); the index is
-// search_index.js, written by bin/build.
+// The search box of every page reaches every page: under it, the sections
+// and items that match the query, wherever they are, this page's first; the
+// first is selected, and Enter or a click lands on it. Matched the way the
+// page filters (filter1_from_spec); the data is search.json, written by
+// bin/build-search, fetched beside this script.
 (function () {
-    const PAGE_NAMES = {
-        'rules.html': 'Rules',
-        'animations.html': 'Animations',
-        'agents.html': 'Agents',
-        'diagrams.html': 'Diagrams',
-        'apis.html': 'APIs',
-        'glossaries.html': 'Glossaries',
-    };
     const LIMIT = 8;
     const STYLE = `
 .everywhere {
@@ -73,9 +65,10 @@
 `;
 
     const q_el = document.getElementById('q');
-    const page = location.pathname.split('/').pop() || 'index.html';
-    const entries = window.SEARCH_INDEX ?? [];
+    const script_url = document.currentScript.src;
     const list_el = document.createElement('ul');
+    let page = null;
+    let entries = [];
     let hits = [];
     let selected = -1;
 
@@ -106,6 +99,54 @@
         list_el.addEventListener('pointerdown', v => v.preventDefault());
         list_el.addEventListener('click', click_list);
         list_el.addEventListener('pointermove', pointermove_list);
+        search_load();
+    }
+
+    // Opened from disk, the browser fetches nothing: the box filters this
+    // page only. A query typed before the data came is answered once it is in.
+    async function search_load() {
+        try {
+            const response = await fetch(new URL('search.json', script_url));
+            const search = await response.json();
+            entries = entries_from_search(search);
+            page = search.pages.find(v => new URL(v.path, root_url()).pathname === location.pathname)?.id ?? null;
+        }
+        catch {
+            return;
+        }
+        if (document.activeElement === q_el) {
+            refresh();
+        }
+    }
+
+    // A section, then the items in it, page by page; each with its page, the
+    // address it lands on, the code shown, and the words a query matches.
+    function entries_from_search(search) {
+        const page_by_id = Object.fromEntries(search.pages.map(v => [v.id, v]));
+        const items_by_section_id = Object.groupBy(search.items, v => v.section_id);
+        const page_id_by_section_id = Object.fromEntries(search.sections.map(v => [v.id, v.page_id]));
+        const out = [];
+        for (const section of search.sections) {
+            for (const record of [section, ...(items_by_section_id[section.id] ?? [])]) {
+                const home = page_by_id[page_id_by_section_id[record.section_id ?? record.id]];
+                out.push({
+                    page: home.id,
+                    page_title: home.title,
+                    href: `${new URL(home.path, root_url())}#${record.id}`,
+                    id: record.id,
+                    code: home.ids_shown ? record.id : '',
+                    name: record.name,
+                    named: `${record.id} ${record.name}`.toLowerCase(),
+                    text: `${record.id} ${record.name} ${record.text}`.toLowerCase(),
+                });
+            }
+        }
+        return out;
+    }
+
+    // search.js sits in docs/; a page's path is from the repository's root
+    function root_url() {
+        return new URL('../', script_url);
     }
 
     function refresh() {
@@ -121,7 +162,7 @@
         const named = [];
         const told = [];
         for (const entry of entries) {
-            if (query.filter(`${entry.id} ${entry.name}`.toLowerCase())) {
+            if (query.filter(entry.named)) {
                 named.push(entry);
             }
             else if (query.filter(entry.text)) {
@@ -139,7 +180,7 @@
         const shown = hits.slice(0, LIMIT);
         const items = shown.map(function (entry, i) {
             const code = entry.code ? `<span class="code">${html_escape(entry.code)}</span>` : '';
-            const where = (entry.page === page) ? 'here' : (PAGE_NAMES[entry.page] ?? entry.page);
+            const where = (entry.page === page) ? 'here' : entry.page_title;
             return `<li role="option" id="everywhere_${i}" aria-selected="${i === selected}" data-index="${i}">${code}<span class="name">${html_escape(entry.name)}</span><span class="where">${html_escape(where)}</span></li>`;
         });
         if (hits.length > LIMIT) {
@@ -212,7 +253,7 @@
     function land(entry) {
         blur_q();
         if (entry.page !== page) {
-            location.href = `${entry.page}#${entry.id}`;
+            location.href = entry.href;
             return;
         }
         const target_el = document.getElementById(entry.id);

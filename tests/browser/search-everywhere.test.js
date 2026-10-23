@@ -130,6 +130,21 @@ test('rules: nothing found, no list; an empty box, no list', async function () {
     }
 });
 
+test('rules: a section of a page written by hand is found, and lands on it', async function () {
+    const page = await open_page('rules');
+    try {
+        await page.locator('#q').fill('value encoding');
+        const first = page.locator('#everywhere li').first();
+        assert.match(await first.textContent(), /^Details: value encodingLogs$/);
+        await page.keyboard.press('Enter');
+        await page.waitForURL(v => v.pathname.endsWith('/drafts/logs-cheatsheet.html') && (v.hash === '#encoding'));
+        assert.equal(await page.locator('#encoding').isVisible(), true);
+    }
+    finally {
+        await page.close();
+    }
+});
+
 async function open_page(name)
 {
     const out = await browser.newPage();
@@ -141,6 +156,7 @@ async function open_page(name)
             await route.abort();
         }
     });
-    await out.goto(`${origin}/docs/${name}.html`);
+    // the list comes from docs/search.json, fetched once the page has loaded
+    await out.goto(`${origin}/docs/${name}.html`, {waitUntil: 'networkidle'});
     return out;
 }

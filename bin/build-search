@@ -1,0 +1,122 @@
+#!/usr/bin/env node
+
+const build = require('./build');
+const cli = require('@vbarbarosh/node-helpers/src/cli');
+const fs = require('node:fs');
+const package_json = require('../package.json');
+const path = require('node:path');
+
+// docs/search.json: what the search box of every page finds, all pages at
+// once: the pages, their sections and the items in the sections. A section
+// or an item id is unique across all pages, so they could be one page.
+const root_dir = path.join(__dirname, '..');
+// The pages written by hand: their sections are read from their HTML.
+const HTML_PAGES = [
+    {id: 'formatting', title: 'Formatting', path: 'formatting.html'},
+    {id: 'logs', title: 'Logs', path: 'drafts/logs-cheatsheet.html'},
+];
+
+cli(main);
+
+function main()
+{
+    const search = {version: package_json.version, pages: [], sections: [], items: []};
+    for (const name of ['rules', 'animations']) {
+        search_add_index(search, name, build.index_read(name));
+    }
+    search_add_glossaries(search, build.glossaries_read());
+    for (const [dir, title] of [['agents', 'Agents'], ['diagrams', 'Diagrams'], ['apis', 'APIs']]) {
+        search_add_guides(search, title, build.guides_read(dir));
+    }
+    for (const page of HTML_PAGES) {
+        search_add_html(search, page);
+    }
+    search_assert_ids_unique(search);
+    fs.writeFileSync(path.join(root_dir, 'docs/search.json'), json_from_search(search));
+}
+
+// rules.md, animations.md: a section for each group, an item for each rule.
+function search_add_index(search, name, index)
+{
+    search.pages.push({id: name, title: index_title(name), path: `docs/${name}.html`, ids_shown: true});
+    for (const group of index.groups) {
+        search.sections.push({id: group.tag, page_id: name, name: group.name, text: group.note});
+        for (const rule of group.rules) {
+            const form = (rule.form === '—') ? '' : build.text_from_markdown(build.text_from_html(rule.form.replace(/<br>/g, ' ')));
+            const text = build.text_from_markdown(build.text_from_html(rule.text.replace(/^\*\*.+?\*\*\s*/, '')));
+            search.items.push({id: rule.code, section_id: group.tag, name: build.name_from_rule(rule), text: [text, form, rule.source_label].filter(v => v).join(' ')});
+        }
+    }
+}
+
+function index_title(name)
+{
+    return name[0].toUpperCase() + name.slice(1);
+}
+
+// A glossary is a section, its groups are sections inside it; its terms
+// and theirs are the items, numbered within each.
+function search_add_glossaries(search, glossaries)
+{
+    search.pages.push({id: 'glossaries', title: 'Glossaries', path: 'docs/glossaries.html', ids_shown: true});
+    for (const glossary of glossaries) {
+        for (const owner of [glossary, ...glossary.groups]) {
+            const parent = (owner === glossary) ? {} : {parent_id: glossary.tag};
+            search.sections.push({id: owner.tag, page_id: 'glossaries', ...parent, name: owner.name, text: owner.note});
+            owner.terms.forEach(function (term, i) {
+                const words = [term.definition ?? '', ...term.paragraphs.map(v => v.join(' ')), ...term.images.map(v => v.alt), path.basename(glossary.file)];
+                search.items.push({id: `${owner.tag}-${String(i + 1).padStart(2, '0')}`, section_id: owner.tag, name: build.text_from_markdown(term.name), text: build.text_from_markdown(words.join(' '))});
+            });
+        }
+    }
+}
+
+// agents/, diagrams/, apis/: each guide is a section of its own, no items.
+function search_add_guides(search, title, set)
+{
+    search.pages.push({id: set.dir, title, path: `docs/${set.dir}.html`});
+    for (const guide of set.guides) {
+        search.sections.push({id: guide.id, page_id: set.dir, name: guide.title, text: build.text_from_markdown(guide.body)});
+    }
+}
+
+// A page written by hand: each <section id> with its <h2> is a section.
+function search_add_html(search, page)
+{
+    search.pages.push(page);
+    const html = fs.readFileSync(path.join(root_dir, page.path), 'utf8');
+    for (const match of html.matchAll(/<section class="section" id="([^"]+)">\s*<h2>([\s\S]*?)<\/h2>([\s\S]*?)<\/section>/g)) {
+        const name = text_from_html_page(match[2].replace(/<span class="tag">[^<]*<\/span>/, ''));
+        search.sections.push({id: match[1], page_id: page.id, name, text: text_from_html_page(match[3])});
+    }
+}
+
+function text_from_html_page(html)
+{
+    const text = html.replace(/<(svg|style|script)\b[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ');
+    return build.text_from_html(text).replace(/&rarr;/g, '→').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+// One id, one place: a link to it, or one page made of them all, lands
+// on it and nothing else.
+function search_assert_ids_unique(search)
+{
+    const where_by_id = {};
+    for (const section of search.sections) {
+        where_by_id[section.id] = [...(where_by_id[section.id] ?? []), `section of ${section.page_id}`];
+    }
+    for (const item of search.items) {
+        where_by_id[item.id] = [...(where_by_id[item.id] ?? []), `item of ${item.section_id}`];
+    }
+    const clashes = Object.entries(where_by_id).filter(([, places]) => places.length > 1);
+    if (clashes.length > 0) {
+        throw new Error(`ids used twice across the pages: ${clashes.map(([id, places]) => `${id} (${places.join(', ')})`).join('; ')}`);
+    }
+}
+
+// One record a line, so a change is a one-line diff.
+function json_from_search(search)
+{
+    const list = records => `[\n${records.map(v => `    ${JSON.stringify(v)}`).join(',\n')}\n  ]`;
+    return `{\n  "version": ${JSON.stringify(search.version)},\n  "pages": ${list(search.pages)},\n  "sections": ${list(search.sections)},\n  "items": ${list(search.items)}\n}\n`;
+}

@@ -35,7 +35,7 @@ the container level of the C4 model, drawn as a sketch.
 3. **What goes between them:** the project's arrows, grey, each with a few
    words.
 4. **Names:** the standard ones from the
-   [glossary of names](https://vbarbarosh.github.io/rules/docs/glossaries.html#NAME) (laptop, router, vps1,
+   [glossary of names](https://vbarbarosh.github.io/rules/docs/glossaries.html#NAMES) (laptop, router, vps1,
    box), never a private host.
 
 ## Examples
