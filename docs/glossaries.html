@@ -1462,7 +1462,7 @@ footer .lead {
     <div class="mast-top">
         <div class="project">
             <a class="project-name" href="rules.html">rules</a>
-            <span class="version">v0.1.2</span>
+            <span class="version">v0.1.3</span>
         </div>
         <nav class="pages" aria-label="Pages">
             <a href="rules.html">Rules</a>
@@ -2473,7 +2473,7 @@ function filter_apply()
     let total = 0;
     for (const rule_el of rule_els) {
         const ok = query.filter(name_by_id[rule_el.id]) || query.filter(haystack_by_id[rule_el.id]);
-        rule_el.hidden = !ok;
+        hidden_set(rule_el, !ok);
         if (ok) {
             total++;
         }
@@ -2481,29 +2481,64 @@ function filter_apply()
     for (const group_el of group_els) {
         const group_rule_els = group_el.querySelectorAll('article.rule');
         const visible = group_el.querySelectorAll('article.rule:not([hidden])').length;
-        group_el.hidden = (visible === 0);
+        hidden_set(group_el, visible === 0);
         const a = nav_by_group[group_el.id];
         a.classList.toggle('none', visible === 0);
-        a.querySelector('.n').textContent = (visible === group_rule_els.length) ? group_rule_els.length : `${visible}/${group_rule_els.length}`;
+        text_set(a.querySelector('.n'), (visible === group_rule_els.length) ? String(group_rule_els.length) : `${visible}/${group_rule_els.length}`);
     }
     // A term whose name passes the query comes first in its group.
     for (const [list_el, terms] of terms_by_list) {
-        for (const rule_el of [...terms.filter(is_named), ...terms.filter(v => !is_named(v))]) {
-            list_el.insertBefore(rule_el, end_by_list.get(list_el));
-        }
+        order_apply(list_el, [...terms.filter(is_named), ...terms.filter(v => !is_named(v))], end_by_list.get(list_el));
     }
     if (overview_el) {
-        overview_el.hidden = !query.empty;
+        hidden_set(overview_el, !query.empty);
         nav_by_group.overview.classList.toggle('none', !query.empty);
     }
-    nothing_el.hidden = (total > 0);
+    hidden_set(nothing_el, (total > 0));
     refresh_pictures_control();
-    count_el.textContent = (total === rule_els.length) ? `${total} terms` : `${total} of ${rule_els.length} terms`;
+    text_set(count_el, (total === rule_els.length) ? `${total} terms` : `${total} of ${rule_els.length} terms`);
     highlight_apply(query.words);
     spy_apply();
 
     function is_named(rule_el) {
         return !query.empty && query.filter(name_by_id[rule_el.id]);
+    }
+}
+
+// Each key filters the whole page: what is already as it should be is left
+// alone, for every write makes the browser lay the page out again.
+function hidden_set(el, hidden)
+{
+    if (el.hidden !== hidden) {
+        el.hidden = hidden;
+    }
+}
+
+function text_set(el, text)
+{
+    if (el.textContent !== text) {
+        el.textContent = text;
+    }
+}
+
+// The items of a list put in order before its end, from the last one back:
+// only an item not already before the one that follows it moves.
+function order_apply(list_el, items, end)
+{
+    let next = end;
+    for (let i = items.length - 1; i >= 0; i--) {
+        if (next_item(items[i]) !== next) {
+            list_el.insertBefore(items[i], next);
+        }
+        next = items[i];
+    }
+
+    function next_item(item) {
+        let node = item.nextSibling;
+        while ((node !== next) && (node?.nodeType === Node.TEXT_NODE) && !node.data.trim()) {
+            node = node.nextSibling;
+        }
+        return node;
     }
 }
 
@@ -2527,10 +2562,11 @@ function highlight_apply(words)
     if (!window.CSS || !CSS.highlights || !window.Highlight) {
         return;
     }
-    const ranges = [];
+    const highlight = new Highlight();
     for (const root of (words.length > 0) ? document.querySelectorAll('main, nav.groups') : []) {
-        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-            acceptNode: v => v.parentElement.closest('[hidden], [data-md], script, style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+        // a hidden element is passed by whole, not asked of each text in it
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, {
+            acceptNode: v => (v.nodeType === Node.TEXT_NODE) ? NodeFilter.FILTER_ACCEPT : v.matches('[hidden], [data-md], script, style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_SKIP,
         });
         for (let node = walker.nextNode(); node; node = walker.nextNode()) {
             const text = node.data.toLowerCase();
@@ -2539,12 +2575,12 @@ function highlight_apply(words)
                     const range = new Range();
                     range.setStart(node, i);
                     range.setEnd(node, i + word.length);
-                    ranges.push(range);
+                    highlight.add(range);
                 }
             }
         }
     }
-    CSS.highlights.set('q', new Highlight(...ranges));
+    CSS.highlights.set('q', highlight);
 }
 
 function scroll_window()

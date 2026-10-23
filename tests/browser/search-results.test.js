@@ -144,6 +144,30 @@ for (const [page_name, query] of Object.entries(QUERY_BY_PAGE)) {
     });
 }
 
+// Every key filters the whole page; one that changes no match leaves the
+// page as it was, for each change makes the browser lay it out again.
+for (const [page_name, query] of Object.entries(QUERY_BY_PAGE)) {
+    test(`${page_name}: a key that changes no match changes nothing on the page`, async function () {
+        const page = await open_page(page_name, query);
+        try {
+            await page.evaluate(function () {
+                window.mutations = [];
+                const observer = new MutationObserver(v => window.mutations.push(...v.map(vv => `${vv.type} ${vv.target.id || vv.target.nodeName}`)));
+                for (const root of document.querySelectorAll('main, nav.groups')) {
+                    observer.observe(root, {subtree: true, childList: true, attributes: true, characterData: true});
+                }
+                window.mutations_observer = observer;
+            });
+            await page.fill('#q', `${query} `);
+            const mutations = await page.evaluate(() => [...window.mutations, ...window.mutations_observer.takeRecords()]);
+            assert.deepEqual(mutations, []);
+        }
+        finally {
+            await page.close();
+        }
+    });
+}
+
 async function open_page(page_name, query)
 {
     const page = await browser.newPage({viewport: {width: 1400, height: 900}});

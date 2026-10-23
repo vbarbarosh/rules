@@ -1,6 +1,6 @@
 {
   "name": "@vbarbarosh/rules",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Rules for naming, formatting, project layout and UI, so all code reads the same way",
   "homepage": "https://vbarbarosh.github.io/rules/docs/rules.html",
   "main": "src/plugin.js",
