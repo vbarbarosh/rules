@@ -1493,7 +1493,7 @@ footer .lead {
     <div class="mast-top">
         <div class="project">
             <a class="project-name" href="rules.html">rules</a>
-            <span class="version">v0.1.4</span>
+            <span class="version">v0.1.5</span>
         </div>
         <nav class="pages" aria-label="Pages">
             <a href="rules.html">Rules</a>
@@ -2687,12 +2687,15 @@ function keydown_document(event)
         demo_close();
         return;
     }
-    if ((event.key === 'Escape') && (document.activeElement === q_el)) {
+    const editing = event.composedPath().some(v => (v instanceof HTMLElement) && (v.matches('input, textarea, select') || v.isContentEditable));
+    // Escape clears the query wherever the focus is: in the box, or on the
+    // page after a click, a scroll or a jump; not from another field, and
+    // not over a dialog, which Escape closes.
+    if ((event.key === 'Escape') && ((document.activeElement === q_el) || (q_el.value && !editing && !document.querySelector('dialog[open], [aria-modal="true"]')))) {
         q_el.value = '';
         input_q();
         return;
     }
-    const editing = event.composedPath().some(v => (v instanceof HTMLElement) && (v.matches('input, textarea, select') || v.isContentEditable));
     if (editing || (Array.from(event.key).length !== 1) || q_el.disabled || q_el.readOnly) {
         return;
     }

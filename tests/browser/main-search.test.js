@@ -81,6 +81,41 @@ for (const page_name of PAGE_NAMES) {
         }
     });
 
+    test(`${page_name}: Escape clears the query with the focus anywhere, but not from another field or over a dialog`, async function () {
+        const page = await open_page(page_name);
+        try {
+            await page.keyboard.type('git');
+            await page.evaluate(() => document.activeElement.blur());
+            await page.keyboard.press('Escape');
+            assert.equal(await page.locator('#q').inputValue(), '');
+            assert.equal(new URL(page.url()).searchParams.get('q'), null);
+            await page.keyboard.type('git');
+            await page.locator('nav.groups a').last().focus();
+            await page.keyboard.press('Escape');
+            assert.equal(await page.locator('#q').inputValue(), '');
+            await page.keyboard.type('git');
+            await page.evaluate(function () {
+                const input = document.createElement('input');
+                input.id = 'local';
+                document.body.append(input);
+                input.focus();
+            });
+            await page.keyboard.press('Escape');
+            assert.equal(await page.locator('#q').inputValue(), 'git');
+            await page.evaluate(function () {
+                const dialog = document.createElement('dialog');
+                dialog.innerHTML = '<button>Local action</button>';
+                document.body.append(dialog);
+                dialog.showModal();
+            });
+            await page.keyboard.press('Escape');
+            assert.equal(await page.locator('#q').inputValue(), 'git');
+        }
+        finally {
+            await page.close();
+        }
+    });
+
     test(`${page_name}: local editable fields retain typing, including an input inside a shadow root`, async function () {
         const page = await open_page(page_name);
         try {
