@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="660" fill="#16181b"/>
+<defs><marker id="ag" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#72d39c" stroke-linejoin="round"/></marker><marker id="ar" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#ff937c" stroke-linejoin="round"/></marker><marker id="ab" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker><marker id="an" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#4a4f57" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Hardening</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the work on robustness, done once the happy path runs</text>
+<text x="48" y="212" fill="#72d39c" font-size="21" font-weight="700">result first</text>
+<rect x="250" y="170" width="270" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="385.0" y="212.0" fill="#72d39c" font-size="20" text-anchor="middle" font-weight="700">the happy path works</text>
+<line x1="526" y1="205" x2="566" y2="205" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#ab)"/>
+<rect x="574" y="170" width="226" height="70" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="687.0" y="212.0" fill="#9db2ff" font-size="21" text-anchor="middle" font-weight="700">hardening</text>
+<line x1="806" y1="205" x2="850" y2="205" stroke="#72d39c" stroke-width="1.75" stroke-linecap="round" marker-end="url(#ag)"/>
+<rect x="858" y="170" width="240" height="70" rx="12" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="978.0" y="212.0" fill="#72d39c" font-size="21" text-anchor="middle" font-weight="700">robust</text>
+<rect x="577" y="262" width="220" height="44" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="687.0" y="291.0" fill="#9db2ff" font-size="18" text-anchor="middle" font-weight="700">a field empty</text>
+<rect x="577" y="318" width="220" height="44" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="687.0" y="347.0" fill="#9db2ff" font-size="18" text-anchor="middle" font-weight="700">the network down</text>
+<rect x="577" y="374" width="220" height="44" rx="12" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="687.0" y="403.0" fill="#9db2ff" font-size="18" text-anchor="middle" font-weight="700">the server says no</text>
+<text x="48" y="497" fill="#ff937c" font-size="21" font-weight="700">all at once</text>
+<rect x="250" y="455" width="848" height="70" rx="12" fill="#3b1f22" stroke="#ff937c" stroke-width="2" stroke-dasharray="10 8"/>
+<text x="674.0" y="497.0" fill="#ff937c" font-size="20" text-anchor="middle" font-weight="700">every case handled before the first result: nothing works yet</text>
+<text x="48" y="575" fill="#92958c" font-size="21">The result first, then the ways off it. Handling every case at once leaves nothing</text>
+<text x="48" y="606" fill="#92958c" font-size="21">working for a long time, and the cases are guessed before the result shows them.</text>
+</svg>

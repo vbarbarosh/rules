@@ -29,6 +29,14 @@ Words for failures, and for the tests that find them.
 - Safety net – a second, independent catch under the first way: when the
   usual mechanism fails or is forgotten, the net limits the damage. Not the
   plan, but what holds when the plan does not
+- [Robustness](https://en.wikipedia.org/wiki/Robustness_(computer_science)) – how
+  well a program keeps behaving right off the happy path: wrong input, a
+  failed call, empty data, an odd order of events
+- Hardening – the work on robustness, done once the happy path runs: the
+  result first, then the ways off it
+- [Fault Tolerance](https://en.wikipedia.org/wiki/Fault_tolerance) – a part
+  breaks (a server, a disk) and the whole keeps running; one kind of
+  robustness
 
 ## Intermittent failures
 
@@ -185,3 +193,36 @@ test("API returns data", async function () {
 ## Showstopper bug
 
 ![Showstopper bug: the road from development to customers blocked by a barrier](../img/testing/showstopper-bug.svg)
+
+## Robustness
+
+How well a program keeps behaving right off the happy path. The happy path
+is the road where everything goes as meant; robustness is what the program
+does on every way off it: a field left empty, the network down, the server
+saying no, empty data, two clicks where one was expected. A robust program
+answers each one with something the person can act on (it names the field,
+keeps the text and retries, says why) instead of a crash, a blank screen or
+a spinner that never stops.
+
+![Robustness: the happy path's road, each way off it ending in an answer](../img/testing/robustness.svg)
+
+## Hardening
+
+The work on robustness, and its place in the order of work. Build the happy
+path first, because the result is what matters: a form that saves, a page
+that shows. Once it runs, harden it: take the ways off it one by one and
+give each its answer. The urge is to handle every case at once, before
+anything works; it leaves nothing working for a long time, and the cases are
+guessed before the running result shows which ones really happen.
+
+![Hardening: the happy path works, then hardening, then robust; every case at once leaves nothing working](../img/testing/hardening.svg)
+
+## Fault tolerance
+
+A part of the system breaks and the whole keeps running: one server of
+three is down and the requests go to the other two; a disk fails and its
+mirror carries on. Fault tolerance is one kind of robustness, the one about
+the program's own parts failing; robustness also covers what comes from
+outside, the input and the people.
+
+![Fault tolerance: one server of three down, the request still answered](../img/testing/fault-tolerance.svg)
