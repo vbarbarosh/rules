@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="700" fill="#fffefb"/>
+<defs><marker id="ag" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#1a7443" stroke-linejoin="round"/></marker><marker id="ab" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Verification</text>
+<text x="48" y="108" fill="#686a61" font-size="22">the last step of the work: the result checked before it is called done</text>
+<rect x="48" y="170" width="250" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="173.0" y="212.0" fill="#1a7443" font-size="20" text-anchor="middle" font-weight="700">the happy path works</text>
+<line x1="304" y1="205" x2="344" y2="205" stroke="#1a7443" stroke-width="1.75" stroke-linecap="round" marker-end="url(#ag)"/>
+<rect x="352" y="170" width="220" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="462.0" y="212.0" fill="#1a7443" font-size="21" text-anchor="middle" font-weight="700">hardening</text>
+<line x1="578" y1="205" x2="618" y2="205" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#ab)"/>
+<rect x="626" y="170" width="260" height="70" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="756.0" y="212.0" fill="#2743b8" font-size="22" text-anchor="middle" font-weight="700">verification</text>
+<line x1="892" y1="205" x2="932" y2="205" stroke="#1a7443" stroke-width="1.75" stroke-linecap="round" marker-end="url(#ag)"/>
+<rect x="940" y="170" width="212" height="70" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="1046.0" y="212.0" fill="#1a7443" font-size="21" text-anchor="middle" font-weight="700">done</text>
+<rect x="636" y="262" width="240" height="44" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="756.0" y="291.0" fill="#2743b8" font-size="18" text-anchor="middle" font-weight="700">run it, to its end</text>
+<rect x="636" y="318" width="240" height="44" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="756.0" y="347.0" fill="#2743b8" font-size="18" text-anchor="middle" font-weight="700">look at the result</text>
+<rect x="636" y="374" width="240" height="44" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="756.0" y="403.0" fill="#2743b8" font-size="18" text-anchor="middle" font-weight="700">try every state</text>
+<rect x="636" y="430" width="240" height="44" rx="12" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="756.0" y="459.0" fill="#2743b8" font-size="18" text-anchor="middle" font-weight="700">beside the request</text>
+<text x="48" y="530" fill="#b2341f" font-size="21" font-weight="700">skipped</text>
+<rect x="250" y="488" width="902" height="70" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2" stroke-dasharray="10 8"/>
+<text x="701.0" y="530.0" fill="#b2341f" font-size="20" text-anchor="middle" font-weight="700">"done" on a command only started: the author finds what broke</text>
+<text x="48" y="615" fill="#686a61" font-size="21">Hardening makes it right off the happy path; verification shows it is right, by running</text>
+<text x="48" y="646" fill="#686a61" font-size="21">it and looking. What was not run was not verified; a command started is not a check passed.</text>
+</svg>

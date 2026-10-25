@@ -37,6 +37,9 @@ Words for failures, and for the tests that find them.
 - [Fault Tolerance](https://en.wikipedia.org/wiki/Fault_tolerance) – a part
   breaks (a server, a disk) and the whole keeps running; one kind of
   robustness
+- Verification – the check, before calling the work done, that it does what
+  was asked: run it, look at the result, try every state. The step after
+  hardening; a command started is not a check passed
 
 ## Intermittent failures
 
@@ -215,6 +218,9 @@ give each its answer. The urge is to handle every case at once, before
 anything works; it leaves nothing working for a long time, and the cases are
 guessed before the running result shows which ones really happen.
 
+Then verification (TEST-14): before the word done, the result is run and
+looked at, its states tried, beside what was asked.
+
 ![Hardening: the happy path works, then hardening, then robust; every case at once leaves nothing working](../img/testing/hardening.svg)
 
 ## Fault tolerance
@@ -226,3 +232,23 @@ the program's own parts failing; robustness also covers what comes from
 outside, the input and the people.
 
 ![Fault tolerance: one server of three down, the request still answered](../img/testing/fault-tolerance.svg)
+
+## Verification
+
+The last step of the order of work: the happy path runs, hardening gives
+the ways off it their answers, and before the word done the result is
+checked against what was asked. Checked by running, not by reading: the
+command run to its end and its output read, the page opened and looked at,
+every state tried, the request read again beside the result. What was not
+run was not verified, and a command started is not a check passed. It ends
+in evidence someone else can see: the screenshot, the test that passed,
+the output.
+
+Beside its neighbours: a smoke test asks whether it runs at all;
+verification asks whether this change does what was asked. Validation, its
+usual pair, asks whether what was asked is the right thing: verification,
+built right; validation, the right thing built. A self-check is the
+application checking itself; verification is whoever did the work checking
+it.
+
+![Verification: the happy path, hardening, then verification before done; done said on a command only started leaves the author to find what broke](../img/testing/verification.svg)
