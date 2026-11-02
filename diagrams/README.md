@@ -49,3 +49,9 @@ Which kind for which data: the chooser in the guide
 - [delta.md](delta.md) — what a change does to a system: one map after it, each part marked added +, changed ~, removed − or the same, the counts on top
 - [flame.md](flame.md) — where one run spends its time: call stacks as bars, as wide as their time
 - [treemap.md](treemap.md) — how big each part is: each function a rectangle, its area its lines
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that draws
+  10 kinds from typed JSON into interactive pages; class, breakdown,
+  before and after, bar chart and pie chart came here from it.

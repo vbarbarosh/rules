@@ -1319,7 +1319,7 @@ main[data-page="apis"] .prose > h3 {
     <div class="mast-top">
         <div class="project">
             <a class="project-name" href="rules.html">rules</a>
-            <span class="version">v0.1.10</span>
+            <span class="version">v0.1.11</span>
         </div>
         <nav class="pages" aria-label="Pages">
             <a href="rules.html">Rules</a>
@@ -2709,6 +2709,8 @@ with one of another: 1 to n, n to n, marked on each line's ends.
 <ul><li><strong>Which function calls which:</strong> a <a href="#callgraph">call graph</a>.</li><li><strong>Which file needs which:</strong> a <a href="#modules">module graph</a>.</li><li><strong>What data is stored and how it links:</strong> an <a href="#entities">entity-relationship diagram</a>; a class diagram is the code's model, not the tables.</li><li><strong>Code with no types of its own,</strong> plain functions and data: there is nothing to box.</li></ul>
 <h3>How it is drawn</h3>
 <ol><li><strong>A type:</strong> a box in three parts. Its name in bold on a tinted band; its main fields under it, <code>name: type</code>; its main methods at the bottom. An interface has «interface» over its name, the name in italics, no fields.</li><li><strong>Made of:</strong> a plain line with a filled diamond at the whole; <strong>1</strong> and <strong>n</strong> in bold at the ends, a verb beside it.</li><li><strong>Uses:</strong> a dashed line with an arrowhead to the type used, a verb on it (pays with).</li><li><strong>A kind of:</strong> a dashed line with a hollow triangle at the interface it implements, or a plain one at the class it extends; several kinds share one triangle.</li><li><strong>What changes:</strong> a new type green, one that goes red and dashed; under it a word in its colour.</li><li><strong>Now:</strong> a blue box under the types says in one sentence what the diagram shows.</li></ol>
+<h3>References</h3>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -2758,6 +2760,12 @@ other, one uses the other, one is a kind of the other.
    it a word in its colour.
 6. **Now:** a blue box under the types says in one sentence what the
    diagram shows.
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that
+  draws this kind from typed JSON into an interactive page; the kind came
+  to this page from it.
 </pre>
 </section>
 <section class="group guide" id="breakdown">
@@ -2771,6 +2779,8 @@ other, one uses the other, one is a kind of the other.
 <ul><li><strong>A part has two parents,</strong> or the parts call each other: a <a href="#modules">module graph</a> or a <a href="#containers">container sketch</a>.</li><li><strong>Files in their folders:</strong> a <a href="#modules">module graph</a>; what one change touches, a <a href="#changemap">change map</a>.</li><li><strong>How big each part is:</strong> a <a href="#treemap">treemap</a>, its areas by size.</li><li><strong>What waits on what:</strong> a <a href="#plangraph">plan graph</a>.</li></ul>
 <h3>How it is drawn</h3>
 <ol><li><strong>The root:</strong> on top, in the middle, a blue box with the whole's name and a count under it (7 parts, 3 teams).</li><li><strong>The parts:</strong> a box per part, its name in bold and one fact under it (its owner, its size); one row per level, at most three levels.</li><li><strong>The lines:</strong> from the middle of a parent's bottom down, across, and down into each child; square corners, no arrowheads.</li><li><strong>The leaves:</strong> evenly across the bottom row; each parent centred over its own.</li><li><strong>What stands out:</strong> the part the question is about amber, a line under the tree saying why.</li><li><strong>Now:</strong> a blue box under the tree says in one sentence what to do.</li></ol>
+<h3>References</h3>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -2816,6 +2826,12 @@ sees what belongs where and what is missing an owner.
 5. **What stands out:** the part the question is about amber, a line
    under the tree saying why.
 6. **Now:** a blue box under the tree says in one sentence what to do.
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that
+  draws this kind from typed JSON into an interactive page; the kind came
+  to this page from it.
 </pre>
 </section>
 <section class="group guide" id="dashboard">
@@ -2994,6 +3010,8 @@ reader sees the number before and after, and whether it stayed.
 <ul><li><strong>A number over time:</strong> a <a href="#linechart">line chart</a>.</li><li><strong>Shares of one whole,</strong> where the question is what part of all: a <a href="#piechart">pie chart</a>; with many kinds a bar chart still reads better.</li><li><strong>One whole and its gap,</strong> how much is covered: the bar of a <a href="#dashboard">dashboard</a>.</li><li><strong>Two or three numbers:</strong> say them in a sentence.</li></ul>
 <h3>How it is drawn</h3>
 <ol><li><strong>The bars:</strong> across, one per kind, longest on top, the same thickness, blue; the name to the left of each, its count at its end.</li><li><strong>The axis:</strong> from zero along the bottom, a few round values and a thin line up the panel at each; a bar never starts above zero.</li><li><strong>The one that matters:</strong> amber, its name bold, a few words beside its count (ours to fix).</li><li><strong>The total:</strong> under the axis, what is counted and how many in all.</li><li><strong>Now:</strong> a blue box under the chart says in one sentence what it shows.</li></ol>
+<h3>References</h3>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -3036,6 +3054,12 @@ much, and where the one the question is about stands.
    count (ours to fix).
 4. **The total:** under the axis, what is counted and how many in all.
 5. **Now:** a blue box under the chart says in one sentence what it shows.
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that
+  draws this kind from typed JSON into an interactive page; the kind came
+  to this page from it.
 </pre>
 </section>
 <section class="group guide" id="piechart">
@@ -3049,6 +3073,8 @@ much, and where the one the question is about stands.
 <ul><li><strong>The shares are close,</strong> or the question is which is bigger by how much: a <a href="#barchart">bar chart</a>; slices that differ a little look the same.</li><li><strong>More than five shares,</strong> or parts that do not add up to one whole: a <a href="#barchart">bar chart</a>.</li><li><strong>A share over time:</strong> a <a href="#linechart">line chart</a>.</li><li><strong>Where it goes, step by step:</strong> a <a href="#sankey">sankey</a>.</li></ul>
 <h3>How it is drawn</h3>
 <ol><li><strong>The ring:</strong> a pie with a hole, the total in bold in the hole and what it counts under it.</li><li><strong>The slices:</strong> the biggest from the top, clockwise, then smaller; blue, green, amber, purple, and &quot;other&quot; grey and last. A thin gap of the background between slices.</li><li><strong>The legend:</strong> beside the ring, in the slices' order: a swatch, the name, the share in its colour, the count in grey.</li><li><strong>Now:</strong> a blue box under the chart says in one sentence what it shows.</li></ol>
+<h3>References</h3>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -3091,6 +3117,12 @@ sees what part of all each share is, and whether one is most of it.
 3. **The legend:** beside the ring, in the slices' order: a swatch, the
    name, the share in its colour, the count in grey.
 4. **Now:** a blue box under the chart says in one sentence what it shows.
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that
+  draws this kind from typed JSON into an interactive page; the kind came
+  to this page from it.
 </pre>
 </section>
 <section class="group guide" id="heatmap">
@@ -3853,6 +3885,8 @@ it is before reading the diff.
 <ul><li><strong>Which files a commit touches:</strong> a <a href="#changemap">change map</a>.</li><li><strong>The order of the calls changes:</strong> a <a href="#sequence">sequence diagram</a>, today beside proposed.</li><li><strong>A change the author sees on screen:</strong> screenshots before and after.</li><li><strong>Nothing is added or removed,</strong> only settings: say it in a sentence.</li></ul>
 <h3>How it is drawn</h3>
 <ol><li><strong>The counts:</strong> on top, a pill per kind of change with its count (+ 1 added, ~ 1 changed, − 1 removed), then how many stay the same in grey.</li><li><strong>The parts:</strong> a box per part as in a <a href="#containers">container sketch</a>, its name in bold and what it does under it, left to right in the order a request meets them.</li><li><strong>The marks:</strong> added green with a <strong>+</strong> on its corner; changed blue with a <strong>~</strong>; removed red, dashed, its name struck through, with a <strong>−</strong>; the same in grey. Under the name of a marked part, what the change did to it, in its colour.</li><li><strong>The lines:</strong> as the parts they join: a new line green, a removed one red and dashed, the rest dark; a few words on each.</li><li><strong>Now:</strong> a blue box under the map says in one sentence what the system does differently.</li></ol>
+<h3>References</h3>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -3900,6 +3934,12 @@ say how big the change is before the reader looks at the map.
    red and dashed, the rest dark; a few words on each.
 5. **Now:** a blue box under the map says in one sentence what the system
    does differently.
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that
+  draws this kind from typed JSON into an interactive page; the kind came
+  to this page from it.
 </pre>
 </section>
 <section class="group guide" id="flame">

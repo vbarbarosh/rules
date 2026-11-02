@@ -45,3 +45,9 @@ other, one uses the other, one is a kind of the other.
    it a word in its colour.
 6. **Now:** a blue box under the types says in one sentence what the
    diagram shows.
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that
+  draws this kind from typed JSON into an interactive page; the kind came
+  to this page from it.

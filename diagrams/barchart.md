@@ -38,3 +38,9 @@ much, and where the one the question is about stands.
    count (ours to fix).
 4. **The total:** under the axis, what is counted and how many in all.
 5. **Now:** a blue box under the chart says in one sentence what it shows.
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that
+  draws this kind from typed JSON into an interactive page; the kind came
+  to this page from it.

@@ -41,3 +41,9 @@ sees what belongs where and what is missing an owner.
 5. **What stands out:** the part the question is about amber, a line
    under the tree saying why.
 6. **Now:** a blue box under the tree says in one sentence what to do.
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that
+  draws this kind from typed JSON into an interactive page; the kind came
+  to this page from it.

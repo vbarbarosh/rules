@@ -43,3 +43,9 @@ say how big the change is before the reader looks at the map.
    red and dashed, the rest dark; a few words on each.
 5. **Now:** a blue box under the map says in one sentence what the system
    does differently.
+
+## References
+
+- [archify](https://github.com/tt-a1i/archify): an agent skill that
+  draws this kind from typed JSON into an interactive page; the kind came
+  to this page from it.
