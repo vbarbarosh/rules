@@ -72,6 +72,10 @@ itself. Text that holds data is the author's work left undone.
   (where each part runs),
   [entities](https://vbarbarosh.github.io/rules/docs/diagrams.html#entities)
   (the data and its links),
+  [class](https://vbarbarosh.github.io/rules/docs/diagrams.html#class)
+  (the types of a program and their links),
+  [breakdown](https://vbarbarosh.github.io/rules/docs/diagrams.html#breakdown)
+  (a whole split into its parts),
   [modules](https://vbarbarosh.github.io/rules/docs/diagrams.html#modules)
   and [matrix](https://vbarbarosh.github.io/rules/docs/diagrams.html#matrix)
   (which file or part needs which),
@@ -106,6 +110,10 @@ itself. Text that holds data is the author's work left undone.
 - **How much, how often?** Numbers:
   [line chart](https://vbarbarosh.github.io/rules/docs/diagrams.html#linechart)
   (over time),
+  [bar chart](https://vbarbarosh.github.io/rules/docs/diagrams.html#barchart)
+  (how much of each),
+  [pie chart](https://vbarbarosh.github.io/rules/docs/diagrams.html#piechart)
+  (shares of one whole),
   [heatmap](https://vbarbarosh.github.io/rules/docs/diagrams.html#heatmap)
   (which days and hours),
   [event plot](https://vbarbarosh.github.io/rules/docs/diagrams.html#eventplot)
@@ -123,5 +131,7 @@ itself. Text that holds data is the author's work left undone.
   sees),
   [change map](https://vbarbarosh.github.io/rules/docs/diagrams.html#changemap)
   (which files),
+  [before and after](https://vbarbarosh.github.io/rules/docs/diagrams.html#delta)
+  (which parts of a system),
   [quadrant](https://vbarbarosh.github.io/rules/docs/diagrams.html#quadrant)
   (what to do first).

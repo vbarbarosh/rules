@@ -25,8 +25,12 @@ Which kind for which data: the chooser in the guide
 - [quadrant.md](quadrant.md) — what to do first: value up, effort right, four quarters (do first green, plan blue, later grey, skip dashed grey), a dot per piece of work with its name on a pill
 - [containers.md](containers.md) — which parts exist, where each runs, what goes between them (C4 containers)
 - [entities.md](entities.md) — what data there is and how it links: a box per kind, 1 and n at the ends
+- [class.md](class.md) — the types of a program and how they link: a box per type, its fields and methods, made of with a diamond, uses dashed, a kind of with a hollow triangle; the new one green
+- [breakdown.md](breakdown.md) — a whole split into its parts: the root on top, one parent each, square lines down; the part without an owner amber
 - [dashboard.md](dashboard.md) — where each part stands: a RAG status dashboard, big numbers on top, tiles coloured green, amber or red, or by where each part is; a whole beside its gap
 - [linechart.md](linechart.md) — a number over time: a point per day or hour joined by a line, a dashed line at a deploy or a fix; red before, green after, a goal line if there is one
+- [barchart.md](barchart.md) — how much of each: a bar per kind as long as its count, all from zero, longest on top; the one that matters amber
+- [piechart.md](piechart.md) — shares of one whole: a ring, the biggest from the top clockwise, two to five slices, the total in the middle
 - [heatmap.md](heatmap.md) — when it happens: days as rows, hours as columns, each cell as dark as its count, a legend scale, the hot spot in a blue frame
 - [versions.md](versions.md) — which version runs where: a row per deployed part, its version, commit and date, latest or unknown, the verdict on top
 - [cloud.md](cloud.md) — what runs where: the internet, the edge, a cloud region, its network and subnets, each part an icon in its place
@@ -42,5 +46,6 @@ Which kind for which data: the chooser in the guide
 - [pipeline.md](pipeline.md) — a script's data flow: files in, steps, files out
 - [modules.md](modules.md) — which file needs which: files in their folders, packages in their own shape
 - [changemap.md](changemap.md) — what a change touches: the folder tree trimmed to the touched files, green + added, blue ~ changed, red − removed, lines added and removed as numbers and bars, untouched folders folded as "…", the total on top
+- [delta.md](delta.md) — what a change does to a system: one map after it, each part marked added +, changed ~, removed − or the same, the counts on top
 - [flame.md](flame.md) — where one run spends its time: call stacks as bars, as wide as their time
 - [treemap.md](treemap.md) — how big each part is: each function a rectangle, its area its lines
