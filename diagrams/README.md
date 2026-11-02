@@ -55,3 +55,6 @@ Which kind for which data: the chooser in the guide
 - [archify](https://github.com/tt-a1i/archify): an agent skill that draws
   10 kinds from typed JSON into interactive pages; class, breakdown,
   before and after, bar chart and pie chart came here from it.
+- [sketchy](https://github.com/ddkbs/sketchy): an MCP server and a Claude
+  skill; the agent writes a few lines, elkjs places them and rough.js
+  draws them by hand beside the answer. No kind came here from it.
