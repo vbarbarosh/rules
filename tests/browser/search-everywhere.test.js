@@ -116,6 +116,40 @@ test('rules: an item of this page hidden by the filter clears the filter and com
     }
 });
 
+test('rules: every page of the menu is found by its name, first, and Enter opens it at its top', async function () {
+    const page = await open_page('rules');
+    try {
+        const pages = [['Rules', 'docs/rules.html'], ['Animations', 'docs/animations.html'], ['Agents', 'docs/agents.html'], ['Diagrams', 'docs/diagrams.html'], ['APIs', 'docs/apis.html'], ['Glossaries', 'docs/glossaries.html'], ['Formatting', 'formatting.html'], ['Logs', 'drafts/logs-cheatsheet.html']];
+        for (const [title] of pages) {
+            await page.locator('#q').fill(title.toLowerCase());
+            const first = page.locator('#everywhere li').first();
+            assert.equal(await first.textContent(), `${title}${(title === 'Rules') ? 'here' : 'page'}`);
+        }
+        await page.locator('#q').fill('diagram');
+        assert.equal(await page.locator('#everywhere li').first().textContent(), 'Diagramspage');
+        await page.keyboard.press('Enter');
+        await page.waitForURL(v => v.pathname.endsWith('/docs/diagrams.html') && (v.hash === ''));
+    }
+    finally {
+        await page.close();
+    }
+});
+
+test('diagrams: this page found by its name scrolls to its top', async function () {
+    const page = await open_page('diagrams');
+    try {
+        await page.evaluate(() => window.scrollTo(0, 2000));
+        await page.locator('#q').fill('diagrams');
+        assert.equal(await page.locator('#everywhere li').first().textContent(), 'Diagramshere');
+        await page.keyboard.press('Enter');
+        await page.waitForFunction(() => window.scrollY === 0);
+        assert.equal(await page.locator('#everywhere').isVisible(), false);
+    }
+    finally {
+        await page.close();
+    }
+});
+
 test('rules: nothing found, no list; an empty box, no list', async function () {
     const page = await open_page('rules');
     try {

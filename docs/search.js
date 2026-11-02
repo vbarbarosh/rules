@@ -1,5 +1,6 @@
-// The search box of every page reaches every page: under it, the sections
-// and items that match the query, wherever they are, this page's first; the
+// The search box of every page reaches every page: under it, the pages whose
+// name matches the query, then the sections and items that match it,
+// wherever they are, this page's first; the
 // first is selected, and Enter or a click lands on it. Matched the way the
 // page filters (filter1_from_spec); the data is search.json, written by
 // bin/build-search, fetched beside this script.
@@ -119,13 +120,25 @@
         }
     }
 
-    // A section, then the items in it, page by page; each with its page, the
-    // address it lands on, the code shown, and the words a query matches.
+    // The pages first, found by their name; then a section, then the items
+    // in it, page by page; each with its page, the address it lands on, the
+    // code shown, and the words a query matches.
     function entries_from_search(search) {
         const page_by_id = Object.fromEntries(search.pages.map(v => [v.id, v]));
         const items_by_section_id = Object.groupBy(search.items, v => v.section_id);
         const page_id_by_section_id = Object.fromEntries(search.sections.map(v => [v.id, v.page_id]));
-        const out = [];
+        const out = search.pages.map(function (home) {
+            return {
+                page: home.id,
+                page_title: home.title,
+                href: `${new URL(home.path, root_url())}`,
+                id: '',
+                code: '',
+                name: home.title,
+                named: `${home.id} ${home.title}`.toLowerCase(),
+                text: '',
+            };
+        });
         for (const section of search.sections) {
             for (const record of [section, ...(items_by_section_id[section.id] ?? [])]) {
                 const home = page_by_id[page_id_by_section_id[record.section_id ?? record.id]];
@@ -156,20 +169,26 @@
         render();
     }
 
-    // Name matches before text matches; this page's before the others, each
-    // in the order of its page.
+    // Name matches before text matches, the pages before them all; this
+    // page's before the others, each in the order of its page.
     function hits_from_query(query) {
+        const pages = [];
         const named = [];
         const told = [];
         for (const entry of entries) {
-            if (query.filter(entry.named)) {
+            if (!entry.id) {
+                if (query.filter(entry.named)) {
+                    pages.push(entry);
+                }
+            }
+            else if (query.filter(entry.named)) {
                 named.push(entry);
             }
             else if (query.filter(entry.text)) {
                 told.push(entry);
             }
         }
-        return [...named.sort(here_first), ...told.sort(here_first)];
+        return [...pages, ...named.sort(here_first), ...told.sort(here_first)];
     }
 
     function here_first(a, b) {
@@ -180,7 +199,7 @@
         const shown = hits.slice(0, LIMIT);
         const items = shown.map(function (entry, i) {
             const code = entry.code ? `<span class="code">${html_escape(entry.code)}</span>` : '';
-            const where = (entry.page === page) ? 'here' : entry.page_title;
+            const where = (entry.page === page) ? 'here' : (entry.id ? entry.page_title : 'page');
             return `<li role="option" id="everywhere_${i}" aria-selected="${i === selected}" data-index="${i}">${code}<span class="name">${html_escape(entry.name)}</span><span class="where">${html_escape(where)}</span></li>`;
         });
         if (hits.length > LIMIT) {
@@ -249,11 +268,18 @@
     }
 
     // On this page the item comes into view, the filter cleared only when it
-    // hides the item; another page opens whole, at the item.
+    // hides the item; another page opens whole, at the item. A page found by
+    // its name opens at its top; this page scrolls there.
     function land(entry) {
         blur_q();
         if (entry.page !== page) {
             location.href = entry.href;
+            return;
+        }
+        if (!entry.id) {
+            q_el.blur();
+            history.replaceState(null, '', location.pathname + location.search);
+            window.scrollTo(0, 0);
             return;
         }
         const target_el = document.getElementById(entry.id);
