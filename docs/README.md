@@ -2,7 +2,8 @@
 
 The rules of [vbarbarosh/rules](../README.md), document by document. Every rule
 is also in [the rule index](rules.html), one row each; the animation rules
-are in [their own](animations.html).
+are in [their own](animations.html), and the rules of a system, still
+settling, in [theirs](system.html).
 
 ## Everything should look uniform
 
@@ -102,6 +103,14 @@ a live demo, on a page of its own: [animations.html](animations.html).
 
 - [drafts/animations.md](../drafts/animations.md) — sections slide the way the list goes, depth is left and right, a list change never moves the working row, a header opens and folds
 - [drafts/animations.html](../drafts/animations.html) — the live demos, each one alone with `#slide-workspaces`, `#slide-into-row`, `#list-changes` or `#expand-collapse`
+
+## System
+
+How a system is built, research still: the history of actions first, a
+command above and its records under it, on a page of its own:
+[system.html](system.html).
+
+- [drafts/history.md](../drafts/history.md) — three kinds of record per model, each pointing up to its command, two levels always
 
 ## Vue 2
 

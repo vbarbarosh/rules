@@ -9,7 +9,7 @@ const {chromium} = require('playwright');
 // The search box of every page lists what matches on every page, the first
 // selected; Enter, a click or the arrows and Enter land on it.
 const root_dir = path.join(__dirname, '../..');
-const PAGE_NAMES = ['rules', 'animations', 'glossaries', 'agents', 'diagrams', 'apis'];
+const PAGE_NAMES = ['rules', 'animations', 'system', 'glossaries', 'agents', 'diagrams', 'apis'];
 let browser;
 let server;
 let origin;
@@ -119,7 +119,7 @@ test('rules: an item of this page hidden by the filter clears the filter and com
 test('rules: every page of the menu is found by its name, first, and Enter opens it at its top', async function () {
     const page = await open_page('rules');
     try {
-        const pages = [['Rules', 'docs/rules.html'], ['Animations', 'docs/animations.html'], ['Agents', 'docs/agents.html'], ['Diagrams', 'docs/diagrams.html'], ['APIs', 'docs/apis.html'], ['Glossaries', 'docs/glossaries.html'], ['Formatting', 'formatting.html'], ['Logs', 'drafts/logs-cheatsheet.html']];
+        const pages = [['Rules', 'docs/rules.html'], ['Animations', 'docs/animations.html'], ['System', 'docs/system.html'], ['Agents', 'docs/agents.html'], ['Diagrams', 'docs/diagrams.html'], ['APIs', 'docs/apis.html'], ['Glossaries', 'docs/glossaries.html'], ['Formatting', 'formatting.html'], ['Logs', 'drafts/logs-cheatsheet.html']];
         for (const [title] of pages) {
             await page.locator('#q').fill(title.toLowerCase());
             const first = page.locator('#everywhere li').first();

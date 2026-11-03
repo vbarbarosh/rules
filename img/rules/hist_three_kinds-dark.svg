@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="540" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Three kinds of record, every model</text>
+<text x="48" y="108" fill="#92958c" font-size="22">created, updated, deleted; anything else is a command above them</text>
+<rect x="48" y="150" width="540" height="300" rx="12" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<text x="72" y="188" fill="#ff937c" font-size="20" font-weight="700">✗ A fourth kind</text>
+<rect x="96" y="214" width="280" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="114" y="242.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">post_created</text>
+<rect x="96" y="268" width="280" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="114" y="296.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">post_updated</text>
+<rect x="96" y="322" width="280" height="44" rx="8" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="114" y="350.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">post_published</text>
+<rect x="96" y="376" width="280" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="114" y="404.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">post_deleted</text>
+<text x="400" y="333" fill="#ff937c" font-size="17">✗ not a change</text>
+<text x="400" y="356" fill="#ff937c" font-size="17">of its own</text>
+<rect x="612" y="150" width="540" height="300" rx="12" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<text x="636" y="188" fill="#72d39c" font-size="20" font-weight="700">✓ Publishing is a command</text>
+<rect x="636" y="214" width="156" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="654" y="241.9" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">post_created</text>
+<rect x="802" y="214" width="156" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="820" y="241.9" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">post_updated</text>
+<rect x="968" y="214" width="156" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="986" y="241.9" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">post_deleted</text>
+<rect x="636" y="300" width="300" height="44" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="654" y="328.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">api2_publish_post</text>
+<path d="M664 344 V398 M664 398 H700" fill="none" stroke="#92958c" stroke-width="2" stroke-linejoin="round"/>
+<rect x="702" y="376" width="240" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="720" y="404.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">post_updated</text>
+<text x="964" y="404" fill="#92958c" font-size="18">its record</text>
+<text x="48" y="508" fill="#92958c" font-size="21">One row per change in the database, named after the model: post_created.</text>
+</svg>

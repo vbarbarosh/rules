@@ -1,8 +1,9 @@
 {
-  "version": "0.1.15",
+  "version": "0.1.16",
   "pages": [
     {"id":"rules","title":"Rules","path":"docs/rules.html","ids_shown":true},
     {"id":"animations","title":"Animations","path":"docs/animations.html","ids_shown":true},
+    {"id":"system","title":"System","path":"docs/system.html","ids_shown":true},
     {"id":"glossaries","title":"Glossaries","path":"docs/glossaries.html","ids_shown":true},
     {"id":"agents","title":"Agents","path":"docs/agents.html"},
     {"id":"diagrams","title":"Diagrams","path":"docs/diagrams.html"},
@@ -30,6 +31,7 @@
     {"id":"DOC","page_id":"rules","name":"Writing the rules","text":"How a document in this repo is built."},
     {"id":"LINT","page_id":"rules","name":"Stated by the linter","text":"Rules that only LINTING.md and the preset spell out."},
     {"id":"ANIM","page_id":"animations","name":"Animations","text":"How a screen moves."},
+    {"id":"HIST","page_id":"system","name":"The history of actions","text":"A command above, its records under it."},
     {"id":"AGENT","page_id":"glossaries","name":"Agents","text":"Vocabulary to use when developing agents (coding agents, design agents, embedded agents, etc.)."},
     {"id":"PART","page_id":"glossaries","parent_id":"AGENT","name":"Parts","text":"What an agent is made of."},
     {"id":"ROLE","page_id":"glossaries","parent_id":"AGENT","name":"Roles","text":"Who stands outside the loop."},
@@ -419,6 +421,9 @@
     {"id":"ANIM-14","section_id":"ANIM","name":"Growing goes through the heights between","text":"A section that opens grows from closed to full through every height between, its content clipped inside, never shown whole for a frame first; closing is the same, backwards. Left, a Sending section is whole for a frame, then grows; right, it grows through every height ▶ Try it animations.md"},
     {"id":"ANIM-15","section_id":"ANIM","name":"The chosen highlight glides in its final colours","text":"The selection highlight moves from item to item in the colours it ends in, from the first frame to the last; no grey or faded colour on the way. Left, the highlight turns grey on the way to Projects; right, it keeps its own colours all the way ▶ Try it animations.md"},
     {"id":"ANIM-16","section_id":"ANIM","name":"Nothing appears or disappears suddenly","text":"No element appears or disappears suddenly; every element appears and disappears smoothly. Best, it morphs (MOTION-01): what comes from something on the screen or goes into it changes its shape, size and place through every frame between, a menu growing out of its button and back into it, a chip opening into its field. Only what has nothing to come from or go into, a toast, a tooltip, fades in as it comes and out as it goes, at the shared speed; never whole on one frame and gone on the next. Left, a menu and a toast pop in and out on one frame; right, the menu grows out of its button and back, the toast fades in and out ▶ Try it animations.md"},
+    {"id":"HIST-01","section_id":"HIST","name":"Every model writes three kinds of record: created, updated, deleted","text":"One row per change in the database, named after the model, post_created ; no other kind at this level: publishing a post is a command, api2_publish_post , and its record is post_updated . Left, post_published crossed out as a fourth kind; right, post_created, post_updated and post_deleted, and api2_publish_post as a command with post_updated under it history.md"},
+    {"id":"HIST-02","section_id":"HIST","name":"Every record points up to its command, named by its entry point","text":"The call that caused the change is written first, api2_create_project , api2_publish_post ; each record it causes carries its id. api2_create_project with project_created and folder_created under it; stored as three rows, the two records pointing up to 1 history.md"},
+    {"id":"HIST-03","section_id":"HIST","name":"Two levels, always","text":"Under a command only records: never a record without one, never a command under a command. A record under an empty place and a command inside a command, crossed out; a command with its two records under it history.md"},
     {"id":"PART-01","section_id":"PART","name":"agent","text":"harness + model + tools + policy. Never the model alone. Agent: harness, model, tools and policy in one box, the workspace beside it agents.md"},
     {"id":"PART-02","section_id":"PART","name":"model","text":"The LLM, identified by a string ( claude-opus-5 ). Stateless: one context in, one message out. Model: a context in, one message out, nothing remembered between calls agents.md"},
     {"id":"PART-03","section_id":"PART","name":"harness","text":"The code that runs the loop: builds context, calls the model, executes tools, appends results, stops. Harness: the loop of building the context, calling the model, running the tools, appending, stopping agents.md"},

@@ -6,6 +6,7 @@ document it came from; that document stays the source of truth.
 285 rules · 18 groups · 56 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
+How a system is built too, its rules still settling: [system.md](system.md).
 
 Codes match [rules.html](rules.html), which is built from this file, and
 `LINT` is a group of its own. A new rule takes the next code in its group.

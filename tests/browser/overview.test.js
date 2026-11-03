@@ -16,6 +16,7 @@ const PAGES = [
     {file: 'docs/agents.html', targets: 'section.guide'},
     {file: 'docs/apis.html', targets: 'section.guide'},
     {file: 'docs/animations.html', targets: 'article.rule'},
+    {file: 'docs/system.html', targets: 'article.rule'},
     {file: 'docs/rules.html', targets: 'section.group:not(.use):not(.overview)'},
     {file: 'docs/glossaries.html', targets: 'section.sub, section.group:not(.overview):not(:has(section.sub))'},
 ];

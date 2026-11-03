@@ -23,7 +23,7 @@ test('every section and item names an id on its page', function () {
     for (const section of search.sections.filter(v => v.parent_id)) {
         assert.equal(section_by_id[section.parent_id]?.page_id, section.page_id, `${section.id}: parent ${section.parent_id}`);
     }
-    assert.deepEqual(search.pages.map(v => v.id), ['rules', 'animations', 'glossaries', 'agents', 'diagrams', 'apis', 'formatting', 'logs']);
+    assert.deepEqual(search.pages.map(v => v.id), ['rules', 'animations', 'system', 'glossaries', 'agents', 'diagrams', 'apis', 'formatting', 'logs']);
 });
 
 test('no id is used twice across the pages', function () {
@@ -41,7 +41,7 @@ test('each record starts with its id, then the other ids', function () {
 });
 
 test('every page with a search box loads the search', function () {
-    for (const page of ['agents', 'animations', 'apis', 'diagrams', 'glossaries', 'rules']) {
+    for (const page of ['agents', 'animations', 'apis', 'diagrams', 'glossaries', 'rules', 'system']) {
         const html = fs.readFileSync(path.join(root_dir, 'docs', `${page}.html`), 'utf8');
         assert.ok(html.includes('<script src="search.js"></script>'), page);
         assert.ok(!html.includes('search_index.js'), page);

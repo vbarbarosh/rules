@@ -24,8 +24,8 @@ works from any working directory.
 `npm run check` lints the implementation and runs the rule and integration
 tests. The old naming demos and documentation examples are not included:
 some intentionally demonstrate invalid or superseded conventions. It also runs
-`bin/build`, which renders `docs/rules.html` and `docs/animations.html` from
-their Markdown, `docs/glossaries.html` from `glossaries/*.md` and
+`bin/build`, which renders `docs/rules.html`, `docs/animations.html` and
+`docs/system.html` from their Markdown, `docs/glossaries.html` from `glossaries/*.md` and
 `docs/agents.html`, `docs/diagrams.html` and `docs/apis.html` from
 `agents/*.md`, `diagrams/*.md` and `apis/*.md`, each through its `docs/*.template.html`, and fails when a page differs from the committed one:
 edit the markdown or the template, never the page, then run `bin/build`.

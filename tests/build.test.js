@@ -24,7 +24,7 @@ test('generated rule and guide images all reserve positive dimensions, including
     const result = build();
     assert.equal(result.status, 0, result.stderr);
     let count = 0;
-    for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/apis.html', 'docs/glossaries.html']) {
+    for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/system.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/apis.html', 'docs/glossaries.html']) {
         const html = fs.readFileSync(path.join(fixture_dir, file), 'utf8');
         for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
             assert.match(tag, /width="[1-9]\d*"/);
@@ -93,7 +93,7 @@ test('apis/ builds its own page from the agents template, and the agents hand it
     assert.match(agents, /<a href="diagrams.html">Diagrams<\/a>\n\s*<a href="apis.html">APIs<\/a>/);
     assert.match(agents, /Draw an API the way these forms say:\n- Compact: one resource, every request a row: https:\/\/raw.githubusercontent.com\/vbarbarosh\/rules\/main\/apis\/compact.md\n/);
     assert.match(agents, /apis\/expanded.md<\/pre>/);
-    for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/diagrams.html', 'docs/glossaries.html']) {
+    for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/system.html', 'docs/diagrams.html', 'docs/glossaries.html']) {
         assert.match(fs.readFileSync(path.join(fixture_dir, file), 'utf8'), /<a href="apis.html">APIs<\/a>/, file);
     }
 });
@@ -167,7 +167,7 @@ test('all built theme icons follow the shared SVG assets, including handwritten 
         fs.writeFileSync(file, original.replace('M12,9', 'M12,8.5'));
         const result = build();
         assert.equal(result.status, 0, result.stderr);
-        for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/apis.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html']) {
+        for (const file of ['docs/rules.html', 'docs/animations.html', 'docs/system.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/apis.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html']) {
             const html = fs.readFileSync(path.join(fixture_dir, file), 'utf8');
             assert.ok(html.includes('d="M12,8.5'), file);
             assert.ok(!html.includes('d="M12,9'), file);

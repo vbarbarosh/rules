@@ -1064,3 +1064,30 @@ where the number goes; the call's result is returned or assigned as it is,
 never a part of a longer string, so `plural(` never stands inside `${…}` or
 quotes. In JavaScript and in PHP. It stands with the string rules, after
 FMT-31. Existing code is not rewritten for it (CORE-01).
+
+## MP-85 — The history of actions in two levels
+
+**Scope:** HIST-01 to HIST-03, [the history of actions](drafts/history.md),
+[System](docs/system.md).
+**Approved:** 2026-11-03, author messages `20261103_182008-me` (by voice:
+"for these models there are always low-level records, post created, post
+updated, post deleted; no other kinds"; "every such command is wrapped in a
+high-level command; the call to that API goes into the history and becomes
+the parent of everything below it; below it, only low-level commands"),
+`20261103_184939-me` (by voice: "publish is really a high-level command,
+publish_post, and inside it post_updated, because the post must already
+exist"), `20261103_190019-me` (the names written with an underscore,
+`post_created`, `publish_post`, `folder_created`), `20261103_191502-me` (by
+voice: "its name is api_publish_post: it was started through an API; when
+an API 2 comes, api2_publish_post"), `20261103_193118-me` (the example
+named `api2_publish_post`, `api2_create_folder`, "to underline the idea"),
+`20261103_194427-me` (by voice: "the history of actions needs a page of its
+own; the approach with commands joins that page later; all of it is still
+research") and `20261103_215715-me` (by voice: "let's make a page System
+for it").
+
+A model writes three kinds of record, `<model>_created`, `<model>_updated`
+and `<model>_deleted`; anything else is a command, named by its entry point
+(`api2_publish_post`), written first as the parent of the records it causes.
+Two levels: under a command only records. The rules stand on the System
+page, apart from the rule index, while the research goes on.

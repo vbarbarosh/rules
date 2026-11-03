@@ -19,6 +19,8 @@ const GUIDE_PAGES = {
 };
 const MARKER_REGEX = /(^|\s)(\/\/|&lt;!--|✓|✗|←)/;
 const root_dir = path.join(__dirname, '..');
+// What the filter box of each index suggests
+const SEARCH_EXAMPLES = {rules: 'brace, _by_, logs.md', animations: 'slide, back, list', system: 'record, parent, api2'};
 const STATIC_PAGES = ['formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html', 'drafts/page-header-structure.html', 'drafts/animations.html'];
 const version = `v${package_json.version}`;
 
@@ -33,6 +35,7 @@ function main()
 {
     build_index_html('rules');
     build_index_html('animations');
+    build_index_html('system');
     build_glossaries_html();
     build_agents_html();
     build_filter_js();
@@ -41,8 +44,9 @@ function main()
     run_self_check();
 }
 
-// rules.md and animations.md: two indexes, one template; a part only one
-// of them has sits between <!-- only:rules --> and <!-- /only:rules -->.
+// rules.md, animations.md and system.md: three indexes, one template; a
+// part only one of them has sits between <!-- only:rules --> and
+// <!-- /only:rules -->.
 function build_index_html(name)
 {
     const template = fs.readFileSync(path.join(docs_dir, 'rules.template.html'), 'utf8');
@@ -248,7 +252,8 @@ function html_from_index(template, index, name)
         markdown: `${name}.md`,
         current_rules: (name === 'rules') ? ' aria-current="page"' : '',
         current_animations: (name === 'animations') ? ' aria-current="page"' : '',
-        search_example: (name === 'rules') ? 'brace, _by_, logs.md' : 'slide, back, list',
+        current_system: (name === 'system') ? ' aria-current="page"' : '',
+        search_example: SEARCH_EXAMPLES[name],
         title: html_escape(index.title),
         version,
         lede: html_escape(index.lede),

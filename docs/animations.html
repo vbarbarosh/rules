@@ -1493,11 +1493,12 @@ footer .lead {
     <div class="mast-top">
         <div class="project">
             <a class="project-name" href="rules.html">rules</a>
-            <span class="version">v0.1.15</span>
+            <span class="version">v0.1.16</span>
         </div>
         <nav class="pages" aria-label="Pages">
             <a href="rules.html">Rules</a>
             <a href="animations.html" aria-current="page">Animations</a>
+            <a href="system.html">System</a>
             <a href="agents.html">Agents</a>
             <a href="diagrams.html">Diagrams</a>
             <a href="apis.html">APIs</a>
@@ -1880,7 +1881,7 @@ function filter_apply()
         a.classList.toggle('none', visible === 0);
         text_set(a.querySelector('.n'), (visible === group_rule_els.length) ? String(group_rule_els.length) : `${visible}/${group_rule_els.length}`);
     }
-    // the animations page has no USE section
+    // the animations and system pages have no USE section
     if (use_el) {
         hidden_set(use_el, !query.empty);
         nav_by_group.use.classList.toggle('none', !query.empty);

@@ -21,7 +21,7 @@ cli(main);
 function main()
 {
     const search = {version: package_json.version, pages: [], sections: [], items: []};
-    for (const name of ['rules', 'animations']) {
+    for (const name of ['rules', 'animations', 'system']) {
         search_add_index(search, name, build.index_read(name));
     }
     search_add_glossaries(search, build.glossaries_read());
@@ -35,7 +35,7 @@ function main()
     fs.writeFileSync(path.join(root_dir, 'docs/search.json'), json_from_search(search));
 }
 
-// rules.md, animations.md: a section for each group, an item for each rule.
+// rules.md, animations.md, system.md: a section for each group, an item for each rule.
 function search_add_index(search, name, index)
 {
     search.pages.push({id: name, title: index_title(name), path: `docs/${name}.html`, ids_shown: true});

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="540" fill="#16181b"/>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Every record points up to its command</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the call is written first, named by its entry point; each record it causes carries its id</text>
+<rect x="48" y="150" width="540" height="300" rx="12" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<text x="72" y="188" fill="#d3d1c9" font-size="20" font-weight="700">What one call writes</text>
+<rect x="72" y="212" width="320" height="48" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="90" y="243" fill="#d3d1c9" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace"><tspan fill="#ffb257" font-weight="700">api2_</tspan>create_project</text>
+<path d="M100 260 V358 M100 302 H138 M100 358 H138" fill="none" stroke="#92958c" stroke-width="2" stroke-linejoin="round"/>
+<rect x="140" y="280" width="260" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="158" y="308.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">project_created</text>
+<rect x="140" y="336" width="260" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="158" y="364.3" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">folder_created</text>
+<text x="72" y="424" fill="#92958c" font-size="17"><tspan fill="#ffb257" font-weight="700">api2_</tspan> the entry point, then what it does</text>
+<rect x="612" y="150" width="540" height="300" rx="12" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<text x="636" y="188" fill="#d3d1c9" font-size="20" font-weight="700">As stored: the command first</text>
+<rect x="636" y="212" width="492" height="44" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="654" y="240" fill="#92958c" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">#1</text>
+<text x="700" y="240" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">api2_create_project</text>
+<rect x="636" y="268" width="492" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="654" y="296" fill="#92958c" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">#2</text>
+<text x="700" y="296" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">project_created</text>
+<text x="1040" y="296" fill="#9db2ff" font-size="18" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">↑ #1</text>
+<rect x="636" y="324" width="492" height="44" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="654" y="352" fill="#92958c" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">#3</text>
+<text x="700" y="352" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">folder_created</text>
+<text x="1040" y="352" fill="#9db2ff" font-size="18" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">↑ #1</text>
+<text x="636" y="424" fill="#92958c" font-size="17">each record carries the id of its command</text>
+<text x="48" y="508" fill="#92958c" font-size="21">From any record, one step up leads to the call that caused it.</text>
+</svg>

@@ -1498,6 +1498,7 @@ footer .lead {
         <nav class="pages" aria-label="Pages">
             <a href="rules.html"{{current_rules}}>Rules</a>
             <a href="animations.html"{{current_animations}}>Animations</a>
+            <a href="system.html"{{current_system}}>System</a>
             <a href="agents.html">Agents</a>
             <a href="diagrams.html">Diagrams</a>
             <a href="apis.html">APIs</a>
@@ -1569,6 +1570,7 @@ Lint JavaScript and Vue with: npx vbarbarosh/rules src</pre><button class="copy"
 <li><b>One rule</b>: <b>Copy</b> next to its source.</li>
 <li><b>How an agent works</b>, not how the code looks: <a href="agents.html">Instructions for agents</a>.</li>
 <li><b>How a screen moves</b>: <a href="animations.html">Animations</a>, each rule with its live demo.</li>
+<li><b>How a system is built</b>: <a href="system.html">System</a>, the history of actions first; research still.</li>
 </ul>
 </div>
 </section>
@@ -1786,7 +1788,7 @@ function filter_apply()
         a.classList.toggle('none', visible === 0);
         text_set(a.querySelector('.n'), (visible === group_rule_els.length) ? String(group_rule_els.length) : `${visible}/${group_rule_els.length}`);
     }
-    // the animations page has no USE section
+    // the animations and system pages have no USE section
     if (use_el) {
         hidden_set(use_el, !query.empty);
         nav_by_group.use.classList.toggle('none', !query.empty);
