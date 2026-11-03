@@ -9,7 +9,7 @@
 <path d="M82 187h18" stroke="#2B3FBF" stroke-width="3" fill="none"/>
 <text x="108" y="194" font-size="20">👤</text>
 <text x="142" y="194" font-size="20" font-weight="700" fill="#2B3FBF">Board (you)</text>
-<path d="M118 200V217h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
+<path d="M118 205V217h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
 <text x="142" y="224" font-size="20">☑️</text>
 <text x="176" y="224" font-size="20" fill="#1F1E1C">tick sizes, drop the source banner</text>
 <path d="M118 217V247h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
@@ -21,7 +21,7 @@
 <text x="108" y="302" font-size="20">🤖</text>
 <text x="142" y="302" font-size="20" font-weight="700" fill="#2B3FBF">Round 1 → gpt-6.1-sol</text>
 <text x="740" y="302" font-size="20" font-weight="700" fill="#2B8A3E" text-anchor="end">💵 ~$0.005</text>
-<path d="M118 308V325h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
+<path d="M118 313V325h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
 <text x="142" y="332" font-size="20">📖</text>
 <text x="176" y="332" font-size="20" fill="#1F1E1C">reads the layouts skill</text>
 <path d="M82 295V373" stroke="#2B3FBF" stroke-width="3" fill="none"/>
@@ -29,7 +29,7 @@
 <text x="108" y="380" font-size="20">⚙️</text>
 <text x="142" y="380" font-size="20" font-weight="700" fill="#C2410C">layout (code, no model)</text>
 <text x="740" y="380" font-size="20" font-weight="700" fill="#2B3FBF" text-anchor="end">🆓 $0</text>
-<path d="M118 386V403h16" stroke="#C2410C" stroke-width="2.5" fill="none"/>
+<path d="M118 391V403h16" stroke="#C2410C" stroke-width="2.5" fill="none"/>
 <text x="142" y="410" font-size="20">📌</text>
 <text x="176" y="410" font-size="20" fill="#1F1E1C">pinned elements kept on their edges</text>
 <path d="M118 403V433h16" stroke="#C2410C" stroke-width="2.5" fill="none"/>
@@ -50,7 +50,7 @@
 <circle cx="828" cy="177" r="12" fill="#C2410C"/><text x="828" y="183" font-size="17" font-weight="700" fill="#E9E6E0" text-anchor="middle">2</text>
 <text x="850" y="184" font-size="20" font-weight="700" fill="#1F1E1C">A stage</text>
 <text x="850" y="208" font-size="17" fill="#5C5A55">who or what does it, in its colour</text>
-<circle cx="82" cy="403" r="12" fill="#C2410C"/><text x="82" y="409" font-size="17" font-weight="700" fill="#E9E6E0" text-anchor="middle">3</text>
+<rect x="70" y="391" width="24" height="24" rx="12" fill="#C2410C"/><text x="82" y="409" font-size="17" font-weight="700" fill="#E9E6E0" text-anchor="middle">3</text>
 <circle cx="828" cy="237" r="12" fill="#C2410C"/><text x="828" y="243" font-size="17" font-weight="700" fill="#E9E6E0" text-anchor="middle">3</text>
 <text x="850" y="244" font-size="20" font-weight="700" fill="#1F1E1C">The trunk</text>
 <text x="850" y="268" font-size="17" fill="#5C5A55">one line, the colour of its stage</text>

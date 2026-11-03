@@ -9,13 +9,13 @@
 <path d="M60 185h18" stroke="#2B3FBF" stroke-width="3" fill="none"/>
 <text x="86" y="192" font-size="20">👤</text>
 <text x="120" y="192" font-size="20" font-weight="700" fill="#2B3FBF">Board (you)</text>
-<path d="M96 198V215h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
+<path d="M96 203V215h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
 <text x="120" y="222" font-size="20">☑️</text>
 <text x="154" y="222" font-size="20" fill="#1F1E1C">tick sizes, drop the source banner</text>
 <path d="M96 215V245h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
 <text x="120" y="252" font-size="20">🔀</text>
 <text x="154" y="252" font-size="20" fill="#1F1E1C">every size → its own chat turn, side by side</text>
-<path d="M132 258V275h16" stroke="#2B3FBF" stroke-width="2" fill="none"/>
+<path d="M132 263V275h16" stroke="#2B3FBF" stroke-width="2" fill="none"/>
 <text x="156" y="282" font-size="20">👑</text>
 <text x="190" y="282" font-size="20" fill="#1F1E1C">first size of a kind (↔️ wide · ↕️ tall · ⬜ square) leads,</text>
 <text x="190" y="312" font-size="20" fill="#1F1E1C">the rest of that kind start from its layout</text>
@@ -23,18 +23,18 @@
 <path d="M60 353h18" stroke="#7048B6" stroke-width="3" fill="none"/>
 <text x="86" y="360" font-size="20">🎬</text>
 <text x="120" y="360" font-size="20" font-weight="700" fill="#7048B6">Start of a size</text>
-<path d="M96 366V383h16" stroke="#7048B6" stroke-width="2.5" fill="none"/>
+<path d="M96 371V383h16" stroke="#7048B6" stroke-width="2.5" fill="none"/>
 <text x="120" y="390" font-size="20">🖼️</text>
 <text x="154" y="390" font-size="20" fill="#1F1E1C">canvas = the design at its own size (or the lead's)</text>
 <path d="M96 383V413h16" stroke="#7048B6" stroke-width="2.5" fill="none"/>
 <text x="120" y="420" font-size="20">🏷️</text>
 <text x="154" y="420" font-size="20" fill="#1F1E1C">code names the design's kind</text>
-<path d="M132 426V443h16" stroke="#7048B6" stroke-width="2" fill="none"/>
+<path d="M132 431V443h16" stroke="#7048B6" stroke-width="2" fill="none"/>
 <text x="156" y="450" font-size="20" fill="#1F1E1C">"framed copy" · "product cutout" · "full-bleed photo" …</text>
 <path d="M96 413V473h16" stroke="#7048B6" stroke-width="2.5" fill="none"/>
 <text x="120" y="480" font-size="20">✉️</text>
 <text x="154" y="480" font-size="20" fill="#1F1E1C">ask: "Lay this banner out for W×H"</text>
-<path d="M132 486V503h16" stroke="#7048B6" stroke-width="2" fill="none"/>
+<path d="M132 491V503h16" stroke="#7048B6" stroke-width="2" fill="none"/>
 <text x="156" y="510" font-size="20">➕</text>
 <text x="190" y="510" font-size="20" fill="#1F1E1C">the kind's rule (the frame follows the edges …)</text>
 <path d="M132 503V533h16" stroke="#7048B6" stroke-width="2" fill="none"/>
@@ -48,7 +48,7 @@
 <text x="86" y="618" font-size="20">🤖</text>
 <text x="120" y="618" font-size="20" font-weight="700" fill="#2B3FBF">Round 1 → gpt-6.1-sol</text>
 <text x="956" y="618" font-size="20" font-weight="700" fill="#2B8A3E" text-anchor="end">💵 ~$0.005</text>
-<path d="M96 624V641h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
+<path d="M96 629V641h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
 <text x="120" y="648" font-size="20">📖</text>
 <text x="154" y="648" font-size="20" fill="#1F1E1C">reads the layouts skill</text>
 <path d="M60 611V689" stroke="#2B3FBF" stroke-width="3" fill="none"/>
@@ -56,7 +56,7 @@
 <text x="86" y="696" font-size="20">🤖</text>
 <text x="120" y="696" font-size="20" font-weight="700" fill="#2B3FBF">Round 2 → gpt-6.1-sol</text>
 <text x="956" y="696" font-size="20" font-weight="700" fill="#2B8A3E" text-anchor="end">💵 ~$0.015</text>
-<path d="M96 702V719h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
+<path d="M96 707V719h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
 <text x="120" y="726" font-size="20">📐</text>
 <text x="154" y="726" font-size="20" fill="#1F1E1C">layout(backgrounds, pinned, dropped, blocks)</text>
 <path d="M60 689V767" stroke="#2B3FBF" stroke-width="3" fill="none"/>
@@ -64,7 +64,7 @@
 <text x="86" y="774" font-size="20">⚙️</text>
 <text x="120" y="774" font-size="20" font-weight="700" fill="#C2410C">layout (code, no model)</text>
 <text x="956" y="774" font-size="20" font-weight="700" fill="#2B3FBF" text-anchor="end">🆓 $0</text>
-<path d="M96 780V797h16" stroke="#C2410C" stroke-width="2.5" fill="none"/>
+<path d="M96 785V797h16" stroke="#C2410C" stroke-width="2.5" fill="none"/>
 <text x="120" y="804" font-size="20">🎨</text>
 <text x="154" y="804" font-size="20" fill="#1F1E1C">backgrounds stretched behind everything</text>
 <path d="M96 797V827h16" stroke="#C2410C" stroke-width="2.5" fill="none"/>
@@ -73,7 +73,7 @@
 <path d="M96 827V857h16" stroke="#C2410C" stroke-width="2.5" fill="none"/>
 <text x="120" y="864" font-size="20">📦</text>
 <text x="154" y="864" font-size="20" fill="#1F1E1C">blocks scaled whole, each in its share</text>
-<path d="M132 870V887h16" stroke="#C2410C" stroke-width="2" fill="none"/>
+<path d="M132 875V887h16" stroke="#C2410C" stroke-width="2" fill="none"/>
 <text x="156" y="894" font-size="20">🔒</text>
 <text x="190" y="894" font-size="20" fill="#1F1E1C">held at the texts' growth cap</text>
 <text x="956" y="894" font-size="20" font-weight="700" fill="#C92A2A" text-anchor="end">⚠️ the shoe stays small</text>
@@ -92,7 +92,7 @@
 <text x="86" y="1050" font-size="20">🔁</text>
 <text x="120" y="1050" font-size="20" font-weight="700" fill="#2B3FBF">Rounds 3…10 → gpt-6.1-sol</text>
 <text x="956" y="1050" font-size="20" font-weight="700" fill="#2B8A3E" text-anchor="end">💵 ~$0.005–0.013 each</text>
-<path d="M96 1056V1073h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
+<path d="M96 1061V1073h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
 <text x="120" y="1080" font-size="20">📐</text>
 <text x="154" y="1080" font-size="20" fill="#1F1E1C">layout again with a better plan (3 plans at most)</text>
 <path d="M96 1073V1103h16" stroke="#2B3FBF" stroke-width="2.5" fill="none"/>
