@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-284 rules · 18 groups · 56 sources · filterable version: [rules.html](rules.html)
+285 rules · 18 groups · 56 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 
@@ -22,7 +22,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
 | VAR | Variables | 19 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
-| FMT | Formatting | 32 | Braces, breaks, blank lines, comments. |
+| FMT | Formatting | 33 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 12 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 25 | One entry function, one fixed order. |
 | PROJ | Project layout | 30 | A directory is a program; bin/ holds its verbs. |
@@ -133,6 +133,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT-31 | **Build strings with template literals.** A string built from parts is a template literal; `+` never joins a string to a value. Plain quotes stay for a one-line string with nothing to interpolate; a string that spans lines is a template literal (SQL-01). | <pre>'weapons/turret-' + weapon.id    ✗ no<br>&#96;weapons/turret-${weapon.id}&#96;    ✓ yes</pre> !['weapons/turret-' + weapon.id turned into a template literal](../img/rules/fmt_template_literals.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FMT-32 | **An empty function is `{}` on one line.** An empty function expression or arrow is a no-op, as `ignore` is: its body is `{}` on one line, never split over two. A function declaration and a method keep their braces on lines of their own; a body holding only a comment is not empty. | <pre>params.update = params.update \|\| function () {<br>};                                                ✗ no<br><br>params.update = params.update \|\| function () {};   ✓ yes<br>promise.catch(() =&gt; {});                          ✓ yes</pre> ![An empty function expression split over two lines, turned into {} on one line](../img/rules/fmt_empty_function_one_line.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FMT-33 | **`let` and `const` never share a run of declarations.** A run of declarations, lines with no blank line between them, holds only `let` or only `const`. When a block needs both, they are two runs with one blank line between, the `let` run first, unless a `let` needs a value a `const` above it declares. That blank line is the one FMT-16 allows besides a phase change. | <pre>const LIMIT = 10;<br>let canvas = null;          ✗ no<br>const cache = new Map();<br><br>let canvas = null;          ✓ yes<br><br>const LIMIT = 10;<br>const cache = new Map();</pre> ![A let among the consts, turned into the let run, a blank line, then the const run](../img/rules/fmt_let_and_const_apart.svg) | [FORMATTING.md](../FORMATTING.md) |
+| FMT-34 | **`plural()` takes the whole sentence.** Each form is a whole phrase, usually a sentence, `#` where the number goes. The call's result is returned or assigned as it is, never a part of a longer string: no `${plural(…)}`. The same in PHP. | <pre>&#96;${plural(n, '# step', '# steps')} back&#96;   ✗ inside ${…}<br>plural(n, &#96;${n} step back&#96;, &#96;${n} steps back&#96;)  ✗ no #<br><br>plural(n, '# file selected', '# files selected')   ✓ yes<br><br>plural(n,<br>    &#96;Holds # step back; ${steps} is past it&#96;,<br>    &#96;Holds # steps back; ${steps} is past them&#96;,<br>    &#96;Holds no step back; ${steps} is past it&#96;)   ✓ yes</pre> ![A plural() call inside a longer string, and forms that put the number in themselves, each turned into one call with a whole phrase in each form, a few words or a whole sentence, # where the number goes](../img/rules/fmt_plural_from_helper.svg) | [FORMATTING.md](../FORMATTING.md) |
 | **FLOW** | **Control flow** — Imperative, explicit, no magic. | | |
 | FLOW-01 | **Prefer imperative control flow.** | ![A loop that keeps the uids of active items, beside its four steps in the order they run](../img/rules/flow_imperative.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-02 | **No index needed: use for...of.** Prefer `for...of` when the index is not needed. | <pre>for (const item of items) {<br>}</pre> ![An indexed loop that only fetches items(i), turned into for (const item of items)](../img/rules/flow_for_of.svg) | [for_of.md](../drafts/for_of.md) |

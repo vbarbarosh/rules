@@ -1040,3 +1040,27 @@ needed, a blank line separates the two runs, and the `let` run comes first.
 That blank line is allowed besides a phase change (FMT-16). Existing code is
 not rewritten for it (CORE-01).
 
+## MP-84 — plural() takes the whole sentence
+
+**Scope:** FMT-34, FMT-31, [formatting](FORMATTING.md).
+**Approved:** 2026-11-03, author messages `20261103_025102-me` (the helper
+and the line `step${ctx.steps_back() === 1 ? '' : 's'}`, by voice: "a new
+rule: in JavaScript, and in PHP too, plural must be used; this is bad"),
+`20261103_025124-me` (by voice: "this rule is about strings: how to work
+with strings correctly") and `20261103_031104-me` (a fragment given to
+plural() marked WRONG, forms interpolating the number marked WRONG, the
+whole sentence in three forms CORRECT; by voice: "only the whole string;
+the only correct way to use plural is to pass it the whole line") and
+`20261103_031306-me` (a `${plural(…)}` marked BAD, "should not be inside
+`${...}`"; by voice: "a good rule to check by: plural must not be inside
+backticks") and `20261103_181348-me` (by voice: "these texts are very long:
+say the idea briefly; inside is a whole phrase, usually a sentence, which is
+at once returned or assigned to a variable") and `20261103_184814-me` (by
+voice: "one more example for plural, a simpler one: only # and no gluing of
+parameters; the one there is, the complex case, stays").
+
+Each form given to `plural()` is a whole phrase, usually a sentence, `#`
+where the number goes; the call's result is returned or assigned as it is,
+never a part of a longer string, so `plural(` never stands inside `${…}` or
+quotes. In JavaScript and in PHP. It stands with the string rules, after
+FMT-31. Existing code is not rewritten for it (CORE-01).

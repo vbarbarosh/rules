@@ -263,6 +263,26 @@ project, so all JavaScript code follows the same conventions.
       sprite_draw_box(`weapons/turret-${weapon.id}`, weapon.color, box);
       ```
 
+* **`plural()` takes the whole sentence**
+
+    * Each form is a whole phrase, usually a sentence, `#` where the number goes
+    * The call's result is returned or assigned as it is, never a part of a longer string: no `${plural(…)}`
+    * The same in PHP; in JavaScript the helper is `plural` of `@vbarbarosh/node-helpers`
+    * Example:
+
+      ```
+      // BAD
+      throw new Error(`The editor holds ${n} step${n === 1 ? '' : 's'} back; ${steps} is past them`);
+      throw new Error(`The editor holds ${plural(n, '# step', '# steps')} back; ${steps} is past them`);
+
+      // GOOD
+      const label = plural(files.length, '# file selected', '# files selected');
+      throw new Error(plural(ctx.steps_back(),
+          `The editor holds # step back; ${steps} is past it`,
+          `The editor holds # steps back; ${steps} is past them`,
+          `The editor holds no step back; ${steps} is past it`));
+      ```
+
 * **No implicit magic**
 
     * No hidden side effects
