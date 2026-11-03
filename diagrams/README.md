@@ -13,6 +13,7 @@ Which kind for which data: the chooser in the guide
 - [flywheel.md](flywheel.md) — what feeds itself: stages on one circle, each feeding the next, the last the first; the weak link amber, what comes from outside grey and dashed
 - [flowchart.md](flowchart.md) — what is decided where: steps, questions as diamonds, each answer its own arrow
 - [swimlanes.md](swimlanes.md) — who does each step: a lane per actor, a box per step in its lane, arrows in order across lanes; done green, the hand-off that waits on you amber, to come grey dashed
+- [steptree.md](steptree.md) — a process as its stages and their small steps: a trunk down the left, a branch per stage in its colour, an emoji on every node, a blank line between stages, the cost or the warning at the right of its row
 - [questions.md](questions.md) — what is known and what is not: how a thing works stage by stage, the facts in green, the open questions in amber where they arise
 - [causetree.md](causetree.md) — why it happened: the failure in red on top, each row down its "because", ruled-out causes in grey with the reason, the root cause amber, the fix green beside it
 - [timeline.md](timeline.md) — what happened when, from a log: one line of time, each event at its moment

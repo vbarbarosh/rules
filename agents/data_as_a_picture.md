@@ -56,6 +56,8 @@ itself. Text that holds data is the author's work left undone.
   (what feeds itself, where it is slow),
   [swimlanes](https://vbarbarosh.github.io/rules/docs/diagrams.html#swimlanes)
   (who does each step),
+  [step tree](https://vbarbarosh.github.io/rules/docs/diagrams.html#steptree)
+  (stages and their small steps, who does each, what it costs),
   [pipeline](https://vbarbarosh.github.io/rules/docs/diagrams.html#pipeline)
   (files in, steps, files out),
   [call graph](https://vbarbarosh.github.io/rules/docs/diagrams.html#callgraph)
