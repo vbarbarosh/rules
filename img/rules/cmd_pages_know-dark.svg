@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="500" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker><marker id="arrow_bad" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#ff937c" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">The pages that depend on a command know it runs</text>
+<text x="48" y="108" fill="#92958c" font-size="22">they show its progress from the file it writes, and offer to start it again</text>
+<rect x="48" y="248" width="210" height="64" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="66" y="274" fill="#d3d1c9" font-size="16" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">refresh-builds</text>
+<text x="66" y="298" fill="#ffb257" font-size="15">running</text>
+<line x1="264" y1="280" x2="314" y2="280" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="270" y="312" fill="#92958c" font-size="15">writes</text>
+<rect x="326" y="256" width="200" height="48" rx="24" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="426" y="286" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">progress.json</text>
+<line x1="532" y1="280" x2="586" y2="280" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="538" y="312" fill="#92958c" font-size="15">read</text>
+<rect x="598" y="150" width="554" height="266" rx="12" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<text x="622" y="186" fill="#d3d1c9" font-size="20" font-weight="700">Builds</text>
+<rect x="622" y="206" width="506" height="120" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="642" y="238" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">refresh-builds</text>
+<rect x="842" y="216" width="266" height="32" rx="16" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="862" y="238" fill="#ffb257" font-size="16">○ in progress · 2 of 3</text>
+<rect x="642" y="270" width="320" height="12" rx="6" fill="#1d2024"/>
+<rect x="642" y="270" width="213" height="12" rx="6" fill="#72d39c"/>
+<rect x="990" y="262" width="118" height="36" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="1049" y="286" fill="#9db2ff" font-size="17" text-anchor="middle">Restart</text>
+<text x="642" y="312" fill="#92958c" font-size="15">started 22:41 · 40 s</text>
+<text x="622" y="362" fill="#72d39c" font-size="17">its progress, from the file it writes</text>
+<text x="622" y="392" fill="#72d39c" font-size="17">a restart offered, the same command again</text>
+<text x="48" y="468" fill="#92958c" font-size="21">The page reads the file; it never asks the command, nor keeps a state of its own.</text>
+</svg>

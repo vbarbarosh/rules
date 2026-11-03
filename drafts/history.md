@@ -68,5 +68,5 @@ command above it, and a command never stands under another command. A call
 that needs a folder created writes `folder_created` itself, under its own
 command, rather than calling `api2_create_folder` as a step.
 
-These rules stand on the [System](../docs/system.md) page, research still;
-the approach with commands joins them there later.
+These rules stand on the [System](../docs/system.md) page, research still,
+beside [a system as commands](commands.md).

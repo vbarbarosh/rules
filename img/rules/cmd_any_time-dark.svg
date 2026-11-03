@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="540" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker><marker id="arrow_bad" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#ff937c" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Any command runs by hand, at any time</text>
+<text x="48" y="108" fill="#92958c" font-size="22">called whenever, it reads the state and does what is left; nothing breaks</text>
+<rect x="48" y="150" width="500" height="320" rx="12" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<text x="72" y="188" fill="#d3d1c9" font-size="20" font-weight="700">Called whenever</text>
+<circle cx="92" cy="234" r="14" fill="none" stroke="#92958c" stroke-width="2"/>
+<path d="M92 226 V234 H99" fill="none" stroke="#92958c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="118" y="240" fill="#d3d1c9" font-size="18">at night</text>
+<line x1="262" y1="234" x2="334" y2="234" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<circle cx="92" cy="308" r="14" fill="none" stroke="#92958c" stroke-width="2"/>
+<path d="M92 300 V308 H99" fill="none" stroke="#92958c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="118" y="314" fill="#d3d1c9" font-size="18">mid-work</text>
+<line x1="262" y1="308" x2="334" y2="308" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<circle cx="92" cy="382" r="14" fill="none" stroke="#92958c" stroke-width="2"/>
+<path d="M92 374 V382 H99" fill="none" stroke="#92958c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="118" y="388" fill="#d3d1c9" font-size="18">twice in a row</text>
+<line x1="262" y1="382" x2="334" y2="382" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="346" y="208" width="184" height="230" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="360" y="312" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$ refresh-builds</text>
+<text x="360" y="344" fill="#72d39c" font-size="17">■ ended</text>
+<rect x="572" y="150" width="580" height="320" rx="12" fill="#202328" stroke="#3a3f46" stroke-width="1.5"/>
+<text x="596" y="188" fill="#d3d1c9" font-size="20" font-weight="700">Reads the state, does what is left</text>
+<rect x="596" y="212" width="220" height="56" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="612" y="236" fill="#92958c" font-size="16">nothing done</text>
+<rect x="612" y="246" width="188" height="10" rx="5" fill="#1d2024"/>
+<line x1="822" y1="240" x2="870" y2="240" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="882" y="212" width="246" height="56" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="898" y="246" fill="#d3d1c9" font-size="17">does it all</text>
+<rect x="596" y="292" width="220" height="56" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="612" y="316" fill="#92958c" font-size="16">half done</text>
+<rect x="612" y="326" width="188" height="10" rx="5" fill="#1d2024"/>
+<rect x="612" y="326" width="94" height="10" rx="5" fill="#72d39c"/>
+<line x1="822" y1="320" x2="870" y2="320" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="882" y="292" width="246" height="56" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="898" y="326" fill="#d3d1c9" font-size="17">does the rest</text>
+<rect x="596" y="372" width="220" height="56" rx="8" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="612" y="396" fill="#92958c" font-size="16">all done</text>
+<rect x="612" y="406" width="188" height="10" rx="5" fill="#1d2024"/>
+<rect x="612" y="406" width="188" height="10" rx="5" fill="#72d39c"/>
+<line x1="822" y1="400" x2="870" y2="400" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="882" y="372" width="246" height="56" rx="8" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="898" y="406" fill="#d3d1c9" font-size="17">nothing; ends, all well</text>
+<text x="48" y="508" fill="#92958c" font-size="21">The system is built on it: no order to keep, nothing to set right by hand.</text>
+</svg>

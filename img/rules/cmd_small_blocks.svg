@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker><marker id="arrow_bad" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#b2341f" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A system is its commands first</text>
+<text x="48" y="108" fill="#686a61" font-size="22">each runs like a function: arguments in, a result out, and it ends</text>
+<rect x="48" y="150" width="460" height="370" rx="12" fill="#f6f3ec" stroke="#d4cbbe" stroke-width="1.5"/>
+<text x="72" y="188" fill="#b2341f" font-size="20" font-weight="700">✗ One big app</text>
+<rect x="72" y="208" width="412" height="262" rx="10" fill="#efece2" stroke="#d9d5c7" stroke-width="2"/>
+<text x="92" y="240" fill="#686a61" font-size="17">every part reaches into the others</text>
+<line x1="133" y1="280" x2="265" y2="274" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="133" y1="280" x2="299" y2="338" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="133" y1="280" x2="417" y2="364" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="265" y1="274" x2="405" y2="286" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="265" y1="274" x2="161" y2="352" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="265" y1="274" x2="273" y2="420" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="405" y1="286" x2="299" y2="338" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="405" y1="286" x2="137" y2="428" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="161" y1="352" x2="417" y2="364" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="161" y1="352" x2="407" y2="436" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="299" y1="338" x2="137" y2="428" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="299" y1="338" x2="407" y2="436" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="417" y1="364" x2="273" y2="420" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="137" y1="428" x2="405" y2="286" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="273" y1="420" x2="133" y2="280" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="407" y1="436" x2="265" y2="274" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="161" y1="352" x2="405" y2="286" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="417" y1="364" x2="137" y2="428" stroke="#b2341f" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="96" y="264" width="74" height="32" rx="7" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="228" y="258" width="74" height="32" rx="7" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="368" y="270" width="74" height="32" rx="7" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="124" y="336" width="74" height="32" rx="7" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="262" y="322" width="74" height="32" rx="7" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="380" y="348" width="74" height="32" rx="7" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="100" y="412" width="74" height="32" rx="7" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="236" y="404" width="74" height="32" rx="7" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="370" y="420" width="74" height="32" rx="7" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="72" y="500" fill="#b2341f" font-size="17">to change one thing, read all of it</text>
+<rect x="532" y="150" width="620" height="370" rx="12" fill="#f6f3ec" stroke="#d4cbbe" stroke-width="1.5"/>
+<text x="556" y="188" fill="#1a7443" font-size="20" font-weight="700">✓ Small commands, a system above</text>
+<rect x="556" y="208" width="572" height="44" rx="8" fill="#f2efe5" stroke="#d9d5c7" stroke-width="2"/>
+<text x="576" y="236" fill="#191a17" font-size="18">the system above: calls them, passes results on</text>
+<line x1="645" y1="258" x2="645" y2="286" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="842" y1="258" x2="842" y2="286" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="1039" y1="258" x2="1039" y2="286" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="556" y="294" width="178" height="72" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="570" y="322" fill="#191a17" font-size="16" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">refresh-builds</text>
+<text x="570" y="348" fill="#686a61" font-size="15">→ builds.json</text>
+<rect x="753" y="294" width="178" height="72" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="767" y="322" fill="#191a17" font-size="16" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">transcribe</text>
+<text x="767" y="348" fill="#686a61" font-size="15">audio → text</text>
+<rect x="950" y="294" width="178" height="72" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="964" y="322" fill="#191a17" font-size="16" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">summarize</text>
+<text x="964" y="348" fill="#686a61" font-size="15">text → summary</text>
+<rect x="556" y="380" width="178" height="72" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="570" y="408" fill="#191a17" font-size="16" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">run-build</text>
+<text x="570" y="434" fill="#686a61" font-size="15">branch → a run</text>
+<rect x="753" y="380" width="178" height="72" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="767" y="408" fill="#191a17" font-size="16" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">aloud</text>
+<text x="767" y="434" fill="#686a61" font-size="15">text → mp3</text>
+<rect x="950" y="380" width="178" height="72" rx="8" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<text x="964" y="408" fill="#191a17" font-size="16" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">release</text>
+<text x="964" y="434" fill="#686a61" font-size="15">version → tag</text>
+<text x="556" y="500" fill="#1a7443" font-size="17">each read, run and fixed alone</text>
+<text x="48" y="568" fill="#686a61" font-size="21">A command starts, does its work and ends; what stays running is not one.</text>
+</svg>

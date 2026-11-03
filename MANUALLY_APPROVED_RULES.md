@@ -1091,3 +1091,35 @@ and `<model>_deleted`; anything else is a command, named by its entry point
 (`api2_publish_post`), written first as the parent of the records it causes.
 Two levels: under a command only records. The rules stand on the System
 page, apart from the rule index, while the research goes on.
+
+## MP-86 — A system as commands
+
+**Scope:** CMD-01 to CMD-06, [a system as commands](drafts/commands.md),
+[System](docs/system.md).
+**Approved:** 2026-11-03, author messages `20261103_181641-me` (by voice:
+"when building a system, I first build it as a set of commands, and then
+the interaction between these commands"; "the parts being made must be
+illustrated, and always as pictures"), `20261103_184845-me` (by voice:
+"watch is a bad example of a command: a command starts, does its work, and
+there it ends"), `20261103_185948-me` (by voice: "some other system above
+them uses these commands: calls one, packs the arguments, passes them on"),
+`20261103_191625-me` (by voice: the forwarded pictures of an app's commands
+as the example, "all of it must be anonymized before it goes into the
+rules"), `20261103_191835-me` (by voice: "any command can be called by
+hand at any time"; "all the UI that depends on this command knows it was
+called"; "the command itself builds such a mechanism"; "it may end with an
+error that the process is already running"), `20261103_222406-me` (by
+voice: "a command just runs like a function: you ran it, it returned its
+result, and that is all; the system is something else"; "to take the
+complexity out of the whole system and split it into relatively small
+blocks") and `20261103_224111-me` ("onto the System page", the words and
+pictures shown in `20261103_222650-agent`).
+
+A system is its commands first; the app above calls them, and they never
+call one another; every command is drawn; any command runs by hand at any
+time; the pages that depend on a command know it runs; a command that runs
+one at a time guards itself. The words as worded in the plan, the tag `CMD`
+in place of `ARCH`, which the architecture glossary already holds as a
+section id across the pages. The examples are an app's commands made
+generic: no name, service, repository or file of its own. The rules stand
+on the System page, apart from the rule index, while the research goes on.

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker><marker id="arrow_bad" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#ff937c" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">The app above calls each command</text>
+<text x="48" y="108" fill="#92958c" font-size="22">with its arguments, on the file the last one left; a command never calls another</text>
+<text x="48" y="168" fill="#d3d1c9" font-size="20" font-weight="700">1 · A voice message, from Send to its reply</text>
+<rect x="48" y="222" width="150" height="48" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="123" y="252" fill="#d3d1c9" font-size="17" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">transcribe</text>
+<text x="123" y="208" fill="#ffb257" font-size="16" text-anchor="middle">on Send</text>
+<rect x="238" y="222" width="140" height="48" rx="24" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="308" y="252" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">voice.txt</text>
+<rect x="418" y="222" width="150" height="48" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="493" y="252" fill="#d3d1c9" font-size="17" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">summarize</text>
+<text x="493" y="208" fill="#ffb257" font-size="16" text-anchor="middle">once filed</text>
+<rect x="608" y="222" width="160" height="48" rx="24" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="688" y="252" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">summary.json</text>
+<rect x="808" y="222" width="120" height="48" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="868" y="252" fill="#d3d1c9" font-size="17" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">aloud</text>
+<text x="868" y="208" fill="#ffb257" font-size="16" text-anchor="middle">once answered</text>
+<rect x="968" y="222" width="140" height="48" rx="24" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="1038" y="252" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">reply.mp3</text>
+<line x1="204" y1="246" x2="229" y2="246" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="384" y1="246" x2="409" y2="246" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="574" y1="246" x2="599" y2="246" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="774" y1="246" x2="799" y2="246" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="934" y1="246" x2="959" y2="246" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M123 276 V300 H493 V281" fill="none" stroke="#ff937c" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#arrow_bad)"/>
+<text x="517" y="306" fill="#ff937c" font-size="17">✗ never one calling another</text>
+<text x="48" y="376" fill="#d3d1c9" font-size="20" font-weight="700">2 · A build, from Run to its page</text>
+<rect x="48" y="430" width="160" height="48" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="128" y="460" fill="#d3d1c9" font-size="17" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">run-build</text>
+<text x="128" y="416" fill="#ffb257" font-size="16" text-anchor="middle">a click on Run</text>
+<rect x="248" y="430" width="170" height="48" rx="8" fill="#212428" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="333" y="460" fill="#92958c" font-size="17" text-anchor="middle">the CI runs it</text>
+<rect x="458" y="430" width="190" height="48" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="553" y="460" fill="#d3d1c9" font-size="17" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">refresh-builds</text>
+<text x="553" y="416" fill="#ffb257" font-size="16" text-anchor="middle">every minute</text>
+<rect x="688" y="430" width="160" height="48" rx="24" fill="#0b0c0e" stroke="#2c3035" stroke-width="2"/>
+<text x="768" y="460" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">builds.json</text>
+<rect x="888" y="430" width="180" height="48" rx="8" fill="#212428" stroke="#4a4f57" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="978" y="460" fill="#92958c" font-size="17" text-anchor="middle">the Builds page</text>
+<line x1="214" y1="454" x2="239" y2="454" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="424" y1="454" x2="449" y2="454" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="654" y1="454" x2="679" y2="454" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="854" y1="454" x2="879" y2="454" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="48" y="528" fill="#92958c" font-size="21">Each leaves its file and ends; the app, the clock or a click starts the next.</text>
+</svg>

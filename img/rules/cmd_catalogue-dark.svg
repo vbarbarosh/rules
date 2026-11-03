@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="600" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker><marker id="arrow_bad" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#ff937c" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">An app as its commands, by family</text>
+<text x="48" y="108" fill="#92958c" font-size="22">one card per command: what it takes, what it leaves; called, it returns and ends</text>
+<text x="48" y="166" fill="#d3d1c9" font-size="22" font-weight="700">refresh</text>
+<text x="48" y="190" fill="#92958c" font-size="15">fetched, a page shows it</text>
+<rect x="48" y="216" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="62" y="244" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">refresh-builds</tspan></text>
+<text x="62" y="270" fill="#92958c" font-size="15">the CI's builds</text>
+<text x="62" y="294" fill="#d3d1c9" font-size="15">→ builds.json</text>
+<rect x="48" y="320" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="62" y="348" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">refresh-usage</tspan></text>
+<text x="62" y="374" fill="#92958c" font-size="15">services' limits</text>
+<text x="62" y="398" fill="#d3d1c9" font-size="15">→ usage.json</text>
+<rect x="48" y="424" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="62" y="452" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">refresh-machines</tspan></text>
+<text x="62" y="478" fill="#92958c" font-size="15">the servers asked</text>
+<text x="62" y="502" fill="#d3d1c9" font-size="15">→ machines.json</text>
+<text x="271" y="166" fill="#d3d1c9" font-size="22" font-weight="700">act</text>
+<text x="271" y="190" fill="#92958c" font-size="15">one thing done</text>
+<rect x="271" y="216" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="285" y="244" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">run-build</tspan></text>
+<text x="285" y="270" fill="#92958c" font-size="15">a build started</text>
+<text x="285" y="294" fill="#d3d1c9" font-size="15">→ its row</text>
+<rect x="271" y="320" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="285" y="348" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">prepare-machine</tspan></text>
+<text x="285" y="374" fill="#92958c" font-size="15">a server set up</text>
+<text x="285" y="398" fill="#d3d1c9" font-size="15">→ the Servers page</text>
+<rect x="271" y="424" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="285" y="452" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">release</tspan></text>
+<text x="285" y="478" fill="#92958c" font-size="15">a version released</text>
+<text x="285" y="502" fill="#d3d1c9" font-size="15">→ its tag</text>
+<text x="494" y="166" fill="#d3d1c9" font-size="22" font-weight="700">make</text>
+<text x="494" y="190" fill="#92958c" font-size="15">a file in, a file out</text>
+<rect x="494" y="216" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="508" y="244" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">transcribe</tspan></text>
+<text x="508" y="270" fill="#92958c" font-size="15">a recording</text>
+<text x="508" y="294" fill="#d3d1c9" font-size="15">→ voice.txt</text>
+<rect x="494" y="320" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="508" y="348" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">summarize</tspan></text>
+<text x="508" y="374" fill="#92958c" font-size="15">a conversation</text>
+<text x="508" y="398" fill="#d3d1c9" font-size="15">→ summary.json</text>
+<rect x="494" y="424" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="508" y="452" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">aloud</tspan></text>
+<text x="508" y="478" fill="#92958c" font-size="15">a reply's text</text>
+<text x="508" y="502" fill="#d3d1c9" font-size="15">→ reply.mp3</text>
+<text x="717" y="166" fill="#d3d1c9" font-size="22" font-weight="700">check</text>
+<text x="717" y="190" fill="#92958c" font-size="15">asked, nothing changed</text>
+<rect x="717" y="216" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="731" y="244" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">ai-ping</tspan></text>
+<text x="731" y="270" fill="#92958c" font-size="15">is the AI answering</text>
+<text x="731" y="294" fill="#d3d1c9" font-size="15">→ ping.json</text>
+<rect x="717" y="320" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="731" y="348" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">tools-status</tspan></text>
+<text x="731" y="374" fill="#92958c" font-size="15">its tools and state</text>
+<text x="731" y="398" fill="#d3d1c9" font-size="15">→ tools.json</text>
+<text x="940" y="166" fill="#d3d1c9" font-size="22" font-weight="700">maintain</text>
+<text x="940" y="190" fill="#92958c" font-size="15">once, the app closed</text>
+<rect x="940" y="216" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="954" y="244" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">migrate-messages</tspan></text>
+<text x="954" y="270" fill="#92958c" font-size="15">old messages moved</text>
+<text x="954" y="294" fill="#d3d1c9" font-size="15">→ a backup first</text>
+<rect x="940" y="320" width="211" height="92" rx="8" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="954" y="348" fill="#d3d1c9" font-size="15" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">&gt;_ <tspan fill="#9db2ff">pull-guides</tspan></text>
+<text x="954" y="374" fill="#92958c" font-size="15">the guides pulled</text>
+<text x="954" y="398" fill="#d3d1c9" font-size="15">→ the rules</text>
+<text x="48" y="568" fill="#92958c" font-size="21">Not commands: the window, the folder watchers, the clock; they start them.</text>
+</svg>

@@ -106,11 +106,13 @@ a live demo, on a page of its own: [animations.html](animations.html).
 
 ## System
 
-How a system is built, research still: the history of actions first, a
-command above and its records under it, on a page of its own:
+How a system is built, research still: the history of actions, a command
+above and its records under it; and a system as commands, each run like a
+function, a system above calling them; on a page of its own:
 [system.html](system.html).
 
 - [drafts/history.md](../drafts/history.md) — three kinds of record per model, each pointing up to its command, two levels always
+- [drafts/commands.md](../drafts/commands.md) — a system is its commands first, called from above, never by one another; each drawn, run by hand at any time, seen by its pages, guarding itself
 
 ## Vue 2
 

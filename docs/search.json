@@ -1,5 +1,5 @@
 {
-  "version": "0.1.16",
+  "version": "0.1.17",
   "pages": [
     {"id":"rules","title":"Rules","path":"docs/rules.html","ids_shown":true},
     {"id":"animations","title":"Animations","path":"docs/animations.html","ids_shown":true},
@@ -32,6 +32,7 @@
     {"id":"LINT","page_id":"rules","name":"Stated by the linter","text":"Rules that only LINTING.md and the preset spell out."},
     {"id":"ANIM","page_id":"animations","name":"Animations","text":"How a screen moves."},
     {"id":"HIST","page_id":"system","name":"The history of actions","text":"A command above, its records under it."},
+    {"id":"CMD","page_id":"system","name":"A system as commands","text":"Small commands, each like a function; a system above calls them."},
     {"id":"AGENT","page_id":"glossaries","name":"Agents","text":"Vocabulary to use when developing agents (coding agents, design agents, embedded agents, etc.)."},
     {"id":"PART","page_id":"glossaries","parent_id":"AGENT","name":"Parts","text":"What an agent is made of."},
     {"id":"ROLE","page_id":"glossaries","parent_id":"AGENT","name":"Roles","text":"Who stands outside the loop."},
@@ -424,6 +425,12 @@
     {"id":"HIST-01","section_id":"HIST","name":"Every model writes three kinds of record: created, updated, deleted","text":"One row per change in the database, named after the model, post_created ; no other kind at this level: publishing a post is a command, api2_publish_post , and its record is post_updated . Left, post_published crossed out as a fourth kind; right, post_created, post_updated and post_deleted, and api2_publish_post as a command with post_updated under it history.md"},
     {"id":"HIST-02","section_id":"HIST","name":"Every record points up to its command, named by its entry point","text":"The call that caused the change is written first, api2_create_project , api2_publish_post ; each record it causes carries its id. api2_create_project with project_created and folder_created under it; stored as three rows, the two records pointing up to 1 history.md"},
     {"id":"HIST-03","section_id":"HIST","name":"Two levels, always","text":"Under a command only records: never a record without one, never a command under a command. A record under an empty place and a command inside a command, crossed out; a command with its two records under it history.md"},
+    {"id":"CMD-01","section_id":"CMD","name":"A system is its commands first","text":"Each thing it does is one command: a name, an input, an output; it starts, does its work and ends; run, read and debugged alone. Left, one big app, its parts tangled, to change one thing read all of it; right, six small commands, each with what it takes and returns, under the system above that calls them commands.md"},
+    {"id":"CMD-02","section_id":"CMD","name":"The app above calls the commands; they never call one another","text":"It picks a command, packs its arguments, calls it and passes the result on. A command takes its arguments, runs as often as needed, and is read apart from the rest. Two chains: transcribe, voice.txt, summarize, summary.json, aloud, reply.mp3, with transcribe calling summarize crossed out; run-build, the CI, refresh-builds, builds.json, the Builds page; above each command what starts it commands.md"},
+    {"id":"CMD-03","section_id":"CMD","name":"Every command is drawn","text":"One picture per command, what goes in and what comes out, and one of how they connect; made with the command, kept beside it. An app as its commands by family, refresh, act, make, check and maintain, a card per command with what it takes and leaves commands.md"},
+    {"id":"CMD-04","section_id":"CMD","name":"Any command runs by hand at any time","text":"The system is built on it: called whenever, the command reads the state and does what is left; nothing breaks. refresh-builds called at night, mid-work or twice in a row ends each time; nothing done, it does it all, half done the rest, all done nothing commands.md"},
+    {"id":"CMD-05","section_id":"CMD","name":"The pages that depend on a command know it runs","text":"They show its progress from the file it writes, and offer to start it again. refresh-builds writes progress.json; the Builds page reads it and shows the run in progress, 2 of 3, with a Restart commands.md"},
+    {"id":"CMD-06","section_id":"CMD","name":"A command that runs one at a time guards itself","text":"A second call sees the first and ends with an error that says so; the caller need not think of it. The first call takes its lock and runs; a second call meanwhile ends with already running, the first call holds the lock, exit 1 commands.md"},
     {"id":"PART-01","section_id":"PART","name":"agent","text":"harness + model + tools + policy. Never the model alone. Agent: harness, model, tools and policy in one box, the workspace beside it agents.md"},
     {"id":"PART-02","section_id":"PART","name":"model","text":"The LLM, identified by a string ( claude-opus-5 ). Stateless: one context in, one message out. Model: a context in, one message out, nothing remembered between calls agents.md"},
     {"id":"PART-03","section_id":"PART","name":"harness","text":"The code that runs the loop: builds context, calls the model, executes tools, appends results, stops. Harness: the loop of building the context, calling the model, running the tools, appending, stopping agents.md"},
