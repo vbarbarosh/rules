@@ -12,6 +12,7 @@ fs.mkdirSync(path.join(root, 'project', 'node_modules'), {recursive: true});
 fs.mkdirSync(path.join(root, 'other'));
 fs.writeFileSync(path.join(root, 'project', 'bad.vue'), '<template>\n    <div class="p30 db" />\n</template>\n');
 fs.writeFileSync(path.join(root, 'project', 'good.js'), 'const a = 1;\n');
+fs.writeFileSync(path.join(root, 'project', 'page.html'), '<script>\n[1].forEach(v => v);\n</script>\n');
 fs.writeFileSync(path.join(root, 'project', 'node_modules', 'vendor.js'), 'const a = 1;\n');
 
 test.after(function () {
@@ -30,6 +31,12 @@ test('a relative directory resolves against the working directory', function () 
     const result = lint_run(['project'], root);
     assert.equal(result.status, 1);
     assert.match(result.stdout, /bad\.vue/);
+});
+
+test('a page in a directory is linted, its script at the page\'s lines', function () {
+    const result = lint_run(['project'], root);
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /page\.html\n\s+2:1\s+error\s+Use for\.\.\.of instead of forEach/);
 });
 
 test('a given file which the preset ignores fails instead of passing unchecked', function () {

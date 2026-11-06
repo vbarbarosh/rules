@@ -194,3 +194,33 @@ test('malformed Sass is reported instead of silently accepting local classes', a
     const [result] = await linter.lintText('<template><div class="#-foo" /></template><style lang="sass">\n.#-foo\n    color: (\n</style>', {filePath: 'example.vue'});
     assert.equal(result.messages.some(v => (v.ruleId === 'rules/vue-local-class-style') && (v.messageId === 'parse')), true);
 });
+
+test('standalone styles keep one selector a line and one blank line between rules', async function () {
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config()});
+    const css = '.a, .b {\n    color: red;\n}\n.c {\n    color: blue;\n}\n';
+    for (const [file_path, source, blank_line] of [['example.css', css, 4], ['example.scss', css, 4], ['example.sass', '.a, .b\n    color: red\n.c\n    color: blue\n', 3]]) {
+        const [result] = await linter.lintText(source, {filePath: file_path});
+        assert.deepEqual(result.messages.map(v => [v.ruleId, v.messageId, v.line]), [['rules/style-rule-format', 'selectors', 1], ['rules/style-rule-format', 'blank', blank_line]], file_path);
+    }
+});
+
+test('a page\'s inline scripts and styles are linted at the page\'s own lines', async function () {
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config()});
+    const source = '<!doctype html>\n<html>\n<head>\n    <style>\n        .a, .b {\n            color: red;\n        }\n    </style>\n</head>\n<body>\n    <script>\n        [1].forEach(v => v);\n    </script>\n</body>\n</html>\n';
+    const [result] = await linter.lintText(source, {filePath: 'index.html'});
+    assert.deepEqual(result.messages.map(v => [v.ruleId, v.line, v.column]), [['rules/style-rule-format', 5, 9], ['no-restricted-syntax', 12, 9]]);
+});
+
+test('a page\'s external, data and commented-out scripts are left alone; a module script is linted', async function () {
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config()});
+    const source = '<script src="x.js"></script>\n<script type="application/json">{"a": [1,2]}</script>\n<!-- <script>[1].forEach(v => v);</script> -->\n<script type="module">\n[1].forEach(v => v);\n</script>\n';
+    const [result] = await linter.lintText(source, {filePath: 'index.html'});
+    assert.deepEqual(result.messages.map(v => [v.ruleId, v.line, v.column]), [['no-restricted-syntax', 5, 1]]);
+});
+
+test('a page\'s script indented under its tag is checked from its own base indent', async function () {
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config()});
+    const source = '<body>\n    <script>\n        function main()\n        {\n            return 1;\n        }\n    </script>\n</body>\n';
+    const [result] = await linter.lintText(source, {filePath: 'index.html'});
+    assert.deepEqual(result.messages, []);
+});

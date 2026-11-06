@@ -1,8 +1,9 @@
 # Linting the rulebook
 
 This repository is also a reusable ESLint plugin. It checks JavaScript, Vue
-2/3 single-file components, and CSS/SCSS/indented Sass; the transition and
-`@include` checks run on SCSS and Sass only, where the mixins live. It
+2/3 single-file components, CSS/SCSS/indented Sass, and the inline scripts
+and styles of HTML pages; the transition and `@include` checks run on SCSS
+and Sass only, where the mixins live. It
 follows the whole-line import sorting rule in `drafts/imports_sorted.md`,
 part of the brace catalog in `drafts/formatting_blocks.md` (the rest is
 under Scope), and the class conventions in `drafts/css_classes.md`.
@@ -35,7 +36,7 @@ directory. This uses the new configuration without changing its existing setup:
 
 ```sh
 cd /path/to/project
-/app/node_modules/.bin/eslint --config /app/eslint.projects.config.js "src/**/*.{js,vue,css,scss,sass}"
+/app/node_modules/.bin/eslint --config /app/eslint.projects.config.js "src/**/*.{js,vue,css,scss,sass,html}"
 ```
 
 Replace `/app` with the path to this checkout when using it elsewhere. Pass
@@ -111,6 +112,7 @@ legacy ESLint configuration; that configuration is not automatically merged.
 | `vue-layout-classes` | `gap*` closes the layout group: the flex/grid/split container, then its `flex-*` modifiers, then gap; `grid*` and `flex*` layout classes never share an element; no `mg*`/`mi*` on flex/grid containers; correct fluid/grow/shrink family under a known parent. |
 | `vue-hashtag-syntax` | Exact source forms supported by the existing hashtag loader; catches unsupported quoting, spaces around `=`, unsupported attributes and JS strings. |
 | `vue-local-class-style` | Each statically known `#-*` template class or supported JS selector has a nonempty style selector in the same component. Style syntax/coverage failures are errors once a `#-*` class asks to be verified. |
+| `style-rule-format` | CSS-12 and CSS-13 in every style file: standalone CSS, SCSS and Sass, Vue `<style>` blocks and a page's `<style>`. A selector list puts each selector on its own line, the comma closing it; commas inside `:is(...)`, attributes and strings do not count. Rules, at-rule blocks and comments after a closing brace stand one blank line from it, never none or two; a comment that leads a rule takes the blank line. Keyframe steps (`0%, 100%`) and an `@else` after its `@if` are left as written. |
 | `vue-style-conventions` | `@import` first in a component style block; inside a rule, `@include` first, ahead of the property declarations (`$variables` do not count; root-level includes are free); transition properties through the shared mixins; no `all`. CSS-09 requires the include on the base rule, not on a state; that placement is not checked. |
 
 The preset also enables four-space JS indentation, aligned switch cases,
@@ -147,6 +149,18 @@ count as selectors. Empty rules and variable-only rules do not count as
 styles. Declarations, includes and extends count. Selector lists, media rules,
 multiple style blocks, keyframes, `&:hover`, and `&-suffix` nesting are covered. A class
 mentioned only inside `:not(...)` does not count as styled.
+
+## HTML pages
+
+Each inline `<script>` and `<style>` of an `.html` file is linted as a file
+of its own kind: a script with the JavaScript rules, a style with the CSS
+rules. A script counts when it has no `src` and no `type`, `module` or a
+JavaScript type; data scripts (`application/json`, `importmap`), templates
+and commented-out elements are skipped. The block's base indent, the
+smallest indent of its lines, comes off first: a script indented under its
+tag is checked from there, where a Vue script keeps one base indent
+(LINT-12). Messages carry the page's own lines and columns; no fixes are
+offered.
 
 ## Configuration and limits
 

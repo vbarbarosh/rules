@@ -47,6 +47,7 @@ function make_rules_config(options = {})
                 'rules/vue-hashtag-syntax': 'error',
                 'rules/vue-local-class-style': 'error',
                 'rules/vue-style-conventions': ['error', {app_prefixes}],
+                'rules/style-rule-format': 'error',
             },
         },
         {
@@ -54,15 +55,18 @@ function make_rules_config(options = {})
             plugins: {rules: plugin},
             languageOptions: {parser: vue_parser},
             processor: 'rules/styles',
-            rules: {'rules/vue-local-class-style': 'error', 'rules/vue-style-conventions': ['error', {app_prefixes}]},
+            rules: {'rules/vue-local-class-style': 'error', 'rules/vue-style-conventions': ['error', {app_prefixes}], 'rules/style-rule-format': 'error'},
         },
         {
             files: ['**/*.css'],
             plugins: {rules: plugin},
             languageOptions: {parser: vue_parser},
             processor: 'rules/styles',
-            rules: {'rules/vue-local-class-style': 'error'},
+            rules: {'rules/vue-local-class-style': 'error', 'rules/style-rule-format': 'error'},
         },
+        // A page's inline scripts and styles, each linted as a file of its
+        // own kind at the page's own lines.
+        {files: ['**/*.html'], plugins: {rules: plugin}, processor: 'rules/pages'},
     ];
 }
 

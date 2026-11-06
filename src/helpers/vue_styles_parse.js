@@ -31,7 +31,7 @@ function vue_styles_parse(source)
             const root = (lang === 'css') ? postcss.parse(normalized)
                 : (lang === 'scss') ? scss.parse(normalized)
                     : sass.sass.parse(sass_keyframes_normalize(normalized));
-            const block = {root, offset, element: child};
+            const block = {root, offset, element: child, lang, text};
             out.blocks.push(block);
             root.walkRules(function (rule) {
                 let parent = rule.parent;

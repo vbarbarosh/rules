@@ -151,3 +151,27 @@ tester.run('vue-style-conventions', plugin.rules['vue-style-conventions'], {
         {code: '<style lang="scss">.foo { color: red; } @import "base";</style>', errors: [{messageId: 'import'}]},
     ],
 });
+
+tester.run('style-rule-format', plugin.rules['style-rule-format'], {
+    valid: [
+        '<style>\n.a,\n.b {\n    color: red;\n}\n\n.c {\n    color: blue;\n}\n</style>',
+        '<style>\n.a:is(.b, .c) {\n    color: red;\n}\n\n[data-x="a, b"] {\n    color: blue;\n}\n</style>',
+        '<style>\n.a {\n    color: red;\n}\n\n/* the next part */\n.b {\n    color: blue;\n}\n</style>',
+        '<style>\n@media (min-width: 1px) {\n    .a {\n        color: red;\n    }\n\n    .b {\n        color: blue;\n    }\n}\n</style>',
+        '<style>\n@keyframes pulse {\n    0%, 50% {\n        opacity: 0;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n</style>',
+        '<style lang="scss">\n.a {\n    color: red;\n    &:hover {\n        color: blue;\n    }\n}\n</style>',
+        '<style lang="scss">\n.a {\n    @if $x {\n        color: red;\n    } @else {\n        color: blue;\n    }\n}\n</style>',
+        '<style lang="sass">\n.a,\n.b\n    color: red\n\n.c\n    color: blue\n</style>',
+        '<style lang="sass">\n@keyframes pulse\n    0%, 50%\n        opacity: 0\n    100%\n        opacity: 1\n</style>',
+    ],
+    invalid: [
+        {code: '<style>\n.a, .b {\n    color: red;\n}\n</style>', errors: [{messageId: 'selectors', line: 2, column: 1}]},
+        {code: '<style>\n.a\n, .b {\n    color: red;\n}\n</style>', errors: [{messageId: 'selectors', line: 2}]},
+        {code: '<style>\n.a {\n    color: red;\n}\n.b {\n    color: blue;\n}\n</style>', errors: [{messageId: 'blank', data: {count: 'none'}, line: 5}]},
+        {code: '<style>\n.a {\n    color: red;\n}\n\n\n.b {\n    color: blue;\n}\n</style>', errors: [{messageId: 'blank', data: {count: '2'}, line: 7}]},
+        {code: '<style>\n.a { color: red; } .b { color: blue; }\n</style>', errors: [{messageId: 'blank', data: {count: 'none'}, line: 2}]},
+        {code: '<style>\n.a {\n    color: red;\n}\n/* the next part */\n.b {\n    color: blue;\n}\n</style>', errors: [{messageId: 'blank', line: 5}]},
+        {code: '<style lang="scss">\n.a {\n    &:hover {\n        color: red;\n    }\n    &:focus {\n        color: blue;\n    }\n}\n</style>', errors: [{messageId: 'blank', line: 6, column: 5}]},
+        {code: '<style lang="sass">\n.a, .b\n    color: red\n.c\n    color: blue\n</style>', errors: [{messageId: 'selectors', line: 2}, {messageId: 'blank', line: 4}]},
+    ],
+});
