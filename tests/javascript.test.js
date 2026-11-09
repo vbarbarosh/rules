@@ -199,11 +199,15 @@ tester.run('return-out', plugin.rules['return-out'], {
 });
 
 tester.run('operator-spacing', plugin.rules['operator-spacing'], {
-    valid: ['const x = a*b + c/d - e**2;', 'const x = a % 2;', 'const x = a /* reason */ * b;', 'const x = a/ /x/.test(b);'],
+    valid: ['const x = a*b + c/d - e**2;', 'const x = a % 2;', 'const y = Math.floor(i/width);', 'const x = a /* reason */ * b;', 'const x = a/ /x/.test(b);'],
     invalid: [
-        {code: 'const x = a * b;', output: 'const x = a*b;', errors: [{messageId: 'tight'}, {messageId: 'tight'}]},
-        {code: 'const x = a+b;', output: 'const x = a + b;', errors: [{messageId: 'space'}, {messageId: 'space'}]},
-        {code: 'x+=2;', output: 'x += 2;', errors: [{messageId: 'space'}, {messageId: 'space'}]},
+        {code: 'const x = a * b;', output: 'const x = a*b;', errors: [{messageId: 'tight', column: 13}]},
+        {code: 'const x = a+b;', output: 'const x = a + b;', errors: [{messageId: 'space', column: 12}]},
+        {code: 'const x = i%width;', output: 'const x = i % width;', errors: [{messageId: 'space', column: 12}]},
+        {code: 'const x = a+ b;', output: 'const x = a + b;', errors: [{messageId: 'space', column: 12}]},
+        {code: 'const x = a *b;', output: 'const x = a*b;', errors: [{messageId: 'tight', column: 13}]},
+        {code: 'x+=2;', output: 'x += 2;', errors: [{messageId: 'space'}]},
+        {code: 'const x = a+b-c;', output: 'const x = a + b - c;', errors: [{messageId: 'space', column: 12}, {messageId: 'space', column: 14}]},
     ],
 });
 

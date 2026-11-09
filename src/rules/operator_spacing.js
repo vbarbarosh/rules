@@ -9,6 +9,7 @@ function operator_spacing(context)
         if (source.getCommentsInside(node).some(v => (v.range[0] >= before.range[1]) && (v.range[1] <= after.range[0]))) {
             return;
         }
+        const gaps = [];
         for (const pair of [[before, token], [token, after]]) {
             const [left, right] = pair;
             const gap = source.text.slice(left.range[1], right.range[0]);
@@ -20,14 +21,18 @@ function operator_spacing(context)
                 continue;
             }
             if (gap !== (tight ? '' : ' ')) {
-                context.report({
-                    loc: token.loc,
-                    messageId: tight ? 'tight' : 'space',
-                    fix: function (fixer) {
-                        return fixer.replaceTextRange([left.range[1], right.range[0]], tight ? '' : ' ');
-                    },
-                });
+                gaps.push([left.range[1], right.range[0]]);
             }
+        }
+        // One problem per operator, however many of its sides are wrong.
+        if (gaps.length > 0) {
+            context.report({
+                loc: token.loc,
+                messageId: tight ? 'tight' : 'space',
+                fix: function (fixer) {
+                    return gaps.map(v => fixer.replaceTextRange(v, tight ? '' : ' '));
+                },
+            });
         }
     }
     return {BinaryExpression: check, LogicalExpression: check, AssignmentExpression: check};
