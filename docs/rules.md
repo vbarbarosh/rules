@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-287 rules · 18 groups · 57 sources · filterable version: [rules.html](rules.html)
+288 rules · 18 groups · 58 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 How a system is built too, its rules still settling: [system.md](system.md).
@@ -25,7 +25,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FN | Function contracts | 16 | What a prefix promises the caller. |
 | FMT | Formatting | 35 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 12 | Imperative, explicit, no magic. |
-| FILE | File and module structure | 25 | One entry function, one fixed order. |
+| FILE | File and module structure | 26 | One entry function, one fixed order. |
 | PROJ | Project layout | 30 | A directory is a program; bin/ holds its verbs. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
 | GIT | Commits | 5 | A lowercase title, scope first; details below; 72 characters a line. |
@@ -176,6 +176,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FILE-24 | **Libraries and tools dictate their own shape.** A named import from a library is the library’s shape, and a file whose shape is dictated by a tool follows the tool — `module.exports.mochaHooks` in a mocha hooks file. | `import {mapState} from 'vuex';` ![vuex's named import and mocha's hooks file keep their tools' shape; a named import from a local module becomes one value](../img/rules/file_tools_dictate_shape.svg) | [one_export_per_file.md](../drafts/one_export_per_file.md) |
 | FILE-25 | **New code takes its place from its surroundings where no explicit rule applies.** Read the code around the insertion point — what stands together, in what order — and continue it within that scope. Explicit rules take priority (CORE-01); this does not require reorganizing existing code. | ![format_time appended after render_page, moved beside the other format_ functions](../img/rules/file_place_from_surroundings.svg) | [new_code_placement.md](../drafts/new_code_placement.md) |
 | FILE-26 | **A function family stays unbroken.** A run of functions of one family — `render_*`, `format_*`, `click_*` — stays unbroken. A new member joins the run; a function of another family goes outside it, never between two members. | <pre>render_css()<br>describe()            ✗ splits the run<br>render_html()<br><br>render_css()<br>render_html()<br>describe()            ✓ after the run</pre> ![describe() between render_css and render_html, moved after the render run](../img/rules/file_family_unbroken.svg) | [new_code_placement.md](../drafts/new_code_placement.md) |
+| FILE-27 | **In a PHP class, the `assert_*` methods follow the constructor.** The methods named `assert_*`, `public function assert_*(...): void`, stand right after `__construct`, before every other method. They are one family, a run that stays unbroken (FILE-26). | <pre>public function __construct(...)<br>{<br>}<br><br>public function assert_*(...): void<br>{<br>}</pre> ![assert_owner and assert_draft scattered among the other methods of a class, moved right after __construct, publish and rename after them](../img/rules/file_php_assert_after_constructor.svg) | [php_assert_methods.md](../drafts/php_assert_methods.md) |
 | **PROJ** | **Project layout** — A directory is a program; bin/ holds its verbs. | | |
 | PROJ-01 | **One project shape; bin/ holds the verbs.** Every project keeps one shape. A directory is a program, and `bin/` holds its methods — one executable per verb, working the same in every language. | <pre>bin/build      bb<br>bin/configure<br>bin/release<br>bin/run        rr<br>bin/self-check<br>bin/test       tt<br>bin/watch      ww</pre> ![The bin/ folder with build, configure, release, run, self-check, test and watch, and the same verbs in a node.js, a python and a php project](../img/rules/proj_bin_holds_the_verbs.svg) | [layout.md](../drafts/layout.md) |
 | PROJ-02 | **After git pull, run bin/configure.** `bin/configure` is the only command to run after `git pull` to make a checkout ready for development. | ![git pull, then bin/configure, then a checkout ready to work in; a list of remembered steps is replaced by that one command](../img/rules/proj_configure_after_pull.svg) | [layout.md](../drafts/layout.md) |

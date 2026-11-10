@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="470" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">assert methods follow the constructor</text>
+<text x="48" y="108" fill="#92958c" font-size="22">in a PHP class, the assert_* methods stand right after __construct</text>
+<text x="60" y="168" fill="#ff937c" font-size="18" font-weight="700">✗ assert methods among the others</text>
+<text x="640" y="168" fill="#72d39c" font-size="18" font-weight="700">✓ the constructor, then the assert methods</text>
+<rect x="60" y="180" width="500" height="214" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="80" y="216" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function __construct(...)</text>
+<text x="80" y="254" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function publish(...): void</text>
+<rect x="70" y="271" width="480" height="32" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="80" y="292" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function assert_owner(...): void</text>
+<text x="80" y="330" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function rename(...): void</text>
+<rect x="70" y="347" width="480" height="32" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="80" y="368" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function assert_draft(...): void</text>
+<rect x="640" y="180" width="500" height="214" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="660" y="216" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function __construct(...)</text>
+<rect x="650" y="233" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="660" y="254" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function assert_owner(...): void</text>
+<rect x="650" y="271" width="480" height="32" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="660" y="292" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function assert_draft(...): void</text>
+<text x="660" y="330" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function publish(...): void</text>
+<text x="660" y="368" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">public function rename(...): void</text>
+<line x1="566" y1="287" x2="632" y2="287" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="48" y="442" fill="#92958c" font-size="21">The assert methods are one run, unbroken: every other method comes after it.</text>
+</svg>

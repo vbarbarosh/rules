@@ -23,7 +23,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below but the animations, all 287 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
+- **[docs/rules.html](rules.html) — every rule below but the animations, all 288 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
 
 ### Naming and variables (NAME, VAR, FN)
 
@@ -49,6 +49,7 @@ It's just not written down.
 - [drafts/imports_sorted.md](../drafts/imports_sorted.md) — the import block is a plain byte-order line sort
 - [drafts/record_fields.md](../drafts/record_fields.md) — a record's fields in one order: ids, uids, the rest, dates; ids stay on the backend, the frontend gets uids
 - [drafts/new_code_placement.md](../drafts/new_code_placement.md) — new code takes its place from its surroundings; a run of `render_*` stays unbroken
+- [drafts/php_assert_methods.md](../drafts/php_assert_methods.md) — in a PHP class the `assert_*` methods stand right after the constructor
 - [drafts/cli_main.md](../drafts/cli_main.md) — an executable hands `main` to `cli(main)`
 - [drafts/endpoint_comment.md](../drafts/endpoint_comment.md) — every route function carries a `METHOD /path (params)` comment
 - [drafts/interactions-should-return-only-boolean-flag.md](../drafts/interactions-should-return-only-boolean-flag.md) — modals and popovers act, then return a commit flag; the best practices for [vue-modal](https://github.com/vbarbarosh/vue-modal)

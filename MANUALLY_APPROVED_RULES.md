@@ -1142,3 +1142,16 @@ backend and never reach the frontend, which knows a record by its `uid`.
 The order inside one kind is not ruled. Both stand with the formatting
 rules, beside the two about objects. Existing code is not rewritten for
 them (CORE-01).
+
+## MP-88 — In a PHP class, assert methods follow the constructor
+
+**Scope:** FILE-27, FILE-26, [assert methods](drafts/php_assert_methods.md).
+**Approved:** 2026-11-10, author message `20261110_170837-me` (the two
+signatures, `public function __construct(...)` and `public function
+assert_*(...): void`; by voice: a rule for PHP, functions like `public
+function assert_*(...): void` stand right after the constructor).
+
+In a PHP class the methods named `assert_*` stand right after the
+constructor, before every other method. It stands with the rules of a
+file's order, after FILE-26. Existing code is not rewritten for it
+(CORE-01).
