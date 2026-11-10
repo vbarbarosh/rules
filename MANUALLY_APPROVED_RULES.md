@@ -1169,3 +1169,18 @@ FN-13's form and its page showed `mounted` before; that was never ruled
 on. `mounted` is for a first refresh that needs the DOM. The author's half
 of `drafts/refresh.md` says so in a line of its own. Existing code is not
 rewritten for it (CORE-01).
+
+## MP-90 — Component methods keep one order
+
+**Scope:** VUE-25, FILE-26, [Vue components](vue2/vue-components.md).
+**Approved:** 2026-11-10, author message `20261110_204058-me` (by voice:
+the functions the template needs that are written in other modules are
+listed on the very top, by name, with commas; then `refresh`; a
+`format_title` of the component stands below `refresh`).
+
+In a component's `methods` the names of functions written in other
+modules stand on the very top, then `refresh`, then the component's own
+methods. The names on top are no family's run, so FILE-26 does not pull a
+`format_*` written in the component up to them. An order among the
+component's own methods after `refresh` is not ruled. Existing code is not
+rewritten for it (CORE-01).

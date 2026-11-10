@@ -23,7 +23,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below but the animations, all 288 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
+- **[docs/rules.html](rules.html) — every rule below but the animations, all 289 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
 
 ### Naming and variables (NAME, VAR, FN)
 
@@ -125,7 +125,7 @@ function, a system above calling them; on a page of its own:
 - [vue2/vue-button.md](../vue2/vue-button.md) — one button, one class
 - [vue2/vue-slider.md](../vue2/vue-slider.md) — thumb position is `0 .. 100%`
 - [vue2/vue-svg-icon.md](../vue2/vue-svg-icon.md) — one `svg-icon-*.vue` per icon, `currentColor`
-- [vue2/vue-components.md](../vue2/vue-components.md) — option order; `click_*` handlers named after the UI part; a piece shown in two places is a `<kind>-*` component
+- [vue2/vue-components.md](../vue2/vue-components.md) — option order; the order of methods; `click_*` handlers named after the UI part; a piece shown in two places is a `<kind>-*` component
 
 ## Natural Pairs
 

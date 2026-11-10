@@ -14,6 +14,29 @@ Component options keep one order:
     created
     beforeDestroy
 
+## Methods
+
+Component methods keep one order:
+
+    methods: {
+        format_bytes,
+        format_size,
+        refresh: async function () {
+        },
+        format_title: function () {
+        },
+    },
+
+1. On the very top, the functions the template needs that are written in
+   other modules: listed by name, one after another.
+2. Then `refresh`, its parts `refresh_<part>` with it.
+3. Then the component's own methods.
+
+A `format_title` written in the component stands below `refresh`, not up
+with the listed `format_bytes`. The names on top are no family's run
+(FILE-26): they are written elsewhere and only named here. Among the
+component's own methods a family stays unbroken as everywhere.
+
 ## Event handlers
 
 An event handler is named after the UI part it is bound to:

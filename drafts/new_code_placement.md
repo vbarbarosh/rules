@@ -88,3 +88,7 @@ public function describe(): void
 
 - `describe()` between `render_css()` and `render_html()` splits
   the run; it goes after it.
+
+In a Vue component's `methods` the names listed on top, functions written
+in other modules, are no run: a `format_*` written in the component stands
+below `refresh` (VUE-25).
