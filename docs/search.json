@@ -1,5 +1,5 @@
 {
-  "version": "0.1.22",
+  "version": "0.1.23",
   "pages": [
     {"id":"rules","title":"Rules","path":"docs/rules.html","ids_shown":true},
     {"id":"animations","title":"Animations","path":"docs/animations.html","ids_shown":true},
@@ -133,7 +133,7 @@
     {"id":"NAME-06","section_id":"NAME","name":"_per_ marks a ratio or a rate","text":"clicks_per_visit 1 240 clicks over 400 visits make clicks_per_visit, 3.1: a rate, not a list naming_markers.md"},
     {"id":"NAME-07","section_id":"NAME","name":"Group by, sort by, index by produce them","text":"The operations that produce those shapes are _group_by_ , _sort_by_ and _index_by_ . The criterion follows the verb. users_index_by_id(users) // user_by_id users_group_by_role(users) // users_by_role items_sort_by_time(items) // items_sorted_by_time users_index_by_id() makes user_by_id, users_group_by_role() makes users_by_role, items_sort_by_time() makes items_sorted_by_time docs/README.md"},
     {"id":"NAME-08","section_id":"NAME","name":"\"From\" means computed: result first, source last","text":"Use _from_ only when something is computed, parsed or constructed — result first, source last. user_from_token(token) date_from_timestamp(ts) tree_from_array(rows) a token is parsed into a User: user_from_token, the result first and the source last docs/README.md"},
-    {"id":"NAME-09","section_id":"NAME","name":"_from_ never means lookup","text":"A lookup disguised as construction is wrong. user_from_id(id) ✗ wrong user_by_id& 91;id] ✓ right ![an id looked up in the user_by_id table: user_by_id[id] is right, user_from_id(id) dresses the lookup as construction](../img/rules/from_is_not_lookup.svg) naming_markers.md"},
+    {"id":"NAME-09","section_id":"NAME","name":"_from_ never means lookup","text":"A lookup disguised as construction is wrong. user_from_id(id) ✗ wrong user_by_id& 91;id] ✓ right an id looked up in the user_by_id table: indexing user_by_id with the id is right, user_from_id(id) dresses the lookup as construction naming_markers.md"},
     {"id":"NAME-10","section_id":"NAME","name":"\"To\" belongs in method position","text":"A standalone conversion prefers _from_ ; _to_ is for method position, where the source is the receiver. tree.to_json() tree.to_json() with tree as the receiver; standalone it is json_from_tree(tree), never tree_to_json(tree) naming_markers.md"},
     {"id":"NAME-11","section_id":"NAME","name":"No \"to\" in data names","text":"_to_ is banned in data names — id_to_name is only a second spelling of name_by_id . id_to_name ✗ banned name_by_id ✓ right a map from ids to names is name_by_id; id_to_name is a second name for the same map naming_markers.md"},
     {"id":"NAME-12","section_id":"NAME","name":"No \"indexed by\"; bare \"by\" says it","text":"_indexed_by_ does not exist. Bare _by_ already names that shape. users_indexed_by_id ✗ does not exist user_by_id ✓ right users_index_by_id() makes user_by_id; users_indexed_by_id does not exist naming_markers.md"},

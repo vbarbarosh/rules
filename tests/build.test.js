@@ -210,6 +210,22 @@ test('the build rejects a Try it link to a demo that is not there', function () 
     }
 });
 
+test('the build rejects a picture whose description holds a bracket rather than printing it as text', function () {
+    const file = path.join(fixture_dir, 'docs/rules.md');
+    const original = fs.readFileSync(file, 'utf8');
+    try {
+        const changed = original.replace('indexing user_by_id with the id is right', 'user_by_id[id] is right');
+        assert.notEqual(changed, original);
+        fs.writeFileSync(file, changed);
+        const result = build();
+        assert.notEqual(result.status, 0);
+        assert.match(result.stderr, /a picture left as text, its description may hold \[ or \]: !\[an id looked up/);
+    }
+    finally {
+        fs.writeFileSync(file, original);
+    }
+});
+
 for (const item of [
     {file: 'drafts/readme-structure.png', what: 'truncated PNG', data: Buffer.from('89504e470d0a1a0a', 'hex')},
     {file: 'drafts/scroll-anchoring.gif', what: 'truncated GIF', data: Buffer.from('GIF89a')},
