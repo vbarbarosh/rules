@@ -10,6 +10,7 @@ const {chromium} = require('playwright');
 // selected; Enter, a click or the arrows and Enter land on it.
 const root_dir = path.join(__dirname, '../..');
 const PAGE_NAMES = ['rules', 'animations', 'system', 'glossaries', 'agents', 'diagrams', 'apis'];
+const PHONE_WIDTHS = [360, 390, 430];
 let browser;
 let server;
 let origin;
@@ -178,6 +179,32 @@ test('rules: a section of a page written by hand is found, and lands on it', asy
         await page.close();
     }
 });
+
+// On a phone the bar that rides along keeps room for the search: a word typed can be read, and the page fits the phone.
+for (const page_name of PAGE_NAMES) {
+    test(`${page_name}: on a phone, scrolled, the search box keeps its room`, async function () {
+        const page = await open_page(page_name);
+        try {
+            for (const width of PHONE_WIDTHS) {
+                await page.setViewportSize({width, height: 800});
+                await page.locator('#q').fill('');
+                await page.evaluate(() => window.scrollTo({top: 1600, behavior: 'instant'}));
+                await page.locator('.bar.docked').waitFor();
+                for (const query of ['', 'brace']) {
+                    await page.locator('#q').fill(query);
+                    await page.locator('.bar').evaluate(v => Promise.all(v.getAnimations({subtree: true}).map(vv => vv.finished)));
+                    const box = await page.locator('#q').boundingBox();
+                    assert.ok(box.width >= 100, `at ${width}px with "${query}" typed the search box is ${box.width}px wide`);
+                    const page_width = await page.evaluate(() => document.documentElement.scrollWidth);
+                    assert.ok(page_width <= width, `at ${width}px with "${query}" typed the page is ${page_width}px wide`);
+                }
+            }
+        }
+        finally {
+            await page.close();
+        }
+    });
+}
 
 async function open_page(name)
 {

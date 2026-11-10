@@ -490,6 +490,13 @@ h1 {
     transition: opacity var(--fast), max-width var(--fast), margin-left var(--fast), visibility 0s;
 }
 
+/* A phone's bar has no room for it beside the search: there the control stays in the masthead. */
+@media (max-width: 720px) {
+    .pictures-docked {
+        display: none;
+    }
+}
+
 .count {
     margin-left: auto;
     font-family: var(--mono);
@@ -1493,7 +1500,7 @@ footer .lead {
     <div class="mast-top">
         <div class="project">
             <a class="project-name" href="rules.html">rules</a>
-            <span class="version">v0.1.21</span>
+            <span class="version">v0.1.22</span>
         </div>
         <nav class="pages" aria-label="Pages">
             <a href="rules.html">Rules</a>
