@@ -7,6 +7,9 @@ const {chromium} = require('playwright');
 // Run with Playwright and Chromium installed: node --test tests/browser/theme-switch.test.js
 const root_dir = path.join(__dirname, '../..');
 const PAGE_FILES = ['docs/rules.html', 'docs/animations.html', 'docs/system.html', 'docs/agents.html', 'docs/diagrams.html', 'docs/apis.html', 'docs/glossaries.html', 'formatting.html', 'drafts/logs-cheatsheet.html', 'drafts/scroll-anchoring.html'];
+const HEADER_PAGE_FILES = [...PAGE_FILES.filter(v => v !== 'drafts/scroll-anchoring.html'), 'drafts/animations.html'];
+// The widths where a one-line header stops fitting, and the ones around them.
+const HEADER_WIDTHS = [320, 375, 640, 641, 720, 721, 768, 909, 1024, 1066, 1083, 1280];
 const paths = ['sun', 'moon'].map(v => fs.readFileSync(path.join(root_dir, 'img', `theme-${v}.svg`), 'utf8').match(/ d="([^"]+)"/)[1]);
 let browser;
 
@@ -102,6 +105,28 @@ for (const page_file of PAGE_FILES.filter(v => v !== 'drafts/scroll-anchoring.ht
             }
         });
     }
+}
+
+// Nothing runs past the right edge: at every width the page is as wide as its window and the switch is on it.
+for (const page_file of HEADER_PAGE_FILES) {
+    test(`${page_file}: the header fits its window from a phone to a laptop`, async function () {
+        const context = await browser.newContext({colorScheme: 'dark', viewport: {width: 1280, height: 800}});
+        const page = await context.newPage();
+        try {
+            await page.route('https://**/*', v => v.abort());
+            await page.goto(`file://${path.join(root_dir, page_file)}`);
+            for (const width of HEADER_WIDTHS) {
+                await page.setViewportSize({width, height: 800});
+                const page_width = await page.evaluate(() => document.documentElement.scrollWidth);
+                assert.ok(page_width <= width, `at ${width}px the page is ${page_width}px wide`);
+                const theme = await page.locator('.theme').first().boundingBox();
+                assert.ok(theme.x + theme.width <= width, `at ${width}px the switch ends at ${theme.x + theme.width}px`);
+            }
+        }
+        finally {
+            await context.close();
+        }
+    });
 }
 
 async function state_assert(page, theme)

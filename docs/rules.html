@@ -173,10 +173,12 @@ pre {
     fill: currentColor;
 }
 
-/* The pages of the site; the one being read is underlined. */
+/* The pages of the site; the one being read is underlined. They fold onto the
+   next line when the row has no room for them all. */
 .pages {
     display: flex;
-    gap: 18px;
+    flex-wrap: wrap;
+    gap: 6px 18px;
     margin: 0 auto 0 14px;
     font-family: var(--mono);
     font-size: 12.5px;
@@ -1250,9 +1252,7 @@ footer .lead {
 
     .pages {
         order: 3;
-        flex-wrap: wrap;
         flex-basis: 100%;
-        row-gap: 6px;
         margin-left: 0;
     }
 
@@ -1493,7 +1493,7 @@ footer .lead {
     <div class="mast-top">
         <div class="project">
             <a class="project-name" href="rules.html">rules</a>
-            <span class="version">v0.1.20</span>
+            <span class="version">v0.1.21</span>
         </div>
         <nav class="pages" aria-label="Pages">
             <a href="rules.html" aria-current="page">Rules</a>
