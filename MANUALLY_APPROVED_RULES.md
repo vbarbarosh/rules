@@ -1155,3 +1155,17 @@ In a PHP class the methods named `assert_*` stand right after the
 constructor, before every other method. It stands with the rules of a
 file's order, after FILE-26. Existing code is not rewritten for it
 (CORE-01).
+
+## MP-89 — The first refresh stands in created
+
+**Scope:** FN-13, [refresh](drafts/refresh.md).
+**Approved:** 2026-11-10, author message `20261110_204058-me` (by voice:
+with no other condition the component goes into `created`, awaits
+`refresh`, everything that loads from the backend, and only then sets
+`ready`; `mounted` is for an extra condition, when the DOM is needed).
+
+With no other condition a component's first refresh stands in `created`.
+FN-13's form and its page showed `mounted` before; that was never ruled
+on. `mounted` is for a first refresh that needs the DOM. The author's half
+of `drafts/refresh.md` says so in a line of its own. Existing code is not
+rewritten for it (CORE-01).

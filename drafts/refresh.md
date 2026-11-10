@@ -2,6 +2,8 @@
 - mental model: the browser refresh button
 - main use case: vue components
 - idempotent: safe to call at any moment, any number of times
+- init: `created` awaits `refresh()`, then `ready = true`; `mounted` only
+  when the DOM is needed
 
 
 --- ✂️✨🤖✨ ⬇️ AI-Generated Content Below ⬇️ ✨🤖✨✂️ ---
@@ -34,14 +36,20 @@ refresh_photos: async function () {
 Fine-grained variants `refresh_<part>()` sync one part of the state;
 `refresh()` composes them.
 
-Init is the first refresh:
+Init is the first refresh. With no other condition it stands in `created`:
+the component awaits `refresh()`, everything that loads from the backend,
+and only then sets `ready`:
 
 ```js
-mounted: async function () {
+created: async function () {
     await this.refresh();
     this.ready = true;
 },
 ```
+
+`mounted` is for an extra condition. A component whose first refresh needs
+its DOM, `this.$refs`, waits for it there; no other first refresh stands in
+`mounted`.
 
 ## A part of the page
 

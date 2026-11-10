@@ -2,9 +2,9 @@
 <rect width="1200" height="480" fill="#fffefb"/>
 <defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Init is the first refresh</text>
-<text x="48" y="108" fill="#686a61" font-size="22">mounting the component is its first refresh, nothing more</text>
+<text x="48" y="108" fill="#686a61" font-size="22">creating the component is its first refresh, nothing more</text>
 <rect x="60" y="180" width="220" height="80" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2"/>
-<text x="170.0" y="216.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">mounted</text>
+<text x="170.0" y="216.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">created</text>
 <text x="170.0" y="242.0" fill="#686a61" font-size="17" text-anchor="middle">the component</text>
 <rect x="360" y="180" width="340" height="80" rx="10" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
 <text x="530.0" y="216.0" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">await this.refresh()</text>
@@ -14,5 +14,8 @@
 <text x="960.0" y="242.0" fill="#686a61" font-size="17" text-anchor="middle">then it shows</text>
 <line x1="286" y1="220" x2="352" y2="220" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <line x1="706" y1="220" x2="772" y2="220" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
-<text x="48" y="400" fill="#686a61" font-size="21">No separate init: what loads first is what reloads later.</text>
+<rect x="60" y="292" width="220" height="56" rx="10" fill="#efece2" stroke="#a19f93" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="170.0" y="327.0" fill="#191a17" font-size="20" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">mounted</text>
+<text x="304" y="327" fill="#686a61" font-size="19">only for a first refresh that needs the DOM</text>
+<text x="48" y="412" fill="#686a61" font-size="21">No separate init: what loads first is what reloads later.</text>
 </svg>
