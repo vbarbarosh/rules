@@ -71,7 +71,7 @@ test('diagrams/ builds its own page from the agents template, and the agents han
     assert.match(agents, /<a href="agents.html" aria-current="page">Agents<\/a>\n\s*<a href="diagrams.html">Diagrams<\/a>/);
     assert.match(agents, /Draw the pictures in your replies the way these diagrams say:\n- Sequence diagram: who talks to whom: https:\/\/raw.githubusercontent.com\/vbarbarosh\/rules\/main\/diagrams\/sequence.md\n/);
     assert.match(agents, /diagrams\/treemap.md\nDraw an API the way these forms say:/);
-    assert.match(agents, /<p class="stats"><b>5<\/b> guides<\/p>/);
+    assert.match(agents, /<p class="stats"><b>6<\/b> guides<\/p>/);
 });
 
 test('apis/ builds its own page from the agents template, and the agents hand it over', function () {

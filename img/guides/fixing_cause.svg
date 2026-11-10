@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#fffefb"/>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">Fix the cause, not where it hurts</text>
+<text x="48" y="108" fill="#686a61" font-size="22">what fails shows where it hurts; trace it back and change what made it so</text>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#686a61" stroke-linejoin="round"/></marker><marker id="arrow-ok" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#1a7443" stroke-linejoin="round"/></marker><marker id="arrow-danger" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#b2341f" stroke-linejoin="round"/></marker></defs>
+<text x="260" y="176" fill="#b8650a" font-size="20" text-anchor="middle" font-weight="700">what made it so</text>
+<text x="720" y="176" fill="#b2341f" font-size="20" text-anchor="middle" font-weight="700">where it hurts</text>
+<text x="960" y="176" fill="#b2341f" font-size="20" font-weight="700">also anaesthetics</text>
+<rect x="80" y="196" width="360" height="96" rx="12" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="260" y="238" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">the install</text>
+<text x="260" y="268" fill="#686a61" font-size="19" text-anchor="middle">a package's script was blocked</text>
+<rect x="540" y="196" width="360" height="96" rx="12" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="720" y="238" fill="#191a17" font-size="22" text-anchor="middle" font-weight="700">the tests</text>
+<text x="720" y="268" fill="#686a61" font-size="19" text-anchor="middle">red before a release</text>
+<line x1="446" y1="244" x2="532" y2="244" stroke="#686a61" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="80" y="380" width="360" height="96" rx="12" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<polyline points="104,428 112,437 128,418" fill="none" stroke="#1a7443" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="150" y="422" fill="#191a17" font-size="22" font-weight="700">allow the script</text>
+<text x="150" y="452" fill="#686a61" font-size="19">the log's next line said how</text>
+<line x1="260" y1="374" x2="260" y2="300" stroke="#1a7443" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow-ok)"/>
+<text x="286" y="344" fill="#1a7443" font-size="20" font-weight="700">the fix</text>
+<rect x="540" y="380" width="360" height="96" rx="12" fill="#efece2" stroke="#b2341f" stroke-width="2" stroke-dasharray="8 6"/>
+<path d="M566 418 L586 438 M586 418 L566 438" fill="none" stroke="#b2341f" stroke-width="3.5" stroke-linecap="round"/>
+<text x="610" y="422" fill="#191a17" font-size="22" font-weight="700">a longer limit</text>
+<text x="610" y="452" fill="#686a61" font-size="19">the cause stays</text>
+<line x1="720" y1="374" x2="720" y2="300" stroke="#b2341f" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 6" marker-end="url(#arrow-danger)"/>
+<text x="746" y="344" fill="#b2341f" font-size="20" font-weight="700">an anaesthetic</text>
+<rect x="960" y="196" width="192" height="44" rx="10" fill="#efece2" stroke="#b2341f" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="1056" y="225" fill="#191a17" font-size="19" text-anchor="middle">a retry</text>
+<rect x="960" y="252" width="192" height="44" rx="10" fill="#efece2" stroke="#b2341f" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="1056" y="281" fill="#191a17" font-size="19" text-anchor="middle">a longer wait</text>
+<rect x="960" y="308" width="192" height="44" rx="10" fill="#efece2" stroke="#b2341f" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="1056" y="337" fill="#191a17" font-size="19" text-anchor="middle">a guard</text>
+<rect x="960" y="364" width="192" height="44" rx="10" fill="#efece2" stroke="#b2341f" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="1056" y="393" fill="#191a17" font-size="19" text-anchor="middle">a special case</text>
+<rect x="960" y="420" width="192" height="44" rx="10" fill="#efece2" stroke="#b2341f" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="1056" y="449" fill="#191a17" font-size="19" text-anchor="middle">a skipped test</text>
+<text x="48" y="530" fill="#686a61" font-size="21">An anaesthetic quiets the pain; the cause stays, and the next case meets it again.</text>
+</svg>
