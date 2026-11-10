@@ -342,6 +342,7 @@ project, so all JavaScript code follows the same conventions.
     * When size or nested structure requires a multi-line object, put one field per line and include a trailing comma
     * Prefer explicitly listing **only the required fields** when constructing objects
     * Avoid spreading full objects when only a subset is needed
+    * The fields of a record keep one order, ids, uids, the rest, dates, and its ids stay on the backend: see [a record's fields](drafts/record_fields.md)
     * Example:
 
       ```

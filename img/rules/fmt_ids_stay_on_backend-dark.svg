@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="410" viewBox="0 0 1200 410" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="410" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Ids stay on the backend</text>
+<text x="48" y="108" fill="#92958c" font-size="22">the frontend knows a record by its uid</text>
+<text x="60" y="168" fill="#ff937c" font-size="18" font-weight="700">✗ the record sent with its ids</text>
+<text x="640" y="168" fill="#72d39c" font-size="18" font-weight="700">✓ only uids leave the backend</text>
+<rect x="60" y="180" width="500" height="140" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="80" y="222" fill="#92958c" font-size="18">backend</text>
+<rect x="184" y="196" width="56" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="212" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">id</text>
+<rect x="248" y="196" width="64" height="40" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="280" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">uid</text>
+<rect x="320" y="196" width="128" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="384" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">parent_id</text>
+<rect x="456" y="196" width="84" height="40" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="498" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">title</text>
+<line x1="80" y1="250" x2="540" y2="250" stroke="#ff937c" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+<text x="80" y="290" fill="#92958c" font-size="18">frontend</text>
+<rect x="184" y="264" width="56" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="212" y="290" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">id</text>
+<rect x="248" y="264" width="64" height="40" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="280" y="290" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">uid</text>
+<rect x="320" y="264" width="128" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="384" y="290" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">parent_id</text>
+<rect x="456" y="264" width="84" height="40" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="498" y="290" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">title</text>
+<rect x="640" y="180" width="500" height="140" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="660" y="222" fill="#92958c" font-size="18">backend</text>
+<rect x="764" y="196" width="56" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="792" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">id</text>
+<rect x="828" y="196" width="64" height="40" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="860" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">uid</text>
+<rect x="900" y="196" width="128" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="964" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">parent_id</text>
+<rect x="1036" y="196" width="84" height="40" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="1078" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">title</text>
+<line x1="660" y1="250" x2="1120" y2="250" stroke="#72d39c" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+<text x="660" y="290" fill="#92958c" font-size="18">frontend</text>
+<rect x="764" y="264" width="64" height="40" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="796" y="290" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">uid</text>
+<rect x="836" y="264" width="136" height="40" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="904" y="290" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">parent_uid</text>
+<rect x="980" y="264" width="84" height="40" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="1022" y="290" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">title</text>
+<line x1="566" y1="250" x2="632" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="48" y="378" fill="#92958c" font-size="21">An id is the database's own key: a request names a record by its uid.</text>
+</svg>

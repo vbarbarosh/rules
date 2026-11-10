@@ -1123,3 +1123,22 @@ in place of `ARCH`, which the architecture glossary already holds as a
 section id across the pages. The examples are an app's commands made
 generic: no name, service, repository or file of its own. The rules stand
 on the System page, apart from the rule index, while the research goes on.
+
+## MP-87 — A record's fields: one order, ids on the backend
+
+**Scope:** FMT-35, FMT-36, [a record's fields](drafts/record_fields.md).
+**Approved:** 2026-11-10, author messages `20261110_161516-me` (the record
+`{id, uid, parent_id, some_uid, title, custom, created_at, updated_at}` and
+its five points: "1) ids 2) uids 3) all the reset 4) dates at the end 5)
+exception: id, uid - always first"), `20261110_164448-me` ("add the rule")
+and `20261110_164518-me` ("id, parent_id, ... / uids"; by voice: the ids
+are private values that stay on the backend and never reach the frontend;
+for the frontend, uids are used).
+
+The fields of a record stand in one order: its own `id` and `uid` always
+first, then the ids of other records, then their uids, then all the rest,
+the dates at the end. An `id` and every `…_id` are private values of the
+backend and never reach the frontend, which knows a record by its `uid`.
+The order inside one kind is not ruled. Both stand with the formatting
+rules, beside the two about objects. Existing code is not rewritten for
+them (CORE-01).

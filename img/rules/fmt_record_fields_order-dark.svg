@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="516" viewBox="0 0 1200 516" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="516" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">Ids first, uids next, dates last</text>
+<text x="48" y="108" fill="#92958c" font-size="22">a record's fields in one order; its own id and uid always lead</text>
+<text x="60" y="168" fill="#ff937c" font-size="18" font-weight="700">✗ any order goes</text>
+<rect x="60" y="180" width="1080" height="72" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<rect x="149" y="196" width="84" height="40" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="191" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">title</text>
+<rect x="245" y="196" width="136" height="40" rx="6" fill="#16181b" stroke="#72d39c" stroke-width="2"/>
+<text x="313" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">created_at</text>
+<rect x="393" y="196" width="64" height="40" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="425" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">uid</text>
+<rect x="469" y="196" width="128" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="533" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">parent_id</text>
+<rect x="609" y="196" width="56" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="637" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">id</text>
+<rect x="677" y="196" width="118" height="40" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="736" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">some_uid</text>
+<rect x="807" y="196" width="136" height="40" rx="6" fill="#16181b" stroke="#72d39c" stroke-width="2"/>
+<text x="875" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">updated_at</text>
+<rect x="955" y="196" width="96" height="40" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="1003" y="222" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">custom</text>
+<line x1="600" y1="258" x2="600" y2="316" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="60" y="312" fill="#72d39c" font-size="18" font-weight="700">✓ one order, the same for every record</text>
+<rect x="60" y="324" width="1080" height="116" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<rect x="123" y="340" width="56" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="151" y="366" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">id</text>
+<rect x="187" y="340" width="64" height="40" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="219" y="366" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">uid</text>
+<rect x="279" y="340" width="128" height="40" rx="6" fill="#1b2346" stroke="#9db2ff" stroke-width="2"/>
+<text x="343" y="366" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">parent_id</text>
+<rect x="435" y="340" width="118" height="40" rx="6" fill="#3a2a12" stroke="#ffb257" stroke-width="2"/>
+<text x="494" y="366" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">some_uid</text>
+<rect x="581" y="340" width="84" height="40" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="623" y="366" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">title</text>
+<rect x="673" y="340" width="96" height="40" rx="6" fill="#1d2024" stroke="#4a4f57" stroke-width="2"/>
+<text x="721" y="366" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">custom</text>
+<rect x="797" y="340" width="136" height="40" rx="6" fill="#16181b" stroke="#72d39c" stroke-width="2"/>
+<text x="865" y="366" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">created_at</text>
+<rect x="941" y="340" width="136" height="40" rx="6" fill="#16181b" stroke="#72d39c" stroke-width="2"/>
+<text x="1009" y="366" fill="#d3d1c9" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">updated_at</text>
+<path d="M123 388 v8 H251 v-8" fill="none" stroke="#d3d1c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="187" y="420" fill="#d3d1c9" font-size="18" font-weight="700" text-anchor="middle">always first</text>
+<path d="M279 388 v8 H407 v-8" fill="none" stroke="#9db2ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="343" y="420" fill="#9db2ff" font-size="18" font-weight="400" text-anchor="middle">ids</text>
+<path d="M435 388 v8 H553 v-8" fill="none" stroke="#ffb257" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="494" y="420" fill="#ffb257" font-size="18" font-weight="400" text-anchor="middle">uids</text>
+<path d="M581 388 v8 H769 v-8" fill="none" stroke="#92958c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="675" y="420" fill="#92958c" font-size="18" font-weight="400" text-anchor="middle">all the rest</text>
+<path d="M797 388 v8 H1077 v-8" fill="none" stroke="#72d39c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="937" y="420" fill="#72d39c" font-size="18" font-weight="400" text-anchor="middle">dates at the end</text>
+<text x="48" y="486" fill="#92958c" font-size="21">The same in a table's columns, an object in code and a row from an API.</text>
+</svg>
