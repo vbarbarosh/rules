@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-290 rules · 18 groups · 59 sources · filterable version: [rules.html](rules.html)
+291 rules · 18 groups · 60 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 How a system is built too, its rules still settling: [system.md](system.md).
@@ -35,7 +35,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VUE | Vue 2 | 25 | Components that behave like the platform. |
 | UI | UI appearance | 11 | How a screen looks. |
 | UIM | UI mechanics | 15 | How a screen works. |
-| DOC | Writing the rules | 15 | How a document in this repo is built. |
+| DOC | Writing the rules | 16 | How a document in this repo is built. |
 | LINT | Stated by the linter | 11 | Rules that only LINTING.md and the preset spell out. |
 
 | Code | Rule | Canonical form | Source |
@@ -321,6 +321,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | UIM-14 | **Ask the action first: a dry run.** Every action can answer "would it work now?" without doing anything. The screen asks before drawing the control, and again whenever the answer can change; a button that expires on screen changes at that moment, not on the next click. | <pre>can_end_chat(chat) → false<br>→ no End chat button</pre> ![can_end_chat(chat) is asked before drawing: true shows End chat, false draws none; a button that says Sorry after the click beside it](../img/rules/uim_dry_run.svg) | [dead_controls.md](../drafts/dead_controls.md) |
 | UIM-15 | **No means hidden, or disabled with the reason on it.** Hide what nobody would look for there; disable what the user expects in its place, with the reason written on it or beside it. Never a control whose only answer comes after the click. | `Expired yesterday at 10:51` ![A control hidden where nobody looks for it, or disabled with Expired yesterday at 10:51 beside it; a Sorry after the click beside that](../img/rules/uim_hidden_or_disabled_with_reason.svg) | [dead_controls.md](../drafts/dead_controls.md) |
 | **DOC** | **Writing the rules** — How a document in this repo is built. | | |
+| DOC-16 | **A text is written for a person.** The first rule of writing: a text is short, compact and to the point, with no filler. The point comes first, and every word is needed. | <pre>I would like to let you know that,<br>after looking into it, the build<br>works again now.                   ✗ no<br><br>The build works again.             ✓ yes</pre> ![The point buried in a greeting and a long preamble, beside the same point said alone: The build works again.](../img/rules/doc_text_for_a_person.svg) | [text_for_a_person.md](../drafts/text_for_a_person.md) |
 | DOC-01 | **A document has two halves.** The author writes the top half, compressed around what he already knows; the AI writes the bottom half, restating it for a reader who lacks that context. | ![A document as two stacked halves: the author's compressed notes on top, the AI's restated explanation below, each written by one of them](../img/rules/doc_two_halves.svg) | [WRITING.md](../drafts/WRITING.md) |
 | DOC-02 | **Author sources govern the explanation.** Read the top half and applicable manually approved rules. An approved entry may explicitly clarify older wording within its scope; if the sources disagree without such a decision, ask before regenerating. | ![The author's half and the approved rules feed the AI, which writes the explanation; when they disagree with no approved entry, the AI asks first](../img/rules/doc_author_sources_govern.svg) | [WRITING.md](../drafts/WRITING.md) |
 | DOC-03 | **No AI patches the top half.** The one exception is an explicit request from the author. | ![An AI rewording of the author's line, wrong, beside the line kept word for word; the one exception is the author asking for it](../img/rules/doc_no_ai_patches_top.svg) | [WRITING.md](../drafts/WRITING.md) |
