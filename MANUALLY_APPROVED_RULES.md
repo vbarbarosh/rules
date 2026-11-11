@@ -1184,3 +1184,18 @@ methods. The names on top are no family's run, so FILE-26 does not pull a
 `format_*` written in the component up to them. An order among the
 component's own methods after `refresh` is not ruled. Existing code is not
 rewritten for it (CORE-01).
+
+## MP-91 — A URL ends its sentence bare
+
+**Scope:** DOC-15, [a URL ends its sentence bare](drafts/url_ends_bare.md).
+**Approved:** 2026-11-11, author message `20261111_192318-me` (by voice:
+a small rule for agents that write Markdown files: never a full stop at
+the end of a sentence that ends with a URL, that link is broken and
+cannot be clicked; the next sentence goes on as before, with a capital
+letter, better still as a paragraph of its own).
+
+A sentence in a Markdown file that ends with a bare URL ends there, with
+nothing after the URL. The next sentence starts with a capital letter;
+better, it starts a paragraph. A link written `[name](url)` is not a bare
+URL and keeps its full stop. It stands with the rules of writing, after
+DOC-14. Existing files are not rewritten for it (CORE-01).

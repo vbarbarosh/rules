@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-289 rules · 18 groups · 58 sources · filterable version: [rules.html](rules.html)
+290 rules · 18 groups · 59 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 How a system is built too, its rules still settling: [system.md](system.md).
@@ -35,7 +35,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VUE | Vue 2 | 25 | Components that behave like the platform. |
 | UI | UI appearance | 11 | How a screen looks. |
 | UIM | UI mechanics | 15 | How a screen works. |
-| DOC | Writing the rules | 14 | How a document in this repo is built. |
+| DOC | Writing the rules | 15 | How a document in this repo is built. |
 | LINT | Stated by the linter | 11 | Rules that only LINTING.md and the preset spell out. |
 
 | Code | Rule | Canonical form | Source |
@@ -335,6 +335,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | DOC-12 | **A document without an author section is open to requested edits.** A document with no author notes above a heading is an ordinary file: the AI edits it for the task asked. Where the author's section exists, it stays on top and is never overwritten. When its end is unclear, ask first. | <pre>author notes        → never overwritten<br># Heading<br>explanation         → regenerated<br><br>no author notes     → edited on request</pre> ![A file with author notes, kept on top while the explanation below is regenerated, beside a file without them, edited on request](../img/rules/doc_without_author_section.svg) | [WRITING.md](../drafts/WRITING.md) |
 | DOC-13 | **A glossary keeps the author's terms; the AI explains below them.** Everything before the first `## ` section (title, note, groups, term list) is the author's and is never rewritten. Each `## ` section explains one term and is regenerated from the author's line. | <pre># Testing (TEST)           yours<br>- Flaky Test – …           yours<br><br>## Intermittent failures   AI</pre> ![A glossary file: the author's title and term list on top, never rewritten, and below one AI section per term](../img/rules/doc_glossary_terms_and_sections.svg) | [WRITING.md](../drafts/WRITING.md) |
 | DOC-14 | **A GIF shows its time and its progress.** Every GIF in the docs is recorded at 30 frames a second, counts its time from 0 at its first frame in a corner, and has a thin bar along its top that fills as it plays; both start again when it loops. | ![A GIF frame with nothing to tell how far in it is, beside one with a bar two thirds along its top and 3.07 s in its corner](../img/rules/doc_gif_time_and_progress.svg) | [gifs.md](../drafts/gifs.md) |
+| DOC-15 | **A URL ends its sentence bare.** A sentence in a Markdown file that ends with a bare URL takes no full stop: the URL is its last word, with nothing after it for a viewer to take into the link. The next sentence starts with a capital letter as always, better still in a paragraph of its own. A link written `[name](url)` keeps its full stop after the `)`. | <pre>See https://example.com/docs.   ✗ no<br><br>See https://example.com/docs    ✓ yes<br><br>Read it first.</pre> ![A full stop after the URL taken into the link, which opens no such page; the URL ending bare, the next sentence a paragraph of its own, and the page opens](../img/rules/doc_url_ends_bare.svg) | [url_ends_bare.md](../drafts/url_ends_bare.md) |
 | **LINT** | **Stated by the linter** — Rules that only LINTING.md and the preset spell out. | | |
 | LINT-01 | **Spaces around operators, except `*`, `/` and `**`.** `*`, `/` and `**` are tight. Every other binary, logical and assignment operator has a space on each side. | <pre>const x = a&#42;b + c/d - e&#42;&#42;2;<br>const y = a % 2;</pre> ![Spaced multiplication and tight addition, wrong, beside tight * / ** and spaced + - %, right](../img/rules/lint_operator_spacing.svg) | [LINTING.md](../LINTING.md) |
 | LINT-02 | **Space before an anonymous function's parenthesis.** An anonymous function has a space before its parenthesis; a named one has none. | <pre>server.on('error', function (error) {<br>});<br><br>function main()<br>{<br>}</pre> ![function(error) without a space and function main () with one, wrong, beside function (error) and function main(), right](../img/rules/lint_anonymous_function_space.svg) | [LINTING.md](../LINTING.md) |

@@ -23,7 +23,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below but the animations, all 289 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
+- **[docs/rules.html](rules.html) — every rule below but the animations, all 290 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
 
 ### Naming and variables (NAME, VAR, FN)
 
@@ -82,6 +82,7 @@ It's just not written down.
 - [drafts/audit_note.md](../drafts/audit_note.md) — a full audit goes to `notes/audit-<date>.md`; its register is the issue list
 - [drafts/WRITING.md](../drafts/WRITING.md) — author notes and manually approved rules govern the regenerated explanation
 - [drafts/gifs.md](../drafts/gifs.md) — a GIF in the docs shows its time and a progress bar, at 30 frames a second
+- [drafts/url_ends_bare.md](../drafts/url_ends_bare.md) — a sentence in a Markdown file that ends with a bare URL takes no full stop
 - [MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md) — durable author-approved decisions, preserved when explanations are rewritten
 - [demos/](../demos/) — naming demos; `item_to.js` shows a superseded convention
 
