@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="560" fill="#fffefb"/>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A text is written for a person</text>
+<text x="48" y="108" fill="#686a61" font-size="22">short, compact, to the point, with no filler</text>
+<text x="60" y="168" fill="#b2341f" font-size="18" font-weight="700">✗ the point buried in filler</text>
+<rect x="60" y="180" width="1080" height="150" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="84" y="226" fill="#686a61" font-size="22">Hello! In this message I would like to let you know that, after looking</text>
+<text x="84" y="262" fill="#686a61" font-size="22">into the matter carefully and trying quite a few things, I can now say that</text>
+<text x="84" y="298" fill="#686a61" font-size="22"><tspan fill="#2743b8" font-weight="700">the build works again</tspan>, as far as I can tell at this point.</text>
+<text x="60" y="378" fill="#1a7443" font-size="18" font-weight="700">✓ the point, and nothing around it</text>
+<rect x="60" y="390" width="1080" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="84" y="438" fill="#191a17" font-size="22"><tspan fill="#2743b8" font-weight="700">The build works again.</tspan></text>
+<text x="48" y="526" fill="#686a61" font-size="21">The reader is a person: the first words carry the point, and every word is needed.</text>
+</svg>

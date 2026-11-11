@@ -1199,3 +1199,16 @@ nothing after the URL. The next sentence starts with a capital letter;
 better, it starts a paragraph. A link written `[name](url)` is not a bare
 URL and keeps its full stop. It stands with the rules of writing, after
 DOC-14. Existing files are not rewritten for it (CORE-01).
+
+## MP-92 — A text is written for a person
+
+**Scope:** DOC-16, [a text is written for a person](drafts/text_for_a_person.md).
+**Approved:** 2026-11-11, author message `20261111_193814-me` (by voice:
+one more rule on composing texts, very important, at the very beginning,
+the most important rule: a text is composed for a person, so it is short,
+compact, to the point, with no filler).
+
+A text is written for the person who reads it: short, compact, to the
+point, with no filler. It is the first rule of writing and stands first
+in the DOC group, before DOC-01, its code the next free one. Existing
+texts are not rewritten for it (CORE-01).
