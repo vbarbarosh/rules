@@ -10,9 +10,20 @@ Component options keep one order:
     computed
     watch
     methods
-    mounted
+    beforeCreate
     created
     beforeDestroy
+    destroyed
+    beforeMount
+    mounted
+    beforeUpdate
+    updated
+    activated
+    deactivated
+    errorCaptured
+
+The lifecycle hooks come last, two by two: creating, destroying, mounting,
+updating, activating, then `errorCaptured` at the end.
 
 ## Methods
 

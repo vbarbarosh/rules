@@ -1212,3 +1212,15 @@ A text is written for the person who reads it: short, compact, to the
 point, with no filler. It is the first rule of writing and stands first
 in the DOC group, before DOC-01, its code the next free one. Existing
 texts are not rewritten for it (CORE-01).
+
+## MP-93 — Vue 2 lifecycle hooks keep one order
+
+**Scope:** VUE-15, [Vue components](vue2/vue-components.md).
+**Approved:** 2026-11-13.
+
+A component's lifecycle hooks follow its other options, two by two:
+`beforeCreate` and `created`, `beforeDestroy` and `destroyed`,
+`beforeMount` and `mounted`, `beforeUpdate` and `updated`, `activated` and
+`deactivated`, then `errorCaptured`. It replaces VUE-15's `mounted`,
+`created`, `beforeDestroy`. Existing code is not rewritten for it
+(CORE-01).
