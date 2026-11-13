@@ -1,5 +1,5 @@
 {
-  "version": "0.1.31",
+  "version": "0.1.32",
   "pages": [
     {"id":"rules","title":"Rules","path":"docs/rules.html","ids_shown":true},
     {"id":"animations","title":"Animations","path":"docs/animations.html","ids_shown":true},
@@ -349,7 +349,7 @@
     {"id":"VUE-12","section_id":"VUE","name":"A slider thumb moves from 0 to 100%","text":"A slider is usually a container and a thumb. Prefer positioning the thumb with top or left from 0 to 100% — 0 means empty, 100% means full. left: 0 // empty left: 100% // full Three sliders with the thumb at left 0, 50% and 100%: empty, half and full vue-slider.md"},
     {"id":"VUE-13","section_id":"VUE","name":"One SVG icon per file","text":"Each SVG icon goes into its own svg-icon- .vue file, containing only a TEMPLATE element with an SVG inside. <template <svg viewBox=\"0 0 100 100\" xmlns=\"http& 58;//www& 46;w3.org/2000/svg\" <path fill=\"currentColor\" d=\"...\" / </svg </template A folder of svg-icon- .vue files and the one file content: a template with an SVG whose path fills currentColor vue-svg-icon.md"},
     {"id":"VUE-14","section_id":"VUE","name":"Icons use currentColor","text":"SVG icons respect the currentColor CSS property. The same archive icon in a plain, an accent and a danger button, taking each button text colour vue-svg-icon.md"},
-    {"id":"VUE-15","section_id":"VUE","name":"Component options keep one order","text":"props inject provide mixins data computed watch methods mounted created beforeDestroy The eleven component options in their order, from props to beforeDestroy vue-components.md"},
+    {"id":"VUE-15","section_id":"VUE","name":"Component options keep one order","text":"The lifecycle hooks come last, two by two: creating, destroying, mounting, updating, activating, then errorCaptured at the end. props inject provide mixins data computed watch methods beforeCreate created beforeDestroy destroyed beforeMount mounted beforeUpdate updated activated deactivated errorCaptured The nineteen component options in their order: props to methods, then the lifecycle hooks in pairs, created and destroyed first, errorCaptured last vue-components.md"},
     {"id":"VUE-16","section_id":"VUE","name":"Name a handler by event and button text","text":"An event handler is named after the UI part it is bound to — the event, then the button text. <button v-on:click=\"click_approve\" Approve </button The Approve button handled by click_approve; handle_click beside it, saying nothing of the button vue-components.md"},
     {"id":"VUE-17","section_id":"VUE","name":"A handler on an icon is named after the icon","text":"<button v-on:click=\"click_icon_archive\" <svg-icon-archive / </button An archive icon button handled by click_icon_archive; click_button beside it, naming no button vue-components.md"},
     {"id":"VUE-18","section_id":"VUE","name":"Rename the handler with its label","text":"After the text or icon is changed, rename the corresponding event handler. Approve → Accept // click_approve → click_accept Approve with click_approve; after the label becomes Accept, click_approve left stale beside click_accept vue-components.md"},
