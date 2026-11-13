@@ -16,6 +16,23 @@ test('the preset keeps options methods as functions and accepts tiny factories i
     }
 });
 
+test('the preset keeps a component\'s options in VUE-15\'s order, in Vue and JavaScript, and --fix sorts them', async function () {
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config()});
+    const fixer = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config(), fix: true});
+    const sorted = "{\n    name: 'card',\n    props: {},\n    data: function () {\n        return {};\n    },\n    methods: {},\n    created: function () {},\n    destroyed: function () {},\n    mounted: function () {},\n}";
+    const mixed = "{\n    name: 'card',\n    props: {},\n    methods: {},\n    data: function () {\n        return {};\n    },\n    mounted: function () {},\n    created: function () {},\n    destroyed: function () {},\n}";
+    // data, created and destroyed stand below an option that comes after them; a .vue file starts a line lower.
+    for (const [file_path, shift] of [['card.js', 0], ['card.vue', 1]]) {
+        const [sorted_text, mixed_text] = [sorted, mixed].map(v => shift ? `<script>\n    export default ${v.replaceAll('\n', '\n    ')};\n</script>\n` : `Vue.component('card', ${v});\n`);
+        const [valid] = await linter.lintText(sorted_text, {filePath: file_path});
+        assert.deepEqual(valid.messages, [], file_path);
+        const [invalid] = await linter.lintText(mixed_text, {filePath: file_path});
+        assert.deepEqual(invalid.messages.map(v => [v.ruleId, v.line]), [5, 9, 10].map(v => ['vue/order-in-components', v + shift]), file_path);
+        const [fixed] = await fixer.lintText(mixed_text, {filePath: file_path});
+        assert.equal(fixed.output, sorted_text, file_path);
+    }
+});
+
 test('the full preset agrees on value, event and error callback names', async function () {
     const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config()});
     const sources = [
@@ -216,6 +233,13 @@ test('a page\'s external, data and commented-out scripts are left alone; a modul
     const source = '<script src="x.js"></script>\n<script type="application/json">{"a": [1,2]}</script>\n<!-- <script>[1].forEach(v => v);</script> -->\n<script type="module">\n[1].forEach(v => v);\n</script>\n';
     const [result] = await linter.lintText(source, {filePath: 'index.html'});
     assert.deepEqual(result.messages.map(v => [v.ruleId, v.line, v.column]), [['no-restricted-syntax', 5, 1]]);
+});
+
+test('a page\'s Vue options out of VUE-15\'s order are reported at the page\'s lines, the line in the message too', async function () {
+    const linter = new ESLint({overrideConfigFile: true, overrideConfig: make_rules_config()});
+    const source = '<body>\n<script>\nnew Vue({\n    el: \'#app\',\n    methods: {},\n    data: {},\n});\n</script>\n</body>\n';
+    const [result] = await linter.lintText(source, {filePath: 'index.html'});
+    assert.deepEqual(result.messages.map(v => [v.ruleId, v.line, v.message]), [['vue/order-in-components', 6, 'The "data" property should be above the "methods" property on line 5.']]);
 });
 
 test('a page\'s script indented under its tag is checked from its own base indent', async function () {

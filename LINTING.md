@@ -120,11 +120,17 @@ mandatory braces, function declaration style, a space before the parenthesis
 of an anonymous function and none between a name and its parenthesis, no tabs, no `do...while`,
 and no `forEach`. Vue scripts use four spaces with one base indent;
 `v-bind` and `v-on` use their full spelling, and `v-if`/`v-for` cannot share
-an element.
+an element. A component's options keep VUE-15's order
+(`vue/order-in-components`), in a `.vue` file and in JavaScript's
+`Vue.component(...)`, `new Vue(...)` and the like; an option VUE-15 does
+not list may stand anywhere.
 
-Only whitespace rules offer autofixes. Import order, names and classes are
-reported without automatic rewriting. In particular, reordering `require`
-calls may change side effects. Run `eslint --fix` explicitly when desired.
+Only whitespace rules and the component option order offer autofixes. The
+order's fix leaves an option in place when moving it could change what
+runs first; that move is offered as a suggestion. Import order, names and
+classes are reported without automatic rewriting. In particular,
+reordering `require` calls may change side effects. Run `eslint --fix`
+explicitly when desired.
 
 ## Vue and the hashtag loader
 
@@ -159,8 +165,8 @@ JavaScript type; data scripts (`application/json`, `importmap`), templates
 and commented-out elements are skipped. The block's base indent, the
 smallest indent of its lines, comes off first: a script indented under its
 tag is checked from there, where a Vue script keeps one base indent
-(LINT-12). Messages carry the page's own lines and columns; no fixes are
-offered.
+(LINT-12). Messages carry the page's own lines and columns, a line named in
+a message's text too; no fixes are offered.
 
 ## Configuration and limits
 
