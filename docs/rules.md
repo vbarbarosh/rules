@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-291 rules · 18 groups · 60 sources · filterable version: [rules.html](rules.html)
+292 rules · 18 groups · 61 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 How a system is built too, its rules still settling: [system.md](system.md).
@@ -24,7 +24,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | VAR | Variables | 19 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
 | FMT | Formatting | 35 | Braces, breaks, blank lines, comments. |
-| FLOW | Control flow | 12 | Imperative, explicit, no magic. |
+| FLOW | Control flow | 13 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 26 | One entry function, one fixed order. |
 | PROJ | Project layout | 30 | A directory is a program; bin/ holds its verbs. |
 | REL | Packaging and release | 6 | Ship a prebuilt dist/. |
@@ -150,6 +150,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FLOW-10 | **No implicit magic or hidden side effects.** No implicit magic. No hidden side effects, no reliance on execution-order side effects. The one visible exception: side-effect imports, which sit at the very top of the file, in the order they run (FILE-11). | <pre>import './sass/main.sass';   // the top of the file, in run order<br>import './main-pre';<br><br>import Vue from 'vue';</pre> ![A side-effect import hidden mid-list, moved to the top block in run order](../img/rules/flow_no_hidden_effects.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-11 | **A return-only callback is an arrow.** Options-style methods retain function expressions (FMT-12). A callback whose body is only `return <expression>`, and whose arrow fits on one line, is written as that arrow — the mirror of FLOW-07. `function` stays for a callback that does more, or that needs `this` or `arguments`. | <pre>items.filter(function (item) {<br>    return item_text(item) === text;<br>});                                       ✗ no<br><br>items.filter(v =&gt; item_text(v) === text);   ✓ yes</pre> ![A filter callback that only returns, turned from a function into an arrow](../img/rules/flow_return_only_arrow.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-12 | **Names are written whole.** A constant, function, method, class or property is never glued together from strings at run time; a search or a rename must find it. A value that picks one of a few known names lists them with `match` (PHP) or `switch` (JavaScript). A name built at run time only for an open set that cannot be listed. | <pre>constant(Invoice::class.'::STATUS_'.strtoupper($status))   ✗ no<br><br>match ($status) {                                          ✓ yes<br>    'paid' =&gt; Invoice::STATUS_PAID,<br>    'void' =&gt; Invoice::STATUS_VOID,<br>}</pre> ![A search for STATUS_PAID misses a name glued at run time and finds it in a match that lists it whole](../img/rules/flow_names_whole.svg) | [names_written_whole.md](../drafts/names_written_whole.md) |
+| FLOW-13 | **A value between two bounds is clamped.** In JavaScript, a value held between a low and a high bound is one call, `clamp(min, max, value)` of `@vbarbarosh/node-helpers`: the bounds first, the value last. The bounds, most often constants, are seen at once; the value, often a long expression, comes after them. Never `Math.max` and `Math.min` nested by hand, either way round. A single bound stays `Math.max` or `Math.min`. | <pre>Math.max(2, Math.min(3, n))   ✗ no<br>clamp(2, 3, n)                ✓ yes</pre> ![A count of 1 and a count of 5 pulled into the band from 2 to 3; Math.max(2, Math.min(3, n)) read inside out beside clamp(2, 3, n), the bounds first](../img/rules/flow_clamp_two_bounds.svg) | [clamp_two_bounds.md](../drafts/clamp_two_bounds.md) |
 | **FILE** | **File and module structure** — One entry function, one fixed order. | | |
 | FILE-01 | **A library module exports one public value last.** The value may be a function, class, configuration or data. Declare it above and export its name at file end; tool-shaped files follow their tool. | `module.exports = items_index_by_uid;` ![A library file: requires, the value, helpers, and module.exports of that one value last](../img/rules/file_one_export_last.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FILE-02 | **A script runs main and exports nothing.** An executable script uses `main` as its entry function and does not export. | ![A script that exports, turned into one that only runs: shebang, requires, cli(main), main](../img/rules/file_script_runs_main.svg) | [FORMATTING.md](../FORMATTING.md) |

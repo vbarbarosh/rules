@@ -1224,3 +1224,16 @@ A component's lifecycle hooks follow its other options, two by two:
 `deactivated`, then `errorCaptured`. It replaces VUE-15's `mounted`,
 `created`, `beforeDestroy`. Existing code is not rewritten for it
 (CORE-01).
+
+## MP-94 — A value between two bounds is clamped
+
+**Scope:** FLOW-13, [a value between two bounds is clamped](drafts/clamp_two_bounds.md).
+**Approved:** 2026-11-13.
+
+In JavaScript, a value held between a low and a high bound is one call,
+`clamp(min, max, value)` of `@vbarbarosh/node-helpers`, never `Math.max`
+and `Math.min` nested by hand. The bounds, most often constants, stand
+first, where they are seen at once; the value, often a long expression,
+comes after them. A single bound stays `Math.max` or `Math.min`. PHP is
+not covered. It stands in the FLOW group, after FLOW-12. Existing code is
+not rewritten for it (CORE-01).
