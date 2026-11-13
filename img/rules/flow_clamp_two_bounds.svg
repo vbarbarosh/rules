@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="512" viewBox="0 0 1200 512" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="512" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A value between two bounds is clamped</text>
+<text x="48" y="108" fill="#686a61" font-size="22">one call names both bounds; max and min nested by hand are read inside out</text>
+<rect x="440" y="196" width="160" height="40" rx="6" fill="#e2e7fb" stroke="#2743b8" stroke-width="2"/>
+<line x1="120" y1="216" x2="1080" y2="216" stroke="#686a61" stroke-width="2"/>
+<line x1="120" y1="208" x2="120" y2="224" stroke="#686a61" stroke-width="2"/>
+<text x="120" y="258" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">0</text>
+<line x1="280" y1="208" x2="280" y2="224" stroke="#686a61" stroke-width="2"/>
+<text x="280" y="258" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">1</text>
+<line x1="440" y1="208" x2="440" y2="224" stroke="#686a61" stroke-width="2"/>
+<text x="440" y="258" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">2</text>
+<line x1="600" y1="208" x2="600" y2="224" stroke="#686a61" stroke-width="2"/>
+<text x="600" y="258" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">3</text>
+<line x1="760" y1="208" x2="760" y2="224" stroke="#686a61" stroke-width="2"/>
+<text x="760" y="258" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">4</text>
+<line x1="920" y1="208" x2="920" y2="224" stroke="#686a61" stroke-width="2"/>
+<text x="920" y="258" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">5</text>
+<line x1="1080" y1="208" x2="1080" y2="224" stroke="#686a61" stroke-width="2"/>
+<text x="1080" y="258" fill="#686a61" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">6</text>
+<circle cx="280" cy="216" r="9" fill="#fbe3df" stroke="#b2341f" stroke-width="2.5"/>
+<circle cx="440" cy="216" r="9" fill="#dcefe3" stroke="#1a7443" stroke-width="2.5"/>
+<path d="M280 204 Q360.0 150 430 202" fill="none" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="360.0" y="162" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">1 → 2</text>
+<circle cx="920" cy="216" r="9" fill="#fbe3df" stroke="#b2341f" stroke-width="2.5"/>
+<circle cx="600" cy="216" r="9" fill="#dcefe3" stroke="#1a7443" stroke-width="2.5"/>
+<path d="M920 204 Q760.0 140 610 202" fill="none" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="760.0" y="152" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">5 → 3</text>
+<rect x="60" y="296" width="500" height="122" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<rect x="640" y="296" width="500" height="122" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="78" y="344" fill="#191a17" font-size="21" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">Math.max(2, Math.min(3, n))</text>
+<text x="78" y="394" fill="#b2341f" font-size="17">✗ read inside out for the bounds</text>
+<text x="658" y="344" fill="#191a17" font-size="21" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">clamp(2, 3, n)</text>
+<text x="658" y="394" fill="#1a7443" font-size="17">✓ the bounds first, the value last</text>
+<line x1="566" y1="357" x2="632" y2="357" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="48" y="472" fill="#686a61" font-size="21">clamp(min, max, value) of node-helpers; a single bound stays Math.max or Math.min.</text>
+</svg>
