@@ -3,6 +3,19 @@ const stylistic = require('@stylistic/eslint-plugin');
 const vue = require('eslint-plugin-vue');
 const vue_parser = require('vue-eslint-parser');
 
+// VUE-15: a component's options in this order; an option not listed may
+// stand anywhere.
+const VUE_OPTIONS_ORDER = [
+    'props', 'inject', 'provide', 'mixins',
+    'data', 'computed', 'watch', 'methods',
+    'beforeCreate', 'created',
+    'beforeDestroy', 'destroyed',
+    'beforeMount', 'mounted',
+    'beforeUpdate', 'updated',
+    'activated', 'deactivated',
+    'errorCaptured',
+];
+
 function make_rules_config(options = {})
 {
     const app_prefixes = options.app_prefixes || ['app-', 'vb-', 'np-'];
@@ -10,7 +23,7 @@ function make_rules_config(options = {})
         {ignores: ['**/node_modules/**', '**/dist/**', '**/build/**', '**/vendor/**']},
         {
             files: ['**/*.{js,cjs,mjs,vue}'],
-            plugins: {rules: plugin, '@stylistic': stylistic},
+            plugins: {rules: plugin, '@stylistic': stylistic, vue},
             languageOptions: {ecmaVersion: 'latest', sourceType: 'module'},
             rules: {
                 'rules/imports-sorted': 'error',
@@ -29,6 +42,7 @@ function make_rules_config(options = {})
                 '@stylistic/indent': ['error', 4, {SwitchCase: 0}],
                 '@stylistic/no-tabs': 'error',
                 '@stylistic/space-before-function-paren': ['error', {anonymous: 'always', named: 'never', asyncArrow: 'always'}],
+                'vue/order-in-components': ['error', {order: VUE_OPTIONS_ORDER}],
             },
         },
         {files: ['**/*.cjs'], languageOptions: {sourceType: 'commonjs'}},

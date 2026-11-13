@@ -19,6 +19,7 @@ function page_postprocess(messages, filename)
         for (const message of list) {
             out.push({
                 ...message,
+                message: page_message(block, message.message),
                 line: message.line + block.line - 1,
                 column: page_column(block, message.line, message.column),
                 endLine: message.endLine ? message.endLine + block.line - 1 : undefined,
@@ -36,6 +37,13 @@ function page_postprocess(messages, filename)
 function page_column(block, line, column)
 {
     return (line === 1) ? block.column + column - 1 : column + block.indent;
+}
+
+// A message that names a line of its block ("above the methods property on
+// line 3", vue/order-in-components) names the page's line.
+function page_message(block, text)
+{
+    return text.replace(/\bon line (\d+)\b/g, (match, line) => `on line ${Number(line) + block.line - 1}`);
 }
 
 const page_processor = {preprocess: page_preprocess, postprocess: page_postprocess, supportsAutofix: false};
