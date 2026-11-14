@@ -41,3 +41,9 @@ the container level of the C4 model, drawn as a sketch.
 ## Examples
 
 ![A render service as C4 containers: a user, Cloudflare and Stripe outside; inside, the proxy, the API, the render queue, the renderer, the database, the cache and the media store, each with its technology and what it does](../img/diagrams/containers_banners.svg)
+
+## References
+
+- [The C4 model](https://c4model.com), by Simon Brown, its site and
+  examples under CC BY 4.0: this sketch draws its container level; the
+  picture is drawn here.

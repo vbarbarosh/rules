@@ -28,3 +28,8 @@ top are where the time goes.
 2. **Too narrow:** a letter in the bar, its name in a key; a narrow part
    that matters zoomed above.
 3. **Self time:** the bars that spend it themselves marked in orange.
+
+## References
+
+- [Flame graphs](https://www.brendangregg.com/flamegraphs.html), invented
+  by Brendan Gregg: this guide draws his kind; the picture is drawn here.

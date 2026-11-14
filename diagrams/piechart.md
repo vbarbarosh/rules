@@ -41,6 +41,7 @@ sees what part of all each share is, and whether one is most of it.
 
 ## References
 
-- [archify](https://github.com/tt-a1i/archify): an agent skill that
-  draws this kind from typed JSON into an interactive page; the kind came
-  to this page from it.
+- [archify](https://github.com/tt-a1i/archify), by tt-a1i, Apache-2.0
+  licence: an agent skill that draws this kind from typed JSON into an
+  interactive page; the kind came to this page from it, the picture is
+  drawn here.
