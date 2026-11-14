@@ -1,0 +1,76 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" fill="#E8E6DC" fill-opacity="1" fill-rule="nonzero" stroke="none" stroke-width="1px" stroke-opacity="1" stroke-dasharray="none" stroke-linecap="butt" stroke-linejoin="miter" opacity="1" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="16px" font-weight="400" text-anchor="start" dominant-baseline="auto" stop-color="#E8E6DC" stop-opacity="1" width="1000" height="500"><!-- From diagram-design by Cathryn Lavery, MIT licence (LICENSE beside this file), recoloured: https://github.com/cathrynlavery/diagram-design/blob/f6db0decea96de66b901331a0f79a8d4b147ebae/skills/diagram-design/assets/example-radar-dark.html -->
+      <title id="radar-dark-title">Storage backends · Capability radar</title>
+      <desc id="radar-dark-desc">Radar chart comparing MinIO, Amazon S3, Ceph, and Google Cloud Storage across five storage capabilities.</desc>
+        <defs>
+          <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="0.9" fill="rgba(232,230,220,0.1)"/>
+          </pattern>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#1E1D21"/>
+        <rect width="100%" height="100%" fill="url(&quot;#dots&quot;)" opacity="0.55"/>
+
+        <!-- Concentric grid rings -->
+        <polygon points="500,208 530,230 519,266 481,266 470,230" fill="none" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px"/>
+        <polygon points="500,176 561,220 538,292 462,292 439,220" fill="none" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px"/>
+        <polygon points="500,144 591,211 556,317 444,317 409,211" fill="none" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px"/>
+        <polygon points="500,112 622,201 575,343 425,343 378,201" fill="none" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px"/>
+        <polygon points="500,80 652,191 594,369 406,369 348,191" fill="none" stroke="rgba(232,230,220,0.2)" stroke-width="1px"/>
+
+        <!-- Axis spokes -->
+        <line x1="500" y1="240" x2="500" y2="80" stroke="rgba(232,230,220,0.2)" stroke-width="1px"/>
+        <line x1="500" y1="240" x2="652" y2="191" stroke="rgba(232,230,220,0.2)" stroke-width="1px"/>
+        <line x1="500" y1="240" x2="594" y2="369" stroke="rgba(232,230,220,0.2)" stroke-width="1px"/>
+        <line x1="500" y1="240" x2="406" y2="369" stroke="rgba(232,230,220,0.2)" stroke-width="1px"/>
+        <line x1="500" y1="240" x2="348" y2="191" stroke="rgba(232,230,220,0.2)" stroke-width="1px"/>
+
+        <!-- Axis labels -->
+        <text x="500" y="62" fill="#E8E6DC" font-size="11px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Small-file handling</text>
+        <text x="669" y="189" fill="#E8E6DC" font-size="11px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="start">Large-object reads</text>
+        <text x="605" y="400" fill="#E8E6DC" font-size="11px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="start">Write throughput</text>
+        <text x="395" y="400" fill="#E8E6DC" font-size="11px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="end">Operational simplicity</text>
+        <text x="331" y="189" fill="#E8E6DC" font-size="11px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="end">Iceberg integration</text>
+
+        <!-- Scale ticks -->
+        <text x="494" y="82" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">10</text>
+        <text x="494" y="114" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">8</text>
+        <text x="494" y="146" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">6</text>
+        <text x="494" y="178" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">4</text>
+        <text x="494" y="210" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">2</text>
+
+        <!-- Non-focal series -->
+        <!-- Ceph · series-2 dusty-blue dark -->
+        <polygon points="500,128 606,206 566,330 462,292 409,211" fill="rgba(110,155,245,0.22)" stroke="#6E9BF5" stroke-width="1.5px"/>
+        <!-- GCS · series-3 mustard dark -->
+        <polygon points="500,144 637,196 575,343 444,317 394,206" fill="rgba(180,140,242,0.22)" stroke="#B48CF2" stroke-width="1.5px"/>
+        <!-- Amazon S3 · series-1 sage dark -->
+        <polygon points="500,144 652,191 585,356 453,305 378,201" fill="rgba(92,194,106,0.22)" stroke="#5CC26A" stroke-width="1.5px"/>
+
+        <!-- Focal series · MinIO -->
+        <polygon points="500,96 622,201 585,356 415,356 363,196" fill="rgba(240,140,74,0.22)" stroke="#F08C4A" stroke-width="1.8px"/>
+
+        <!-- Focal vertex dots -->
+        <circle cx="500" cy="96" r="4" fill="#F08C4A"/>
+        <circle cx="622" cy="201" r="4" fill="#F08C4A"/>
+        <circle cx="585" cy="356" r="4" fill="#F08C4A"/>
+        <circle cx="415" cy="356" r="4" fill="#F08C4A"/>
+        <circle cx="363" cy="196" r="4" fill="#F08C4A"/>
+
+        <!-- Legend -->
+        <line x1="40" y1="456" x2="960" y2="456" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px"/>
+        <text x="40" y="472" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.44px">LEGEND</text>
+
+        <rect x="40" y="484" width="16" height="8" fill="rgba(240,140,74,0.22)" stroke="#F08C4A" stroke-width="1.5px"/>
+        <text x="64" y="492" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">MinIO · recommended</text>
+
+        <rect x="220" y="484" width="16" height="8" fill="rgba(92,194,106,0.22)" stroke="#5CC26A" stroke-width="1.5px"/>
+        <text x="244" y="492" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Amazon S3</text>
+
+        <rect x="344" y="484" width="16" height="8" fill="rgba(110,155,245,0.22)" stroke="#6E9BF5" stroke-width="1.5px"/>
+        <text x="368" y="492" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Ceph</text>
+
+        <rect x="424" y="484" width="16" height="8" fill="rgba(180,140,242,0.22)" stroke="#B48CF2" stroke-width="1.5px"/>
+        <text x="448" y="492" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Google Cloud Storage</text>
+
+        <text x="608" y="492" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-style="italic">One coral. Position is the signal — color reserved for the recommended option.</text>
+      </svg>

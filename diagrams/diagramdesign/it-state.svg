@@ -1,0 +1,78 @@
+<svg viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg" fill="#1F1E1C" fill-opacity="1" fill-rule="nonzero" stroke="none" stroke-width="1px" stroke-opacity="1" stroke-dasharray="none" stroke-linecap="butt" stroke-linejoin="miter" opacity="1" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="16px" font-weight="400" text-anchor="start" dominant-baseline="auto" stop-color="#1F1E1C" stop-opacity="1" width="960" height="500"><!-- From diagram-design by Cathryn Lavery, MIT licence (LICENSE beside this file), recoloured: https://github.com/cathrynlavery/diagram-design/blob/f6db0decea96de66b901331a0f79a8d4b147ebae/skills/diagram-design/assets/example-it-state.html -->
+        <title id="it-state-title">Northwind Retail current IT landscape</title>
+        <desc id="it-state-desc">Three zones show collection, processing, and dissemination through manual file handoffs.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5C5A55"/></marker>
+          <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2B3FBF"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#C2410C"/></marker>
+          <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="#1F1E1C" stroke-width="1.5px" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2"/></symbol>
+          <symbol id="icon-screen" viewBox="0 0 24 24" fill="none" stroke="#1F1E1C" stroke-width="1.5px" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M7 20h10M9 16v4M15 16v4"/></symbol>
+          <symbol id="icon-db" viewBox="0 0 24 24" fill="none" stroke="#1F1E1C" stroke-width="1.5px"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+          <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="#1F1E1C" stroke-width="1.5px" stroke-linecap="round"><circle cx="9" cy="8" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2M16 4.5a4 4 0 0 1 0 7M18 15a4 4 0 0 1 3 4v2"/></symbol>
+        </defs>
+
+        <rect width="960" height="500" fill="#E9E6E0"/>
+
+        <!-- Phase zones -->
+        <rect x="16" y="52" width="256" height="360" rx="8" fill="rgba(31,30,28,0.02)" stroke="rgba(31,30,28,0.1)" stroke-width="0.8px"/>
+        <rect x="36" y="44" width="92" height="16" fill="#E9E6E0"/>
+        <text x="40" y="56" fill="rgba(31,30,28,0.4)" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" letter-spacing="1.12px">COLLECTION</text>
+        <rect x="292" y="52" width="360" height="360" rx="8" fill="rgba(31,30,28,0.02)" stroke="rgba(31,30,28,0.1)" stroke-width="0.8px"/>
+        <rect x="312" y="44" width="92" height="16" fill="#E9E6E0"/>
+        <text x="316" y="56" fill="rgba(31,30,28,0.4)" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" letter-spacing="1.12px">PROCESSING</text>
+        <rect x="672" y="52" width="272" height="360" rx="8" fill="rgba(31,30,28,0.02)" stroke="rgba(31,30,28,0.1)" stroke-width="0.8px"/>
+        <rect x="692" y="44" width="116" height="16" fill="#E9E6E0"/>
+        <text x="696" y="56" fill="rgba(31,30,28,0.4)" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" letter-spacing="1.12px">DISSEMINATION</text>
+
+        <!-- Connectors first; Shared Drive entries fan to y=108,124,140 -->
+        <path d="M 252,108 H 340" fill="none" stroke="#2B3FBF" stroke-width="1.2px" marker-end="url(#arrow-link)"/>
+        <path d="M 252,196 H 308 Q 316,196 316,188 V 132 Q 316,124 324,124 H 340" fill="none" stroke="#2B3FBF" stroke-width="1.2px" marker-end="url(#arrow-link)"/>
+        <path d="M 252,284 H 324 Q 332,284 332,276 V 148 Q 332,140 340,140" fill="none" stroke="#2B3FBF" stroke-width="1.2px" stroke-dasharray="4px, 3px" marker-end="url(#arrow-link)"/>
+        <line x1="472" y1="148" x2="472" y2="232" stroke="#C2410C" stroke-width="1.4px" stroke-dasharray="4px, 3px" marker-end="url(#arrow-accent)"/>
+        <line x1="472" y1="304" x2="472" y2="344" stroke="#5C5A55" stroke-width="1px" marker-end="url(#arrow)"/>
+        <path d="M 604,268 H 654 Q 662,268 662,260 V 72 Q 662,64 670,64 H 800 Q 808,64 808,72 V 80" fill="none" stroke="#C2410C" stroke-width="1.4px" marker-end="url(#arrow-accent)"/>
+        <line x1="808" y1="140" x2="808" y2="216" stroke="#2B3FBF" stroke-width="1.2px" marker-end="url(#arrow-link)"/>
+        <line x1="808" y1="272" x2="808" y2="344" stroke="#2B3FBF" stroke-width="1.2px" stroke-dasharray="4px, 3px" marker-end="url(#arrow-link)"/>
+
+        <!-- Collection -->
+        <rect x="36" y="80" width="216" height="56" rx="6" fill="#E9E6E0"/><rect x="36" y="80" width="216" height="56" rx="6" fill="#F1EFEB" stroke="#1F1E1C"/>
+        <use href="#icon-file" x="48" y="96" width="24" height="24" color="#1F1E1C"/><text x="80" y="106" fill="#1F1E1C" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="12px" font-weight="600">Point-of-Sale Exports</text><text x="80" y="122" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">nightly · CSV</text>
+        <rect x="36" y="168" width="216" height="56" rx="6" fill="#E9E6E0"/><rect x="36" y="168" width="216" height="56" rx="6" fill="#F1EFEB" stroke="#1F1E1C"/>
+        <use href="#icon-file" x="48" y="184" width="24" height="24" color="#1F1E1C"/><text x="80" y="194" fill="#1F1E1C" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="12px" font-weight="600">Online Store Export</text><text x="80" y="210" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">orders · flat file</text>
+        <rect x="36" y="256" width="216" height="56" rx="6" fill="#E9E6E0"/><rect x="36" y="256" width="216" height="56" rx="6" fill="#F1EFEB" stroke="#5C5A55" stroke-dasharray="4px, 3px"/>
+        <use href="#icon-file" x="48" y="272" width="24" height="24" color="#5C5A55"/><text x="80" y="282" fill="#1F1E1C" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="12px" font-weight="600">Supplier Price Lists</text><text x="80" y="298" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">external · XLSX</text>
+
+        <!-- Processing -->
+        <rect x="340" y="80" width="264" height="68" rx="6" fill="#E9E6E0"/><rect x="340" y="80" width="264" height="68" rx="6" fill="rgba(194,65,12,0.07)" stroke="#C2410C" stroke-width="1.4px"/>
+        <use href="#icon-file" x="352" y="100" width="24" height="24" color="#C2410C"/><text x="384" y="108" fill="#1F1E1C" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="12px" font-weight="600">Shared Drive</text><text x="384" y="124" fill="#C2410C" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">no version control</text><text x="384" y="140" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">department folders</text>
+        <rect x="340" y="232" width="264" height="72" rx="6" fill="#E9E6E0"/><rect x="340" y="232" width="264" height="72" rx="6" fill="#F1EFEB" stroke="#1F1E1C"/>
+        <use href="#icon-screen" x="352" y="256" width="24" height="24" color="#1F1E1C"/><text x="384" y="262" fill="#1F1E1C" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="12px" font-weight="600">Spreadsheet Handoffs</text><text x="384" y="278" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">local workbooks · macros</text><text x="384" y="292" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">manual reconciliation</text>
+        <rect x="340" y="344" width="264" height="56" rx="6" fill="#E9E6E0"/><rect x="340" y="344" width="264" height="56" rx="6" fill="rgba(43,138,62,0.06)" stroke="rgba(43,138,62,0.45)"/>
+        <use href="#icon-db" x="352" y="360" width="24" height="24" color="#2B8A3E"/><text x="384" y="370" fill="#2B8A3E" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="12px" font-weight="600">On-prem RDBMS</text><text x="384" y="386" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">inventory · finance</text>
+
+        <!-- Dissemination -->
+        <rect x="704" y="80" width="208" height="60" rx="6" fill="#E9E6E0"/><rect x="704" y="80" width="208" height="60" rx="6" fill="rgba(194,65,12,0.07)" stroke="#C2410C" stroke-width="1.4px"/>
+        <use href="#icon-screen" x="716" y="100" width="24" height="24" color="#C2410C"/><text x="748" y="108" fill="#1F1E1C" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="12px" font-weight="600">Reporting Portal</text><text x="748" y="124" fill="#C2410C" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">manual refresh</text>
+        <rect x="704" y="216" width="208" height="56" rx="6" fill="#E9E6E0"/><rect x="704" y="216" width="208" height="56" rx="6" fill="#F1EFEB" stroke="#1F1E1C"/>
+        <use href="#icon-file" x="716" y="232" width="24" height="24" color="#1F1E1C"/><text x="748" y="242" fill="#1F1E1C" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="12px" font-weight="600">Email Report Packs</text><text x="748" y="258" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">weekly · PDF</text>
+        <rect x="704" y="344" width="208" height="56" rx="6" fill="#E9E6E0"/><rect x="704" y="344" width="208" height="56" rx="6" fill="#F1EFEB" stroke="#5C5A55" stroke-dasharray="4px, 3px"/>
+        <use href="#icon-users" x="716" y="360" width="24" height="24" color="#5C5A55"/><text x="748" y="370" fill="#1F1E1C" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="12px" font-weight="600">Regional Managers</text><text x="748" y="386" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px">12 store regions</text>
+
+        <!-- Labels are source-bound with a 6px perpendicular gap -->
+        <rect x="260" y="86" width="40" height="16" rx="2" fill="#E9E6E0"/><text x="280" y="98" text-anchor="middle" fill="#2B3FBF" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="600" letter-spacing="0.64px">CSV</text>
+        <rect x="260" y="174" width="52" height="16" rx="2" fill="#E9E6E0"/><text x="286" y="186" text-anchor="middle" fill="#2B3FBF" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="600" letter-spacing="0.64px">EXPORT</text>
+        <rect x="260" y="262" width="44" height="16" rx="2" fill="#E9E6E0"/><text x="282" y="274" text-anchor="middle" fill="#2B3FBF" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="600" letter-spacing="0.64px">XLSX</text>
+        <rect x="478" y="156" width="40" height="16" rx="2" fill="#E9E6E0"/><text x="498" y="168" text-anchor="middle" fill="#C2410C" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="600" letter-spacing="0.64px">COPY</text>
+        <rect x="478" y="312" width="40" height="16" rx="2" fill="#E9E6E0"/><text x="498" y="324" text-anchor="middle" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="600" letter-spacing="0.64px">LOAD</text>
+        <rect x="612" y="246" width="44" height="16" rx="2" fill="#E9E6E0"/><text x="634" y="258" text-anchor="middle" fill="#C2410C" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="600" letter-spacing="0.64px">XLSX</text>
+        <rect x="814" y="148" width="36" height="16" rx="2" fill="#E9E6E0"/><text x="832" y="160" text-anchor="middle" fill="#2B3FBF" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="600" letter-spacing="0.64px">PDF</text>
+        <rect x="814" y="280" width="48" height="16" rx="2" fill="#E9E6E0"/><text x="838" y="292" text-anchor="middle" fill="#2B3FBF" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="600" letter-spacing="0.64px">EMAIL</text>
+
+        <!-- Legend strip -->
+        <line x1="16" y1="440" x2="944" y2="440" stroke="rgba(31,30,28,0.12)" stroke-width="0.8px"/>
+        <text x="16" y="460" letter-spacing="1.12px" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px">LEGEND</text>
+        <line x1="80" y1="456" x2="104" y2="456" stroke="#2B3FBF" stroke-width="1.2px"/><text x="112" y="460" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px">data flow</text>
+        <line x1="208" y1="456" x2="232" y2="456" stroke="#C2410C" stroke-width="1.4px"/><text x="240" y="460" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px">pain-point</text>
+        <rect x="372" y="450" width="16" height="12" rx="2" fill="#F1EFEB" stroke="#5C5A55" stroke-width="0.8px" stroke-dasharray="4px, 3px"/><text x="396" y="460" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px">external</text>
+        <rect x="492" y="450" width="16" height="12" rx="2" fill="rgba(194,65,12,0.07)" stroke="#C2410C"/><text x="516" y="460" fill="#5C5A55" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px">bottleneck</text>
+      </svg>

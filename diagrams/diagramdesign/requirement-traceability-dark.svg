@@ -1,0 +1,90 @@
+<svg viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" data-diagram-type="requirement-traceability" fill="#E8E6DC" fill-opacity="1" fill-rule="nonzero" stroke="none" stroke-width="1px" stroke-opacity="1" stroke-dasharray="none" stroke-linecap="butt" stroke-linejoin="miter" opacity="1" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="16px" font-weight="400" text-anchor="start" dominant-baseline="auto" stop-color="#E8E6DC" stop-opacity="1" width="1200" height="720"><!-- From diagram-design by Cathryn Lavery, MIT licence (LICENSE beside this file), recoloured: https://github.com/cathrynlavery/diagram-design/blob/f6db0decea96de66b901331a0f79a8d4b147ebae/skills/diagram-design/assets/example-requirement-traceability-dark.html -->
+<title id="requirement-traceability-dark-title">Illustrative requirement traceability</title>
+<desc id="requirement-traceability-dark-desc">Three illustrative requirements trace from source notes to design elements and verification checks. The last requirement has no linked verification and is visibly marked as open.</desc>
+<rect width="1200" height="720" fill="#1E1D21"/>
+<text x="64" y="64" fill="#BAB8AB" font-size="14px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SOURCE</text>
+<text x="272" y="64" fill="#BAB8AB" font-size="14px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">REQUIREMENT</text>
+<text x="568" y="64" fill="#BAB8AB" font-size="14px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SATISFIED BY</text>
+<text x="864" y="64" fill="#BAB8AB" font-size="14px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">VERIFIED BY</text>
+<line x1="64" y1="88" x2="1136" y2="88" stroke="rgba(232,230,220,0.12)" stroke-width="2px"/>
+<g data-trace-row="REQ-01" data-trace-source="Review brief §1">
+<g data-diagram-role="source" data-trace-kind="source" data-trace-id="SRC-01" data-source-ref="Review brief §1" data-trace-rel="derives" data-trace-from="SRC-01" data-trace-to="REQ-01">
+<rect x="64" y="124" width="176" height="136" rx="4" fill="#1E1D21" stroke="rgba(232,230,220,0.12)" stroke-width="2px"/>
+<text x="80" y="154" fill="#BAB8AB" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SRC-01</text>
+<text x="80" y="194" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Review brief §1</text>
+<text x="80" y="232" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SOURCE</text>
+</g>
+<g data-diagram-role="requirement" data-trace-kind="requirement" data-trace-id="REQ-01">
+<rect x="256" y="124" width="280" height="136" rx="4" fill="#1E1D21" stroke="rgba(232,230,220,0.12)" stroke-width="2px"/>
+<text x="272" y="154" fill="#BAB8AB" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">REQ-01</text>
+<text x="272" y="194" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Retain decision source</text>
+<text x="272" y="232" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">DERIVED FROM SRC-01</text>
+</g>
+<g data-diagram-role="design-element" data-trace-kind="design" data-trace-id="DES-01" data-trace-rel="satisfies" data-trace-from="DES-01" data-trace-to="REQ-01">
+<rect x="552" y="124" width="280" height="136" rx="4" fill="#1E1D21" stroke="#6E9BF5" stroke-width="2px"/>
+<text x="568" y="154" fill="#6E9BF5" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">DES-01</text>
+<text x="568" y="194" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Decision record</text>
+<text x="568" y="232" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SATISFIES</text>
+</g>
+<g data-diagram-role="verification" data-trace-kind="test" data-trace-id="TST-01" data-trace-rel="verifies" data-trace-from="TST-01" data-trace-to="REQ-01">
+<rect x="848" y="124" width="288" height="136" rx="4" fill="#1E1D21" stroke="#6E9BF5" stroke-width="2px"/>
+<text x="864" y="154" fill="#6E9BF5" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">TST-01</text>
+<text x="864" y="194" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Source link check</text>
+<text x="864" y="232" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">VERIFIES</text>
+</g>
+</g>
+<g data-trace-row="REQ-02" data-trace-source="Review brief §2">
+<g data-diagram-role="source" data-trace-kind="source" data-trace-id="SRC-02" data-source-ref="Review brief §2" data-trace-rel="derives" data-trace-from="SRC-02" data-trace-to="REQ-02">
+<rect x="64" y="300" width="176" height="136" rx="4" fill="#1E1D21" stroke="rgba(232,230,220,0.12)" stroke-width="2px"/>
+<text x="80" y="330" fill="#BAB8AB" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SRC-02</text>
+<text x="80" y="370" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Review brief §2</text>
+<text x="80" y="408" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SOURCE</text>
+</g>
+<g data-diagram-role="requirement" data-trace-kind="requirement" data-trace-id="REQ-02">
+<rect x="256" y="300" width="280" height="136" rx="4" fill="#1E1D21" stroke="rgba(232,230,220,0.12)" stroke-width="2px"/>
+<text x="272" y="330" fill="#BAB8AB" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">REQ-02</text>
+<text x="272" y="370" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Show missing evidence</text>
+<text x="272" y="408" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">DERIVED FROM SRC-02</text>
+</g>
+<g data-diagram-role="design-element" data-trace-kind="design" data-trace-id="DES-02" data-trace-rel="satisfies" data-trace-from="DES-02" data-trace-to="REQ-02">
+<rect x="552" y="300" width="280" height="136" rx="4" fill="#1E1D21" stroke="#6E9BF5" stroke-width="2px"/>
+<text x="568" y="330" fill="#6E9BF5" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">DES-02</text>
+<text x="568" y="370" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Coverage report</text>
+<text x="568" y="408" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SATISFIES</text>
+</g>
+<g data-diagram-role="verification" data-trace-kind="test" data-trace-id="TST-02" data-trace-rel="verifies" data-trace-from="TST-02" data-trace-to="REQ-02">
+<rect x="848" y="300" width="288" height="136" rx="4" fill="#1E1D21" stroke="#6E9BF5" stroke-width="2px"/>
+<text x="864" y="330" fill="#6E9BF5" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">TST-02</text>
+<text x="864" y="370" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Gap display check</text>
+<text x="864" y="408" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">VERIFIES</text>
+</g>
+</g>
+<g data-trace-row="REQ-03" data-trace-source="Review brief §3">
+<g data-diagram-role="source" data-trace-kind="source" data-trace-id="SRC-03" data-source-ref="Review brief §3" data-trace-rel="derives" data-trace-from="SRC-03" data-trace-to="REQ-03">
+<rect x="64" y="476" width="176" height="136" rx="4" fill="#1E1D21" stroke="rgba(232,230,220,0.12)" stroke-width="2px"/>
+<text x="80" y="506" fill="#BAB8AB" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SRC-03</text>
+<text x="80" y="546" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Review brief §3</text>
+<text x="80" y="584" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SOURCE</text>
+</g>
+<g data-diagram-role="requirement" data-trace-kind="requirement" data-trace-id="REQ-03">
+<rect x="256" y="476" width="280" height="136" rx="4" fill="#1E1D21" stroke="rgba(232,230,220,0.12)" stroke-width="2px"/>
+<text x="272" y="506" fill="#BAB8AB" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">REQ-03</text>
+<text x="272" y="546" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Export trace IDs</text>
+<text x="272" y="584" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">DERIVED FROM SRC-03</text>
+</g>
+<g data-diagram-role="design-element" data-trace-kind="design" data-trace-id="DES-03" data-trace-rel="satisfies" data-trace-from="DES-03" data-trace-to="REQ-03">
+<rect x="552" y="476" width="280" height="136" rx="4" fill="#1E1D21" stroke="#6E9BF5" stroke-width="2px"/>
+<text x="568" y="506" fill="#6E9BF5" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">DES-03</text>
+<text x="568" y="546" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Trace export</text>
+<text x="568" y="584" fill="#BAB8AB" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SATISFIES</text>
+</g>
+<g data-diagram-role="coverage-gap" data-trace-rel="verifies" data-trace-missing="true" data-trace-to="REQ-03">
+<rect x="848" y="476" width="288" height="136" rx="4" fill="#1E1D21" stroke="#F08C4A" stroke-width="2px"/>
+<text x="864" y="508" fill="#F08C4A" font-size="16px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">OPEN GAP</text>
+<text x="864" y="550" fill="#E8E6DC" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">No verification linked</text>
+<text x="864" y="584" fill="#F08C4A" font-size="12px" font-weight="700" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">NO VERIFICATION</text>
+</g>
+</g>
+<line x1="64" y1="668" x2="1136" y2="668" stroke="rgba(232,230,220,0.12)" stroke-width="1px"/>
+<text x="64" y="700" fill="#BAB8AB" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">ILLUSTRATIVE TRACE  ·  ONE OPEN VERIFICATION GAP</text>
+</svg>

@@ -1,0 +1,117 @@
+<svg viewBox="0 0 1040 548" xmlns="http://www.w3.org/2000/svg" fill="#E8E6DC" fill-opacity="1" fill-rule="nonzero" stroke="none" stroke-width="1px" stroke-opacity="1" stroke-dasharray="none" stroke-linecap="butt" stroke-linejoin="miter" opacity="1" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="16px" font-weight="400" text-anchor="start" dominant-baseline="auto" stop-color="#E8E6DC" stop-opacity="1" width="1040" height="548"><!-- From diagram-design by Cathryn Lavery, MIT licence (LICENSE beside this file), recoloured: https://github.com/cathrynlavery/diagram-design/blob/f6db0decea96de66b901331a0f79a8d4b147ebae/skills/diagram-design/assets/example-medallion-dark.html -->
+      <title id="medallion-dark-title">Five-tier e-commerce analytics medallion</title>
+      <desc id="medallion-dark-desc">Clickstream events and order records move from raw storage through anonymized, staging, and aggregated tiers before lifecycle archiving.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#BAB8AB"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#F08C4A"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6E9BF5"/></marker>
+        <clipPath id="clip-raw"><rect x="16" y="80" width="172" height="380" rx="6"/></clipPath>
+        <clipPath id="clip-anon"><rect x="204" y="80" width="172" height="380" rx="6"/></clipPath>
+        <clipPath id="clip-stage"><rect x="392" y="80" width="172" height="380" rx="6"/></clipPath>
+        <clipPath id="clip-aggregate"><rect x="580" y="80" width="172" height="380" rx="6"/></clipPath>
+        <clipPath id="clip-archive"><rect x="768" y="80" width="172" height="380" rx="6"/></clipPath>
+      </defs>
+      <rect width="1040" height="548" fill="#1E1D21"/>
+
+      <!-- Promotion arcs are the medallion type's required connector grammar. -->
+      <path d="M102 80 C102 0 290 0 290 80" fill="none" stroke="#BAB8AB" stroke-width="1.4px" marker-end="url(#arrow)"/>
+      <path d="M290 80 C290 0 478 0 478 80" fill="none" stroke="#BAB8AB" stroke-width="1.4px" marker-end="url(#arrow)"/>
+      <path d="M478 80 C478 0 666 0 666 80" fill="none" stroke="#F08C4A" stroke-width="1.6px" marker-end="url(#arrow-accent)"/>
+      <path d="M666 80 C666 0 854 0 854 80" fill="none" stroke="#BAB8AB" stroke-width="1.4px" stroke-dasharray="4px, 3px" marker-end="url(#arrow)"/>
+      <text x="196" y="50" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px" font-weight="500" letter-spacing="0.8px" text-anchor="middle">MASK IDS</text>
+      <text x="384" y="50" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px" font-weight="500" letter-spacing="0.8px" text-anchor="middle">CLEAN + JOIN</text>
+      <text x="572" y="50" fill="#F08C4A" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px" font-weight="500" letter-spacing="0.8px" text-anchor="middle">AGGREGATE</text>
+      <text x="760" y="50" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="10px" font-weight="500" letter-spacing="0.8px" text-anchor="middle">LIFECYCLE</text>
+
+      <!-- Raw -->
+      <rect x="16" y="80" width="172" height="380" rx="6" fill="rgba(232,230,220,0.04)"/>
+      <rect x="16" y="80" width="172" height="50" fill="rgba(169,167,155,0.16)" clip-path="url(#clip-raw)"/>
+      <rect x="16" y="80" width="172" height="380" rx="6" fill="none" stroke="#BAB8AB"/>
+      <text x="102" y="106" fill="#E8E6DC" font-size="13px" font-weight="600" text-anchor="middle">Raw</text>
+      <text x="102" y="144" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px" text-anchor="middle">raw-commerce</text>
+      <text x="32" y="180" fill="#E8E6DC" font-size="11px" font-weight="600">Tool</text>
+      <foreignObject x="32" y="186" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">NiFi ingest</div></foreignObject>
+      <text x="32" y="220" fill="#E8E6DC" font-size="11px" font-weight="600">Format</text>
+      <foreignObject x="32" y="226" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">JSON · Parquet</div></foreignObject>
+      <text x="32" y="260" fill="#E8E6DC" font-size="11px" font-weight="600">Writer</text>
+      <foreignObject x="32" y="266" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Data Engineer</div></foreignObject>
+      <text x="32" y="360" fill="#A9A79B" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="500" letter-spacing="0.64px">E-COMMERCE EXAMPLE</text>
+      <text x="32" y="374" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">clickstream events</text>
+      <text x="32" y="388" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">order records</text>
+
+      <!-- Anonymized -->
+      <rect x="204" y="80" width="172" height="380" rx="6" fill="rgba(232,230,220,0.04)"/>
+      <rect x="204" y="80" width="172" height="50" fill="rgba(232,230,220,0.08)" clip-path="url(#clip-anon)"/>
+      <rect x="204" y="80" width="172" height="380" rx="6" fill="none" stroke="rgba(232,230,220,0.3)"/>
+      <text x="290" y="106" fill="#E8E6DC" font-size="13px" font-weight="600" text-anchor="middle">Anonymized</text>
+      <text x="290" y="144" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px" text-anchor="middle">anon-commerce</text>
+      <text x="220" y="180" fill="#E8E6DC" font-size="11px" font-weight="600">Tool</text>
+      <foreignObject x="220" y="186" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Trino SQL</div></foreignObject>
+      <text x="220" y="220" fill="#E8E6DC" font-size="11px" font-weight="600">Format</text>
+      <foreignObject x="220" y="226" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Iceberg · partitioned</div></foreignObject>
+      <text x="220" y="260" fill="#E8E6DC" font-size="11px" font-weight="600">Writer</text>
+      <foreignObject x="220" y="266" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Data Engineer</div></foreignObject>
+      <text x="220" y="360" fill="#A9A79B" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="500" letter-spacing="0.64px">E-COMMERCE EXAMPLE</text>
+      <text x="220" y="374" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">session pseudonyms</text>
+      <text x="220" y="388" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">masked customer IDs</text>
+
+      <!-- Staging -->
+      <rect x="392" y="80" width="172" height="380" rx="6" fill="rgba(232,230,220,0.04)"/>
+      <rect x="392" y="80" width="172" height="50" fill="rgba(232,230,220,0.08)" clip-path="url(#clip-stage)"/>
+      <rect x="392" y="80" width="172" height="380" rx="6" fill="none" stroke="rgba(232,230,220,0.3)"/>
+      <text x="478" y="106" fill="#E8E6DC" font-size="13px" font-weight="600" text-anchor="middle">Staging</text>
+      <text x="478" y="144" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px" text-anchor="middle">staging-commerce</text>
+      <text x="408" y="180" fill="#E8E6DC" font-size="11px" font-weight="600">Tool</text>
+      <foreignObject x="408" y="186" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Trino · notebooks</div></foreignObject>
+      <text x="408" y="220" fill="#E8E6DC" font-size="11px" font-weight="600">Format</text>
+      <foreignObject x="408" y="226" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Iceberg · cleaned</div></foreignObject>
+      <text x="408" y="260" fill="#E8E6DC" font-size="11px" font-weight="600">Writer</text>
+      <foreignObject x="408" y="266" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Data Scientist</div></foreignObject>
+      <text x="408" y="360" fill="#A9A79B" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="500" letter-spacing="0.64px">E-COMMERCE EXAMPLE</text>
+      <text x="408" y="374" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">joined order facts</text>
+      <text x="408" y="388" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">validated event rows</text>
+
+      <!-- Aggregated focal tier -->
+      <rect x="580" y="80" width="172" height="380" rx="6" fill="rgba(240,140,74,0.12)"/>
+      <rect x="580" y="80" width="172" height="50" fill="rgba(240,140,74,0.2)" clip-path="url(#clip-aggregate)"/>
+      <rect x="580" y="80" width="172" height="380" rx="6" fill="none" stroke="#F08C4A" stroke-width="1.6px"/>
+      <text x="666" y="106" fill="#E8E6DC" font-size="13px" font-weight="600" text-anchor="middle">Aggregated</text>
+      <text x="666" y="144" fill="#F08C4A" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px" text-anchor="middle">analytics-marts</text>
+      <text x="596" y="180" fill="#E8E6DC" font-size="11px" font-weight="600">Tool</text>
+      <foreignObject x="596" y="186" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Trino INSERT</div></foreignObject>
+      <text x="596" y="220" fill="#E8E6DC" font-size="11px" font-weight="600">Format</text>
+      <foreignObject x="596" y="226" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Iceberg · metrics</div></foreignObject>
+      <text x="596" y="260" fill="#E8E6DC" font-size="11px" font-weight="600">Writer</text>
+      <foreignObject x="596" y="266" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Data Scientist</div></foreignObject>
+      <text x="596" y="360" fill="#A9A79B" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="500" letter-spacing="0.64px">E-COMMERCE EXAMPLE</text>
+      <text x="596" y="374" fill="#F08C4A" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">daily conversion rate</text>
+      <text x="596" y="388" fill="#F08C4A" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">revenue by channel</text>
+
+      <!-- Archive -->
+      <rect x="768" y="80" width="172" height="380" rx="6" fill="rgba(232,230,220,0.06)"/>
+      <rect x="768" y="80" width="172" height="50" fill="rgba(169,167,155,0.24)" clip-path="url(#clip-archive)"/>
+      <rect x="768" y="80" width="172" height="380" rx="6" fill="none" stroke="#BAB8AB" stroke-dasharray="5px, 3px"/>
+      <text x="854" y="106" fill="#E8E6DC" font-size="13px" font-weight="600" text-anchor="middle">Archive</text>
+      <text x="854" y="144" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px" text-anchor="middle">archive-commerce</text>
+      <text x="784" y="180" fill="#E8E6DC" font-size="11px" font-weight="600">Tool</text>
+      <foreignObject x="784" y="186" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Object storage lifecycle</div></foreignObject>
+      <text x="784" y="220" fill="#E8E6DC" font-size="11px" font-weight="600">Format</text>
+      <foreignObject x="784" y="226" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Cold tier · immutable</div></foreignObject>
+      <text x="784" y="260" fill="#E8E6DC" font-size="11px" font-weight="600">Writer</text>
+      <foreignObject x="784" y="266" width="140" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace;font-size:9px;font-weight:400;font-style:normal;color:#BAB8AB;line-height:11.25px;letter-spacing:normal;text-align:start;white-space:normal;text-transform:none;display:block;margin:0px;padding:0px;border:0px none #BAB8AB;border-radius:0px;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:normal;hyphens:manual">Data Engineer</div></foreignObject>
+      <text x="784" y="360" fill="#A9A79B" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="8px" font-weight="500" letter-spacing="0.64px">E-COMMERCE EXAMPLE</text>
+      <text x="784" y="374" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">retained clickstream</text>
+      <text x="784" y="388" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">closed order snapshots</text>
+
+      <!-- Write-method paths -->
+      <rect x="16" y="476" width="460" height="56" rx="6" fill="rgba(232,230,220,0.04)" stroke="rgba(232,230,220,0.2)"/>
+      <rect x="24" y="482" width="64" height="12" rx="2" fill="none" stroke="rgba(232,230,220,0.3)" stroke-width="0.8px"/>
+      <text x="56" y="491" fill="#E8E6DC" font-size="7px" text-anchor="middle" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-weight="500" letter-spacing="0.56px">SQL PATH</text>
+      <text x="96" y="506" fill="#E8E6DC" font-size="11px" font-weight="600">Trino INSERT INTO … SELECT</text>
+      <text x="96" y="522" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">filter · join · aggregate — repeatable transforms</text>
+      <rect x="492" y="476" width="460" height="56" rx="6" fill="rgba(232,230,220,0.04)" stroke="rgba(232,230,220,0.2)"/>
+      <rect x="500" y="482" width="96" height="12" rx="2" fill="none" stroke="rgba(232,230,220,0.3)" stroke-width="0.8px"/>
+      <text x="548" y="491" fill="#E8E6DC" font-size="7px" text-anchor="middle" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-weight="500" letter-spacing="0.56px">NOTEBOOK PATH</text>
+      <text x="604" y="506" fill="#E8E6DC" font-size="11px" font-weight="600">Python notebooks on object storage</text>
+      <text x="604" y="522" fill="#BAB8AB" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" font-size="9px">explore · validate · model — interactive analysis</text>
+    </svg>

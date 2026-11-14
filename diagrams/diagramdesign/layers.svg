@@ -1,0 +1,60 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" fill="#1F1E1C" fill-opacity="1" fill-rule="nonzero" stroke="none" stroke-width="1px" stroke-opacity="1" stroke-dasharray="none" stroke-linecap="butt" stroke-linejoin="miter" opacity="1" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="16px" font-weight="400" text-anchor="start" dominant-baseline="auto" stop-color="#1F1E1C" stop-opacity="1" width="1000" height="500"><!-- From diagram-design by Cathryn Lavery, MIT licence (LICENSE beside this file), recoloured: https://github.com/cathrynlavery/diagram-design/blob/f6db0decea96de66b901331a0f79a8d4b147ebae/skills/diagram-design/assets/example-layers.html -->
+      <title id="layers-title">AI app stack · Where the work actually happens</title>
+      <desc id="layers-desc">Layer stack showing model weights, SDK, prompts, agent harness, and UI surface, with the agent harness highlighted as the focal layer.</desc>
+        <defs>
+          <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="0.9" fill="rgba(31,30,28,0.1)"/>
+          </pattern>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#E9E6E0"/>
+        <rect width="100%" height="100%" fill="url(&quot;#dots&quot;)" opacity="0.55"/>
+
+        <!-- Direction column (left margin) -->
+        <text x="60" y="68" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.44px">ABSTRACTION</text>
+        <line x1="80" y1="80" x2="80" y2="400" stroke="rgba(31,30,28,0.3)" stroke-width="1px"/>
+        <polygon points="76,80 84,80 80,72" fill="#5C5A55"/>
+        <text x="60" y="416" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.44px">SILICON</text>
+
+        <!-- Stack container hairlines (top + bottom edges) -->
+        <line x1="120" y1="80" x2="960" y2="80" stroke="rgba(31,30,28,0.12)" stroke-width="1px"/>
+        <line x1="120" y1="400" x2="960" y2="400" stroke="rgba(31,30,28,0.12)" stroke-width="1px"/>
+
+        <!-- L5 — UI (top layer, near-white fill) -->
+        <rect x="120" y="80" width="840" height="64" fill="#F1EFEB"/>
+        <line x1="120" y1="144" x2="960" y2="144" stroke="rgba(31,30,28,0.12)" stroke-width="1px"/>
+        <text x="140" y="116" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.12px">L5</text>
+        <text x="260" y="118" fill="#1F1E1C" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">UI surface</text>
+        <text x="940" y="118" fill="#5C5A55" font-size="10px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end" letter-spacing="0.8px">chat, editor, canvas</text>
+
+        <!-- L4 — Agent harness (FOCAL, coral tint + coral stroke) -->
+        <rect x="120" y="144" width="840" height="64" fill="rgba(194,65,12,0.08)"/>
+        <rect x="120" y="144" width="840" height="64" fill="none" stroke="#C2410C" stroke-width="1px"/>
+        <text x="140" y="180" fill="#C2410C" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.12px" font-weight="600">L4</text>
+        <text x="260" y="182" fill="#1F1E1C" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Agent harness</text>
+        <text x="940" y="182" fill="#C2410C" font-size="10px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end" letter-spacing="0.8px">tools, memory, loop</text>
+
+        <!-- L3 — Prompt layer -->
+        <rect x="120" y="208" width="840" height="64" fill="#E9E6E0"/>
+        <line x1="120" y1="272" x2="960" y2="272" stroke="rgba(31,30,28,0.12)" stroke-width="1px"/>
+        <text x="140" y="244" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.12px">L3</text>
+        <text x="260" y="246" fill="#1F1E1C" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Prompt layer</text>
+        <text x="940" y="246" fill="#5C5A55" font-size="10px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end" letter-spacing="0.8px">system, few-shot, caching</text>
+
+        <!-- L2 — SDK -->
+        <rect x="120" y="272" width="840" height="64" fill="#DFDBD2"/>
+        <line x1="120" y1="336" x2="960" y2="336" stroke="rgba(31,30,28,0.12)" stroke-width="1px"/>
+        <text x="140" y="308" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.12px">L2</text>
+        <text x="260" y="310" fill="#1F1E1C" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">SDK / client</text>
+        <text x="940" y="310" fill="#5C5A55" font-size="10px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end" letter-spacing="0.8px">auth, retries, streaming</text>
+
+        <!-- L1 — Model -->
+        <rect x="120" y="336" width="840" height="64" fill="#DFDBD2"/>
+        <text x="140" y="372" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.12px">L1</text>
+        <text x="260" y="374" fill="#1F1E1C" font-size="16px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Model weights</text>
+        <text x="940" y="374" fill="#5C5A55" font-size="10px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end" letter-spacing="0.8px">opus, sonnet, haiku</text>
+
+        <!-- Caption -->
+        <text x="120" y="456" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.44px">FOCAL LAYER</text>
+        <text x="240" y="456" fill="#5C5A55" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-style="italic">The harness is where most product differentiation actually lives — tools, memory, and the loop that stitches model calls into useful work.</text>
+      </svg>
