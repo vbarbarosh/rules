@@ -59,18 +59,18 @@ test('diagrams/ builds its own page from the agents template, and the agents han
     assert.match(diagrams, /<h1>Diagrams<\/h1>/);
     assert.match(diagrams, /<a href="diagrams.html" aria-current="page">Diagrams<\/a>/);
     assert.match(diagrams, /<section class="group guide" id="sequence">/);
-    assert.match(diagrams, /<p class="stats"><b>44<\/b> diagrams<\/p>/);
-    for (const id of ['sequence', 'case', 'screen', 'state', 'flywheel', 'flowchart', 'swimlanes', 'steptree', 'questions', 'causetree', 'timeline', 'chronology', 'eventplot', 'milestone', 'plangraph', 'roadmap', 'kanban', 'quadrant', 'containers', 'entities', 'class', 'breakdown', 'dashboard', 'linechart', 'barchart', 'piechart', 'heatmap', 'versions', 'cloud', 'network', 'tiers', 'isometric', 'servicemap', 'sankey', 'waterfall', 'dataflow', 'matrix', 'callgraph', 'pipeline', 'modules', 'changemap', 'delta', 'flame', 'treemap']) {
+    assert.match(diagrams, /<p class="stats"><b>45<\/b> diagrams<\/p>/);
+    for (const id of ['sequence', 'case', 'screen', 'state', 'flywheel', 'flowchart', 'swimlanes', 'steptree', 'questions', 'causetree', 'timeline', 'chronology', 'eventplot', 'milestone', 'plangraph', 'roadmap', 'kanban', 'quadrant', 'containers', 'entities', 'class', 'breakdown', 'dashboard', 'linechart', 'barchart', 'piechart', 'heatmap', 'versions', 'cloud', 'network', 'tiers', 'isometric', 'servicemap', 'sankey', 'waterfall', 'dataflow', 'matrix', 'callgraph', 'pipeline', 'modules', 'changemap', 'delta', 'flame', 'treemap', 'diagramdesign']) {
         assert.match(diagrams, new RegExp(`<section class="group guide" id="${id}">`));
     }
     assert.match(diagrams, /<img class="dark" src="..\/img\/diagrams\/sequence_parts-dark.svg"/);
-    assert.equal(diagrams.match(/<a class="tile" href="#\w+">/g).length, 44, 'a tile for each diagram in the overview');
+    assert.equal(diagrams.match(/<a class="tile" href="#\w+">/g).length, 45, 'a tile for each diagram in the overview');
     assert.match(diagrams, /tree\/main\/diagrams">diagrams\/<\/a>/);
     assert.ok(!diagrams.includes('{{'), 'no placeholder left');
     const agents = fs.readFileSync(path.join(fixture_dir, 'docs/agents.html'), 'utf8');
     assert.match(agents, /<a href="agents.html" aria-current="page">Agents<\/a>\n\s*<a href="diagrams.html">Diagrams<\/a>/);
     assert.match(agents, /Draw the pictures in your replies the way these diagrams say:\n- Sequence diagram: who talks to whom: https:\/\/raw.githubusercontent.com\/vbarbarosh\/rules\/main\/diagrams\/sequence.md\n/);
-    assert.match(agents, /diagrams\/treemap.md\nDraw an API the way these forms say:/);
+    assert.match(agents, /diagrams\/diagramdesign.md\nDraw an API the way these forms say:/);
     assert.match(agents, /<p class="stats"><b>6<\/b> guides<\/p>/);
 });
 

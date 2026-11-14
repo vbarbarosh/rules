@@ -50,6 +50,7 @@ Which kind for which data: the chooser in the guide
 - [delta.md](delta.md) — what a change does to a system: one map after it, each part marked added +, changed ~, removed − or the same, the counts on top
 - [flame.md](flame.md) — where one run spends its time: call stacks as bars, as wide as their time
 - [treemap.md](treemap.md) — how big each part is: each function a rectangle, its area its lines
+- [diagramdesign.md](diagramdesign.md) — 25 kinds this page has no guide for yet, each in diagram-design's own example recoloured and credited: process, service blueprint, user journey, event modelling, nested, layer stack, org chart, database schema, exploded view, axonometric plan, story map, traceability, Wardley map, scatter, radar, polar, pyramid, Venn, a running-total waterfall, and six for data platforms and biology
 
 ## References
 
@@ -59,3 +60,8 @@ Which kind for which data: the chooser in the guide
 - [sketchy](https://github.com/ddkbs/sketchy): an MCP server and a Claude
   skill; the agent writes a few lines, elkjs places them and rough.js
   draws them by hand beside the answer. No kind came here from it.
+- [diagram-design](https://github.com/cathrynlavery/diagram-design), by
+  Cathryn Lavery, MIT licence: an agent skill that draws 50 kinds as
+  hand-written SVG pages. The 25 this page lacks are shown in
+  [diagramdesign.md](diagramdesign.md), in its own examples recoloured,
+  each credited; its licence is kept beside them in diagramdesign/.
