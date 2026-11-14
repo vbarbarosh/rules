@@ -1,0 +1,69 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" fill="#E8E6DC" fill-opacity="1" fill-rule="nonzero" stroke="none" stroke-width="1px" stroke-opacity="1" stroke-dasharray="none" stroke-linecap="butt" stroke-linejoin="miter" opacity="1" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="16px" font-weight="400" text-anchor="start" dominant-baseline="auto" stop-color="#E8E6DC" stop-opacity="1" width="1000" height="500"><!-- From diagram-design by Cathryn Lavery, MIT licence (LICENSE beside this file), recoloured: https://github.com/cathrynlavery/diagram-design/blob/f6db0decea96de66b901331a0f79a8d4b147ebae/skills/diagram-design/assets/example-venn-dark.html -->
+      <title id="venn-dark-title">Good design · Desirable × Feasible × Viable</title>
+      <desc id="venn-dark-desc">Venn diagram showing desirable, feasible, and viable product qualities intersecting at shippable.</desc>
+        <defs>
+          <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="0.9" fill="rgba(232,230,220,0.1)"/>
+          </pattern>
+          <clipPath id="clip-center">
+            <circle cx="500" cy="180" r="140"/>
+          </clipPath>
+          <clipPath id="clip-center-2">
+            <circle cx="428" cy="320" r="140"/>
+          </clipPath>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#1E1D21"/>
+        <rect width="100%" height="100%" fill="url(&quot;#dots&quot;)" opacity="0.55"/>
+
+        <!-- Three set circles (stroke + very-low-opacity tint; tints compound in overlaps) -->
+        <!-- Desirable — top, ink -->
+        <circle cx="500" cy="180" r="140" fill="rgba(232,230,220,0.04)" stroke="#E8E6DC" stroke-width="1px"/>
+        <!-- Feasible — bottom-left, muted -->
+        <circle cx="428" cy="320" r="140" fill="rgba(186,184,171,0.05)" stroke="#BAB8AB" stroke-width="1px"/>
+        <!-- Viable — bottom-right, soft -->
+        <circle cx="572" cy="320" r="140" fill="rgba(169,167,155,0.05)" stroke="#A9A79B" stroke-width="1px"/>
+
+        <!-- Coral focal tint on the all-three intersection -->
+        <g clip-path="url(#clip-center)">
+          <g clip-path="url(#clip-center-2)">
+            <circle cx="572" cy="320" r="140" fill="rgba(240,140,74,0.14)"/>
+          </g>
+        </g>
+
+        <!-- Set labels -->
+        <text x="500" y="20" fill="#E8E6DC" font-size="14px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Desirable</text>
+        <text x="500" y="36" fill="#BAB8AB" font-size="9px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle" letter-spacing="1.26px">PEOPLE WANT IT</text>
+
+        <text x="152" y="400" fill="#BAB8AB" font-size="14px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="start">Feasible</text>
+        <text x="152" y="416" fill="#BAB8AB" font-size="9px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="start" letter-spacing="1.26px">WE CAN BUILD IT</text>
+
+        <text x="848" y="400" fill="#A9A79B" font-size="14px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="end">Viable</text>
+        <text x="848" y="416" fill="#BAB8AB" font-size="9px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end" letter-spacing="1.26px">BUSINESS SUSTAINS</text>
+
+        <!-- Pairwise intersection labels -->
+        <text x="360" y="232" fill="#BAB8AB" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Prototype</text>
+        <text x="360" y="248" fill="#BAB8AB" font-size="9px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle">no business model</text>
+
+        <text x="640" y="232" fill="#BAB8AB" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Vaporware</text>
+        <text x="640" y="248" fill="#BAB8AB" font-size="9px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle">can't build it</text>
+
+        <text x="500" y="368" fill="#BAB8AB" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Internal tool</text>
+        <text x="500" y="384" fill="#BAB8AB" font-size="9px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle">nobody wants it</text>
+
+        <!-- Focal: all-three center -->
+        <text x="500" y="260" fill="#F08C4A" font-size="14px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Shippable</text>
+        <text x="500" y="276" fill="#BAB8AB" font-size="9px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle" letter-spacing="1.26px">THE SWEET SPOT</text>
+
+        <!-- Legend strip -->
+        <line x1="40" y1="456" x2="960" y2="456" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px"/>
+        <text x="40" y="472" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.44px">LEGEND</text>
+
+        <circle cx="52" cy="488" r="6" fill="none" stroke="#F08C4A" stroke-width="1.2px"/>
+        <text x="68" y="492" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">All three — ship it</text>
+
+        <circle cx="192" cy="488" r="6" fill="none" stroke="#BAB8AB" stroke-width="1px"/>
+        <text x="208" y="492" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Two of three — incomplete</text>
+
+        <text x="380" y="492" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-style="italic">Coral marks the intersection that earns the work. The others name the traps.</text>
+      </svg>

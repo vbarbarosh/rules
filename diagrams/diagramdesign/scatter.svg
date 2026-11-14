@@ -1,0 +1,114 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" fill="#1F1E1C" fill-opacity="1" fill-rule="nonzero" stroke="none" stroke-width="1px" stroke-opacity="1" stroke-dasharray="none" stroke-linecap="butt" stroke-linejoin="miter" opacity="1" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="16px" font-weight="400" text-anchor="start" dominant-baseline="auto" stop-color="#1F1E1C" stop-opacity="1" width="1000" height="500"><!-- From diagram-design by Cathryn Lavery, MIT licence (LICENSE beside this file), recoloured: https://github.com/cathrynlavery/diagram-design/blob/f6db0decea96de66b901331a0f79a8d4b147ebae/skills/diagram-design/assets/example-scatter.html -->
+      <title id="scatter-title">Deploy frequency vs. lead time · 12 teams</title>
+      <desc id="scatter-desc">Scatter plot showing twelve engineering teams by deploy frequency and lead time, with Platform in the best-performing quadrant.</desc>
+      <defs>
+        <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="0.9" fill="rgba(31,30,28,0.1)"/>
+        </pattern>
+      </defs>
+
+      <rect width="100%" height="100%" fill="#E9E6E0"/>
+      <rect width="100%" height="100%" fill="url(&quot;#dots&quot;)" opacity="0.55"/>
+
+      <!-- Axis labels -->
+      <text transform="rotate(-90 24 230)" x="24" y="230" fill="#5C5A55" font-size="7px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="0.98px" text-anchor="middle">LEAD TIME (DAYS)</text>
+      <text x="520" y="492" fill="#5C5A55" font-size="7px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="0.98px" text-anchor="middle">DEPLOYS PER WEEK</text>
+
+      <!-- Gridlines -->
+      <!-- Horizontal (constant lead time) -->
+      <line x1="80" y1="325" x2="960" y2="325" stroke="rgba(31,30,28,0.08)" stroke-width="0.8px"/>
+      <line x1="80" y1="230" x2="960" y2="230" stroke="rgba(31,30,28,0.08)" stroke-width="0.8px"/>
+      <line x1="80" y1="135" x2="960" y2="135" stroke="rgba(31,30,28,0.08)" stroke-width="0.8px"/>
+      <line x1="80" y1="40" x2="960" y2="40" stroke="rgba(31,30,28,0.06)" stroke-width="0.8px"/>
+      <!-- Vertical (constant deploy freq) -->
+      <line x1="256" y1="40" x2="256" y2="420" stroke="rgba(31,30,28,0.08)" stroke-width="0.8px"/>
+      <line x1="432" y1="40" x2="432" y2="420" stroke="rgba(31,30,28,0.08)" stroke-width="0.8px"/>
+      <line x1="608" y1="40" x2="608" y2="420" stroke="rgba(31,30,28,0.08)" stroke-width="0.8px"/>
+      <line x1="784" y1="40" x2="784" y2="420" stroke="rgba(31,30,28,0.08)" stroke-width="0.8px"/>
+
+      <!-- Axes -->
+      <line x1="80" y1="40" x2="80" y2="420" stroke="rgba(31,30,28,0.25)" stroke-width="1px"/>
+      <line x1="80" y1="420" x2="960" y2="420" stroke="rgba(31,30,28,0.25)" stroke-width="1px"/>
+
+      <!-- Y-axis labels (lead time: 0 at bottom, 24 at top) -->
+      <text x="72" y="324" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">6</text>
+      <text x="72" y="234" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">12</text>
+      <text x="72" y="139" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">18</text>
+      <text x="72" y="44" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">24</text>
+      <text x="72" y="424" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end">0</text>
+
+      <!-- X-axis labels (deploy frequency) -->
+      <text x="80" y="440" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle">0</text>
+      <text x="256" y="440" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle">4</text>
+      <text x="432" y="440" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle">8</text>
+      <text x="608" y="440" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle">12</text>
+      <text x="784" y="440" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle">16</text>
+      <text x="960" y="440" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle">20</text>
+
+      <!-- Trend line (dashed, approximate) -->
+      <line x1="168" y1="103" x2="900" y2="388" stroke="rgba(31,30,28,0.18)" stroke-width="1px" stroke-dasharray="4px, 3px"/>
+
+      <!-- ─── DATA POINTS (non-focal first) ─── -->
+      <!-- (freq, lt) → (x=80+44*f, y=420-380*lt/24) -->
+      <!-- (2,20)→(168,103), (4,18)→(256,135), (4,16)→(256,167), (6,14)→(344,198) -->
+      <!-- (8,12)→(432,230), (8,10)→(432,262), (10,8)→(520,293), (12,6)→(608,325) -->
+      <!-- (12,10)→(608,262), (16,4)→(784,357), (18,3)→(872,372) FOCAL, (20,2)→(960,388) -->
+
+      <circle cx="168" cy="103" r="5" fill="#E9E6E0"/>
+      <circle cx="168" cy="103" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="256" cy="135" r="5" fill="#E9E6E0"/>
+      <circle cx="256" cy="135" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="256" cy="167" r="5" fill="#E9E6E0"/>
+      <circle cx="256" cy="167" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="344" cy="198" r="5" fill="#E9E6E0"/>
+      <circle cx="344" cy="198" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="432" cy="230" r="5" fill="#E9E6E0"/>
+      <circle cx="432" cy="230" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="432" cy="262" r="5" fill="#E9E6E0"/>
+      <circle cx="432" cy="262" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="520" cy="293" r="5" fill="#E9E6E0"/>
+      <circle cx="520" cy="293" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="608" cy="325" r="5" fill="#E9E6E0"/>
+      <circle cx="608" cy="325" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="608" cy="262" r="5" fill="#E9E6E0"/>
+      <circle cx="608" cy="262" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="784" cy="357" r="5" fill="#E9E6E0"/>
+      <circle cx="784" cy="357" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <circle cx="960" cy="388" r="5" fill="#E9E6E0"/>
+      <circle cx="960" cy="388" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+
+      <!-- FOCAL: Platform team (18,3) → (872,372) -->
+      <circle cx="872" cy="372" r="6" fill="#E9E6E0"/>
+      <circle cx="872" cy="372" r="6" fill="rgba(194,65,12,0.15)" stroke="#C2410C" stroke-width="1.2px"/>
+
+      <!-- Focal label -->
+      <rect x="798" y="348" width="64" height="12" rx="2" fill="#E9E6E0"/>
+      <text x="830" y="357" fill="#C2410C" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle" letter-spacing="0.48px">PLATFORM</text>
+
+      <!-- Quadrant guides (optional) -->
+      <text x="88" y="56" fill="rgba(31,30,28,0.25)" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace">HIGH LEAD TIME</text>
+      <text x="88" y="412" fill="rgba(31,30,28,0.25)" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace">LOW LEAD TIME</text>
+
+      <!-- Legend -->
+      <line x1="40" y1="462" x2="960" y2="462" stroke="rgba(31,30,28,0.1)" stroke-width="0.8px"/>
+      <text x="40" y="478" fill="#5C5A55" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.44px">LEGEND</text>
+
+      <circle cx="52" cy="490" r="6" fill="rgba(194,65,12,0.15)" stroke="#C2410C" stroke-width="1.2px"/>
+      <text x="68" y="494" fill="#5C5A55" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Platform team · best performer</text>
+
+      <circle cx="256" cy="490" r="5" fill="rgba(92,90,85,0.2)" stroke="#5C5A55" stroke-width="1px"/>
+      <text x="272" y="494" fill="#5C5A55" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Engineering team</text>
+
+      <line x1="416" y1="490" x2="440" y2="490" stroke="rgba(31,30,28,0.18)" stroke-width="1px" stroke-dasharray="4px, 3px"/>
+      <text x="448" y="494" fill="#5C5A55" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Trend</text>
+    </svg>

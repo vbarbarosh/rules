@@ -1,0 +1,90 @@
+<svg viewBox="0 0 1000 460" xmlns="http://www.w3.org/2000/svg" fill="#E8E6DC" fill-opacity="1" fill-rule="nonzero" stroke="none" stroke-width="1px" stroke-opacity="1" stroke-dasharray="none" stroke-linecap="butt" stroke-linejoin="miter" opacity="1" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-size="16px" font-weight="400" text-anchor="start" dominant-baseline="auto" stop-color="#E8E6DC" stop-opacity="1" width="1000" height="460"><!-- From diagram-design by Cathryn Lavery, MIT licence (LICENSE beside this file), recoloured: https://github.com/cathrynlavery/diagram-design/blob/f6db0decea96de66b901331a0f79a8d4b147ebae/skills/diagram-design/assets/example-wardley-dark.html -->
+      <title id="wardley-dark-title">AI assistant product · Wardley map</title>
+      <desc id="wardley-dark-desc">Wardley map plotting an AI assistant product's value chain from the user-facing need down to raw infrastructure against genesis-to-commodity evolution, with agent orchestration commoditising toward the product band.</desc>
+      <defs>
+        <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="0.9" fill="rgba(232,230,220,0.1)"/>
+        </pattern>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#F08C4A"/>
+        </marker>
+      </defs>
+
+      <rect width="100%" height="100%" fill="#1E1D21"/>
+      <rect width="100%" height="100%" fill="url(&quot;#dots&quot;)" opacity="0.55"/>
+
+      <!-- Axis lines (value chain vertical, evolution horizontal) -->
+      <line x1="120" y1="60" x2="120" y2="340" stroke="rgba(232,230,220,0.2)" stroke-width="1px"/>
+      <line x1="120" y1="340" x2="920" y2="340" stroke="rgba(232,230,220,0.2)" stroke-width="1px"/>
+
+      <!-- Evolution band separators -->
+      <line x1="320" y1="60" x2="320" y2="340" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px" stroke-dasharray="4px, 4px"/>
+      <line x1="520" y1="60" x2="520" y2="340" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px" stroke-dasharray="4px, 4px"/>
+      <line x1="720" y1="60" x2="720" y2="340" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px" stroke-dasharray="4px, 4px"/>
+
+      <!-- Band labels -->
+      <text x="220" y="356" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle" letter-spacing="1.44px">GENESIS</text>
+      <text x="420" y="356" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle" letter-spacing="1.44px">CUSTOM-BUILT</text>
+      <text x="620" y="356" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle" letter-spacing="1.44px">PRODUCT</text>
+      <text x="820" y="356" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="middle" letter-spacing="1.44px">COMMODITY</text>
+
+      <!-- Value-chain axis labels (stacked lines, never writing-mode) -->
+      <text x="112" y="44" fill="#E8E6DC" font-size="9px" font-weight="500" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end" letter-spacing="1.26px">VISIBLE TO</text>
+      <text x="112" y="56" fill="#E8E6DC" font-size="9px" font-weight="500" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end" letter-spacing="1.26px">THE USER</text>
+      <text x="112" y="352" fill="#E8E6DC" font-size="9px" font-weight="500" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" text-anchor="end" letter-spacing="1.26px">INVISIBLE</text>
+
+      <!-- Dependency links (exempt from the orthogonal-elbow rule — position is the data) -->
+      <line x1="420" y1="92" x2="620" y2="124" stroke="#BAB8AB" stroke-width="0.8px"/>
+      <line x1="620" y1="124" x2="420" y2="156" stroke="#BAB8AB" stroke-width="0.8px"/>
+      <line x1="420" y1="156" x2="220" y2="188" stroke="#BAB8AB" stroke-width="0.8px"/>
+      <line x1="420" y1="156" x2="620" y2="220" stroke="#BAB8AB" stroke-width="0.8px"/>
+      <line x1="420" y1="156" x2="680" y2="252" stroke="#BAB8AB" stroke-width="0.8px"/>
+      <line x1="620" y1="220" x2="820" y2="316" stroke="#BAB8AB" stroke-width="0.8px"/>
+      <line x1="680" y1="252" x2="820" y2="284" stroke="#BAB8AB" stroke-width="0.8px"/>
+      <line x1="220" y1="188" x2="680" y2="252" stroke="#BAB8AB" stroke-width="0.8px"/>
+
+      <!-- Movement arrow (the 2nd accent element) -->
+      <line x1="428" y1="156" x2="504" y2="156" stroke="#F08C4A" stroke-width="1.5px" stroke-dasharray="5px, 4px" marker-end="url(#arrow-accent)"/>
+
+      <!-- Components -->
+      <circle cx="420" cy="92" r="6" fill="#1E1D21" stroke="#E8E6DC" stroke-width="1px"/>
+      <text x="420" y="80" fill="#E8E6DC" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Answer in the flow of work</text>
+
+      <circle cx="620" cy="124" r="6" fill="#1E1D21" stroke="#E8E6DC" stroke-width="1px"/>
+      <text x="620" y="112" fill="#E8E6DC" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Chat UI</text>
+
+      <!-- Moving component (the 1st accent element) -->
+      <circle cx="420" cy="156" r="6" fill="rgba(240,140,74,0.1)" stroke="#F08C4A" stroke-width="1.5px"/>
+      <text x="420" y="144" fill="#E8E6DC" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Agent orchestration</text>
+
+      <circle cx="220" cy="188" r="6" fill="#1E1D21" stroke="#E8E6DC" stroke-width="1px"/>
+      <text x="220" y="176" fill="#E8E6DC" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Eval harness</text>
+
+      <circle cx="620" cy="220" r="6" fill="#1E1D21" stroke="#E8E6DC" stroke-width="1px"/>
+      <text x="620" y="208" fill="#E8E6DC" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">Vector store</text>
+
+      <circle cx="680" cy="252" r="6" fill="#1E1D21" stroke="#E8E6DC" stroke-width="1px"/>
+      <text x="680" y="240" fill="#E8E6DC" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">LLM API</text>
+
+      <circle cx="820" cy="284" r="6" fill="#1E1D21" stroke="#E8E6DC" stroke-width="1px"/>
+      <text x="820" y="272" fill="#E8E6DC" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="middle">GPU compute</text>
+
+      <circle cx="820" cy="316" r="6" fill="#1E1D21" stroke="#E8E6DC" stroke-width="1px"/>
+      <text x="836" y="320" fill="#E8E6DC" font-size="12px" font-weight="600" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" text-anchor="start">Object storage</text>
+
+      <!-- Legend -->
+      <line x1="40" y1="396" x2="960" y2="396" stroke="rgba(232,230,220,0.1)" stroke-width="0.8px"/>
+      <text x="40" y="412" fill="#BAB8AB" font-size="8px" font-family="JetBrains Mono, Cascadia Code, Menlo, DejaVu Sans Mono, ui-monospace, monospace" letter-spacing="1.44px">LEGEND</text>
+
+      <circle cx="48" cy="428" r="4" fill="#1E1D21" stroke="#E8E6DC" stroke-width="1px"/>
+      <text x="64" y="432" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Component</text>
+
+      <line x1="220" y1="428" x2="248" y2="428" stroke="#BAB8AB" stroke-width="0.8px"/>
+      <text x="256" y="432" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Dependency</text>
+
+      <circle cx="404" cy="428" r="4" fill="rgba(240,140,74,0.1)" stroke="#F08C4A" stroke-width="1.5px"/>
+      <line x1="416" y1="428" x2="440" y2="428" stroke="#F08C4A" stroke-width="1.5px" stroke-dasharray="5px, 4px"/>
+      <text x="448" y="432" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif">Evolving</text>
+
+      <text x="560" y="432" fill="#BAB8AB" font-size="8.5px" font-family="Noto Sans, Ubuntu, system-ui, sans-serif" font-style="italic">One coral. Position along evolution is the signal — the arrow marks what's about to commoditise.</text>
+    </svg>
