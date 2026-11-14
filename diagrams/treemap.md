@@ -26,3 +26,8 @@ grouped by the part of the program it belongs to.
 2. **Rectangles:** one per function, area by lines, the name and the count
    when they fit.
 3. **The small ones:** merged into a dashed "N small functions" box.
+
+## References
+
+- [Treemaps](https://www.cs.umd.edu/hcil/treemap-history/), invented by
+  Ben Shneiderman: this guide draws his kind; the picture is drawn here.

@@ -1326,7 +1326,7 @@ main[data-page="apis"] .prose > h3 {
     <div class="mast-top">
         <div class="project">
             <a class="project-name" href="rules.html">rules</a>
-            <span class="version">v0.1.35</span>
+            <span class="version">v0.1.36</span>
         </div>
         <nav class="pages" aria-label="Pages">
             <a href="rules.html">Rules</a>
@@ -2695,6 +2695,8 @@ what to start with and what to drop.
 <ol><li><strong>Where things run:</strong> dashed boxes with their names at the top left (a laptop, other machines, the internet).</li><li><strong>Parts:</strong> boxes inside them, a name and one line of what each is; the one the reply is about in blue.</li><li><strong>What goes between them:</strong> the project's arrows, grey, each with a few words.</li><li><strong>Names:</strong> the standard ones from the <a href="https://vbarbarosh.github.io/rules/docs/glossaries.html#NAMES">glossary of names</a> (laptop, router, vps1, box), never a private host.</li></ol>
 <h3>Examples</h3>
 <a class="figure" href="../img/diagrams/containers_banners.svg"><img class="light" src="../img/diagrams/containers_banners.svg" alt="A render service as C4 containers: a user, Cloudflare and Stripe outside; inside, the proxy, the API, the render queue, the renderer, the database, the cache and the media store, each with its technology and what it does" width="1000" height="760" loading="lazy"><img class="dark" src="../img/diagrams/containers_banners-dark.svg" alt="A render service as C4 containers: a user, Cloudflare and Stripe outside; inside, the proxy, the API, the render queue, the renderer, the database, the cache and the media store, each with its technology and what it does" width="1000" height="760" loading="lazy"></a>
+<h3>References</h3>
+<ul><li><a href="https://c4model.com">The C4 model</a>, by Simon Brown, its site and examples under CC BY 4.0: this sketch draws its container level; the picture is drawn here.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -2740,6 +2742,12 @@ the container level of the C4 model, drawn as a sketch.
 ## Examples
 
 ![A render service as C4 containers: a user, Cloudflare and Stripe outside; inside, the proxy, the API, the render queue, the renderer, the database, the cache and the media store, each with its technology and what it does](https://raw.githubusercontent.com/vbarbarosh/rules/main/img/diagrams/containers_banners.svg)
+
+## References
+
+- [The C4 model](https://c4model.com), by Simon Brown, its site and
+  examples under CC BY 4.0: this sketch draws its container level; the
+  picture is drawn here.
 </pre>
 </section>
 <section class="group guide" id="entities">
@@ -2808,7 +2816,7 @@ with one of another: 1 to n, n to n, marked on each line's ends.
 <h3>How it is drawn</h3>
 <ol><li><strong>A type:</strong> a box in three parts. Its name in bold on a tinted band; its main fields under it, <code>name: type</code>; its main methods at the bottom. An interface has «interface» over its name, the name in italics, no fields.</li><li><strong>Made of:</strong> a plain line with a filled diamond at the whole; <strong>1</strong> and <strong>n</strong> in bold at the ends, a verb beside it.</li><li><strong>Uses:</strong> a dashed line with an arrowhead to the type used, a verb on it (pays with).</li><li><strong>A kind of:</strong> a dashed line with a hollow triangle at the interface it implements, or a plain one at the class it extends; several kinds share one triangle.</li><li><strong>What changes:</strong> a new type green, one that goes red and dashed; under it a word in its colour.</li><li><strong>Now:</strong> a blue box under the types says in one sentence what the diagram shows.</li></ol>
 <h3>References</h3>
-<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>, by tt-a1i, Apache-2.0 licence: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it, the picture is drawn here.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -2861,9 +2869,10 @@ other, one uses the other, one is a kind of the other.
 
 ## References
 
-- [archify](https://github.com/tt-a1i/archify): an agent skill that
-  draws this kind from typed JSON into an interactive page; the kind came
-  to this page from it.
+- [archify](https://github.com/tt-a1i/archify), by tt-a1i, Apache-2.0
+  licence: an agent skill that draws this kind from typed JSON into an
+  interactive page; the kind came to this page from it, the picture is
+  drawn here.
 </pre>
 </section>
 <section class="group guide" id="breakdown">
@@ -2878,7 +2887,7 @@ other, one uses the other, one is a kind of the other.
 <h3>How it is drawn</h3>
 <ol><li><strong>The root:</strong> on top, in the middle, a blue box with the whole's name and a count under it (7 parts, 3 teams).</li><li><strong>The parts:</strong> a box per part, its name in bold and one fact under it (its owner, its size); one row per level, at most three levels.</li><li><strong>The lines:</strong> from the middle of a parent's bottom down, across, and down into each child; square corners, no arrowheads.</li><li><strong>The leaves:</strong> evenly across the bottom row; each parent centred over its own.</li><li><strong>What stands out:</strong> the part the question is about amber, a line under the tree saying why.</li><li><strong>Now:</strong> a blue box under the tree says in one sentence what to do.</li></ol>
 <h3>References</h3>
-<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>, by tt-a1i, Apache-2.0 licence: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it, the picture is drawn here.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -2927,9 +2936,10 @@ sees what belongs where and what is missing an owner.
 
 ## References
 
-- [archify](https://github.com/tt-a1i/archify): an agent skill that
-  draws this kind from typed JSON into an interactive page; the kind came
-  to this page from it.
+- [archify](https://github.com/tt-a1i/archify), by tt-a1i, Apache-2.0
+  licence: an agent skill that draws this kind from typed JSON into an
+  interactive page; the kind came to this page from it, the picture is
+  drawn here.
 </pre>
 </section>
 <section class="group guide" id="dashboard">
@@ -3109,7 +3119,7 @@ reader sees the number before and after, and whether it stayed.
 <h3>How it is drawn</h3>
 <ol><li><strong>The bars:</strong> across, one per kind, longest on top, the same thickness, blue; the name to the left of each, its count at its end.</li><li><strong>The axis:</strong> from zero along the bottom, a few round values and a thin line up the panel at each; a bar never starts above zero.</li><li><strong>The one that matters:</strong> amber, its name bold, a few words beside its count (ours to fix).</li><li><strong>The total:</strong> under the axis, what is counted and how many in all.</li><li><strong>Now:</strong> a blue box under the chart says in one sentence what it shows.</li></ol>
 <h3>References</h3>
-<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>, by tt-a1i, Apache-2.0 licence: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it, the picture is drawn here.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -3155,9 +3165,10 @@ much, and where the one the question is about stands.
 
 ## References
 
-- [archify](https://github.com/tt-a1i/archify): an agent skill that
-  draws this kind from typed JSON into an interactive page; the kind came
-  to this page from it.
+- [archify](https://github.com/tt-a1i/archify), by tt-a1i, Apache-2.0
+  licence: an agent skill that draws this kind from typed JSON into an
+  interactive page; the kind came to this page from it, the picture is
+  drawn here.
 </pre>
 </section>
 <section class="group guide" id="piechart">
@@ -3172,7 +3183,7 @@ much, and where the one the question is about stands.
 <h3>How it is drawn</h3>
 <ol><li><strong>The ring:</strong> a pie with a hole, the total in bold in the hole and what it counts under it.</li><li><strong>The slices:</strong> the biggest from the top, clockwise, then smaller; blue, green, amber, purple, and &quot;other&quot; grey and last. A thin gap of the background between slices.</li><li><strong>The legend:</strong> beside the ring, in the slices' order: a swatch, the name, the share in its colour, the count in grey.</li><li><strong>Now:</strong> a blue box under the chart says in one sentence what it shows.</li></ol>
 <h3>References</h3>
-<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>, by tt-a1i, Apache-2.0 licence: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it, the picture is drawn here.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -3218,9 +3229,10 @@ sees what part of all each share is, and whether one is most of it.
 
 ## References
 
-- [archify](https://github.com/tt-a1i/archify): an agent skill that
-  draws this kind from typed JSON into an interactive page; the kind came
-  to this page from it.
+- [archify](https://github.com/tt-a1i/archify), by tt-a1i, Apache-2.0
+  licence: an agent skill that draws this kind from typed JSON into an
+  interactive page; the kind came to this page from it, the picture is
+  drawn here.
 </pre>
 </section>
 <section class="group guide" id="heatmap">
@@ -3984,7 +3996,7 @@ it is before reading the diff.
 <h3>How it is drawn</h3>
 <ol><li><strong>The counts:</strong> on top, a pill per kind of change with its count (+ 1 added, ~ 1 changed, − 1 removed), then how many stay the same in grey.</li><li><strong>The parts:</strong> a box per part as in a <a href="#containers">container sketch</a>, its name in bold and what it does under it, left to right in the order a request meets them.</li><li><strong>The marks:</strong> added green with a <strong>+</strong> on its corner; changed blue with a <strong>~</strong>; removed red, dashed, its name struck through, with a <strong>−</strong>; the same in grey. Under the name of a marked part, what the change did to it, in its colour.</li><li><strong>The lines:</strong> as the parts they join: a new line green, a removed one red and dashed, the rest dark; a few words on each.</li><li><strong>Now:</strong> a blue box under the map says in one sentence what the system does differently.</li></ol>
 <h3>References</h3>
-<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it.</li></ul>
+<ul><li><a href="https://github.com/tt-a1i/archify">archify</a>, by tt-a1i, Apache-2.0 licence: an agent skill that draws this kind from typed JSON into an interactive page; the kind came to this page from it, the picture is drawn here.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -4035,9 +4047,10 @@ say how big the change is before the reader looks at the map.
 
 ## References
 
-- [archify](https://github.com/tt-a1i/archify): an agent skill that
-  draws this kind from typed JSON into an interactive page; the kind came
-  to this page from it.
+- [archify](https://github.com/tt-a1i/archify), by tt-a1i, Apache-2.0
+  licence: an agent skill that draws this kind from typed JSON into an
+  interactive page; the kind came to this page from it, the picture is
+  drawn here.
 </pre>
 </section>
 <section class="group guide" id="flame">
@@ -4051,6 +4064,8 @@ say how big the change is before the reader looks at the map.
 <ul><li><strong>The structure, not the time:</strong> a <a href="#callgraph">call graph</a>.</li><li><strong>Time across services:</strong> a <a href="#sequence">sequence diagram</a> of a trace.</li></ul>
 <h3>How it is drawn</h3>
 <ol><li><strong>Bars:</strong> bottom-up, the whole run at the bottom, widths to one scale, the name and the milliseconds in each.</li><li><strong>Too narrow:</strong> a letter in the bar, its name in a key; a narrow part that matters zoomed above.</li><li><strong>Self time:</strong> the bars that spend it themselves marked in orange.</li></ol>
+<h3>References</h3>
+<ul><li><a href="https://www.brendangregg.com/flamegraphs.html">Flame graphs</a>, invented by Brendan Gregg: this guide draws his kind; the picture is drawn here.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -4083,6 +4098,11 @@ top are where the time goes.
 2. **Too narrow:** a letter in the bar, its name in a key; a narrow part
    that matters zoomed above.
 3. **Self time:** the bars that spend it themselves marked in orange.
+
+## References
+
+- [Flame graphs](https://www.brendangregg.com/flamegraphs.html), invented
+  by Brendan Gregg: this guide draws his kind; the picture is drawn here.
 </pre>
 </section>
 <section class="group guide" id="treemap">
@@ -4096,6 +4116,8 @@ top are where the time goes.
 <ul><li><strong>Who calls whom:</strong> a <a href="#callgraph">call graph</a>.</li><li><strong>Where the time goes:</strong> a <a href="#flame">flame graph</a>; size is not cost.</li></ul>
 <h3>How it is drawn</h3>
 <ol><li><strong>Groups:</strong> a frame per part, its name and its lines in the header.</li><li><strong>Rectangles:</strong> one per function, area by lines, the name and the count when they fit.</li><li><strong>The small ones:</strong> merged into a dashed &quot;N small functions&quot; box.</li></ol>
+<h3>References</h3>
+<ul><li><a href="https://www.cs.umd.edu/hcil/treemap-history/">Treemaps</a>, invented by Ben Shneiderman: this guide draws his kind; the picture is drawn here.</li></ul>
 </article>
 <div class="guide-foot">
 <details class="words"><summary>In the author's words</summary>
@@ -4126,6 +4148,11 @@ grouped by the part of the program it belongs to.
 2. **Rectangles:** one per function, area by lines, the name and the count
    when they fit.
 3. **The small ones:** merged into a dashed &quot;N small functions&quot; box.
+
+## References
+
+- [Treemaps](https://www.cs.umd.edu/hcil/treemap-history/), invented by
+  Ben Shneiderman: this guide draws his kind; the picture is drawn here.
 </pre>
 </section>
 <section class="group guide" id="diagramdesign">

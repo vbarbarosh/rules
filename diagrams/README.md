@@ -54,14 +54,25 @@ Which kind for which data: the chooser in the guide
 
 ## References
 
-- [archify](https://github.com/tt-a1i/archify): an agent skill that draws
-  10 kinds from typed JSON into interactive pages; class, breakdown,
-  before and after, bar chart and pie chart came here from it.
-- [sketchy](https://github.com/ddkbs/sketchy): an MCP server and a Claude
-  skill; the agent writes a few lines, elkjs places them and rough.js
+- [archify](https://github.com/tt-a1i/archify), by tt-a1i, Apache-2.0
+  licence: an agent skill that draws 10 kinds from typed JSON into
+  interactive pages; class, breakdown, before and after, bar chart and
+  pie chart came here from it, their pictures drawn here.
+- [sketchy](https://github.com/ddkbs/sketchy), by ddkbs, MIT licence: an
+  MCP server and a Claude skill; the agent writes a few lines, elkjs places them and rough.js
   draws them by hand beside the answer. No kind came here from it.
 - [diagram-design](https://github.com/cathrynlavery/diagram-design), by
   Cathryn Lavery, MIT licence: an agent skill that draws 50 kinds as
   hand-written SVG pages. The 25 this page lacks are shown in
   [diagramdesign.md](diagramdesign.md), in its own examples recoloured,
   each credited; its licence is kept beside them in diagramdesign/.
+- [The C4 model](https://c4model.com), by Simon Brown, its site and
+  examples under CC BY 4.0: the container sketch draws its container
+  level.
+- [Flame graphs](https://www.brendangregg.com/flamegraphs.html), invented
+  by Brendan Gregg: the flame graph draws his kind.
+- [Treemaps](https://www.cs.umd.edu/hcil/treemap-history/), invented by
+  Ben Shneiderman: the treemap draws his kind.
+
+Every other kind is common ground or this page's own, and every picture
+outside diagramdesign/ is drawn here.
