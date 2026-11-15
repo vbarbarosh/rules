@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-292 rules · 18 groups · 61 sources · filterable version: [rules.html](rules.html)
+293 rules · 18 groups · 61 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 How a system is built too, its rules still settling: [system.md](system.md).
@@ -23,7 +23,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
 | VAR | Variables | 19 | A name states the shape of its data. |
 | FN | Function contracts | 16 | What a prefix promises the caller. |
-| FMT | Formatting | 35 | Braces, breaks, blank lines, comments. |
+| FMT | Formatting | 36 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 13 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 26 | One entry function, one fixed order. |
 | PROJ | Project layout | 30 | A directory is a program; bin/ holds its verbs. |
@@ -137,6 +137,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FMT-34 | **`plural()` takes the whole sentence.** Each form is a whole phrase, usually a sentence, `#` where the number goes. The call's result is returned or assigned as it is, never a part of a longer string: no `${plural(…)}`. The same in PHP. | <pre>&#96;${plural(n, '# step', '# steps')} back&#96;   ✗ inside ${…}<br>plural(n, &#96;${n} step back&#96;, &#96;${n} steps back&#96;)  ✗ no #<br><br>plural(n, '# file selected', '# files selected')   ✓ yes<br><br>plural(n,<br>    &#96;Holds # step back; ${steps} is past it&#96;,<br>    &#96;Holds # steps back; ${steps} is past them&#96;,<br>    &#96;Holds no step back; ${steps} is past it&#96;)   ✓ yes</pre> ![A plural() call inside a longer string, and forms that put the number in themselves, each turned into one call with a whole phrase in each form, a few words or a whole sentence, # where the number goes](../img/rules/fmt_plural_from_helper.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FMT-35 | **Ids first, uids next, dates last.** The fields of a record stand in one order: its own `id` and `uid` always first, then the ids of other records, then their uids, then all the rest, the dates at the end. A table's columns, an object in code and a row from an API alike. | <pre>{id, uid, parent_id, some_uid, title, custom, created_at, updated_at}</pre> ![The fields of a record in any order, turned into one order: id and uid always first, then ids, uids, all the rest, dates at the end](../img/rules/fmt_record_fields_order.svg) | [record_fields.md](../drafts/record_fields.md) |
 | FMT-36 | **Ids stay on the backend; the frontend gets uids.** A record's `id` and every `…_id` are private values of the backend: no response, URL or page carries one. The frontend knows a record by its `uid`, another record by its `…_uid`. | <pre>{id, uid, parent_id, title}   ✗ on the frontend<br>{uid, parent_uid, title}      ✓ yes</pre> ![A record on the backend and on the frontend: sent with id and parent_id, turned into uid and parent_uid only](../img/rules/fmt_ids_stay_on_backend.svg) | [record_fields.md](../drafts/record_fields.md) |
+| FMT-37 | **A long `&&` chain in a `return` breaks before each `&&`.** A `return` of `&&` too long for one line puts each operand on a line of its own: the first stays after `return`; each next one opens its line with `&&`, one level deeper. Never two operands on one line, never an `&&` at the end of a line; an operand in parentheses (FMT-27) stays whole on its line. One that fits stays on one line (FMT-13). `\|\|` and `??` alike, in PHP as in JavaScript. A `return` only: an `if (` condition or an assignment is not covered. | <pre>return $this-&gt;is_cancel_requested &amp;&amp;   ✗ no<br>    $this-&gt;period_end_at &amp;&amp;<br>    $this-&gt;period_end_at-&gt;gt(now());<br><br>return $this-&gt;is_cancel_requested      ✓ yes<br>    &amp;&amp; $this-&gt;period_end_at<br>    &amp;&amp; $this-&gt;period_end_at-&gt;gt(now());</pre> ![A return of three operands on one line, too long, turned into three lines: the first after return, each next one opening its line with &&, one level deeper](../img/rules/fmt_long_chain_breaks_before_and.svg) | [FORMATTING.md](../FORMATTING.md) |
 | **FLOW** | **Control flow** — Imperative, explicit, no magic. | | |
 | FLOW-01 | **Prefer imperative control flow.** | ![A loop that keeps the uids of active items, beside its four steps in the order they run](../img/rules/flow_imperative.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FLOW-02 | **No index needed: use for...of.** Prefer `for...of` when the index is not needed. | <pre>for (const item of items) {<br>}</pre> ![An indexed loop that only fetches items(i), turned into for (const item of items)](../img/rules/flow_for_of.svg) | [for_of.md](../drafts/for_of.md) |

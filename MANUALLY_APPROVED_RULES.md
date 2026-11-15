@@ -1237,3 +1237,15 @@ first, where they are seen at once; the value, often a long expression,
 comes after them. A single bound stays `Math.max` or `Math.min`. PHP is
 not covered. It stands in the FLOW group, after FLOW-12. Existing code is
 not rewritten for it (CORE-01).
+
+## MP-95 — A long && chain in a return breaks before each &&
+
+**Scope:** FMT-37, FMT-13, FMT-27, [formatting](FORMATTING.md).
+**Approved:** 2026-11-12; a return only, 2026-11-15.
+
+A `return` of `&&` too long for one line puts each operand on a line of
+its own: the first after `return`, each next one opening its line with
+`&&`, one level deeper. It covers a return only, not an assignment or a
+condition. `||` and `??` follow it too, the chain of one logical operator
+FMT-27 names. One that fits stays on one line (FMT-13). Existing code is
+not rewritten for it (CORE-01).

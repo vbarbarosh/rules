@@ -210,6 +210,26 @@ project, so all JavaScript code follows the same conventions.
       api_showcases_create: location.search.includes('showcase=api') ? '/api/v1/showcases/insupdel' : null,
       ```
 
+* **A long `&&` chain in a `return` breaks before each `&&`**
+
+    * A `return` of `&&` too long for one line puts each operand on a line of its own; one that fits stays on one line
+    * The first operand stays after `return`; each next one opens its line with `&&`, one level deeper: the conditions it returns read as a list, one a line
+    * Never two operands on one line, never an `&&` left at the end of a line
+    * An operand in parentheses stays whole on its line, whatever it holds
+    * `||` and `??` alike; the same in PHP and in JavaScript
+    * A `return` only: an `if (` condition or an assignment is not covered by it
+    * Example:
+
+      ```
+      // BAD
+      return $this->is_cancel_requested && $this->period_end_at && $this->period_end_at->gt(now());
+
+      // GOOD
+      return $this->is_cancel_requested
+          && $this->period_end_at
+          && $this->period_end_at->gt(now());
+      ```
+
 * **One variable per declaration**
 
     * Each variable gets its own `const` or `let` statement; a declaration never lists several variables separated by commas
