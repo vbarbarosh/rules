@@ -136,12 +136,14 @@ tester.run('vue-style-conventions', plugin.rules['vue-style-conventions'], {
         '<style lang="scss">.#-foo:hover, .#-foo.active { @include app-transition(color); }</style>',
         '<style lang="sass">\n$size: 10px\n@include smx(\'xp\')\n@include smx(\'xm\')\n</style>',
         '<style lang="sass">\n.#-foo\n    $size: 10px\n    @include app-border-b\n    width: $size\n</style>',
+        '<style lang="sass">\n    .#-foo\n        @include app-transition(color)\n        color: red\n</style>',
         '<style lang="scss">@mixin app-card { color: red; @include app-border-b; }</style>',
         {code: '<style lang="scss">@mixin vb-transition($props...) { transition: $props; }</style>', options: [{app_prefixes: ['vb-']}]},
         {code: '<style lang="scss">.#-foo { @include vb-transition-fast(color); color: red; }</style>', options: [{app_prefixes: ['vb-', 'app-']}]},
     ],
     invalid: [
         {code: '<style lang="sass">\n.#-foo\n    color: red\n    @include app-transition(color)\n</style>', errors: [{messageId: 'include'}]},
+        {code: '<style lang="sass">\n    .#-foo\n        color: red\n        @include app-transition(color)\n</style>', errors: [{messageId: 'include', line: 4, column: 9}]},
         {code: '<style lang="scss">.#-foo { color: red; @include app-border-b; }</style>', errors: [{messageId: 'include'}]},
         {code: '<style>.foo { transition: all 1s; }</style>', errors: [{messageId: 'transition', data: {mixin: 'app-transition'}}]},
         {code: '<style>.foo { transition: all 1s; }</style>', options: [{app_prefixes: ['vb-']}], errors: [{messageId: 'transition', data: {mixin: 'vb-transition'}}]},
@@ -163,6 +165,7 @@ tester.run('style-rule-format', plugin.rules['style-rule-format'], {
         '<style lang="scss">\n.a {\n    @if $x {\n        color: red;\n    } @else {\n        color: blue;\n    }\n}\n</style>',
         '<style lang="sass">\n.a,\n.b\n    color: red\n\n.c\n    color: blue\n</style>',
         '<style lang="sass">\n@keyframes pulse\n    0%, 50%\n        opacity: 0\n    100%\n        opacity: 1\n</style>',
+        '<style lang="sass">\n    .a,\n    .b\n        color: red\n\n    .c\n        color: blue\n</style>',
     ],
     invalid: [
         {code: '<style>\n.a, .b {\n    color: red;\n}\n</style>', errors: [{messageId: 'selectors', line: 2, column: 1}]},
@@ -173,5 +176,6 @@ tester.run('style-rule-format', plugin.rules['style-rule-format'], {
         {code: '<style>\n.a {\n    color: red;\n}\n/* the next part */\n.b {\n    color: blue;\n}\n</style>', errors: [{messageId: 'blank', line: 5}]},
         {code: '<style lang="scss">\n.a {\n    &:hover {\n        color: red;\n    }\n    &:focus {\n        color: blue;\n    }\n}\n</style>', errors: [{messageId: 'blank', line: 6, column: 5}]},
         {code: '<style lang="sass">\n.a, .b\n    color: red\n.c\n    color: blue\n</style>', errors: [{messageId: 'selectors', line: 2}, {messageId: 'blank', line: 4}]},
+        {code: '<style lang="sass">\n    .a, .b\n        color: red\n    .c\n        color: blue\n</style>', errors: [{messageId: 'selectors', line: 2, column: 5}, {messageId: 'blank', line: 4, column: 5}]},
     ],
 });

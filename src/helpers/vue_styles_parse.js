@@ -30,7 +30,7 @@ function vue_styles_parse(source)
         try {
             const root = (lang === 'css') ? postcss.parse(normalized)
                 : (lang === 'scss') ? scss.parse(normalized)
-                    : sass.sass.parse(sass_keyframes_normalize(normalized));
+                    : sass_block_parse(normalized);
             const block = {root, offset, element: child, lang, text};
             out.blocks.push(block);
             root.walkRules(function (rule) {
@@ -69,6 +69,40 @@ function vue_styles_parse(source)
     }
     cache.set(source, out);
     return out;
+}
+
+// Vue's compiler takes a style block's common indent off before Sass reads
+// it, and indented Sass cannot start indented (Sass 1.106). The same here;
+// every position is then put back where it stands in the block.
+function sass_block_parse(text)
+{
+    const lines = text.split('\n');
+    const indents = lines.filter(v => v.trim()).map(v => v.match(/^[ \t]*/)[0].length);
+    const indent = indents.length ? Math.min(...indents) : 0;
+    if (!indent) {
+        return sass.sass.parse(sass_keyframes_normalize(text));
+    }
+    const removed = lines.map(v => Math.min(indent, v.match(/^[ \t]*/)[0].length));
+    const starts = [];
+    let offset = 0;
+    for (const line of lines) {
+        starts.push(offset);
+        offset += line.length + 1;
+    }
+    const root = sass.sass.parse(sass_keyframes_normalize(lines.map((v, i) => v.slice(removed[i])).join('\n')));
+    function position_restore(position) {
+        const column = position.column + (removed[position.line - 1] ?? 0);
+        return {...position, column, offset: (starts[position.line - 1] ?? offset) + column - 1};
+    }
+    root.walk(function (node) {
+        if (node.source?.start) {
+            node.source.start = position_restore(node.source.start);
+        }
+        if (node.source?.end) {
+            node.source.end = position_restore(node.source.end);
+        }
+    });
+    return root;
 }
 
 function rule_has_styles(rule)
