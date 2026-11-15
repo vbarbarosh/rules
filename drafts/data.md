@@ -29,7 +29,13 @@ with the same environment variables.
 
 ## Configuration
 
-Configuration does not live in `data/`. `config/` is part of the code: it
-reads the environment variables, may load files, and gives the application
-its configuration ready to use. The environment, a `.env` file included,
-belongs to whoever runs the application, not to the application (MP-33).
+`config/` is part of the code: it reads the environment variables, may load
+files, and gives the application its configuration ready to use. The
+environment, a `.env` file included, belongs to whoever runs the application,
+not to the application (MP-33).
+
+A setting the application changes while it runs is data: it is kept in
+`data/`, a file such as `data/settings.json`, and survives a restart as the
+rest of `data/` does. The code still reads it through `config/`, which loads
+it from `data/`, never from `data/` itself: there is one path to every
+setting (MP-97).

@@ -1065,3 +1065,15 @@ commit or a page of this repository where one shows it. It never names the
 message the decision came in, nor retells what was said there: the
 repository is public. The entries above are cut to their dates, and the
 "evidence" DOC-11 and the writing notes ask for means this.
+
+## MP-97 — A setting changed at run time lives in data/, read through config/
+
+**Scope:** PROJ-18, PROJ-07, [data](drafts/data.md),
+[project layout](drafts/layout.md); MP-33.
+**Approved:** 2026-11-15.
+
+`data/` is the folder the application writes to; `config/` is its
+settings. A setting that changes while the application runs is kept in
+`data/`, but the code still reads it only through `config/`, which loads
+it from `data/`. It replaces PROJ-18's "configuration is not there".
+Existing code is not rewritten for it (CORE-01).

@@ -104,7 +104,8 @@ wrappers are still worth having:
 Configuration lives in one place, `config/`, and it is the project's code.
 `config/index.js` reads the environment variables, may load files, and gives
 the application its configuration ready to use, so code reads it through one
-path:
+path. A setting changed while the application runs is kept in `data/`, and
+`config/` loads it from there (MP-97):
 
     const config = require('../config');
 
