@@ -1,6 +1,6 @@
 {
   "name": "@vbarbarosh/rules",
-  "version": "0.1.41",
+  "version": "0.1.42",
   "description": "Rules for naming, formatting, project layout and UI, so all code reads the same way",
   "homepage": "https://vbarbarosh.github.io/rules/docs/rules.html",
   "main": "src/plugin.js",
@@ -31,17 +31,17 @@
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^5.10.0",
-    "@vbarbarosh/node-helpers": "^3.78.0",
-    "eslint-plugin-vue": "^10.11.0",
-    "postcss": "^8.5.0",
+    "@vbarbarosh/node-helpers": "^3.80.1",
+    "eslint-plugin-vue": "^10.12.1",
+    "postcss": "^8.5.33",
     "postcss-scss": "^4.0.9",
-    "postcss-selector-parser": "^7.1.0",
-    "sass-parser": "0.4.57",
-    "vue-eslint-parser": "^10.4.1"
+    "postcss-selector-parser": "^7.2.1",
+    "sass-parser": "0.5.6",
+    "vue-eslint-parser": "^10.4.2"
   },
   "devDependencies": {
-    "eslint": "^10.10.0",
+    "eslint": "^10.15.0",
     "photoswipe": "5.4.4",
-    "playwright": "1.62.1"
+    "playwright": "1.65.1"
   }
 }

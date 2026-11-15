@@ -1,4 +1,4 @@
-// @vbarbarosh/node-helpers 3.78.1, src/filter1_from_spec.js; written by bin/build
+// @vbarbarosh/node-helpers 3.80.1, src/filter1_from_spec.js; written by bin/build
 (function () {
     window.filter1_from_spec = filter1_from_spec;
 
