@@ -2,11 +2,11 @@
 
 Repository: `vbarbarosh/rules`, branch `main`, HEAD `a3364ed8f0435ef5b124a576a9173f4a4cbefe4b`; 126 tracked files, 147 commits; first commit 2025-04-09, latest commit 2026-10-06. The tracked tree was clean before and after verification. This review is a new, untracked file; no rule, source, implementation or generated page was changed.
 
-> Coordination note: another agent posted a completed audit in note message `20261006_184211-agent` while this review was being written. Its reply assigns RULES-56..133 and reports 78 new findings. That full report was not available to this session for comparison; the shared output path currently contained this session’s 29-item report when checked. To avoid reusing permanent IDs, the new observations below use REVIEW-01..17. Counts, severity and withdrawn statuses here are this reviewer’s assessment, not a reconciliation of the unseen report. The other agent’s claimed browser results are not included as evidence here.
+> Coordination note: another agent posted a completed audit while this review was being written. Its reply assigns RULES-56..133 and reports 78 new findings. That full report was not available to this session for comparison; the shared output path currently contained this session’s 29-item report when checked. To avoid reusing permanent IDs, the new observations below use REVIEW-01..17. Counts, severity and withdrawn statuses here are this reviewer’s assessment, not a reconciliation of the unseen report. The other agent’s claimed browser results are not included as evidence here.
 
 ## Scope
 
-Requested: a detailed consistency audit, saved in repository `notes/`, including logical placement of rules in sections. This resumes the plan for note message `20261006_182146-me` and incorporates `20261006_182544-me`.
+Requested: a detailed consistency audit, saved in repository `notes/`, including logical placement of rules in sections.
 
 Checks performed:
 

@@ -39,8 +39,9 @@ unless the author explicitly asks.
 
 An approved decision must not live only in an AI explanation: rewriting that
 explanation could erase it. Record the decision in
-[MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md), with its scope,
-approval date and evidence. Read the applicable entries before rewriting.
+[MANUALLY_APPROVED_RULES.md](../MANUALLY_APPROVED_RULES.md), with its scope
+and approval date, never the message it came in or what was said in it: the
+repository is public (MP-96). Read the applicable entries before rewriting.
 
 The approval file is maintained, never regenerated. Only an explicit author
 decision permits adding or changing an entry. An AI suggestion, an audit

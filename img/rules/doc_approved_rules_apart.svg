@@ -2,7 +2,7 @@
 <rect width="1200" height="580" fill="#fffefb"/>
 <defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
 <text x="48" y="70" fill="#191a17" font-size="34" font-weight="700">Keep manually approved rules outside regenerated text</text>
-<text x="48" y="108" fill="#686a61" font-size="22">only an explicit decision of the author is recorded, with its scope, date and evidence</text>
+<text x="48" y="108" fill="#686a61" font-size="22">only an explicit decision of the author is recorded, with its scope and date</text>
 <rect x="60" y="170" width="330" height="90" rx="12" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
 <text x="225.0" y="210.0" fill="#191a17" font-size="20" text-anchor="middle" font-weight="700">the author's source</text>
 <text x="225.0" y="235.0" fill="#686a61" font-size="18" text-anchor="middle">the top half</text>
@@ -18,8 +18,8 @@
 <text x="78" y="454" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">an AI suggestion, filed as MP-51</text>
 <text x="78" y="482" fill="#b2341f" font-size="17">✗ a suggestion is no approval</text>
 <rect x="620" y="420" width="520" height="80" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
-<text x="638" y="454" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">MP-51 with the author's message</text>
-<text x="638" y="482" fill="#1a7443" font-size="17">✓ scope, date, evidence</text>
+<text x="638" y="454" fill="#191a17" font-size="19" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">MP-51, its scope, 2026-10-11</text>
+<text x="638" y="482" fill="#1a7443" font-size="17">✓ scope and date; no message named</text>
 <line x1="546" y1="460.0" x2="612" y2="460" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
 <text x="48" y="540" fill="#686a61" font-size="21">The approval file is kept by hand, never regenerated.</text>
 </svg>

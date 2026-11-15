@@ -5,7 +5,8 @@ When rewriting an AI explanation, read the author's source and the applicable
 entries here. The rewritten explanation must retain their meaning and scope.
 
 This file is maintained, never regenerated. Add or change an entry only after
-an explicit author decision; record its scope, approval date and evidence.
+an explicit author decision; record its scope and approval date, never
+the message it came in or what was said in it (MP-96).
 An AI suggestion, an audit finding or text already present in an AI section
 is not approval.
 
@@ -17,7 +18,7 @@ ruling, report the conflict before rewriting; do not choose silently.
 
 **Scope:** [writing conventions](drafts/WRITING.md), rule explanations,
 agent guides and glossary explanations.
-**Approved:** 2026-10-07, author request `20261007_192855-me`.
+**Approved:** 2026-10-07.
 
 Keep explicitly approved decisions in this file. Regenerate explanations from
 the author source together with the applicable decisions. Preserve the
@@ -153,11 +154,10 @@ is an opportunity.
 A lone value or DOM-event arrow parameter is `v`; `vv` only when `v` is already
 taken where the arrow stands, `vvv` only when `vv` is, and so on. An arrow with
 no parameter, an error arrow's `e` and a parameter with another name take
-nothing (2026-10-18, author requests `20261018_132340-me` and
-`20261018_132403-me`, superseding "by total arrow depth"). An arrow does not
+nothing (2026-10-18, superseding "by total arrow depth"). An arrow does not
 declare a parameter it does not use: `promise.catch(() => items.map(v =>
 v.uid))`, not `e => …`; arrows only, a regular function may declare a parameter
-it does not use (2026-10-18, `20261018_132809-me`, `20261018_133241-me`). Error
+it does not use (2026-10-18). Error
 arrows use `e` at every depth. Regular error callbacks use `error`; regular
 DOM-event callbacks use `event`. Nested catch bindings use `error2`, `error3`,
 and so on when nesting is inside a catch. DOM error events follow event naming,
@@ -187,7 +187,7 @@ index, which describes how the code looks.
 ## MP-17 — One shared current-theme icon pair
 
 **Scope:** [theme switches](drafts/theme_switch.md), UI-02, all matching UI controls.
-**Approved:** 2026-10-07, author recording `20261007_193221-me`.
+**Approved:** 2026-10-07.
 
 Use the same SVG sun/crescent pair everywhere. Show the current theme: sun for
 Light, crescent for Dark. One click toggles directly between those two states,
@@ -198,7 +198,7 @@ The selected pair is retained in `img/theme-sun.svg` and `img/theme-moon.svg`.
 
 **Scope:** FILE-20, [one export per file](drafts/one_export_per_file.md),
 ES-module examples and controls that explain that rule.
-**Approved:** 2026-10-07, author clarification `20261007_200654-me`.
+**Approved:** 2026-10-07.
 
 Declare the helper or exported value separately above. Put
 `export default name;` at the bottom as the last statement. Never combine
@@ -208,7 +208,7 @@ it does not by itself settle the separate question of permitted export types.
 ## MP-19 — One public export may be a function, class, configuration or data
 
 **Scope:** library/reusable modules, FILE-01/20/21/23 and FN-16.
-**Approved:** 2026-10-07, author clarification `20261007_201355-me`.
+**Approved:** 2026-10-07.
 
 Both the helper-function and settings/configuration examples are valid.
 The rule is one public exported value, declared above and exported by name
@@ -219,7 +219,7 @@ Class methods are allowed inside one exported class.
 
 **Scope:** [format](drafts/format_xxx.md), [render](drafts/render_xxx.md),
 FN-01/05/09, naming examples and their presentation.
-**Approved:** 2026-10-07, author clarification `20261007_201355-me`.
+**Approved:** 2026-10-07.
 
 Format strictly returns a string to be shown to a person. Render constructs
 asset content. Present the two definitions beside each other. Asset content
@@ -231,7 +231,7 @@ their scope until separately changed.
 ## MP-21 — Time0 for elapsed measurements; start belongs to a pair
 
 **Scope:** [timing names](drafts/var_names_time0.md), VAR-14/15, CORE-04.
-**Approved:** 2026-10-07, author clarification `20261007_201355-me`.
+**Approved:** 2026-10-07.
 
 An elapsed-time measurement uses time0. Outside that role, use start/finish
 or begin/end when the corresponding pair is actually used. This is not an
@@ -240,7 +240,7 @@ absolute ban on start in other contexts or on externally defined API fields.
 ## MP-22 — Req/res is reserved for Express
 
 **Scope:** CORE-04, route examples and request/response callbacks.
-**Approved:** 2026-10-07, author clarification `20261007_201355-me`.
+**Approved:** 2026-10-07.
 
 Req/res names the Express request/response pair only. Elsewhere use
 request/response. Promise executor names are a separate pair, addressed by
@@ -249,7 +249,7 @@ MP-23 below.
 ## MP-23 — Keep res/rej for Promise executors
 
 **Scope:** CORE-04, natural pairs, [file-drop Promise examples](drafts/file_drop.md).
-**Approved:** 2026-10-07, author choice A in `20261007_203200-me`.
+**Approved:** 2026-10-07.
 
 Res/rej is a valid abbreviation for Promise executor resolve/reject
 callbacks. Keep that pair in the file-drop examples. The full names
@@ -260,7 +260,7 @@ request/response pair under MP-22.
 
 **Scope:** [main search](drafts/main_search.md), UIM-11, pages with one primary
 search/filter input and their matching keyboard handlers.
-**Approved:** 2026-10-07, author recording `20261007_203850-me`.
+**Approved:** 2026-10-07.
 
 When no editable field has focus, typing immediately focuses the page's
 main search/filter and puts the first typed character into it too. Local
@@ -272,7 +272,7 @@ to focus every search on page load.
 
 **Scope:** [default list item](drafts/default_list_item.md), UIM-12, lists
 whose items are targets for an action.
-**Approved:** 2026-10-07, author recording `20261007_203850-me`.
+**Approved:** 2026-10-07.
 
 Select the first item in displayed order by default. Enter acts on it unless
 the user explicitly selects another item. The recording's SQLite/LinkedIn
@@ -282,7 +282,7 @@ looks like the intended match. An empty list has no action target.
 ## MP-26 — UI mechanics is a reusable rule category
 
 **Scope:** the rule index and documentation navigation; interaction rules.
-**Approved:** 2026-10-07, author clarification `20261007_204300-me`.
+**Approved:** 2026-10-07.
 
 Use **UI mechanics** for how interfaces work, distinct from their appearance.
 Place primary-search typing and default-item selection there, alongside
@@ -293,7 +293,7 @@ existing rule IDs and deep links when organizing the rules into this category.
 
 **Scope:** FMT-11/13/15/18, [formatting](FORMATTING.md),
 [formatting blocks](drafts/formatting_blocks.md) and their visual examples.
-**Approved:** 2026-10-07, author choice A in `20261007_205159-me`.
+**Approved:** 2026-10-07.
 
 Keep a short object literal on one line when it fits. Multiple fields alone
 do not require a multiline layout. When size or nested structure requires
@@ -305,7 +305,7 @@ line-width limit.
 
 **Scope:** FMT-12, FLOW-11, LINT-03, [formatting](FORMATTING.md),
 [formatting blocks](drafts/formatting_blocks.md), options-method examples and lint guidance.
-**Approved:** 2026-10-07, author choice A in `20261007_210538-me`.
+**Approved:** 2026-10-07.
 
 Options-style methods use function expressions, including methods whose body
 only returns an expression and does not use this or arguments. The tiny-arrow
@@ -316,7 +316,7 @@ syntax keeps its existing scope.
 ## MP-29 — Px returns the string zero
 
 **Scope:** px in [Vue global methods](vue2/vue-globals.md) and its examples.
-**Approved:** 2026-10-07, author correction in `20261007_210538-me`.
+**Approved:** 2026-10-07.
 
 The px helper returns ``value ? `${value}px` : '0'``. Its empty/zero branch is
 the string '0', not numeric zero. Preserve this correction when rewriting
@@ -326,7 +326,7 @@ the example.
 
 **Scope:** DOC-03, DOC-05, DOC-12, [writing conventions](drafts/WRITING.md),
 one-part documents such as the 15 drafts listed in C:RULES-101.
-**Approved:** 2026-10-07, author choice A in `20261007_233143-me`.
+**Approved:** 2026-10-07.
 
 A document with no author section, no notes of the author above the
 boundary, is an ordinary file: the AI may edit it for the task the author
@@ -339,7 +339,7 @@ ask before editing.
 
 **Scope:** DOC-13, [glossaries](glossaries/), the glossary builder in
 `bin/build`, [writing conventions](drafts/WRITING.md).
-**Approved:** 2026-10-07, author choice B in `20261007_233717-me`.
+**Approved:** 2026-10-07.
 
 Text the author wrote by hand, or text explicitly marked as fixed, is never
 rewritten; the AI may only add its own below it. AI text not marked as fixed
@@ -355,7 +355,7 @@ author's request.
 
 **Scope:** PROJ-03, PROJ-04, REL-02, [project layout](drafts/layout.md),
 [packaging](packaging/packaging.md); completes MP-02.
-**Approved:** 2026-10-07, author choice A in `20261007_234134-me`.
+**Approved:** 2026-10-07.
 
 A project has one build command, `bin/build` (`npm run build`), and it
 writes `build/`. `bin/release` makes the release from it: it runs that same
@@ -363,14 +363,14 @@ build, may pass it flags or environment variables, and may clear the output
 directory first; then it copies `build/` into `dist/`. There is no second
 build command for releases.
 
-The release steps, confirmed in `20261007_235933-me`: `rm -rf build`,
+The release steps, confirmed on 2026-10-07: `rm -rf build`,
 `npm run build`, `rm -rf dist`, `cp -r build dist`.
 
 ## MP-33 — data/ is what the app writes; config/ makes the configuration
 
 **Scope:** PROJ-05, PROJ-06, PROJ-07, PROJ-18, PROJ-19,
 [project layout](drafts/layout.md), [data](drafts/data.md).
-**Approved:** 2026-10-07, author answer in `20261007_234755-me`.
+**Approved:** 2026-10-07.
 
 `data/` is where the application writes its data: whatever it writes and
 keeps goes there.
@@ -392,7 +392,7 @@ in the Dockerfile.
 ## MP-34 — A release commit is titled release: v1.2.3
 
 **Scope:** REL-02, GIT-01, [packaging](packaging/packaging.md).
-**Approved:** 2026-10-08, author answer in `20261008_000619-me`.
+**Approved:** 2026-10-08.
 
 A release commit is titled `release: v<version>`, for example
 `release: v5.57.6`: `release` is the scope, so the title follows GIT-01 with
@@ -402,7 +402,7 @@ no exception. Vue and Vite title their releases the same way.
 
 **Scope:** VAR-14, FN-02, [time0](drafts/var_names_time0.md),
 [format](drafts/format_xxx.md).
-**Approved:** 2026-10-08, author decision A in `20261008_225915-me`.
+**Approved:** 2026-10-08.
 
 The current time minus `time0` is a measurement, a number. Whatever is
 presented to a person is formatted for its context by a `format_*` helper,
@@ -416,7 +416,7 @@ are hours, and every call site shares it.
 
 **Scope:** FN-05, FN-08, FN-10, [render](drafts/render_xxx.md),
 [refresh](drafts/refresh.md).
-**Approved:** 2026-10-08, author voice comment in `20261008_230106-me`.
+**Approved:** 2026-10-08.
 
 `render_*` always returns its result, as a computed value does. A function
 that brings a part of the page up to date returns nothing and is not a
@@ -428,7 +428,7 @@ the family that already exists.
 ## MP-37 — Side-effect imports sit at the very top, in run order
 
 **Scope:** FLOW-10, FILE-11, LINT-06, [imports](drafts/imports_sorted.md).
-**Approved:** 2026-10-08, author voice comment in `20261008_230323-me`.
+**Approved:** 2026-10-08.
 
 Side-effect imports, the bare `import './x'` blocks, sit at the very top of
 the file, in the order they run. That is FLOW-10's one visible exception to
@@ -438,7 +438,7 @@ the first lines, where it is seen, and nowhere else.
 ## MP-38 — A module may own its state
 
 **Scope:** FLOW-09, [FORMATTING.md](FORMATTING.md).
-**Approved:** 2026-10-08, author voice comment in `20261008_230442-me`.
+**Approved:** 2026-10-08.
 
 A module may keep its own state and act as a singleton over its data,
 written only by its own functions; the editor and the dashboard are full of
@@ -448,7 +448,7 @@ one module reaching into another's is what is forbidden.
 ## MP-39 — Commit titles aim for 70, 72 as the rule, 75 rarely
 
 **Scope:** GIT-03, [commits](drafts/commits.md).
-**Approved:** 2026-10-08, author voice comment in `20261008_230600-me`.
+**Approved:** 2026-10-08.
 
 A title aims for 70 characters and stays within 72; in a rare, special case
 a little more is allowed, up to 75. It is not a hard rule: titles are short,
@@ -460,7 +460,7 @@ target, not a minimum.
 ## MP-40 — is_ names a boolean, predicate or data; check_ reads as a call
 
 **Scope:** NAME-02, NAME-15, [naming markers](drafts/naming_markers.md).
-**Approved:** 2026-10-08, author voice comment in `20261008_231532-me`.
+**Approved:** 2026-10-08.
 
 `is_` is not a function's privilege. It names a boolean: a predicate that
 returns one, `is_ancestor(a, b)`, or data that holds one, `is_open`; a
@@ -472,8 +472,7 @@ replaces the earlier reading that `is_` meant "call me".
 ## MP-41 — Right of the header: the theme switch, then GitHub
 
 **Scope:** UI-08, [page header](drafts/page_header.md).
-**Approved:** 2026-10-08, author decision A in `20261008_233947-me` ("let it
-stay like this for now").
+**Approved:** 2026-10-08.
 
 The two controls at the right end of the header are, left to right, the
 theme switch and then the GitHub icon in the corner, the same on every page.
@@ -485,8 +484,7 @@ by this entry; the note itself is the author's to change.
 ## MP-42 — The SQL rules are MySQL's
 
 **Scope:** the SQL group, SQL-03, [sql](drafts/sql.md).
-**Approved:** 2026-10-08, author decision A in `20261008_234451-me` ("I work
-with MySQL; this is specifically for MySQL").
+**Approved:** 2026-10-08.
 
 The SQL group is MySQL: the group says so, and every canonical form is valid
 MySQL. A `CREATE INDEX` takes no `WHERE` (no partial indexes; a generated
@@ -497,8 +495,7 @@ otherwise are the author's to amend.
 ## MP-43 — The UI mechanics rules are coded UIM
 
 **Scope:** the UIM group, the rule index header.
-**Approved:** 2026-10-08, author comment in `20261008_234958-me` ("why UIM
-there and UI here; they should all be UIM").
+**Approved:** 2026-10-08.
 
 The rules of the UI mechanics group carry the group's own code: UI-09 to
 UI-20 are UIM-01 to UIM-12. A link to an old code still opens the rule: the
@@ -509,9 +506,7 @@ existing groups; a group of its own is the one case that gets new codes.
 
 **Scope:** UI-06, UI-08, [page header](drafts/page_header.md); supersedes
 MP-41.
-**Approved:** 2026-10-09, author request `20261009_231222-me` ("the theme
-switch must be at the very end, and GitHub goes before it"), with the reason
-to be kept in the explanation (`20261009_231249-me`).
+**Approved:** 2026-10-09.
 
 The right end of the header holds, left to right, the project's links and
 then the theme switch, always last, at the right edge, the same on every
@@ -524,8 +519,7 @@ one place on every page.
 
 **Scope:** UI-08, [page header](drafts/page_header.md),
 [theme switch](drafts/theme_switch.md) in a page header.
-**Approved:** 2026-10-09, author comment in `20261009_232540-me` ("all the
-icons should be in one style, in the same sizes").
+**Approved:** 2026-10-09.
 
 The icons at the right end of the header, the links and the theme switch,
 share one look: the same size, the same colour, no frame on any of them.
@@ -535,10 +529,7 @@ The switch's freedom of size and border (MP-17) yields to this in a header.
 
 **Scope:** FMT-32, FMT-04, LINT-03, [formatting](FORMATTING.md),
 `block-layout`, `tiny-arrows`.
-**Approved:** 2026-10-10, author voice comment in `20261010_005629-me`
-("function () {} is, in effect, ignore; such a construct is acceptable; the
-second variant is bad at all") and `20261010_005904-me` (the same for an
-empty arrow, "sometimes I write it so, to be shorter").
+**Approved:** 2026-10-10.
 
 An empty function expression, `function () {}`, and an empty arrow,
 `() => {}`, are a no-op, as `ignore` is, and stay on one line. Splitting the
@@ -548,12 +539,7 @@ braces over two lines is wrong. The arrow is allowed, not required.
 
 **Scope:** VAR-02, VAR-13, VAR-18, [return values](drafts/return_out.md),
 [generic names](drafts/generic_names.md), `return-out`; clarifies MP-05.
-**Approved:** 2026-10-10, author voice comments in `20261010_015447-me`
-("return out, if it is just return out; if a condition or the ?: operator
-follows, out is not needed there; then give them normal names") and
-`20261010_015542-me` (a small page of generic names, each with one meaning:
-`i`, `j`, `k` in a `for`, `v` in small arrows, `out` only for `return out;`,
-"if it is really returned").
+**Approved:** 2026-10-10.
 
 `out` is the variable returned as `return out;` and nothing else. A value
 returned on a condition or transformed on its way out gets a name of its own.
@@ -565,10 +551,7 @@ its pairs, `req/res` and `res/rej`.
 ## MP-48 — A piece shown in two places is one component
 
 **Scope:** VUE-20 to VUE-24, [Vue components](vue2/vue-components.md).
-**Approved:** 2026-10-10, author message `20261010_230651-me` (a rule from
-the notes app: "Badges: one component each, named badge-*") and voice
-comment `20261010_230718-me` ("this note is about components: how to split
-an app into components, how to represent it as components").
+**Approved:** 2026-10-10.
 
 Each badge is a Vue component of its own, named `badge-<what it says>`, never
 a `<span>` with the same classes copied into every place. What changes goes
@@ -580,31 +563,21 @@ than one place.
 ## MP-50 — A commit title is 72 characters at most, its body too
 
 **Scope:** GIT-03, GIT-05, [commits](drafts/commits.md).
-**Approved:** 2026-10-11, author message and voice comment
-`20261011_143005-me` ("about 72 characters in all; the description below
-should aim for 72 too"), over a title and a body of that width, and voice
-comment `20261011_143613-me` ("set it to 72; the subject 72 in all, and the
-body aims for 72 too").
+**Approved:** 2026-10-11.
 
 A title stays within 72 characters, scope included: the 70 to aim for and
 the 75 of a rare case in MP-39 are gone. Every line of the body is held to
 72 as well, broken between words. MP-49 was held for a proposal the author
 set aside on 2026-10-11; the number stays unused.
 
-**Clarified:** 2026-10-13, voice comment `20261011_143613-me` ("the body
-too, we aim at 72"), the audit's question 19 settled by it as answer B:
-the quotes above are the author's words. The author's half of
+**Clarified:** 2026-10-13: the body aims at 72 too. The author's half of
 `drafts/commits.md` still reads "is held to 72 characters too"; it changes
 only on the author's word (DOC-03). The rule does not change.
 
 ## MP-51 — A doc GIF shows its time and its progress, at 30 fps
 
 **Scope:** DOC-14, [GIFs in the docs](drafts/gifs.md).
-**Approved:** 2026-10-11, voice comment `20261011_214702-me` ("in a GIF
-there must be the time, as it goes, 0, 1, … 30 frames a second; and at the
-top a small bar that shows the progress; these two are a must"), and
-author message `20261011_220943-me` ("This is it, require 30 fps,
-re-record scroll-anchoring") over the four GIFs stamped with both.
+**Approved:** 2026-10-11.
 
 Every GIF in the docs is recorded at 30 frames a second. It shows its time
 from 0 at its first frame in a corner, and a thin bar along its top edge
@@ -613,13 +586,7 @@ that fills as it plays; both start again when it loops.
 ## MP-52 — A script starts from bin/templ; its header always stays
 
 **Scope:** PROJ-15, [templ](bin/templ).
-**Approved:** 2026-10-12, voice comment `20261012_201923-me` ("this
-template is a template: you start from it and throw away everything you
-don't need; one exception: the header always stays, just the header and
-the variables script, scriptdir, scriptname at the very start, where they
-are assigned; everything else is thrown away"), after an agent fitting a
-project to the rules copied the template's four `echo` lines into every
-script.
+**Approved:** 2026-10-12.
 
 A bash script begins as a copy of `bin/templ`. Its header and the
 `script`, `scriptdir` and `scriptname` lines are kept in every script;
@@ -630,11 +597,7 @@ uses it.
 ## MP-53 — A file and its export carry one name; the preset is made by make_rules_config
 
 **Scope:** FILE-20, FILE-24, [src/make_rules_config.js](src/make_rules_config.js).
-**Approved:** 2026-10-12, voice comment `20261012_202926-me` ("whatever
-the file is called, the export must have the same name; a file called
-config.js exporting rules_config is wrong; 100%") and voice comment
-`20261012_203025-me` ("rules_config is a very bad name; make_rules_config
-or make_config is better; rename the file accordingly").
+**Approved:** 2026-10-12.
 
 A file is named after the one value it exports, with no exception for a
 file shaped by a tool: `src/config.js` exporting `rules_config` became
@@ -643,26 +606,17 @@ that builds a value is named for making it. The package path
 `@vbarbarosh/rules/config` stays, pointing at the new file, so projects
 that load it keep working.
 
-**Clarified:** 2026-10-13, voice comment `20261012_202926-me` ("whatever
-the file is called, the export must have the same name"), the audit's
-question 21 settled by it as answer A: a file whose shape a tool sets has
-no exception either. `src/index.js`, which exports `plugin`, becomes
-`src/plugin.js`, and `package.json` points at it. The rule files in
-`src/rules/` keep their shape: MP-57 names a rule's function after its rule
-id, and nothing there is renamed. FILE-20's "tool-shaped files follow the tool" is about the
-export's shape, or a file whose name the tool fixes, as `eslint.config.js`.
+**Clarified:** 2026-10-13: a file whose shape a tool sets has no exception
+either. `src/index.js`, which exports `plugin`, becomes `src/plugin.js`, and
+`package.json` points at it. The rule files in `src/rules/` keep their
+shape: MP-57 names a rule's function after its rule id, and nothing there is
+renamed. FILE-20's "tool-shaped files follow the tool" is about the export's
+shape, or a file whose name the tool fixes, as `eslint.config.js`.
 
 ## MP-54 — build/ is never committed; nothing more
 
 **Scope:** PROJ-04, [project layout](drafts/layout.md).
-**Approved:** 2026-10-12, voice comment `20261012_203743-me` ("there is no
-exception here: build/ and everything inside is never committed; build/ is
-a temporary directory for the build, it does not go into the repository;
-so there is no contradiction, the rule was badly written"), answering the
-audit's question whether the committed `docs/*.html` are an exception, and
-voice comment `20261012_204118-me` ("what bin/build builds it puts into
-build/; build/ is temporary, it does not go into git; nothing more; and if
-we then take something from build/ into git, fine, we decided so").
+**Approved:** 2026-10-12.
 
 PROJ-04 says two things: `bin/build` puts what it builds into `build/`;
 `build/` is temporary, and it and everything in it are never committed.
@@ -673,13 +627,7 @@ such a decision, not an exception.
 ## MP-55 — Nothing jumps: the working item of a list stays put
 
 **Scope:** UIM-01, ANIM-07, [scroll anchoring](drafts/scroll_anchoring.md).
-**Approved:** 2026-10-12, voice comment `20261012_204324-me` ("don't
-overdo it; I meant containers first of all, a list or a grid; you work
-with an item, and the system adds items above, below, left or right of
-it; the item the user works with must not jump; something hiding in one
-place and showing in another as I scroll is outside this rule; within
-limits, of course"), answering the audit's question whether the docked
-switches that push the rule count break UIM-01.
+**Approved:** 2026-10-12.
 
 UIM-01 holds for the item the reader works with in a list or a grid: the
 one selected or being looked at stays where it is while the app adds,
@@ -690,13 +638,7 @@ docked switches pushing the count are not a breach.
 ## MP-56 — A configuration value at the top is UPPER_CASE
 
 **Scope:** VAR-19.
-**Approved:** 2026-10-12, voice comment `20261012_205326-me` ("UPPER_CASE
-consts are at the top level, the module's; a lowercase const at the level
-of a function, of a block; such simple rules") and voice comment
-`20261012_205635-me` ("imports are a separate case; the UPPER_CASE const is
-when you need a variable for configuration, some global name; the imports
-don't fall under this rule at all"), answering the audit's question how
-constants are spelled.
+**Approved:** 2026-10-12.
 
 A constant a module keeps as configuration, a global name for a value set
 in the code, is written in upper case at the module's top level. A `const`
@@ -705,8 +647,7 @@ inside a function or a block is lower case. Imports are not covered.
 ## MP-57 — A linter rule's function is named after its rule id
 
 **Scope:** NAME-02, [naming markers](drafts/naming_markers.md), `src/rules/`.
-**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 1, answer B ("Keep the names;
-write the exception down").
+**Approved:** 2026-10-12.
 
 The function of a linter rule is named after its rule id, as ESLint does:
 `block_layout(context)` for the rule `block-layout`. It needs no verb and
@@ -716,19 +657,16 @@ is renamed.
 ## MP-58 — A step of a script is what main() calls once, in order
 
 **Scope:** NAME-17, NAME-18, [formatting](FORMATTING.md).
-**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 3, answer A ("Define a step; the
-examples stay").
+**Approved:** 2026-10-12.
 
 A step is a function `main()` calls once, in order, to do one part of the
 work; it may start with its verb, as `build_glossaries_html()` does in
 `bin/build`. A verb-first name that is not a step is renamed to the domain
 first when it is next touched; the examples in the documents stay.
 
-**Clarified:** 2026-10-13, author message `20261013_113227-me` (the audit's
-answers), answer 22A ("Yes, still a step: MP-58 says \"once per part of the
-work\""): a step is a function `main()` calls once per part of the work, in
-order. `build_index_html()`, called once for each page `bin/build` writes,
-is a step; `bin/build` stays as it is.
+**Clarified:** 2026-10-13: a step is a function `main()` calls once per part
+of the work, in order. `build_index_html()`, called once for each page
+`bin/build` writes, is a step; `bin/build` stays as it is.
 
 ## MP-59 — A page made only to be photographed keeps no theme switch
 
@@ -736,7 +674,7 @@ is a step; `bin/build` stays as it is.
 `drafts/file-drop.html`, `drafts/no-confirmations.html`,
 `drafts/optimistic-updates.html`, `drafts/readme-structure.html`,
 `drafts/dead-controls.html`, `drafts/return-out.html`.
-**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 7, answer A ("Exempt them").
+**Approved:** 2026-10-12.
 
 A page made only to be photographed for a rule's picture, opened once as
 is and once with `?dark` and saved as two PNGs, keeps no switch. Its dark
@@ -748,8 +686,7 @@ the switch.
 
 **Scope:** [agents glossary](glossaries/agents.md): turn, final,
 stop_reason, check.
-**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 8, answer A ("A failed check
-extends the turn; our own names").
+**Approved:** 2026-10-12.
 
 The turn ends at the last final, once the checks after it pass; a failed
 check sends the failure back and the fixing stays in the same turn, so
@@ -761,15 +698,14 @@ and `refusal` are our own names: Anthropic says `end_turn`, `tool_use`,
 ## MP-61 — The unused logo is deleted
 
 **Scope:** `img/logo-by-chat-gpt.png`.
-**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 10, answer A ("Delete it").
+**Approved:** 2026-10-12.
 
 The 1.4 MB logo nothing linked is deleted; git history keeps it.
 
 ## MP-62 — Error Flood stays provisional
 
 **Scope:** TEST-06, [testing glossary](glossaries/testing.md).
-**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 11, answer B ("Mark it
-provisional").
+**Approved:** 2026-10-12.
 
 Error Flood keeps the author's working note; the Glossaries page shows it
 as provisional, not defined yet, until the author defines it.
@@ -777,7 +713,7 @@ as provisional, not defined yet, until the author defines it.
 ## MP-63 — The SQL examples in the author's half are MySQL
 
 **Scope:** [SQL](drafts/sql.md), SQL-03, MP-42.
-**Approved:** 2026-10-12, author message `20261012_210404-me` (the quiz answers), question 14, answer A ("Correct them").
+**Approved:** 2026-10-12.
 
 The partial-index example, a `CREATE UNIQUE INDEX` with a `WHERE`, is
 dropped: the next example reaches the same end the MySQL way, with a
@@ -786,11 +722,7 @@ generated column. `DROP INDEX` names its table with `ON user_identities`.
 ## MP-64 — A narrowing box covers its extra words; no fade
 
 **Scope:** ANIM-10, [animations](drafts/animations.md).
-**Approved:** 2026-10-12, voice comment `20261012_213743-me` ("ours is
-right, narrows and fades at once; one thing: the fade is not needed here,
-it is extra, because when the element shrinks it covers the letter, the
-text that disappears; the fade is extra, for this case"), answering the
-morphing quiz's question 4 against the Visual Agency rule 4.
+**Approved:** 2026-10-12.
 
 When a pill or another box with words is shorter in the other layout, it
 narrows and its edge covers the words that go; they are not faded.
@@ -798,11 +730,7 @@ narrows and its edge covers the words that go; they are not faded.
 ## MP-65 — What one state only has fades over the whole move; at a list's end the view settles in the same frames
 
 **Scope:** ANIM-07, ANIM-10, [animations](drafts/animations.md).
-**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
-quiz's answers) on the rules forwarded from Visual Agency in
-`20261012_210127-me`: answers 3A ("what exists in one state only fades, over
-the whole movement; never whole on one frame and gone the next") and 8A
-("near an edge, the view settles in the same frames, never after").
+**Approved:** 2026-10-12.
 
 A part that only one layout has fades from the first frame of the movement
 to the last, both ways, instead of early on folding and late on opening.
@@ -812,11 +740,7 @@ the move, frame by frame, and is still when the move ends.
 ## MP-66 — A moving part lands exactly
 
 **Scope:** ANIM-12, [animations](drafts/animations.md).
-**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
-quiz's answers) on the rules forwarded from Visual Agency in
-`20261012_210127-me`: answer 6A ("measure the destination as it will really
-be, lay it out unseen first, so the arrival is exact to the sub-pixel; no
-hop at the end").
+**Approved:** 2026-10-12.
 
 Each moving part is measured where it will be before it moves, so its last
 frame is the still state.
@@ -824,11 +748,7 @@ frame is the still state.
 ## MP-67 — New things arrive whole
 
 **Scope:** ANIM-13, [animations](drafts/animations.md).
-**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
-quiz's answers) on the rules forwarded from Visual Agency in
-`20261012_210127-me`: answer 9A ("content comes in its first frame with every
-tag and badge it will have, at its final height; nothing fills in
-afterwards").
+**Approved:** 2026-10-12.
 
 A new row or message arrives as it will stay, its tags and badges on it,
 at its final height; nothing fills in or grows after it lands.
@@ -836,10 +756,7 @@ at its final height; nothing fills in or grows after it lands.
 ## MP-68 — Growing goes through the heights between
 
 **Scope:** ANIM-14, [animations](drafts/animations.md).
-**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
-quiz's answers) on the rules forwarded from Visual Agency in
-`20261012_210127-me`: answer 10A ("a container is shut before its content goes
-in: never drawn whole for a frame, then grown from nothing").
+**Approved:** 2026-10-12.
 
 A section that opens grows through every height between closed and full,
 its content clipped inside; closing is the same, backwards.
@@ -847,10 +764,7 @@ its content clipped inside; closing is the same, backwards.
 ## MP-69 — The chosen highlight glides in its final colours
 
 **Scope:** ANIM-15, [animations](drafts/animations.md).
-**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
-quiz's answers) on the rules forwarded from Visual Agency in
-`20261012_210127-me`: answer 13A ("the chosen highlight glides in its final
-colours; no in-between grey on arrival").
+**Approved:** 2026-10-12.
 
 The selection highlight keeps the colours it ends in from the first frame
 of its movement to the last.
@@ -858,25 +772,16 @@ of its movement to the last.
 ## MP-70 — The speed stays; reduced motion and frame tests stay out
 
 **Scope:** ANIM, [animations](drafts/animations.md).
-**Approved:** 2026-10-12, author message `20261012_214214-me` (the morphing
-quiz's answers) on the rules forwarded from Visual Agency in
-`20261012_210127-me`: answers 11B (the speed stays 400 ms, eased out, over
-160–320 ms by distance eased at both ends), 14B (less motion when asked:
-left out) and 15B (checked by frames, not by eye: left out).
+**Approved:** 2026-10-12.
 
 The animations keep one duration, 400 ms, and the easing
 `cubic-bezier(.2, .8, .2, 1)`. No rule asks for reduced motion or for a
-frame-by-frame test of each morph; the forwarded rules 11, 14 and 15 are
-not taken.
+frame-by-frame test of each morph: both were proposed and not taken.
 
 ## MP-71 — req and res stay
 
 **Scope:** VAR-18, [generic names](drafts/generic_names.md).
-**Approved:** 2026-10-13, voice comment `20261013_000325-me` ("req, res are
-good established two variables that are always used together, and from
-which it is always clear what is what; they should stay"), and
-`20261013_001620-me` ("✅ accepted") on the proposal to add them to the
-list.
+**Approved:** 2026-10-13.
 
 `req` and `res`, the request and response of an Express route handler,
 are generic names: kept as they are, never spelled out as `request` and
@@ -885,23 +790,19 @@ are generic names: kept as they are, never spelled out as `request` and
 ## MP-72 — A ternary given whole stays bare
 
 **Scope:** FMT-27, [FORMATTING.md](FORMATTING.md).
-**Approved:** 2026-10-13, voice comment `20261013_104716-me` on an object
-property given `(cond ? a : b)` and `cond ? a : b`: "in such cases the
-parentheses are redundant; better without them, the second one".
+**Approved:** 2026-10-13.
 
 A ternary given whole as a value, an argument or a return is written
 without parentheses around it. They go around a ternary only where it is
 an operand of another operator and precedence needs them.
 
-**Clarified:** 2026-10-13, author message `20261013_110437-me` ("B: a
-directive keeps them"): a Vue directive keeps its parentheses around a
+**Clarified:** 2026-10-13: a Vue directive keeps its parentheses around a
 ternary, by VUE-06; this rule is for JavaScript.
 
 ## MP-73 — Three slips in the author's half of logs.md are corrected
 
 **Scope:** LOG-06, the author's half of [logs](drafts/logs.md).
-**Approved:** 2026-10-13, author message `20261013_113227-me` (the audit's
-answers), answer 12A ("Correct the three lines").
+**Approved:** 2026-10-13.
 
 In the author's half of `drafts/logs.md`, the example's `[spawn]` reads
 `[group_spawn]`, the event LOG-06 and the rest of that half name; "each
@@ -911,9 +812,7 @@ changes.
 ## MP-74 — refresh() is idempotent
 
 **Scope:** FN-11, the author's half of [refresh](drafts/refresh.md).
-**Approved:** 2026-10-13, author message `20261013_113227-me` (the audit's
-answers), answer 27A ("Yes: refresh() is idempotent, and your half says
-so").
+**Approved:** 2026-10-13.
 
 `refresh()` is safe to call at any moment, any number of times. The
 author's half of `drafts/refresh.md` says so in a line of its own; FN-11
@@ -923,9 +822,7 @@ and its picture stay as they are.
 
 **Scope:** FLOW-12, the pages and scripts that build a class name at run
 time.
-**Approved:** 2026-10-13, author message `20261013_113227-me` (the audit's
-answers), answer 23A ("Yes: CSS class names are written whole, picked by a
-switch").
+**Approved:** 2026-10-13.
 
 FLOW-12's "names are written whole" covers CSS class names too, so a
 search for a class finds the line that sets it. A class picked from a few
@@ -937,8 +834,7 @@ at run time, as with PhotoSwipe's keys, gets a switch as well.
 ## MP-76 — Demos follow the code rules
 
 **Scope:** the demos in `demos/`, PROJ-29, the code rules.
-**Approved:** 2026-10-13, author message `20261013_113227-me` (the audit's
-answers), answer 24A ("Demos follow the code rules").
+**Approved:** 2026-10-13.
 
 A demo follows the code rules as any other code of the repository does:
 `demos/items_by.js` gets `cli(main)` and a `main()`, and names as NAME-13
@@ -948,9 +844,7 @@ header, as `demos/item_to.js` does.
 ## MP-77 — res has two meanings, one in each of its pairs
 
 **Scope:** VAR-18, CORE-04, [generic names](drafts/generic_names.md).
-**Approved:** 2026-10-07, author choice A in `20261007_203200-me` ("Keep
-res/rej for Promise executors"); the audit's question 15 settled by it as
-answer B on 2026-10-13.
+**Approved:** 2026-10-07.
 
 `res` is a generic name in two pairs: beside `req`, the response of an
 Express route handler (MP-71); beside `rej`, the resolve of a Promise
@@ -960,11 +854,7 @@ executor (MP-23). The generic-names page lists both pairs, and VAR-18 gives
 ## MP-78 — bin/configure predicts the install; later sudo calls are sudo -n
 
 **Scope:** PROJ-17, [configure](drafts/configure.md).
-**Approved:** 2026-09-27, voice comment `20260927_154207-me` (every
-question the run may raise, sudo too, is asked at the very start; once the
-run has begun there are no more questions); applied by 3003447 on
-2026-10-08, recorded on 2026-10-13, the audit's question 20 settled by it
-as answer A.
+**Approved:** 2026-09-27; applied by 3003447 on 2026-10-08.
 
 The check at the start predicts the state after the install. A sandbox
 that is missing, not `root:4755`, or about to be replaced by a new
@@ -976,9 +866,7 @@ stopping at a prompt.
 
 **Scope:** VUE-06 and FMT-27, [vue-formatting.md](vue2/vue-formatting.md),
 [FORMATTING.md](FORMATTING.md).
-**Approved:** 2026-10-15, voice comment `20261015_125917-me`: the rule is
-"only for the template, for v-if, because otherwise it is harder to
-notice".
+**Approved:** 2026-10-15.
 
 VUE-06 wraps a compound directive value in parentheses only in a
 template, where inside an attribute's quotes it is easy to miss. A
@@ -988,11 +876,7 @@ and follows FMT-27: `return !is_ready && !is_gone;`.
 ## MP-80 — A table folds only what does not fit
 
 **Scope:** UI-21 to UI-23, [table_details.md](drafts/table_details.md).
-**Approved:** 2026-10-15, voice comment `20261015_144000-me`, on a
-serviceman table folded down to its label with room to spare: "even when
-there is room, it left only the label and put everything else inside, out
-of sight; before I saw everything at a glance, now I have to keep clicking
-to open the details".
+**Approved:** 2026-10-15.
 
 Columns fold into a row's details only when the table no longer fits and
 turns into a grid, and only as many as it must at that width. With room,
@@ -1002,15 +886,7 @@ every column stays on top. What a row is and its state never fold.
 ## MP-81 — Nothing appears or disappears suddenly
 
 **Scope:** ANIM-16, [animations](drafts/animations.md).
-**Approved:** 2026-10-17, author message `20261017_234822-me`, written as
-the rule itself, to be kept as it is: "ни один элемент не появляется и не
-исчезает внезапно / любой элемент должен появляться и исчезать плавно"
-("no element appears or disappears suddenly; every element must appear and
-disappear smoothly"), and in its voice comment: "a new rule for the UI";
-morphing added 2026-10-18, author message `20261018_000049-me`, a voice
-comment: "fade-in and fade-out are the light examples, the simplest
-animations; the ideal animation is morphing, when an element takes another
-shape; so, where possible, morph".
+**Approved:** 2026-10-17; morphing added 2026-10-18.
 
 Every element on the screen, not only rows and the parts of a card, comes
 and goes smoothly; none is whole on one frame and gone on the next. Where it
@@ -1021,9 +897,7 @@ to come from or go into fades, at the shared speed.
 ## MP-82 — since/until is an established pair
 
 **Scope:** CORE-04, natural pairs.
-**Approved:** 2026-10-19, author messages `20261019_221638-me` ("since/until:
-another nice pair, add it to the pairs") and `20261019_221655-me` ("since/until
-is the same as begin/end, only in other words").
+**Approved:** 2026-10-19.
 
 `since/until` joins the established pairs. It is `begin/end` said of time:
 the bounds of a span, a query or a filter.
@@ -1031,9 +905,7 @@ the bounds of a span, a query or a filter.
 ## MP-83 — let and const never share a run of declarations
 
 **Scope:** FMT-33, FMT-16, [formatting](FORMATTING.md).
-**Approved:** 2026-10-23, author messages `20261023_161206-me` ("never mix
-let and const in one block; separate them by new line instead!") and
-`20261023_161233-me` ("prefer let be the first").
+**Approved:** 2026-10-23.
 
 A run of declarations holds only `let` or only `const`; when both are
 needed, a blank line separates the two runs, and the `let` run comes first.
@@ -1043,21 +915,7 @@ not rewritten for it (CORE-01).
 ## MP-84 — plural() takes the whole sentence
 
 **Scope:** FMT-34, FMT-31, [formatting](FORMATTING.md).
-**Approved:** 2026-11-03, author messages `20261103_025102-me` (the helper
-and the line `step${ctx.steps_back() === 1 ? '' : 's'}`, by voice: "a new
-rule: in JavaScript, and in PHP too, plural must be used; this is bad"),
-`20261103_025124-me` (by voice: "this rule is about strings: how to work
-with strings correctly") and `20261103_031104-me` (a fragment given to
-plural() marked WRONG, forms interpolating the number marked WRONG, the
-whole sentence in three forms CORRECT; by voice: "only the whole string;
-the only correct way to use plural is to pass it the whole line") and
-`20261103_031306-me` (a `${plural(…)}` marked BAD, "should not be inside
-`${...}`"; by voice: "a good rule to check by: plural must not be inside
-backticks") and `20261103_181348-me` (by voice: "these texts are very long:
-say the idea briefly; inside is a whole phrase, usually a sentence, which is
-at once returned or assigned to a variable") and `20261103_184814-me` (by
-voice: "one more example for plural, a simpler one: only # and no gluing of
-parameters; the one there is, the complex case, stays").
+**Approved:** 2026-11-03.
 
 Each form given to `plural()` is a whole phrase, usually a sentence, `#`
 where the number goes; the call's result is returned or assigned as it is,
@@ -1069,22 +927,7 @@ FMT-31. Existing code is not rewritten for it (CORE-01).
 
 **Scope:** HIST-01 to HIST-03, [the history of actions](drafts/history.md),
 [System](docs/system.md).
-**Approved:** 2026-11-03, author messages `20261103_182008-me` (by voice:
-"for these models there are always low-level records, post created, post
-updated, post deleted; no other kinds"; "every such command is wrapped in a
-high-level command; the call to that API goes into the history and becomes
-the parent of everything below it; below it, only low-level commands"),
-`20261103_184939-me` (by voice: "publish is really a high-level command,
-publish_post, and inside it post_updated, because the post must already
-exist"), `20261103_190019-me` (the names written with an underscore,
-`post_created`, `publish_post`, `folder_created`), `20261103_191502-me` (by
-voice: "its name is api_publish_post: it was started through an API; when
-an API 2 comes, api2_publish_post"), `20261103_193118-me` (the example
-named `api2_publish_post`, `api2_create_folder`, "to underline the idea"),
-`20261103_194427-me` (by voice: "the history of actions needs a page of its
-own; the approach with commands joins that page later; all of it is still
-research") and `20261103_215715-me` (by voice: "let's make a page System
-for it").
+**Approved:** 2026-11-03.
 
 A model writes three kinds of record, `<model>_created`, `<model>_updated`
 and `<model>_deleted`; anything else is a command, named by its entry point
@@ -1096,24 +939,7 @@ page, apart from the rule index, while the research goes on.
 
 **Scope:** CMD-01 to CMD-06, [a system as commands](drafts/commands.md),
 [System](docs/system.md).
-**Approved:** 2026-11-03, author messages `20261103_181641-me` (by voice:
-"when building a system, I first build it as a set of commands, and then
-the interaction between these commands"; "the parts being made must be
-illustrated, and always as pictures"), `20261103_184845-me` (by voice:
-"watch is a bad example of a command: a command starts, does its work, and
-there it ends"), `20261103_185948-me` (by voice: "some other system above
-them uses these commands: calls one, packs the arguments, passes them on"),
-`20261103_191625-me` (by voice: the forwarded pictures of an app's commands
-as the example, "all of it must be anonymized before it goes into the
-rules"), `20261103_191835-me` (by voice: "any command can be called by
-hand at any time"; "all the UI that depends on this command knows it was
-called"; "the command itself builds such a mechanism"; "it may end with an
-error that the process is already running"), `20261103_222406-me` (by
-voice: "a command just runs like a function: you ran it, it returned its
-result, and that is all; the system is something else"; "to take the
-complexity out of the whole system and split it into relatively small
-blocks") and `20261103_224111-me` ("onto the System page", the words and
-pictures shown in `20261103_222650-agent`).
+**Approved:** 2026-11-03.
 
 A system is its commands first; the app above calls them, and they never
 call one another; every command is drawn; any command runs by hand at any
@@ -1127,13 +953,7 @@ on the System page, apart from the rule index, while the research goes on.
 ## MP-87 — A record's fields: one order, ids on the backend
 
 **Scope:** FMT-35, FMT-36, [a record's fields](drafts/record_fields.md).
-**Approved:** 2026-11-10, author messages `20261110_161516-me` (the record
-`{id, uid, parent_id, some_uid, title, custom, created_at, updated_at}` and
-its five points: "1) ids 2) uids 3) all the reset 4) dates at the end 5)
-exception: id, uid - always first"), `20261110_164448-me` ("add the rule")
-and `20261110_164518-me` ("id, parent_id, ... / uids"; by voice: the ids
-are private values that stay on the backend and never reach the frontend;
-for the frontend, uids are used).
+**Approved:** 2026-11-10.
 
 The fields of a record stand in one order: its own `id` and `uid` always
 first, then the ids of other records, then their uids, then all the rest,
@@ -1146,10 +966,7 @@ them (CORE-01).
 ## MP-88 — In a PHP class, assert methods follow the constructor
 
 **Scope:** FILE-27, FILE-26, [assert methods](drafts/php_assert_methods.md).
-**Approved:** 2026-11-10, author message `20261110_170837-me` (the two
-signatures, `public function __construct(...)` and `public function
-assert_*(...): void`; by voice: a rule for PHP, functions like `public
-function assert_*(...): void` stand right after the constructor).
+**Approved:** 2026-11-10.
 
 In a PHP class the methods named `assert_*` stand right after the
 constructor, before every other method. It stands with the rules of a
@@ -1159,10 +976,7 @@ file's order, after FILE-26. Existing code is not rewritten for it
 ## MP-89 — The first refresh stands in created
 
 **Scope:** FN-13, [refresh](drafts/refresh.md).
-**Approved:** 2026-11-10, author message `20261110_204058-me` (by voice:
-with no other condition the component goes into `created`, awaits
-`refresh`, everything that loads from the backend, and only then sets
-`ready`; `mounted` is for an extra condition, when the DOM is needed).
+**Approved:** 2026-11-10.
 
 With no other condition a component's first refresh stands in `created`.
 FN-13's form and its page showed `mounted` before; that was never ruled
@@ -1173,10 +987,7 @@ rewritten for it (CORE-01).
 ## MP-90 — Component methods keep one order
 
 **Scope:** VUE-25, FILE-26, [Vue components](vue2/vue-components.md).
-**Approved:** 2026-11-10, author message `20261110_204058-me` (by voice:
-the functions the template needs that are written in other modules are
-listed on the very top, by name, with commas; then `refresh`; a
-`format_title` of the component stands below `refresh`).
+**Approved:** 2026-11-10.
 
 In a component's `methods` the names of functions written in other
 modules stand on the very top, then `refresh`, then the component's own
@@ -1188,11 +999,7 @@ rewritten for it (CORE-01).
 ## MP-91 — A URL ends its sentence bare
 
 **Scope:** DOC-15, [a URL ends its sentence bare](drafts/url_ends_bare.md).
-**Approved:** 2026-11-11, author message `20261111_192318-me` (by voice:
-a small rule for agents that write Markdown files: never a full stop at
-the end of a sentence that ends with a URL, that link is broken and
-cannot be clicked; the next sentence goes on as before, with a capital
-letter, better still as a paragraph of its own).
+**Approved:** 2026-11-11.
 
 A sentence in a Markdown file that ends with a bare URL ends there, with
 nothing after the URL. The next sentence starts with a capital letter;
@@ -1203,10 +1010,7 @@ DOC-14. Existing files are not rewritten for it (CORE-01).
 ## MP-92 — A text is written for a person
 
 **Scope:** DOC-16, [a text is written for a person](drafts/text_for_a_person.md).
-**Approved:** 2026-11-11, author message `20261111_193814-me` (by voice:
-one more rule on composing texts, very important, at the very beginning,
-the most important rule: a text is composed for a person, so it is short,
-compact, to the point, with no filler).
+**Approved:** 2026-11-11.
 
 A text is written for the person who reads it: short, compact, to the
 point, with no filler. It is the first rule of writing and stands first
@@ -1249,3 +1053,15 @@ its own: the first after `return`, each next one opening its line with
 condition. `||` and `??` follow it too, the chain of one logical operator
 FMT-27 names. One that fits stays on one line (FMT-13). Existing code is
 not rewritten for it (CORE-01).
+
+## MP-96 — An approval names no message
+
+**Scope:** DOC-11, every entry of this file, the "evidence" of
+[writing](drafts/WRITING.md).
+**Approved:** 2026-11-13.
+
+An entry records its scope and the date of the decision, and a public
+commit or a page of this repository where one shows it. It never names the
+message the decision came in, nor retells what was said there: the
+repository is public. The entries above are cut to their dates, and the
+"evidence" DOC-11 and the writing notes ask for means this.

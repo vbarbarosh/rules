@@ -1,7 +1,7 @@
 - Look at this picture; I like it very much. It is a diagram of its own
   kind too, for small step-by-step operations. The emoji are a must, and
   the different colours; and the blank lines between some of the blocks
-  matter a lot. (2026-11-03 07:33, by voice)
+  matter a lot. (2026-11-03 07:33)
 - I like the name, step tree, so let us add it. One thing: you showed the
   picture as a legend, and a legend is too short to show the whole power
   of this approach, all its expressiveness. Keep the legend, but there
