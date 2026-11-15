@@ -2,7 +2,9 @@
 
 const ESLint = require('eslint').ESLint;
 const ExitCodeError = require('@vbarbarosh/node-helpers/src/errors/ExitCodeError');
+const child_process = require('node:child_process');
 const cli = require('@vbarbarosh/node-helpers/src/cli');
+const fs = require('node:fs');
 const make_rules_config = require('../src/make_rules_config');
 const path = require('node:path');
 
@@ -26,7 +28,9 @@ async function main()
     }
     // ESLint ignores every path outside its cwd and reports it only as a
     // warning, so the cwd widens until it contains all targets.
-    const eslint = new ESLint({cwd: cwd_from_targets(targets), overrideConfigFile: true, overrideConfig: make_rules_config(options)});
+    const cwd = cwd_from_targets(targets);
+    const ignore_patterns = git_ignores_from_targets(targets, cwd);
+    const eslint = new ESLint({cwd, overrideConfigFile: true, overrideConfig: make_rules_config(options), ignorePatterns: ignore_patterns});
     const results = await targets_lint(eslint, targets);
     const formatter = await eslint.loadFormatter('stylish');
     process.stdout.write(await formatter.format(results));
@@ -57,6 +61,71 @@ function cwd_from_targets(targets)
         }
     }
     return out;
+}
+
+// A project keeps its downloads and build output out of git, so they are
+// not linted either. Each target's repository names what it ignores there
+// (every .gitignore, .git/info/exclude, the global excludes), a wholly
+// ignored folder as one entry; a file git tracks is never among them.
+function git_ignores_from_targets(targets, cwd)
+{
+    const out = [];
+    for (const target of targets) {
+        const stat = fs.statSync(target, {throwIfNoEntry: false});
+        const root = stat && git_root_of(stat.isDirectory() ? target : path.dirname(target));
+        if (!root) {
+            continue;
+        }
+        const file = path.relative(root, target).split(path.sep).join('/') || '.';
+        // A target git ignores is left out whole: ls-files cannot start
+        // inside an ignored folder.
+        if (git_run(['check-ignore', '-q', '--', file], root).status === 0) {
+            out.push(glob_from_path(path.relative(cwd, target), stat.isDirectory()));
+            continue;
+        }
+        if (!stat.isDirectory()) {
+            continue;
+        }
+        const {stdout} = git_run(['--literal-pathspecs', 'ls-files', '-z', '--others', '--ignored', '--exclude-standard', '--directory', '--', file], root);
+        for (const entry of stdout.split('\0').filter(v => v)) {
+            out.push(glob_from_path(path.relative(cwd, path.join(root, entry)), entry.endsWith('/')));
+        }
+    }
+    return out;
+}
+
+// The folder holding .git, the dir itself or one above it; null outside a
+// repository, where nothing is left out.
+function git_root_of(dir)
+{
+    let out = dir;
+    while (!fs.existsSync(path.join(out, '.git'))) {
+        if (out === path.dirname(out)) {
+            return null;
+        }
+        out = path.dirname(out);
+    }
+    return out;
+}
+
+// Exit status 1 is an answer (check-ignore: not ignored); any other
+// failure, git missing too, stops the lint with git's own words.
+function git_run(args, cwd)
+{
+    const out = child_process.spawnSync('git', args, {cwd, encoding: 'utf8', maxBuffer: Infinity});
+    if (out.error || ![0, 1].includes(out.status)) {
+        const message = out.error ? out.error.message : out.stderr.trim();
+        throw new ExitCodeError(1, `lint: git ${args.join(' ')} in ${cwd}: ${message}`);
+    }
+    return out;
+}
+
+// A path as an ESLint pattern that matches that path alone: the characters
+// minimatch reads as a glob are escaped; a folder's ends with a slash.
+function glob_from_path(file, is_dir)
+{
+    const glob = file.split(path.sep).map(v => v.replace(/[\\*?[\]{}()!+@#]/g, '\\$&')).join('/');
+    return is_dir ? `${glob}/` : glob;
 }
 
 async function targets_lint(eslint, targets)

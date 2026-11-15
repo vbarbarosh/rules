@@ -48,7 +48,7 @@ these commands do not rewrite application files.
 The package ships one executable, `lint`. It takes files or directories,
 builds the configuration from the environment, and exits non-zero when any
 error is reported, or when a path it was given is not checked — ignored by
-the preset, or matched by no configuration:
+the preset or by git, or matched by no configuration:
 
 ```sh
 PREFIXES=vb- npx vbarbarosh/rules resources/
@@ -58,6 +58,13 @@ PREFIXES=vb- npx vbarbarosh/rules resources/
 `app_prefixes`. The first prefix also names the transition mixin, so
 `PREFIXES=vb-` expects `@include vb-transition(...)`. Paths may lie outside
 the working directory. `lint` takes no options; there is no `--fix`.
+
+What git ignores is not linted. In each target's repository, whatever its
+`.gitignore` files at any depth, `.git/info/exclude` and the global
+excludes file keep out of git (a downloaded SDK, build output) is skipped,
+as `git ls-files --others --ignored --exclude-standard` lists it. A file
+git tracks is linted even where a pattern names it, and a path outside any
+repository is linted whole.
 
 npx installs the package from GitHub. To try a local checkout instead, point
 npx at a tarball made with `npm pack`:
