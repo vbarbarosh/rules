@@ -1077,3 +1077,15 @@ settings. A setting that changes while the application runs is kept in
 `data/`, but the code still reads it only through `config/`, which loads
 it from `data/`. It replaces PROJ-18's "configuration is not there".
 Existing code is not rewritten for it (CORE-01).
+
+## MP-98 — Strings are not glued unless it cannot be avoided
+
+**Scope:** FMT-31, FMT-34, [formatting](FORMATTING.md).
+**Approved:** 2026-11-18.
+
+A string is not built from parts. A phrase, a path or a message is written
+whole. The one exception is a string with a value inside it that nothing
+else can supply (`weapons/turret-${weapon.id}`); it is built as a template
+literal, never with `+`. Where gluing can be avoided, it is. It replaces
+FMT-31's "a string built from parts is a template literal". Existing code is
+not rewritten for it (CORE-01).

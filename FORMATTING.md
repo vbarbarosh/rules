@@ -269,9 +269,10 @@ project, so all JavaScript code follows the same conventions.
       const cache = new Map();
       ```
 
-* **Template literals build strings**
+* **Do not glue strings**
 
-    * A string built from parts is a template literal; `+` never joins a string to a value
+    * A string is not built from parts: a phrase, a path or a message is written whole
+    * Only when a value has to go inside it and nothing else will do, the string is built, and then as a template literal; `+` never joins a string to a value
     * Plain quotes stay for a one-line string with nothing to interpolate; a string that spans lines is a template literal
     * Example:
 
