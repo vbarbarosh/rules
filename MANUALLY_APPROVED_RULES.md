@@ -1104,3 +1104,17 @@ one expectation follows another, the code calls them one after the
 other, the first, then the second. `assert_*` joins NAME-18's verb-first
 families; FILE-27 keeps their place in a PHP class. Existing code is not
 rewritten for it (CORE-01).
+
+**Superseded in part:** 2026-11-19 by MP-100, nested asserts are not
+ruled; FN-18 withdrawn.
+
+## MP-100 — Nested asserts are not ruled
+
+**Scope:** FN-17, [assert functions](drafts/assert_functions.md);
+supersedes MP-99's "never nested" and withdraws FN-18.
+**Approved:** 2026-11-19.
+
+Whether one `assert_*` calls another is not ruled, and the rule and its
+page do not mention it: an assert of a list may call the assert of each
+item, and an assert may call the one its own check builds on. FN-18 is
+withdrawn; the rest of MP-99 stands.

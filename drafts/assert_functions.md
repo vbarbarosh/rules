@@ -12,9 +12,6 @@ assert_email_sent(user);
 - such asserts are placed in the code to show our intentions, our
   expectations: what we expect at this point
 - an assert works so that either everything holds, or an exception
-- nesting one assert in another is not a good idea; they should not be
-  nested: when one assert comes, then another, the code calls them just so,
-  the first, then the second
 
 # Assert functions
 
@@ -42,27 +39,5 @@ function sign_up(form)
   thing (FN-15), and so is a predicate that answers, `is_*`.
 - `assert_*` is a verb-first family (NAME-18). In a PHP class the methods
   stand right after the constructor (FILE-27).
-
-## Never nested
-
-An `assert_*` does not call another `assert_*`. When one expectation follows
-another, the code that relies on them calls them one after the other: the
-first, then the second.
-
-```js
-function assert_email_sent(user)
-{
-    assert_confirmation_requested(user);   // ✗ one assert inside another
-    // ...
-}
-
-assert_confirmation_requested(user);
-assert_email_sent(user);                   // ✓ the first, then the second
-```
-
-- Each assert checks its own expectation; the order of the expectations is
-  in the code that relies on them, where it is read.
-- An assert inside another hides an expectation: the caller reads
-  `assert_email_sent` and does not see that a confirmation is expected too.
 
 This governs new code; existing code is not rewritten for it (CORE-01).

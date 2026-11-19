@@ -3,7 +3,7 @@
 Every rule in this repository, stated once, in one table. Each row cites the
 document it came from; that document stays the source of truth.
 
-295 rules · 18 groups · 62 sources · filterable version: [rules.html](rules.html)
+294 rules · 18 groups · 62 sources · filterable version: [rules.html](rules.html)
 
 How a screen moves has a page of its own: [animations.md](animations.md).
 How a system is built too, its rules still settling: [system.md](system.md).
@@ -22,7 +22,7 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | CORE | Uniformity | 4 | The rule behind the rules. |
 | NAME | Naming grammar | 18 | Verb morphology decides function or data. |
 | VAR | Variables | 19 | A name states the shape of its data. |
-| FN | Function contracts | 18 | What a prefix promises the caller. |
+| FN | Function contracts | 17 | What a prefix promises the caller. |
 | FMT | Formatting | 36 | Braces, breaks, blank lines, comments. |
 | FLOW | Control flow | 13 | Imperative, explicit, no magic. |
 | FILE | File and module structure | 26 | One entry function, one fixed order. |
@@ -102,7 +102,6 @@ In the canonical forms, `✓` and `✗` are verdicts, not code.
 | FN-15 | **Guards return early.** Validate inputs immediately and return `null` or empty values explicitly. | ![The work buried in nested ifs rewritten as guards that return null and () first](../img/rules/fn_guards_return_early.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FN-16 | **One public value per library module.** A reusable module exports one function, class, configuration or data value. Executable scripts export nothing; tool-shaped files follow the tool. | ![format_bytes.js, Theme.js and config.js export one value each, bin/build exports nothing; a helpers.js exporting three values split into three modules](../img/rules/fn_one_value_per_module.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FN-17 | **`assert_*` states what is expected, or throws.** An `assert_*` function names what the code expects at the place where it is called — `assert_valid_email`, `assert_email_sent` — and returns nothing: either everything it checks holds, or it throws. The call is a statement, never a condition. The same in every language; in a PHP class the methods follow the constructor (FILE-27). | <pre>assert_valid_username(username);<br>assert_valid_email(email);<br>assert_valid_password(password);</pre> ![sign_up calls assert_valid_username, assert_valid_email and assert_valid_password before its work: when all hold, the work runs; when one fails, it throws and the work never runs](../img/rules/fn_assert_expected_or_throws.svg) | [assert_functions.md](../drafts/assert_functions.md) |
-| FN-18 | **Asserts are never nested.** An `assert_*` does not call another `assert_*`. When one expectation follows another, the code that relies on them calls them one after the other: the first, then the second. | <pre>function assert_email_sent(user)<br>{<br>    assert_confirmation_requested(user);   ✗ nested<br>}<br><br>assert_confirmation_requested(user);<br>assert_email_sent(user);                ✓ one after the other</pre> ![assert_email_sent calling assert_confirmation_requested inside it, taken out: the caller calls assert_confirmation_requested, then assert_email_sent](../img/rules/fn_assert_never_nested.svg) | [assert_functions.md](../drafts/assert_functions.md) |
 | **FMT** | **Formatting** — Braces, breaks, blank lines, comments. | | |
 | FMT-01 | **Four spaces, no tabs.** Indentation is exactly 4 spaces. No tabs. | ![A tab before const user turned into four spaces, shown as dots](../img/rules/fmt_four_spaces.svg) | [FORMATTING.md](../FORMATTING.md) |
 | FMT-02 | **A top-level function declaration puts its opening brace on the next line.** | <pre>function main()<br>{<br>}</pre> ![function main() { with the brace on its line, turned into the brace on the next line](../img/rules/fmt_top_level_brace_below.svg) | [FORMATTING.md](../FORMATTING.md) |
