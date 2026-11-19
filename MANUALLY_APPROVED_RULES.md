@@ -1089,3 +1089,18 @@ else can supply (`weapons/turret-${weapon.id}`); it is built as a template
 literal, never with `+`. Where gluing can be avoided, it is. It replaces
 FMT-31's "a string built from parts is a template literal". Existing code is
 not rewritten for it (CORE-01).
+
+## MP-99 — An assert function states what is expected, or throws; asserts are never nested
+
+**Scope:** FN-17, FN-18, NAME-18, FILE-27, [assert functions](drafts/assert_functions.md).
+**Approved:** 2026-11-19.
+
+An `assert_*` function, in any language, states what the code expects at
+the place where it is called: `assert_valid_username`,
+`assert_valid_email`, `assert_valid_password`,
+`assert_confirmation_requested`, `assert_email_sent`. Either everything
+it checks holds, or it throws. One assert is not nested in another: when
+one expectation follows another, the code calls them one after the
+other, the first, then the second. `assert_*` joins NAME-18's verb-first
+families; FILE-27 keeps their place in a PHP class. Existing code is not
+rewritten for it (CORE-01).

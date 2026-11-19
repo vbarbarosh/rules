@@ -106,7 +106,7 @@ project, so all JavaScript code follows the same conventions.
     * Functions and files follow `items_*`, `item_*`, or domain nouns
     * Avoid generic names (`process`, `handle`, `util`)
     * `main` is reserved for the entry function of an executable script
-    * The verb-first families are the exceptions to domain-first naming: `main`, `format_*`, `render_*`, `export_*`, `is_*`, `refresh_*`, `click_*`, `emit_*`, `check_*` (MP-40), `make_*` (MP-53), and the steps of a script (`build_glossaries_html()`)
+    * The verb-first families are the exceptions to domain-first naming: `main`, `format_*`, `render_*`, `export_*`, `is_*`, `refresh_*`, `click_*`, `emit_*`, `check_*` (MP-40), `make_*` (MP-53), `assert_*` (MP-99), and the steps of a script (`build_glossaries_html()`)
     * A step is a function `main()` calls once per part of the work, in order; a verb-first name that is not a step is renamed when next touched
 
 * **Comments explain intent or policy only**
