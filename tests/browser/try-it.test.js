@@ -357,9 +357,11 @@ function frames_watch(page)
     });
 }
 
+// the frames so far, up to the next one drawn: a click just made has a frame
+// of its own, even when no frame was drawn since it
 function frames_take(page)
 {
-    return page.evaluate(() => window.panel_frames.splice(0));
+    return page.evaluate(() => new Promise(v => requestAnimationFrame(() => v(window.panel_frames.splice(0)))));
 }
 
 // A slide, frame by frame: both panels where the panel stands across, one
