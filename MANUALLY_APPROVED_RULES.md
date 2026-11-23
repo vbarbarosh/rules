@@ -1118,3 +1118,13 @@ Whether one `assert_*` calls another is not ruled, and the rule and its
 page do not mention it: an assert of a list may call the assert of each
 item, and an assert may call the one its own check builds on. FN-18 is
 withdrawn; the rest of MP-99 stands.
+
+## MP-101 — A PHP reference ends in _ref and is unset after its last use
+
+**Scope:** VAR-20, VAR-21, [references in PHP](drafts/php_references.md).
+**Approved:** 2026-11-22.
+
+In PHP, every variable that holds a reference ends in `_ref`:
+`$plan_ref = &$plan`. It is always unset, `unset($plan_ref)`, right after
+the last expression that uses it. They stand in the VAR group, after
+VAR-19. Existing code is not rewritten for it (CORE-01).

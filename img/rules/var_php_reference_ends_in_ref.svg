@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="530" viewBox="0 0 1200 530" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="530" fill="#fffefb"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2743b8" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#191a17" font-size="40" font-weight="700">A PHP reference ends in _ref</text>
+<text x="48" y="108" fill="#686a61" font-size="22">a variable made with &amp; is a second name of another value; _ref says so at every use</text>
+<text x="60" y="168" fill="#b2341f" font-size="18" font-weight="700">✗ reads as a value of its own</text>
+<text x="640" y="168" fill="#1a7443" font-size="18" font-weight="700">✓ the name says where a write lands</text>
+<rect x="60" y="180" width="500" height="250" rx="10" fill="#fbe3df" stroke="#b2341f" stroke-width="2"/>
+<text x="80" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$parent = &amp;$plan[2];</text>
+<text x="80" y="248" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$parent['steps'][] = $step;</text>
+<text x="80" y="309" fill="#686a61" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$plan</text>
+<rect x="200" y="282" width="60" height="40" fill="#fffefb" stroke="#a19f93" stroke-width="2"/>
+<rect x="260" y="282" width="60" height="40" fill="#fffefb" stroke="#a19f93" stroke-width="2"/>
+<rect x="320" y="282" width="60" height="40" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="230" y="308" fill="#686a61" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">[0]</text>
+<text x="290" y="308" fill="#686a61" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">[1]</text>
+<text x="350" y="308" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">[2]</text>
+<rect x="275" y="362" width="150" height="40" rx="6" fill="#fffefb" stroke="#b2341f" stroke-width="2"/>
+<text x="350" y="388" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">$parent</text>
+<line x1="350" y1="356" x2="350" y2="330" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="640" y="180" width="500" height="250" rx="10" fill="#dcefe3" stroke="#1a7443" stroke-width="2"/>
+<text x="660" y="216" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$parent_ref = &amp;$plan[2];</text>
+<text x="660" y="248" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$parent_ref['steps'][] = $step;</text>
+<text x="660" y="309" fill="#686a61" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$plan</text>
+<rect x="780" y="282" width="60" height="40" fill="#fffefb" stroke="#a19f93" stroke-width="2"/>
+<rect x="840" y="282" width="60" height="40" fill="#fffefb" stroke="#a19f93" stroke-width="2"/>
+<rect x="900" y="282" width="60" height="40" fill="#fbeedb" stroke="#b8650a" stroke-width="2"/>
+<text x="810" y="308" fill="#686a61" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">[0]</text>
+<text x="870" y="308" fill="#686a61" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">[1]</text>
+<text x="930" y="308" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">[2]</text>
+<rect x="845" y="362" width="170" height="40" rx="6" fill="#fffefb" stroke="#1a7443" stroke-width="2"/>
+<text x="930" y="388" fill="#191a17" font-size="18" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">$parent_ref</text>
+<line x1="930" y1="356" x2="930" y2="330" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="566" y1="305" x2="632" y2="305" stroke="#2743b8" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="48" y="490" fill="#686a61" font-size="21">foreach ($items as &amp;$item_ref) is one too; a parameter taken by &amp; is not.</text>
+</svg>

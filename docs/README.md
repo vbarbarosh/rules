@@ -23,7 +23,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below but the animations, all 294 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
+- **[docs/rules.html](rules.html) — every rule below but the animations, all 296 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
 
 ### Naming and variables (NAME, VAR, FN)
 
@@ -40,6 +40,7 @@ It's just not written down.
 - [drafts/var_names_error.md](../drafts/var_names_error.md) — errors use `e` in arrows and `error` in regular handlers
 - [drafts/var_names_time0.md](../drafts/var_names_time0.md) — the start time of a measurement is always named `time0`
 - [drafts/var_names_event.md](../drafts/var_names_event.md) — events use `v` in arrows and `event` in regular functions; nested handler names
+- [drafts/php_references.md](../drafts/php_references.md) — in PHP a variable that holds a reference ends in `_ref` and is unset right after its last use
 - [drafts/value_label.md](../drafts/value_label.md) — selectable options are `{value, label}`
 
 ### Formatting and files (FMT, FLOW, FILE)
