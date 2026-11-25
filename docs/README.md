@@ -23,7 +23,7 @@ It's just not written down.
 ## Rules
 
 - **[Linter setup and coverage](../LINTING.md)** — reusable ESLint rules for JavaScript, Vue classes, and CSS/Sass; run `bin/configure` to prepare the checkout, then `npm run check` to verify the implementation.
-- **[docs/rules.html](rules.html) — every rule below but the animations, all 296 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
+- **[docs/rules.html](rules.html) — every rule below but the animations, all 297 of them, in one filterable table; the 16 animation rules are on [animations.html](animations.html)**
 
 ### Naming and variables (NAME, VAR, FN)
 
@@ -64,6 +64,7 @@ It's just not written down.
 - [drafts/layout.md](../drafts/layout.md) — the fixed directory layout of a project; `bin/` holds its verbs
 - [drafts/bin.md](../drafts/bin.md) — the bin/ scripts and their aliases: build `bb`, run `rr`, configure, test `tt`, watch `ww`, release, self-check
 - [drafts/README.md](../drafts/README.md) — a README in one order: badges, cover, name, description, website, quick start, docs, license
+- [drafts/favicon.md](../drafts/favicon.md) — a favicon in the standard sizes: one drawing, `icon.svg`, and the `.ico`, touch and manifest icons made from it
 - [drafts/configure.md](../drafts/configure.md) — `bin/configure` asks every question up front, `sudo` included
 - [drafts/data.md](../drafts/data.md) — `data/` is the project's permanent data; one mount keeps it in docker
 - [drafts/commits.md](../drafts/commits.md) — a commit title is `scope: description`, lowercase, 72 characters at most

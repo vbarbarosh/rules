@@ -1128,3 +1128,15 @@ In PHP, every variable that holds a reference ends in `_ref`:
 `$plan_ref = &$plan`. It is always unset, `unset($plan_ref)`, right after
 the last expression that uses it. They stand in the VAR group, after
 VAR-19. Existing code is not rewritten for it (CORE-01).
+
+## MP-102 — The cover comes light and dark; a favicon in the standard sizes
+
+**Scope:** PROJ-22, PROJ-31, [README](drafts/README.md),
+[favicon](drafts/favicon.md).
+**Approved:** 2026-11-25.
+
+A project's cover image is always in two versions, light and dark. Beside
+it, a project has a favicon in the standard variants: the small standard
+one, a bigger icon, and the other usual sizes. The favicon rule stands in
+the PROJ group, after PROJ-30. Existing projects are not reworked for it
+(CORE-01).

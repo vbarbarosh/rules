@@ -36,8 +36,8 @@ always there.
    </p>
    ```
 
-2. **Cover image.** A file in `img/`, with a dark twin when the colours need
-   one.
+2. **Cover image.** Always two files in `img/`: `cover.png` for the light
+   theme and its dark twin, `cover-dark.png`, for the dark.
 
    ```html
    <picture>
