@@ -72,9 +72,14 @@ is.
 
 At the root of what the project's site or app serves: a browser asks for
 `/favicon.ico` there, with no link at all. A site served under a path,
-such as a GitHub Pages site under `/rules/`, links them relative to its
-pages instead. A project with no site keeps the set in `img/`, beside its
-cover.
+such as a GitHub Pages site under `/rules/`, gains nothing from its root:
+the browser asks the domain's, not its own. It keeps the set in `img/`,
+beside its cover, the manifest too, and every page links them relative to
+itself: `img/icon.svg` from the top, `../img/icon.svg` from `docs/`. A
+project with no site keeps the set in `img/` as well.
+
+`apple-touch-icon.png` is the full square, with no corners cut: an iPhone
+rounds them itself, and paints a transparent corner black.
 
 This governs new work; an existing project is given its set as work of its
 own (CORE-01).
