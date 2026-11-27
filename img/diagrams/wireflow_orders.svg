@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><defs><marker id="arrow-text" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#1F1E1C" stroke-linejoin="round"/></marker><marker id="arrow-blue" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2B3FBF" stroke-linejoin="round"/></marker><marker id="arrow-green" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2B8A3E" stroke-linejoin="round"/></marker><marker id="arrow-red" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#C92A2A" stroke-linejoin="round"/></marker><marker id="arrow-amber" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#C2410C" stroke-linejoin="round"/></marker><clipPath id="orders-frame-1"><rect x="40" y="120" width="300" height="360" rx="10"/></clipPath><clipPath id="orders-frame-2"><rect x="560" y="110" width="260" height="120" rx="10"/></clipPath><clipPath id="orders-frame-3"><rect x="560" y="260" width="260" height="120" rx="10"/></clipPath><clipPath id="orders-frame-4"><rect x="560" y="410" width="260" height="100" rx="10"/></clipPath></defs>
+<rect width="1000" height="520" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Wireflow: one screen, every way out</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">The screen lists its actions; an arrow leaves from each action to the screen it opens.</text>
+<rect x="40" y="120" width="300" height="360" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="2"/>
+<rect x="40" y="120" width="300" height="34" fill="#DFDBD2" clip-path="url(#orders-frame-1)"/>
+<text x="54" y="142" font-size="18" fill="#5C5A55" font-weight="700">Orders</text>
+<rect x="56" y="176" width="268" height="48" rx="6" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="70" y="206" font-size="18" fill="#1F1E1C">Order #1042</text>
+<rect x="56" y="236" width="268" height="48" rx="6" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="70" y="266" font-size="18" fill="#1F1E1C">Order #1041</text>
+<rect x="56" y="296" width="268" height="48" rx="6" fill="#DFDBD2" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="70" y="326" font-size="18" fill="#1F1E1C">Order #1040</text>
+<rect x="56" y="364" width="268" height="40" rx="6" fill="#D6DCF1" stroke="#2B3FBF" stroke-width="1.5"/>
+<text x="190" y="390" font-size="18" fill="#2B3FBF" font-weight="700" text-anchor="middle">Reorder</text>
+<rect x="56" y="420" width="268" height="40" rx="6" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="190" y="446" font-size="18" fill="#5C5A55" font-weight="700" text-anchor="middle">Filter</text>
+<rect x="560" y="110" width="260" height="120" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="2"/>
+<rect x="560" y="110" width="260" height="34" fill="#DFDBD2" clip-path="url(#orders-frame-2)"/>
+<text x="574" y="132" font-size="18" fill="#5C5A55" font-weight="700">Order #1042</text>
+<text x="576" y="176" font-size="18" fill="#5C5A55">Items, total, tracking</text>
+<rect x="560" y="260" width="260" height="120" rx="10" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="2"/>
+<rect x="560" y="260" width="260" height="34" fill="#DFDBD2" clip-path="url(#orders-frame-3)"/>
+<text x="574" y="282" font-size="18" fill="#5C5A55" font-weight="700">Cart</text>
+<text x="576" y="326" font-size="18" fill="#5C5A55">The same items again</text>
+<rect x="560" y="410" width="260" height="100" rx="10" fill="#F1EFEB" stroke="#C92A2A" stroke-width="2"/>
+<rect x="560" y="410" width="260" height="34" fill="#DFDBD2" clip-path="url(#orders-frame-4)"/>
+<text x="574" y="432" font-size="18" fill="#5C5A55" font-weight="700">Couldn’t load</text>
+<text x="576" y="490" font-size="18" fill="#C92A2A" font-weight="700">Retry</text>
+<path d="M328 200 C400 200 491.9 203.9 538.8 186.8 L552 182" fill="none" stroke="#1F1E1C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-text)"/>
+<text x="440" y="160" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">opens</text>
+<path d="M328 384 C420 384 496.6 370 539.9 345 L552 338" fill="none" stroke="#2B8A3E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+<text x="440" y="344" font-size="18" fill="#2B8A3E" font-weight="700" text-anchor="middle">reorders</text>
+<path d="M328 440 C420 440 496.6 438 539.9 463 L552 470" fill="none" stroke="#C92A2A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-red)"/>
+<text x="440" y="424" font-size="18" fill="#C92A2A" font-weight="700" text-anchor="middle">offline</text>
+</svg>

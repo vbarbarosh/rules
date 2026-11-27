@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" width="1000" height="460" font-family="Noto Sans, Ubuntu, system-ui, sans-serif"><defs><marker id="arrow-text" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#1F1E1C" stroke-linejoin="round"/></marker><marker id="arrow-blue" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2B3FBF" stroke-linejoin="round"/></marker><marker id="arrow-green" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#2B8A3E" stroke-linejoin="round"/></marker><marker id="arrow-red" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#C92A2A" stroke-linejoin="round"/></marker><marker id="arrow-amber" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#C2410C" stroke-linejoin="round"/></marker><clipPath id="signup-frame-1"><rect x="30" y="120" width="240" height="300" rx="10"/></clipPath><clipPath id="signup-frame-2"><rect x="380" y="120" width="240" height="300" rx="10"/></clipPath><clipPath id="signup-frame-3"><rect x="730" y="120" width="240" height="300" rx="10"/></clipPath></defs>
+<rect width="1000" height="460" fill="#E9E6E0"/>
+<text x="20" y="46" font-size="26" fill="#1F1E1C" font-weight="700">Wireflow: signing up</text>
+<text x="20" y="82" font-size="18" fill="#5C5A55">Each frame is the screen; the ringed spot is the tap, its arrow leads to the next screen.</text>
+<rect x="30" y="120" width="240" height="300" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="2"/>
+<rect x="30" y="120" width="240" height="34" fill="#DFDBD2" clip-path="url(#signup-frame-1)"/>
+<text x="44" y="142" font-size="18" fill="#5C5A55" font-weight="700">Sign up</text>
+<text x="46" y="176" font-size="18" fill="#1F1E1C">Email</text>
+<rect x="46" y="188" width="208" height="30" rx="6" fill="#D6DCF1" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="46" y="240" font-size="18" fill="#1F1E1C">Password</text>
+<rect x="46" y="252" width="208" height="30" rx="6" fill="#D6DCF1" stroke="#BDB9B1" stroke-width="1.5"/>
+<rect x="46" y="306" width="208" height="40" rx="6" fill="#2B3FBF"/>
+<text x="150" y="332" font-size="18" fill="#F1EFEB" font-weight="700" text-anchor="middle">Sign up</text>
+<text x="150" y="380" font-size="18" fill="#5C5A55" text-anchor="middle">Already have an account?</text>
+<circle cx="242" cy="334" r="16" fill="none" stroke="#C2410C" stroke-width="3"/>
+<rect x="380" y="120" width="240" height="300" rx="10" fill="#F1EFEB" stroke="#BDB9B1" stroke-width="2"/>
+<rect x="380" y="120" width="240" height="34" fill="#DFDBD2" clip-path="url(#signup-frame-2)"/>
+<text x="394" y="142" font-size="18" fill="#5C5A55" font-weight="700">Verify email</text>
+<text x="500" y="180" font-size="18" fill="#1F1E1C" text-anchor="middle">A code was sent to you</text>
+<rect x="394" y="196" width="46" height="52" rx="6" fill="#D6DCF1" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="417" y="232" font-size="20" fill="#1F1E1C" font-weight="700" text-anchor="middle">2</text>
+<rect x="448" y="196" width="46" height="52" rx="6" fill="#D6DCF1" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="471" y="232" font-size="20" fill="#1F1E1C" font-weight="700" text-anchor="middle">3</text>
+<rect x="502" y="196" width="46" height="52" rx="6" fill="#D6DCF1" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="525" y="232" font-size="20" fill="#1F1E1C" font-weight="700" text-anchor="middle">8</text>
+<rect x="556" y="196" width="46" height="52" rx="6" fill="#D6DCF1" stroke="#BDB9B1" stroke-width="1.5"/>
+<text x="579" y="232" font-size="20" fill="#1F1E1C" font-weight="700" text-anchor="middle">1</text>
+<rect x="396" y="292" width="208" height="40" rx="6" fill="#2B3FBF"/>
+<text x="500" y="318" font-size="18" fill="#F1EFEB" font-weight="700" text-anchor="middle">Confirm</text>
+<circle cx="592" cy="320" r="16" fill="none" stroke="#C2410C" stroke-width="3"/>
+<text x="500" y="380" font-size="18" fill="#5C5A55" text-anchor="middle">Code is wrong? Resend</text>
+<rect x="730" y="120" width="240" height="300" rx="10" fill="#F1EFEB" stroke="#2B8A3E" stroke-width="2"/>
+<rect x="730" y="120" width="240" height="34" fill="#DFDBD2" clip-path="url(#signup-frame-3)"/>
+<text x="744" y="142" font-size="18" fill="#5C5A55" font-weight="700">Welcome</text>
+<circle cx="850" cy="212" r="34" fill="#DDF0E0" stroke="#2B8A3E" stroke-width="3"/>
+<text x="850" y="224" font-size="34" fill="#2B8A3E" font-weight="700" text-anchor="middle">✓</text>
+<text x="850" y="296" font-size="18" fill="#1F1E1C" font-weight="700" text-anchor="middle">Your account is ready</text>
+<text x="850" y="328" font-size="18" fill="#5C5A55" text-anchor="middle">Start with a first note</text>
+<path d="M258 334 C300 334 316.6 284 359.9 259 L372 252" fill="none" stroke="#C2410C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-amber)"/>
+<text x="340" y="226" font-size="18" fill="#C2410C" font-weight="700" text-anchor="middle">tap</text>
+<path d="M608 320 C650 320 666.6 284 709.9 259 L722 252" fill="none" stroke="#C2410C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-amber)"/>
+<text x="690" y="226" font-size="18" fill="#C2410C" font-weight="700" text-anchor="middle">tap</text>
+<text x="20" y="448" font-size="18" fill="#5C5A55">The tap in amber; the screen the flow ends on in green.</text>
+</svg>

@@ -12,6 +12,7 @@ Which kind for which data: the chooser in the guide
 - [state.md](state.md) — what states a thing has and what moves it between them; boxes, arrows, a dot where it starts
 - [flywheel.md](flywheel.md) — what feeds itself: stages on one circle, each feeding the next, the last the first; the weak link amber, what comes from outside grey and dashed
 - [flowchart.md](flowchart.md) — what is decided where: steps, questions as diamonds, each answer its own arrow
+- [wireflow.md](wireflow.md) — the screens a user passes: a small frame per screen, an amber ring on the tap, an arrow to the screen it opens; the end green, a failure red
 - [swimlanes.md](swimlanes.md) — who does each step: a lane per actor, a box per step in its lane, arrows in order across lanes; done green, the hand-off that waits on you amber, to come grey dashed
 - [steptree.md](steptree.md) — a process as its stages and their small steps: a trunk down the left, a branch per stage in its colour, an emoji on every node, a blank line between stages, the cost or the warning at the right of its row
 - [questions.md](questions.md) — what is known and what is not: how a thing works stage by stage, the facts in green, the open questions in amber where they arise
@@ -66,6 +67,14 @@ Which kind for which data: the chooser in the guide
   hand-written SVG pages. The 25 this page lacks are shown in
   [diagramdesign.md](diagramdesign.md), in its own examples recoloured,
   each credited; its licence is kept beside them in diagramdesign/.
+- Wireflows, also called screen flows: the wireflow guide points to
+  [Balsamiq](https://balsamiq.com/blog/wireflows/),
+  [Signal v Noise](https://signalvnoise.com/posts/1926-a-shorthand-for-designing-ui-flows),
+  [Adapty](https://adapty.io/docs/flow-screen-map),
+  [RapidNative](https://www.rapidnative.com/blogs/screen-flow-diagrams)
+  and [Creately](https://creately.com/guides/what-is-a-screen-flow-diagram/);
+  their examples are linked, not copied, and the two pictures are drawn
+  here.
 - [The C4 model](https://c4model.com), by Simon Brown, its site and
   examples under CC BY 4.0: the container sketch draws its container
   level.
