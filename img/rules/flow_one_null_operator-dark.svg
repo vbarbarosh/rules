@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<rect width="1200" height="700" fill="#16181b"/>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="8" refY="6" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M2 2.5 L11 6 L2 9.5 L4 6 z" fill="#9db2ff" stroke-linejoin="round"/></marker></defs>
+<text x="48" y="70" fill="#d3d1c9" font-size="40" font-weight="700">One null operator to an expression</text>
+<text x="48" y="108" fill="#92958c" font-size="22">three ?s hand a null along; an if asks once whether the value is there</text>
+<rect x="60" y="150" width="1080" height="200" rx="10" fill="#3b1f22" stroke="#ff937c" stroke-width="2"/>
+<text x="78" y="192" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$copied_at = ($item['copied_at'] <tspan fill="#ff937c" font-weight="700">??</tspan> null)<tspan fill="#ff937c" font-weight="700">?-&gt;</tspan>toDateTime() <tspan fill="#ff937c" font-weight="700">??</tspan> (new \DateTime())-&gt;setTimestamp(0);</text>
+<rect x="110" y="218" width="260" height="64" rx="8" fill="#16181b" stroke="#ff937c" stroke-width="2"/>
+<text x="240" y="244" fill="#ff937c" font-size="18" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">?? null</text>
+<text x="240" y="270" fill="#d3d1c9" font-size="16" text-anchor="middle">a missing key: null</text>
+<rect x="470" y="218" width="260" height="64" rx="8" fill="#16181b" stroke="#ff937c" stroke-width="2"/>
+<text x="600" y="244" fill="#ff937c" font-size="18" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">?-&gt;</text>
+<text x="600" y="270" fill="#d3d1c9" font-size="16" text-anchor="middle">a null: the call skipped</text>
+<rect x="830" y="218" width="260" height="64" rx="8" fill="#16181b" stroke="#ff937c" stroke-width="2"/>
+<text x="960" y="244" fill="#ff937c" font-size="18" font-weight="700" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">??</text>
+<text x="960" y="270" fill="#d3d1c9" font-size="16" text-anchor="middle">a null: the epoch</text>
+<line x1="376" y1="250" x2="462" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="736" y1="250" x2="822" y2="250" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="78" y="328" fill="#ff937c" font-size="17">✗ one question asked in three places: the reader puts it back together</text>
+<rect x="60" y="390" width="1080" height="236" rx="10" fill="#16301f" stroke="#72d39c" stroke-width="2"/>
+<text x="78" y="428" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">if (isset($item['copied_at'])) {</text>
+<text x="118.8" y="455" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$copied_at = $item['copied_at']-&gt;toDateTime();</text>
+<text x="78" y="482" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<text x="78" y="509" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">else {</text>
+<text x="118.8" y="536" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">$copied_at = (new \DateTime())-&gt;setTimestamp(0);</text>
+<text x="78" y="563" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace">}</text>
+<rect x="700" y="410" width="380" height="48" rx="8" fill="#16181b" stroke="#72d39c" stroke-width="2"/>
+<text x="890" y="440" fill="#d3d1c9" font-size="17" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">isset($item['copied_at'])</text>
+<rect x="700" y="510" width="180" height="56" rx="8" fill="#16181b" stroke="#72d39c" stroke-width="2"/>
+<text x="790" y="544" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">-&gt;toDateTime()</text>
+<rect x="900" y="510" width="180" height="56" rx="8" fill="#16181b" stroke="#72d39c" stroke-width="2"/>
+<text x="990" y="544" fill="#d3d1c9" font-size="16" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" text-anchor="middle">the epoch</text>
+<line x1="790" y1="464" x2="790" y2="502" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="990" y1="464" x2="990" y2="502" stroke="#9db2ff" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="816" y="489" fill="#72d39c" font-size="16">yes</text>
+<text x="1016" y="489" fill="#72d39c" font-size="16">no</text>
+<text x="78" y="606" fill="#72d39c" font-size="17">✓ one question, two branches, each a plain -&gt;</text>
+<text x="48" y="670" fill="#92958c" font-size="21">One operator alone stays: $name = $user['name'] ?? '';</text>
+</svg>

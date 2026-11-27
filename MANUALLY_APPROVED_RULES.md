@@ -1140,3 +1140,14 @@ it, a project has a favicon in the standard variants: the small standard
 one, a bigger icon, and the other usual sizes. The favicon rule stands in
 the PROJ group, after PROJ-30. Existing projects are not reworked for it
 (CORE-01).
+
+## MP-103 — One null operator to an expression; more is an if
+
+**Scope:** FLOW-14, [one null operator to an expression](drafts/one_null_operator.md).
+**Approved:** 2026-11-27.
+
+An expression that chains null operators, `??`, `?->` in PHP, `?.` in
+JavaScript, is an antipattern: its question marks hide what it does. It
+is written as an ordinary `if`/`else` instead, the value tested once and
+assigned in each branch. One operator alone stays. It stands in the FLOW
+group, after FLOW-13. Existing code is not rewritten for it (CORE-01).
